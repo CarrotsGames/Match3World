@@ -21,7 +21,8 @@ GameObject:
   - component: {fileID: 4524120114686232}
   - component: {fileID: 212847623955293948}
   - component: {fileID: 50784679886196970}
-  - component: {fileID: 61927024085784126}
+  - component: {fileID: 114854251267500760}
+  - component: {fileID: 58756241855620688}
   m_Layer: 0
   m_Name: YellowDOt
   m_TagString: Untagged
@@ -62,8 +63,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61927024085784126
-BoxCollider2D:
+--- !u!58 &58756241855620688
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -75,18 +76,25 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.5
+--- !u!114 &114854251267500760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1996449980832662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd904dbe5444d2e47b03949b18736b11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Column: 0
+  Row: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Raylength: 0
 --- !u!212 &212847623955293948
 SpriteRenderer:
   m_ObjectHideFlags: 1

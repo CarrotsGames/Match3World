@@ -21,10 +21,11 @@ GameObject:
   - component: {fileID: 4598424250092974}
   - component: {fileID: 212145127118407378}
   - component: {fileID: 50034080770288396}
-  - component: {fileID: 61238780455942940}
+  - component: {fileID: 114768246090965480}
+  - component: {fileID: 58043870643330288}
   m_Layer: 0
   m_Name: GreenDot
-  m_TagString: Untagged
+  m_TagString: Green
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,8 +63,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61238780455942940
-BoxCollider2D:
+--- !u!58 &58043870643330288
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -75,18 +76,25 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.5
+--- !u!114 &114768246090965480
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1807216370321314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd904dbe5444d2e47b03949b18736b11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Column: 0
+  Row: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Raylength: 0
 --- !u!212 &212145127118407378
 SpriteRenderer:
   m_ObjectHideFlags: 1
