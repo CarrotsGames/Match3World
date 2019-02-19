@@ -5,10 +5,17 @@ using System.Collections.Generic;
 
 public class DotScript : MonoBehaviour
 {
+
+    public int Colour;
+    // 1 Red
+    // 2 Blue
+    // 3 Yellow
+    // 4 Green
     public int Column;
     public int Row;
     public LayerMask layerMask;
     public float Raylength;
+
     RaycastHit Hit;
     DotManagerScript DotManagerScript;
     GameObject DotManagerObj;
@@ -39,10 +46,12 @@ public class DotScript : MonoBehaviour
        {
             if(DotManagerScript.Peices.Contains(hitInfo.collider.gameObject))
             {
+                Debug.Log("Adds it back in for reasons unkown");
 
             }
             else
             {
+                Debug.Log("Adds it back in for reasons unkown");
                 DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
 
             }

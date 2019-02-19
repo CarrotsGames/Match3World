@@ -6,7 +6,11 @@ public class DotManagerScript : MonoBehaviour
 {
 
     public List<GameObject> Peices;
-    public int ColourPoint;
+    public int RedCount;
+    public int BlueCount;
+    public int YellowCount;
+    public int GreenCount;
+
     public int NumOfPeices;
     public bool CheckConnection;
     private void Start()
@@ -18,23 +22,28 @@ public class DotManagerScript : MonoBehaviour
     {
         if (CheckConnection)
         {
-            for (NumOfPeices = 0; NumOfPeices < Peices.Capacity; NumOfPeices++)
-            {
-                if (Peices[NumOfPeices].tag == "Green")
+             for (int i = 0; i < Peices.Count; i++)
+             {
+                if (Peices[i].tag == "Red")
                 {
-                    Debug.Log("Green");
-                    ColourPoint += 1;
+                    RedCount += 1;
                 }
-                else
+                else if (Peices[i].tag == "Blue")
                 {
-                    CheckConnection = false;
-                    Peices.Clear();
-                    break;
+                    BlueCount += 1;
                 }
+                else if (Peices[i].tag == "Yellow")
+                {
+                    YellowCount += 1;
+                }
+                else if (Peices[i].tag == "Green")
+                {
+                    GreenCount += 1;
+                }
+ 
+ 
             }
-         
         }
-         
     }
 
  }
