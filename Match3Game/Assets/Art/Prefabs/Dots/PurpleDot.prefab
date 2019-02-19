@@ -21,7 +21,8 @@ GameObject:
   - component: {fileID: 4437775862400838}
   - component: {fileID: 212156032187610666}
   - component: {fileID: 50481938387201442}
-  - component: {fileID: 61152437382618788}
+  - component: {fileID: 114857485337036472}
+  - component: {fileID: 58119906112985092}
   m_Layer: 0
   m_Name: PurpleDot
   m_TagString: Untagged
@@ -55,15 +56,15 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61152437382618788
-BoxCollider2D:
+--- !u!58 &58119906112985092
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -75,18 +76,26 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.5
+--- !u!114 &114857485337036472
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1955487456966042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd904dbe5444d2e47b03949b18736b11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Colour: 0
+  Column: 0
+  Row: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Raylength: 0
 --- !u!212 &212156032187610666
 SpriteRenderer:
   m_ObjectHideFlags: 1

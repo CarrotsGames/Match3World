@@ -5,60 +5,65 @@ using System.Collections.Generic;
 
 public class DotScript : MonoBehaviour
 {
+
+    public int Colour;
+    // 1 Red
+    // 2 Blue
+    // 3 Yellow
+    // 4 Green
     public int Column;
     public int Row;
-    public int TargetX;
-    public int TargetY;
+    public LayerMask layerMask;
+    public float Raylength;
+
     RaycastHit Hit;
-    CameraScript Test;
-    GameObject CameraObj;
+    DotManagerScript DotManagerScript;
+    GameObject DotManagerObj;
     private BoardScript Board;
     private GameObject OtherDot;
-    private Vector2 FirstTouchPos;
-    private Vector2 FinalTouchPos;
-     public float SwipeAngle = 0;
-    bool hasBeenTouched;
+ 
+     bool hasBeenTouched;
     // Use this for initialization
     void Start()
     {
-        CameraObj = GameObject.FindGameObjectWithTag("MainCamera");
-        Test = CameraObj.GetComponent<CameraScript>();
+        DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
+        DotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
         Board = FindObjectOfType<BoardScript>();
-        TargetX = (int)transform.position.x;
-        TargetY = (int)transform.position.y;
-      }
+ 
+        hasBeenTouched = true;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        TargetX = Column;
-        TargetY = Row;
+    
     }
     private void OnMouseDrag()
-    {       
+    {
 
-         FirstTouchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-         Test.Peices.Add(this.gameObject);
-         //NavigateThroughPieces();
+       RaycastHit2D hitInfo = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+       if (hitInfo.collider != null)
+       {
+            if(DotManagerScript.Peices.Contains(hitInfo.collider.gameObject))
+            {
+                Debug.Log("Adds it back in for reasons unkown");
 
+            }
+            else
+            {
+                Debug.Log("Adds it back in for reasons unkown");
+                DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
+
+            }
+            Debug.Log(hitInfo.collider.name);
+       }
+         
     }
 
     private void OnMouseUp()
     {
-        Debug.Log("MouseUp");
-        for (int i = 1; i < Test.Peices.Capacity; i++)
-        {
-            if (Test.Peices[i].tag == "Green")
-            {
-                Debug.Log("GREEN");
-            }
-            else
-            {
-                Debug.Log(" Not green");
-
-            }
-            Debug.Log("TEST" + i);
-        }
+        DotManagerScript.CheckConnection = true;
     }
+
 
 }
