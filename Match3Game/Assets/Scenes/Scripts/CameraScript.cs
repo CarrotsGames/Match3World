@@ -8,5 +8,7 @@ public class CameraScript : MonoBehaviour
     //public GameObject[] TestPe;
     // Use this for initialization
    
-  
+    
+
+ 
 }

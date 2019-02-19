@@ -26,7 +26,6 @@ public class DotScript : MonoBehaviour
         Board = FindObjectOfType<BoardScript>();
         TargetX = (int)transform.position.x;
         TargetY = (int)transform.position.y;
-        hasBeenTouched = true;
       }
 
     // Update is called once per frame
@@ -37,12 +36,9 @@ public class DotScript : MonoBehaviour
     }
     private void OnMouseDrag()
     {       
-        if(!hasBeenTouched)
-        { 
+
          FirstTouchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
          Test.Peices.Add(this.gameObject);
-         hasBeenTouched = true;
-        }
          //NavigateThroughPieces();
 
     }
@@ -50,43 +46,19 @@ public class DotScript : MonoBehaviour
     private void OnMouseUp()
     {
         Debug.Log("MouseUp");
-        for (int i = 0; i < Test.Peices.Capacity; i++)
+        for (int i = 1; i < Test.Peices.Capacity; i++)
         {
+            if (Test.Peices[i].tag == "Green")
+            {
+                Debug.Log("GREEN");
+            }
+            else
+            {
+                Debug.Log(" Not green");
+
+            }
             Debug.Log("TEST" + i);
         }
     }
-
-    //  void CalculateAngle()
-    //  {
-    //       if (gameObject.transform.position.x == FirstTouchPos.x && gameObject.transform.position.y == FirstTouchPos.y)
-    //      {
-    //          Debug.Log(gameObject);
-    //      }
-    //   }
-    //
-    //  void NavigateThroughPieces()
-    //  {
-    //      if(SwipeAngle > -45 && SwipeAngle <= 45)
-    //      {
-    //          // right swipe
-    //          OtherDot = Board.AllDots[Column , Row];
-    //           Debug.Log(OtherDot);
-    //        }
-    //      else  if (SwipeAngle > 45 && SwipeAngle <= 185)
-    //      {
-    //          // up swipe
-    //          
-    //      }
-    //      else if (SwipeAngle > -135 || SwipeAngle <= 135)
-    //      {
-    //          // left swipe
-    //        
-    //      }
-    //      else if (SwipeAngle < -45 && SwipeAngle >= 45)
-    //      {
-    //          // Down swipe
-    //        
-    //      }
-    //  }
 
 }
