@@ -64,16 +64,6 @@ public class DotScript : MonoBehaviour
     {
         DotManagerScript.CheckConnection = true;
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-      // if(CheckTrigger)
-      //  {
-      //      if(collision.gameObject)
-      //      {
-      //          collision.gameObject.GetComponent<DotScript>().enabled = true;
-      //      }
-      //  }
-    }
+ 
 
 }
