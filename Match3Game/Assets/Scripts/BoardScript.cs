@@ -39,6 +39,16 @@ public class BoardScript : MonoBehaviour
                 AllDots[i, j] = Dot;
             }
         }
+
+        // for (int i = 0 + 1; i < Dots.Length; i++)
+        // {
+        //     Vector3 end = Dots[i].transform.position;
+        //     if (Physics.Linecast(Dots[i].transform.position, Dots[i + 1].transform.position, layerMask))
+        //         continue;
+        //     if (Physics.Linecast(Dots[i + 1].transform.position, Dots[i].transform.position, layerMask))
+        //         continue;
+        //     // Link node i and n
+        // }
     }
 
 }

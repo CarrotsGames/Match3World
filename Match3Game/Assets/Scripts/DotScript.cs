@@ -15,7 +15,7 @@ public class DotScript : MonoBehaviour
     public int Row;
     public LayerMask layerMask;
     public float Raylength;
-
+    bool CheckTrigger;
     RaycastHit Hit;
     DotManagerScript DotManagerScript;
     GameObject DotManagerObj;
@@ -29,7 +29,7 @@ public class DotScript : MonoBehaviour
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
         Board = FindObjectOfType<BoardScript>();
- 
+
         hasBeenTouched = true;
     }
 
@@ -44,15 +44,15 @@ public class DotScript : MonoBehaviour
        RaycastHit2D hitInfo = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
        if (hitInfo.collider != null)
        {
+            //CheckTrigger = true;
             if(DotManagerScript.Peices.Contains(hitInfo.collider.gameObject))
             {
-                Debug.Log("Adds it back in for reasons unkown");
+
 
             }
             else
             {
-                Debug.Log("Adds it back in for reasons unkown");
-                DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
+                 DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
 
             }
             Debug.Log(hitInfo.collider.name);
@@ -65,5 +65,15 @@ public class DotScript : MonoBehaviour
         DotManagerScript.CheckConnection = true;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+      // if(CheckTrigger)
+      //  {
+      //      if(collision.gameObject)
+      //      {
+      //          collision.gameObject.GetComponent<DotScript>().enabled = true;
+      //      }
+      //  }
+    }
 
 }
