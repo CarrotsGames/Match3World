@@ -38,7 +38,7 @@ public class DotScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+       
     }
     //private void OnMouseDown()
     //{
@@ -46,10 +46,14 @@ public class DotScript : MonoBehaviour
     //    DotManagerScript.Peices.Add(this.gameObject);
     //
     //}
+   
+ 
+   
     private void OnMouseEnter()
     {
         if (CheckTrigger)
         {
+            Debug.Log("MOUSEENTER");
             DotScript[] Dots = FindObjectsOfType<DotScript>();
 
             foreach (DotScript dot in Dots)
@@ -80,6 +84,8 @@ public class DotScript : MonoBehaviour
                     }
                 }
             }
+         //   neighbours.Clear();
+
             RaycastHit2D hitInfo = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if (hitInfo.collider != null)
             {
@@ -102,12 +108,15 @@ public class DotScript : MonoBehaviour
                 }
             }
         }
+        CheckTrigger = false;
     }
+ 
     private void OnMouseDown()
     {
+        DotManagerScript.Peices.Clear();
+
         this.gameObject.layer = LayerType;
         DotManagerScript.Peices.Add(this.gameObject);
-
     }
     private void OnMouseDrag()
     {
@@ -143,6 +152,8 @@ public class DotScript : MonoBehaviour
                 }
              }
          }
+     //   neighbours.Clear();
+
         RaycastHit2D hitInfo = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
         if (hitInfo.collider != null)
         {
@@ -164,17 +175,22 @@ public class DotScript : MonoBehaviour
 
              }
         }
+       
     }
-
+    private void OnMouseExit()
+    {
+        if (CheckTrigger)
+        {
+           //for (int i = 0; i < Test; i++)
+           //{
+           //    neighbours[i].layer = 0;
+           //}
+            CheckTrigger = false;
+        }
+    }
     private void OnMouseUp()
     {
         DotManagerScript.CheckConnection = true;
-       // for (int i = 0; i < Test; i++)
-       // {
-       //     neighbours[i].gameObject.layer = 0;
-       // }
-       // neighbours.Clear();
-       // Test = 0;
     }
 
    

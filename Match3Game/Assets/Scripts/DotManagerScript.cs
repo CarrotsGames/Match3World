@@ -11,7 +11,7 @@ public class DotManagerScript : MonoBehaviour
     public List<GameObject> GreenPieces;
     public List<GameObject> YellowPieces;
     public Material HighlitedColour;
-    public int NumberOfNeighbours;
+    public int NumberOfNeighbours = 0;
 
     public int RedCount;
     public int BlueCount;
@@ -20,9 +20,11 @@ public class DotManagerScript : MonoBehaviour
 
     public int NumOfPeices;
     public bool CheckConnection;
+    public bool ResetDotLayers;
     private void Start()
     {
         CheckConnection = false;
+        ResetDotLayers = false;
         //HighlitedColour = GetComponent<Renderer>().material;
     }
 
@@ -63,6 +65,7 @@ public class DotManagerScript : MonoBehaviour
                 Debug.Log("RedCOMPLETE");
                 for (int i = 0; i < RedCount; i++)
                 {
+
                     Destroy(RedPieces[i]);
                 }
                 RedPieces.Clear();
@@ -72,6 +75,8 @@ public class DotManagerScript : MonoBehaviour
                 Debug.Log("BlueCOMPLETE");
                 for (int i = 0; i < BlueCount; i++)
                 {
+                    BluePieces[i].layer = 0;
+
                     Destroy(BluePieces[i]);
                 }
                 BluePieces.Clear();
@@ -82,6 +87,7 @@ public class DotManagerScript : MonoBehaviour
                 Debug.Log("YellowCOMPLETE");
                 for (int i = 0; i < YellowCount; i++)
                 {
+                    YellowPieces[i].layer = 0;
                     Destroy(YellowPieces[i]);
                 }
                 YellowPieces.Clear();
@@ -91,12 +97,15 @@ public class DotManagerScript : MonoBehaviour
                 Debug.Log("GreenCOMPLETE");
                 for (int i = 0; i < GreenCount; i++)
                 {
+                    GreenPieces[i].layer = 0;
+
                     Destroy(GreenPieces[i]);
                 }
                 GreenPieces.Clear();
             }
             if (RedCount != Peices.Count || BlueCount != Peices.Count || GreenCount != Peices.Count || YellowCount != Peices.Count)
             {
+                 
                 Debug.Log("No connection");
                  RedPieces.Clear();
                 BluePieces.Clear();
@@ -106,6 +115,7 @@ public class DotManagerScript : MonoBehaviour
                 BlueCount = 0;
                 YellowCount = 0;
                 GreenCount = 0;
+                 ResetDotLayers = true;
 
             }
             Peices.Clear();
