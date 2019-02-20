@@ -11,6 +11,7 @@ public class DotManagerScript : MonoBehaviour
     public List<GameObject> GreenPieces;
     public List<GameObject> YellowPieces;
     public Material HighlitedColour;
+    public int NumberOfNeighbours;
 
     public int RedCount;
     public int BlueCount;
@@ -83,7 +84,7 @@ public class DotManagerScript : MonoBehaviour
                 {
                     Destroy(YellowPieces[i]);
                 }
-                 YellowPieces.Clear();
+                YellowPieces.Clear();
             }
             if (GreenCount == Peices.Count && GreenCount > 2)
             {

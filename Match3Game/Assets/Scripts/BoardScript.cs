@@ -10,7 +10,8 @@ public class BoardScript : MonoBehaviour
     public GameObject TilePrefab;
     public GameObject[] Dots;
     public GameObject[,] AllDots;
-
+    // List of all nodes in their order
+  //  List<GameObject> ReachableNodes = new List<GameObject>();
     private BackgroundTileScript[,] AllTiles;
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,7 @@ public class BoardScript : MonoBehaviour
                 // Creates dots for positions
                 int DotToUse = Random.Range(0, Dots.Length);
                 GameObject Dot = Instantiate(Dots[DotToUse], TempPosition, Quaternion.identity);
+              //  ReachableNodes.Add(Dot);
                 Dot.transform.parent = this.transform;
                 Dot.name = "( " + i + "," + j + ")";
                 AllDots[i, j] = Dot;

@@ -13,57 +13,169 @@ public class DotScript : MonoBehaviour
     // 4 Green
     public int Column;
     public int Row;
+    int LayerType = 10;
     public LayerMask layerMask;
     public float Raylength;
-    bool CheckTrigger;
+   public bool CheckTrigger;
     RaycastHit Hit;
     DotManagerScript DotManagerScript;
     GameObject DotManagerObj;
     private BoardScript Board;
     private GameObject OtherDot;
- 
-     bool hasBeenTouched;
-    // Use this for initialization
+    public List<GameObject> neighbours = new List<GameObject>();
+      CircleCollider2D col2d;
+    int Test;
+     // Use this for initialization
     void Start()
     {
+        col2d = GetComponent<CircleCollider2D>();
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
         Board = FindObjectOfType<BoardScript>();
-
-        hasBeenTouched = true;
-    }
+        CheckTrigger = false;
+     }
 
     // Update is called once per frame
     void Update()
     {
-    
+      
+    }
+    //private void OnMouseDown()
+    //{
+    //    this.gameObject.layer = LayerType;
+    //    DotManagerScript.Peices.Add(this.gameObject);
+    //
+    //}
+    private void OnMouseEnter()
+    {
+        if (CheckTrigger)
+        {
+            DotScript[] Dots = FindObjectsOfType<DotScript>();
+
+            foreach (DotScript dot in Dots)
+            {
+                if (dot.gameObject.GetInstanceID() != gameObject.GetInstanceID())
+                {
+                    if (col2d.bounds.Intersects(dot.gameObject.GetComponent<Collider2D>().bounds))
+                    {
+                        if (neighbours.Contains(dot.gameObject))
+                        {
+
+
+                        }
+                        else
+                        {
+                            // Changes Intersecting Objects layer to 10(Enabled)
+                            Debug.Log("[" + gameObject.name + "] found a neighbour: " + dot.gameObject.name);
+                            dot.gameObject.layer = LayerType;
+                            dot.gameObject.GetComponent<DotScript>().CheckTrigger = true;
+
+                            //    dot.gameObject.GetComponent<DotScript>().OnMouseDrag();
+                            Debug.Log(dot.gameObject);
+                            // Adds it to the list of available moves
+                            neighbours.Add(dot.gameObject);
+                            DotManagerScript.GetComponent<DotManagerScript>().NumberOfNeighbours += 1;
+                         }
+
+                    }
+                }
+            }
+            RaycastHit2D hitInfo = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            if (hitInfo.collider != null)
+            {
+                Debug.Log(hitInfo.collider.gameObject);
+
+                if (hitInfo.collider.gameObject.layer == 10)
+                {
+                    if (DotManagerScript.Peices.Contains(hitInfo.collider.gameObject))
+                    {
+
+
+                    }
+                    else
+                    {
+                        DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
+
+                    }
+                    Debug.Log(hitInfo.collider.name);
+
+                }
+            }
+        }
+    }
+    private void OnMouseDown()
+    {
+        this.gameObject.layer = LayerType;
+        DotManagerScript.Peices.Add(this.gameObject);
+
     }
     private void OnMouseDrag()
     {
+         DotScript[] Dots = FindObjectsOfType<DotScript>();
+       
+         foreach (DotScript dot in Dots)
+         {
+             if (dot.gameObject.GetInstanceID() != gameObject.GetInstanceID())
+             {
+                 if (col2d.bounds.Intersects(dot.gameObject.GetComponent<Collider2D>().bounds))
+                 {
+                     if (neighbours.Contains(dot.gameObject))
+                     {
+       
+       
+                     }
+                     else
+                     {
+                         // Changes Intersecting Objects layer to 10(Enabled)
+                         Debug.Log("[" + gameObject.name + "] found a neighbour: " + dot.gameObject.name);
+                         dot.gameObject.layer = LayerType;
+                     //    dot.gameObject.GetComponent<DotScript>().OnMouseDrag();
+                         dot.gameObject.GetComponent<DotScript>().CheckTrigger = true;
 
-       RaycastHit2D hitInfo = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-       if (hitInfo.collider != null)
-       {
-            //CheckTrigger = true;
-            if(DotManagerScript.Peices.Contains(hitInfo.collider.gameObject))
-            {
+                        Debug.Log(dot.gameObject);
+                         // Adds it to the list of available moves
+                         neighbours.Add(dot.gameObject);
+                        DotManagerScript.GetComponent<DotManagerScript>().NumberOfNeighbours += 1;
+                        Test = DotManagerScript.GetComponent<DotManagerScript>().NumberOfNeighbours;
+
+                    }
+
+                }
+             }
+         }
+        RaycastHit2D hitInfo = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+        if (hitInfo.collider != null)
+        {
+            Debug.Log(hitInfo.collider.gameObject);
+
+             if (hitInfo.collider.gameObject.layer == 10)
+             {
+                if (DotManagerScript.Peices.Contains(hitInfo.collider.gameObject))
+                {
 
 
-            }
-            else
-            {
-                 DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
+                }
+                else
+                {
+                    DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
 
-            }
-            Debug.Log(hitInfo.collider.name);
-       }
-         
+                }
+                Debug.Log(hitInfo.collider.name);
+
+             }
+        }
     }
 
     private void OnMouseUp()
     {
         DotManagerScript.CheckConnection = true;
+       // for (int i = 0; i < Test; i++)
+       // {
+       //     neighbours[i].gameObject.layer = 0;
+       // }
+       // neighbours.Clear();
+       // Test = 0;
     }
- 
 
+   
 }
