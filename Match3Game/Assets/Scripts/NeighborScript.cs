@@ -63,9 +63,10 @@ public class NeighborScript : MonoBehaviour
                            // Changes Intersecting Objects layer to 10(Enabled)
                           //  Debug.Log("[" + gameObject.name + "] found a neighbour: " + dot.gameObject.name);
                             dot.gameObject.layer = LayerType;
-                            dot.gameObject.GetComponent<DotScript>().CheckTrigger = true;
-    
-                             
+                            dot.gameObject.GetComponent<NeighborScript>().CheckTrigger = true;
+                            dot.gameObject.GetComponent<NeighborScript>().enabled = true;
+
+
                             // Adds it to the list of available moves
                             neighbours.Add(dot.gameObject);
                            dotManagerScript.GetComponent<DotManagerScript>().NumberOfNeighbours += 1;
