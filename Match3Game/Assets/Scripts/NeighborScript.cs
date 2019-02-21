@@ -31,6 +31,7 @@ public class NeighborScript : MonoBehaviour
         {
             neighbours.Clear();
             ClearNeighbours = false;
+            CheckTrigger = false;
 
         }
     }
@@ -106,7 +107,8 @@ public class NeighborScript : MonoBehaviour
    {
         this.gameObject.layer = LayerMask.GetMask("Default");
         CheckTrigger = false;
- 
+        ClearNeighbours = true;
+
     }
     private void OnMouseUp()
     {
