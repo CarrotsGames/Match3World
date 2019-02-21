@@ -10,15 +10,22 @@ public class BoardScript : MonoBehaviour
     public GameObject TilePrefab;
     public GameObject[] Dots;
     public GameObject[,] AllDots;
+    public GameObject Spawner;
+    int SpawnQueue = 0;
+    bool SpawnBool;
+    bool HasChildren;
+    int Total;
     // List of all nodes in their order
   //  List<GameObject> ReachableNodes = new List<GameObject>();
     private BackgroundTileScript[,] AllTiles;
     // Start is called before the first frame update
     void Start()
     {
-        AllTiles = new BackgroundTileScript[Width, Height];
+        SpawnBool = false;
+           AllTiles = new BackgroundTileScript[Width, Height];
         AllDots = new GameObject[Width, Height];
         SetUpBoard();
+        HasChildren = true;
     }
 
     private void SetUpBoard()
@@ -41,7 +48,7 @@ public class BoardScript : MonoBehaviour
                 AllDots[i, j] = Dot;
             }
         }
-
+        Total = transform.childCount ;
         // for (int i = 0 + 1; i < Dots.Length; i++)
         // {
         //     Vector3 end = Dots[i].transform.position;
@@ -52,5 +59,17 @@ public class BoardScript : MonoBehaviour
         //     // Link node i and n
         // }
     }
+    private void Update()
+    {
+        Debug.Log(AllDots.Length);
+         if(transform.childCount < Total)
+       {
+            
+            // Creates dots for positions
+           int DotToUse = Random.Range(0, Dots.Length);
+           GameObject Dot = Instantiate(Dots[DotToUse], new Vector3(0,10,0), Quaternion.identity);
+            Dot.transform.parent = this.transform;
 
+        }
+    }
 }
