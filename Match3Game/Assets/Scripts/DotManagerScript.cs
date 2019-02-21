@@ -10,6 +10,9 @@ public class DotManagerScript : MonoBehaviour
     public List<GameObject> BluePieces;
     public List<GameObject> GreenPieces;
     public List<GameObject> YellowPieces;
+    public DotScript dotScript;
+    public GameObject DotGameObj;
+
     public Material HighlitedColour;
     public int NumberOfNeighbours = 0;
 
@@ -17,7 +20,7 @@ public class DotManagerScript : MonoBehaviour
     public int BlueCount;
     public int YellowCount;
     public int GreenCount;
-
+    public int Limit;
     public int NumOfPeices;
     public bool CheckConnection;
     public bool ResetDotLayers;
@@ -25,7 +28,7 @@ public class DotManagerScript : MonoBehaviour
     {
         CheckConnection = false;
         ResetDotLayers = false;
-        //HighlitedColour = GetComponent<Renderer>().material;
+         //HighlitedColour = GetComponent<Renderer>().material;
     }
 
     private void Update()
@@ -34,7 +37,7 @@ public class DotManagerScript : MonoBehaviour
         {
             for (int i = 0; i < Peices.Count; i++)
             {
-                Debug.Log(Peices.Count);
+ 
                 if (Peices[i].tag == "Red")
                 {
                     RedCount += 1;
@@ -60,9 +63,9 @@ public class DotManagerScript : MonoBehaviour
 
 
             }
-            if (RedCount == Peices.Count && RedCount > 2)
+            if (RedCount == Peices.Count && RedCount > Limit)
             {
-                Debug.Log("RedCOMPLETE");
+ 
                 for (int i = 0; i < RedCount; i++)
                 {
 
@@ -70,10 +73,9 @@ public class DotManagerScript : MonoBehaviour
                 }
                 RedPieces.Clear();
             }
-            if (BlueCount == Peices.Count && BlueCount > 2)
+            if (BlueCount == Peices.Count && BlueCount > Limit)
             {
-                Debug.Log("BlueCOMPLETE");
-                for (int i = 0; i < BlueCount; i++)
+                 for (int i = 0; i < BlueCount; i++)
                 {
                     BluePieces[i].layer = 0;
 
@@ -82,20 +84,18 @@ public class DotManagerScript : MonoBehaviour
                 BluePieces.Clear();
 
             }
-            if (YellowCount == Peices.Count && YellowCount > 2)
+            if (YellowCount == Peices.Count && YellowCount > Limit)
             {
-                Debug.Log("YellowCOMPLETE");
-                for (int i = 0; i < YellowCount; i++)
+                 for (int i = 0; i < YellowCount; i++)
                 {
                     YellowPieces[i].layer = 0;
                     Destroy(YellowPieces[i]);
                 }
                 YellowPieces.Clear();
             }
-            if (GreenCount == Peices.Count && GreenCount > 2)
+            if (GreenCount == Peices.Count && GreenCount > Limit)
             {
-                Debug.Log("GreenCOMPLETE");
-                for (int i = 0; i < GreenCount; i++)
+                 for (int i = 0; i < GreenCount; i++)
                 {
                     GreenPieces[i].layer = 0;
 
@@ -116,7 +116,7 @@ public class DotManagerScript : MonoBehaviour
                 YellowCount = 0;
                 GreenCount = 0;
                  ResetDotLayers = true;
-
+                
             }
             Peices.Clear();
         }
