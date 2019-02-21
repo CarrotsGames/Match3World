@@ -10,34 +10,40 @@ public class NeighborScript : MonoBehaviour
     CircleCollider2D col2d;
    public bool CheckTrigger;
    private int LayerType = 10;
-   
-   public List<GameObject> neighbours = new List<GameObject>();
+    public bool ClearNeighbours;
+
+    public List<GameObject> neighbours = new List<GameObject>();
    private void Awake()
-   {
-       col2d = GetComponent<CircleCollider2D>();
+    {
+        ClearNeighbours = false;
+
+        col2d = GetComponent<CircleCollider2D>();
        DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
    
        dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
         CheckTrigger = false;
        gameObject.GetComponent<NeighborScript>().enabled = false;
    }
-   // Activate when mouse is over item
-   private void OnMouseEnter()
+
+    private void Update()
     {
-       Debug.Log("MOUSEENTER");
+        if (ClearNeighbours)
+        {
+            neighbours.Clear();
+            ClearNeighbours = false;
+
+        }
+    }
+    // Activate when mouse is over item
+    private void OnMouseEnter()
+    {
+     //  Debug.Log("MOUSEENTER");
       // Goes into this when player holds finger from one dot the second dot 
        if (CheckTrigger)
         {
-          //  if(neighbours.Contains(gameObject))
-          //  {
-          //
-          //  }
-          //  else
-          //  {
-          //      dotManagerScript.Peices.Add(gameObject);
-                 this.gameObject.layer = LayerMask.GetMask("Default");
-          //
-          //  }
+        
+            this.gameObject.layer = LayerMask.GetMask("Default");
+           
 
             DotScript[] Dots = FindObjectsOfType<DotScript>();
     
@@ -55,12 +61,11 @@ public class NeighborScript : MonoBehaviour
                         else
                         {
                            // Changes Intersecting Objects layer to 10(Enabled)
-                            Debug.Log("[" + gameObject.name + "] found a neighbour: " + dot.gameObject.name);
+                          //  Debug.Log("[" + gameObject.name + "] found a neighbour: " + dot.gameObject.name);
                             dot.gameObject.layer = LayerType;
                             dot.gameObject.GetComponent<DotScript>().CheckTrigger = true;
     
-                            //    dot.gameObject.GetComponent<DotScript>().OnMouseDrag();
-                            Debug.Log(dot.gameObject);
+                             
                             // Adds it to the list of available moves
                             neighbours.Add(dot.gameObject);
                            dotManagerScript.GetComponent<DotManagerScript>().NumberOfNeighbours += 1;
@@ -75,7 +80,7 @@ public class NeighborScript : MonoBehaviour
             RaycastHit2D hitInfo = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if (hitInfo.collider != null)
             {
-                Debug.Log(hitInfo.collider.gameObject);
+               // Debug.Log(hitInfo.collider.gameObject);
     
                 if (hitInfo.collider.gameObject.layer == 10)
                 {
@@ -94,20 +99,24 @@ public class NeighborScript : MonoBehaviour
                 }
             }
         }
-        CheckTrigger = false;
-    }
+     }
    // when mouse/finger releae reset gameobjects mask and bool
    private void OnMouseExit()
    {
-       Debug.Log(gameObject.layer);
-   }
-   private void OnMouseUp()
+        this.gameObject.layer = LayerMask.GetMask("Default");
+        CheckTrigger = false;
+ 
+    }
+    private void OnMouseUp()
     {
-    
-       Debug.Log(this.gameObject);
-       this.gameObject.GetComponent<NeighborScript>().enabled = false;
-       CheckTrigger = false;
+        this.gameObject.layer = LayerMask.GetMask("Default");
+        dotManagerScript.CheckConnection = true;
+        ClearNeighbours = true;
+
+        // Debug.Log(this.gameObject);
+        this.gameObject.GetComponent<NeighborScript>().enabled = false;
+         CheckTrigger = false;
       // gameObject.layer = 0;
-        Debug.Log("NeighborScriptLift");
+     //   Debug.Log("NeighborScriptLift");
     }
 }

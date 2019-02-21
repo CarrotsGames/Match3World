@@ -68,7 +68,7 @@ public class DotManagerScript : MonoBehaviour
  
                 for (int i = 0; i < RedCount; i++)
                 {
-
+                    RedPieces[i].layer = LayerMask.GetMask("Default");
                     Destroy(RedPieces[i]);
                 }
                 RedPieces.Clear();
@@ -77,7 +77,7 @@ public class DotManagerScript : MonoBehaviour
             {
                  for (int i = 0; i < BlueCount; i++)
                 {
-                    BluePieces[i].layer = 0;
+                    BluePieces[i].layer = LayerMask.GetMask("Default");
 
                     Destroy(BluePieces[i]);
                 }
@@ -88,7 +88,7 @@ public class DotManagerScript : MonoBehaviour
             {
                  for (int i = 0; i < YellowCount; i++)
                 {
-                    YellowPieces[i].layer = 0;
+                    YellowPieces[i].layer = LayerMask.GetMask("Default");
                     Destroy(YellowPieces[i]);
                 }
                 YellowPieces.Clear();
@@ -97,7 +97,7 @@ public class DotManagerScript : MonoBehaviour
             {
                  for (int i = 0; i < GreenCount; i++)
                 {
-                    GreenPieces[i].layer = 0;
+                    GreenPieces[i].layer = LayerMask.GetMask("Default");
 
                     Destroy(GreenPieces[i]);
                 }
@@ -106,7 +106,7 @@ public class DotManagerScript : MonoBehaviour
             if (RedCount != Peices.Count || BlueCount != Peices.Count || GreenCount != Peices.Count || YellowCount != Peices.Count)
             {
                  
-                Debug.Log("No connection");
+              //  Debug.Log("No connection");
                  RedPieces.Clear();
                 BluePieces.Clear();
                 YellowPieces.Clear();
@@ -115,7 +115,7 @@ public class DotManagerScript : MonoBehaviour
                 BlueCount = 0;
                 YellowCount = 0;
                 GreenCount = 0;
-                 ResetDotLayers = true;
+                // ResetDotLayers = true;
                 
             }
             Peices.Clear();

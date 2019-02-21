@@ -17,6 +17,7 @@ public class DotScript : MonoBehaviour
     public LayerMask layerMask;
     public float Raylength;
    public bool CheckTrigger;
+    public bool ClearNeighbours;
     RaycastHit Hit;
     DotManagerScript DotManagerScript;
     GameObject DotManagerObj;
@@ -28,7 +29,8 @@ public class DotScript : MonoBehaviour
      // Use this for initialization
     void Start()
     {
-        col2d = GetComponent<CircleCollider2D>();
+        ClearNeighbours = false;
+           col2d = GetComponent<CircleCollider2D>();
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
         Board = FindObjectOfType<BoardScript>();
@@ -38,17 +40,14 @@ public class DotScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+       if(ClearNeighbours)
+        {
+            neighbours.Clear();
+            ClearNeighbours = false;
+
+        }
     }
-    //private void OnMouseDown()
-    //{
-    //    this.gameObject.layer = LayerType;
-    //    DotManagerScript.Peices.Add(this.gameObject);
-    //
-    //}
-   
  
-   
     
     private void OnMouseDown()
     {
@@ -74,15 +73,15 @@ public class DotScript : MonoBehaviour
                      else
                      {
                          // Changes Intersecting Objects layer to 10(Enabled)
-                         Debug.Log("[" + gameObject.name + "] found a neighbour: " + dot.gameObject.name);
-                         dot.gameObject.layer = LayerType;
+                      //   Debug.Log("[" + gameObject.name + "] found a neighbour: " + dot.gameObject.name);
+                        dot.gameObject.layer = LayerType;
                      //    dot.gameObject.GetComponent<DotScript>().OnMouseDrag();
                         dot.gameObject.GetComponent<NeighborScript>().enabled = true;
-                         dot.gameObject.GetComponent<NeighborScript>().CheckTrigger = true;
+                        dot.gameObject.GetComponent<NeighborScript>().CheckTrigger = true;
 
-                        Debug.Log(dot.gameObject);
+                 //       Debug.Log(dot.gameObject);
                          // Adds it to the list of available moves
-                         neighbours.Add(dot.gameObject);
+                        neighbours.Add(dot.gameObject);
                         DotManagerScript.GetComponent<DotManagerScript>().NumberOfNeighbours += 1;
                         Test = DotManagerScript.GetComponent<DotManagerScript>().NumberOfNeighbours;
 
@@ -125,12 +124,15 @@ public class DotScript : MonoBehaviour
            //    neighbours[i].layer = 0;
            //}
             CheckTrigger = false;
+
         }
     }
     private void OnMouseUp()
     {
         DotManagerScript.CheckConnection = true;
+        this.gameObject.layer = LayerMask.GetMask("Default");
+        ClearNeighbours = true;
     }
 
-   
+
 }
