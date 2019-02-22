@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using System.Linq;
 public class DotManagerScript : MonoBehaviour
 {
@@ -14,25 +15,36 @@ public class DotManagerScript : MonoBehaviour
     public GameObject DotGameObj;
 
     public Material HighlitedColour;
-    public int NumberOfNeighbours = 0;
 
-    public int RedCount;
-    public int BlueCount;
-    public int YellowCount;
-    public int GreenCount;
+    public int NumberOfNeighbours = 0;
+    public int RedScore;
+    public int BlueScore;
+    public int YellowScore;
+    public int GreenScore;
+    public int TotalScore;
     public int Limit;
     public int NumOfPeices;
+    public Text HighScore;
     public bool CheckConnection;
     public bool ResetDotLayers;
+
+    private int RedCount;
+    private int BlueCount;
+    private int YellowCount;
+    private int GreenCount;
+
     private void Start()
     {
         CheckConnection = false;
         ResetDotLayers = false;
-         //HighlitedColour = GetComponent<Renderer>().material;
+        HighScore.text = "" + TotalScore;  
+          //HighlitedColour = GetComponent<Renderer>().material;
     }
 
     private void Update()
     {
+        HighScore.text = "" + TotalScore;
+
         if (CheckConnection)
         {
             for (int i = 0; i < Peices.Count; i++)
@@ -65,7 +77,10 @@ public class DotManagerScript : MonoBehaviour
             }
             if (RedCount == Peices.Count && RedCount > Limit)
             {
- 
+                RedScore += RedCount;
+                RedScore *= Peices.Count;
+                TotalScore += RedScore   ;
+
                 for (int i = 0; i < RedCount; i++)
                 {
                     RedPieces[i].layer = LayerMask.GetMask("Default");
@@ -75,7 +90,11 @@ public class DotManagerScript : MonoBehaviour
             }
             if (BlueCount == Peices.Count && BlueCount > Limit)
             {
-                 for (int i = 0; i < BlueCount; i++)
+                BlueScore += BlueCount;
+                BlueScore *= Peices.Count;
+                TotalScore += BlueScore  ;
+
+                for (int i = 0; i < BlueCount; i++)
                 {
                     BluePieces[i].layer = LayerMask.GetMask("Default");
 
@@ -86,7 +105,10 @@ public class DotManagerScript : MonoBehaviour
             }
             if (YellowCount == Peices.Count && YellowCount > Limit)
             {
-                 for (int i = 0; i < YellowCount; i++)
+                YellowScore += YellowCount;
+                YellowScore *= Peices.Count;
+                TotalScore += YellowScore;
+                for (int i = 0; i < YellowCount; i++)
                 {
                     YellowPieces[i].layer = LayerMask.GetMask("Default");
                     Destroy(YellowPieces[i]);
@@ -95,7 +117,11 @@ public class DotManagerScript : MonoBehaviour
             }
             if (GreenCount == Peices.Count && GreenCount > Limit)
             {
-                 for (int i = 0; i < GreenCount; i++)
+                GreenScore += GreenCount;
+                GreenScore *= Peices.Count;
+                TotalScore += GreenScore  ;
+
+                for (int i = 0; i < GreenCount; i++)
                 {
                     GreenPieces[i].layer = LayerMask.GetMask("Default");
 
@@ -115,9 +141,13 @@ public class DotManagerScript : MonoBehaviour
                 BlueCount = 0;
                 YellowCount = 0;
                 GreenCount = 0;
+                NumberOfNeighbours = 0;
+                RedScore = 0;
+                BlueScore = 0;
+                YellowScore = 0;
+                GreenScore = 0;
                 // ResetDotLayers = true;
-                
-            }
+             }
             Peices.Clear();
         }
         CheckConnection = false;

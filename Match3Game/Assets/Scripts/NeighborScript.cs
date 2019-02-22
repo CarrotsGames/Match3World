@@ -42,9 +42,11 @@ public class NeighborScript : MonoBehaviour
       // Goes into this when player holds finger from one dot the second dot 
        if (CheckTrigger)
         {
-        
+           // bool urns = Physics2D.CircleCast(transform.position, 1, new Vector2(0, 1), 0);
+
             this.gameObject.layer = LayerMask.GetMask("Default");
-           
+
+            bool CircleOverlap = Physics2D.OverlapCircle(transform.position, 1);
 
             DotScript[] Dots = FindObjectsOfType<DotScript>();
     
@@ -52,7 +54,8 @@ public class NeighborScript : MonoBehaviour
             {
                 if (dot.gameObject.GetInstanceID() != gameObject.GetInstanceID())
                 {
-                    if (col2d.bounds.Intersects(dot.gameObject.GetComponent<Collider2D>().bounds))
+                    if (CircleOverlap)
+                    // if (col2d.bounds.Intersects(dot.gameObject.GetComponent<Collider2D>().bounds))
                     {
                         if (neighbours.Contains(dot.gameObject))
                         {

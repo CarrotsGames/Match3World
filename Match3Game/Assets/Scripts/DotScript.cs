@@ -58,12 +58,14 @@ public class DotScript : MonoBehaviour
     private void OnMouseDrag()
     {
          DotScript[] Dots = FindObjectsOfType<DotScript>();
-       
-         foreach (DotScript dot in Dots)
+        bool CircleOverlap = Physics2D.OverlapCircle(transform.position, 1);
+
+        foreach (DotScript dot in Dots)
          {
              if (dot.gameObject.GetInstanceID() != gameObject.GetInstanceID())
              {
-                 if (col2d.bounds.Intersects(dot.gameObject.GetComponent<Collider2D>().bounds))
+                if (CircleOverlap)
+                // if (col2d.bounds.Intersects(dot.gameObject.GetComponent<Collider2D>().bounds))
                  {
                      if (neighbours.Contains(dot.gameObject))
                      {

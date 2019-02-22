@@ -15,8 +15,9 @@ public class BoardScript : MonoBehaviour
     bool SpawnBool;
     bool HasChildren;
     int Total;
+ 
     // List of all nodes in their order
-  //  List<GameObject> ReachableNodes = new List<GameObject>();
+    //  List<GameObject> ReachableNodes = new List<GameObject>();
     private BackgroundTileScript[,] AllTiles;
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,7 @@ public class BoardScript : MonoBehaviour
         AllDots = new GameObject[Width, Height];
         SetUpBoard();
         HasChildren = true;
+
     }
 
     private void SetUpBoard()
