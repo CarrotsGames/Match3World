@@ -15,6 +15,10 @@ public class DotManagerScript : MonoBehaviour
     public GameObject DotGameObj;
 
     public Material HighlitedColour;
+    public Material Red;
+    public Material Blue;
+    public Material Green;
+    public Material Yellow;
 
     public int NumberOfNeighbours = 0;
     public int RedScore;
@@ -53,23 +57,30 @@ public class DotManagerScript : MonoBehaviour
                 if (Peices[i].tag == "Red")
                 {
                     RedCount += 1;
+                    Peices[i].GetComponent<Renderer>().material = Red;
                     RedPieces.Add(Peices[i]);
                 }
                 else if (Peices[i].tag == "Blue")
                 {
                     BlueCount += 1;
+                    Peices[i].GetComponent<Renderer>().material = Blue;
+
                     BluePieces.Add(Peices[i]);
 
                 }
                 else if (Peices[i].tag == "Yellow")
                 {
                     YellowCount += 1;
+                    Peices[i].GetComponent<Renderer>().material = Yellow;
+
                     YellowPieces.Add(Peices[i]);
 
                 }
                 else if (Peices[i].tag == "Green")
                 {
                     GreenCount += 1;
+                    Peices[i].GetComponent<Renderer>().material = Green;
+
                     GreenPieces.Add(Peices[i]);
                 }
 
@@ -146,8 +157,10 @@ public class DotManagerScript : MonoBehaviour
                 BlueScore = 0;
                 YellowScore = 0;
                 GreenScore = 0;
+              
+
                 // ResetDotLayers = true;
-             }
+            }
             Peices.Clear();
         }
         CheckConnection = false;

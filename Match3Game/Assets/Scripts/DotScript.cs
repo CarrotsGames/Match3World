@@ -25,6 +25,8 @@ public class DotScript : MonoBehaviour
     private GameObject OtherDot;
     public List<GameObject> neighbours = new List<GameObject>();
       CircleCollider2D col2d;
+    public Material HighlitedMat;
+    Material Default;
     int Test;
      // Use this for initialization
     void Start()
@@ -35,6 +37,7 @@ public class DotScript : MonoBehaviour
         DotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
         Board = FindObjectOfType<BoardScript>();
         CheckTrigger = false;
+        Default = GetComponent<Renderer>().material;
      }
 
     // Update is called once per frame
@@ -52,7 +55,7 @@ public class DotScript : MonoBehaviour
     private void OnMouseDown()
     {
         DotManagerScript.Peices.Clear();
-
+        this.gameObject.GetComponent<Renderer>().material = HighlitedMat;
         this.gameObject.layer = LayerType;
      }
     private void OnMouseDrag()
@@ -74,14 +77,14 @@ public class DotScript : MonoBehaviour
                      }
                      else
                      {
-                         // Changes Intersecting Objects layer to 10(Enabled)
+                      // Changes Intersecting Objects layer to 10(Enabled)
                       //   Debug.Log("[" + gameObject.name + "] found a neighbour: " + dot.gameObject.name);
                         dot.gameObject.layer = LayerType;
                      //    dot.gameObject.GetComponent<DotScript>().OnMouseDrag();
-                        dot.gameObject.GetComponent<NeighborScript>().enabled = true;
-                        dot.gameObject.GetComponent<NeighborScript>().CheckTrigger = true;
+                        //dot.gameObject.GetComponent<NeighborScript>().enabled = true;
+                        //dot.gameObject.GetComponent<NeighborScript>().CheckTrigger = true;
 
-                 //       Debug.Log(dot.gameObject);
+                        //       Debug.Log(dot.gameObject);
                          // Adds it to the list of available moves
                         neighbours.Add(dot.gameObject);
                         DotManagerScript.GetComponent<DotManagerScript>().NumberOfNeighbours += 1;
@@ -108,6 +111,7 @@ public class DotScript : MonoBehaviour
                 }
                 else
                 {
+                    hitInfo.collider.gameObject.GetComponent<Renderer>().material = HighlitedMat;
                     DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
 
                 }
@@ -131,6 +135,8 @@ public class DotScript : MonoBehaviour
     }
     private void OnMouseUp()
     {
+        this.gameObject.GetComponent<Renderer>().material = Default;
+        
         DotManagerScript.CheckConnection = true;
         this.gameObject.layer = LayerMask.GetMask("Default");
         ClearNeighbours = true;
