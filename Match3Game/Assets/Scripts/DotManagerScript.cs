@@ -144,7 +144,7 @@ public class DotManagerScript : MonoBehaviour
             {
                  
               //  Debug.Log("No connection");
-                 RedPieces.Clear();
+                RedPieces.Clear();
                 BluePieces.Clear();
                 YellowPieces.Clear();
                 GreenPieces.Clear();

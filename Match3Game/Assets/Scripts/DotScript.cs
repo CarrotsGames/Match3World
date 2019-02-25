@@ -23,12 +23,13 @@ public class DotScript : MonoBehaviour
     GameObject DotManagerObj;
     private BoardScript Board;
     private GameObject OtherDot;
+    public bool DefaultColour;
     public List<GameObject> neighbours = new List<GameObject>();
-      CircleCollider2D col2d;
+     CircleCollider2D col2d;
     public Material HighlitedMat;
     Material Default;
     int Test;
-     // Use this for initialization
+       // Use this for initialization
     void Start()
     {
         ClearNeighbours = false;
@@ -43,15 +44,35 @@ public class DotScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(ClearNeighbours)
+        Test = DotManagerScript.Peices.Capacity;
+        if (ClearNeighbours)
         {
             neighbours.Clear();
             ClearNeighbours = false;
 
         }
+       if(DefaultColour)
+        {
+            this.gameObject.GetComponent<Renderer>().material = Default;
+
+        }
     }
- 
-    
+    private void OnMouseEnter()
+    {
+        Debug.Log("enter");
+        if(DotManagerScript.Peices.Capacity >= 0)
+        {
+             if (DotManagerScript.Peices.Contains(this.gameObject))
+            {
+                //  DotManagerScript.Peices[Test].GetComponent<Renderer>().material = Default;
+                 this.gameObject.GetComponent<Renderer>().material = Default;
+                DotManagerScript.Peices.Remove(this.gameObject);
+
+            }
+           
+        }
+    }
+
     private void OnMouseDown()
     {
         DotManagerScript.Peices.Clear();
@@ -88,8 +109,7 @@ public class DotScript : MonoBehaviour
                          // Adds it to the list of available moves
                         neighbours.Add(dot.gameObject);
                         DotManagerScript.GetComponent<DotManagerScript>().NumberOfNeighbours += 1;
-                        Test = DotManagerScript.GetComponent<DotManagerScript>().NumberOfNeighbours;
-
+ 
                     }
 
                 }
@@ -123,15 +143,7 @@ public class DotScript : MonoBehaviour
     }
     private void OnMouseExit()
     {
-        if (CheckTrigger)
-        {
-           //for (int i = 0; i < Test; i++)
-           //{
-           //    neighbours[i].layer = 0;
-           //}
-            CheckTrigger = false;
-
-        }
+ 
     }
     private void OnMouseUp()
     {
