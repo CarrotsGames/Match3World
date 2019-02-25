@@ -28,7 +28,8 @@ public class DotScript : MonoBehaviour
      CircleCollider2D col2d;
     public Material HighlitedMat;
     Material Default;
-    int Test;
+    int PeicesCapacity;
+  public  int ToggleHighlite;
        // Use this for initialization
     void Start()
     {
@@ -44,33 +45,41 @@ public class DotScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Test = DotManagerScript.Peices.Capacity;
+        PeicesCapacity = DotManagerScript.Peices.Capacity;
+      // if (DotManagerScript.Peices[PeicesCapacity - 1].GetComponent<Renderer>().material == Default)
+      // {
+      //     Debug.Log("Material");
+      //     this.gameObject.GetComponent<Renderer>().material = Default;
+      // }
         if (ClearNeighbours)
         {
             neighbours.Clear();
             ClearNeighbours = false;
 
         }
-       if(DefaultColour)
-        {
-            this.gameObject.GetComponent<Renderer>().material = Default;
-
-        }
+      
     }
     private void OnMouseEnter()
     {
         Debug.Log("enter");
-        if(DotManagerScript.Peices.Capacity >= 0)
+        ToggleHighlite += 2;
+
+        if (ToggleHighlite >= 2)
         {
              if (DotManagerScript.Peices.Contains(this.gameObject))
             {
-                //  DotManagerScript.Peices[Test].GetComponent<Renderer>().material = Default;
-                 this.gameObject.GetComponent<Renderer>().material = Default;
+            //      DotManagerScript.Peices[PeicesCapacity].GetComponent<Renderer>().material = Default;
+                this.gameObject.GetComponent<Renderer>().material = Default;
                 DotManagerScript.Peices.Remove(this.gameObject);
-
+ 
             }
-           
+
         }
+    }
+    private void OnMouseExit()
+    {
+        
+
     }
 
     private void OnMouseDown()
@@ -78,6 +87,7 @@ public class DotScript : MonoBehaviour
         DotManagerScript.Peices.Clear();
         this.gameObject.GetComponent<Renderer>().material = HighlitedMat;
         this.gameObject.layer = LayerType;
+        ToggleHighlite += 1;
      }
     private void OnMouseDrag()
     {
@@ -98,15 +108,9 @@ public class DotScript : MonoBehaviour
                      }
                      else
                      {
-                      // Changes Intersecting Objects layer to 10(Enabled)
-                      //   Debug.Log("[" + gameObject.name + "] found a neighbour: " + dot.gameObject.name);
+                  
                         dot.gameObject.layer = LayerType;
-                     //    dot.gameObject.GetComponent<DotScript>().OnMouseDrag();
-                        //dot.gameObject.GetComponent<NeighborScript>().enabled = true;
-                        //dot.gameObject.GetComponent<NeighborScript>().CheckTrigger = true;
-
-                        //       Debug.Log(dot.gameObject);
-                         // Adds it to the list of available moves
+ 
                         neighbours.Add(dot.gameObject);
                         DotManagerScript.GetComponent<DotManagerScript>().NumberOfNeighbours += 1;
  
@@ -124,7 +128,7 @@ public class DotScript : MonoBehaviour
 
              if (hitInfo.collider.gameObject.layer == 10)
              {
-                if (DotManagerScript.Peices.Contains(hitInfo.collider.gameObject))
+                 if (DotManagerScript.Peices.Contains(hitInfo.collider.gameObject))
                 {
 
 
@@ -138,17 +142,19 @@ public class DotScript : MonoBehaviour
                 Debug.Log(hitInfo.collider.name);
 
              }
+             if(hitInfo.collider.gameObject.layer == 11)
+            {
+                Debug.Log("WALL");
+                OnMouseUp();
+            }
         }
        
-    }
-    private void OnMouseExit()
-    {
- 
     }
     private void OnMouseUp()
     {
         this.gameObject.GetComponent<Renderer>().material = Default;
-        
+        ToggleHighlite = 0;
+
         DotManagerScript.CheckConnection = true;
         this.gameObject.layer = LayerMask.GetMask("Default");
         ClearNeighbours = true;
