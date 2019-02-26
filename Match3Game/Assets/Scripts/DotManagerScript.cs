@@ -28,10 +28,10 @@ public class DotManagerScript : MonoBehaviour
     public int BlueScore;
     public int YellowScore;
     public int GreenScore;
+    public int Multipier;
     public float TotalScore;
     public int Limit;
     public int NumOfPeices;
-    public Text HighScore;
     public bool CheckConnection;
     public bool ResetDotLayers;
 
@@ -40,10 +40,15 @@ public class DotManagerScript : MonoBehaviour
     private int YellowCount;
     private int GreenCount;
 
+    public Text HighScore;
+    public Text MultiplierText;
+
     private void Start()
     {
+        Multipier = 1;
         CheckConnection = false;
         ResetDotLayers = false;
+        MultiplierText.text = "" + Multipier;
         HighScore.text = "" + TotalScore;
         CampanionGameObj = GameObject.FindGameObjectWithTag("Companion");
         Companion = CampanionGameObj.GetComponent<CompanionScript>();
@@ -53,6 +58,7 @@ public class DotManagerScript : MonoBehaviour
     private void Update()
     {
         HighScore.text = "" + TotalScore;
+        MultiplierText.text = "" + Multipier;
 
         if (CheckConnection)
         {
@@ -95,7 +101,8 @@ public class DotManagerScript : MonoBehaviour
             {
                 RedScore += RedCount;
                 RedScore *= Peices.Count;
-                TotalScore += RedScore   ;
+                RedScore *= Multipier;
+                TotalScore += RedScore ;
 
                 for (int i = 0; i < RedCount; i++)
                 {
@@ -111,8 +118,9 @@ public class DotManagerScript : MonoBehaviour
             {
                 BlueScore += BlueCount;
                 BlueScore *= Peices.Count;
+                BlueScore *= Multipier;
                 TotalScore += BlueScore  ;
-
+ 
                 for (int i = 0; i < BlueCount; i++)
                 {
                     BluePieces[i].layer = LayerMask.GetMask("Default");
@@ -128,7 +136,10 @@ public class DotManagerScript : MonoBehaviour
             {
                 YellowScore += YellowCount;
                 YellowScore *= Peices.Count;
+                YellowScore *= Multipier;
                 TotalScore += YellowScore;
+
+
                 for (int i = 0; i < YellowCount; i++)
                 {
                     YellowPieces[i].layer = LayerMask.GetMask("Default");
@@ -142,8 +153,9 @@ public class DotManagerScript : MonoBehaviour
             {
                 GreenScore += GreenCount;
                 GreenScore *= Peices.Count;
+                GreenScore *= Multipier;
                 TotalScore += GreenScore  ;
-
+ 
                 for (int i = 0; i < GreenCount; i++)
                 {
                     GreenPieces[i].layer = LayerMask.GetMask("Default");

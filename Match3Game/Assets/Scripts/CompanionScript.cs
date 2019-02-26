@@ -47,7 +47,8 @@ public class CompanionScript : MonoBehaviour
         if (CheckIfCanGrow)
         {
             StartCountDown = true;
-            if (dotManagerScript.TotalScore >= GrowingSizes[0] && GrowSize == 0)
+            // Stages of companion growing
+             if (dotManagerScript.TotalScore >= GrowingSizes[0] && GrowSize == 0)
             {
                 GrowTime = true;
 
@@ -59,6 +60,7 @@ public class CompanionScript : MonoBehaviour
 
                 GrowSize += 1;
             }
+            // Companion increases multplier by 2
             if (dotManagerScript.TotalScore >= GrowingSizes[2] && GrowSize == 2)
             {
                 GrowTime = true;
@@ -74,6 +76,7 @@ public class CompanionScript : MonoBehaviour
                 GrowTime = true;
                 GrowSize += 1;
             }
+            // Companion increases score mutilpier 
             if (dotManagerScript.TotalScore >= GrowingSizes[5] && GrowSize == 5)
             {
                 GrowTime = true;
@@ -84,6 +87,7 @@ public class CompanionScript : MonoBehaviour
                 GrowTime = true;
                 GrowSize += 1;
             }
+            // Companion increases score mutilpier 
             if (dotManagerScript.TotalScore >= GrowingSizes[7] && GrowSize == 7)
             {
                 GrowTime = true;
@@ -94,6 +98,7 @@ public class CompanionScript : MonoBehaviour
                 GrowTime = true;
                 GrowSize += 1;
             }
+            // Companion increases score mutilpier 
             if (dotManagerScript.TotalScore >= GrowingSizes[9] && GrowSize == 9)
             {
                 GrowTime = true;
@@ -104,7 +109,8 @@ public class CompanionScript : MonoBehaviour
         }
 
         switch (GrowSize)
-        {
+        {            
+            // Companion size increases  
             case 1:
                 if (GrowTime)
                 {
@@ -115,6 +121,7 @@ public class CompanionScript : MonoBehaviour
                     }
                 }
                 break;
+            // Companion size increases  
             case 2:
                 if (GrowTime)
                 {
@@ -125,9 +132,12 @@ public class CompanionScript : MonoBehaviour
                     }
                 }
                 break;
+                // Companion size increases and multiplier is increased by 2
             case 3:
                 if (GrowTime)
                 {
+                    dotManagerScript.Multipier = 2;
+
                     transform.localScale += new Vector3(0, 0.5f, 0) * Time.deltaTime;
                     if ( transform.localScale.y > 2.5f)
                     {
@@ -135,6 +145,7 @@ public class CompanionScript : MonoBehaviour
                     }
                 }
                 break;
+            // Companion size increases  
             case 4:
                 if (GrowTime)
                 {
@@ -146,8 +157,11 @@ public class CompanionScript : MonoBehaviour
                 }
                 break;
             case 5:
+                // Companion size increases and multiplier is increased by 5
                 if (GrowTime)
                 {
+                    dotManagerScript.Multipier = 5;
+
                     transform.localScale += new Vector3(0, 0.5f, 0) * Time.deltaTime;
                     if (transform.localScale.y > 3.5f)
                     {
@@ -155,6 +169,7 @@ public class CompanionScript : MonoBehaviour
                     }
                 }
                 break;
+            // Companion size increases
             case 6:
                 if (GrowTime)
                 {
@@ -165,9 +180,12 @@ public class CompanionScript : MonoBehaviour
                     }
                 }
                 break;
+            // Companion size increases and multiplier is increased by 10
             case 7:
                 if (GrowTime)
                 {
+                    dotManagerScript.Multipier = 10;
+
                     transform.localScale += new Vector3(0, 0.5f, 0) * Time.deltaTime;
                     if (transform.localScale.y > 4.5f)
                     {
@@ -175,6 +193,7 @@ public class CompanionScript : MonoBehaviour
                     }
                 }
                 break;
+            // Companion size increases 
             case 8:
                 if (GrowTime)
                 {
@@ -185,6 +204,7 @@ public class CompanionScript : MonoBehaviour
                     }
                 }
                 break;
+            // Companion size increases 
             case 9:
                 if (GrowTime)
                 {
@@ -195,9 +215,12 @@ public class CompanionScript : MonoBehaviour
                     }
                 }
                 break;
+            // Companion size increases and multiplier is increased by 25
             case 10:
                 if (GrowTime)
                 {
+                    dotManagerScript.Multipier = 25;
+
                     transform.localScale += new Vector3(0, 0.5f, 0) * Time.deltaTime;
                     if (transform.localScale.y > 6)
                     {
