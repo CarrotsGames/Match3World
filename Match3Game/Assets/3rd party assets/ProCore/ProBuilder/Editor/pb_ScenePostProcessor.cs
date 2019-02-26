@@ -21,7 +21,7 @@ namespace ProBuilder2.EditorCommon
 			/**
 			 * Hide nodraw faces if present.
 			 */
-			foreach(pb_Object pb in GameObject.FindObjectsOfType(typeof(pb_Object)))
+			foreach(pb_Object pb in Object.FindObjectsOfType(typeof(pb_Object)))
 			{
 				if(pb.GetComponent<MeshRenderer>() == null)
 					continue;
@@ -43,7 +43,7 @@ namespace ProBuilder2.EditorCommon
 			if(EditorApplication.isPlayingOrWillChangePlaymode)
 				return;
 
-			foreach(pb_Object pb in GameObject.FindObjectsOfType(typeof(pb_Object)))
+			foreach(pb_Object pb in Object.FindObjectsOfType(typeof(pb_Object)))
 			{
 				GameObject go = pb.gameObject;
 
@@ -64,8 +64,8 @@ namespace ProBuilder2.EditorCommon
 
 				pb.dontDestroyMeshOnDelete = true;
 
-				GameObject.DestroyImmediate( pb );
-				GameObject.DestroyImmediate( go.GetComponent<pb_Entity>() );
+                Object.DestroyImmediate( pb );
+                Object.DestroyImmediate( go.GetComponent<pb_Entity>() );
 
 			}
 		}

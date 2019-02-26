@@ -23,7 +23,7 @@ namespace ProBuilder2.Actions
 		 */
 		private static void RepairEntityMaterials()
 		{
-			IEnumerable all = GameObject.FindObjectsOfType(typeof(pb_Entity))
+			IEnumerable all = FindObjectsOfType(typeof(pb_Entity))
 								.Where(x => ((pb_Entity)x).entityType == EntityType.Collider || ((pb_Entity)x).entityType == EntityType.Trigger);
 
 			Material ColliderMat = pb_Constant.ColliderMaterial;

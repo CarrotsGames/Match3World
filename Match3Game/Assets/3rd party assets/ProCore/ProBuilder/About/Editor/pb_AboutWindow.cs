@@ -131,7 +131,7 @@ namespace ProBuilder2.EditorCommon
 			if(fromMenu || pb_PreferencesInternal.GetString(about.identifier) != about.version)
 			{
 				pb_AboutWindow win;
-				win = (pb_AboutWindow)EditorWindow.GetWindow(typeof(pb_AboutWindow), true, about.name, true);
+				win = (pb_AboutWindow)GetWindow(typeof(pb_AboutWindow), true, about.name, true);
 				win.ShowUtility();
 				win.SetAbout(about);
 				pb_PreferencesInternal.SetString(about.identifier, about.version, pb_PreferenceLocation.Global);

@@ -23,7 +23,7 @@ public class HighlightNearestFace : MonoBehaviour
 	void Start()
 	{
 		// Generate a 50x50 plane with 25 subdivisions, facing up, with no smoothing applied.
-		target = pb_ShapeGenerator.PlaneGenerator(travel, travel, 25, 25, ProBuilder2.Common.Axis.Up, false);
+		target = pb_ShapeGenerator.PlaneGenerator(travel, travel, 25, 25, Axis.Up, false);
 
 		target.SetFaceMaterial(target.faces, pb_Constant.DefaultMaterial);
 

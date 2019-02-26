@@ -376,7 +376,7 @@ namespace ProBuilder2.EditorCommon
 
 							broken = broken.Distinct().ToArray();
 
-							ProBuilder2.Actions.ProBuilderize.DoProBuilderize(
+                                Actions.ProBuilderize.DoProBuilderize(
 								System.Array.ConvertAll(broken, x => (GameObject) x)
 									.Select(x => x.GetComponent<MeshFilter>()),
 								pb_MeshImporter.Settings.Default);
@@ -386,7 +386,7 @@ namespace ProBuilder2.EditorCommon
 						Undo.RecordObjects(dummies.Select(x=>x.gameObject).ToArray(), "Delete Broken Scripts");
 
 						for(int i = 0; i < dummies.Length; i++)
-							GameObject.DestroyImmediate( dummies[i] );
+                                DestroyImmediate( dummies[i] );
 					}
 					break;
 				}

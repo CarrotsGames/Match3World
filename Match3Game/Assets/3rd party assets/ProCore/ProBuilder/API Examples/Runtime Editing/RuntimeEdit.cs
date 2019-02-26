@@ -46,7 +46,7 @@ namespace ProBuilder2.Examples
 			public void Destroy()
 			{
 				if(pb != null)
-					GameObject.Destroy(pb.gameObject);
+                    Object.Destroy(pb.gameObject);
 			}
 
 			public override string ToString()

@@ -11,7 +11,7 @@ class EditorCallbackViewer : EditorWindow
 	[MenuItem("Tools/" + pb_Constant.PRODUCT_NAME + "/API Examples/Log Callbacks Window")]
 	static void MenuInitEditorCallbackViewer()
 	{
-		EditorWindow.GetWindow<EditorCallbackViewer>(true, "ProBuilder Callbacks", true).Show();
+        GetWindow<EditorCallbackViewer>(true, "ProBuilder Callbacks", true).Show();
 	}
 
 	List<string> logs = new List<string>();
