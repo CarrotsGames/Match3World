@@ -104,8 +104,7 @@ public class DotManagerScript : MonoBehaviour
 
                 }
                     Companion.FeedMonster();
-                Companion.EatingPeices.Clear();
-
+ 
                // RedPieces.Clear();
             }
             if (BlueCount == Peices.Count && BlueCount > Limit)
@@ -121,8 +120,7 @@ public class DotManagerScript : MonoBehaviour
 
                 }
                     Companion.FeedMonster();
-                Companion.EatingPeices.Clear();
-
+ 
                 // BluePieces.Clear();
 
             }
@@ -137,8 +135,7 @@ public class DotManagerScript : MonoBehaviour
                     Companion.EatingPeices.Add(YellowPieces[i]);
                  }
                     Companion.FeedMonster();
-                Companion.EatingPeices.Clear();
-
+ 
                 //YellowPieces.Clear();
             }
             if (GreenCount == Peices.Count && GreenCount > Limit)
@@ -154,8 +151,7 @@ public class DotManagerScript : MonoBehaviour
 
                 }
                     Companion.FeedMonster();
-                Companion.EatingPeices.Clear();
-            //    GreenPieces.Clear();
+             //    GreenPieces.Clear();
             }
             if (RedCount != Peices.Count || BlueCount != Peices.Count || GreenCount != Peices.Count || YellowCount != Peices.Count)
             {
@@ -179,9 +175,9 @@ public class DotManagerScript : MonoBehaviour
                 // ResetDotLayers = true;
             }
             Peices.Clear();
-             Companion.EatingPeices.Clear();
         }
         CheckConnection = false;
+       Companion.EatingPeices.Clear();
     }
 
 }

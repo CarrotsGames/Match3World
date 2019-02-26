@@ -216,12 +216,12 @@ public class CompanionScript : MonoBehaviour
         posY = Random.Range(0, 10);
             
             // transforms the peices to the eatingspawner position
-            for (int i = 0; i < EatingPeices.Capacity; i++)
+            for (int i = 0; i < EatingPeices.Count; i++)
             {
-              
-                EatingPeices[i].transform.position = EatingPeiceSpawner.transform.position + new Vector3(posX, posY, 0);
+             
+                 EatingPeices[i].transform.position = EatingPeiceSpawner.transform.position + new Vector3(posX, posY, 0);
                  HungerMultiplier = i;
-             }
+            }
      }
 // when the pieces collide with the companion it will destory them
     private void OnCollisionEnter2D(Collision2D collision)
