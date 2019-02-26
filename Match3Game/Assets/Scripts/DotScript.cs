@@ -25,7 +25,7 @@ public class DotScript : MonoBehaviour
     private GameObject OtherDot;
     public bool DefaultColour;
     public List<GameObject> neighbours = new List<GameObject>();
-     CircleCollider2D col2d;
+     Collider2D col2d;
     public Material HighlitedMat;
     Material Default;
     int PeicesCapacity;
@@ -34,7 +34,7 @@ public class DotScript : MonoBehaviour
     void Start()
     {
         ClearNeighbours = false;
-           col2d = GetComponent<CircleCollider2D>();
+           col2d = GetComponent<Collider2D>();
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
         Board = FindObjectOfType<BoardScript>();
@@ -61,20 +61,20 @@ public class DotScript : MonoBehaviour
     }
     private void OnMouseEnter()
     {
-        Debug.Log("enter");
-        ToggleHighlite += 2;
-
-        if (ToggleHighlite >= 2)
-        {
-             if (DotManagerScript.Peices.Contains(this.gameObject))
-            {
-            //      DotManagerScript.Peices[PeicesCapacity].GetComponent<Renderer>().material = Default;
-                this.gameObject.GetComponent<Renderer>().material = Default;
-                DotManagerScript.Peices.Remove(this.gameObject);
- 
-            }
-
-        }
+     //  Debug.Log("enter");
+     //  ToggleHighlite += 2;
+     //
+     //  if (ToggleHighlite >= 2)
+     //  {
+     //       if (DotManagerScript.Peices.Contains(this.gameObject))
+     //      {
+     //      //      DotManagerScript.Peices[PeicesCapacity].GetComponent<Renderer>().material = Default;
+     //          this.gameObject.GetComponent<Renderer>().material = Default;
+     //          DotManagerScript.Peices.Remove(this.gameObject);
+     //
+     //      }
+     //
+     //  }
     }
     private void OnMouseExit()
     {
