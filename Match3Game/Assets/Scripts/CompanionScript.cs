@@ -26,6 +26,10 @@ public class CompanionScript : MonoBehaviour
     public Text HungerMetre;
     public float Hunger;
     int HungerMultiplier = 1;
+    // Must cap at 4
+    public int[] multiplier;
+
+
     private void Start()
     {
         GrowSize = 0;
@@ -136,7 +140,7 @@ public class CompanionScript : MonoBehaviour
             case 3:
                 if (GrowTime)
                 {
-                    dotManagerScript.Multipier = 2;
+                    dotManagerScript.Multipier = multiplier[0];
 
                     transform.localScale += new Vector3(0, 0.5f, 0) * Time.deltaTime;
                     if ( transform.localScale.y > 2.5f)
@@ -160,7 +164,7 @@ public class CompanionScript : MonoBehaviour
                 // Companion size increases and multiplier is increased by 5
                 if (GrowTime)
                 {
-                    dotManagerScript.Multipier = 5;
+                    dotManagerScript.Multipier = multiplier[1];
 
                     transform.localScale += new Vector3(0, 0.5f, 0) * Time.deltaTime;
                     if (transform.localScale.y > 3.5f)
@@ -184,7 +188,7 @@ public class CompanionScript : MonoBehaviour
             case 7:
                 if (GrowTime)
                 {
-                    dotManagerScript.Multipier = 10;
+                    dotManagerScript.Multipier = multiplier[2];
 
                     transform.localScale += new Vector3(0, 0.5f, 0) * Time.deltaTime;
                     if (transform.localScale.y > 4.5f)
@@ -219,7 +223,7 @@ public class CompanionScript : MonoBehaviour
             case 10:
                 if (GrowTime)
                 {
-                    dotManagerScript.Multipier = 25;
+                    dotManagerScript.Multipier = multiplier[3];
 
                     transform.localScale += new Vector3(0, 0.5f, 0) * Time.deltaTime;
                     if (transform.localScale.y > 6)
