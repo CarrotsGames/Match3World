@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class CompanionScript : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class CompanionScript : MonoBehaviour
     // max it can go to is 10
     public float[] GrowingSizes;
 
-
+    bool StartCountDown;
 
     DotManagerScript dotManagerScript;
     GameObject DotManagerObj;
@@ -22,21 +23,30 @@ public class CompanionScript : MonoBehaviour
     int posX;
     int posY;
     int GrowSize;
+    public Text HungerMetre;
+    public float Hunger;
+    int HungerMultiplier = 1;
     private void Start()
     {
         GrowSize = 0;
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
-      
-        GrowTime = false;
+        StartCountDown = false;
+          GrowTime = false;
         CheckIfCanGrow = false;
     }
     private void Update()
     {
-       
+        HungerMetre.text = "" + Hunger;
+
+        if (StartCountDown)
+        {
+            Hunger -= Time.deltaTime;
+        }
         // Max growing sizes are 10
         if (CheckIfCanGrow)
         {
+            StartCountDown = true;
             if (dotManagerScript.TotalScore >= GrowingSizes[0] && GrowSize == 0)
             {
                 GrowTime = true;
@@ -208,10 +218,10 @@ public class CompanionScript : MonoBehaviour
             // transforms the peices to the eatingspawner position
             for (int i = 0; i < EatingPeices.Capacity; i++)
             {
-
+              
                 EatingPeices[i].transform.position = EatingPeiceSpawner.transform.position + new Vector3(posX, posY, 0);
-                 
-           }
+                 HungerMultiplier = i;
+             }
      }
 // when the pieces collide with the companion it will destory them
     private void OnCollisionEnter2D(Collision2D collision)
@@ -219,6 +229,7 @@ public class CompanionScript : MonoBehaviour
         if(collision.gameObject.tag == "Red" || collision.gameObject.tag == "Blue" || collision.gameObject.tag == "Green" || collision.gameObject.tag == "Yellow")
         {
             CheckIfCanGrow = true;
+            Hunger += HungerMultiplier;
             Destroy(collision.gameObject);
         }
     }

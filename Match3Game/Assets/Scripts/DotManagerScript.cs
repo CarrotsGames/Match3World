@@ -28,7 +28,7 @@ public class DotManagerScript : MonoBehaviour
     public int BlueScore;
     public int YellowScore;
     public int GreenScore;
-    public int TotalScore;
+    public float TotalScore;
     public int Limit;
     public int NumOfPeices;
     public Text HighScore;
