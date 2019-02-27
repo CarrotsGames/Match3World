@@ -55,10 +55,10 @@ public class DotScript : MonoBehaviour
     {
        
             Vector3 newScale = new Vector3();
-            newScale.x = Mathf.Clamp(transform.localScale.y, 0.45f, 0.45f);
-            newScale.z = Mathf.Clamp(transform.localScale.y, 0.45f, 0.45f);
+            newScale.x = Mathf.Clamp(transform.localScale.y, 0.65f, 0.65f);
+            newScale.z = Mathf.Clamp(transform.localScale.y, 0.65f, 0.65f);
 
-            newScale.y = Mathf.Clamp(transform.localScale.y, 0.45f, 0.45f);
+            newScale.y = Mathf.Clamp(transform.localScale.y, 0.65f, 0.65f);
             transform.localScale = newScale;
          
        
@@ -68,10 +68,10 @@ public class DotScript : MonoBehaviour
     private void OnMouseEnter()
     {
         Vector3 newScale = new Vector3();
-        newScale.x = Mathf.Clamp(transform.localScale.y, 0.60f, 0.60f);
-        newScale.z = Mathf.Clamp(transform.localScale.y, 0.60f, 0.60f);
+        newScale.x = Mathf.Clamp(transform.localScale.y, 0.80f, 0.80f);
+        newScale.z = Mathf.Clamp(transform.localScale.y, 0.80f, 0.80f);
 
-        newScale.y = Mathf.Clamp(transform.localScale.y, 0.60f, 0.60f);
+        newScale.y = Mathf.Clamp(transform.localScale.y, 0.80f, 0.80f);
         transform.localScale = newScale;
 
 
@@ -79,10 +79,10 @@ public class DotScript : MonoBehaviour
     private void OnMouseDown()
     {
         Vector3 newScale = new Vector3();
-        newScale.x = Mathf.Clamp(transform.localScale.x, 0.45f, 0.45f);
-        newScale.z = Mathf.Clamp(transform.localScale.z, 0.45f, 0.45f);
+        newScale.x = Mathf.Clamp(transform.localScale.x, 0.65f, 0.65f);
+        newScale.z = Mathf.Clamp(transform.localScale.z, 0.65f, 0.65f);
 
-        newScale.y = Mathf.Clamp(transform.localScale.y, 0.45f, 0.45f);
+        newScale.y = Mathf.Clamp(transform.localScale.y, 0.65f, 0.65f);
         transform.localScale = newScale;
 
         DotManagerScript.Peices.Clear();
@@ -155,10 +155,10 @@ public class DotScript : MonoBehaviour
     private void OnMouseUp()
     {
         Vector3 newScale = new Vector3();
-        newScale.x = Mathf.Clamp(transform.localScale.y, 0.45f, 0.45f);
-        newScale.z = Mathf.Clamp(transform.localScale.y, 0.45f, 0.45f);
+        newScale.x = Mathf.Clamp(transform.localScale.y, 0.65f, 0.65f);
+        newScale.z = Mathf.Clamp(transform.localScale.y, 0.65f, 0.65f);
 
-        newScale.y = Mathf.Clamp(transform.localScale.y, 0.45f, 0.45f);
+        newScale.y = Mathf.Clamp(transform.localScale.y, 0.65f, 0.65f);
         transform.localScale = newScale;
 
         this.gameObject.GetComponent<Renderer>().material = Default;

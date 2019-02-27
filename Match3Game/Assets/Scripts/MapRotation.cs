@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MapRotation : MonoBehaviour {
 
-
     public int rotateSpeed = 1;
 
 	// Use this for initialization
