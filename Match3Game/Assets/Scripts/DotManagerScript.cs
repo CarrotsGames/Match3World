@@ -17,8 +17,7 @@ public class DotManagerScript : MonoBehaviour
     public DotScript dotScript;
     public GameObject DotGameObj;
 
-    public Material HighlitedColour;
-    public Material Red;
+     public Material Red;
     public Material Blue;
     public Material Green;
     public Material Yellow;
@@ -39,7 +38,7 @@ public class DotManagerScript : MonoBehaviour
     private int BlueCount;
     private int YellowCount;
     private int GreenCount;
-
+    int test;
     public Text HighScore;
     public Text MultiplierText;
 
@@ -55,6 +54,8 @@ public class DotManagerScript : MonoBehaviour
           //HighlitedColour = GetComponent<Renderer>().material;
     }
 
+
+
     private void Update()
     {
         HighScore.text = "" + TotalScore;
@@ -64,7 +65,7 @@ public class DotManagerScript : MonoBehaviour
         {
             for (int i = 0; i < Peices.Count; i++)
             {
- 
+
                 if (Peices[i].tag == "Red")
                 {
                     RedCount += 1;
@@ -97,38 +98,47 @@ public class DotManagerScript : MonoBehaviour
 
 
             }
+            SortingColours();
+            CheckConnection = false;
+            Companion.EatingPeices.Clear();
+        }
+    }
+    void SortingColours()
+    {
             if (RedCount == Peices.Count && RedCount > Limit)
             {
                 RedScore += RedCount;
                 RedScore *= Peices.Count;
                 RedScore *= Multipier;
-                TotalScore += RedScore ;
+                TotalScore += RedScore;
 
-                for (int i = 0; i < RedCount; i++)
+                for (test = 0; test < RedCount; test++)
                 {
-                    RedPieces[i].layer = LayerMask.GetMask("Default");
-                    Companion.EatingPeices.Add(RedPieces[i]);
+                    RedPieces[test].layer = LayerMask.GetMask("Default");
+                     RedPieces[test].transform.localScale += new Vector3(1, 1, 1) * Time.deltaTime;
+
+                    Companion.EatingPeices.Add(RedPieces[test]);
 
                 }
-                    Companion.FeedMonster();
- 
-               // RedPieces.Clear();
+                Companion.FeedMonster();
+
+                // RedPieces.Clear();
             }
             if (BlueCount == Peices.Count && BlueCount > Limit)
             {
                 BlueScore += BlueCount;
                 BlueScore *= Peices.Count;
                 BlueScore *= Multipier;
-                TotalScore += BlueScore  ;
- 
+                TotalScore += BlueScore;
+
                 for (int i = 0; i < BlueCount; i++)
                 {
                     BluePieces[i].layer = LayerMask.GetMask("Default");
                     Companion.EatingPeices.Add(BluePieces[i]);
 
                 }
-                    Companion.FeedMonster();
- 
+                Companion.FeedMonster();
+
                 // BluePieces.Clear();
 
             }
@@ -144,9 +154,9 @@ public class DotManagerScript : MonoBehaviour
                 {
                     YellowPieces[i].layer = LayerMask.GetMask("Default");
                     Companion.EatingPeices.Add(YellowPieces[i]);
-                 }
-                    Companion.FeedMonster();
- 
+                }
+                Companion.FeedMonster();
+
                 //YellowPieces.Clear();
             }
             if (GreenCount == Peices.Count && GreenCount > Limit)
@@ -154,21 +164,21 @@ public class DotManagerScript : MonoBehaviour
                 GreenScore += GreenCount;
                 GreenScore *= Peices.Count;
                 GreenScore *= Multipier;
-                TotalScore += GreenScore  ;
- 
+                TotalScore += GreenScore;
+
                 for (int i = 0; i < GreenCount; i++)
                 {
                     GreenPieces[i].layer = LayerMask.GetMask("Default");
                     Companion.EatingPeices.Add(GreenPieces[i]);
 
                 }
-                    Companion.FeedMonster();
-             //    GreenPieces.Clear();
+                Companion.FeedMonster();
+                //    GreenPieces.Clear();
             }
             if (RedCount != Peices.Count || BlueCount != Peices.Count || GreenCount != Peices.Count || YellowCount != Peices.Count)
             {
-                 
-              //  Debug.Log("No connection");
+
+                //  Debug.Log("No connection");
                 RedPieces.Clear();
                 BluePieces.Clear();
                 YellowPieces.Clear();
@@ -182,14 +192,15 @@ public class DotManagerScript : MonoBehaviour
                 BlueScore = 0;
                 YellowScore = 0;
                 GreenScore = 0;
-              
+
 
                 // ResetDotLayers = true;
             }
             Peices.Clear();
         }
-        CheckConnection = false;
-       Companion.EatingPeices.Clear();
-    }
-
+ 
 }
+
+
+
+ 

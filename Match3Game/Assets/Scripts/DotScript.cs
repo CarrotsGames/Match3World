@@ -21,8 +21,7 @@ public class DotScript : MonoBehaviour
     public bool DefaultColour;
     public List<GameObject> neighbours = new List<GameObject>();
     Collider2D col2d;
-    public Material HighlitedMat;
-    Material Default;
+     Material Default;
     public int ToggleHighlite;
     float time;
     public bool GrowSize;
@@ -37,7 +36,7 @@ public class DotScript : MonoBehaviour
         DotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
         Board = FindObjectOfType<BoardScript>();
         Default = GetComponent<Renderer>().material;
-     }
+      }
 
     // Update is called once per frame
     void Update()
@@ -55,10 +54,10 @@ public class DotScript : MonoBehaviour
     {
        
             Vector3 newScale = new Vector3();
-            newScale.x = Mathf.Clamp(transform.localScale.y, 0.45f, 0.45f);
-            newScale.z = Mathf.Clamp(transform.localScale.y, 0.45f, 0.45f);
+            newScale.x = Mathf.Clamp(transform.localScale.y, 0.65f, 0.65f);
+            newScale.z = Mathf.Clamp(transform.localScale.y, 0.65f, 0.65f);
 
-            newScale.y = Mathf.Clamp(transform.localScale.y, 0.45f, 0.45f);
+            newScale.y = Mathf.Clamp(transform.localScale.y, 0.65f, 0.65f);
             transform.localScale = newScale;
          
        
@@ -68,25 +67,25 @@ public class DotScript : MonoBehaviour
     private void OnMouseEnter()
     {
         Vector3 newScale = new Vector3();
-        newScale.x = Mathf.Clamp(transform.localScale.y, 0.60f, 0.60f);
-        newScale.z = Mathf.Clamp(transform.localScale.y, 0.60f, 0.60f);
+        newScale.x = Mathf.Clamp(transform.localScale.y, 0.80f, 0.80f);
+        newScale.z = Mathf.Clamp(transform.localScale.y, 0.80f, 0.80f);
 
-        newScale.y = Mathf.Clamp(transform.localScale.y, 0.60f, 0.60f);
+        newScale.y = Mathf.Clamp(transform.localScale.y, 0.80f, 0.80f);
         transform.localScale = newScale;
 
 
     }
     private void OnMouseDown()
     {
+        DotManagerScript.Peices.Clear();
         Vector3 newScale = new Vector3();
-        newScale.x = Mathf.Clamp(transform.localScale.x, 0.45f, 0.45f);
-        newScale.z = Mathf.Clamp(transform.localScale.z, 0.45f, 0.45f);
+        newScale.x = Mathf.Clamp(transform.localScale.x, 0.65f, 0.65f);
+        newScale.z = Mathf.Clamp(transform.localScale.z, 0.65f, 0.65f);
 
-        newScale.y = Mathf.Clamp(transform.localScale.y, 0.45f, 0.45f);
+        newScale.y = Mathf.Clamp(transform.localScale.y, 0.65f, 0.65f);
         transform.localScale = newScale;
 
-        DotManagerScript.Peices.Clear();
-        this.gameObject.GetComponent<Renderer>().material = HighlitedMat;
+        this.gameObject.GetComponent<Renderer>().material.color = Color.black;
         this.gameObject.layer = LayerType;
         ToggleHighlite += 1;
      }
@@ -137,7 +136,7 @@ public class DotScript : MonoBehaviour
                 }
                 else
                 {
-                    hitInfo.collider.gameObject.GetComponent<Renderer>().material = HighlitedMat;
+                    hitInfo.collider.gameObject.GetComponent<Renderer>().material.color = Color.black;
                     DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
 
                 }
@@ -147,6 +146,8 @@ public class DotScript : MonoBehaviour
              if(hitInfo.collider.gameObject.layer == 11)
             {
                 Debug.Log("WALL");
+                this.gameObject.GetComponent<Renderer>().material = Default;
+
                 OnMouseUp();
             }
         }
@@ -155,10 +156,10 @@ public class DotScript : MonoBehaviour
     private void OnMouseUp()
     {
         Vector3 newScale = new Vector3();
-        newScale.x = Mathf.Clamp(transform.localScale.y, 0.45f, 0.45f);
-        newScale.z = Mathf.Clamp(transform.localScale.y, 0.45f, 0.45f);
+        newScale.x = Mathf.Clamp(transform.localScale.y, 0.65f, 0.65f);
+        newScale.z = Mathf.Clamp(transform.localScale.y, 0.65f, 0.65f);
 
-        newScale.y = Mathf.Clamp(transform.localScale.y, 0.45f, 0.45f);
+        newScale.y = Mathf.Clamp(transform.localScale.y, 0.65f, 0.65f);
         transform.localScale = newScale;
 
         this.gameObject.GetComponent<Renderer>().material = Default;
