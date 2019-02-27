@@ -11,46 +11,38 @@ public class DotScript : MonoBehaviour
     // 2 Blue
     // 3 Yellow
     // 4 Green
-    public int Column;
-    public int Row;
+ 
     int LayerType = 10;
     public LayerMask layerMask;
-    public float Raylength;
-   public bool CheckTrigger;
     public bool ClearNeighbours;
-    RaycastHit Hit;
     DotManagerScript DotManagerScript;
     GameObject DotManagerObj;
     private BoardScript Board;
-    private GameObject OtherDot;
     public bool DefaultColour;
     public List<GameObject> neighbours = new List<GameObject>();
-     Collider2D col2d;
+    Collider2D col2d;
     public Material HighlitedMat;
     Material Default;
-    int PeicesCapacity;
-  public  int ToggleHighlite;
-       // Use this for initialization
+    public int ToggleHighlite;
+    float time;
+    public bool GrowSize;
+     // Use this for initialization
     void Start()
     {
+        GrowSize = false;
+        time = 0.25f;
         ClearNeighbours = false;
-           col2d = GetComponent<Collider2D>();
+        col2d = GetComponent<Collider2D>();
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
         Board = FindObjectOfType<BoardScript>();
-        CheckTrigger = false;
         Default = GetComponent<Renderer>().material;
      }
 
     // Update is called once per frame
     void Update()
     {
-        PeicesCapacity = DotManagerScript.Peices.Capacity;
-      // if (DotManagerScript.Peices[PeicesCapacity - 1].GetComponent<Renderer>().material == Default)
-      // {
-      //     Debug.Log("Material");
-      //     this.gameObject.GetComponent<Renderer>().material = Default;
-      // }
+       
         if (ClearNeighbours)
         {
             neighbours.Clear();
@@ -59,31 +51,40 @@ public class DotScript : MonoBehaviour
         }
       
     }
-    private void OnMouseEnter()
-    {
-     //  Debug.Log("enter");
-     //  ToggleHighlite += 2;
-     //
-     //  if (ToggleHighlite >= 2)
-     //  {
-     //       if (DotManagerScript.Peices.Contains(this.gameObject))
-     //      {
-     //      //      DotManagerScript.Peices[PeicesCapacity].GetComponent<Renderer>().material = Default;
-     //          this.gameObject.GetComponent<Renderer>().material = Default;
-     //          DotManagerScript.Peices.Remove(this.gameObject);
-     //
-     //      }
-     //
-     //  }
-    }
     private void OnMouseExit()
     {
-        
+       
+            Vector3 newScale = new Vector3();
+            newScale.x = Mathf.Clamp(transform.localScale.y, 0.45f, 0.45f);
+            newScale.z = Mathf.Clamp(transform.localScale.y, 0.45f, 0.45f);
 
+            newScale.y = Mathf.Clamp(transform.localScale.y, 0.45f, 0.45f);
+            transform.localScale = newScale;
+         
+       
+        
     }
 
+    private void OnMouseEnter()
+    {
+        Vector3 newScale = new Vector3();
+        newScale.x = Mathf.Clamp(transform.localScale.y, 0.60f, 0.60f);
+        newScale.z = Mathf.Clamp(transform.localScale.y, 0.60f, 0.60f);
+
+        newScale.y = Mathf.Clamp(transform.localScale.y, 0.60f, 0.60f);
+        transform.localScale = newScale;
+
+
+    }
     private void OnMouseDown()
     {
+        Vector3 newScale = new Vector3();
+        newScale.x = Mathf.Clamp(transform.localScale.x, 0.45f, 0.45f);
+        newScale.z = Mathf.Clamp(transform.localScale.z, 0.45f, 0.45f);
+
+        newScale.y = Mathf.Clamp(transform.localScale.y, 0.45f, 0.45f);
+        transform.localScale = newScale;
+
         DotManagerScript.Peices.Clear();
         this.gameObject.GetComponent<Renderer>().material = HighlitedMat;
         this.gameObject.layer = LayerType;
@@ -112,6 +113,7 @@ public class DotScript : MonoBehaviour
                         dot.gameObject.layer = LayerType;
  
                         neighbours.Add(dot.gameObject);
+                        dot.gameObject.GetComponent<DotScript>().GrowSize = true;
                         DotManagerScript.GetComponent<DotManagerScript>().NumberOfNeighbours += 1;
  
                     }
@@ -152,10 +154,17 @@ public class DotScript : MonoBehaviour
     }
     private void OnMouseUp()
     {
+        Vector3 newScale = new Vector3();
+        newScale.x = Mathf.Clamp(transform.localScale.y, 0.45f, 0.45f);
+        newScale.z = Mathf.Clamp(transform.localScale.y, 0.45f, 0.45f);
+
+        newScale.y = Mathf.Clamp(transform.localScale.y, 0.45f, 0.45f);
+        transform.localScale = newScale;
+
         this.gameObject.GetComponent<Renderer>().material = Default;
         ToggleHighlite = 0;
-
-        DotManagerScript.CheckConnection = true;
+        GrowSize = false;
+         DotManagerScript.CheckConnection = true;
         this.gameObject.layer = LayerMask.GetMask("Default");
         ClearNeighbours = true;
     }
