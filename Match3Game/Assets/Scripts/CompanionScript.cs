@@ -45,19 +45,18 @@ public class CompanionScript : MonoBehaviour
         HungerMetre.text = "" + Hunger;
         Hunger = Mathf.Clamp(Hunger, 0, 100);
 
-        if (StartCountDown)
-        {
+        
             Hunger -= Time.deltaTime;
-        }
+        
         // if hunger less than 20
         if (Hunger < 20)
         {
             StartCountDown = true;
             dotManagerScript.Multipier = 1;
+            // changes size of companion
             Vector3 newScale = new Vector3();
             newScale.x = Mathf.Clamp(transform.localScale.y, 1, 1);
             newScale.z = Mathf.Clamp(transform.localScale.y, 1, 1);
-
             newScale.y = Mathf.Clamp(transform.localScale.y, 0, 0.5f);
             transform.localScale = newScale ;
         }
@@ -67,7 +66,6 @@ public class CompanionScript : MonoBehaviour
             Vector3 newScale = new Vector3();
             newScale.x = Mathf.Clamp(transform.localScale.y, 1, 1);
             newScale.z = Mathf.Clamp(transform.localScale.y, 1, 1);
-
             newScale.y = Mathf.Clamp(transform.localScale.y, 1, 1);
             transform.localScale = newScale;
         }
@@ -77,7 +75,6 @@ public class CompanionScript : MonoBehaviour
             Vector3 newScale = new Vector3();
             newScale.x = Mathf.Clamp(transform.localScale.y, 1, 1);
             newScale.z = Mathf.Clamp(transform.localScale.y, 1, 1);
-
             newScale.y = Mathf.Clamp(transform.localScale.y, 1, 2);
             transform.localScale = newScale;
         }
@@ -87,7 +84,6 @@ public class CompanionScript : MonoBehaviour
             Vector3 newScale = new Vector3();
             newScale.x = Mathf.Clamp(transform.localScale.y, 1, 1);
             newScale.z = Mathf.Clamp(transform.localScale.y, 1, 1);
-
             newScale.y = Mathf.Clamp(transform.localScale.y, 2, 3);
             transform.localScale = newScale;
 
@@ -98,7 +94,6 @@ public class CompanionScript : MonoBehaviour
             Vector3 newScale = new Vector3();
             newScale.x = Mathf.Clamp(transform.localScale.y, 1, 1);
             newScale.z = Mathf.Clamp(transform.localScale.y, 1, 1);
-
             newScale.y = Mathf.Clamp(transform.localScale.y, 4, 5.5f);
             transform.localScale = newScale;
 
@@ -134,7 +129,7 @@ public class CompanionScript : MonoBehaviour
             {
              
                  EatingPeices[i].transform.position = EatingPeiceSpawner.transform.position + new Vector3(posX, posY, 0);
-                 HungerMultiplier = i;
+                 HungerMultiplier = i / 2;
             }
      }
 // when the pieces collide with the companion it will destory them

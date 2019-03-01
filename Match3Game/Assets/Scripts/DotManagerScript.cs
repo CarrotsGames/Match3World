@@ -17,7 +17,7 @@ public class DotManagerScript : MonoBehaviour
     public DotScript dotScript;
     public GameObject DotGameObj;
 
-     public Material Red;
+    public Material Red;
     public Material Blue;
     public Material Green;
     public Material Yellow;
@@ -28,9 +28,10 @@ public class DotManagerScript : MonoBehaviour
     public int YellowScore;
     public int GreenScore;
     public int Multipier;
-    public float TotalScore;
+    public int LineCount;
     public int Limit;
     public int NumOfPeices;
+    public float TotalScore;
     public bool CheckConnection;
     public bool ResetDotLayers;
 
@@ -44,7 +45,8 @@ public class DotManagerScript : MonoBehaviour
 
     private void Start()
     {
-        Multipier = 1;
+        LineCount = 0;
+           Multipier = 1;
         CheckConnection = false;
         ResetDotLayers = false;
         MultiplierText.text = "" + Multipier;
@@ -192,7 +194,7 @@ public class DotManagerScript : MonoBehaviour
                 BlueScore = 0;
                 YellowScore = 0;
                 GreenScore = 0;
-
+            LineCount = 0;
 
                 // ResetDotLayers = true;
             }
