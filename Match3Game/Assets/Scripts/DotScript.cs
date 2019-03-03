@@ -16,7 +16,8 @@ public class DotScript : MonoBehaviour
     private int LayerType = 10;
     private float time;
     private BoardScript Board;
- 
+
+    AudioSource audio;
     DotManagerScript DotManagerScript;
     GameObject DotManagerObj;
     LineRenderer DrawLine;
@@ -25,7 +26,8 @@ public class DotScript : MonoBehaviour
       // Use this for initialization
     void Start()
     {
- 
+
+        audio = GetComponent<AudioSource>();
         DrawLine = GetComponent<LineRenderer>();
         DrawLine.enabled = false;
         GrowSize = false;
@@ -70,6 +72,7 @@ public class DotScript : MonoBehaviour
         newScale.z = Mathf.Clamp(transform.localScale.y, 0.80f, 0.80f);
         newScale.y = Mathf.Clamp(transform.localScale.y, 0.80f, 0.80f);
         transform.localScale = newScale;
+        audio.PlayDelayed(0.15f);
     }
     private void OnMouseDown()
     {
@@ -89,7 +92,9 @@ public class DotScript : MonoBehaviour
         this.gameObject.layer = LayerType;
  
         ToggleHighlite += 1;
-     }
+        audio.PlayDelayed(0);
+
+    }
     private void OnMouseDrag()
     {
          DotScript[] Dots = FindObjectsOfType<DotScript>();
