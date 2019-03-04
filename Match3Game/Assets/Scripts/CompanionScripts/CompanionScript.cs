@@ -7,22 +7,18 @@ public class CompanionScript : MonoBehaviour
 {
     public List<GameObject> EatingPeices;
     // Use this for initialization
-    public GameObject EatingPeiceSpawner;
-      // Once the peices are eaten the campanion checks if he can grow
-    bool CheckIfCanGrow;
-    // starts the growing mechanic
-    bool GrowTime;
+    public GameObject EatingPeiceSpawner; 
     // max it can go to is 10
     public float[] GrowingSizes;
 
-    bool StartCountDown;
-
+ 
     DotManagerScript dotManagerScript;
     GameObject DotManagerObj;
+    RealTimeCounter RealTimeScript;
+    GameObject RealTimerGameObj;
     // Update is called once per frame
     int posX;
     int posY;
-    int GrowSize;
     public Text HungerMetre;
     public float Hunger;
     int HungerMultiplier = 1;
@@ -32,12 +28,13 @@ public class CompanionScript : MonoBehaviour
 
     private void Start()
     {
-        GrowSize = 0;
+         RealTimerGameObj = GameObject.FindGameObjectWithTag("MainCamera");
+        RealTimeScript = RealTimerGameObj.GetComponent<RealTimeCounter>();
+        Hunger = RealTimeScript.TimerCountDown  ;
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
-        StartCountDown = false;
-          GrowTime = false;
-        CheckIfCanGrow = false;
+        PlayerPrefs.GetFloat("CurrentHunger");
+
     }
 
     private void Update()
@@ -45,14 +42,13 @@ public class CompanionScript : MonoBehaviour
         HungerMetre.text = "" + Hunger;
         Hunger = Mathf.Clamp(Hunger, 0, 100);
 
-        
             Hunger -= Time.deltaTime;
-        
+        PlayerPrefs.SetFloat("CurrentHunger", Hunger);
+
         // if hunger less than 20
         if (Hunger < 20)
         {
-            StartCountDown = true;
-            dotManagerScript.Multipier = 1;
+             dotManagerScript.Multipier = 1;
             // changes size of companion
             Vector3 newScale = new Vector3();
             newScale.x = Mathf.Clamp(transform.localScale.y, 1, 1);
@@ -137,8 +133,7 @@ public class CompanionScript : MonoBehaviour
     {
         if(collision.gameObject.tag == "Red" || collision.gameObject.tag == "Blue" || collision.gameObject.tag == "Green" || collision.gameObject.tag == "Yellow")
         {
-            CheckIfCanGrow = true;
-            Hunger += HungerMultiplier;
+             Hunger += HungerMultiplier;
             Destroy(collision.gameObject);
         }
     }
