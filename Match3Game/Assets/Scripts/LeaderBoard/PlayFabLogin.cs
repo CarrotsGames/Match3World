@@ -12,7 +12,7 @@ public class PlayFabLogin : MonoBehaviour
       {
           PlayFabSettings.TitleId = "(DE2C) Superflat Connect 3"; // Please change this value to your own titleId from PlayFab Game Manager
       }
-        var request = new LoginWithAndroidDeviceIDRequest { AndroidDeviceId = "GettingStartedGuide", CreateAccount = true };
+        var request = new LoginWithAndroidDeviceIDRequest { AndroidDevice = "GettingStartedGuide", CreateAccount = true };
         PlayFabClientAPI.LoginWithAndroidDeviceID(request, OnLoginSuccess, OnLoginFailure);
     }
 

@@ -141,5 +141,9 @@ public class CompanionScript : MonoBehaviour
         RealTimeScript.ResetClock();
 
     }
-     
+    private void OnApplicationQuit()
+    {
+        RealTimeScript.ResetClock();
+
+    }
 }
