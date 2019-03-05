@@ -136,9 +136,10 @@ public class CompanionScript : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
-
-    private void OnApplicationQuit()
+    private void OnApplicationPause(bool pause)
     {
         RealTimeScript.ResetClock();
+
     }
+     
 }
