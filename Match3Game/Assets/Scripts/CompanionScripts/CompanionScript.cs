@@ -28,21 +28,20 @@ public class CompanionScript : MonoBehaviour
 
     private void Start()
     {
-         RealTimerGameObj = GameObject.FindGameObjectWithTag("MainCamera");
+        RealTimerGameObj = GameObject.FindGameObjectWithTag("MainCamera");
         RealTimeScript = RealTimerGameObj.GetComponent<RealTimeCounter>();
-        Hunger = RealTimeScript.TimerCountDown  ;
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
-        PlayerPrefs.GetFloat("CurrentHunger");
 
     }
 
     private void Update()
     {
+
         HungerMetre.text = "" + Hunger;
         Hunger = Mathf.Clamp(Hunger, 0, 100);
 
-            Hunger -= Time.deltaTime;
+        Hunger -= Time.deltaTime;
         PlayerPrefs.SetFloat("CurrentHunger", Hunger);
 
         // if hunger less than 20
@@ -136,5 +135,10 @@ public class CompanionScript : MonoBehaviour
              Hunger += HungerMultiplier;
             Destroy(collision.gameObject);
         }
+    }
+
+    private void OnApplicationQuit()
+    {
+        RealTimeScript.ResetClock();
     }
 }

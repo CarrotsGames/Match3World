@@ -15,10 +15,11 @@ public class RealTimeCounter : MonoBehaviour
         CompScript = CompanionGameObj.GetComponent<CompanionScript>();
         // Starting timer amount
         // Update timer with real time passed
-        TimerCountDown -= TimeMasterScript.instance.CheckDate();
-
         TimerCountDown = PlayerPrefs.GetFloat("CurrentHunger");
-        
+        // update timer when real time passes 
+        TimerCountDown -= TimeMasterScript.instance.CheckDate();
+        CompScript.Hunger = TimerCountDown;
+
 
     }
 
@@ -32,23 +33,24 @@ public class RealTimeCounter : MonoBehaviour
 
     private void OnGUI()
     {
-      //  if(GUI.Button(new Rect(10,10,100,50), "SaveTime"))
-      //  {
-      //      ResetClock();
-      //  }
-      //  if (GUI.Button(new Rect(10, 150, 100, 50), "CheckTime"))
-      //  {
-      //      print(60 - TimeMasterScript.instance.CheckDate() + "In real Seconds has passed");
-      //  }
-      //
-      //  GUI.Label(new Rect(10, 150, 100, 50), TimerCountDown.ToString());
+         if(GUI.Button(new Rect(10,10,100,50), "SaveTime"))
+         {
+             ResetClock();
+         }
+         if (GUI.Button(new Rect(10, 150, 100, 50), "CheckTime"))
+         {
+             print(60 - TimeMasterScript.instance.CheckDate() + "In real Seconds has passed");
+         }
+       
+         GUI.Label(new Rect(10, 150, 100, 50), TimerCountDown.ToString());
 
     }
 
-    void ResetClock()
+    public void ResetClock()
     {
         TimeMasterScript.instance.SaveDate();
-        TimerCountDown = 50;
+        TimerCountDown = PlayerPrefs.GetFloat("CurrentHunger");
         TimerCountDown -= TimeMasterScript.instance.CheckDate();
     }
+   
 }
