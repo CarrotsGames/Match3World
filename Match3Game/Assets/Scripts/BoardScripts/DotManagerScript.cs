@@ -53,6 +53,7 @@ public class DotManagerScript : MonoBehaviour
         HighScore.text = "" + TotalScore;
         CampanionGameObj = GameObject.FindGameObjectWithTag("Companion");
         Companion = CampanionGameObj.GetComponent<CompanionScript>();
+        TotalScore = PlayerPrefs.GetFloat("SCORE");
           //HighlitedColour = GetComponent<Renderer>().material;
     }
 
@@ -62,7 +63,7 @@ public class DotManagerScript : MonoBehaviour
     {
         HighScore.text = "" + TotalScore;
         MultiplierText.text = "" + Multipier;
-
+        PlayerPrefs.SetFloat("SCORE", TotalScore);
         if (CheckConnection)
         {
             for (int i = 0; i < Peices.Count; i++)
