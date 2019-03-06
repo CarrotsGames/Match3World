@@ -24,24 +24,34 @@ public class CompanionScript : MonoBehaviour
     int HungerMultiplier = 1;
     // Must cap at 4
     public int[] multiplier;
-
+    public Slider HungerSlider;
 
     private void Start()
     {
+        // References the Realtimescript which is located on camera (TEMP)
         RealTimerGameObj = GameObject.FindGameObjectWithTag("MainCamera");
         RealTimeScript = RealTimerGameObj.GetComponent<RealTimeCounter>();
+        // Referneces DotManagerScript
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
-
+        // HungerSlider min and max
+        HungerSlider.maxValue = 99;
+        HungerSlider.minValue = 0f;
     }
 
     private void Update()
     {
-
-        HungerMetre.text = "" + Hunger;
+        // Displays hunger value (used in debug)
+        //HungerMetre.text = "" + Hunger;
+     
+        // clamps hunger from 0 to 100
         Hunger = Mathf.Clamp(Hunger, 0, 100);
-
-        Hunger -= Time.deltaTime;
+     
+        // Slowly counts down Hunger value
+        Hunger -= Time.deltaTime / 3;
+        HungerSlider.value = Hunger;
+       
+        // Saving Companions hunger value
         PlayerPrefs.SetFloat("CurrentHunger", Hunger);
 
         // if hunger less than 20
@@ -50,7 +60,7 @@ public class CompanionScript : MonoBehaviour
              dotManagerScript.Multipier = 1;
             // changes size of companion
             Vector3 newScale = new Vector3();
-            newScale.x = Mathf.Clamp(transform.localScale.y, 1, 1);
+            newScale.x = Mathf.Clamp(transform.localScale.y, 1, 0.5f);
             newScale.z = Mathf.Clamp(transform.localScale.y, 1, 1);
             newScale.y = Mathf.Clamp(transform.localScale.y, 0, 0.5f);
             transform.localScale = newScale ;
@@ -68,7 +78,7 @@ public class CompanionScript : MonoBehaviour
         {
             dotManagerScript.Multipier = multiplier[1];
             Vector3 newScale = new Vector3();
-            newScale.x = Mathf.Clamp(transform.localScale.y, 1, 1);
+            newScale.x = Mathf.Clamp(transform.localScale.y, 1, 2);
             newScale.z = Mathf.Clamp(transform.localScale.y, 1, 1);
             newScale.y = Mathf.Clamp(transform.localScale.y, 1, 2);
             transform.localScale = newScale;
@@ -77,7 +87,7 @@ public class CompanionScript : MonoBehaviour
         {
             dotManagerScript.Multipier = multiplier[2];
             Vector3 newScale = new Vector3();
-            newScale.x = Mathf.Clamp(transform.localScale.y, 1, 1);
+            newScale.x = Mathf.Clamp(transform.localScale.y, 1, 3);
             newScale.z = Mathf.Clamp(transform.localScale.y, 1, 1);
             newScale.y = Mathf.Clamp(transform.localScale.y, 2, 3);
             transform.localScale = newScale;
@@ -87,7 +97,7 @@ public class CompanionScript : MonoBehaviour
         {
             dotManagerScript.Multipier = multiplier[3];
             Vector3 newScale = new Vector3();
-            newScale.x = Mathf.Clamp(transform.localScale.y, 1, 1);
+            newScale.x = Mathf.Clamp(transform.localScale.y, 1, 6);
             newScale.z = Mathf.Clamp(transform.localScale.y, 1, 1);
             newScale.y = Mathf.Clamp(transform.localScale.y, 4, 5.5f);
             transform.localScale = newScale;
@@ -132,10 +142,11 @@ public class CompanionScript : MonoBehaviour
     {
         if(collision.gameObject.tag == "Red" || collision.gameObject.tag == "Blue" || collision.gameObject.tag == "Green" || collision.gameObject.tag == "Yellow")
         {
-             Hunger += HungerMultiplier;
+             Hunger += HungerMultiplier / 2;
             Destroy(collision.gameObject);
         }
     }
+    //when game closes save the current hugner and start counting down outside of the app
     private void OnApplicationPause(bool pause)
     {
         RealTimeScript.ResetClock();
