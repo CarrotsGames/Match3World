@@ -34,10 +34,10 @@ public class TimeMasterScript : MonoBehaviour
 
         // Convert OldTime from binary to a datetime variable
         DateTime OldDate = DateTime.FromBinary(TempLong);
-        print("OldDate :" + OldDate);
+      //  print("OldDate :" + OldDate);
 
         TimeSpan Difference = CurrentDate.Subtract(OldDate);
-        print("Difference :" + Difference);
+  //      print("Difference :" + Difference);
 
         return (float)Difference.TotalSeconds;
     }

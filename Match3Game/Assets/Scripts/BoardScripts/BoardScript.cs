@@ -63,7 +63,7 @@ public class BoardScript : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(AllDots.Length);
+ 
          if(transform.childCount < Total)
        {
             

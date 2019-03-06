@@ -17,7 +17,7 @@ public class RealTimeCounter : MonoBehaviour
         // Update timer with real time passed
         TimerCountDown = PlayerPrefs.GetFloat("CurrentHunger");
         // update timer when real time passes 
-        TimerCountDown -= TimeMasterScript.instance.CheckDate() / 4;
+        TimerCountDown -= TimeMasterScript.instance.CheckDate() / 6;
         CompScript.Hunger = TimerCountDown;
 
 

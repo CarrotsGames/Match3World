@@ -60,36 +60,36 @@ public class CompanionScript : MonoBehaviour
              dotManagerScript.Multipier = 1;
             // changes size of companion
             Vector3 newScale = new Vector3();
-            newScale.x = Mathf.Clamp(transform.localScale.y, 1, 0.5f);
-            newScale.z = Mathf.Clamp(transform.localScale.y, 1, 1);
-            newScale.y = Mathf.Clamp(transform.localScale.y, 0, 0.5f);
+            newScale.x = Mathf.Clamp(transform.localScale.x, 1, 1);
+            newScale.z = Mathf.Clamp(transform.localScale.z, 1, 1);
+            newScale.y = Mathf.Clamp(transform.localScale.y, 0, 1);
             transform.localScale = newScale ;
         }
         if(Hunger > 20 && Hunger < 40)
         {
             dotManagerScript.Multipier = multiplier[0];
             Vector3 newScale = new Vector3();
-            newScale.x = Mathf.Clamp(transform.localScale.y, 1, 1);
-            newScale.z = Mathf.Clamp(transform.localScale.y, 1, 1);
-            newScale.y = Mathf.Clamp(transform.localScale.y, 1, 1);
+            newScale.x = Mathf.Clamp(transform.localScale.x, 2, 2);
+            newScale.z = Mathf.Clamp(transform.localScale.z, 1, 1);
+            newScale.y = Mathf.Clamp(transform.localScale.y, 2, 2);
             transform.localScale = newScale;
         }
         if (Hunger > 40 && Hunger < 60)
         {
             dotManagerScript.Multipier = multiplier[1];
             Vector3 newScale = new Vector3();
-            newScale.x = Mathf.Clamp(transform.localScale.y, 1, 2);
-            newScale.z = Mathf.Clamp(transform.localScale.y, 1, 1);
-            newScale.y = Mathf.Clamp(transform.localScale.y, 1, 2);
+            newScale.x = Mathf.Clamp(transform.localScale.x, 1, 3);
+            newScale.z = Mathf.Clamp(transform.localScale.z, 1, 1);
+            newScale.y = Mathf.Clamp(transform.localScale.y, 1, 3);
             transform.localScale = newScale;
         }
         if (Hunger > 60 && Hunger < 80)
         {
             dotManagerScript.Multipier = multiplier[2];
             Vector3 newScale = new Vector3();
-            newScale.x = Mathf.Clamp(transform.localScale.y, 1, 3);
-            newScale.z = Mathf.Clamp(transform.localScale.y, 1, 1);
-            newScale.y = Mathf.Clamp(transform.localScale.y, 2, 3);
+            newScale.x = Mathf.Clamp(transform.localScale.x, 1, 4.5f);
+            newScale.z = Mathf.Clamp(transform.localScale.z, 1, 1);
+            newScale.y = Mathf.Clamp(transform.localScale.y, 2, 4.5f);
             transform.localScale = newScale;
 
         }
@@ -97,7 +97,7 @@ public class CompanionScript : MonoBehaviour
         {
             dotManagerScript.Multipier = multiplier[3];
             Vector3 newScale = new Vector3();
-            newScale.x = Mathf.Clamp(transform.localScale.y, 1, 6);
+            newScale.x = Mathf.Clamp(transform.localScale.y, 1, 5.5f);
             newScale.z = Mathf.Clamp(transform.localScale.y, 1, 1);
             newScale.y = Mathf.Clamp(transform.localScale.y, 4, 5.5f);
             transform.localScale = newScale;
