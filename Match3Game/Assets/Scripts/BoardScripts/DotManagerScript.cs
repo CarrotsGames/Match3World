@@ -31,7 +31,7 @@ public class DotManagerScript : MonoBehaviour
     public int LineCount;
     public int Limit;
     public int NumOfPeices;
-    public float TotalScore;
+    public int TotalScore;
     public bool CheckConnection;
     public bool ResetDotLayers;
 
@@ -53,7 +53,7 @@ public class DotManagerScript : MonoBehaviour
         HighScore.text = "" + TotalScore;
         CampanionGameObj = GameObject.FindGameObjectWithTag("Companion");
         Companion = CampanionGameObj.GetComponent<CompanionScript>();
-        TotalScore = PlayerPrefs.GetFloat("SCORE");
+        TotalScore = PlayerPrefs.GetInt("SCORE");
           //HighlitedColour = GetComponent<Renderer>().material;
     }
 
@@ -63,7 +63,7 @@ public class DotManagerScript : MonoBehaviour
     {
         HighScore.text = "" + TotalScore;
         MultiplierText.text = "" + Multipier;
-        PlayerPrefs.SetFloat("SCORE", TotalScore);
+        PlayerPrefs.SetInt("SCORE", TotalScore);
         if (CheckConnection)
         {
             for (int i = 0; i < Peices.Count; i++)
