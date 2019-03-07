@@ -2,7 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
-
+using PlayFab;
+using PlayFab.ClientModels;
 public class CompanionScript : MonoBehaviour
 {
     public List<GameObject> EatingPeices;
@@ -150,11 +151,13 @@ public class CompanionScript : MonoBehaviour
     private void OnApplicationPause(bool pause)
     {
         RealTimeScript.ResetClock();
-
+    
     }
     private void OnApplicationQuit()
     {
         RealTimeScript.ResetClock();
+
+      
 
     }
 }
