@@ -2,21 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class LoadScene : MonoBehaviour {
+    public GameObject scoreboard;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public void Awake()
+    {
+        scoreboard.SetActive(false);
+    }
 
     public void SceneLoad()
     {
         SceneManager.LoadScene("Gobu Level");
+    }
+
+    public void DesplayLeaderboard()
+    {
+        scoreboard.SetActive(true);
+    }
+
+    public void TurnOffScoreboard()
+    {
+        scoreboard.SetActive(false);
     }
 
 }
