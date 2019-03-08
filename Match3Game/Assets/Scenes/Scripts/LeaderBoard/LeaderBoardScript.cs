@@ -14,6 +14,8 @@ using System.Collections.Generic;
     List<Text> ListNames;
     Vector3 Names;
     int OffsetY;
+    int i;
+ 
     private void Start()
     {
         //    DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
@@ -55,14 +57,14 @@ using System.Collections.Generic;
         }, result =>
         {
             Debug.Log("Leaderboard version: " + result.Version);
-            foreach (var entry in result.Leaderboard)
-            {
-                for (int i = 0; i < ListNames.Count; i++)
+                foreach (var entry in result.Leaderboard)
                 {
+
                     Debug.Log(entry.PlayFabId + " " + entry.StatValue);
-                    ListNames[i].text = entry.PlayFabId;
+                    ListNames[i].text = entry.PlayFabId + " " + entry.StatValue;
+                    i++;
                 }
-            }
+             
         }, OnLoginFailure);
 
     }
