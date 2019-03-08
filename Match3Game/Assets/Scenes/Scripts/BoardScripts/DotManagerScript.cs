@@ -9,14 +9,18 @@ public class DotManagerScript : MonoBehaviour
     CompanionScript Companion;
     GameObject CampanionGameObj;
 
+    public DotScript dotScript;
     public List<GameObject> Peices;
     public List<GameObject> RedPieces;
     public List<GameObject> BluePieces;
     public List<GameObject> GreenPieces;
     public List<GameObject> YellowPieces;
-    public DotScript dotScript;
     public GameObject DotGameObj;
-
+    public GameObject ParticleEffectPink;
+    public GameObject ParticleEffectPurple;
+    public GameObject ParticleEffectBlue;
+    public GameObject ParticleEffectYellow;
+    
     public Material Red;
     public Material Blue;
     public Material Green;
@@ -34,7 +38,7 @@ public class DotManagerScript : MonoBehaviour
     public int TotalScore;
     public bool CheckConnection;
     public bool ResetDotLayers;
-
+    public bool StartHighliting;
     private int RedCount;
     private int BlueCount;
     private int YellowCount;
@@ -45,8 +49,9 @@ public class DotManagerScript : MonoBehaviour
 
     private void Start()
     {
+        StartHighliting = false;
         LineCount = 0;
-           Multipier = 1;
+        Multipier = 1;
         CheckConnection = false;
         ResetDotLayers = false;
         MultiplierText.text = "" + Multipier;
@@ -118,8 +123,7 @@ public class DotManagerScript : MonoBehaviour
                 for (test = 0; test < RedCount; test++)
                 {
                     RedPieces[test].layer = LayerMask.GetMask("Default");
-                     RedPieces[test].transform.localScale += new Vector3(1, 1, 1) * Time.deltaTime;
-
+                    Instantiate(ParticleEffectPink, RedPieces[test].transform.position, Quaternion.identity);
                     Companion.EatingPeices.Add(RedPieces[test]);
 
                 }
@@ -137,8 +141,8 @@ public class DotManagerScript : MonoBehaviour
                 for (int i = 0; i < BlueCount; i++)
                 {
                     BluePieces[i].layer = LayerMask.GetMask("Default");
+                    Instantiate(ParticleEffectBlue, BluePieces[i].transform.position, Quaternion.identity);
                     Companion.EatingPeices.Add(BluePieces[i]);
-
                 }
                 Companion.FeedMonster();
 
@@ -156,6 +160,7 @@ public class DotManagerScript : MonoBehaviour
                 for (int i = 0; i < YellowCount; i++)
                 {
                     YellowPieces[i].layer = LayerMask.GetMask("Default");
+                    Instantiate(ParticleEffectPurple, YellowPieces[i].transform.position, Quaternion.identity);
                     Companion.EatingPeices.Add(YellowPieces[i]);
                 }
                 Companion.FeedMonster();
@@ -172,6 +177,7 @@ public class DotManagerScript : MonoBehaviour
                 for (int i = 0; i < GreenCount; i++)
                 {
                     GreenPieces[i].layer = LayerMask.GetMask("Default");
+                    Instantiate(ParticleEffectYellow, GreenPieces[i].transform.position, Quaternion.identity);
                     Companion.EatingPeices.Add(GreenPieces[i]);
 
                 }
@@ -201,7 +207,7 @@ public class DotManagerScript : MonoBehaviour
             }
             Peices.Clear();
         }
- 
+  
 }
 
 

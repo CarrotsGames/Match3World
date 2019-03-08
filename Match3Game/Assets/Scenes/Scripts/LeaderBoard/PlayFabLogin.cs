@@ -84,7 +84,7 @@ public class PlayFabLogin : MonoBehaviour
             foreach (var entry in result.Leaderboard)
             {
                  Debug.Log(entry.PlayFabId + " " + entry.StatValue);
-             }
+            }
         }, OnLoginFailure);
  
      }

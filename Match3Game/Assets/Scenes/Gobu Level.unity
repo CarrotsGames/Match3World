@@ -232,46 +232,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41ca32ebf83818749840559a5f6bcfb2, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &123162506
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 123162508}
-  - component: {fileID: 123162507}
-  m_Layer: 0
-  m_Name: PlayerTracker
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &123162507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 123162506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd347ef788290ee44860a6028f2ec191, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &123162508
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 123162506}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 68.30099, y: -101.081696, z: 54.0849}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &128792883
 GameObject:
   m_ObjectHideFlags: 0
@@ -2730,6 +2690,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1769281169
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4778895993398186, guid: 4f44b75f02601ed4083c9fd0fa0e3c8e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 68.30099
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778895993398186, guid: 4f44b75f02601ed4083c9fd0fa0e3c8e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -101.081696
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778895993398186, guid: 4f44b75f02601ed4083c9fd0fa0e3c8e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 54.0849
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778895993398186, guid: 4f44b75f02601ed4083c9fd0fa0e3c8e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778895993398186, guid: 4f44b75f02601ed4083c9fd0fa0e3c8e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778895993398186, guid: 4f44b75f02601ed4083c9fd0fa0e3c8e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778895993398186, guid: 4f44b75f02601ed4083c9fd0fa0e3c8e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778895993398186, guid: 4f44b75f02601ed4083c9fd0fa0e3c8e, type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4f44b75f02601ed4083c9fd0fa0e3c8e, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1781371921
 GameObject:
   m_ObjectHideFlags: 0
@@ -3192,13 +3194,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174f0ccf27e22164d8dc00a9fcfa2442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dotScript: {fileID: 0}
   Peices: []
   RedPieces: []
   BluePieces: []
   GreenPieces: []
   YellowPieces: []
-  dotScript: {fileID: 0}
   DotGameObj: {fileID: 0}
+  ParticleEffectPink: {fileID: 1027911067415168, guid: 071592eff157bd84bba65ec6607e4c79,
+    type: 2}
+  ParticleEffectPurple: {fileID: 1264937599882002, guid: f9451634ded45ee43bde427f7fc7d874,
+    type: 2}
+  ParticleEffectBlue: {fileID: 1493089887617210, guid: 922e05bd1b2152c43b9692eab8262a98,
+    type: 2}
+  ParticleEffectYellow: {fileID: 1718129443868558, guid: d741843d787cb7b4c85a074712673b0b,
+    type: 2}
   Red: {fileID: 2100000, guid: 42944a42ec16d2b47a640b6313923061, type: 2}
   Blue: {fileID: 2100000, guid: 42f09c1d07f6bec4aabf45eec21cfc2f, type: 2}
   Green: {fileID: 2100000, guid: 5e4b73e8166369b46b402cd33e366c12, type: 2}
@@ -3215,6 +3225,7 @@ MonoBehaviour:
   TotalScore: 0
   CheckConnection: 0
   ResetDotLayers: 0
+  StartHighliting: 0
   HighScore: {fileID: 583962603}
   MultiplierText: {fileID: 2142612142}
 --- !u!4 &2085261490
