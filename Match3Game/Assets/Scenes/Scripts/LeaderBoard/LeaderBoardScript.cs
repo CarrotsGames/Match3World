@@ -10,24 +10,43 @@ using System.Collections.Generic;
     GameObject DotManagerObj;
     DotManagerScript dotManagerScript;
     public int[] NumberOfNames;
-    public GameObject Text;
+    public Text text;
     List<Text> ListNames;
     Vector3 Names;
     int OffsetY;
     private void Start()
     {
-     //    DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
-     //   dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
+        //    DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
+        //   dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
+        ListNames = new List<Text>();
         OffsetY = 0;
         for (int i = 0; i < NumberOfNames.Length; i++)
         {
-            GameObject Go;
-            Go = Instantiate(Text, transform.position + new Vector3(0, OffsetY, 0), Quaternion.identity) as GameObject;
+            Text Go;
+            Go = Instantiate(text, transform.position + new Vector3(0, OffsetY, 0), Quaternion.identity) as Text;
             Go.transform.parent = transform;
-            OffsetY += 30;
+            ListNames.Add(Go);
+            OffsetY -= 35;
         }
+        if (string.IsNullOrEmpty(PlayFabSettings.TitleId))
+        {
+            PlayFabSettings.TitleId = "(DE2C) Superflat Connect 3";
+        }
+        PlayFabClientAPI.LoginWithAndroidDeviceID(new LoginWithAndroidDeviceIDRequest()
+        {
+            CreateAccount = true,
+            AndroidDeviceId = SystemInfo.deviceUniqueIdentifier
+
+        }, result =>
+        {
+            Debug.Log("Logged in");
+            LoggedIn();
+
+            // Refresh available items 
+        }, error => Debug.LogError(error.GenerateErrorReport()));
+
     }
-  
+
     void LoggedIn()
     {
         PlayFabClientAPI.GetLeaderboard(new GetLeaderboardRequest()
@@ -38,11 +57,20 @@ using System.Collections.Generic;
             Debug.Log("Leaderboard version: " + result.Version);
             foreach (var entry in result.Leaderboard)
             {
-                Debug.Log(entry.PlayFabId + " " + entry.StatValue);
+                for (int i = 0; i < ListNames.Count; i++)
+                {
+                    Debug.Log(entry.PlayFabId + " " + entry.StatValue);
+                    ListNames[i].text = entry.PlayFabId;
+                }
             }
         }, OnLoginFailure);
 
     }
+    private void OnLoginSuccess(LoginResult result)
+    {
+        Debug.Log("Congratulations, you made your first successful API call!");
+    }
+
     private void OnLoginFailure(PlayFabError error)
     {
 
@@ -50,4 +78,5 @@ using System.Collections.Generic;
         Debug.LogError("Here's some debug information:");
         Debug.LogError(error.GenerateErrorReport());
     }
+    
 }
