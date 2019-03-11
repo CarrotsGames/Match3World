@@ -143,7 +143,8 @@ public class CompanionScript : MonoBehaviour
     {
         if(collision.gameObject.tag == "Red" || collision.gameObject.tag == "Blue" || collision.gameObject.tag == "Green" || collision.gameObject.tag == "Yellow")
         {
-             Hunger += HungerMultiplier / 2;
+            dotManagerScript.HighScore.text = "" + dotManagerScript.TotalScore;
+            Hunger += HungerMultiplier / 2;
             Destroy(collision.gameObject);
         }
     }

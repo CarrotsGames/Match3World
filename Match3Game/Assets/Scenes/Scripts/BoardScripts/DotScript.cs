@@ -18,7 +18,7 @@ public class DotScript : MonoBehaviour
     private BoardScript Board;
 
     AudioSource audio;
-    DotManagerScript DotManagerScript;
+    DotManagerScript dotManagerScript;
     GameObject DotManagerObj;
     LineRenderer DrawLine;
     Collider2D col2d;
@@ -26,7 +26,6 @@ public class DotScript : MonoBehaviour
       // Use this for initialization
     void Start()
     {
-
         audio = GetComponent<AudioSource>();
         DrawLine = GetComponent<LineRenderer>();
         DrawLine.enabled = false;
@@ -35,7 +34,7 @@ public class DotScript : MonoBehaviour
         ClearNeighbours = false;
         col2d = GetComponent<Collider2D>();
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
-        DotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
+        dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
         Board = FindObjectOfType<BoardScript>();
         Default = GetComponent<Renderer>().material;
       }
@@ -55,36 +54,40 @@ public class DotScript : MonoBehaviour
     private void OnMouseExit()
     {
         // Decreases size of peice when selected
-
-        Vector3 newScale = new Vector3();
-        newScale.x = Mathf.Clamp(transform.localScale.y, 0.65f, 0.65f);
-        newScale.z = Mathf.Clamp(transform.localScale.y, 0.65f, 0.65f);
-        newScale.y = Mathf.Clamp(transform.localScale.y, 0.65f, 0.65f);
-        transform.localScale = newScale;        
-           
+        if (dotManagerScript.StartHighliting == true)
+        {
+            Vector3 newScale = new Vector3();
+            newScale.x = Mathf.Clamp(transform.localScale.y, 0.65f, 0.65f);
+            newScale.z = Mathf.Clamp(transform.localScale.y, 0.65f, 0.65f);
+            newScale.y = Mathf.Clamp(transform.localScale.y, 0.65f, 0.65f);
+            transform.localScale = newScale;
+        }
     }
 
     private void OnMouseEnter()
-    {        
-        // Increases size of peice when selected
-        Vector3 newScale = new Vector3();
-        newScale.x = Mathf.Clamp(transform.localScale.y, 0.80f, 0.80f);
-        newScale.z = Mathf.Clamp(transform.localScale.y, 0.80f, 0.80f);
-        newScale.y = Mathf.Clamp(transform.localScale.y, 0.80f, 0.80f);
-        transform.localScale = newScale;
-        audio.PlayDelayed(0.15f);
+    {
+        if (dotManagerScript.StartHighliting == true)
+        {
+            // Increases size of peice when selected
+            Vector3 newScale = new Vector3();
+            newScale.x = Mathf.Clamp(transform.localScale.y, 0.80f, 0.80f);
+            newScale.z = Mathf.Clamp(transform.localScale.y, 0.80f, 0.80f);
+            newScale.y = Mathf.Clamp(transform.localScale.y, 0.80f, 0.80f);
+            transform.localScale = newScale;
+            audio.PlayDelayed(0.15f);
+        }
     }
     private void OnMouseDown()
     {
-        DotManagerScript.Peices.Clear();
+        dotManagerScript.Peices.Clear();
 
         DrawLine.SetPosition(0, transform.position);
-
+        dotManagerScript.StartHighliting = true;
         // Increases size of peice when selected
         Vector3 newScale = new Vector3();
-        newScale.x = Mathf.Clamp(transform.localScale.x, 0.65f, 0.65f);
-        newScale.z = Mathf.Clamp(transform.localScale.z, 0.65f, 0.65f);
-        newScale.y = Mathf.Clamp(transform.localScale.y, 0.65f, 0.65f);
+        newScale.x = Mathf.Clamp(transform.localScale.x, 0.80f, 0.80f);
+        newScale.z = Mathf.Clamp(transform.localScale.z, 0.80f, 0.80f);
+        newScale.y = Mathf.Clamp(transform.localScale.y, 0.80f, 0.80f);
         transform.localScale = newScale;
         // changes colour of peice to black
         this.gameObject.GetComponent<Renderer>().material.color = Color.black;
@@ -120,7 +123,7 @@ public class DotScript : MonoBehaviour
                         neighbours.Add(dot.gameObject);
                         dot.gameObject.GetComponent<DotScript>().GrowSize = true;
 
-                        DotManagerScript.GetComponent<DotManagerScript>().NumberOfNeighbours += 1;
+                        dotManagerScript.GetComponent<DotManagerScript>().NumberOfNeighbours += 1;
  
                     }
 
@@ -136,7 +139,7 @@ public class DotScript : MonoBehaviour
 
             if (hitInfo.collider.gameObject.layer == 10)
              {
-                if (DotManagerScript.Peices.Contains(hitInfo.collider.gameObject))
+                if (dotManagerScript.Peices.Contains(hitInfo.collider.gameObject))
                 {
        
 
@@ -146,25 +149,25 @@ public class DotScript : MonoBehaviour
                 {
                      hitInfo.collider.gameObject.GetComponent<Renderer>().material.color = Color.black;
                     // draws line renderer to hit position
-                    DrawLine.SetPosition(DotManagerScript.LineCount, hitInfo.collider.gameObject.transform.position);
+                    DrawLine.SetPosition(dotManagerScript.LineCount, hitInfo.collider.gameObject.transform.position);
                     // increases linecount so it can be drawn onto the next peice
-                    DotManagerScript.LineCount += 1;
+                    dotManagerScript.LineCount += 1;
                     // increase amount of line renderer positions
                     DrawLine.positionCount += 1;
 
-                    if(DotManagerScript.LineCount < 2)
+                    if(dotManagerScript.LineCount < 2)
                     {
-                        DrawLine.SetPosition(DotManagerScript.LineCount, transform.position );
+                        DrawLine.SetPosition(dotManagerScript.LineCount, transform.position );
 
                     }
                     else
                     {
-                        DrawLine.SetPosition(DotManagerScript.LineCount, hitInfo.collider.gameObject.transform.position  );
+                        DrawLine.SetPosition(dotManagerScript.LineCount, hitInfo.collider.gameObject.transform.position  );
 
                     }
 
                     // adds hit.collider to Peices list
-                    DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
+                    dotManagerScript.Peices.Add(hitInfo.collider.gameObject);
 
                 }
                 Debug.Log(hitInfo.collider.name);
@@ -191,9 +194,10 @@ public class DotScript : MonoBehaviour
         newScale.z = Mathf.Clamp(transform.localScale.y, 0.65f, 0.65f);
         newScale.y = Mathf.Clamp(transform.localScale.y, 0.65f, 0.65f);
         transform.localScale = newScale;
+        dotManagerScript.StartHighliting = false;
 
-        // Goes into dotmanagerscript to check if there was a connection
-        DotManagerScript.CheckConnection = true;
+        // Goes into dotManagerScript to check if there was a connection
+        dotManagerScript.CheckConnection = true;
         // Resets Linerenderer
         DrawLine.positionCount = 1;
         // Resets peices material and layer
