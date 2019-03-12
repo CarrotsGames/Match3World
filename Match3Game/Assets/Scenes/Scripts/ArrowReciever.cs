@@ -22,4 +22,10 @@ public class ArrowReciever : MonoBehaviour {
     {
         creatureSelectScript.LeftArrowClicked();
     }
+
+    public void CreatureClicked()
+    {
+        creatureSelectScript.LoadCreatureLevels();
+    }
+
 }
