@@ -1112,8 +1112,8 @@ GameObject:
   - component: {fileID: 1203311072}
   - component: {fileID: 1203311071}
   - component: {fileID: 1203311070}
-  - component: {fileID: 1203311069}
   - component: {fileID: 1203311068}
+  - component: {fileID: 1203311069}
   m_Layer: 5
   m_Name: Binky
   m_TagString: Untagged
@@ -1143,10 +1143,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1203311067}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee19b9d9f4c910943bf3d899ebcd7654, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a9cec1fbf5dae64292c86b951ea02e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreboard: {fileID: 330996370}
+  gameManager: {fileID: 345140899}
 --- !u!114 &1203311070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1187,7 +1187,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1203311069}
-        m_MethodName: SceneLoad
+        m_MethodName: CreatureClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1262,8 +1262,8 @@ GameObject:
   - component: {fileID: 1338668414}
   - component: {fileID: 1338668413}
   - component: {fileID: 1338668415}
-  - component: {fileID: 1338668416}
   - component: {fileID: 1338668417}
+  - component: {fileID: 1338668416}
   m_Layer: 5
   m_Name: Gobu
   m_TagString: Untagged
@@ -1363,7 +1363,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1338668416}
-        m_MethodName: SceneLoad
+        m_MethodName: CreatureClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1383,10 +1383,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1338668411}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee19b9d9f4c910943bf3d899ebcd7654, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a9cec1fbf5dae64292c86b951ea02e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreboard: {fileID: 330996370}
+  gameManager: {fileID: 345140899}
 --- !u!114 &1338668417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1944,8 +1944,8 @@ GameObject:
   - component: {fileID: 1919438122}
   - component: {fileID: 1919438121}
   - component: {fileID: 1919438120}
-  - component: {fileID: 1919438119}
   - component: {fileID: 1919438118}
+  - component: {fileID: 1919438119}
   m_Layer: 5
   m_Name: Koko
   m_TagString: Untagged
@@ -1975,10 +1975,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1919438117}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee19b9d9f4c910943bf3d899ebcd7654, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a9cec1fbf5dae64292c86b951ea02e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreboard: {fileID: 330996370}
+  gameManager: {fileID: 345140899}
 --- !u!114 &1919438120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2019,7 +2019,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1919438119}
-        m_MethodName: SceneLoad
+        m_MethodName: CreatureClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2383,7 +2383,7 @@ GameObject:
   - component: {fileID: 2041481288}
   - component: {fileID: 2041481285}
   m_Layer: 5
-  m_Name: Button
+  m_Name: LeaderbardUI Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
