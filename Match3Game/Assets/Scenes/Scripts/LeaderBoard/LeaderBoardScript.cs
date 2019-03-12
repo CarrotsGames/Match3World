@@ -15,7 +15,7 @@ using System.Collections.Generic;
     Vector3 Names;
     int OffsetY;
     int i;
- 
+     public InputField NameTextBox;
     private void Start()
     {
         //    DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
@@ -43,12 +43,28 @@ using System.Collections.Generic;
         {
             Debug.Log("Logged in");
             LoggedIn();
+            UpdateName();
 
             // Refresh available items 
         }, error => Debug.LogError(error.GenerateErrorReport()));
 
     }
 
+   public void UpdateName()
+    {
+        PlayFabClientAPI.UpdateUserTitleDisplayName(new UpdateUserTitleDisplayNameRequest()
+        {
+             DisplayName = NameTextBox.text
+
+        }, success =>
+        {
+            Debug.Log("Name Changed to " + NameTextBox.text);
+         }, failure =>
+        {
+            Debug.Log(failure.ErrorMessage); //this is line 106
+
+        });
+    }
     void LoggedIn()
     {
         PlayFabClientAPI.GetLeaderboard(new GetLeaderboardRequest()
@@ -60,8 +76,8 @@ using System.Collections.Generic;
                 foreach (var entry in result.Leaderboard)
                 {
 
-                    Debug.Log(entry.PlayFabId + " " + entry.StatValue);
-                    ListNames[i].text = entry.PlayFabId + " " + entry.StatValue;
+                    Debug.Log(entry.DisplayName + " " + entry.StatValue);
+                    ListNames[i].text = entry.DisplayName + " " + entry.StatValue;
                     i++;
                 }
              

@@ -47,6 +47,11 @@ public class DotManagerScript : MonoBehaviour
     public Text HighScore;
     public Text MultiplierText;
 
+    private void Awake()
+    {
+        TotalScore = PlayerPrefs.GetInt("SCORE");
+        HighScore.text = "" + TotalScore;
+    }
     private void Start()
     {
         StartHighliting = false;
@@ -65,10 +70,9 @@ public class DotManagerScript : MonoBehaviour
     }
 
 
-
     private void Update()
     {
-        MultiplierText.text = "" + Multipier;
+         MultiplierText.text = "" + Multipier;
         PlayerPrefs.SetInt("SCORE", TotalScore);
         if (CheckConnection)
         {

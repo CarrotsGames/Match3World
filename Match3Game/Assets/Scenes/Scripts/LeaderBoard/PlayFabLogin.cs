@@ -9,11 +9,9 @@ public class PlayFabLogin : MonoBehaviour
     GameObject DotManagerObj;
     DotManagerScript dotManagerScript;
     float UpdateScoreTimer;
-    bool KeepScoreOn;
     public void Start()
     {
-        KeepScoreOn = false;
-        UpdateScoreTimer = 10;
+         UpdateScoreTimer = 10;
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
         //Note: Setting title Id here can be skipped if you have set the value in Editor Extensions already.
@@ -21,20 +19,8 @@ public class PlayFabLogin : MonoBehaviour
         {
             PlayFabSettings.TitleId = "(DE2C) Superflat Connect 3"; // Please change this value to your own titleId from PlayFab Game Manager
         }
-        // var request = new LoginWithCustomIDRequest { CustomId = "GettingStartedGuide", CreateAccount = true };
-        // PlayFabClientAPI.LoginWithCustomID(request, OnLoginSuccess, OnLoginFailure);
-        // LoginWithAndroidDeviceIDRequest request = new LoginWithAndroidDeviceIDRequest()
-        //
-        // 
-        // request.AndroidDevice = SystemInfo.deviceModel;
-        // request.AndroidDeviceId = SystemInfo.deviceUniqueIdentifier;
-        // request.OS = SystemInfo.operatingSystem;
-        // request.CreateAccount = true;
-        // request.TitleId = "(DE2C) Superflat Connect 3";
-        // PlayFabClientAPI.LoginWithAndroidDeviceID(request, OnLoginSuccess, OnLoginFailure);
-        
-        
-        // Login with Android ID
+    
+         // Login with Android ID
         PlayFabClientAPI.LoginWithAndroidDeviceID(new LoginWithAndroidDeviceIDRequest()
         {
             CreateAccount = true,
@@ -43,7 +29,7 @@ public class PlayFabLogin : MonoBehaviour
         }, result =>
         {
             Debug.Log("Logged in");
-            LoggedIn();
+            GetLeaderBoard();
 
             // Refresh available items 
         }, error => Debug.LogError(error.GenerateErrorReport()));
@@ -53,6 +39,7 @@ public class PlayFabLogin : MonoBehaviour
     private void Update()
     {
         UpdateScoreTimer -= Time.deltaTime;
+     
 
         if (UpdateScoreTimer < 0)
         {
@@ -72,8 +59,7 @@ public class PlayFabLogin : MonoBehaviour
         }
     }
 
-    
-    void LoggedIn()
+    void GetLeaderBoard()
     {
         PlayFabClientAPI.GetLeaderboard(new GetLeaderboardRequest()
         {
@@ -83,7 +69,7 @@ public class PlayFabLogin : MonoBehaviour
             Debug.Log("Leaderboard version: " + result.Version);
             foreach (var entry in result.Leaderboard)
             {
-                 Debug.Log(entry.PlayFabId + " " + entry.StatValue);
+                 Debug.Log(entry.DisplayName + " " + entry.StatValue);
             }
         }, OnLoginFailure);
  
