@@ -5,7 +5,8 @@ using UnityEngine.UI;
 public class ChangeNameScript : MonoBehaviour
 {
     GameObject LeaderBoardGameObj;
-     LeaderBoardScript LeaderScript;
+    LeaderBoardScript LeaderScript;
+    
     // Use this for initialization
     void Start()
     {
