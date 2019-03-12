@@ -47,6 +47,11 @@ public class DotManagerScript : MonoBehaviour
     public Text HighScore;
     public Text MultiplierText;
 
+    private void Awake()
+    {
+        TotalScore = PlayerPrefs.GetInt("SCORE");
+        HighScore.text = "" + TotalScore;
+    }
     private void Start()
     {
         StartHighliting = false;
@@ -59,15 +64,15 @@ public class DotManagerScript : MonoBehaviour
         CampanionGameObj = GameObject.FindGameObjectWithTag("Companion");
         Companion = CampanionGameObj.GetComponent<CompanionScript>();
         TotalScore = PlayerPrefs.GetInt("SCORE");
-          //HighlitedColour = GetComponent<Renderer>().material;
-    }
+        HighScore.text = "" + TotalScore;
 
+        //HighlitedColour = GetComponent<Renderer>().material;
+    }
 
 
     private void Update()
     {
-        HighScore.text = "" + TotalScore;
-        MultiplierText.text = "" + Multipier;
+         MultiplierText.text = "" + Multipier;
         PlayerPrefs.SetInt("SCORE", TotalScore);
         if (CheckConnection)
         {
@@ -209,7 +214,3 @@ public class DotManagerScript : MonoBehaviour
         }
   
 }
-
-
-
- 
