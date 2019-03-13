@@ -53,6 +53,7 @@ public class DotScript : MonoBehaviour
 
         }
       
+
     }
     private void OnMouseExit()
     {
@@ -67,7 +68,7 @@ public class DotScript : MonoBehaviour
         }
     }
 
-    private void OnMouseEnter()
+    private void OnMouseOver()
     {
         if (dotManagerScript.StartHighliting == true)
         {
@@ -79,11 +80,19 @@ public class DotScript : MonoBehaviour
             transform.localScale = newScale;
             audio.PlayDelayed(0.15f);
         }
+       else
+        {
+            //  dotManagerScript.StartHighliting = false;
+            Vector3 newScale = new Vector3();
+            newScale.x = Mathf.Clamp(transform.localScale.y, 0.8f, 0.8f);
+            newScale.z = Mathf.Clamp(transform.localScale.y, 0.8f, 0.8f);
+            newScale.y = Mathf.Clamp(transform.localScale.y, 0.8f, 0.8f);
+            transform.localScale = newScale;
+        }
     }
     private void OnMouseDown()
     {
         dotManagerScript.Peices.Clear();
-
         DrawLine.SetPosition(0, transform.position);
         dotManagerScript.StartHighliting = true;
         // Increases size of peice when selected
@@ -187,31 +196,35 @@ public class DotScript : MonoBehaviour
         }
        
     }
+ 
     private void OnMouseUp()
     {
-        // turns off highlite
-        ToggleHighlite = 0;
-        // Resets size of peices
-        Vector3 newScale = new Vector3();
-        newScale.x = Mathf.Clamp(transform.localScale.y, 0.8f, 0.8f);
-        newScale.z = Mathf.Clamp(transform.localScale.y, 0.8f, 0.8f);
-        newScale.y = Mathf.Clamp(transform.localScale.y, 0.8f, 0.8f);
-        transform.localScale = newScale;
-        dotManagerScript.StartHighliting = false;
-
-        // Goes into dotManagerScript to check if there was a connection
-        dotManagerScript.CheckConnection = true;
+        
         // Resets Linerenderer
         DrawLine.positionCount = 1;
+
+        // turns off highlite
+        ToggleHighlite = 0;
+
         // Resets peices material and layer
         this.gameObject.GetComponent<Renderer>().material = Default;
         this.gameObject.layer = LayerMask.GetMask("Default");
+
         // makes peices unable to grow
         GrowSize = false;
         // Resets neighbour list
         ClearNeighbours = true;
-
+        // Goes into dotManagerScript to check if there was a connection
+        dotManagerScript.CheckConnection = true;
         dotManagerScript.MouseCursorObj.SetActive(false);
+
+        // Resets size of peices  
+         Vector3 newScale = new Vector3();
+         newScale.x = Mathf.Clamp(transform.localScale.y, 0.8f, 0.8f);
+         newScale.z = Mathf.Clamp(transform.localScale.y, 0.8f, 0.8f);
+         newScale.y = Mathf.Clamp(transform.localScale.y, 0.8f, 0.8f);
+         transform.localScale = newScale;
+       
 
     }
 

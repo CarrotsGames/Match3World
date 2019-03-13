@@ -31,7 +31,7 @@ public class DotManagerScript : MonoBehaviour
     public bool CheckConnection;
     public bool ResetDotLayers;
     public bool StartHighliting;
-
+ 
     public int NumberOfNeighbours = 0;
     public int RedScore;
     public int BlueScore;
@@ -74,7 +74,7 @@ public class DotManagerScript : MonoBehaviour
          MouseCursorObj = GameObject.FindGameObjectWithTag("Mouse");
          MouseFollow = MouseCursorObj.GetComponent<MouseFollowScript>();
          MouseCursorObj.SetActive(false);
-        //HighlitedColour = GetComponent<Renderer>().material;
+         //HighlitedColour = GetComponent<Renderer>().material;
     }
 
 
@@ -84,6 +84,7 @@ public class DotManagerScript : MonoBehaviour
         PlayerPrefs.SetInt("SCORE", TotalScore);
         if (CheckConnection)
         {
+            StartHighliting = false;
             for (int i = 0; i < Peices.Count; i++)
             {
 
@@ -121,8 +122,11 @@ public class DotManagerScript : MonoBehaviour
             }
             SortingColours();
             CheckConnection = false;
+ 
             Companion.EatingPeices.Clear();
         }
+
+ 
     }
     void SortingColours()
     {
@@ -214,7 +218,7 @@ public class DotManagerScript : MonoBehaviour
                 BlueScore = 0;
                 YellowScore = 0;
                 GreenScore = 0;
-            LineCount = 0;
+                LineCount = 0;
 
                 // ResetDotLayers = true;
             }
