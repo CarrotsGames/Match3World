@@ -57,9 +57,9 @@ public class DotScript : MonoBehaviour
         if (dotManagerScript.StartHighliting == true)
         {
             Vector3 newScale = new Vector3();
-            newScale.x = Mathf.Clamp(transform.localScale.y, 0.65f, 0.65f);
-            newScale.z = Mathf.Clamp(transform.localScale.y, 0.65f, 0.65f);
-            newScale.y = Mathf.Clamp(transform.localScale.y, 0.65f, 0.65f);
+            newScale.x = Mathf.Clamp(transform.localScale.y, 0.8f, 0.8f);
+            newScale.z = Mathf.Clamp(transform.localScale.y, 0.8f, 0.8f);
+            newScale.y = Mathf.Clamp(transform.localScale.y, 0.8f, 0.8f);
             transform.localScale = newScale;
         }
     }
@@ -70,9 +70,9 @@ public class DotScript : MonoBehaviour
         {
             // Increases size of peice when selected
             Vector3 newScale = new Vector3();
-            newScale.x = Mathf.Clamp(transform.localScale.y, 0.80f, 0.80f);
-            newScale.z = Mathf.Clamp(transform.localScale.y, 0.80f, 0.80f);
-            newScale.y = Mathf.Clamp(transform.localScale.y, 0.80f, 0.80f);
+            newScale.x = Mathf.Clamp(transform.localScale.y, 1, 1);
+            newScale.z = Mathf.Clamp(transform.localScale.y, 1, 1);
+            newScale.y = Mathf.Clamp(transform.localScale.y, 1, 1);
             transform.localScale = newScale;
             audio.PlayDelayed(0.15f);
         }
@@ -85,9 +85,9 @@ public class DotScript : MonoBehaviour
         dotManagerScript.StartHighliting = true;
         // Increases size of peice when selected
         Vector3 newScale = new Vector3();
-        newScale.x = Mathf.Clamp(transform.localScale.x, 0.80f, 0.80f);
-        newScale.z = Mathf.Clamp(transform.localScale.z, 0.80f, 0.80f);
-        newScale.y = Mathf.Clamp(transform.localScale.y, 0.80f, 0.80f);
+        newScale.x = Mathf.Clamp(transform.localScale.x, 1, 1);
+        newScale.z = Mathf.Clamp(transform.localScale.z, 1, 1);
+        newScale.y = Mathf.Clamp(transform.localScale.y, 1, 1);
         transform.localScale = newScale;
         // changes colour of peice to black
         this.gameObject.GetComponent<Renderer>().material.color = Color.black;
@@ -190,9 +190,9 @@ public class DotScript : MonoBehaviour
         ToggleHighlite = 0;
         // Resets size of peices
         Vector3 newScale = new Vector3();
-        newScale.x = Mathf.Clamp(transform.localScale.y, 0.65f, 0.65f);
-        newScale.z = Mathf.Clamp(transform.localScale.y, 0.65f, 0.65f);
-        newScale.y = Mathf.Clamp(transform.localScale.y, 0.65f, 0.65f);
+        newScale.x = Mathf.Clamp(transform.localScale.y, 0.8f, 0.8f);
+        newScale.z = Mathf.Clamp(transform.localScale.y, 0.8f, 0.8f);
+        newScale.y = Mathf.Clamp(transform.localScale.y, 0.8f, 0.8f);
         transform.localScale = newScale;
         dotManagerScript.StartHighliting = false;
 
