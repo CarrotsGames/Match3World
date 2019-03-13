@@ -73,7 +73,7 @@ public class DotManagerScript : MonoBehaviour
         HighScore.text = "" + TotalScore;
          MouseCursorObj = GameObject.FindGameObjectWithTag("Mouse");
          MouseFollow = MouseCursorObj.GetComponent<MouseFollowScript>();
-         //MouseCursorObj.SetActive(false);
+         MouseCursorObj.SetActive(false);
         //HighlitedColour = GetComponent<Renderer>().material;
     }
 

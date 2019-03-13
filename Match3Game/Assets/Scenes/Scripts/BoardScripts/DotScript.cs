@@ -99,7 +99,7 @@ public class DotScript : MonoBehaviour
  
         ToggleHighlite += 1;
         audio.PlayDelayed(0);
-
+        dotManagerScript.MouseCursorObj.SetActive(true);
     }
     private void OnMouseDrag()
     {
@@ -210,6 +210,9 @@ public class DotScript : MonoBehaviour
         GrowSize = false;
         // Resets neighbour list
         ClearNeighbours = true;
+
+        dotManagerScript.MouseCursorObj.SetActive(false);
+
     }
 
 
