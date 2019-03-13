@@ -33,7 +33,7 @@ using System.Collections.Generic;
             Go = Instantiate(text, transform.position + new Vector3(0, OffsetY, 0), Quaternion.identity) as Text;
             Go.transform.parent = transform;
             ListNames.Add(Go);
-            OffsetY -= 35;
+            OffsetY -= 7;
         }
         if (string.IsNullOrEmpty(PlayFabSettings.TitleId))
         {
