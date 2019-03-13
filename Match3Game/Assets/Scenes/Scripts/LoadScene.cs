@@ -7,7 +7,7 @@ public class LoadScene : MonoBehaviour {
 
     public void Awake()
     {
-        scoreboard.SetActive(false);
+       // scoreboard.SetActive(false);
     }
 
     public void DesplayLeaderboard()
