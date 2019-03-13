@@ -21,7 +21,7 @@ public class DotManagerScript : MonoBehaviour
     public GameObject ParticleEffectPurple;
     public GameObject ParticleEffectBlue;
     public GameObject ParticleEffectYellow;
-   // public GameObject MouseCursorObj;
+     public GameObject MouseCursorObj;
 
     public Material Red;
     public Material Blue;
@@ -48,7 +48,7 @@ public class DotManagerScript : MonoBehaviour
     private int YellowCount;
     private int GreenCount;
     private int test;
-   // private MouseFollowScript MouseFollow;
+    private MouseFollowScript MouseFollow;
 
     public Text HighScore;
     public Text MultiplierText;
@@ -71,9 +71,9 @@ public class DotManagerScript : MonoBehaviour
         Companion = CampanionGameObj.GetComponent<CompanionScript>();
         TotalScore = PlayerPrefs.GetInt("SCORE");
         HighScore.text = "" + TotalScore;
-     //   MouseCursorObj = GameObject.FindGameObjectWithTag("Mouse");
-     //   MouseFollow = MouseCursorObj.GetComponent<MouseFollowScript>();
-      //  MouseCursorObj.SetActive(false);
+         MouseCursorObj = GameObject.FindGameObjectWithTag("Mouse");
+         MouseFollow = MouseCursorObj.GetComponent<MouseFollowScript>();
+         //MouseCursorObj.SetActive(false);
         //HighlitedColour = GetComponent<Renderer>().material;
     }
 
