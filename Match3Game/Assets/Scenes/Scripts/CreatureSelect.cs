@@ -86,7 +86,7 @@ public class CreatureSelect : MonoBehaviour {
         }
         if (rightCreature == true)
         {
-            SceneManager.LoadScene("Circle Screen");
+            SceneManager.LoadScene("Circle Scene");
         }
         if (leftCreature == true)
         {
