@@ -54,6 +54,6 @@ public class ChangeNameScript : MonoBehaviour
          i = 0;
          LeaderScript.UpdateName();
         CountDown = true;
-
     }
+
 }
