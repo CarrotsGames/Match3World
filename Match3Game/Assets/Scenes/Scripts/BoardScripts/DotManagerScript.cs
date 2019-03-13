@@ -15,16 +15,22 @@ public class DotManagerScript : MonoBehaviour
     public List<GameObject> BluePieces;
     public List<GameObject>  GreenPieces;
     public List<GameObject> YellowPieces;
+
     public GameObject DotGameObj;
     public GameObject ParticleEffectPink;
     public GameObject ParticleEffectPurple;
     public GameObject ParticleEffectBlue;
     public GameObject ParticleEffectYellow;
-    
+   // public GameObject MouseCursorObj;
+
     public Material Red;
     public Material Blue;
     public Material Green;
     public Material Yellow;
+
+    public bool CheckConnection;
+    public bool ResetDotLayers;
+    public bool StartHighliting;
 
     public int NumberOfNeighbours = 0;
     public int RedScore;
@@ -36,14 +42,14 @@ public class DotManagerScript : MonoBehaviour
     public int Limit;
     public int NumOfPeices;
     public int TotalScore;
-    public bool CheckConnection;
-    public bool ResetDotLayers;
-    public bool StartHighliting;
+
     private int RedCount;
     private int BlueCount;
     private int YellowCount;
     private int GreenCount;
-    int test;
+    private int test;
+   // private MouseFollowScript MouseFollow;
+
     public Text HighScore;
     public Text MultiplierText;
 
@@ -65,7 +71,9 @@ public class DotManagerScript : MonoBehaviour
         Companion = CampanionGameObj.GetComponent<CompanionScript>();
         TotalScore = PlayerPrefs.GetInt("SCORE");
         HighScore.text = "" + TotalScore;
-
+     //   MouseCursorObj = GameObject.FindGameObjectWithTag("Mouse");
+     //   MouseFollow = MouseCursorObj.GetComponent<MouseFollowScript>();
+      //  MouseCursorObj.SetActive(false);
         //HighlitedColour = GetComponent<Renderer>().material;
     }
 

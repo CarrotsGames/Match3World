@@ -10,16 +10,21 @@ using System.Collections.Generic;
     GameObject DotManagerObj;
     DotManagerScript dotManagerScript;
     public int[] NumberOfNames;
+    [HideInInspector]
+    public int[] NumbOfNamesStore;
     public Text text;
-    List<Text> ListNames;
+    [HideInInspector]
+    public List<Text> ListNames;
     Vector3 Names;
-    int OffsetY;
-    int i;
+    public int OffsetY;
+    [HideInInspector]
+    public int i;
      public InputField NameTextBox;
     private void Start()
     {
         //    DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         //   dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
+        NumbOfNamesStore = NumberOfNames;
         ListNames = new List<Text>();
         OffsetY = 0;
         for (int i = 0; i < NumberOfNames.Length; i++)
@@ -28,7 +33,7 @@ using System.Collections.Generic;
             Go = Instantiate(text, transform.position + new Vector3(0, OffsetY, 0), Quaternion.identity) as Text;
             Go.transform.parent = transform;
             ListNames.Add(Go);
-            OffsetY -= 35;
+            OffsetY -= 7;
         }
         if (string.IsNullOrEmpty(PlayFabSettings.TitleId))
         {
@@ -64,8 +69,9 @@ using System.Collections.Generic;
             Debug.Log(failure.ErrorMessage); //this is line 106
 
         });
+
     }
-    void LoggedIn()
+   public void LoggedIn()
     {
         PlayFabClientAPI.GetLeaderboard(new GetLeaderboardRequest()
         {

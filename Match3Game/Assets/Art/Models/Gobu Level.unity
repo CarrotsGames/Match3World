@@ -1036,6 +1036,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &706869737
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 706869738}
+  m_Layer: 0
+  m_Name: MouseFollow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &706869738
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 706869737}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 235.97495, y: 436.5009, z: 337.74164}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &757548781
 GameObject:
   m_ObjectHideFlags: 0
@@ -3107,9 +3135,6 @@ MonoBehaviour:
   Blue: {fileID: 2100000, guid: 42f09c1d07f6bec4aabf45eec21cfc2f, type: 2}
   Green: {fileID: 2100000, guid: 5e4b73e8166369b46b402cd33e366c12, type: 2}
   Yellow: {fileID: 2100000, guid: e60b819b42336324a9a4b0006f6ef5d6, type: 2}
-  CheckConnection: 0
-  ResetDotLayers: 0
-  StartHighliting: 0
   NumberOfNeighbours: 0
   RedScore: 0
   BlueScore: 0
@@ -3120,6 +3145,9 @@ MonoBehaviour:
   Limit: 2
   NumOfPeices: 0
   TotalScore: 0
+  CheckConnection: 0
+  ResetDotLayers: 0
+  StartHighliting: 0
   HighScore: {fileID: 583962603}
   MultiplierText: {fileID: 2142612142}
 --- !u!4 &2085261490
