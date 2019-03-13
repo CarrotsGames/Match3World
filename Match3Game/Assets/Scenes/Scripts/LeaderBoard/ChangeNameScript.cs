@@ -49,7 +49,7 @@ public class ChangeNameScript : MonoBehaviour
              Go.transform.parent = LeaderScript.transform;
          
              LeaderScript.ListNames.Add(Go);
-             LeaderScript.OffsetY -= 35;
+             LeaderScript.OffsetY -= 7;
          }
          i = 0;
          LeaderScript.UpdateName();
