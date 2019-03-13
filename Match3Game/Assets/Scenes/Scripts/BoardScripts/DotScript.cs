@@ -9,6 +9,8 @@ public class DotScript : MonoBehaviour
     public LayerMask layerMask;
     public List<GameObject> neighbours = new List<GameObject>();
     public int ToggleHighlite;
+
+
     public bool ClearNeighbours;
     public bool DefaultColour;
     public bool GrowSize;
@@ -17,15 +19,17 @@ public class DotScript : MonoBehaviour
     private float time;
     private BoardScript Board;
 
-    AudioSource audio;
-    DotManagerScript dotManagerScript;
-    GameObject DotManagerObj;
-    LineRenderer DrawLine;
-    Collider2D col2d;
-    Material Default;
+    private AudioSource audio;
+    private DotManagerScript dotManagerScript;
+    private GameObject DotManagerObj;
+    private LineRenderer DrawLine;
+    private Collider2D col2d;
+    private Material Default;
       // Use this for initialization
     void Start()
     {
+
+      
         audio = GetComponent<AudioSource>();
         DrawLine = GetComponent<LineRenderer>();
         DrawLine.enabled = false;
@@ -79,8 +83,9 @@ public class DotScript : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        dotManagerScript.Peices.Clear();
 
+        dotManagerScript.Peices.Clear();
+        // starts drawing line renderer from current peice
         DrawLine.SetPosition(0, transform.position);
         dotManagerScript.StartHighliting = true;
         // Increases size of peice when selected
@@ -97,6 +102,7 @@ public class DotScript : MonoBehaviour
         ToggleHighlite += 1;
         audio.PlayDelayed(0);
 
+       dotManagerScript.MouseCursorObj.SetActive(true);
     }
     private void OnMouseDrag()
     {
@@ -186,6 +192,8 @@ public class DotScript : MonoBehaviour
     }
     private void OnMouseUp()
     {
+        dotManagerScript.MouseCursorObj.SetActive(false);
+
         // turns off highlite
         ToggleHighlite = 0;
         // Resets size of peices
