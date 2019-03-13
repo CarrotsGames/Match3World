@@ -10,6 +10,10 @@ public class CreatureSelect : MonoBehaviour {
     public GameObject koko;
     public GameObject binky;
 
+    public GameObject transistion;
+    private Animation anim;
+
+
     public bool middleCreature = true;
     public bool leftCreature = false;
     public bool rightCreature = false;
@@ -23,6 +27,8 @@ public class CreatureSelect : MonoBehaviour {
         rightCreature = false;
         middleCreature = true;
         leftCreature = false;
+
+        anim = transistion.GetComponent<Animation>();
     }
     public void RightArrowClicked()
     {
@@ -78,6 +84,13 @@ public class CreatureSelect : MonoBehaviour {
             return;
         }
     }
+
+    public void StartTransitions()
+    {
+        transistion.SetActive(true);
+    }
+
+
     public void LoadCreatureLevels()
     {
         if (middleCreature == true)
