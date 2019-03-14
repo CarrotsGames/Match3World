@@ -24,7 +24,9 @@ public class DotScript : MonoBehaviour
     private LineRenderer DrawLine;
     private Collider2D col2d;
     private Material Default;
-      // Use this for initialization
+    public Material BlueEmmision;
+
+    // Use this for initialization
     void Start()
     {
 
@@ -40,12 +42,15 @@ public class DotScript : MonoBehaviour
         dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
         Board = FindObjectOfType<BoardScript>();
         Default = GetComponent<Renderer>().material;
-      }
+        BlueEmmision = GetComponent<SpriteRenderer>().material;
+
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if(dotManagerScript.StopInteracting)
+ 
+        if (dotManagerScript.StopInteracting)
         {
             OnMouseUp();
             dotManagerScript.StopInteracting = false;
@@ -64,9 +69,10 @@ public class DotScript : MonoBehaviour
         }
         if(dotManagerScript.ResetMaterial)
         {
-            this.gameObject.GetComponent<Renderer>().material = Default;
-            dotManagerScript.ResetMaterial = false;
+            gameObject.GetComponent<Renderer>().material = Default;
+         
         }
+      
     }
     private void OnMouseExit()
     {

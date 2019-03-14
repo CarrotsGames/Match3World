@@ -38,6 +38,7 @@ public class DotManagerScript : MonoBehaviour
     public bool ResetLayer;
     public bool ResetMaterial;
     public bool StopInteracting;
+    public bool ChangeMaterial;
 
     public int NumberOfNeighbours = 0;
     public int RedScore;
@@ -80,6 +81,7 @@ public class DotManagerScript : MonoBehaviour
         CheckConnection = false;
         ResetDotLayers = false;
         StopInteracting = false;
+        ChangeMaterial = false;
         // UI
         LineCount = 0;
         Multipier = 1;

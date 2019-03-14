@@ -8,7 +8,8 @@ public class ColourRemover : MonoBehaviour
     public GameObject MouseCursorObj;
     BoardScript Board;
     GameObject BoardGameObj;
-    
+    public Component[] Renderer;
+
     public bool Red;
     public bool Blue;
     public bool Yellow;
@@ -17,6 +18,11 @@ public class ColourRemover : MonoBehaviour
     private MouseFollowScript MouseFollow;
     private DotManagerScript dotManagerScript;
     private GameObject DotManagerObj;
+    public Material RedMat;
+    public Material BlueMat;
+    public Material YellowMat;
+    public Material PurpleMat;
+
     // Use this for initialization
     void Start()
     {
@@ -25,13 +31,16 @@ public class ColourRemover : MonoBehaviour
         Board = BoardGameObj.GetComponent<BoardScript>();
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
-        PowerUpInUse = false;
         MouseCursorObj = GameObject.FindGameObjectWithTag("Mouse");
         MouseFollow = MouseCursorObj.GetComponent<MouseFollowScript>();
+
+ 
+        PowerUpInUse = false;
         Red = false;
         Blue = false;
         Yellow = false;
-        Purple = false ;
+        Purple = false;
+
     }
     private void Update()
     {
@@ -78,7 +87,7 @@ public class ColourRemover : MonoBehaviour
                 }
                 Red = false;
                 PowerUpInUse = false;
-
+                dotManagerScript.ResetMaterial = true;
             }
             if (Blue)
             {
@@ -91,6 +100,7 @@ public class ColourRemover : MonoBehaviour
                 }
                 Blue = false;
                 PowerUpInUse = false;
+                dotManagerScript.ResetMaterial = true;
 
             }
             if (Yellow)
@@ -104,6 +114,7 @@ public class ColourRemover : MonoBehaviour
                 }
                 Yellow = false;
                 PowerUpInUse = false;
+                dotManagerScript.ResetMaterial = true;
 
             }
             if (Purple)
@@ -117,6 +128,7 @@ public class ColourRemover : MonoBehaviour
                 }
                 Purple = false;
                 PowerUpInUse = false;
+                dotManagerScript.ResetMaterial = true;
 
             }
             MouseCursorObj.SetActive(false);
@@ -127,6 +139,35 @@ public class ColourRemover : MonoBehaviour
     public void SuperColourRemoverMenu()
     {
         PowerUpInUse = true;
+        dotManagerScript.ResetMaterial = false;
+        for (int i = 0; i < BoardGameObj.transform.childCount; i++)
+        {
+
+            switch(BoardGameObj.transform.GetChild(i).tag)
+            {
+                case "Red":
+                    BoardGameObj.transform.GetChild(i).GetComponent<Renderer>().material = RedMat;
+                //BoardGameObj.transform.GetChild(i).GetComponentInChildren<Renderer>().material = RedMat;
+
+                    break;
+                case "Blue":
+                     BoardGameObj.transform.GetChild(i).GetComponent<Renderer>().material = BlueMat;
+                 //    BoardGameObj.transform.GetChild(i).GetComponentInChildren<Renderer>().material = BlueMat;
+
+                    break;
+                case "Green":
+                    BoardGameObj.transform.GetChild(i).GetComponent<Renderer>().material = YellowMat ;
+                //    BoardGameObj.transform.GetChild(i).GetComponentInChildren<Renderer>().material = YellowMat;
+
+                    break;
+                case "Yellow":
+                    BoardGameObj.transform.GetChild(i).GetComponent<Renderer>().material = PurpleMat;
+                //    BoardGameObj.transform.GetChild(i).GetComponentInChildren<Renderer>().material = PurpleMat;
+
+                    break;
+            }
+            Debug.Log("Permanent");
+        }
     }
 
    //public void RedButton()
