@@ -58,7 +58,11 @@ public class DotScript : MonoBehaviour
             gameObject.layer = 0;
             dotManagerScript.ResetLayer = false;
         }
-
+        if(dotManagerScript.ResetMaterial)
+        {
+            this.gameObject.GetComponent<Renderer>().material = Default;
+            dotManagerScript.ResetMaterial = false;
+        }
     }
     private void OnMouseExit()
     {
@@ -448,15 +452,14 @@ public class DotScript : MonoBehaviour
  
     private void OnMouseUp()
     {
-        
+        Debug.Log("UP");
         // Resets Linerenderer
         DrawLine.positionCount = 1;
 
         // turns off highlite
         ToggleHighlite = 0;
-
+        dotManagerScript.ResetMaterial = true;
         // Resets peices material and layer
-        this.gameObject.GetComponent<Renderer>().material = Default;
         this.gameObject.layer = LayerMask.GetMask("Default");
         gameObject.layer = 0;
         // makes peices unable to grow

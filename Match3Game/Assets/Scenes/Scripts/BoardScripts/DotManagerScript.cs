@@ -36,6 +36,8 @@ public class DotManagerScript : MonoBehaviour
     public bool YellowSelection;
     public bool PurpleSelection;
     public bool ResetLayer;
+    public bool ResetMaterial;
+
     public int NumberOfNeighbours = 0;
     public int RedScore;
     public int BlueScore;
@@ -46,6 +48,7 @@ public class DotManagerScript : MonoBehaviour
     public int Limit;
     public int NumOfPeices;
     public int TotalScore;
+    public int Currency;
 
     private int RedCount;
     private int BlueCount;
@@ -56,9 +59,10 @@ public class DotManagerScript : MonoBehaviour
 
     public Text HighScore;
     public Text MultiplierText;
-
+    public Text CurrencyText;
     private void Awake()
     {
+
         TotalScore = PlayerPrefs.GetInt("SCORE");
         HighScore.text = "" + TotalScore;
     }
@@ -69,6 +73,7 @@ public class DotManagerScript : MonoBehaviour
         YellowSelection = false;
         PurpleSelection = false;
         StartHighliting = false;
+        ResetMaterial = false;
         ResetLayer = false;
         LineCount = 0;
         Multipier = 1;
@@ -78,7 +83,10 @@ public class DotManagerScript : MonoBehaviour
         HighScore.text = "" + TotalScore;
         CampanionGameObj = GameObject.FindGameObjectWithTag("Companion");
         Companion = CampanionGameObj.GetComponent<CompanionScript>();
+        Currency = 5;
         TotalScore = PlayerPrefs.GetInt("SCORE");
+        Currency = PlayerPrefs.GetInt("CURRENCY");
+
         HighScore.text = "" + TotalScore;
         MouseCursorObj = GameObject.FindGameObjectWithTag("Mouse");
         MouseFollow = MouseCursorObj.GetComponent<MouseFollowScript>();
@@ -89,8 +97,12 @@ public class DotManagerScript : MonoBehaviour
 
     private void Update()
     {
-         MultiplierText.text = "" + Multipier;
+        MultiplierText.text = "" + Multipier;
+        CurrencyText.text = " " + Currency;
+
         PlayerPrefs.SetInt("SCORE", TotalScore);
+        PlayerPrefs.SetInt("CURRENCY", Currency);
+
         if (CheckConnection)
         {
             ResetLayer = true;

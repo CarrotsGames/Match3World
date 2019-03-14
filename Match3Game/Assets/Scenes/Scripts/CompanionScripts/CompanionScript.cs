@@ -9,25 +9,28 @@ public class CompanionScript : MonoBehaviour
     public List<GameObject> EatingPeices;
     // Use this for initialization
     public GameObject EatingPeiceSpawner; 
-    // max it can go to is 10
-    public float[] GrowingSizes;
-
- 
-    DotManagerScript dotManagerScript;
-    GameObject DotManagerObj;
-    RealTimeCounter RealTimeScript;
-    GameObject RealTimerGameObj;
-    // Update is called once per frame
-    int posX;
-    int posY;
-    public Text HungerMetre;
-    public float Hunger;
-    int HungerMultiplier = 1;
     // Must cap at 4
     public int[] multiplier;
-    public Slider HungerSlider;
+    
+    // max it can go to is 10
+    public float[] GrowingSizes;
+    public float Hunger;
+    public Text HungerMetre;
 
+    public Slider HungerSlider;
     public AudioSource Audio;
+
+    private bool CanGetCurrency;
+
+    private DotManagerScript dotManagerScript;
+    private GameObject DotManagerObj;
+    private RealTimeCounter RealTimeScript;
+    private GameObject RealTimerGameObj;
+    // Update is called once per frame
+    private int posX;
+    private int posY;
+    private int HungerMultiplier = 1;
+    private int CurrencyChance;
     private void Start()
     {
         Audio = GetComponent<AudioSource>();
@@ -41,6 +44,7 @@ public class CompanionScript : MonoBehaviour
         // HungerSlider min and max
         HungerSlider.maxValue = 99;
         HungerSlider.minValue = 0f;
+        CanGetCurrency = false;
     }
 
     private void Update()
@@ -99,6 +103,7 @@ public class CompanionScript : MonoBehaviour
         }
         if (Hunger > 80 && Hunger < 100)
         {
+            CanGetCurrency = true;
             dotManagerScript.Multipier = multiplier[3];
             Vector3 newScale = new Vector3();
             newScale.x = Mathf.Clamp(transform.localScale.y, 1, 5.5f);
@@ -133,24 +138,37 @@ public class CompanionScript : MonoBehaviour
         posX = Random.Range(0, 2);
         posY = Random.Range(0, 10);
             
-            // transforms the peices to the eatingspawner position
-            for (int i = 0; i < EatingPeices.Count; i++)
+        // transforms the peices to the eatingspawner position
+        for (int i = 0; i < EatingPeices.Count; i++)
+        {
+         
+             EatingPeices[i].transform.position = EatingPeiceSpawner.transform.position + new Vector3(posX, posY, 0);
+             CurrencyChance = HungerMultiplier;
+             HungerMultiplier = i / 2;
+        }
+        if (CanGetCurrency)
+        {
+            int chance = Random.Range(CurrencyChance, 100);
+            if (chance >= 90)
             {
-             
-                 EatingPeices[i].transform.position = EatingPeiceSpawner.transform.position + new Vector3(posX, posY, 0);
-                 HungerMultiplier = i / 2;
+                dotManagerScript.Currency += 1;
             }
-     }
+            Debug.Log(chance);
+            //  dotManagerScript.Currency 
+        }
+    }
 // when the pieces collide with the companion it will destory them
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Red" || collision.gameObject.tag == "Blue" || collision.gameObject.tag == "Green" || collision.gameObject.tag == "Yellow")
         {
             dotManagerScript.HighScore.text = "" + dotManagerScript.TotalScore;
-            Hunger += HungerMultiplier / 2;
+             Hunger += HungerMultiplier / 2;
             Destroy(collision.gameObject);
             Audio.Play();
+            
         }
+       
     }
     //when game closes save the current hugner and start counting down outside of the app
     private void OnApplicationPause(bool pause)
