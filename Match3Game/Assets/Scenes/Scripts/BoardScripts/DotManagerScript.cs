@@ -31,7 +31,11 @@ public class DotManagerScript : MonoBehaviour
     public bool CheckConnection;
     public bool ResetDotLayers;
     public bool StartHighliting;
- 
+    public bool RedSelection;
+    public bool BlueSelection;
+    public bool YellowSelection;
+    public bool PurpleSelection;
+
     public int NumberOfNeighbours = 0;
     public int RedScore;
     public int BlueScore;
@@ -60,6 +64,10 @@ public class DotManagerScript : MonoBehaviour
     }
     private void Start()
     {
+        RedSelection  = false;
+        BlueSelection = false;
+        YellowSelection = false;
+        PurpleSelection = false;
         StartHighliting = false;
         LineCount = 0;
         Multipier = 1;
@@ -71,10 +79,10 @@ public class DotManagerScript : MonoBehaviour
         Companion = CampanionGameObj.GetComponent<CompanionScript>();
         TotalScore = PlayerPrefs.GetInt("SCORE");
         HighScore.text = "" + TotalScore;
-         MouseCursorObj = GameObject.FindGameObjectWithTag("Mouse");
-         MouseFollow = MouseCursorObj.GetComponent<MouseFollowScript>();
-         MouseCursorObj.SetActive(false);
-         //HighlitedColour = GetComponent<Renderer>().material;
+        MouseCursorObj = GameObject.FindGameObjectWithTag("Mouse");
+        MouseFollow = MouseCursorObj.GetComponent<MouseFollowScript>();
+        MouseCursorObj.SetActive(false);
+        //HighlitedColour = GetComponent<Renderer>().material;
     }
 
 
@@ -145,9 +153,12 @@ public class DotManagerScript : MonoBehaviour
 
                 }
                 Companion.FeedMonster();
-
-                // RedPieces.Clear();
-            }
+                RedSelection = false;
+                BlueSelection = false;
+                YellowSelection = false;
+                PurpleSelection = false;
+            // RedPieces.Clear();
+        }
             if (BlueCount == Peices.Count && BlueCount > Limit)
             {
                 BlueScore += BlueCount;
@@ -162,10 +173,13 @@ public class DotManagerScript : MonoBehaviour
                     Companion.EatingPeices.Add(BluePieces[i]);
                 }
                 Companion.FeedMonster();
+                RedSelection = false;
+                BlueSelection = false;
+                YellowSelection = false;
+                PurpleSelection = false;
+            // BluePieces.Clear();
 
-                // BluePieces.Clear();
-
-            }
+        }
             if (YellowCount == Peices.Count && YellowCount > Limit)
             {
                 YellowScore += YellowCount;
@@ -181,9 +195,12 @@ public class DotManagerScript : MonoBehaviour
                     Companion.EatingPeices.Add(YellowPieces[i]);
                 }
                 Companion.FeedMonster();
-
-                //YellowPieces.Clear();
-            }
+                RedSelection = false;
+                BlueSelection = false;
+                YellowSelection = false;
+                PurpleSelection = false;
+            //YellowPieces.Clear();
+        }
             if (GreenCount == Peices.Count && GreenCount > Limit)
             {
                 GreenScore += GreenCount;
@@ -198,6 +215,10 @@ public class DotManagerScript : MonoBehaviour
                     Companion.EatingPeices.Add(GreenPieces[i]);
 
                 }
+                RedSelection = false;
+                BlueSelection = false;
+                YellowSelection = false;
+                PurpleSelection = false;
                 Companion.FeedMonster();
                 //    GreenPieces.Clear();
             }
@@ -219,9 +240,12 @@ public class DotManagerScript : MonoBehaviour
                 YellowScore = 0;
                 GreenScore = 0;
                 LineCount = 0;
-
-                // ResetDotLayers = true;
-            }
+                RedSelection = false;
+                BlueSelection = false;
+                YellowSelection = false;
+                PurpleSelection = false;
+            // ResetDotLayers = true;
+        }
             Peices.Clear();
         }
   

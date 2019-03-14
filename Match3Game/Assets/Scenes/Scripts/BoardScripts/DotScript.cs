@@ -88,10 +88,42 @@ public class DotScript : MonoBehaviour
             newScale.z = Mathf.Clamp(transform.localScale.y, 0.8f, 0.8f);
             newScale.y = Mathf.Clamp(transform.localScale.y, 0.8f, 0.8f);
             transform.localScale = newScale;
+           dotManagerScript.RedSelection = false;
+           dotManagerScript.BlueSelection = false;
+           dotManagerScript.YellowSelection = false;
+           dotManagerScript.PurpleSelection = false;
         }
     }
     private void OnMouseDown()
     {
+       // switch (transform.tag)
+       // {
+       //     case  "Red":
+       //         dotManagerScript.RedSelection = true;
+       //          Debug.Log("This is Red");
+       //
+       //         break;
+       //     case "Blue":
+       //         dotManagerScript.BlueSelection = true;
+       //
+       //         Debug.Log("This is blue");
+       //
+       //         break;
+       //     case "Green":
+       //         dotManagerScript.YellowSelection = true;
+       //
+       //         Debug.Log("This is Yellow for some reason");
+       //
+       //         break;
+       //     case "Yellow":
+       //         dotManagerScript.PurpleSelection = true;
+       //
+       //         Debug.Log("This is Purple for some reason");
+       //
+       //         break;
+       // }
+       //
+         
         dotManagerScript.Peices.Clear();
         DrawLine.SetPosition(0, transform.position);
         dotManagerScript.StartHighliting = true;
@@ -114,7 +146,7 @@ public class DotScript : MonoBehaviour
     {
          DotScript[] Dots = FindObjectsOfType<DotScript>();
         bool CircleOverlap = Physics2D.OverlapCircle(transform.position, 1);
-
+     
         foreach (DotScript dot in Dots)
          {
              if (dot.gameObject.GetInstanceID() != gameObject.GetInstanceID())
@@ -122,25 +154,85 @@ public class DotScript : MonoBehaviour
                 if (CircleOverlap)
                 // if (col2d.bounds.Intersects(dot.gameObject.GetComponent<Collider2D>().bounds))
                  {
-                     if (neighbours.Contains(dot.gameObject))
-                     {
-       
-       
-                     }
-                     else
-                     {
+                    //if (dotManagerScript.RedSelection)
+                    //{
+                        if (neighbours.Contains(dot.gameObject) )
+                        {
 
-                        dot.gameObject.layer = LayerType;
-                     
-                        neighbours.Add(dot.gameObject);
-                        dot.gameObject.GetComponent<DotScript>().GrowSize = true;
 
-                        dotManagerScript.GetComponent<DotManagerScript>().NumberOfNeighbours += 1;
- 
-                    }
+                        }
+                        else if (!neighbours.Contains(dot.gameObject) )
+                        {
+
+                            dot.gameObject.layer = LayerType;
+
+                            neighbours.Add(dot.gameObject);
+                            dot.gameObject.GetComponent<DotScript>().GrowSize = true;
+
+                            dotManagerScript.GetComponent<DotManagerScript>().NumberOfNeighbours += 1;
+
+                        }
+                  //  }
+                  // if (dotManagerScript.BlueSelection)
+                  // {
+                  //     if (neighbours.Contains(dot.gameObject) && dot.gameObject.tag == "Blue")
+                  //     {
+                  //
+                  //
+                  //     }
+                  //     else if (!neighbours.Contains(dot.gameObject) && dot.gameObject.tag == "Blue")
+                  //     {
+                  //
+                  //         dot.gameObject.layer = LayerType;
+                  //
+                  //         neighbours.Add(dot.gameObject);
+                  //         dot.gameObject.GetComponent<DotScript>().GrowSize = true;
+                  //
+                  //         dotManagerScript.GetComponent<DotManagerScript>().NumberOfNeighbours += 1;
+                  //
+                  //     }
+                  // }
+                  // if (dotManagerScript.YellowSelection)
+                  // {
+                  //     if (neighbours.Contains(dot.gameObject) && dot.gameObject.tag == "Green")
+                  //     {
+                  //
+                  //
+                  //     }
+                  //     else if (!neighbours.Contains(dot.gameObject) && dot.gameObject.tag == "Green")
+                  //     {
+                  //
+                  //         dot.gameObject.layer = LayerType;
+                  //
+                  //         neighbours.Add(dot.gameObject);
+                  //         dot.gameObject.GetComponent<DotScript>().GrowSize = true;
+                  //
+                  //         dotManagerScript.GetComponent<DotManagerScript>().NumberOfNeighbours += 1;
+                  //
+                  //     }
+                  // }
+                  // if (dotManagerScript.PurpleSelection)
+                  // {
+                  //     if (neighbours.Contains(dot.gameObject) && dot.gameObject.tag == "Yellow")
+                  //     {
+                  //
+                  //
+                  //     }
+                  //     else if (!neighbours.Contains(dot.gameObject) && dot.gameObject.tag == "Yellow")
+                  //     {
+                  //
+                  //         dot.gameObject.layer = LayerType;
+                  //
+                  //         neighbours.Add(dot.gameObject);
+                  //         dot.gameObject.GetComponent<DotScript>().GrowSize = true;
+                  //
+                  //         dotManagerScript.GetComponent<DotManagerScript>().NumberOfNeighbours += 1;
+                  //
+                  //     }
+                  // }
 
                 }
-             }
+            }
          }
      //   neighbours.Clear();
      // Detects which peices are being chosen via raycast
@@ -224,7 +316,10 @@ public class DotScript : MonoBehaviour
          newScale.z = Mathf.Clamp(transform.localScale.y, 0.8f, 0.8f);
          newScale.y = Mathf.Clamp(transform.localScale.y, 0.8f, 0.8f);
          transform.localScale = newScale;
-       
+      //   dotManagerScript.RedSelection = false;
+      //   dotManagerScript.BlueSelection = false;
+      //   dotManagerScript.YellowSelection = false;
+      //   dotManagerScript.PurpleSelection = false;
 
     }
 

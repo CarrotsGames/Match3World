@@ -27,8 +27,11 @@ public class CompanionScript : MonoBehaviour
     public int[] multiplier;
     public Slider HungerSlider;
 
+    public AudioSource Audio;
     private void Start()
     {
+        Audio = GetComponent<AudioSource>();
+
         // References the Realtimescript which is located on camera (TEMP)
         RealTimerGameObj = GameObject.FindGameObjectWithTag("MainCamera");
         RealTimeScript = RealTimerGameObj.GetComponent<RealTimeCounter>();
@@ -146,6 +149,7 @@ public class CompanionScript : MonoBehaviour
             dotManagerScript.HighScore.text = "" + dotManagerScript.TotalScore;
             Hunger += HungerMultiplier / 2;
             Destroy(collision.gameObject);
+            Audio.Play();
         }
     }
     //when game closes save the current hugner and start counting down outside of the app
