@@ -25,7 +25,7 @@ public class ArrowReciever : MonoBehaviour {
 
     public void CreatureClicked()
     {
-        creatureSelectScript.LoadCreatureLevels();
+        creatureSelectScript.StartTransitions();
     }
 
 }
