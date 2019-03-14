@@ -35,7 +35,7 @@ public class DotManagerScript : MonoBehaviour
     public bool BlueSelection;
     public bool YellowSelection;
     public bool PurpleSelection;
-
+    public bool ResetLayer;
     public int NumberOfNeighbours = 0;
     public int RedScore;
     public int BlueScore;
@@ -69,6 +69,7 @@ public class DotManagerScript : MonoBehaviour
         YellowSelection = false;
         PurpleSelection = false;
         StartHighliting = false;
+        ResetLayer = false;
         LineCount = 0;
         Multipier = 1;
         CheckConnection = false;
@@ -92,6 +93,7 @@ public class DotManagerScript : MonoBehaviour
         PlayerPrefs.SetInt("SCORE", TotalScore);
         if (CheckConnection)
         {
+            ResetLayer = true;
             StartHighliting = false;
             for (int i = 0; i < Peices.Count; i++)
             {
@@ -100,12 +102,14 @@ public class DotManagerScript : MonoBehaviour
                 {
                     RedCount += 1;
                     Peices[i].GetComponent<Renderer>().material = Red;
+                    Peices[i].gameObject.layer = 0;
                     RedPieces.Add(Peices[i]);
                 }
                 else if (Peices[i].tag == "Blue")
                 {
                     BlueCount += 1;
                     Peices[i].GetComponent<Renderer>().material = Blue;
+                    Peices[i].gameObject.layer = 0;
 
                     BluePieces.Add(Peices[i]);
 
@@ -114,6 +118,7 @@ public class DotManagerScript : MonoBehaviour
                 {
                     YellowCount += 1;
                     Peices[i].GetComponent<Renderer>().material = Yellow;
+                    Peices[i].gameObject.layer = 0;
 
                     YellowPieces.Add(Peices[i]);
 
@@ -122,6 +127,7 @@ public class DotManagerScript : MonoBehaviour
                 {
                     GreenCount += 1;
                     Peices[i].GetComponent<Renderer>().material = Green;
+                    Peices[i].gameObject.layer = 0;
 
                     GreenPieces.Add(Peices[i]);
                 }
