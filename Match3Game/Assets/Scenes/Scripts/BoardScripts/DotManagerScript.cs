@@ -21,7 +21,7 @@ public class DotManagerScript : MonoBehaviour
     public GameObject ParticleEffectPurple;
     public GameObject ParticleEffectBlue;
     public GameObject ParticleEffectYellow;
-     public GameObject MouseCursorObj;
+    public GameObject MouseCursorObj;
 
     public Material Red;
     public Material Blue;

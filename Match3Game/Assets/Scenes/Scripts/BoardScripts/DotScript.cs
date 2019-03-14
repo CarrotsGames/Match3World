@@ -442,8 +442,8 @@ public class DotScript : MonoBehaviour
              if(hitInfo.collider.gameObject.layer == 11)
             {
                 Debug.Log("WALL");
-                this.gameObject.GetComponent<Renderer>().material = Default;
-                 OnMouseUp();
+                dotManagerScript.ResetMaterial = true;
+                OnMouseUp();
             }
            
         }
