@@ -37,6 +37,7 @@ public class DotManagerScript : MonoBehaviour
     public bool PurpleSelection;
     public bool ResetLayer;
     public bool ResetMaterial;
+    public bool StopInteracting;
 
     public int NumberOfNeighbours = 0;
     public int RedScore;
@@ -68,6 +69,7 @@ public class DotManagerScript : MonoBehaviour
     }
     private void Start()
     {
+        // Bools start false to be activated later
         RedSelection  = false;
         BlueSelection = false;
         YellowSelection = false;
@@ -75,24 +77,26 @@ public class DotManagerScript : MonoBehaviour
         StartHighliting = false;
         ResetMaterial = false;
         ResetLayer = false;
-        LineCount = 0;
-        Multipier = 1;
         CheckConnection = false;
         ResetDotLayers = false;
+        StopInteracting = false;
+        // UI
+        LineCount = 0;
+        Multipier = 1;
         MultiplierText.text = "" + Multipier;
         HighScore.text = "" + TotalScore;
+        HighScore.text = "" + TotalScore;
+      
+        // Gameobject/script refrences
         CampanionGameObj = GameObject.FindGameObjectWithTag("Companion");
         Companion = CampanionGameObj.GetComponent<CompanionScript>();
         Currency = 5;
         TotalScore = PlayerPrefs.GetInt("SCORE");
         Currency = PlayerPrefs.GetInt("CURRENCY");
-
-        HighScore.text = "" + TotalScore;
         MouseCursorObj = GameObject.FindGameObjectWithTag("Mouse");
         MouseFollow = MouseCursorObj.GetComponent<MouseFollowScript>();
         MouseCursorObj.SetActive(false);
-        //HighlitedColour = GetComponent<Renderer>().material;
-    }
+     }
 
 
     private void Update()
@@ -102,11 +106,12 @@ public class DotManagerScript : MonoBehaviour
 
         PlayerPrefs.SetInt("SCORE", TotalScore);
         PlayerPrefs.SetInt("CURRENCY", Currency);
-
+        // Checkas if colours are connecting
         if (CheckConnection)
         {
             ResetLayer = true;
             StartHighliting = false;
+            // sorts each colour found in the peices list 
             for (int i = 0; i < Peices.Count; i++)
             {
 
@@ -146,16 +151,19 @@ public class DotManagerScript : MonoBehaviour
 
 
             }
+            // Checks which colour made a match
             SortingColours();
             CheckConnection = false;
- 
+            // clears EatingPeice List
             Companion.EatingPeices.Clear();
         }
 
  
     }
+    // Checks which colour made a match
     void SortingColours()
     {
+        // If the times red was counted is equal to the amount of the peices list Red was connected
             if (RedCount == Peices.Count && RedCount > Limit)
             {
                 RedScore += RedCount;
@@ -177,7 +185,8 @@ public class DotManagerScript : MonoBehaviour
                 PurpleSelection = false;
             // RedPieces.Clear();
         }
-            if (BlueCount == Peices.Count && BlueCount > Limit)
+        // If the times Blue was counted is equal to the amount of the peices list Blue was connected
+        if (BlueCount == Peices.Count && BlueCount > Limit)
             {
                 BlueScore += BlueCount;
                 BlueScore *= Peices.Count;
@@ -198,7 +207,8 @@ public class DotManagerScript : MonoBehaviour
             // BluePieces.Clear();
 
         }
-            if (YellowCount == Peices.Count && YellowCount > Limit)
+        // If the times Yellow was counted is equal to the amount of the peices list Yellow was connected
+        if (YellowCount == Peices.Count && YellowCount > Limit)
             {
                 YellowScore += YellowCount;
                 YellowScore *= Peices.Count;
@@ -219,7 +229,10 @@ public class DotManagerScript : MonoBehaviour
                 PurpleSelection = false;
             //YellowPieces.Clear();
         }
-            if (GreenCount == Peices.Count && GreenCount > Limit)
+        // TODO CHANGE GREEN TO PURPLE
+        // If the times Green(Purple) was counted is equal to the amount of the peices list Green was connected
+
+        if (GreenCount == Peices.Count && GreenCount > Limit)
             {
                 GreenScore += GreenCount;
                 GreenScore *= Peices.Count;
@@ -240,7 +253,8 @@ public class DotManagerScript : MonoBehaviour
                 Companion.FeedMonster();
                 //    GreenPieces.Clear();
             }
-            if (RedCount != Peices.Count || BlueCount != Peices.Count || GreenCount != Peices.Count || YellowCount != Peices.Count)
+        // if the colour wasnt matched reset lists, scores, counts and selections
+        if (RedCount != Peices.Count || BlueCount != Peices.Count || GreenCount != Peices.Count || YellowCount != Peices.Count)
             {
 
                 //  Debug.Log("No connection");

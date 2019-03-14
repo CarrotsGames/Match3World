@@ -4,17 +4,30 @@ using System.Collections;
 public class ColourRemover : MonoBehaviour
 {
 
+    public GameObject Menu;
+    public GameObject MouseCursorObj;
     BoardScript Board;
     GameObject BoardGameObj;
+    
     public bool Red;
     public bool Blue;
     public bool Yellow;
     public bool Purple;
+    bool PowerUpInUse;
+    private MouseFollowScript MouseFollow;
+    private DotManagerScript dotManagerScript;
+    private GameObject DotManagerObj;
     // Use this for initialization
     void Start()
     {
+        Menu.SetActive(false);
         BoardGameObj = GameObject.FindGameObjectWithTag("BoardSpawn");
         Board = BoardGameObj.GetComponent<BoardScript>();
+        DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
+        dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
+        PowerUpInUse = false;
+        MouseCursorObj = GameObject.FindGameObjectWithTag("Mouse");
+        MouseFollow = MouseCursorObj.GetComponent<MouseFollowScript>();
         Red = false;
         Blue = false;
         Yellow = false;
@@ -22,71 +35,121 @@ public class ColourRemover : MonoBehaviour
     }
     private void Update()
     {
-        
-        if (Red)
+        // RaycastHit2D hit;
+        if (PowerUpInUse)
         {
-            for (int i = 0; i < BoardGameObj.transform.childCount; i++)
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+
+            if (hit.collider != null)
             {
-                if (BoardGameObj.transform.GetChild(i).tag == "Red")
+
+                if (Input.GetMouseButtonDown(0))
                 {
-                    Destroy(BoardGameObj.transform.GetChild(i).gameObject);
+                    dotManagerScript.StopInteracting = true;
+                    if (hit.collider.gameObject.tag == "Red")
+                    {
+                        Red = true;
+                    }
+                    if (hit.collider.gameObject.tag == "Blue")
+                    {
+                        Blue = true;
+                    }
+                    if (hit.collider.gameObject.tag == "Green")
+                    {
+                        Yellow = true;
+                    }
+                    if (hit.collider.gameObject.tag == "Yellow")
+                    {
+                        Purple = true;
+                    }
                 }
+
+                // Do something with the object that was hit by the raycast.
             }
-            Red = false;
-        }
-        if (Blue)
-        {
-            for (int i = 0; i < BoardGameObj.transform.childCount; i++)
+
+            if (Red)
             {
-                if (BoardGameObj.transform.GetChild(i).tag == "Blue")
+                for (int i = 0; i < BoardGameObj.transform.childCount; i++)
                 {
-                    Destroy(BoardGameObj.transform.GetChild(i).gameObject);
+                    if (BoardGameObj.transform.GetChild(i).tag == "Red")
+                    {
+                        Destroy(BoardGameObj.transform.GetChild(i).gameObject);
+                    }
                 }
+                Red = false;
+                PowerUpInUse = false;
+
             }
-            Blue = false;
-        }
-        if (Yellow)
-        {
-            for (int i = 0; i < BoardGameObj.transform.childCount; i++)
+            if (Blue)
             {
-                if (BoardGameObj.transform.GetChild(i).tag == "Green")
+                for (int i = 0; i < BoardGameObj.transform.childCount; i++)
                 {
-                    Destroy(BoardGameObj.transform.GetChild(i).gameObject);
+                    if (BoardGameObj.transform.GetChild(i).tag == "Blue")
+                    {
+                        Destroy(BoardGameObj.transform.GetChild(i).gameObject);
+                    }
                 }
+                Blue = false;
+                PowerUpInUse = false;
+
             }
-            Yellow = false;
-        }
-        if (Purple)
-        {
-            for (int i = 0; i < BoardGameObj.transform.childCount; i++)
+            if (Yellow)
             {
-                if (BoardGameObj.transform.GetChild(i).tag == "Yellow")
+                for (int i = 0; i < BoardGameObj.transform.childCount; i++)
                 {
-                    Destroy(BoardGameObj.transform.GetChild(i).gameObject);
+                    if (BoardGameObj.transform.GetChild(i).tag == "Green")
+                    {
+                        Destroy(BoardGameObj.transform.GetChild(i).gameObject);
+                    }
                 }
+                Yellow = false;
+                PowerUpInUse = false;
+
             }
-            Purple = false;
+            if (Purple)
+            {
+                for (int i = 0; i < BoardGameObj.transform.childCount; i++)
+                {
+                    if (BoardGameObj.transform.GetChild(i).tag == "Yellow")
+                    {
+                        Destroy(BoardGameObj.transform.GetChild(i).gameObject);
+                    }
+                }
+                Purple = false;
+                PowerUpInUse = false;
+
+            }
+            MouseCursorObj.SetActive(false);
+
         }
+
     }
-    public void SuperColourRemover()
+    public void SuperColourRemoverMenu()
     {
-        // Put UI menu in here
+        PowerUpInUse = true;
     }
 
-    void RedButton()
-    {
-        Red = true;
-    }
-    void BlueButton()
-    {
-        Blue = true;
-    }
-    void PurpleButton()
-    {
-        Purple = true;
-    }
-    void YellowButton()
-    {
-        Yellow = true;
-    }
+   //public void RedButton()
+   //{
+   //   Red = true;
+   //   Menu.SetActive(false);
+   //
+   //}
+   //public void BlueButton()
+   //{
+   //   Blue = true;
+   //   Menu.SetActive(false);
+   //
+   //}
+   //public void PurpleButton()
+   //{
+   //   Purple = true;
+   //   Menu.SetActive(false);
+   //
+   //}
+   //public void YellowButton()
+   //{
+   //   Yellow = true;
+   //   Menu.SetActive(false);
+   //}
 }

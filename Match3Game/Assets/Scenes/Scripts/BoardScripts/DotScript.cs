@@ -45,7 +45,11 @@ public class DotScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(dotManagerScript.StopInteracting)
+        {
+            OnMouseUp();
+            dotManagerScript.StopInteracting = false;
+        }
         if (ClearNeighbours)
         {
             neighbours.Clear();
@@ -114,30 +118,28 @@ public class DotScript : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        // Checks which colout tag the mouse is interacting with to know which colour to focus on
         switch (transform.tag)
         {
             case  "Red":
                 dotManagerScript.RedSelection = true;
-                 Debug.Log("This is Red");
+ 
 
                 break;
             case "Blue":
                 dotManagerScript.BlueSelection = true;
 
-                Debug.Log("This is blue");
-
+ 
                 break;
             case "Green":
                 dotManagerScript.YellowSelection = true;
 
-                Debug.Log("This is Yellow for some reason");
-
+ 
                 break;
             case "Yellow":
                 dotManagerScript.PurpleSelection = true;
 
-                Debug.Log("This is Purple for some reason");
-
+ 
                 break;
         }
 
@@ -170,8 +172,8 @@ public class DotScript : MonoBehaviour
             if (dot.gameObject.GetInstanceID() != gameObject.GetInstanceID())
              {
                 if (CircleOverlap)
-                // if (col2d.bounds.Intersects(dot.gameObject.GetComponent<Collider2D>().bounds))
-                 {
+                  {
+                    //Changes red peices layer to 10 so they can be selected
                     if (dotManagerScript.RedSelection)
                     {
                         if (neighbours.Contains(dot.gameObject) && dot.gameObject.tag == "Red")
@@ -193,11 +195,9 @@ public class DotScript : MonoBehaviour
                                 OnMouseUp();
                             }
                         }
-                       //
-                       //
-                       //
-                       //
+           
                     }
+                    //Changes Blue peices layer to 10 so they can be selected
                     if (dotManagerScript.BlueSelection)
                     {
                         if (neighbours.Contains(dot.gameObject) && dot.gameObject.tag == "Blue")
@@ -220,6 +220,7 @@ public class DotScript : MonoBehaviour
                             }
                         }
                     }
+                    //Changes Yellow peices layer to 10 so they can be selected
                     if (dotManagerScript.YellowSelection)
                     {
                         if (neighbours.Contains(dot.gameObject) && dot.gameObject.tag == "Green")
@@ -242,6 +243,7 @@ public class DotScript : MonoBehaviour
                             }
                         }
                     }
+                    //Changes Purple peices layer to 10 so they can be selected
                     if (dotManagerScript.PurpleSelection)
                     {
                         if (neighbours.Contains(dot.gameObject) && dot.gameObject.tag == "Yellow")
@@ -278,6 +280,7 @@ public class DotScript : MonoBehaviour
 
             if (hitInfo.collider.gameObject.layer == 10)
              {
+                // Checks for only Red pieces
                 if (dotManagerScript.RedSelection)
                 {
                     if (dotManagerScript.Peices.Contains(hitInfo.collider.gameObject) && hitInfo.collider.gameObject.tag == "Red")
@@ -316,6 +319,7 @@ public class DotScript : MonoBehaviour
                         OnMouseUp();
                     }
                 }
+                // Checks for only Blue pieces
                 if (dotManagerScript.BlueSelection)
                 {
                     if (dotManagerScript.Peices.Contains(hitInfo.collider.gameObject) && hitInfo.collider.gameObject.tag == "Blue")
@@ -354,6 +358,7 @@ public class DotScript : MonoBehaviour
                         OnMouseUp();
                     }
                 }
+                // Checks for only Purple pieces
                 if (dotManagerScript.PurpleSelection)
                 {
                     if (dotManagerScript.Peices.Contains(hitInfo.collider.gameObject) && hitInfo.collider.gameObject.tag == "Yellow")
@@ -391,6 +396,7 @@ public class DotScript : MonoBehaviour
                             OnMouseUp();
                         }
                 }
+                // Checks for only yellow pieces
                 if (dotManagerScript.YellowSelection)
                 {
                     if (dotManagerScript.Peices.Contains(hitInfo.collider.gameObject) && hitInfo.collider.gameObject.tag == "Green")
@@ -429,7 +435,6 @@ public class DotScript : MonoBehaviour
                         OnMouseUp();
                     }
                 }
-                Debug.Log(hitInfo.collider.name);
 
              }
             else
@@ -452,7 +457,7 @@ public class DotScript : MonoBehaviour
  
     private void OnMouseUp()
     {
-        Debug.Log("UP");
+ 
         // Resets Linerenderer
         DrawLine.positionCount = 1;
 
