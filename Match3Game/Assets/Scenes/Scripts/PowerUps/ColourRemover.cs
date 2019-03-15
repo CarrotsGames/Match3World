@@ -4,29 +4,33 @@ using System.Collections;
 public class ColourRemover : MonoBehaviour
 {
 
-    public GameObject Menu;
-    public GameObject MouseCursorObj;
-    BoardScript Board;
-    GameObject BoardGameObj;
-    public Component[] Renderer;
-
     public bool Red;
     public bool Blue;
     public bool Yellow;
     public bool Purple;
-    bool PowerUpInUse;
-    private MouseFollowScript MouseFollow;
-    private DotManagerScript dotManagerScript;
-    private GameObject DotManagerObj;
+    public GameObject Menu;
+    public GameObject MouseCursorObj;
+    public Component[] Renderer;
     public Material RedMat;
     public Material BlueMat;
     public Material YellowMat;
     public Material PurpleMat;
 
+    private bool PowerUpInUse;
+    private MouseFollowScript MouseFollow;
+    private DotManagerScript dotManagerScript;
+    private GameObject PowerUpManGameObj;
+    private GameObject DotManagerObj;
+    private BoardScript Board;
+    private GameObject BoardGameObj;
+    private PowerUpManager PowerUpManagerScript;
+
     // Use this for initialization
     void Start()
     {
         Menu.SetActive(false);
+        PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
+        PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
         BoardGameObj = GameObject.FindGameObjectWithTag("BoardSpawn");
         Board = BoardGameObj.GetComponent<BoardScript>();
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
@@ -138,35 +142,44 @@ public class ColourRemover : MonoBehaviour
     }
     public void SuperColourRemoverMenu()
     {
+        if(PowerUpManagerScript.HasSCR)
+        { 
         PowerUpInUse = true;
         dotManagerScript.ResetMaterial = false;
-        for (int i = 0; i < BoardGameObj.transform.childCount; i++)
-        {
-
-            switch(BoardGameObj.transform.GetChild(i).tag)
+            PowerUpManagerScript.NumOfSCR -= 1;
+            for (int i = 0; i < BoardGameObj.transform.childCount; i++)
             {
-                case "Red":
-                    BoardGameObj.transform.GetChild(i).GetComponent<Renderer>().material = RedMat;
-                //BoardGameObj.transform.GetChild(i).GetComponentInChildren<Renderer>().material = RedMat;
 
-                    break;
-                case "Blue":
-                     BoardGameObj.transform.GetChild(i).GetComponent<Renderer>().material = BlueMat;
-                 //    BoardGameObj.transform.GetChild(i).GetComponentInChildren<Renderer>().material = BlueMat;
+                switch (BoardGameObj.transform.GetChild(i).tag)
+                {
+                    case "Red":
+                        BoardGameObj.transform.GetChild(i).GetComponent<Renderer>().material = RedMat;
+                        //BoardGameObj.transform.GetChild(i).GetComponentInChildren<Renderer>().material = RedMat;
 
-                    break;
-                case "Green":
-                    BoardGameObj.transform.GetChild(i).GetComponent<Renderer>().material = YellowMat ;
-                //    BoardGameObj.transform.GetChild(i).GetComponentInChildren<Renderer>().material = YellowMat;
+                        break;
+                    case "Blue":
+                        BoardGameObj.transform.GetChild(i).GetComponent<Renderer>().material = BlueMat;
+                        //    BoardGameObj.transform.GetChild(i).GetComponentInChildren<Renderer>().material = BlueMat;
 
-                    break;
-                case "Yellow":
-                    BoardGameObj.transform.GetChild(i).GetComponent<Renderer>().material = PurpleMat;
-                //    BoardGameObj.transform.GetChild(i).GetComponentInChildren<Renderer>().material = PurpleMat;
+                        break;
+                    case "Green":
+                        BoardGameObj.transform.GetChild(i).GetComponent<Renderer>().material = YellowMat;
+                        //    BoardGameObj.transform.GetChild(i).GetComponentInChildren<Renderer>().material = YellowMat;
 
-                    break;
+                        break;
+                    case "Yellow":
+                        BoardGameObj.transform.GetChild(i).GetComponent<Renderer>().material = PurpleMat;
+                        //    BoardGameObj.transform.GetChild(i).GetComponentInChildren<Renderer>().material = PurpleMat;
+
+                        break;
+                }
+                Debug.Log("Permanent");
             }
-            Debug.Log("Permanent");
+        }
+        else
+        {
+            Debug.Log("PowerUpEmpty");
+            PowerUpManagerScript.PowerUpEmpty();
         }
     }
 
