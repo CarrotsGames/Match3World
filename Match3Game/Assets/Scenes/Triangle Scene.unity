@@ -741,6 +741,12 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 20703181}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &923222682 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114445195881385822, guid: 1113987b16b0a31469a92ab6a64583b0,
+    type: 2}
+  m_PrefabInternal: {fileID: 20703181}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &947189251
 GameObject:
   m_ObjectHideFlags: 0
@@ -1841,6 +1847,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EatingPeices: []
   EatingPeiceSpawner: {fileID: 1018790061}
+  multiplier: 02000000050000000a00000019000000
   GrowingSizes:
   - 10
   - 200
@@ -1852,9 +1859,8 @@ MonoBehaviour:
   - 8000
   - 11000
   - 25000
-  HungerMetre: {fileID: 1225323878}
   Hunger: 50
-  multiplier: 02000000050000000a00000019000000
+  HungerMetre: {fileID: 1225323878}
   HungerSlider: {fileID: 1200800291}
   Audio: {fileID: 1694413310}
 --- !u!82 &1694413310
@@ -2481,6 +2487,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.06, y: 2.06}
   m_EdgeRadius: 0
+--- !u!114 &2047579042 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114350265015001016, guid: 1113987b16b0a31469a92ab6a64583b0,
+    type: 2}
+  m_PrefabInternal: {fileID: 20703181}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &2085261488
 GameObject:
   m_ObjectHideFlags: 0
@@ -2537,6 +2549,7 @@ MonoBehaviour:
   YellowSelection: 0
   PurpleSelection: 0
   ResetLayer: 0
+  ResetMaterial: 0
   NumberOfNeighbours: 0
   RedScore: 0
   BlueScore: 0
@@ -2547,8 +2560,10 @@ MonoBehaviour:
   Limit: 2
   NumOfPeices: 0
   TotalScore: 0
+  Currency: 0
   HighScore: {fileID: 583962603}
-  MultiplierText: {fileID: 2142612142}
+  MultiplierText: {fileID: 923222682}
+  CurrencyText: {fileID: 2047579042}
 --- !u!4 &2085261490
 Transform:
   m_ObjectHideFlags: 0
@@ -2562,9 +2577,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2142612142 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114612164346228998, guid: 1113987b16b0a31469a92ab6a64583b0,
-    type: 2}
-  m_PrefabInternal: {fileID: 20703181}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}

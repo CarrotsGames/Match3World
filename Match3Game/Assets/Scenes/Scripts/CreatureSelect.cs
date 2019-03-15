@@ -11,7 +11,7 @@ public class CreatureSelect : MonoBehaviour {
     public GameObject binky;
 
     public GameObject transistion;
-    private Animation anim;
+    private Animator anim;
 
 
     public bool middleCreature = true;
@@ -28,7 +28,7 @@ public class CreatureSelect : MonoBehaviour {
         middleCreature = true;
         leftCreature = false;
 
-        anim = transistion.GetComponent<Animation>();
+        anim = transistion.GetComponent<Animator>();
     }
     public void RightArrowClicked()
     {
@@ -87,7 +87,9 @@ public class CreatureSelect : MonoBehaviour {
 
     public void StartTransitions()
     {
-        transistion.SetActive(true);
+        //transistion.SetActive(true);
+        anim.SetTrigger("Transition");
+        
     }
 
 
