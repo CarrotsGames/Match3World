@@ -5,7 +5,10 @@ using System.Collections.Generic;
 
 public class DotScript : MonoBehaviour
 {
- 
+
+    public float defultSize = 2.5f;
+    public float jucSize = 3;
+
     public LayerMask layerMask;
     public List<GameObject> neighbours = new List<GameObject>();
     public int ToggleHighlite;
@@ -80,9 +83,9 @@ public class DotScript : MonoBehaviour
         if (dotManagerScript.StartHighliting == true)
         {
             Vector3 newScale = new Vector3();
-            newScale.x = Mathf.Clamp(transform.localScale.y, 0.8f, 0.8f);
-            newScale.z = Mathf.Clamp(transform.localScale.y, 0.8f, 0.8f);
-            newScale.y = Mathf.Clamp(transform.localScale.y, 0.8f, 0.8f);
+            newScale.x = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
+            newScale.z = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
+            newScale.y = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
             transform.localScale = newScale;
         }
         else
@@ -98,9 +101,9 @@ public class DotScript : MonoBehaviour
         {
             // Increases size of peice when selected
             Vector3 newScale = new Vector3();
-            newScale.x = Mathf.Clamp(transform.localScale.y, 1, 1);
-            newScale.z = Mathf.Clamp(transform.localScale.y, 1, 1);
-            newScale.y = Mathf.Clamp(transform.localScale.y, 1, 1);
+            newScale.x = Mathf.Clamp(transform.localScale.y, jucSize, jucSize);
+            newScale.z = Mathf.Clamp(transform.localScale.y, jucSize, jucSize);
+            newScale.y = Mathf.Clamp(transform.localScale.y, jucSize, jucSize);
             transform.localScale = newScale;
             audio.PlayDelayed(0.15f);
  
@@ -109,9 +112,9 @@ public class DotScript : MonoBehaviour
         {
             //  dotManagerScript.StartHighliting = false;
             Vector3 newScale = new Vector3();
-            newScale.x = Mathf.Clamp(transform.localScale.y, 0.8f, 0.8f);
-            newScale.z = Mathf.Clamp(transform.localScale.y, 0.8f, 0.8f);
-            newScale.y = Mathf.Clamp(transform.localScale.y, 0.8f, 0.8f);
+            newScale.x = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
+            newScale.z = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
+            newScale.y = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
             transform.localScale = newScale;
             gameObject.layer = 0;
             dotManagerScript.RedSelection = false;
@@ -155,9 +158,9 @@ public class DotScript : MonoBehaviour
         dotManagerScript.StartHighliting = true;
         // Increases size of peice when selected
         Vector3 newScale = new Vector3();
-        newScale.x = Mathf.Clamp(transform.localScale.x, 1, 1);
-        newScale.z = Mathf.Clamp(transform.localScale.z, 1, 1);
-        newScale.y = Mathf.Clamp(transform.localScale.y, 1, 1);
+        newScale.x = Mathf.Clamp(transform.localScale.x, jucSize, jucSize);
+        newScale.z = Mathf.Clamp(transform.localScale.z, jucSize, jucSize);
+        newScale.y = Mathf.Clamp(transform.localScale.y, jucSize, jucSize);
         transform.localScale = newScale;
         // changes colour of peice to black
         this.gameObject.GetComponent<Renderer>().material.color = Color.black;
@@ -483,9 +486,9 @@ public class DotScript : MonoBehaviour
 
         // Resets size of peices  
          Vector3 newScale = new Vector3();
-         newScale.x = Mathf.Clamp(transform.localScale.y, 0.8f, 0.8f);
-         newScale.z = Mathf.Clamp(transform.localScale.y, 0.8f, 0.8f);
-         newScale.y = Mathf.Clamp(transform.localScale.y, 0.8f, 0.8f);
+         newScale.x = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
+         newScale.z = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
+         newScale.y = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
          transform.localScale = newScale;
        
 
