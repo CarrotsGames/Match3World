@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PowerUpManager : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class PowerUpManager : MonoBehaviour
     int FirstTimeLogin;
     public bool HasShuffles;
     public bool HasSCR;
+    public Text NumOfShufflesText;
+    public Text NumOfSCRText;
+
     // Use this for initialization
     void Start()
     {
@@ -33,6 +37,9 @@ public class PowerUpManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("NUMSHUFFLE", NumOfShuffles);
         PlayerPrefs.SetInt("NUMSRC", NumOfSCR);
+        NumOfShufflesText.text = "" + NumOfShuffles;
+        NumOfSCRText.text = "" + NumOfSCR;
+
         if (NumOfShuffles > 0)
         {
             HasShuffles = true;
