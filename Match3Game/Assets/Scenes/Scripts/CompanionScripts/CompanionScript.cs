@@ -26,6 +26,8 @@ public class CompanionScript : MonoBehaviour
     private GameObject DotManagerObj;
     private RealTimeCounter RealTimeScript;
     private GameObject RealTimerGameObj;
+    private GameObject PowerUpManGameObj;
+    private PowerUpManager PowerUpManagerScript;
     // Update is called once per frame
     private int posX;
     private int posY;
@@ -41,6 +43,8 @@ public class CompanionScript : MonoBehaviour
         // Referneces DotManagerScript
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
+        PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
+        PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
         // HungerSlider min and max
         HungerSlider.maxValue = 99;
         HungerSlider.minValue = 0f;
@@ -151,7 +155,7 @@ public class CompanionScript : MonoBehaviour
             int chance = Random.Range(CurrencyChance, 100);
             if (chance >= 90)
             {
-                dotManagerScript.Currency += 1;
+                PowerUpManagerScript.Currency += 1;
             }
             Debug.Log(chance);
             //  dotManagerScript.Currency 

@@ -50,7 +50,7 @@ public class DotManagerScript : MonoBehaviour
     public int Limit;
     public int NumOfPeices;
     public int TotalScore;
-    public int Currency;
+   // public int Currency;
 
     private int RedCount;
     private int BlueCount;
@@ -58,11 +58,12 @@ public class DotManagerScript : MonoBehaviour
     private int GreenCount;
     private int test;
     private MouseFollowScript MouseFollow;
+    private GameObject PowerUpManGameObj;
+    private PowerUpManager PowerUpManagerScript;
 
     public Text HighScore;
     public Text MultiplierText;
-    public Text CurrencyText;
-    private void Awake()
+     private void Awake()
     {
 
         TotalScore = PlayerPrefs.GetInt("SCORE");
@@ -88,13 +89,14 @@ public class DotManagerScript : MonoBehaviour
         MultiplierText.text = "" + Multipier;
         HighScore.text = "" + TotalScore;
         HighScore.text = "" + TotalScore;
-      
+
         // Gameobject/script refrences
+        PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
+        PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
         CampanionGameObj = GameObject.FindGameObjectWithTag("Companion");
         Companion = CampanionGameObj.GetComponent<CompanionScript>();
-        Currency = 5;
+        PowerUpManagerScript.Currency = 5;
         TotalScore = PlayerPrefs.GetInt("SCORE");
-        Currency = PlayerPrefs.GetInt("CURRENCY");
         MouseCursorObj = GameObject.FindGameObjectWithTag("Mouse");
         MouseFollow = MouseCursorObj.GetComponent<MouseFollowScript>();
         MouseCursorObj.SetActive(false);
@@ -104,10 +106,8 @@ public class DotManagerScript : MonoBehaviour
     private void Update()
     {
         MultiplierText.text = "" + Multipier;
-        CurrencyText.text = " " + Currency;
-
+ 
         PlayerPrefs.SetInt("SCORE", TotalScore);
-        PlayerPrefs.SetInt("CURRENCY", Currency);
         // Checkas if colours are connecting
         if (CheckConnection)
         {
@@ -150,7 +150,6 @@ public class DotManagerScript : MonoBehaviour
 
                     GreenPieces.Add(Peices[i]);
                 }
-
 
             }
             // Checks which colour made a match

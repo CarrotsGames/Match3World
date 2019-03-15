@@ -4,10 +4,13 @@ using System.Collections;
 public class ColourRemover : MonoBehaviour
 {
 
+    float Timer = 1;
+
     public bool Red;
     public bool Blue;
     public bool Yellow;
     public bool Purple;
+    bool GoTimer;
     public GameObject Menu;
     public GameObject MouseCursorObj;
     public Component[] Renderer;
@@ -44,10 +47,18 @@ public class ColourRemover : MonoBehaviour
         Blue = false;
         Yellow = false;
         Purple = false;
-
+        GoTimer = false;
     }
     private void Update()
     {
+        if(GoTimer)
+        {
+            Timer -= Time.deltaTime;
+            if(Timer < 0 )
+            {
+                dotManagerScript.ResetMaterial = false;
+            }
+        }
         // RaycastHit2D hit;
         if (PowerUpInUse)
         {
@@ -136,7 +147,7 @@ public class ColourRemover : MonoBehaviour
 
             }
             MouseCursorObj.SetActive(false);
-
+            GoTimer = true;
         }
 
     }

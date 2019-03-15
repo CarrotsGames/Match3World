@@ -11,10 +11,14 @@ public class PowerUpManager : MonoBehaviour
     public bool HasSCR;
     public Text NumOfShufflesText;
     public Text NumOfSCRText;
+    public Text CurrencyText;
+    public int Currency;
 
     // Use this for initialization
     void Start()
     {
+        Currency = PlayerPrefs.GetInt("CURRENCY");
+
         FirstTimeLogin = 0;
         FirstTimeLogin = PlayerPrefs.GetInt("FirstTime");
         NumOfShuffles = 5;
@@ -39,6 +43,8 @@ public class PowerUpManager : MonoBehaviour
         PlayerPrefs.SetInt("NUMSRC", NumOfSCR);
         NumOfShufflesText.text = "" + NumOfShuffles;
         NumOfSCRText.text = "" + NumOfSCR;
+        PlayerPrefs.SetInt("CURRENCY", Currency);
+        CurrencyText.text = " " + Currency;
 
         if (NumOfShuffles > 0)
         {
