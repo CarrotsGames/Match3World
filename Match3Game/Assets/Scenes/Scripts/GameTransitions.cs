@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameTransitions : MonoBehaviour {
 
@@ -15,10 +16,6 @@ public class GameTransitions : MonoBehaviour {
         anim = sceneTransitions.GetComponent<Animator>();
 
         anim.SetBool("UnTransition", true);
-	}
-
-    private void Start()
-    {
         StartCoroutine(EndAnim());
     }
 
@@ -41,8 +38,18 @@ public class GameTransitions : MonoBehaviour {
     {
         yield return new WaitForSeconds(1);
         anim.SetBool("UnTransition", false);
-
     }
+
+    public void BackToMain()
+    {
+        SceneManager.LoadScene("Main Screen");
+    }
+
+    public void HomeButton()
+    {
+        anim.SetBool("Transition", true);
+    }
+
 
 
 
