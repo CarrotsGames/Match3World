@@ -9,14 +9,12 @@ public class DotManagerScript : MonoBehaviour
     CompanionScript Companion;
     GameObject CampanionGameObj;
 
-    public DotScript dotScript;
     public List<GameObject> Peices;
     public List<GameObject> RedPieces;
     public List<GameObject> BluePieces;
     public List<GameObject>  GreenPieces;
     public List<GameObject> YellowPieces;
 
-    public GameObject DotGameObj;
     public GameObject ParticleEffectPink;
     public GameObject ParticleEffectPurple;
     public GameObject ParticleEffectBlue;

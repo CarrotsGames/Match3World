@@ -4,15 +4,14 @@ using System.Collections;
 public class ColourRemover : MonoBehaviour
 {
 
-    float Timer = 1;
+    float Timer = 0.25f;
 
     public bool Red;
     public bool Blue;
     public bool Yellow;
     public bool Purple;
     bool GoTimer;
-    public GameObject Menu;
-    public GameObject MouseCursorObj;
+     public GameObject MouseCursorObj;
     public Component[] Renderer;
     public Material RedMat;
     public Material BlueMat;
@@ -31,8 +30,7 @@ public class ColourRemover : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Menu.SetActive(false);
-        PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
+         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
         BoardGameObj = GameObject.FindGameObjectWithTag("BoardSpawn");
         Board = BoardGameObj.GetComponent<BoardScript>();
@@ -53,10 +51,14 @@ public class ColourRemover : MonoBehaviour
     {
         if(GoTimer)
         {
+            dotManagerScript.ResetMaterial = true;
+
             Timer -= Time.deltaTime;
             if(Timer < 0 )
             {
                 dotManagerScript.ResetMaterial = false;
+                Timer = 0.25f;
+                GoTimer = false;
             }
         }
         // RaycastHit2D hit;
@@ -103,6 +105,8 @@ public class ColourRemover : MonoBehaviour
                 Red = false;
                 PowerUpInUse = false;
                 dotManagerScript.ResetMaterial = true;
+                GoTimer = true;
+
             }
             if (Blue)
             {
@@ -116,6 +120,7 @@ public class ColourRemover : MonoBehaviour
                 Blue = false;
                 PowerUpInUse = false;
                 dotManagerScript.ResetMaterial = true;
+                GoTimer = true;
 
             }
             if (Yellow)
@@ -130,6 +135,7 @@ public class ColourRemover : MonoBehaviour
                 Yellow = false;
                 PowerUpInUse = false;
                 dotManagerScript.ResetMaterial = true;
+                GoTimer = true;
 
             }
             if (Purple)
@@ -144,10 +150,10 @@ public class ColourRemover : MonoBehaviour
                 Purple = false;
                 PowerUpInUse = false;
                 dotManagerScript.ResetMaterial = true;
+                GoTimer = true;
 
             }
             MouseCursorObj.SetActive(false);
-            GoTimer = true;
         }
 
     }

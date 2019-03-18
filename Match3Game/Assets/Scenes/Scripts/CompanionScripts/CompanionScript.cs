@@ -14,7 +14,7 @@ public class CompanionScript : MonoBehaviour
     
     // max it can go to is 10
     public float[] GrowingSizes;
-    public float Hunger;
+    public float Happiness;
     public Text HungerMetre;
 
     public Slider HungerSlider;
@@ -57,64 +57,43 @@ public class CompanionScript : MonoBehaviour
         //HungerMetre.text = "" + Hunger;
      
         // clamps hunger from 0 to 100
-        Hunger = Mathf.Clamp(Hunger, 0, 100);
+        Happiness = Mathf.Clamp(Happiness, 0, 100);
      
-        // Slowly counts down Hunger value
-        Hunger -= Time.deltaTime / 3;
-        HungerSlider.value = Hunger;
+        // Slowly counts down Happiness value
+        Happiness -= Time.deltaTime / 3;
+        HungerSlider.value = Happiness;
        
-        // Saving Companions hunger value
-        PlayerPrefs.SetFloat("CurrentHunger", Hunger);
+        // Saving Companions Happiness value
+        PlayerPrefs.SetFloat("CurrentHappiness", Happiness);
+ 
 
-        // if hunger less than 20
-        if (Hunger < 20)
+        // if Happiness less than 20
+        if (Happiness < 20)
         {
              dotManagerScript.Multipier = 1;
-            // changes size of companion
-            Vector3 newScale = new Vector3();
-            newScale.x = Mathf.Clamp(transform.localScale.x, 1, 1);
-            newScale.z = Mathf.Clamp(transform.localScale.z, 1, 1);
-            newScale.y = Mathf.Clamp(transform.localScale.y, 0, 1);
-            transform.localScale = newScale ;
+ 
         }
-        if(Hunger > 20 && Hunger < 40)
+        if(Happiness > 20 && Happiness < 40)
         {
             dotManagerScript.Multipier = multiplier[0];
-            Vector3 newScale = new Vector3();
-            newScale.x = Mathf.Clamp(transform.localScale.x, 2, 2);
-            newScale.z = Mathf.Clamp(transform.localScale.z, 1, 1);
-            newScale.y = Mathf.Clamp(transform.localScale.y, 2, 2);
-            transform.localScale = newScale;
+ 
         }
-        if (Hunger > 40 && Hunger < 60)
+        if (Happiness > 40 && Happiness < 60)
         {
             dotManagerScript.Multipier = multiplier[1];
-            Vector3 newScale = new Vector3();
-            newScale.x = Mathf.Clamp(transform.localScale.x, 1, 3);
-            newScale.z = Mathf.Clamp(transform.localScale.z, 1, 1);
-            newScale.y = Mathf.Clamp(transform.localScale.y, 1, 3);
-            transform.localScale = newScale;
+ 
         }
-        if (Hunger > 60 && Hunger < 80)
+        if (Happiness > 60 && Happiness < 80)
         {
             dotManagerScript.Multipier = multiplier[2];
-            Vector3 newScale = new Vector3();
-            newScale.x = Mathf.Clamp(transform.localScale.x, 1, 4.5f);
-            newScale.z = Mathf.Clamp(transform.localScale.z, 1, 1);
-            newScale.y = Mathf.Clamp(transform.localScale.y, 2, 4.5f);
-            transform.localScale = newScale;
+         
 
         }
-        if (Hunger > 80 && Hunger < 100)
+        if (Happiness > 80 && Happiness < 100)
         {
             CanGetCurrency = true;
             dotManagerScript.Multipier = multiplier[3];
-            Vector3 newScale = new Vector3();
-            newScale.x = Mathf.Clamp(transform.localScale.y, 1, 5.5f);
-            newScale.z = Mathf.Clamp(transform.localScale.y, 1, 1);
-            newScale.y = Mathf.Clamp(transform.localScale.y, 4, 5.5f);
-            transform.localScale = newScale;
-
+      
         }
     }
   //  public void ShrinkingPeices()
@@ -137,18 +116,18 @@ public class CompanionScript : MonoBehaviour
   //  }
     public void FeedMonster()
     {
-
-        // gets random x and y so objects dont spawn in eachother
-        posX = Random.Range(0, 2);
-        posY = Random.Range(0, 10);
-            
+        Debug.Log(Happiness);
+       
         // transforms the peices to the eatingspawner position
         for (int i = 0; i < EatingPeices.Count; i++)
         {
          
              EatingPeices[i].transform.position = EatingPeiceSpawner.transform.position + new Vector3(posX, posY, 0);
              CurrencyChance = HungerMultiplier;
-             HungerMultiplier = i / 2;
+            Destroy(EatingPeices[i].gameObject);
+            HungerMultiplier = i / 2;
+            Happiness += HungerMultiplier;
+
         }
         if (CanGetCurrency)
         {
@@ -160,20 +139,11 @@ public class CompanionScript : MonoBehaviour
             Debug.Log(chance);
             //  dotManagerScript.Currency 
         }
+        dotManagerScript.HighScore.text = "" + dotManagerScript.TotalScore;
+        Audio.Play();
     }
 // when the pieces collide with the companion it will destory them
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Red" || collision.gameObject.tag == "Blue" || collision.gameObject.tag == "Green" || collision.gameObject.tag == "Yellow")
-        {
-            dotManagerScript.HighScore.text = "" + dotManagerScript.TotalScore;
-             Hunger += HungerMultiplier / 2;
-            Destroy(collision.gameObject);
-            Audio.Play();
-            
-        }
-       
-    }
+ 
     //when game closes save the current hugner and start counting down outside of the app
     private void OnApplicationPause(bool pause)
     {

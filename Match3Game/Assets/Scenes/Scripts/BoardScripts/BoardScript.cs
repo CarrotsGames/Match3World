@@ -37,7 +37,7 @@ public class BoardScript : MonoBehaviour
             for (int j = 0; j < Height; j++)
             {
                 // Creates position for dots
-                Vector2 TempPosition = new Vector2(i, j);
+                Vector2 TempPosition = new Vector2(transform.position.x, transform.position.y);
                 GameObject BackGroundTile = Instantiate(TilePrefab, TempPosition, Quaternion.identity) as GameObject;
                 BackGroundTile.transform.parent = this.transform;
                 BackGroundTile.name = "( " + i + "," + j + ")";
@@ -69,7 +69,7 @@ public class BoardScript : MonoBehaviour
             
             // Creates dots for positions
            int DotToUse = Random.Range(0, Dots.Length);
-           GameObject Dot = Instantiate(Dots[DotToUse], new Vector3(0,10,0), Quaternion.identity);
+           GameObject Dot = Instantiate(Dots[DotToUse], new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
             Dot.transform.parent = this.transform;
 
         }

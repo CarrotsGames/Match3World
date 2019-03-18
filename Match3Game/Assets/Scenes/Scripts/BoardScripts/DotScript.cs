@@ -28,7 +28,7 @@ public class DotScript : MonoBehaviour
     private Collider2D col2d;
     private Material Default;
     public Material BlueEmmision;
-
+    string Colour;
     // Use this for initialization
     void Start()
     {
@@ -52,7 +52,7 @@ public class DotScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
- 
+        Debug.Log(dotManagerScript.ResetMaterial);
         if (dotManagerScript.StopInteracting)
         {
             OnMouseUp();
@@ -65,17 +65,19 @@ public class DotScript : MonoBehaviour
             gameObject.layer = 0;
 
         }
+        // restes dot layer
         if(dotManagerScript.ResetLayer)
         {
             gameObject.layer = 0;
             dotManagerScript.ResetLayer = false;
         }
+        // resets dot material 
         if(dotManagerScript.ResetMaterial)
         {
             gameObject.GetComponent<Renderer>().material = Default;
-         
+
         }
-      
+
     }
     private void OnMouseExit()
     {
@@ -127,28 +129,32 @@ public class DotScript : MonoBehaviour
     }
     private void OnMouseDown()
     {
+
         // Checks which colout tag the mouse is interacting with to know which colour to focus on
         switch (transform.tag)
         {
             case  "Red":
+                Colour = "Red";
                 dotManagerScript.RedSelection = true;
- 
-
+                
                 break;
             case "Blue":
+                Colour = "Blue";
+                //dotManagerScript.BlueSelection = true;
                 dotManagerScript.BlueSelection = true;
 
- 
                 break;
             case "Green":
+                Colour = "Green";
+                // dotManagerScript.YellowSelection = true;
                 dotManagerScript.YellowSelection = true;
 
- 
                 break;
             case "Yellow":
+                Colour = "Yellow";
+                //    dotManagerScript.PurpleSelection = true;
                 dotManagerScript.PurpleSelection = true;
 
- 
                 break;
         }
 
@@ -173,7 +179,7 @@ public class DotScript : MonoBehaviour
     }
     private void OnMouseDrag()
     {
-         DotScript[] Dots = FindObjectsOfType<DotScript>();
+        DotScript[] Dots = FindObjectsOfType<DotScript>();
         bool CircleOverlap = Physics2D.OverlapCircle(transform.position, 1);
      
         foreach (DotScript dot in Dots)
@@ -182,39 +188,13 @@ public class DotScript : MonoBehaviour
              {
                 if (CircleOverlap)
                   {
-                    //Changes red peices layer to 10 so they can be selected
-                    if (dotManagerScript.RedSelection)
-                    {
-                        if (neighbours.Contains(dot.gameObject) && dot.gameObject.tag == "Red")
+                     
+                        if (neighbours.Contains(dot.gameObject) && dot.gameObject.tag == Colour)
                         {
 
 
                         }
-                        else if (!neighbours.Contains(dot.gameObject) && dot.gameObject.tag == "Red")
-                        {
-
-                            dot.gameObject.layer = LayerType;
-
-                            neighbours.Add(dot.gameObject);
-                            dot.gameObject.GetComponent<DotScript>().GrowSize = true;
-
-                            dotManagerScript.GetComponent<DotManagerScript>().NumberOfNeighbours += 1;
-                            if (dot.gameObject.tag == "Blue" || dot.gameObject.tag == "Yellow" || dot.gameObject.tag == "Green")
-                            {
-                                OnMouseUp();
-                            }
-                        }
-           
-                    }
-                    //Changes Blue peices layer to 10 so they can be selected
-                    if (dotManagerScript.BlueSelection)
-                    {
-                        if (neighbours.Contains(dot.gameObject) && dot.gameObject.tag == "Blue")
-                        {
-
-
-                        }
-                        else if (!neighbours.Contains(dot.gameObject) && dot.gameObject.tag == "Blue")
+                        else if (!neighbours.Contains(dot.gameObject) && dot.gameObject.tag == Colour)
                         {
 
                             dot.gameObject.layer = LayerType;
@@ -223,59 +203,11 @@ public class DotScript : MonoBehaviour
                             dot.gameObject.GetComponent<DotScript>().GrowSize = true;
 
                             dotManagerScript.GetComponent<DotManagerScript>().NumberOfNeighbours += 1;
-                            if (dot.gameObject.tag == "Red" || dot.gameObject.tag == "Yellow" || dot.gameObject.tag == "Green")
+                            if (dot.gameObject.tag != Colour)
                             {
-                                OnMouseUp();
+                                 OnMouseUp();
                             }
-                        }
-                    }
-                    //Changes Yellow peices layer to 10 so they can be selected
-                    if (dotManagerScript.YellowSelection)
-                    {
-                        if (neighbours.Contains(dot.gameObject) && dot.gameObject.tag == "Green")
-                        {
-
-
-                        }
-                        else if (!neighbours.Contains(dot.gameObject) && dot.gameObject.tag == "Green")
-                        {
-
-                            dot.gameObject.layer = LayerType;
-
-                            neighbours.Add(dot.gameObject);
-                            dot.gameObject.GetComponent<DotScript>().GrowSize = true;
-
-                            dotManagerScript.GetComponent<DotManagerScript>().NumberOfNeighbours += 1;
-                            if (dot.gameObject.tag == "Blue" || dot.gameObject.tag == "Yellow" || dot.gameObject.tag == "Red")
-                            {
-                                OnMouseUp();
-                            }
-                        }
-                    }
-                    //Changes Purple peices layer to 10 so they can be selected
-                    if (dotManagerScript.PurpleSelection)
-                    {
-                        if (neighbours.Contains(dot.gameObject) && dot.gameObject.tag == "Yellow")
-                        {
-
-
-                        }
-                        else if (!neighbours.Contains(dot.gameObject) && dot.gameObject.tag == "Yellow")
-                        {
-
-                            dot.gameObject.layer = LayerType;
-
-                            neighbours.Add(dot.gameObject);
-                            dot.gameObject.GetComponent<DotScript>().GrowSize = true;
-
-                            dotManagerScript.GetComponent<DotManagerScript>().NumberOfNeighbours += 1;
-                            if (dot.gameObject.tag == "Blue" || dot.gameObject.tag == "Red" || dot.gameObject.tag == "Green")
-                            {
-                                OnMouseUp();
-                            }
-                        }
-                    }
-
+                        }                       
                 }
             }
          }
@@ -472,7 +404,7 @@ public class DotScript : MonoBehaviour
 
         // turns off highlite
         ToggleHighlite = 0;
-        dotManagerScript.ResetMaterial = true;
+        dotManagerScript.ResetMaterial = false;
         // Resets peices material and layer
         this.gameObject.layer = LayerMask.GetMask("Default");
         gameObject.layer = 0;
