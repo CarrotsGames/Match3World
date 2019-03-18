@@ -6,14 +6,18 @@ public class PowerUpManager : MonoBehaviour
 {
     public int NumOfShuffles;
     public int NumOfSCR;
-    int FirstTimeLogin;
+    public int NumOfBombs;
+    public int Currency;
+    private int FirstTimeLogin;
+
     public bool HasShuffles;
     public bool HasSCR;
+    public bool HasBombs;
+
     public Text NumOfShufflesText;
     public Text NumOfSCRText;
+    public Text NumOfBombsText;
     public Text CurrencyText;
-    public int Currency;
-
     // Use this for initialization
     void Start()
     {
@@ -23,10 +27,12 @@ public class PowerUpManager : MonoBehaviour
         FirstTimeLogin = PlayerPrefs.GetInt("FirstTime");
         NumOfShuffles = 5;
         NumOfSCR = 5;
+        NumOfBombs = 5;
         if (FirstTimeLogin > 0)
         {
             NumOfShuffles = PlayerPrefs.GetInt("NUMSHUFFLE");
             NumOfSCR = PlayerPrefs.GetInt("NUMSRC");
+            NumOfBombs = PlayerPrefs.GetInt("NUMBOMB");
         }
         FirstTimeLogin += 1;
         PlayerPrefs.SetInt("FirstTime", FirstTimeLogin);
@@ -34,6 +40,7 @@ public class PowerUpManager : MonoBehaviour
 
         HasShuffles = false;
         HasSCR = false;
+        HasBombs = false;
     }
 
     // Update is called once per frame
@@ -41,11 +48,14 @@ public class PowerUpManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("NUMSHUFFLE", NumOfShuffles);
         PlayerPrefs.SetInt("NUMSRC", NumOfSCR);
+        PlayerPrefs.SetInt("NUMBOMB", NumOfBombs);
+        PlayerPrefs.SetInt("CURRENCY", Currency);
+
+        CurrencyText.text = " " + Currency;
         NumOfShufflesText.text = "" + NumOfShuffles;
         NumOfSCRText.text = "" + NumOfSCR;
-        PlayerPrefs.SetInt("CURRENCY", Currency);
-        CurrencyText.text = " " + Currency;
-         if (NumOfShuffles > 0)
+        NumOfBombsText.text = "" + NumOfBombs;
+        if (NumOfShuffles > 0)
         {
             HasShuffles = true;
         }
@@ -53,6 +63,7 @@ public class PowerUpManager : MonoBehaviour
         {
             HasShuffles = false;
         }
+
         if (NumOfSCR > 0)
         {
             HasSCR = true;
@@ -60,6 +71,15 @@ public class PowerUpManager : MonoBehaviour
         else
         {
             HasSCR = false;
+        }
+
+        if (NumOfBombs > 0)
+        {
+            HasBombs = true;
+        }
+        else
+        {
+            HasBombs = false;
         }
     }
 
