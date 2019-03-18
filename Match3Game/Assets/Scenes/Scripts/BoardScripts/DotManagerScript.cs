@@ -93,7 +93,6 @@ public class DotManagerScript : MonoBehaviour
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
         CampanionGameObj = GameObject.FindGameObjectWithTag("Companion");
         Companion = CampanionGameObj.GetComponent<CompanionScript>();
-        PowerUpManagerScript.Currency = 5;
         TotalScore = PlayerPrefs.GetInt("SCORE");
         MouseCursorObj = GameObject.FindGameObjectWithTag("Mouse");
         MouseFollow = MouseCursorObj.GetComponent<MouseFollowScript>();

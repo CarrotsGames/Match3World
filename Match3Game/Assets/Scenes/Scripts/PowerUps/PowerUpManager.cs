@@ -45,7 +45,7 @@ public class PowerUpManager : MonoBehaviour
         NumOfSCRText.text = "" + NumOfSCR;
         PlayerPrefs.SetInt("CURRENCY", Currency);
         CurrencyText.text = " " + Currency;
-
+        Debug.Log("PowerUp");
         if (NumOfShuffles > 0)
         {
             HasShuffles = true;

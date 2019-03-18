@@ -116,8 +116,7 @@ public class CompanionScript : MonoBehaviour
   //  }
     public void FeedMonster()
     {
-        Debug.Log(Happiness);
-       
+        
         // transforms the peices to the eatingspawner position
         for (int i = 0; i < EatingPeices.Count; i++)
         {
