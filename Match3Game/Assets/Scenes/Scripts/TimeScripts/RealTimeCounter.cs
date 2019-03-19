@@ -4,22 +4,53 @@ using System.Collections;
 public class RealTimeCounter : MonoBehaviour
 {
     //TestTimer
+    //TEMP Holds each Happyness value from each companion
     public float TimerCountDown;
-    CompanionScript CompScript;
-    GameObject CompanionGameObj;
-   public float SaveNum;
+    public float TimerCountDown1;
+    public float TimerCountDown2;
+
+    private GameObject HappinessGameObj;
+
+    private HappinessManager HappinessManagerScript;
+    public float SaveNum;
     // Use this for initialization
     void Start()
     {
-        CompanionGameObj = GameObject.FindGameObjectWithTag("Companion");
-        CompScript = CompanionGameObj.GetComponent<CompanionScript>();
+        HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
+        HappinessManagerScript = HappinessGameObj.GetComponent<HappinessManager>();
         // Starting timer amount
         // Update timer with real time passed
-        TimerCountDown = PlayerPrefs.GetFloat("CurrentHappiness");
+        //TODO [Find a better way of doing this]
+        //Gobus Happiness Timer
+        TimerCountDown = PlayerPrefs.GetFloat("GobuHappiness");
         // update timer when real time passes 
         TimerCountDown -= TimeMasterScript.instance.CheckDate() / 6;
-        CompScript.Happiness = TimerCountDown;
+        // Binkies Happiness Timer
+        TimerCountDown1 = PlayerPrefs.GetFloat("BinkyHappiness");
+        // update timer when real time passes 
+        TimerCountDown1 -= TimeMasterScript.instance.CheckDate() / 6;
+        // Kokos Happiness timer
+        TimerCountDown2 = PlayerPrefs.GetFloat("KokoHappiness");
+        // update timer when real time passes 
+        TimerCountDown2 -= TimeMasterScript.instance.CheckDate() / 6;
+        // update timer when real time passes 
 
+        if (HappinessManagerScript.CompanionSave == "GobuHappiness")
+        {
+        
+            HappinessManagerScript.Happiness = TimerCountDown;
+        }
+
+        if (HappinessManagerScript.CompanionSave == "BinkyHappiness")
+        {
+
+            HappinessManagerScript.Happiness = TimerCountDown1;
+        }
+        if (HappinessManagerScript.CompanionSave == "KokoHappiness")
+        {
+
+            HappinessManagerScript.Happiness = TimerCountDown2;
+        }
 
     }
 

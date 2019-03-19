@@ -10,13 +10,18 @@ public class GameTransitions : MonoBehaviour {
     public AudioSource giggle;
     public GameObject sceneTransitions;
     private Animator anim;
+    private GameObject RealTimerGameObj;
+    private RealTimeCounter RealTimeScript;
 
-	// Use this for initialization
-	void Awake () {
+    // Use this for initialization
+    void Awake () {
         anim = sceneTransitions.GetComponent<Animator>();
 
         anim.SetBool("UnTransition", true);
         StartCoroutine(EndAnim());
+        // References the Realtimescript which is located on camera (TEMP)
+        RealTimerGameObj = GameObject.FindGameObjectWithTag("MainCamera");
+        RealTimeScript = RealTimerGameObj.GetComponent<RealTimeCounter>();
     }
 
     public void PopSound()
@@ -42,11 +47,15 @@ public class GameTransitions : MonoBehaviour {
 
     public void BackToMain()
     {
+        RealTimeScript.ResetClock();
+
         SceneManager.LoadScene("Main Screen");
     }
 
     public void HomeButton()
     {
+        RealTimeScript.ResetClock();
+
         anim.SetBool("Transition", true);
     }
 
