@@ -51,28 +51,7 @@ public class CompanionScript : MonoBehaviour
         HungerSlider.minValue = 0f;
     }
 
-    private void Update()
-    {
-        
-    }
-  //  public void ShrinkingPeices()
-  //  {
-  //
-  //
-  //      StartCoroutine(TEST());
-  //
-  //      //FeedMonster();
-  //  }
-  //  IEnumerator TEST()
-  //  {
-  //      for (Peice = 0; Peice < EatingPeices.Count; Peice++)
-  //      {
-  //          EatingPeices[Peice].gameObject.transform.localScale -= new Vector3(15, 15, 15) * Time.deltaTime;
-  //          yield return new WaitForSeconds(0);
-  //          GrowTime = true;
-  //          Debug.Log("3 secodns up");
-  //      }
-  //  }
+ 
     public void FeedMonster()
     {
         

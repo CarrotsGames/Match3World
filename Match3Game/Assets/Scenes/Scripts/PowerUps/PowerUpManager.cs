@@ -7,16 +7,19 @@ public class PowerUpManager : MonoBehaviour
     public int NumOfShuffles;
     public int NumOfSCR;
     public int NumOfBombs;
+    public int NumOfMultilpiers;
     public int Currency;
     private int FirstTimeLogin;
 
     public bool HasShuffles;
     public bool HasSCR;
     public bool HasBombs;
-
+    public bool HasMultlpliers;
     public Text NumOfShufflesText;
     public Text NumOfSCRText;
     public Text NumOfBombsText;
+    public Text NumOfSMText;
+
     public Text CurrencyText;
     // Use this for initialization
     void Start()
@@ -28,11 +31,13 @@ public class PowerUpManager : MonoBehaviour
         NumOfShuffles = 5;
         NumOfSCR = 5;
         NumOfBombs = 5;
+        NumOfMultilpiers = 5;
         if (FirstTimeLogin > 0)
         {
             NumOfShuffles = PlayerPrefs.GetInt("NUMSHUFFLE");
             NumOfSCR = PlayerPrefs.GetInt("NUMSRC");
             NumOfBombs = PlayerPrefs.GetInt("NUMBOMB");
+            NumOfMultilpiers = PlayerPrefs.GetInt("NUMSM");
         }
         FirstTimeLogin += 1;
         PlayerPrefs.SetInt("FirstTime", FirstTimeLogin);
@@ -49,12 +54,16 @@ public class PowerUpManager : MonoBehaviour
         PlayerPrefs.SetInt("NUMSHUFFLE", NumOfShuffles);
         PlayerPrefs.SetInt("NUMSRC", NumOfSCR);
         PlayerPrefs.SetInt("NUMBOMB", NumOfBombs);
+        PlayerPrefs.SetInt("NUMSM", NumOfMultilpiers);
+
         PlayerPrefs.SetInt("CURRENCY", Currency);
 
         CurrencyText.text = " " + Currency;
         NumOfShufflesText.text = "" + NumOfShuffles;
         NumOfSCRText.text = "" + NumOfSCR;
         NumOfBombsText.text = "" + NumOfBombs;
+        NumOfSMText.text = "" + NumOfMultilpiers;
+
         if (NumOfShuffles > 0)
         {
             HasShuffles = true;
@@ -80,6 +89,14 @@ public class PowerUpManager : MonoBehaviour
         else
         {
             HasBombs = false;
+        }
+        if (NumOfMultilpiers > 0)
+        {
+            HasMultlpliers = true;
+        }
+        else
+        {
+            HasMultlpliers = false;
         }
     }
 
