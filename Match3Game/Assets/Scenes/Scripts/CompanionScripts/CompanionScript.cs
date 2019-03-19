@@ -9,25 +9,23 @@ public class CompanionScript : MonoBehaviour
     public List<GameObject> EatingPeices;
     // Use this for initialization
     public GameObject EatingPeiceSpawner; 
-    // Must cap at 4
-    public int[] multiplier;
+ 
     
     // max it can go to is 10
     public float[] GrowingSizes;
-    public float Happiness;
-    public Text HungerMetre;
 
     public Slider HungerSlider;
     public AudioSource Audio;
 
-    private bool CanGetCurrency;
 
-    private DotManagerScript dotManagerScript;
     private GameObject DotManagerObj;
-    private RealTimeCounter RealTimeScript;
     private GameObject RealTimerGameObj;
     private GameObject PowerUpManGameObj;
+    private GameObject HappinessGameObj;
+    private DotManagerScript dotManagerScript;
+    private RealTimeCounter RealTimeScript;
     private PowerUpManager PowerUpManagerScript;
+    private HappinessManager HappinessManagerScript;
     // Update is called once per frame
     private int posX;
     private int posY;
@@ -36,10 +34,13 @@ public class CompanionScript : MonoBehaviour
     private void Start()
     {
         Audio = GetComponent<AudioSource>();
-
         // References the Realtimescript which is located on camera (TEMP)
         RealTimerGameObj = GameObject.FindGameObjectWithTag("MainCamera");
         RealTimeScript = RealTimerGameObj.GetComponent<RealTimeCounter>();
+
+        HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
+        HappinessManagerScript = HappinessGameObj.GetComponent<HappinessManager>();
+      
         // Referneces DotManagerScript
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
@@ -48,53 +49,11 @@ public class CompanionScript : MonoBehaviour
         // HungerSlider min and max
         HungerSlider.maxValue = 99;
         HungerSlider.minValue = 0f;
-        CanGetCurrency = false;
     }
 
     private void Update()
     {
-        // Displays hunger value (used in debug)
-        //HungerMetre.text = "" + Hunger;
-     
-        // clamps hunger from 0 to 100
-        Happiness = Mathf.Clamp(Happiness, 0, 100);
-     
-        // Slowly counts down Happiness value
-        Happiness -= Time.deltaTime / 3;
-        HungerSlider.value = Happiness;
-       
-        // Saving Companions Happiness value
-        PlayerPrefs.SetFloat("CurrentHappiness", Happiness);
- 
-
-        // if Happiness less than 20
-        if (Happiness < 20)
-        {
-             dotManagerScript.Multipier = 1;
- 
-        }
-        if(Happiness > 20 && Happiness < 40)
-        {
-            dotManagerScript.Multipier = multiplier[0];
- 
-        }
-        if (Happiness > 40 && Happiness < 60)
-        {
-            dotManagerScript.Multipier = multiplier[1];
- 
-        }
-        if (Happiness > 60 && Happiness < 80)
-        {
-            dotManagerScript.Multipier = multiplier[2];
-         
-
-        }
-        if (Happiness > 80 && Happiness < 100)
-        {
-            CanGetCurrency = true;
-            dotManagerScript.Multipier = multiplier[3];
-      
-        }
+        
     }
   //  public void ShrinkingPeices()
   //  {
@@ -125,10 +84,10 @@ public class CompanionScript : MonoBehaviour
              CurrencyChance = HungerMultiplier;
             Destroy(EatingPeices[i].gameObject);
             HungerMultiplier = i / 2;
-            Happiness += HungerMultiplier;
+            HappinessManagerScript.Happiness += HungerMultiplier;
 
         }
-        if (CanGetCurrency)
+        if (HappinessManagerScript.CanGetCurrency)
         {
             int chance = Random.Range(CurrencyChance, 100);
             if (chance >= 90)
