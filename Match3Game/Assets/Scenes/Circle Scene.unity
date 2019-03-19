@@ -211,72 +211,17 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114132072543815370, guid: 1113987b16b0a31469a92ab6a64583b0,
-        type: 2}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114041266428595002, guid: 1113987b16b0a31469a92ab6a64583b0,
-        type: 2}
-      propertyPath: m_Color.a
-      value: 0.7607843
-      objectReference: {fileID: 0}
-    - target: {fileID: 114538944942749800, guid: 1113987b16b0a31469a92ab6a64583b0,
-        type: 2}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1498290103724720, guid: 1113987b16b0a31469a92ab6a64583b0, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 223588198366449722, guid: 1113987b16b0a31469a92ab6a64583b0,
-        type: 2}
-      propertyPath: m_RenderMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224635851162149900, guid: 1113987b16b0a31469a92ab6a64583b0,
-        type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224635851162149900, guid: 1113987b16b0a31469a92ab6a64583b0,
-        type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224635851162149900, guid: 1113987b16b0a31469a92ab6a64583b0,
-        type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 223588198366449722, guid: 1113987b16b0a31469a92ab6a64583b0,
-        type: 2}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1781371923}
     - target: {fileID: 114075817802210786, guid: 1113987b16b0a31469a92ab6a64583b0,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 109115503}
-    - target: {fileID: 114075817802210786, guid: 1113987b16b0a31469a92ab6a64583b0,
+    - target: {fileID: 223588198366449722, guid: 1113987b16b0a31469a92ab6a64583b0,
         type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: HomeButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 114193122529985468, guid: 1113987b16b0a31469a92ab6a64583b0,
-        type: 2}
-      propertyPath: Menu
+      propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114024475843963628, guid: 1113987b16b0a31469a92ab6a64583b0,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SuperColourRemoverMenu
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114475998304208804, guid: 1113987b16b0a31469a92ab6a64583b0, type: 2}
+      objectReference: {fileID: 1781371923}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1113987b16b0a31469a92ab6a64583b0, type: 2}
   m_IsPrefabAsset: 0
 --- !u!114 &20703182 stripped
@@ -1832,6 +1777,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimerCountDown: 0
+  TimerCountDown1: 0
+  TimerCountDown2: 0
   SaveNum: 0
 --- !u!114 &1803669446 stripped
 MonoBehaviour:

@@ -59,9 +59,15 @@ public class StoreScript : MonoBehaviour
                 }
                 break;
             case 4:
-           
+                if (PowerUpManagerScript.Currency > 85)
+                {
+                    PowerUpManagerScript.NumOfBombs += 5;
+                 //   PowerUpManagerScript.NumOfSCR += 5;
 
-                break;
+                    PowerUpManagerScript.Currency -= 85;
+                }
+
+                    break;
 
         }
     }
