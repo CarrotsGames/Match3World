@@ -25,33 +25,40 @@ public class RealTimeCounter : MonoBehaviour
         TimerCountDown = PlayerPrefs.GetFloat("GobuHappiness");
         // update timer when real time passes 
         TimerCountDown -= TimeMasterScript.instance.CheckDate() / 6;
+      
         // Binkies Happiness Timer
         TimerCountDown1 = PlayerPrefs.GetFloat("BinkyHappiness");
         // update timer when real time passes 
         TimerCountDown1 -= TimeMasterScript.instance.CheckDate() / 6;
+    
         // Kokos Happiness timer
         TimerCountDown2 = PlayerPrefs.GetFloat("KokoHappiness");
         // update timer when real time passes 
         TimerCountDown2 -= TimeMasterScript.instance.CheckDate() / 6;
         // update timer when real time passes 
 
-        if (HappinessManagerScript.CompanionSave == "GobuHappiness")
+        switch (HappinessManagerScript.CompanionSave)
+
         {
-        
-            HappinessManagerScript.Happiness = TimerCountDown;
+            case "GobuHappiness":
+
+                HappinessManagerScript.Happiness = TimerCountDown;
+
+
+                break;
+            case "BinkyHappiness":
+
+                HappinessManagerScript.Happiness = TimerCountDown1;
+
+
+                break;
+            case "KokoHappiness":
+
+                HappinessManagerScript.Happiness = TimerCountDown2;
+
+                break;
+            
         }
-
-        if (HappinessManagerScript.CompanionSave == "BinkyHappiness")
-        {
-
-            HappinessManagerScript.Happiness = TimerCountDown1;
-        }
-        if (HappinessManagerScript.CompanionSave == "KokoHappiness")
-        {
-
-            HappinessManagerScript.Happiness = TimerCountDown2;
-        }
-
     }
 
     // Update is called once per frame
