@@ -374,47 +374,6 @@ Transform:
   m_Father: {fileID: 1596635014}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &254240370
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 254240371}
-  - component: {fileID: 254240372}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &254240371
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 254240370}
-  m_LocalRotation: {x: -0, y: -0, z: -0.25963917, w: 0.96570575}
-  m_LocalPosition: {x: -0.389, y: -0.739, z: -1.119}
-  m_LocalScale: {x: 0.37310886, y: 0.3589519, z: 0.36961827}
-  m_Children:
-  - {fileID: 839577899}
-  m_Father: {fileID: 1556689503}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &254240372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 254240370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 867f11b346a75d24a9b706c4dcf3d2f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &279137218
 Prefab:
   m_ObjectHideFlags: 0
@@ -587,6 +546,7 @@ GameObject:
   m_Component:
   - component: {fileID: 586113263}
   - component: {fileID: 586113264}
+  - component: {fileID: 586113265}
   m_Layer: 0
   m_Name: Gobu Left Eye
   m_TagString: Untagged
@@ -656,6 +616,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &586113265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 586113262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 867f11b346a75d24a9b706c4dcf3d2f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 1
+  Limit: 2
 --- !u!1 &687033564
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,11 +731,11 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 839577898}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.04, y: 2.23, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.25963917, w: 0.96570575}
+  m_LocalPosition: {x: 0.025319774, y: -0.053944, z: -1.119}
+  m_LocalScale: {x: 0.37310886, y: 0.3589519, z: 0.36961824}
   m_Children: []
-  m_Father: {fileID: 254240371}
+  m_Father: {fileID: 1556689503}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -30.097002}
 --- !u!212 &839577900
@@ -1926,6 +1899,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1556689503}
   - component: {fileID: 1556689504}
+  - component: {fileID: 1556689505}
   m_Layer: 0
   m_Name: Gobu Right Eye
   m_TagString: Untagged
@@ -1944,7 +1918,7 @@ Transform:
   m_LocalPosition: {x: 1.6513853, y: -0.47318983, z: 0}
   m_LocalScale: {x: 0.6487471, y: 0.6745136, z: 0.70149404}
   m_Children:
-  - {fileID: 254240371}
+  - {fileID: 839577899}
   m_Father: {fileID: 1200178745}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 30.097002}
@@ -1995,6 +1969,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1556689505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1556689502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 867f11b346a75d24a9b706c4dcf3d2f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 1
+  Limit: 2
 --- !u!1 &1581144648
 GameObject:
   m_ObjectHideFlags: 0
@@ -3338,7 +3325,7 @@ Prefab:
     - target: {fileID: 224206970741017018, guid: 1113987b16b0a31469a92ab6a64583b0,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -10.9999695
+      value: -11
       objectReference: {fileID: 0}
     - target: {fileID: 224206970741017018, guid: 1113987b16b0a31469a92ab6a64583b0,
         type: 2}
