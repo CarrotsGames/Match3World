@@ -3,14 +3,15 @@ using System.Collections;
 
 public class ShuffleScript : MonoBehaviour
 {
-
+    public GameObject ShuffleSpawn;
     public GameObject ShuffleGameObj;
     public float ShuffleSpeed;
+    public float CircleScale;
     GameObject Go;
     bool Shuffle;
     bool CanShuffle;
     private GameObject PowerUpManGameObj;
-
+    Rigidbody2D rb2d;
     private PowerUpManager PowerUpManagerScript;
 
     // Use this for initialization
@@ -48,10 +49,10 @@ public class ShuffleScript : MonoBehaviour
             {
                 PowerUpManagerScript.NumOfShuffles -= 1;
 
-                ShuffleGameObj.transform.localScale = new Vector3(10, 10, 10);
+                ShuffleGameObj.transform.localScale = new Vector3(CircleScale, CircleScale, CircleScale);
                 Vector3 test = new Vector3(4.5f, -24, -15);
 
-                Go = Instantiate(ShuffleGameObj, test, Quaternion.identity);
+                Go = Instantiate(ShuffleGameObj, ShuffleSpawn.transform.position, Quaternion.identity);
                 Shuffle = true;
                 CanShuffle = false;
             }
@@ -62,4 +63,6 @@ public class ShuffleScript : MonoBehaviour
             PowerUpManagerScript.PowerUpEmpty();
         }
     }
+
+
 }
