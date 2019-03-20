@@ -4,12 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 public class LoadScene : MonoBehaviour {
     public GameObject scoreboard;
-
+    float FirstTimeStartUp;
     public void Awake()
     {
-       // scoreboard.SetActive(false);
+        FirstTimeStartUp = PlayerPrefs.GetFloat("FTS");
+        if (FirstTimeStartUp > 0)
+        {
+            scoreboard.SetActive(false);
+        }
     }
-
+  
     public void DesplayLeaderboard()
     {
         scoreboard.SetActive(true);

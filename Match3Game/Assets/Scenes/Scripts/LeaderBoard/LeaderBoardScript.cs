@@ -19,6 +19,8 @@ using System.Collections.Generic;
     public int OffsetY;
     [HideInInspector]
     public int i;
+    //FirstTimeStartUp
+    public int FirstTimeStartUp;
      public InputField NameTextBox;
     private void Start()
     {
@@ -64,6 +66,8 @@ using System.Collections.Generic;
         }, success =>
         {
             Debug.Log("Name Changed to " + NameTextBox.text);
+            FirstTimeStartUp += 1;
+            PlayerPrefs.SetFloat("FTS", FirstTimeStartUp);
          }, failure =>
         {
             Debug.Log(failure.ErrorMessage); //this is line 106
