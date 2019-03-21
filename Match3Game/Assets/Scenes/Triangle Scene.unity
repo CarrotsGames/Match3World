@@ -220,6 +220,36 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: HomeButton
       objectReference: {fileID: 0}
+    - target: {fileID: 224985364152588510, guid: 1113987b16b0a31469a92ab6a64583b0,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -55.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23529304085037764, guid: 1113987b16b0a31469a92ab6a64583b0,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224985364152588510, guid: 1113987b16b0a31469a92ab6a64583b0,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -386.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 224985364152588510, guid: 1113987b16b0a31469a92ab6a64583b0,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -256.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114295831239969216, guid: 1113987b16b0a31469a92ab6a64583b0,
+        type: 2}
+      propertyPath: CircleScale
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114295831239969216, guid: 1113987b16b0a31469a92ab6a64583b0,
+        type: 2}
+      propertyPath: ShuffleSpeed
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1113987b16b0a31469a92ab6a64583b0, type: 2}
   m_IsPrefabAsset: 0
@@ -357,7 +387,7 @@ GameObject:
   - component: {fileID: 87589638}
   - component: {fileID: 87589637}
   - component: {fileID: 87589639}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -448,6 +478,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.06, y: 2.06}
   m_EdgeRadius: 0
+--- !u!114 &123906865 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114600924107834000, guid: 1113987b16b0a31469a92ab6a64583b0,
+    type: 2}
+  m_PrefabInternal: {fileID: 20703181}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &192660692
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,7 +496,7 @@ GameObject:
   - component: {fileID: 192660693}
   m_Layer: 0
   m_Name: Board
-  m_TagString: Untagged
+  m_TagString: BoardSpawn
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -725,7 +761,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 498952479}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Triangle Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -796,6 +832,12 @@ Prefab:
 --- !u!114 &583962603 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114624300959713276, guid: 1113987b16b0a31469a92ab6a64583b0,
+    type: 2}
+  m_PrefabInternal: {fileID: 20703181}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &775275624 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114376453897248224, guid: 1113987b16b0a31469a92ab6a64583b0,
     type: 2}
   m_PrefabInternal: {fileID: 20703181}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -989,7 +1031,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1063776811}
   - component: {fileID: 1063776812}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1042,7 +1084,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1264907311
-  m_SortingLayer: 3
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: dcda01bdc08276943ba39f37be65be28, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1063,7 +1105,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1065986323}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Board Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1100,7 +1142,7 @@ GameObject:
   - component: {fileID: 1241655416}
   - component: {fileID: 1241655415}
   - component: {fileID: 1241655417}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1245,6 +1287,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 338352c0103fdef4699d4d2d80cabaeb, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &1252516005 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114602648557264716, guid: 1113987b16b0a31469a92ab6a64583b0,
+    type: 2}
+  m_PrefabInternal: {fileID: 20703181}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &1283933641 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114483816051827288, guid: 1113987b16b0a31469a92ab6a64583b0,
@@ -1399,7 +1447,7 @@ GameObject:
   - component: {fileID: 1390430743}
   - component: {fileID: 1390430742}
   - component: {fileID: 1390430741}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Blade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1512,7 +1560,7 @@ GameObject:
   - component: {fileID: 1503921340}
   - component: {fileID: 1503921342}
   - component: {fileID: 1503921341}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Right (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1615,7 +1663,7 @@ GameObject:
   - component: {fileID: 1694413309}
   - component: {fileID: 1694413310}
   - component: {fileID: 1694413308}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Koko
   m_TagString: Companion
   m_Icon: {fileID: 0}
@@ -1882,7 +1930,7 @@ GameObject:
   - component: {fileID: 1731981508}
   - component: {fileID: 1731981510}
   - component: {fileID: 1731981509}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Left (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2353,7 +2401,7 @@ Prefab:
         type: 2}
       propertyPath: NumOfShufflesText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 123906865}
     - target: {fileID: 114944472890173658, guid: 9a6df9f76c474724c973f6d01c92d34f,
         type: 2}
       propertyPath: NumOfSCRText
@@ -2364,6 +2412,16 @@ Prefab:
       propertyPath: CurrencyText
       value: 
       objectReference: {fileID: 2017178868}
+    - target: {fileID: 114944472890173658, guid: 9a6df9f76c474724c973f6d01c92d34f,
+        type: 2}
+      propertyPath: NumOfBombsText
+      value: 
+      objectReference: {fileID: 1252516005}
+    - target: {fileID: 114944472890173658, guid: 9a6df9f76c474724c973f6d01c92d34f,
+        type: 2}
+      propertyPath: NumOfSMText
+      value: 
+      objectReference: {fileID: 775275624}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a6df9f76c474724c973f6d01c92d34f, type: 2}
   m_IsPrefabAsset: 0
@@ -2377,7 +2435,7 @@ GameObject:
   - component: {fileID: 1965529933}
   - component: {fileID: 1965529932}
   - component: {fileID: 1965529934}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
