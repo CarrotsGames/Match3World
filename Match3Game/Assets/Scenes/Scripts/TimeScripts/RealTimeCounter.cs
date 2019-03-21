@@ -109,7 +109,7 @@ public class RealTimeCounter : MonoBehaviour
     public void ResetClock()
     {
         TimeMasterScript.instance.SaveDate();
-        TimerCountDown = PlayerPrefs.GetFloat("CurrentHappiness");
+        TimerCountDown = PlayerPrefs.GetFloat("GobuHappiness");
         TimerCountDown -= TimeMasterScript.instance.CheckDate();
     }
    
