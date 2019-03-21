@@ -17,7 +17,7 @@ public class CreatureSelect : MonoBehaviour {
     public bool middleCreature = true;
     public bool leftCreature = false;
     public bool rightCreature = false;
-
+  
 
     void Awake()
     {
@@ -32,6 +32,7 @@ public class CreatureSelect : MonoBehaviour {
     }
     public void RightArrowClicked()
     {
+        // GOBU
         if(middleCreature == true)
         {
             gobu.SetActive(false);
@@ -40,6 +41,7 @@ public class CreatureSelect : MonoBehaviour {
             middleCreature = false;
             return;
         }
+        // KOKO
         if(leftCreature == true)
         {
             gobu.SetActive(true);
@@ -48,6 +50,7 @@ public class CreatureSelect : MonoBehaviour {
             middleCreature = true;
             return;
         }
+        // BINKY
         if(rightCreature == true)
         {
             koko.SetActive(false);
@@ -59,6 +62,7 @@ public class CreatureSelect : MonoBehaviour {
     }
     public void LeftArrowClicked()
     {
+        // GOBU
         if (middleCreature == true)
         {
             gobu.SetActive(false);
@@ -67,6 +71,7 @@ public class CreatureSelect : MonoBehaviour {
             middleCreature = false;
             return;
         }
+        // KOKO
         if (leftCreature == true)
         {
             binky.SetActive(false);
@@ -75,6 +80,7 @@ public class CreatureSelect : MonoBehaviour {
             rightCreature = true;
             return;
         }
+        //BINKY
         if (rightCreature == true)
         {
             koko.SetActive(false);
