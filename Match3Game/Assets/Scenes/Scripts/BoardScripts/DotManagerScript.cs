@@ -101,7 +101,11 @@ public class DotManagerScript : MonoBehaviour
         {
             MouseCursorObj.SetActive(false);
         }
-     }
+       
+            MouseCursorObj.SetActive(false);
+
+         
+    }
 
 
     private void Update()

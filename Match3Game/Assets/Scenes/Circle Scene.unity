@@ -341,6 +341,31 @@ Prefab:
       propertyPath: m_AnchoredPosition.x
       value: 435.2
       objectReference: {fileID: 0}
+    - target: {fileID: 224985364152588510, guid: 1113987b16b0a31469a92ab6a64583b0,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -27
+      objectReference: {fileID: 0}
+    - target: {fileID: 224985364152588510, guid: 1113987b16b0a31469a92ab6a64583b0,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -255.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 224985364152588510, guid: 1113987b16b0a31469a92ab6a64583b0,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 189.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114295831239969216, guid: 1113987b16b0a31469a92ab6a64583b0,
+        type: 2}
+      propertyPath: ShuffleSpeed
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 114295831239969216, guid: 1113987b16b0a31469a92ab6a64583b0,
+        type: 2}
+      propertyPath: CircleScale
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114350265015001016, guid: 1113987b16b0a31469a92ab6a64583b0, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 1113987b16b0a31469a92ab6a64583b0, type: 2}
@@ -508,7 +533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 676a119dca6cf4e4cb9299267ca18693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Width: 7
+  Width: 6
   Height: 7
   TilePrefab: {fileID: 1826161997128130, guid: a7b5c648e1340cc429b95bd0d68f649b, type: 2}
   Dots:
@@ -1400,6 +1425,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cc5d7985d21bd44a82e2b17064fa4fb, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &1001867471 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114376453897248224, guid: 1113987b16b0a31469a92ab6a64583b0,
+    type: 2}
+  m_PrefabInternal: {fileID: 20703181}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1018790061
 GameObject:
   m_ObjectHideFlags: 0
@@ -2067,6 +2098,11 @@ Prefab:
       propertyPath: NumOfBombsText
       value: 
       objectReference: {fileID: 1041172224}
+    - target: {fileID: 114944472890173658, guid: 9a6df9f76c474724c973f6d01c92d34f,
+        type: 2}
+      propertyPath: NumOfSMText
+      value: 
+      objectReference: {fileID: 1001867471}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a6df9f76c474724c973f6d01c92d34f, type: 2}
   m_IsPrefabAsset: 0

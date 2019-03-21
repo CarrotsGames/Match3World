@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CompanionMonitor : MonoBehaviour
 {
     private RealTimeCounter RealTimeScript;
-
+    public GameObject MouseTrail;
     private GameObject RealTimerGameObj;
     public Slider HappySlider;
     private HappinessManager HappinessManagerScript;
@@ -29,6 +29,7 @@ public class CompanionMonitor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        MouseTrail.SetActive(false);
         if (CreatureSelectScript.rightCreature)
         {
              HappinessManagerScript.Happiness = RealTimeScript.TimerCountDown1;
