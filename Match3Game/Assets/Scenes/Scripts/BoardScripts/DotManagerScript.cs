@@ -58,12 +58,11 @@ public class DotManagerScript : MonoBehaviour
     private MouseFollowScript MouseFollow;
     private GameObject PowerUpManGameObj;
     private PowerUpManager PowerUpManagerScript;
-
+    private CreatureSelect CreatureSelectScript;
     public Text HighScore;
     public Text MultiplierText;
      private void Awake()
     {
-
         TotalScore = PlayerPrefs.GetInt("SCORE");
         HighScore.text = "" + TotalScore;
     }
@@ -88,6 +87,7 @@ public class DotManagerScript : MonoBehaviour
         HighScore.text = "" + TotalScore;
         HighScore.text = "" + TotalScore;
 
+
         // Gameobject/script refrences
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
@@ -96,7 +96,11 @@ public class DotManagerScript : MonoBehaviour
         TotalScore = PlayerPrefs.GetInt("SCORE");
         MouseCursorObj = GameObject.FindGameObjectWithTag("Mouse");
         MouseFollow = MouseCursorObj.GetComponent<MouseFollowScript>();
-        MouseCursorObj.SetActive(false);
+        CreatureSelectScript = GetComponent<CreatureSelect>();
+        if (CreatureSelectScript == null)
+        {
+            MouseCursorObj.SetActive(false);
+        }
      }
 
 

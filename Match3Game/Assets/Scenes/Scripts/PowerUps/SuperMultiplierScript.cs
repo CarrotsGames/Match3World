@@ -54,12 +54,12 @@ public class SuperMultiplierScript : MonoBehaviour
         }
         if (StartCountdown)
         {
-           PlayerPrefs.SetFloat("SMTIMER", MultlpierTimer);
+            PlayerPrefs.SetFloat("SMTIMER", MultlpierTimer);
             MultlpierTimer -= Time.deltaTime;
             // Disables button so user cannot stack multplier
             CanUseSuperMultiplier = false;
             SMTimerUI.SetActive(true);
-           MultlpierTimerText.text = "" + MultlpierTimer;
+            MultlpierTimerText.text = "" + MultlpierTimer;
             if (MultlpierTimer < 0)
             {
                 // Goes through multiplier list and returns variables to defual

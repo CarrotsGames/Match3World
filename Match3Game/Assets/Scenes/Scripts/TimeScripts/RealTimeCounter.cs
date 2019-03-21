@@ -13,7 +13,7 @@ public class RealTimeCounter : MonoBehaviour
     private GameObject MultiplierGameOb;
     private HappinessManager HappinessManagerScript;
     private SuperMultiplierScript SuperMultiplier;
-
+     
     public float SaveNum;
     // Use this for initialization
     void Start()
@@ -22,7 +22,7 @@ public class RealTimeCounter : MonoBehaviour
         HappinessManagerScript = HappinessGameObj.GetComponent<HappinessManager>();
         MultiplierGameOb = GameObject.FindGameObjectWithTag("SM");
         SuperMultiplier = MultiplierGameOb.GetComponent<SuperMultiplierScript>();
-
+  
         // Starting timer amount
         // Update timer with real time passed
         //TODO [Find a better way of doing this]
@@ -45,6 +45,8 @@ public class RealTimeCounter : MonoBehaviour
             SuperMultiplier.MultlpierTimer = PlayerPrefs.GetFloat("SMTIMER");
             SuperMultiplier.MultlpierTimer -= TimeMasterScript.instance.CheckDate();
         }
+
+        
         //SuperMultiplier.MultlpierTimer = MultlpierCountdown;
          // update timer when real time passes 
 
@@ -78,6 +80,14 @@ public class RealTimeCounter : MonoBehaviour
         TimerCountDown = Mathf.Clamp(TimerCountDown, 0, 100);
          // Update timer each frame
         TimerCountDown -= Time.deltaTime / 3;
+
+        TimerCountDown1 = Mathf.Clamp(TimerCountDown1, 0, 100);
+        // Update timer each frame
+        TimerCountDown1 -= Time.deltaTime / 3;
+
+        TimerCountDown2 = Mathf.Clamp(TimerCountDown2, 0, 100);
+        // Update timer each frame
+        TimerCountDown2 -= Time.deltaTime / 3;
     }
 
     private void OnGUI()
