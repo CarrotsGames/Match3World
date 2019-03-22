@@ -52,7 +52,7 @@ public class DotScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(dotManagerScript.ResetMaterial);
+ 
         if (dotManagerScript.StopInteracting)
         {
             OnMouseUp();

@@ -19,8 +19,7 @@ public class ColourRemover : MonoBehaviour
     public Material PurpleMat;
 
     private bool PowerUpInUse;
-    private MouseFollowScript MouseFollow;
-    private DotManagerScript dotManagerScript;
+     private DotManagerScript dotManagerScript;
     private GameObject PowerUpManGameObj;
     private GameObject DotManagerObj;
     private BoardScript Board;
@@ -37,8 +36,7 @@ public class ColourRemover : MonoBehaviour
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
         MouseCursorObj = GameObject.FindGameObjectWithTag("Mouse");
-        MouseFollow = MouseCursorObj.GetComponent<MouseFollowScript>();
-
+ 
  
         PowerUpInUse = false;
         Red = false;

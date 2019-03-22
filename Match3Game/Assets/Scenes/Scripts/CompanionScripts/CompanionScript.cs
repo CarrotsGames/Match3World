@@ -85,7 +85,7 @@ public class CompanionScript : MonoBehaviour
     private void OnApplicationPause(bool pause)
     {
         RealTimeScript.ResetClock();
-    
+        pause = true;
     }
     private void OnApplicationQuit()
     {
