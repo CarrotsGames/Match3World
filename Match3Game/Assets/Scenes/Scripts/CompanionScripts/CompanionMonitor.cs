@@ -12,6 +12,9 @@ public class CompanionMonitor : MonoBehaviour
     private HappinessManager HappinessManagerScript;
     private GameObject HappinessGameObj;
     private GameObject CreatureSelectGameObj;
+     float Happiness;
+     float Happiness1;
+    float Happiness2;
 
     CreatureSelect CreatureSelectScript;
  
@@ -32,15 +35,25 @@ public class CompanionMonitor : MonoBehaviour
         MouseTrail.SetActive(false);
         if (CreatureSelectScript.rightCreature)
         {
-             HappinessManagerScript.Happiness = RealTimeScript.TimerCountDown1;
+            Happiness1 = PlayerPrefs.GetFloat("BinkyHappiness");
+
+            RealTimeScript.TimerCountDown1 = Happiness1;
         }
         else if (CreatureSelectScript.middleCreature)
         {
-            HappinessManagerScript.Happiness = RealTimeScript.TimerCountDown;
+            Happiness = PlayerPrefs.GetFloat("GobuHappiness");
+
+            //HappinessManagerScript.Happiness = RealTimeScript.TimerCountDown;
+            RealTimeScript.TimerCountDown = Happiness;
+
         }
         else if(CreatureSelectScript.leftCreature)
         {
-            HappinessManagerScript.Happiness = RealTimeScript.TimerCountDown2;
+            Happiness2 = PlayerPrefs.GetFloat("KokoHappiness");
+
+            //HappinessManagerScript.Happiness = RealTimeScript.TimerCountDown2;
+            RealTimeScript.TimerCountDown2 = Happiness2;
+
         }
 
     }

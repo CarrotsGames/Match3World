@@ -80,13 +80,13 @@ public class DotManagerScript : MonoBehaviour
         ResetDotLayers = false;
         StopInteracting = false;
         ChangeMaterial = false;
+     
         // UI
         LineCount = 0;
         Multipier = 1;
         MultiplierText.text = "" + Multipier;
         HighScore.text = "" + TotalScore;
         HighScore.text = "" + TotalScore;
-
 
         // Gameobject/script refrences
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");

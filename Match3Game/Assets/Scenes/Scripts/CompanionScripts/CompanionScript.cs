@@ -63,7 +63,7 @@ public class CompanionScript : MonoBehaviour
              CurrencyChance = HungerMultiplier;
             Destroy(EatingPeices[i].gameObject);
             HungerMultiplier = i / 2;
-            HappinessManagerScript.Happiness += HungerMultiplier;
+            HappinessManagerScript.HappinessSliderValue += HungerMultiplier;
 
         }
         if (HappinessManagerScript.CanGetCurrency)
