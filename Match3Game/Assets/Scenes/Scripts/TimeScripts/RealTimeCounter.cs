@@ -31,17 +31,17 @@ public class RealTimeCounter : MonoBehaviour
         //Gobus Happiness Timer
         TimerCountDown = PlayerPrefs.GetFloat("GobuHappiness");
         // update timer when real time passes 
-        TimerCountDown -= TimeMasterScript.instance.CheckDate() / 6;
+        TimerCountDown -= TimeMasterScript.instance.CheckDate() / 25;
       
         // Binkies Happiness Timer
         TimerCountDown1 = PlayerPrefs.GetFloat("BinkyHappiness");
         // update timer when real time passes 
-        TimerCountDown1 -= TimeMasterScript.instance.CheckDate() / 6;
+        TimerCountDown1 -= TimeMasterScript.instance.CheckDate() / 25;
     
         // Kokos Happiness timer
         TimerCountDown2 = PlayerPrefs.GetFloat("KokoHappiness");
         // update timer when real time passes 
-        TimerCountDown2 -= TimeMasterScript.instance.CheckDate() / 6;
+        TimerCountDown2 -= TimeMasterScript.instance.CheckDate() / 25;
 
         if (SuperMultiplier.MultlpierTimer > -1)
         {
@@ -100,20 +100,21 @@ public class RealTimeCounter : MonoBehaviour
 
             TimerCountDown2 = HappinessManagerScript.HappinessSliderValue;
 
+
         }
-        TimerCountDown = Mathf.Clamp(TimerCountDown, 0, 100);
-         // Update timer each frame
-        TimerCountDown -= Time.deltaTime / 3;
+         TimerCountDown = Mathf.Clamp(TimerCountDown, 0, 100);
+         // Update timer each frame by delay
+        TimerCountDown -= Time.deltaTime / 10;
         PlayerPrefs.SetFloat("GobuHappiness", TimerCountDown);
-
-        TimerCountDown1 = Mathf.Clamp(TimerCountDown1, 0, 100);
-        // Update timer each frame
-        TimerCountDown1 -= Time.deltaTime / 3;
+    
+        TimerCountDown1 = Mathf.Clamp(TimerCountDown1, 0, 100);  
+        // Update timer each frame by delay
+         TimerCountDown1 -= Time.deltaTime / 10;
         PlayerPrefs.SetFloat("BinkyHappiness", TimerCountDown1);
-
+     
         TimerCountDown2 = Mathf.Clamp(TimerCountDown2, 0, 100);
-        // Update timer each frame
-        TimerCountDown2 -= Time.deltaTime / 3;
+        // Update timer each frame by delay
+         TimerCountDown2 -= Time.deltaTime / 10;
         PlayerPrefs.SetFloat("KokoHappiness", TimerCountDown2);
 
     }

@@ -49,7 +49,7 @@ public class HappinessManager : MonoBehaviour
         // clamps hunger of selected companion from 0 to 100
         HappinessSliderValue = Mathf.Clamp(HappinessSliderValue, 0, 100);
         // Slowly counts down Happiness value
-        HappinessSliderValue -= Time.deltaTime / 3;
+        HappinessSliderValue -= Time.deltaTime / 6;
        
         //displays cuttent slider information with currently used companion
         HappinessSlider.value = HappinessSliderValue;

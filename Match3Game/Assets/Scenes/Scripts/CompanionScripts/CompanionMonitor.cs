@@ -36,8 +36,8 @@ public class CompanionMonitor : MonoBehaviour
         if (CreatureSelectScript.rightCreature)
         {
             Happiness1 = PlayerPrefs.GetFloat("BinkyHappiness");
-
             RealTimeScript.TimerCountDown1 = Happiness1;
+            HappySlider.value = Happiness1;
         }
         else if (CreatureSelectScript.middleCreature)
         {
@@ -45,6 +45,7 @@ public class CompanionMonitor : MonoBehaviour
 
             //HappinessManagerScript.Happiness = RealTimeScript.TimerCountDown;
             RealTimeScript.TimerCountDown = Happiness;
+            HappySlider.value = Happiness;
 
         }
         else if(CreatureSelectScript.leftCreature)
@@ -53,6 +54,7 @@ public class CompanionMonitor : MonoBehaviour
 
             //HappinessManagerScript.Happiness = RealTimeScript.TimerCountDown2;
             RealTimeScript.TimerCountDown2 = Happiness2;
+            HappySlider.value = Happiness2;
 
         }
 
