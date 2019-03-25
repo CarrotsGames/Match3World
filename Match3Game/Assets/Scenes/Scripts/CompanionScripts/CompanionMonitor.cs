@@ -21,6 +21,7 @@ public class CompanionMonitor : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        HappySlider.value = 0;
         RealTimerGameObj = GameObject.FindGameObjectWithTag("MainCamera");
         RealTimeScript = RealTimerGameObj.GetComponent<RealTimeCounter>();
         HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
@@ -32,12 +33,11 @@ public class CompanionMonitor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MouseTrail.SetActive(false);
-        if (CreatureSelectScript.rightCreature)
+         if (CreatureSelectScript.rightCreature)
         {
             Happiness1 = PlayerPrefs.GetFloat("BinkyHappiness");
             RealTimeScript.TimerCountDown1 = Happiness1;
-            HappySlider.value = Happiness1;
+            HappySlider.value = RealTimeScript.TimerCountDown1;
         }
         else if (CreatureSelectScript.middleCreature)
         {
@@ -45,7 +45,7 @@ public class CompanionMonitor : MonoBehaviour
 
             //HappinessManagerScript.Happiness = RealTimeScript.TimerCountDown;
             RealTimeScript.TimerCountDown = Happiness;
-            HappySlider.value = Happiness;
+            HappySlider.value = RealTimeScript.TimerCountDown;
 
         }
         else if(CreatureSelectScript.leftCreature)
@@ -54,9 +54,10 @@ public class CompanionMonitor : MonoBehaviour
 
             //HappinessManagerScript.Happiness = RealTimeScript.TimerCountDown2;
             RealTimeScript.TimerCountDown2 = Happiness2;
-            HappySlider.value = Happiness2;
+            HappySlider.value = RealTimeScript.TimerCountDown2;
 
         }
+        MouseTrail.SetActive(false);
 
     }
 }
