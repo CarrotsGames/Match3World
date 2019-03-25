@@ -12,12 +12,16 @@ public class CompanionMonitor : MonoBehaviour
     private HappinessManager HappinessManagerScript;
     private GameObject HappinessGameObj;
     private GameObject CreatureSelectGameObj;
+     float Happiness;
+     float Happiness1;
+    float Happiness2;
 
     CreatureSelect CreatureSelectScript;
  
     // Use this for initialization
     void Start()
     {
+        HappySlider.value = 0;
         RealTimerGameObj = GameObject.FindGameObjectWithTag("MainCamera");
         RealTimeScript = RealTimerGameObj.GetComponent<RealTimeCounter>();
         HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
@@ -29,19 +33,31 @@ public class CompanionMonitor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MouseTrail.SetActive(false);
-        if (CreatureSelectScript.rightCreature)
+         if (CreatureSelectScript.rightCreature)
         {
-             HappinessManagerScript.Happiness = RealTimeScript.TimerCountDown1;
+            Happiness1 = PlayerPrefs.GetFloat("BinkyHappiness");
+            RealTimeScript.TimerCountDown1 = Happiness1;
+            HappySlider.value = RealTimeScript.TimerCountDown1;
         }
         else if (CreatureSelectScript.middleCreature)
         {
-            HappinessManagerScript.Happiness = RealTimeScript.TimerCountDown;
+            Happiness = PlayerPrefs.GetFloat("GobuHappiness");
+
+            //HappinessManagerScript.Happiness = RealTimeScript.TimerCountDown;
+            RealTimeScript.TimerCountDown = Happiness;
+            HappySlider.value = RealTimeScript.TimerCountDown;
+
         }
         else if(CreatureSelectScript.leftCreature)
         {
-            HappinessManagerScript.Happiness = RealTimeScript.TimerCountDown2;
+            Happiness2 = PlayerPrefs.GetFloat("KokoHappiness");
+
+            //HappinessManagerScript.Happiness = RealTimeScript.TimerCountDown2;
+            RealTimeScript.TimerCountDown2 = Happiness2;
+            HappySlider.value = RealTimeScript.TimerCountDown2;
+
         }
+        MouseTrail.SetActive(false);
 
     }
 }

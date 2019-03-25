@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KokoLevelController : MonoBehaviour {
+public class KokoLevelController : MonoBehaviour
+{
+    public GameObject koko;
+    public Animator anim;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private bool startShake;
+
 }
+
+
+
+

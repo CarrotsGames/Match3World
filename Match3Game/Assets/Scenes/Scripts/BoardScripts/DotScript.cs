@@ -130,6 +130,7 @@ public class DotScript : MonoBehaviour
     private void OnMouseDown()
     {
 
+        dotManagerScript.StartHighliting = true;
         // Checks which colout tag the mouse is interacting with to know which colour to focus on
         switch (transform.tag)
         {
@@ -161,7 +162,6 @@ public class DotScript : MonoBehaviour
          
         dotManagerScript.Peices.Clear();
         DrawLine.SetPosition(0, transform.position);
-        dotManagerScript.StartHighliting = true;
         // Increases size of peice when selected
         Vector3 newScale = new Vector3();
         newScale.x = Mathf.Clamp(transform.localScale.x, jucSize, jucSize);
@@ -422,7 +422,8 @@ public class DotScript : MonoBehaviour
          newScale.z = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
          newScale.y = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
          transform.localScale = newScale;
-       
+        dotManagerScript.StartHighliting = false;
+ 
 
     }
 

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class HappinessManager : MonoBehaviour
 {
     public GameObject Companion;
-    public float Happiness;
+    public float HappinessSliderValue;
     private GameObject DotManagerObj;
     // Must cap at 4
     public int[] multiplier;
@@ -46,40 +46,42 @@ public class HappinessManager : MonoBehaviour
         // Displays hunger value (used in debug)
         //HungerMetre.text = "" + Hunger;
 
-        // clamps hunger from 0 to 100
-        Happiness = Mathf.Clamp(Happiness, 0, 100);
-
+        // clamps hunger of selected companion from 0 to 100
+        HappinessSliderValue = Mathf.Clamp(HappinessSliderValue, 0, 100);
         // Slowly counts down Happiness value
-        Happiness -= Time.deltaTime / 3;
-        HappinessSlider.value = Happiness;
-        PlayerPrefs.SetFloat(CompanionSave, Happiness);
+        HappinessSliderValue -= Time.deltaTime / 6;
+       
+        //displays cuttent slider information with currently used companion
+        HappinessSlider.value = HappinessSliderValue;
+        PlayerPrefs.SetFloat(CompanionSave, HappinessSliderValue);
 
         // Saving Companions Happiness value
 
 
+
         // if Happiness less than 20
-        if (Happiness < 20)
+        if (HappinessSliderValue < 20)
         {
             dotManagerScript.Multipier = 1;
 
         }
-        if (Happiness > 20 && Happiness < 40)
+        if (HappinessSliderValue > 20 && HappinessSliderValue < 40)
         {
             dotManagerScript.Multipier = multiplier[0];
 
         }
-        if (Happiness > 40 && Happiness < 60)
+        if (HappinessSliderValue > 40 && HappinessSliderValue < 60)
         {
             dotManagerScript.Multipier = multiplier[1];
 
         }
-        if (Happiness > 60 && Happiness < 80)
+        if (HappinessSliderValue > 60 && HappinessSliderValue < 80)
         {
             dotManagerScript.Multipier = multiplier[2];
 
 
         }
-        if (Happiness > 80 && Happiness < 100)
+        if (HappinessSliderValue > 80 && HappinessSliderValue < 100)
         {
             CanGetCurrency = true;
             dotManagerScript.Multipier = multiplier[3];
