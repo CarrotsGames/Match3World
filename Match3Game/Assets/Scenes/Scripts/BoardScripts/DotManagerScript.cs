@@ -101,9 +101,10 @@ public class DotManagerScript : MonoBehaviour
         {
             MouseCursorObj.SetActive(false);
         }
-       
+        else
+        {
             MouseCursorObj.SetActive(false);
-
+        }
          
     }
 
