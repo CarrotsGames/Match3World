@@ -12,37 +12,30 @@ public class EventScript : MonoBehaviour
 
     private void Start()
     {
-        WeeklyTimer = PlayerPrefs.GetFloat("TEST");
-        WeeklyTimer -= TimeMasterScript.instance.CheckDate();
-        DailyTimer = WeeklyTimer;
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        PlayerPrefs.SetFloat("TEST", DailyTimer);
-        DailyTimer -= Time.deltaTime;
-
 
     }
 
     public void DoDailyButton()
     {
-        if(!CannotDoDaily)
+        if (DailyTimer < 0)
         {
             //SPIN WHEEL
             // RESET TIMER
             DailyTimer = 300;
+            PlayerPrefs.SetFloat("DAILYTEST1", DailyTimer);
             CannotDoDaily = true;
         }
      }
 
    void ResetClock()
     {
-        TimeMasterScript.instance.SaveDate();
-        DailyTimer = PlayerPrefs.GetFloat("TEST");
-        DailyTimer -= TimeMasterScript.instance.CheckDate();
-
+   
       //  WeeklyTimer -= TimeMasterScript.instance.CheckDate();
 
     }

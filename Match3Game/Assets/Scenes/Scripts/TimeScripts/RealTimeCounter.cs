@@ -8,6 +8,8 @@ public class RealTimeCounter : MonoBehaviour
     public float TimerCountDown;
     public float TimerCountDown1;
     public float TimerCountDown2;
+    public float DailyTimerCountDown;
+
     private float MultlpierCountdown;
     private GameObject HappinessGameObj;
     private GameObject MultiplierGameOb;
@@ -43,6 +45,11 @@ public class RealTimeCounter : MonoBehaviour
         // update timer when real time passes 
         TimerCountDown2 -= TimeMasterScript.instance.CheckDate() / 25;
 
+        DailyTimerCountDown = PlayerPrefs.GetFloat("DAILYTEST1");
+        // update timer when real time passes 
+        DailyTimerCountDown -= TimeMasterScript.instance.CheckDate();
+
+ 
         if (SuperMultiplier.MultlpierTimer > -1)
         {
             SuperMultiplier.MultlpierTimer = PlayerPrefs.GetFloat("SMTIMER");
@@ -117,6 +124,7 @@ public class RealTimeCounter : MonoBehaviour
          TimerCountDown2 -= Time.deltaTime / 10;
         PlayerPrefs.SetFloat("KokoHappiness", TimerCountDown2);
 
+        DailyTimerCountDown -= Time.deltaTime;
     }
 
     private void OnGUI()
@@ -141,19 +149,20 @@ public class RealTimeCounter : MonoBehaviour
         TimeMasterScript.instance.SaveDate();
         TimerCountDown = PlayerPrefs.GetFloat("GobuHappiness");
         TimerCountDown -= TimeMasterScript.instance.CheckDate();
-       
-     //  // BINKY
-     //  TimeMasterScript.instance.SaveDate();
-     //  // Binkies Happiness Timer
-     //  TimerCountDown1 = PlayerPrefs.GetFloat("BinkyHappiness");
-     //  // update timer when real time passes 
-     //  TimerCountDown1 -= TimeMasterScript.instance.CheckDate();
-     // 
-     //  // KOKO
-     //  TimeMasterScript.instance.SaveDate();
-     //  TimerCountDown2 = PlayerPrefs.GetFloat("KokoHappiness");
-     //  // update timer when real time passes 
-     //  TimerCountDown2 -= TimeMasterScript.instance.CheckDate();
+        PlayerPrefs.SetFloat("DAILYTEST1", DailyTimerCountDown);
+
+        //  // BINKY
+        //  TimeMasterScript.instance.SaveDate();
+        //  // Binkies Happiness Timer
+        //  TimerCountDown1 = PlayerPrefs.GetFloat("BinkyHappiness");
+        //  // update timer when real time passes 
+        //  TimerCountDown1 -= TimeMasterScript.instance.CheckDate();
+        // 
+        //  // KOKO
+        //  TimeMasterScript.instance.SaveDate();
+        //  TimerCountDown2 = PlayerPrefs.GetFloat("KokoHappiness");
+        //  // update timer when real time passes 
+        //  TimerCountDown2 -= TimeMasterScript.instance.CheckDate();
     }
-   
+
 }
