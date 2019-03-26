@@ -8,11 +8,15 @@ public class EventScript : MonoBehaviour
     public float MonthlyTimer;
     public bool CannotDoDaily;
     // Use this for initialization
-
+    private GameObject RealTimerGameObj;
+    private RealTimeCounter RealTimeScript;
 
     private void Start()
     {
-       
+        DailyTimer = PlayerPrefs.GetFloat("DAILYTEST1");
+        RealTimerGameObj = GameObject.FindGameObjectWithTag("MainCamera");
+        RealTimeScript = RealTimerGameObj.GetComponent<RealTimeCounter>();
+
     }
 
     // Update is called once per frame
@@ -23,11 +27,11 @@ public class EventScript : MonoBehaviour
 
     public void DoDailyButton()
     {
-        if (DailyTimer < 0)
+        if (RealTimeScript.DailyTimerCountDown < 0)
         {
             //SPIN WHEEL
             // RESET TIMER
-            DailyTimer = 300;
+            RealTimeScript.DailyTimerCountDown = 300;
             PlayerPrefs.SetFloat("DAILYTEST1", DailyTimer);
             CannotDoDaily = true;
         }
