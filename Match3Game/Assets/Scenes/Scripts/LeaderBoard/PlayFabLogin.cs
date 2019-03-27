@@ -8,6 +8,7 @@ public class PlayFabLogin : MonoBehaviour
 {
     GameObject DotManagerObj;
     DotManagerScript dotManagerScript;
+  
     float UpdateScoreTimer;
     public void Start()
     {
@@ -33,8 +34,7 @@ public class PlayFabLogin : MonoBehaviour
 
             // Refresh available items 
         }, error => Debug.LogError(error.GenerateErrorReport()));
-     
-    }
+     }
 
     private void Update()
     {
@@ -48,7 +48,7 @@ public class PlayFabLogin : MonoBehaviour
                 Statistics = new List<StatisticUpdate>
             {
 
-                new StatisticUpdate {StatisticName = "TestScore", Value = dotManagerScript.TotalScore},
+                new StatisticUpdate {StatisticName = "TournamentScore", Value = dotManagerScript.TotalScore},
 
             }
 
@@ -63,7 +63,7 @@ public class PlayFabLogin : MonoBehaviour
     {
         PlayFabClientAPI.GetLeaderboard(new GetLeaderboardRequest()
         {
-            StatisticName = "TestScore",
+            StatisticName = "TournamentScore",
         }, result =>
         {
             Debug.Log("Leaderboard version: " + result.Version);
@@ -74,10 +74,7 @@ public class PlayFabLogin : MonoBehaviour
         }, OnLoginFailure);
  
      }
-    private void OnLoginSuccess(LoginResult result)
-    {
-        Debug.Log("Congratulations, you made your first successful API call!");    
-    }
+  
 
     private void OnLoginFailure(PlayFabError error)
     {

@@ -8,8 +8,10 @@ using System.Collections.Generic;
 {
 
     GameObject DotManagerObj;
+
     DotManagerScript dotManagerScript;
-    public int[] NumberOfNames;
+
+      public int[] NumberOfNames;
     [HideInInspector]
     public int[] NumbOfNamesStore;
     public Text text;
@@ -26,6 +28,7 @@ using System.Collections.Generic;
     {
         //    DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         //   dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
+        
         NumbOfNamesStore = NumberOfNames;
         ListNames = new List<Text>();
         OffsetY = 0;
