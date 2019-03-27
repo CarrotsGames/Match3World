@@ -23,11 +23,12 @@ using System.Collections.Generic;
     public int i;
     //FirstTimeStartUp
     public int FirstTimeStartUp;
+    int Versions;
      public InputField NameTextBox;
     private void Start()
     {
-        //    DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
-        //   dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
+             DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
+            dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
         
         NumbOfNamesStore = NumberOfNames;
         ListNames = new List<Text>();
@@ -57,7 +58,7 @@ using System.Collections.Generic;
 
             // Refresh available items 
         }, error => Debug.LogError(error.GenerateErrorReport()));
-
+         Versions = PlayerPrefs.GetInt("VERSIONVALUE");
     }
 
    public void UpdateName()
@@ -93,6 +94,15 @@ using System.Collections.Generic;
                     ListNames[i].text = entry.DisplayName + " " + entry.StatValue;
                     i++;
                 }
+                if(Versions != result.Version)
+                 {
+                     Versions = result.Version;
+                    
+                     Debug.Log("NEW VERSION");
+                     dotManagerScript.TotalScore = 0;
+                     PlayerPrefs.SetFloat("SCORE", dotManagerScript.TotalScore);
+                     PlayerPrefs.SetInt("VERSIONVALUE", Versions);
+                 }
              
         }, OnLoginFailure);
 

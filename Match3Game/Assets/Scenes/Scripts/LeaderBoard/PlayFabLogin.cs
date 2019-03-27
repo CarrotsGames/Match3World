@@ -34,7 +34,8 @@ public class PlayFabLogin : MonoBehaviour
 
             // Refresh available items 
         }, error => Debug.LogError(error.GenerateErrorReport()));
-     }
+
+      }
 
     private void Update()
     {
@@ -48,14 +49,13 @@ public class PlayFabLogin : MonoBehaviour
                 Statistics = new List<StatisticUpdate>
             {
 
-                new StatisticUpdate {StatisticName = "TournamentScore", Value = dotManagerScript.TotalScore},
-
-            }
+                new StatisticUpdate {StatisticName = "TournamentScore", Value = dotManagerScript.TotalScore,},
+             }
 
             },
               result => { Debug.Log("User statistics updated"); },
               error => { Debug.LogError(error.GenerateErrorReport()); });
-            UpdateScoreTimer = 10;
+              UpdateScoreTimer = 10;
         }
     }
 
