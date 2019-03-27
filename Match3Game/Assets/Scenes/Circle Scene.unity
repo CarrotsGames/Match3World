@@ -1568,6 +1568,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1121975063681944, guid: f1e120967e9629d4c8c0fcf05a713294,
     type: 2}
   m_PrefabInternal: {fileID: 1722539032}
+--- !u!82 &1694413307 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 82989360729783322, guid: f1e120967e9629d4c8c0fcf05a713294,
+    type: 2}
+  m_PrefabInternal: {fileID: 1722539032}
 --- !u!1001 &1722539032
 Prefab:
   m_ObjectHideFlags: 0
@@ -1575,6 +1580,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114942628608975486, guid: f1e120967e9629d4c8c0fcf05a713294,
+        type: 2}
+      propertyPath: CompanionSounds.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4993509212804498, guid: f1e120967e9629d4c8c0fcf05a713294, type: 2}
       propertyPath: m_LocalPosition.x
       value: -8.2
@@ -1643,6 +1653,31 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 7.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114942628608975486, guid: f1e120967e9629d4c8c0fcf05a713294,
+        type: 2}
+      propertyPath: CompanionSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7d41f6902f318cd478719af52313f8e5, type: 3}
+    - target: {fileID: 114942628608975486, guid: f1e120967e9629d4c8c0fcf05a713294,
+        type: 2}
+      propertyPath: CompanionSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7b2f1190555825740bcb7033547ebdf7, type: 3}
+    - target: {fileID: 114942628608975486, guid: f1e120967e9629d4c8c0fcf05a713294,
+        type: 2}
+      propertyPath: CompanionSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: a85076c245f81ea48b326279d4b2049a, type: 3}
+    - target: {fileID: 114942628608975486, guid: f1e120967e9629d4c8c0fcf05a713294,
+        type: 2}
+      propertyPath: CompanionSounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 147175fa6199caf4d9826cc64f13ace0, type: 3}
+    - target: {fileID: 114942628608975486, guid: f1e120967e9629d4c8c0fcf05a713294,
+        type: 2}
+      propertyPath: Audio
+      value: 
+      objectReference: {fileID: 1694413307}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1e120967e9629d4c8c0fcf05a713294, type: 2}
   m_IsPrefabAsset: 0
@@ -1974,6 +2009,7 @@ MonoBehaviour:
   TimerCountDown: 0
   TimerCountDown1: 0
   TimerCountDown2: 0
+  DailyTimerCountDown: 0
   SaveNum: 0
 --- !u!114 &1803669446 stripped
 MonoBehaviour:

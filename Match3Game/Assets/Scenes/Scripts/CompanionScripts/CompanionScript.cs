@@ -13,7 +13,8 @@ public class CompanionScript : MonoBehaviour
     
     // max it can go to is 10
     public float[] GrowingSizes;
-
+    public AudioClip[] CompanionSounds;
+    private AudioClip PlaySound;
     public Slider HungerSlider;
     public AudioSource Audio;
 
@@ -77,6 +78,9 @@ public class CompanionScript : MonoBehaviour
             //  dotManagerScript.Currency 
         }
         dotManagerScript.HighScore.text = "" + dotManagerScript.TotalScore;
+        int RandomSound = Random.Range(0, CompanionSounds.Length);
+        PlaySound = CompanionSounds[RandomSound];
+        Audio.clip = PlaySound;
         Audio.Play();
     }
 // when the pieces collide with the companion it will destory them

@@ -3130,6 +3130,11 @@ MonoBehaviour:
   EatingPeices: []
   EatingPeiceSpawner: {fileID: 192660692}
   GrowingSizes: []
+  CompanionSounds:
+  - {fileID: 8300000, guid: 7d41f6902f318cd478719af52313f8e5, type: 3}
+  - {fileID: 8300000, guid: 7b2f1190555825740bcb7033547ebdf7, type: 3}
+  - {fileID: 8300000, guid: a85076c245f81ea48b326279d4b2049a, type: 3}
+  - {fileID: 8300000, guid: 147175fa6199caf4d9826cc64f13ace0, type: 3}
   HungerSlider: {fileID: 1200800291}
   Audio: {fileID: 1180074815}
 --- !u!82 &1180074815
@@ -4487,6 +4492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ceaf9bd1f4aa54d8a2af7a079ea677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LoadingBar: {fileID: 0}
   SuperMultiplier: 2
   MultlpierTimer: 80
   SMTimerUI: {fileID: 1907332376}
@@ -5155,6 +5161,7 @@ MonoBehaviour:
   TimerCountDown: 0
   TimerCountDown1: 0
   TimerCountDown2: 0
+  DailyTimerCountDown: 0
   SaveNum: 0
 --- !u!1 &1784204496 stripped
 GameObject:
