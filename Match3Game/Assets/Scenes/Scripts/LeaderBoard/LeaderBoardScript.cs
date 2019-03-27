@@ -82,7 +82,7 @@ using System.Collections.Generic;
     {
         PlayFabClientAPI.GetLeaderboard(new GetLeaderboardRequest()
         {
-            StatisticName = "TestScore",
+            StatisticName = "TournamentScore",
         }, result =>
         {
             Debug.Log("Leaderboard version: " + result.Version);
