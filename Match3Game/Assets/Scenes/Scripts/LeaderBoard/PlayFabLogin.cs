@@ -10,6 +10,8 @@ public class PlayFabLogin : MonoBehaviour
     DotManagerScript dotManagerScript;
   
     float UpdateScoreTimer;
+    int Versions;
+
     public void Start()
     {
          UpdateScoreTimer = 10;
@@ -34,8 +36,9 @@ public class PlayFabLogin : MonoBehaviour
 
             // Refresh available items 
         }, error => Debug.LogError(error.GenerateErrorReport()));
+        Versions = PlayerPrefs.GetInt("VERSIONVALUE");
 
-      }
+    }
 
     private void Update()
     {
@@ -70,6 +73,15 @@ public class PlayFabLogin : MonoBehaviour
             foreach (var entry in result.Leaderboard)
             {
                  Debug.Log(entry.DisplayName + " " + entry.StatValue);
+            }
+            if (Versions != result.Version)
+            {
+                Versions = result.Version;
+
+                Debug.Log("NEW VERSION");
+                dotManagerScript.TotalScore = 0;
+                PlayerPrefs.SetFloat("SCORE", dotManagerScript.TotalScore);
+                PlayerPrefs.SetInt("VERSIONVALUE", Versions);
             }
         }, OnLoginFailure);
  
