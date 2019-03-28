@@ -77,11 +77,12 @@ public class PlayFabCurrency : MonoBehaviour
     void SubtractPremiumCurrencySuccess(ModifyUserVirtualCurrencyResult result)
     {
         result.Balance = amount;
-        Debug.Log("Success1");
+        Debug.Log("CURRENCY EARNED");
     }
     void SubtractPremiumCurrencyFailure(PlayFabError error)
     {
-        Debug.LogError("ERROR GETTING GAME CURRENCY" + error.Error + "" + error.ErrorMessage);
+        //   Debug.LogError("ERROR GETTING GAME CURRENCY" + error.Error + "" + error.ErrorMessage);
+        Debug.Log("NO CURRENCT EARNED");
     }
    // void AddPreimiumCurrencySuccess(ModifyUserVirtualCurrencyResult result)
    // {

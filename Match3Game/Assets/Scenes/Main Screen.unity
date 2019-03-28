@@ -539,7 +539,7 @@ Prefab:
     - target: {fileID: 224056847827056020, guid: 04e9930a79c189942b4f20c14f6adbc5,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 424
+      value: 1268
       objectReference: {fileID: 0}
     - target: {fileID: 224025401968312410, guid: 04e9930a79c189942b4f20c14f6adbc5,
         type: 2}
@@ -568,6 +568,16 @@ Prefab:
       propertyPath: LoadingBar
       value: 
       objectReference: {fileID: 1135359495}
+    - target: {fileID: 114985833385398518, guid: 04e9930a79c189942b4f20c14f6adbc5,
+        type: 2}
+      propertyPath: MultplierBar
+      value: 
+      objectReference: {fileID: 1659172159}
+    - target: {fileID: 114985833385398518, guid: 04e9930a79c189942b4f20c14f6adbc5,
+        type: 2}
+      propertyPath: SMTimerUI
+      value: 
+      objectReference: {fileID: 1105670976}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04e9930a79c189942b4f20c14f6adbc5, type: 2}
   m_IsPrefabAsset: 0
@@ -1201,7 +1211,7 @@ GameObject:
   - component: {fileID: 358270395}
   m_Layer: 5
   m_Name: STFUSlider
-  m_TagString: Untagged
+  m_TagString: Mouse
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1427,6 +1437,21 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 3.2786884
       objectReference: {fileID: 0}
+    - target: {fileID: 224487878415413784, guid: a8297453e200b3c43bd90fc3c0a18293,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 62.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 224487878415413784, guid: a8297453e200b3c43bd90fc3c0a18293,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 203.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 224487878415413784, guid: a8297453e200b3c43bd90fc3c0a18293,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.21144131
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8297453e200b3c43bd90fc3c0a18293, type: 2}
   m_IsPrefabAsset: 0
@@ -1479,6 +1504,11 @@ Prefab:
       propertyPath: MultiplierText
       value: 
       objectReference: {fileID: 618902827}
+    - target: {fileID: 114116024551390298, guid: 1fbc98c3587098445a60d05f5aa8d987,
+        type: 2}
+      propertyPath: MouseCursorObj
+      value: 
+      objectReference: {fileID: 358270393}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fbc98c3587098445a60d05f5aa8d987, type: 2}
   m_IsPrefabAsset: 0
@@ -2156,6 +2186,11 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 942625847}
   m_CullTransparentMesh: 0
+--- !u!1 &1105670976 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1217419665726418, guid: a8297453e200b3c43bd90fc3c0a18293,
+    type: 2}
+  m_PrefabInternal: {fileID: 431104578}
 --- !u!1 &1129741781 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1632165951367212, guid: 43a1c18cd898ea244be65543fb55c54a,
@@ -3182,6 +3217,11 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1640699198}
   m_CullTransparentMesh: 0
+--- !u!224 &1659172159 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224396181065422862, guid: a8297453e200b3c43bd90fc3c0a18293,
+    type: 2}
+  m_PrefabInternal: {fileID: 431104578}
 --- !u!1001 &1679719645
 Prefab:
   m_ObjectHideFlags: 0

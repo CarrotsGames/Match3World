@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class SuperMultiplierScript : MonoBehaviour
 {
-    public Transform LoadingBar;
+    public Transform MultplierBar;
     
     public int SuperMultiplier;
     public float MultlpierTimer;
@@ -62,7 +62,7 @@ public class SuperMultiplierScript : MonoBehaviour
             CanUseSuperMultiplier = false;
             SMTimerUI.SetActive(true);
             MultlpierTimerText.text = "" + MultlpierTimer;
-            LoadingBar.GetComponent<Image>().fillAmount = MultlpierTimer / 80;
+            MultplierBar.GetComponent<Image>().fillAmount = MultlpierTimer / 80;
 
             if (MultlpierTimer < 0)
             {

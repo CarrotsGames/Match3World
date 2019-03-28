@@ -23,7 +23,7 @@ public class CompanionScript : MonoBehaviour
     private GameObject RealTimerGameObj;
     private GameObject PowerUpManGameObj;
     private GameObject HappinessGameObj;
-    private DotManagerScript dotManagerScript;
+    private DotManagerScript DotManagerScriptRef;
     private RealTimeCounter RealTimeScript;
     private PowerUpManager PowerUpManagerScript;
     private HappinessManager HappinessManagerScript;
@@ -44,7 +44,7 @@ public class CompanionScript : MonoBehaviour
       
         // Referneces DotManagerScript
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
-        dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
+        DotManagerScriptRef = DotManagerObj.GetComponent<DotManagerScript>();
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
         // HungerSlider min and max
@@ -77,7 +77,7 @@ public class CompanionScript : MonoBehaviour
             Debug.Log(chance);
             //  dotManagerScript.Currency 
         }
-        dotManagerScript.HighScore.text = "" + dotManagerScript.TotalScore;
+        DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
         int RandomSound = Random.Range(0, CompanionSounds.Length);
         PlaySound = CompanionSounds[RandomSound];
         Audio.clip = PlaySound;
