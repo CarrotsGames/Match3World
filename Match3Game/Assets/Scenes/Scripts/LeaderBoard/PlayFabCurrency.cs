@@ -6,12 +6,20 @@ public class PlayFabCurrency : MonoBehaviour
 {
     private GameObject PowerUpManGameObj;
     private PowerUpManager PowerUpManagerScript;
+    GameObject DotManagerObj;
+    DotManagerScript dotManagerScript;
     int amount;
+    int Versions;
+
     // Use this for initialization
     void Start()
     {
+        DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
+        dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
+        Versions = PlayerPrefs.GetInt("VERSIONVALUE");
+
         LoggedIn();
     }
 
@@ -56,6 +64,32 @@ public class PlayFabCurrency : MonoBehaviour
         AddUserVirtualCurrencyRequest request = new AddUserVirtualCurrencyRequest();
         request.VirtualCurrency = "GC";
         PlayFabClientAPI.AddUserVirtualCurrency(request, AddPreimiumCurrencySuccess, AddPremiumCurrencyFailure);
+
+        PlayFabClientAPI.GetLeaderboard(new GetLeaderboardRequest()
+        {
+            StatisticName = "TournamentScore",
+        }, result =>
+        {
+            Debug.Log("Leaderboard version: " + result.Version);
+            // foreach (var entry in result.Leaderboard)
+            // {
+            //     Debug.Log(entry.DisplayName + " " + entry.StatValue);
+            // }
+            if (Versions != result.Version)
+            {
+                Versions = result.Version;
+
+                Debug.Log("NEW VERSION");
+                dotManagerScript.TotalScore = 0;
+                dotManagerScript.HighScore.text = "" + dotManagerScript.TotalScore;
+                PlayerPrefs.SetFloat("SCORE", dotManagerScript.TotalScore);
+                PlayerPrefs.SetInt("VERSIONVALUE", Versions);
+            }
+
+        }, SubtractPremiumCurrencyFailure);
+
+
+
     }
     void AddPreimiumCurrencySuccess(ModifyUserVirtualCurrencyResult result)
     {
@@ -77,12 +111,12 @@ public class PlayFabCurrency : MonoBehaviour
     void SubtractPremiumCurrencySuccess(ModifyUserVirtualCurrencyResult result)
     {
         result.Balance = amount;
-        Debug.Log("CURRENCY EARNED");
+        Debug.Log("Success1");
     }
     void SubtractPremiumCurrencyFailure(PlayFabError error)
     {
-        //   Debug.LogError("ERROR GETTING GAME CURRENCY" + error.Error + "" + error.ErrorMessage);
-        Debug.Log("NO CURRENCT EARNED");
+        Debug.Log("NO MONEY EARNED");
+       // Debug.LogError("ERROR GETTING GAME CURRENCY" + error.Error + "" + error.ErrorMessage);
     }
    // void AddPreimiumCurrencySuccess(ModifyUserVirtualCurrencyResult result)
    // {

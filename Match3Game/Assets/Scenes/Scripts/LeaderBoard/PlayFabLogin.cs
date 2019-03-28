@@ -10,9 +10,9 @@ public class PlayFabLogin : MonoBehaviour
     DotManagerScript dotManagerScript;
   
     float UpdateScoreTimer;
+ 
     public void Start()
     {
-         UpdateScoreTimer = 10;
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
         //Note: Setting title Id here can be skipped if you have set the value in Editor Extensions already.
@@ -35,7 +35,7 @@ public class PlayFabLogin : MonoBehaviour
             // Refresh available items 
         }, error => Debug.LogError(error.GenerateErrorReport()));
 
-      }
+    }
 
     private void Update()
     {
@@ -44,6 +44,7 @@ public class PlayFabLogin : MonoBehaviour
 
         if (UpdateScoreTimer < 0)
         {
+ 
             PlayFabClientAPI.UpdatePlayerStatistics(new UpdatePlayerStatisticsRequest
             {
                 Statistics = new List<StatisticUpdate>
@@ -71,6 +72,7 @@ public class PlayFabLogin : MonoBehaviour
             {
                  Debug.Log(entry.DisplayName + " " + entry.StatValue);
             }
+            
         }, OnLoginFailure);
  
      }
