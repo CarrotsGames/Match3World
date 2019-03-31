@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class MonthlyChallenge : MonoBehaviour {
     public float ChallengeScore;
-    DotManagerScript DotManagerScriptRef;
+    DotManager DotManagerScript;
     GameObject DotManagerGameObj;
     public GameObject PrizeCompanion;
     int UnlockGift;
+    private string NameOfPrize;
     bool HasUnlockedGift;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
+        NameOfPrize = "NEWGOBU";
         DotManagerGameObj = GameObject.FindGameObjectWithTag("DotManager");
-        DotManagerScriptRef = DotManagerGameObj.GetComponent<DotManagerScript>();
+        DotManagerScript = DotManagerGameObj.GetComponent<DotManager>();
         UnlockGift = PlayerPrefs.GetInt("MONTHLYPRIZE");
+        PlayerPrefs.SetString("UNLOCKED", NameOfPrize);
+
         if (UnlockGift > 0)
         {
             HasUnlockedGift = true;
@@ -26,13 +31,13 @@ public class MonthlyChallenge : MonoBehaviour {
 
         }
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
         if (!HasUnlockedGift)
         {
-            if (DotManagerScriptRef.TotalScore > ChallengeScore)
+            if (DotManagerScript.TotalScore > ChallengeScore)
             {
                 // ADD PRIZE COMPANION TO ROSTER
                 Debug.Log("YOU GOT THE PRIZE");
@@ -44,5 +49,5 @@ public class MonthlyChallenge : MonoBehaviour {
                 Debug.Log("RESET OR HAVENT REACHED PRIZE");
             }
         }
-	}
+    }
 }

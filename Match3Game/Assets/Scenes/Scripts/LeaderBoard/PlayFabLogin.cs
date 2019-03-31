@@ -7,14 +7,14 @@ using System.Collections;
 public class PlayFabLogin : MonoBehaviour
 {
     GameObject DotManagerObj;
-    DotManagerScript dotManagerScript;
+    DotManager DotManagerScript;
   
     float UpdateScoreTimer;
  
     public void Start()
     {
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
-        dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
+        DotManagerScript = DotManagerObj.GetComponent<DotManager>();
         //Note: Setting title Id here can be skipped if you have set the value in Editor Extensions already.
         if (string.IsNullOrEmpty(PlayFabSettings.TitleId))
         {
@@ -50,7 +50,7 @@ public class PlayFabLogin : MonoBehaviour
                 Statistics = new List<StatisticUpdate>
             {
 
-                new StatisticUpdate {StatisticName = "TournamentScore", Value = dotManagerScript.TotalScore,},
+                new StatisticUpdate {StatisticName = "TournamentScore", Value = DotManagerScript.TotalScore,},
              }
 
             },

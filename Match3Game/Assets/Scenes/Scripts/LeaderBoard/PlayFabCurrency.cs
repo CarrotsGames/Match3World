@@ -7,7 +7,7 @@ public class PlayFabCurrency : MonoBehaviour
     private GameObject PowerUpManGameObj;
     private PowerUpManager PowerUpManagerScript;
     GameObject DotManagerObj;
-    DotManagerScript dotManagerScript;
+    DotManager DotManagerScript;
     int amount;
     int Versions;
 
@@ -15,7 +15,7 @@ public class PlayFabCurrency : MonoBehaviour
     void Start()
     {
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
-        dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
+        DotManagerScript = DotManagerObj.GetComponent<DotManager>();
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
         Versions = PlayerPrefs.GetInt("VERSIONVALUE");
@@ -80,9 +80,9 @@ public class PlayFabCurrency : MonoBehaviour
                 Versions = result.Version;
 
                 Debug.Log("NEW VERSION");
-                dotManagerScript.TotalScore = 0;
-                dotManagerScript.HighScore.text = "" + dotManagerScript.TotalScore;
-                PlayerPrefs.SetFloat("SCORE", dotManagerScript.TotalScore);
+                DotManagerScript.TotalScore = 0;
+                DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
+                PlayerPrefs.SetFloat("SCORE", DotManagerScript.TotalScore);
                 PlayerPrefs.SetInt("VERSIONVALUE", Versions);
             }
 
