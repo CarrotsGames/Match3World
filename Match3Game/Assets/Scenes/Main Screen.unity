@@ -220,7 +220,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -4
   m_TargetDisplay: 0
 --- !u!224 &14169747
 RectTransform:
@@ -576,6 +576,50 @@ Prefab:
       propertyPath: SMTimerUI
       value: 
       objectReference: {fileID: 1105670976}
+    - target: {fileID: 223257147172001968, guid: 04e9930a79c189942b4f20c14f6adbc5,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 223257147172001968, guid: 04e9930a79c189942b4f20c14f6adbc5,
+        type: 2}
+      propertyPath: m_TargetDisplay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 223257147172001968, guid: 04e9930a79c189942b4f20c14f6adbc5,
+        type: 2}
+      propertyPath: m_PixelPerfect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114887481172578774, guid: 04e9930a79c189942b4f20c14f6adbc5,
+        type: 2}
+      propertyPath: m_BlockingObjects
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114887481172578774, guid: 04e9930a79c189942b4f20c14f6adbc5,
+        type: 2}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1227504537696964, guid: 04e9930a79c189942b4f20c14f6adbc5, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 223257147172001968, guid: 04e9930a79c189942b4f20c14f6adbc5,
+        type: 2}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 223257147172001968, guid: 04e9930a79c189942b4f20c14f6adbc5,
+        type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1962286360}
+    - target: {fileID: 224828489061509422, guid: 04e9930a79c189942b4f20c14f6adbc5,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -5.0025024
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04e9930a79c189942b4f20c14f6adbc5, type: 2}
   m_IsPrefabAsset: 0
@@ -1033,7 +1077,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 0.73333335}
+  m_Color: {r: 0.3679245, g: 0.2932983, b: 0.2932983, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1479,7 +1523,7 @@ Prefab:
     - target: {fileID: 224487878415413784, guid: a8297453e200b3c43bd90fc3c0a18293,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 203.9
+      value: 287.7
       objectReference: {fileID: 0}
     - target: {fileID: 224487878415413784, guid: a8297453e200b3c43bd90fc3c0a18293,
         type: 2}
@@ -1742,6 +1786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreboard: {fileID: 330996370}
+  hungerBar: {fileID: 600823325}
 --- !u!114 &658102956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1946,7 +1991,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -131, y: 44}
+  m_AnchoredPosition: {x: -130.99997, y: 44}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &671616733
@@ -2813,7 +2858,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -368.99997, y: 173}
+  m_AnchoredPosition: {x: -306, y: 173}
   m_SizeDelta: {x: -0.005127, y: -0.005127}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1432467669
@@ -3300,7 +3345,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Superflat Connect 3
+  m_Text: Mooblings
 --- !u!222 &1640699203
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3864,7 +3909,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1, y: 5}
+  m_AnchoredPosition: {x: 571, y: 5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1860599188
@@ -3970,7 +4015,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1879366894
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4468,6 +4513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreboard: {fileID: 330996370}
+  hungerBar: {fileID: 600823325}
 --- !u!1 &2063431742
 GameObject:
   m_ObjectHideFlags: 0
