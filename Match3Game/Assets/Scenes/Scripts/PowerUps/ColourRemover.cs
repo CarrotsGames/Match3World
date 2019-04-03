@@ -19,7 +19,7 @@ public class ColourRemover : MonoBehaviour
     public Material PurpleMat;
 
     private bool PowerUpInUse;
-     private DotManagerScript dotManagerScript;
+     private DotManager DotManagerScript;
     private GameObject PowerUpManGameObj;
     private GameObject DotManagerObj;
     private BoardScript Board;
@@ -34,7 +34,7 @@ public class ColourRemover : MonoBehaviour
         BoardGameObj = GameObject.FindGameObjectWithTag("BoardSpawn");
         Board = BoardGameObj.GetComponent<BoardScript>();
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
-        dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
+        DotManagerScript = DotManagerObj.GetComponent<DotManager>();
         MouseCursorObj = GameObject.FindGameObjectWithTag("Mouse");
  
  
@@ -49,12 +49,12 @@ public class ColourRemover : MonoBehaviour
     {
         if(GoTimer)
         {
-            dotManagerScript.ResetMaterial = true;
+            DotManagerScript.ResetMaterial = true;
 
             Timer -= Time.deltaTime;
             if(Timer < 0 )
             {
-                dotManagerScript.ResetMaterial = false;
+                DotManagerScript.ResetMaterial = false;
                 Timer = 0.25f;
                 GoTimer = false;
             }
@@ -68,7 +68,7 @@ public class ColourRemover : MonoBehaviour
 
                 if (Input.GetMouseButtonDown(0))
                 {
-                    dotManagerScript.StopInteracting = true;
+                    DotManagerScript.StopInteracting = true;
                     if (hit.collider.gameObject.tag == "Red")
                     {
                         Red = true;
@@ -101,7 +101,7 @@ public class ColourRemover : MonoBehaviour
                 }
                 Red = false;
                 PowerUpInUse = false;
-                dotManagerScript.ResetMaterial = true;
+                DotManagerScript.ResetMaterial = true;
                 GoTimer = true;
 
             }
@@ -116,7 +116,7 @@ public class ColourRemover : MonoBehaviour
                 }
                 Blue = false;
                 PowerUpInUse = false;
-                dotManagerScript.ResetMaterial = true;
+                DotManagerScript.ResetMaterial = true;
                 GoTimer = true;
 
             }
@@ -131,7 +131,7 @@ public class ColourRemover : MonoBehaviour
                 }
                 Yellow = false;
                 PowerUpInUse = false;
-                dotManagerScript.ResetMaterial = true;
+                DotManagerScript.ResetMaterial = true;
                 GoTimer = true;
 
             }
@@ -146,7 +146,7 @@ public class ColourRemover : MonoBehaviour
                 }
                 Purple = false;
                 PowerUpInUse = false;
-                dotManagerScript.ResetMaterial = true;
+                DotManagerScript.ResetMaterial = true;
                 GoTimer = true;
 
             }
@@ -159,7 +159,7 @@ public class ColourRemover : MonoBehaviour
         if(PowerUpManagerScript.HasSCR)
         { 
         PowerUpInUse = true;
-        dotManagerScript.ResetMaterial = false;
+        DotManagerScript.ResetMaterial = false;
             PowerUpManagerScript.NumOfSCR -= 1;
             for (int i = 0; i < BoardGameObj.transform.childCount; i++)
             {

@@ -8,8 +8,10 @@ using System.Collections.Generic;
 {
 
     GameObject DotManagerObj;
-    DotManagerScript dotManagerScript;
-    public int[] NumberOfNames;
+
+    DotManager DotManagerScript;
+
+      public int[] NumberOfNames;
     [HideInInspector]
     public int[] NumbOfNamesStore;
     public Text text;
@@ -21,11 +23,12 @@ using System.Collections.Generic;
     public int i;
     //FirstTimeStartUp
     public int FirstTimeStartUp;
-     public InputField NameTextBox;
+      public InputField NameTextBox;
     private void Start()
     {
-        //    DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
-        //   dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
+             DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
+            DotManagerScript = DotManagerObj.GetComponent<DotManager>();
+        
         NumbOfNamesStore = NumberOfNames;
         ListNames = new List<Text>();
         OffsetY = 0;
@@ -54,8 +57,7 @@ using System.Collections.Generic;
 
             // Refresh available items 
         }, error => Debug.LogError(error.GenerateErrorReport()));
-
-    }
+     }
 
    public void UpdateName()
     {
@@ -79,7 +81,7 @@ using System.Collections.Generic;
     {
         PlayFabClientAPI.GetLeaderboard(new GetLeaderboardRequest()
         {
-            StatisticName = "TestScore",
+            StatisticName = "TournamentScore",
         }, result =>
         {
             Debug.Log("Leaderboard version: " + result.Version);
@@ -90,6 +92,7 @@ using System.Collections.Generic;
                     ListNames[i].text = entry.DisplayName + " " + entry.StatValue;
                     i++;
                 }
+                
              
         }, OnLoginFailure);
 

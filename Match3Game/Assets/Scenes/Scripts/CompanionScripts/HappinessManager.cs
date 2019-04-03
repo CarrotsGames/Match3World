@@ -11,14 +11,14 @@ public class HappinessManager : MonoBehaviour
     public int[] multiplier;
     public Slider HappinessSlider;
     string CompanionName;
-    private DotManagerScript dotManagerScript;
+    private DotManager DotManagerScript;
     public bool CanGetCurrency;
     public string CompanionSave;
     // Use this for initialization
     void Start()
     {
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
-        dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
+        DotManagerScript = DotManagerObj.GetComponent<DotManager>();
         CompanionName = Companion.name;
         CanGetCurrency = false;
 
@@ -62,29 +62,29 @@ public class HappinessManager : MonoBehaviour
         // if Happiness less than 20
         if (HappinessSliderValue < 20)
         {
-            dotManagerScript.Multipier = 1;
+            DotManagerScript.Multipier = 1;
 
         }
         if (HappinessSliderValue > 20 && HappinessSliderValue < 40)
         {
-            dotManagerScript.Multipier = multiplier[0];
+            DotManagerScript.Multipier = multiplier[0];
 
         }
         if (HappinessSliderValue > 40 && HappinessSliderValue < 60)
         {
-            dotManagerScript.Multipier = multiplier[1];
+            DotManagerScript.Multipier = multiplier[1];
 
         }
         if (HappinessSliderValue > 60 && HappinessSliderValue < 80)
         {
-            dotManagerScript.Multipier = multiplier[2];
+            DotManagerScript.Multipier = multiplier[2];
 
 
         }
         if (HappinessSliderValue > 80 && HappinessSliderValue < 100)
         {
             CanGetCurrency = true;
-            dotManagerScript.Multipier = multiplier[3];
+            DotManagerScript.Multipier = multiplier[3];
 
         }
     }

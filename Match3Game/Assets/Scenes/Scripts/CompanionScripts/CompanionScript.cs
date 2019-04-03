@@ -13,7 +13,8 @@ public class CompanionScript : MonoBehaviour
     
     // max it can go to is 10
     public float[] GrowingSizes;
-
+    public AudioClip[] CompanionSounds;
+    private AudioClip PlaySound;
     public Slider HungerSlider;
     public AudioSource Audio;
 
@@ -22,7 +23,7 @@ public class CompanionScript : MonoBehaviour
     private GameObject RealTimerGameObj;
     private GameObject PowerUpManGameObj;
     private GameObject HappinessGameObj;
-    private DotManagerScript dotManagerScript;
+    private DotManager DotManagerScriptRef;
     private RealTimeCounter RealTimeScript;
     private PowerUpManager PowerUpManagerScript;
     private HappinessManager HappinessManagerScript;
@@ -43,7 +44,7 @@ public class CompanionScript : MonoBehaviour
       
         // Referneces DotManagerScript
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
-        dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
+        DotManagerScriptRef = DotManagerObj.GetComponent<DotManager>();
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
         // HungerSlider min and max
@@ -74,9 +75,12 @@ public class CompanionScript : MonoBehaviour
                 PowerUpManagerScript.Currency += 1;
             }
             Debug.Log(chance);
-            //  dotManagerScript.Currency 
+            //  DotManagerScript.Currency 
         }
-        dotManagerScript.HighScore.text = "" + dotManagerScript.TotalScore;
+        DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
+        int RandomSound = Random.Range(0, CompanionSounds.Length);
+        PlaySound = CompanionSounds[RandomSound];
+        Audio.clip = PlaySound;
         Audio.Play();
     }
 // when the pieces collide with the companion it will destory them

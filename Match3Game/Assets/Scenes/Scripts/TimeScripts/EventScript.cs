@@ -3,46 +3,59 @@ using System.Collections;
 
 public class EventScript : MonoBehaviour
 {
+    public GameObject DailySpinner;
+    // sets how long to count down Timers
+    public float TimeToDoDaily;
+
+    // Counts down timers in script 
     public float DailyTimer;
-    public float WeeklyTimer;
-    public float MonthlyTimer;
-    public bool CannotDoDaily;
+    private float WeeklyTimer;
+    private float MonthlyTimer;
+    public bool CanDoDaily;
     // Use this for initialization
-
-
+    private GameObject RealTimerGameObj;
+    private RealTimeCounter RealTimeScript;
+    private DailySpin dailySpinScript;
     private void Start()
     {
-        WeeklyTimer = PlayerPrefs.GetFloat("TEST");
-        WeeklyTimer -= TimeMasterScript.instance.CheckDate();
-        DailyTimer = WeeklyTimer;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        PlayerPrefs.SetFloat("TEST", DailyTimer);
-        DailyTimer -= Time.deltaTime;
-
+        DailyTimer = PlayerPrefs.GetFloat("DAILYTEST1");
+        RealTimerGameObj = GameObject.FindGameObjectWithTag("MainCamera");
+        RealTimeScript = RealTimerGameObj.GetComponent<RealTimeCounter>();
+        DailySpinner.SetActive(false);
+        dailySpinScript = DailySpinner.GetComponent<DailySpin>();
 
     }
 
+    
     public void DoDailyButton()
     {
-        if(!CannotDoDaily)
+        DailyTimer = RealTimeScript.DailyTimerCountDown;
+        if (RealTimeScript.DailyTimerCountDown < 0)
         {
             //SPIN WHEEL
             // RESET TIMER
-            DailyTimer = 300;
-            CannotDoDaily = true;
+            DailyTimer = TimeToDoDaily;
+            RealTimeScript.DailyTimerCountDown = DailyTimer;
+            PlayerPrefs.SetFloat("DAILYTEST1", DailyTimer);
+
+            RealTimeScript.DailyTimerCountDown = DailyTimer;
+            CanDoDaily = true;
+        }
+        if(CanDoDaily)
+        {
+             DailySpinner.SetActive(true);
+         }
+        else
+        {
+            dailySpinScript.TimeToStopWheelStore = dailySpinScript.TimeToStopWheel;
+            dailySpinScript.StartUpSpeedStore = dailySpinScript.StartUpSpeed;
+            dailySpinScript.MaxSpeedStore = dailySpinScript.MaxSpeed;
         }
      }
 
    void ResetClock()
     {
-        TimeMasterScript.instance.SaveDate();
-        DailyTimer = PlayerPrefs.GetFloat("TEST");
-        DailyTimer -= TimeMasterScript.instance.CheckDate();
-
+   
       //  WeeklyTimer -= TimeMasterScript.instance.CheckDate();
 
     }

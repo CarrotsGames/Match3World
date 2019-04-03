@@ -7,13 +7,14 @@ using System.Collections;
 public class PlayFabLogin : MonoBehaviour
 {
     GameObject DotManagerObj;
-    DotManagerScript dotManagerScript;
+    DotManager DotManagerScript;
+  
     float UpdateScoreTimer;
+ 
     public void Start()
     {
-         UpdateScoreTimer = 10;
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
-        dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
+        DotManagerScript = DotManagerObj.GetComponent<DotManager>();
         //Note: Setting title Id here can be skipped if you have set the value in Editor Extensions already.
         if (string.IsNullOrEmpty(PlayFabSettings.TitleId))
         {
@@ -33,7 +34,7 @@ public class PlayFabLogin : MonoBehaviour
 
             // Refresh available items 
         }, error => Debug.LogError(error.GenerateErrorReport()));
-     
+
     }
 
     private void Update()
@@ -43,19 +44,19 @@ public class PlayFabLogin : MonoBehaviour
 
         if (UpdateScoreTimer < 0)
         {
+ 
             PlayFabClientAPI.UpdatePlayerStatistics(new UpdatePlayerStatisticsRequest
             {
                 Statistics = new List<StatisticUpdate>
             {
 
-                new StatisticUpdate {StatisticName = "TestScore", Value = dotManagerScript.TotalScore},
-
-            }
+                new StatisticUpdate {StatisticName = "TournamentScore", Value = DotManagerScript.TotalScore,},
+             }
 
             },
               result => { Debug.Log("User statistics updated"); },
               error => { Debug.LogError(error.GenerateErrorReport()); });
-            UpdateScoreTimer = 10;
+              UpdateScoreTimer = 10;
         }
     }
 
@@ -63,7 +64,7 @@ public class PlayFabLogin : MonoBehaviour
     {
         PlayFabClientAPI.GetLeaderboard(new GetLeaderboardRequest()
         {
-            StatisticName = "TestScore",
+            StatisticName = "TournamentScore",
         }, result =>
         {
             Debug.Log("Leaderboard version: " + result.Version);
@@ -71,13 +72,11 @@ public class PlayFabLogin : MonoBehaviour
             {
                  Debug.Log(entry.DisplayName + " " + entry.StatValue);
             }
+            
         }, OnLoginFailure);
  
      }
-    private void OnLoginSuccess(LoginResult result)
-    {
-        Debug.Log("Congratulations, you made your first successful API call!");    
-    }
+  
 
     private void OnLoginFailure(PlayFabError error)
     {

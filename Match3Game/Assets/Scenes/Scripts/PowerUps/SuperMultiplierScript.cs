@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class SuperMultiplierScript : MonoBehaviour
 {
+    public Transform MultplierBar;
+    
     public int SuperMultiplier;
     public float MultlpierTimer;
     public GameObject SMTimerUI;
@@ -60,6 +62,8 @@ public class SuperMultiplierScript : MonoBehaviour
             CanUseSuperMultiplier = false;
             SMTimerUI.SetActive(true);
             MultlpierTimerText.text = "" + MultlpierTimer;
+            MultplierBar.GetComponent<Image>().fillAmount = MultlpierTimer / 80;
+
             if (MultlpierTimer < 0)
             {
                 // Goes through multiplier list and returns variables to defual

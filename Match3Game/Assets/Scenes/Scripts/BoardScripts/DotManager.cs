@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using System.Linq;
-public class DotManagerScript : MonoBehaviour
+public class DotManager : MonoBehaviour
 {
 
     CompanionScript Companion;
@@ -101,9 +101,10 @@ public class DotManagerScript : MonoBehaviour
         {
             MouseCursorObj.SetActive(false);
         }
-       
+        else
+        {
             MouseCursorObj.SetActive(false);
-
+        }
          
     }
 

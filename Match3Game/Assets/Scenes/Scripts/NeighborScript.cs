@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class NeighborScript : MonoBehaviour
 {
    private RaycastHit Hit;
-   private DotManagerScript dotManagerScript;
+   private DotManager DotManagerScript;
    private GameObject DotManagerObj;
     CircleCollider2D col2d;
    public bool CheckTrigger;
@@ -20,7 +20,7 @@ public class NeighborScript : MonoBehaviour
         col2d = GetComponent<CircleCollider2D>();
        DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
    
-       dotManagerScript = DotManagerObj.GetComponent<DotManagerScript>();
+       DotManagerScript = DotManagerObj.GetComponent<DotManager>();
         CheckTrigger = false;
        gameObject.GetComponent<NeighborScript>().enabled = false;
    }
@@ -73,7 +73,7 @@ public class NeighborScript : MonoBehaviour
 
                             // Adds it to the list of available moves
                             neighbours.Add(dot.gameObject);
-                           dotManagerScript.GetComponent<DotManagerScript>().NumberOfNeighbours += 1;
+                           DotManagerScript.GetComponent<DotManager>().NumberOfNeighbours += 1;
                         }
     
                     }
@@ -89,14 +89,14 @@ public class NeighborScript : MonoBehaviour
     
                 if (hitInfo.collider.gameObject.layer == 10)
                 {
-                    if (dotManagerScript.Peices.Contains(hitInfo.collider.gameObject))
+                    if (DotManagerScript.Peices.Contains(hitInfo.collider.gameObject))
                     {
     
     
                     }
                     else
                     {
-                       dotManagerScript.Peices.Add(hitInfo.collider.gameObject);
+                       DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
                            
                     }
                     Debug.Log(hitInfo.collider.name);
@@ -116,7 +116,7 @@ public class NeighborScript : MonoBehaviour
     private void OnMouseUp()
     {
         this.gameObject.layer = LayerMask.GetMask("Default");
-        dotManagerScript.CheckConnection = true;
+        DotManagerScript.CheckConnection = true;
         ClearNeighbours = true;
 
         // Debug.Log(this.gameObject);
