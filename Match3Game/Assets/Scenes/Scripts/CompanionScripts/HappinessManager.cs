@@ -27,13 +27,14 @@ public class HappinessManager : MonoBehaviour
             case "Gobu":
                 CompanionSave = "GobuHappiness";
                 break;
+            case "NEWGOBU":
+                CompanionSave = "GobuHappiness";
+                break;
             case "Binky":
-
                 CompanionSave = "BinkyHappiness";
                 break;
             case "Koko":
                 CompanionSave = "KokoHappiness";
-
                 break;
             
 

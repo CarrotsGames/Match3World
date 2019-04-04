@@ -9,7 +9,7 @@ public class ArrowReciever : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-        creatureSelectScript = gameManager.GetComponent<CreatureSelect>();
+       // creatureSelectScript = gameManager.GetComponent<CreatureSelect>();
 	}
 
 

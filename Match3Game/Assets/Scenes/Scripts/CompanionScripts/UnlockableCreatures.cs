@@ -25,7 +25,7 @@ public class UnlockableCreatures : MonoBehaviour
         {
             GameObject Creature = Instantiate(Companions[0], CompanionStorage.transform.position, Quaternion.identity);
             Creature.transform.parent = CompanionStorage.transform;
-            CompNav.Companions.Add(Creature.transform.gameObject);
+           // CompNav.Companions.Add(Creature.transform.gameObject);
             Creature.SetActive(false);
         }
 
