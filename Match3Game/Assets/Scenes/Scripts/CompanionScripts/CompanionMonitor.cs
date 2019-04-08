@@ -12,8 +12,8 @@ public class CompanionMonitor : MonoBehaviour
     private HappinessManager HappinessManagerScript;
     private GameObject HappinessGameObj;
     private GameObject CreatureSelectGameObj;
-     float Happiness;
-     float Happiness1;
+    float Happiness;
+    float Happiness1;
     float Happiness2;
 
     CreatureSelect CreatureSelectScript;
