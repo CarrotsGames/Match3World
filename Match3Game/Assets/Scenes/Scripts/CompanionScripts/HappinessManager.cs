@@ -13,7 +13,11 @@ public class HappinessManager : MonoBehaviour
     string CompanionName;
     private DotManager DotManagerScript;
     public bool CanGetCurrency;
+    bool CanAdd;
     public string CompanionSave;
+    public int MultlpierNum;
+    public bool ResetTheMultlpier;
+    public bool CheckValue;
     // Use this for initialization
     void Start()
     {
@@ -21,6 +25,14 @@ public class HappinessManager : MonoBehaviour
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
         CompanionName = Companion.name;
         CanGetCurrency = false;
+        CheckValue = true;
+        MultlpierNum = PlayerPrefs.GetInt("Multiplier");
+         Multplier();
+        if (MultlpierNum < 1)
+        {
+            MultlpierNum = 1;
+        }
+
 
         switch (CompanionName)
         {
@@ -39,11 +51,23 @@ public class HappinessManager : MonoBehaviour
             
 
         }
+        CanAdd = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(CheckValue)
+        {
+            if (HappinessSliderValue < 20)
+            {
+                Multplier();
+                CanAdd = true;
+            }
+         
+            CheckValue = false;
+        }
         // Displays hunger value (used in debug)
         //HungerMetre.text = "" + Hunger;
 
@@ -58,35 +82,79 @@ public class HappinessManager : MonoBehaviour
 
         // Saving Companions Happiness value
 
-
-
-        // if Happiness less than 20
-        if (HappinessSliderValue < 20)
+        if(ResetTheMultlpier)
         {
-            DotManagerScript.Multipier = 1;
-
+            MultlpierNum = 2;
+            PlayerPrefs.SetInt("Multiplier", MultlpierNum);
+            ResetTheMultlpier = false;
         }
-        if (HappinessSliderValue > 20 && HappinessSliderValue < 40)
+        if (CanAdd)
         {
-            DotManagerScript.Multipier = multiplier[0];
+            if (HappinessSliderValue > 90)
+            {
+                // Add multiplier    
+                MultlpierNum += 1;
+                PlayerPrefs.SetInt("Multiplier", MultlpierNum);
+                CanAdd = false;
+                Multplier();
 
+            }
+           
         }
-        if (HappinessSliderValue > 40 && HappinessSliderValue < 60)
+        if (!CanAdd)
         {
-            DotManagerScript.Multipier = multiplier[1];
-
+            // if Happiness less than 20
+            if (HappinessSliderValue < 20)
+            {
+                // Deduct multiplier    
+                MultlpierNum -= 1;
+                PlayerPrefs.SetInt("Multiplier", MultlpierNum);
+                CanAdd = true;
+                Multplier();
+            }
         }
-        if (HappinessSliderValue > 60 && HappinessSliderValue < 80)
+         
+    }
+
+    void Multplier()
+    {
+        switch (MultlpierNum)
         {
-            DotManagerScript.Multipier = multiplier[2];
+            case 1:
+                DotManagerScript.Multipier = multiplier[0];
+                break;
+            case 2:
+                DotManagerScript.Multipier = multiplier[1];
 
+                break;
+            case 3:
+                DotManagerScript.Multipier = multiplier[2];
 
-        }
-        if (HappinessSliderValue > 80 && HappinessSliderValue < 100)
-        {
-            CanGetCurrency = true;
-            DotManagerScript.Multipier = multiplier[3];
+                break;
+            case 4:
+                DotManagerScript.Multipier = multiplier[3];
 
+                break;
+            case 5:
+                DotManagerScript.Multipier = multiplier[4];
+
+                break;
+            case 6:
+                DotManagerScript.Multipier = multiplier[5];
+
+                break;
+            case 7:
+                DotManagerScript.Multipier = multiplier[6];
+
+                break;
+            case 8:
+                DotManagerScript.Multipier = multiplier[7];
+
+                break;
+            case 9:
+                DotManagerScript.Multipier = multiplier[8];
+
+                break;
         }
     }
 
