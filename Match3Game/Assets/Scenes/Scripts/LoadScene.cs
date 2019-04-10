@@ -30,5 +30,4 @@ public class LoadScene : MonoBehaviour {
         scoreboard.SetActive(false);
         hungerBar.SetActive(true);
     }
-
 }
