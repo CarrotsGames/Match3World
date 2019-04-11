@@ -20,7 +20,7 @@ public class TimeMasterScript : MonoBehaviour
 
         // set our player prefs to save location
         SaveLocation = "LastSavedDate1";
-
+        
     }
 
     public float CheckDate()
