@@ -5,7 +5,7 @@ public class BombExplodeScript : MonoBehaviour
 {
     float Timer = 1;
     public GameObject Board;
-
+    public GameObject ExplosionEffect;
 
 
     // Update is called once per frame
@@ -21,6 +21,11 @@ public class BombExplodeScript : MonoBehaviour
     void Update()
     {
         Timer -= Time.deltaTime;
+        if(Timer < 0)
+        {
+        Instantiate(ExplosionEffect,transform.position, Quaternion.identity);
+        }
+       
     }
 
     private void OnTriggerStay2D(Collider2D collision)
