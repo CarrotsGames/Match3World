@@ -18,6 +18,9 @@ public class HappinessManager : MonoBehaviour
     public int MultlpierNum;
     public bool ResetTheMultlpier;
     public bool CheckValue;
+    public bool IsSleeping;
+    string SaveStrings;
+    public Animator Anim;
     // Use this for initialization
     void Start()
     {
@@ -27,7 +30,8 @@ public class HappinessManager : MonoBehaviour
         CanGetCurrency = false;
         CheckValue = true;
         MultlpierNum = PlayerPrefs.GetInt("Multiplier");
-         Multplier();
+        Multplier();
+
         if (MultlpierNum < 1)
         {
             MultlpierNum = 1;
@@ -38,27 +42,34 @@ public class HappinessManager : MonoBehaviour
         {
             case "Gobu":
                 CompanionSave = "GobuHappiness";
+                SaveStrings = "GOBUSAVE";
                 break;
             case "NEWGOBU":
                 CompanionSave = "GobuHappiness";
+                SaveStrings = "GOBUSAVE";
                 break;
             case "Binky":
                 CompanionSave = "BinkyHappiness";
+                SaveStrings = "BINKYSAVE";
                 break;
             case "Koko":
-                CompanionSave = "KokoHappiness";
+                CompanionSave = "KokoHappiness"; 
+                SaveStrings = "KOKOSAVE";
+
                 break;
             
 
         }
-        CanAdd = false;
-
-    }
+        IsSleeping = (PlayerPrefs.GetInt(SaveStrings) != 0);
+        Sleeping();
+       // CanAdd = false;
+     }
 
     // Update is called once per frame
     void Update()
     {
-        if(CheckValue)
+        HappinessStates();
+        if (CheckValue)
         {
             if (HappinessSliderValue < 20)
             {
@@ -88,29 +99,39 @@ public class HappinessManager : MonoBehaviour
             PlayerPrefs.SetInt("Multiplier", MultlpierNum);
             ResetTheMultlpier = false;
         }
+        
         if (CanAdd)
         {
             if (HappinessSliderValue > 90)
             {
+                // go to sleep
                 // Add multiplier    
                 MultlpierNum += 1;
                 PlayerPrefs.SetInt("Multiplier", MultlpierNum);
                 CanAdd = false;
                 Multplier();
+                IsSleeping = true;
+                PlayerPrefs.SetInt(SaveStrings, (IsSleeping ? 1 : 0));
 
+                // yourBool = (PlayerPrefs.GetInt("Name") != 0);
             }
-           
+
         }
         if (!CanAdd)
         {
             // if Happiness less than 20
             if (HappinessSliderValue < 20)
             {
+                // wake up
                 // Deduct multiplier    
                 MultlpierNum -= 1;
                 PlayerPrefs.SetInt("Multiplier", MultlpierNum);
                 CanAdd = true;
                 Multplier();
+                IsSleeping = false ;
+
+                PlayerPrefs.SetInt(SaveStrings, (IsSleeping ? 1 : 0));
+
             }
         }
          
@@ -158,5 +179,48 @@ public class HappinessManager : MonoBehaviour
         }
     }
 
-    
+    void HappinessStates()
+    {
+        if (HappinessSliderValue > 0 && HappinessSliderValue < 33)
+        {
+            // Animation 
+            Anim.SetBool("is>33", false);
+
+        }
+        else if (HappinessSliderValue > 33 && HappinessSliderValue < 66)
+        {
+            // Animation 
+            Anim.SetBool("is>33", true);
+            Anim.SetBool("is>66", false);
+
+        }
+        else if (HappinessSliderValue > 66 && HappinessSliderValue < 95)
+        {
+            // Animation 
+            Anim.SetBool("is>66", true);
+
+        }
+        else if (HappinessSliderValue > 95 && HappinessSliderValue < 100)
+        {
+            // Animation 
+            // Music Change
+        }
+      
+    }
+
+    void Sleeping()
+    {
+        if(IsSleeping)
+        {
+            CanAdd = false;
+            Debug.Log("Sleeping");
+        }
+        else
+        {
+            CanAdd = true;
+ 
+            Debug.Log("NotSleeping");
+
+        }
+    }
 }
