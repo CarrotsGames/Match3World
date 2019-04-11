@@ -29,13 +29,7 @@ public class HappinessManager : MonoBehaviour
         CompanionName = Companion.name;
         CanGetCurrency = false;
         CheckValue = true;
-        MultlpierNum = PlayerPrefs.GetInt("Multiplier");
-        Multplier();
-
-        if (MultlpierNum < 1)
-        {
-            MultlpierNum = 1;
-        }
+      
 
 
         switch (CompanionName)
@@ -62,8 +56,14 @@ public class HappinessManager : MonoBehaviour
         }
         IsSleeping = (PlayerPrefs.GetInt(SaveStrings) != 0);
         Sleeping();
-       // CanAdd = false;
-     }
+        Multplier();
+
+        if (MultlpierNum < 1)
+        {
+            MultlpierNum = 1;
+        }
+        // CanAdd = false;
+    }
 
     // Update is called once per frame
     void Update()
@@ -120,7 +120,7 @@ public class HappinessManager : MonoBehaviour
         if (!CanAdd)
         {
             // if Happiness less than 20
-            if (HappinessSliderValue < 20)
+            if (HappinessSliderValue < 20 && IsSleeping)
             {
                 // wake up
                 // Deduct multiplier    
@@ -213,12 +213,15 @@ public class HappinessManager : MonoBehaviour
         if(IsSleeping)
         {
             CanAdd = false;
+            MultlpierNum = PlayerPrefs.GetInt("Multiplier");
+
             Debug.Log("Sleeping");
         }
         else
         {
             CanAdd = true;
- 
+            MultlpierNum = PlayerPrefs.GetInt("Multiplier");
+
             Debug.Log("NotSleeping");
 
         }
