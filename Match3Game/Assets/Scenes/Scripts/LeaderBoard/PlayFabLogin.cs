@@ -13,6 +13,7 @@ public class PlayFabLogin : MonoBehaviour
  
     public void Start()
     {
+        UpdateScoreTimer = 3;
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
         //Note: Setting title Id here can be skipped if you have set the value in Editor Extensions already.
