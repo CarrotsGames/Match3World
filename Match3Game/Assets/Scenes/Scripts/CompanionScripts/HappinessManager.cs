@@ -54,7 +54,9 @@ public class HappinessManager : MonoBehaviour
             
 
         }
+        // Gets the last known bool for this companion
         IsSleeping = (PlayerPrefs.GetInt(SaveStrings) != 0);
+        // checks if bool puts companion to sleep
         Sleeping();
         Multplier();
 
@@ -129,7 +131,7 @@ public class HappinessManager : MonoBehaviour
                 CanAdd = true;
                 Multplier();
                 IsSleeping = false ;
-
+                // SavesBool
                 PlayerPrefs.SetInt(SaveStrings, (IsSleeping ? 1 : 0));
 
             }

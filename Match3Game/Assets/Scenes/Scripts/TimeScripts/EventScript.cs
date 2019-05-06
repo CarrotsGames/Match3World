@@ -25,31 +25,31 @@ public class EventScript : MonoBehaviour
         dailySpinScript = DailySpinner.GetComponent<DailySpin>();
 
     }
+   
 
-    
     public void DoDailyButton()
     {
-        DailyTimer = RealTimeScript.DailyTimerCountDown;
-        if (RealTimeScript.DailyTimerCountDown < 0)
-        {
-            //SPIN WHEEL
-            // RESET TIMER
-            DailyTimer = TimeToDoDaily;
-            RealTimeScript.DailyTimerCountDown = DailyTimer;
-            PlayerPrefs.SetFloat("DAILYTEST1", DailyTimer);
-
-            RealTimeScript.DailyTimerCountDown = DailyTimer;
-            CanDoDaily = true;
-        }
+       //DailyTimer = RealTimeScript.DailyTimerCountDown;
+       //if (RealTimeScript.DailyTimerCountDown < 0)
+       //{
+       //    //SPIN WHEEL
+       //    // RESET TIMER
+       //    DailyTimer = TimeToDoDaily;
+       //    RealTimeScript.DailyTimerCountDown = DailyTimer;
+       //    PlayerPrefs.SetFloat("DAILYTEST1", DailyTimer);
+       //
+       //    RealTimeScript.DailyTimerCountDown = DailyTimer;
+       //    CanDoDaily = true;
+       //}
         if(CanDoDaily)
         {
              DailySpinner.SetActive(true);
          }
         else
         {
-            dailySpinScript.TimeToStopWheelStore = dailySpinScript.TimeToStopWheel;
-            dailySpinScript.StartUpSpeedStore = dailySpinScript.StartUpSpeed;
-            dailySpinScript.MaxSpeedStore = dailySpinScript.MaxSpeed;
+          // dailySpinScript.TimeToStopWheelStore = dailySpinScript.TimeToStopWheel;
+          // dailySpinScript.StartUpSpeedStore = dailySpinScript.StartUpSpeed;
+          // dailySpinScript.MaxSpeedStore = dailySpinScript.MaxSpeed;
         }
      }
 

@@ -19,10 +19,12 @@ public class UnlockableCreatures : MonoBehaviour
         Unlock();
         GetUnlocked();
     }
+    // Goes through an checks which companins are unlocked
     public void GetUnlocked()
     {
         if (NewGobuUnlocked == "NEWGOBU")
         {
+                                            // int UnlockNUM
             GameObject Creature = Instantiate(Companions[0], CompanionStorage.transform.position, Quaternion.identity);
             Creature.transform.parent = CompanionStorage.transform;
            // CompNav.Companions.Add(Creature.transform.gameObject);
@@ -30,6 +32,7 @@ public class UnlockableCreatures : MonoBehaviour
         }
 
     }
+    // Checks the companionName strings name and unlocks that character
     public void Unlock()
     {
         CompanionName = PlayerPrefs.GetString("UNLOCKED");

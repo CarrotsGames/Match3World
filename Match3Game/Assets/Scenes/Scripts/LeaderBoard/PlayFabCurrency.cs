@@ -58,7 +58,7 @@ public class PlayFabCurrency : MonoBehaviour
         Debug.LogError(error.GenerateErrorReport());
     }
 
-
+    // adds currency earned by tournament 
     public void AddPremiumCurrency()
     {
         AddUserVirtualCurrencyRequest request = new AddUserVirtualCurrencyRequest();
@@ -75,12 +75,14 @@ public class PlayFabCurrency : MonoBehaviour
             // {
             //     Debug.Log(entry.DisplayName + " " + entry.StatValue);
             // }
+            // if the leaderboard has changed version tournament is over
             if (Versions != result.Version)
             {
                 Versions = result.Version;
 
                 Debug.Log("NEW VERSION");
                 DotManagerScript.TotalScore = 0;
+                // gives players currency
                 DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
                 PlayerPrefs.SetFloat("SCORE", DotManagerScript.TotalScore);
                 PlayerPrefs.SetInt("VERSIONVALUE", Versions);

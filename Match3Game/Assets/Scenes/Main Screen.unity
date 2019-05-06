@@ -2102,6 +2102,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114904152250435826, guid: 6e21ef18f925f614bb8952d2a3856f01,
+        type: 2}
+      propertyPath: multiplier.Array.size
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4874126141112344, guid: 6e21ef18f925f614bb8952d2a3856f01, type: 2}
       propertyPath: m_LocalPosition.x
       value: 86.8
@@ -2144,6 +2149,31 @@ Prefab:
       propertyPath: HappinessSlider
       value: 
       objectReference: {fileID: 358270395}
+    - target: {fileID: 114904152250435826, guid: 6e21ef18f925f614bb8952d2a3856f01,
+        type: 2}
+      propertyPath: multiplier.Array.data[4]
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114904152250435826, guid: 6e21ef18f925f614bb8952d2a3856f01,
+        type: 2}
+      propertyPath: multiplier.Array.data[5]
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114904152250435826, guid: 6e21ef18f925f614bb8952d2a3856f01,
+        type: 2}
+      propertyPath: multiplier.Array.data[6]
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114904152250435826, guid: 6e21ef18f925f614bb8952d2a3856f01,
+        type: 2}
+      propertyPath: multiplier.Array.data[7]
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114904152250435826, guid: 6e21ef18f925f614bb8952d2a3856f01,
+        type: 2}
+      propertyPath: multiplier.Array.data[8]
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e21ef18f925f614bb8952d2a3856f01, type: 2}
   m_IsPrefabAsset: 0
@@ -3787,6 +3817,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1850310527}
   - component: {fileID: 1850310528}
+  - component: {fileID: 1850310529}
   m_Layer: 5
   m_Name: EventsGameObject
   m_TagString: ES
@@ -3819,7 +3850,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1850310526}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a643684403cf8a446a1d082f1d6af1fd, type: 3}
   m_Name: 
@@ -3828,6 +3859,18 @@ MonoBehaviour:
   TimeToDoDaily: 500
   DailyTimer: 500
   CanDoDaily: 0
+--- !u!114 &1850310529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1850310526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9759b6b794ace8843a0eeb82709f36b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SaveBool: 
 --- !u!1 &1860599186
 GameObject:
   m_ObjectHideFlags: 0
@@ -3862,7 +3905,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 571, y: 5}
+  m_AnchoredPosition: {x: -85, y: 5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1860599188

@@ -89,6 +89,9 @@ public class DailySpin : MonoBehaviour
             // TODO  GIVE PRIZE
             TimeToStopWheel = TimeToStopWheelStore;
             DailyEvent.CanDoDaily = false;
+            PlayerPrefs.SetInt(Events.GetComponent<ChallengeRewards>().SaveBool, (DailyEvent.CanDoDaily ? 1 : 0));
+
+            
             IsDailyOver = false;
             StopSpinning = false;
             gameObject.SetActive(false);
