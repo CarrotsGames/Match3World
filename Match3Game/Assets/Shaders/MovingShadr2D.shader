@@ -16,7 +16,7 @@ Shader "Sprites/MovingShader2D"
 					_ScrollSpeedV1("ScrollSpeedV1", Range(-5.0,5.0)) = 1
 
  					_Colour("Colour" , Color) = (0,0,0,0)
-						//	_Transparency("Transparency ", Range(0.0, 1)) = 0.6
+					_Transparency("Transparency ", Range(0.0, 1)) = 0.6
 	}
 		SubShader
 					{
@@ -56,6 +56,7 @@ Shader "Sprites/MovingShader2D"
 							float4 _ScrollTexture1_ST;
 							float _ScrollSpeedU1;
 							float _ScrollSpeedV1;
+							float _Transparency;
 							float4 _Colour;
                                                                                                  							// has the texture tiling and offsets
 							v2f vert(appdata v)
@@ -91,7 +92,7 @@ Shader "Sprites/MovingShader2D"
 							 fixed4 ScrollColour = tex2D(_ScrollTexture, i.ScrollUv) ;
 							 fixed4 ScrollColour1 = tex2D(_ScrollTexture1, i.ScrollUv1) ;
 
-							 // MainColour.a = _Transparency;
+							 Colour.g = _Transparency;
 							  // Reutrns the main texture with the moving texture
 							 return   ScrollColour + ScrollColour1 + Colour;
 							 }

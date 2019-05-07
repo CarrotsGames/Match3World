@@ -13,7 +13,7 @@ public class HappinessManager : MonoBehaviour
     string CompanionName;
     private DotManager DotManagerScript;
     public bool CanGetCurrency;
-    bool CanAdd;
+    bool CanEarnGold;
     public string CompanionSave;
     public int MultlpierNum;
     public bool ResetTheMultlpier;
@@ -64,8 +64,7 @@ public class HappinessManager : MonoBehaviour
         {
             MultlpierNum = 1;
         }
-        // CanAdd = false;
-    }
+     }
 
     // Update is called once per frame
     void Update()
@@ -76,7 +75,7 @@ public class HappinessManager : MonoBehaviour
             if (HappinessSliderValue < 20)
             {
                 Multplier();
-                CanAdd = true;
+                CanEarnGold = false;
             }
          
             CheckValue = false;
@@ -102,7 +101,7 @@ public class HappinessManager : MonoBehaviour
             ResetTheMultlpier = false;
         }
         
-        if (CanAdd)
+        if (!CanEarnGold)
         {
             if (HappinessSliderValue > 90)
             {
@@ -110,7 +109,7 @@ public class HappinessManager : MonoBehaviour
                 // Add multiplier    
                 MultlpierNum += 1;
                 PlayerPrefs.SetInt("Multiplier", MultlpierNum);
-                CanAdd = false;
+                CanEarnGold = true;
                 Multplier();
                 IsSleeping = true;
                 PlayerPrefs.SetInt(SaveStrings, (IsSleeping ? 1 : 0));
@@ -119,7 +118,7 @@ public class HappinessManager : MonoBehaviour
             }
 
         }
-        if (!CanAdd)
+        if (CanEarnGold)
         {
             // if Happiness less than 20
             if (HappinessSliderValue < 20 && IsSleeping)
@@ -128,7 +127,7 @@ public class HappinessManager : MonoBehaviour
                 // Deduct multiplier    
                 MultlpierNum -= 1;
                 PlayerPrefs.SetInt("Multiplier", MultlpierNum);
-                CanAdd = true;
+                CanEarnGold = false;
                 Multplier();
                 IsSleeping = false ;
                 // SavesBool
@@ -141,6 +140,7 @@ public class HappinessManager : MonoBehaviour
 
     void Multplier()
     {
+        // Number of multlpier matches number of creatures in game (10 creatures MAX at the moment
         switch (MultlpierNum)
         {
             case 1:
@@ -212,16 +212,17 @@ public class HappinessManager : MonoBehaviour
 
     void Sleeping()
     {
+        // checks if Companion is sleeping
         if(IsSleeping)
         {
-            CanAdd = false;
+            CanEarnGold = true;
             MultlpierNum = PlayerPrefs.GetInt("Multiplier");
 
             Debug.Log("Sleeping");
         }
         else
         {
-            CanAdd = true;
+            CanEarnGold = false;
             MultlpierNum = PlayerPrefs.GetInt("Multiplier");
 
             Debug.Log("NotSleeping");

@@ -57,6 +57,9 @@ public class CompanionNavigation : MonoBehaviour
             case 4:
                   SceneManager.LoadScene("Royal Gobu Level 1");
                 break;
+            case 5:
+                SceneManager.LoadScene("Crius");
+                break;
         }
 
     }

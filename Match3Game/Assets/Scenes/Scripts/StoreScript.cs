@@ -6,7 +6,7 @@ public class StoreScript : MonoBehaviour
 
     private GameObject PowerUpManGameObj;
     private PowerUpManager PowerUpManagerScript;
-
+    public UnlockableCreatures UnlockScript;
     public int SuperColourRemoverQuantity;
     public int SuperShuffleQuantity;
     public int SuperBombQuantity;
@@ -71,6 +71,19 @@ public class StoreScript : MonoBehaviour
                  //   PowerUpManagerScript.NumOfSCR += 5;
 
                     PowerUpManagerScript.Currency -= SuperBombAmount;
+                }
+                else
+                {
+
+                    Debug.Log("Insufficient funds");
+                }
+                break;
+            case 5:
+                if (PowerUpManagerScript.Currency > 5)
+                {
+                    PlayerPrefs.SetString("UNLOCKED", "CRIUS");
+                    Debug.Log("YOU HAVE PURCHASED KRRRRAASSS");
+
                 }
                 else
                 {

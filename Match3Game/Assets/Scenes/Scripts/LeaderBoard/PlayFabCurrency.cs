@@ -75,7 +75,7 @@ public class PlayFabCurrency : MonoBehaviour
             // {
             //     Debug.Log(entry.DisplayName + " " + entry.StatValue);
             // }
-            // if the leaderboard has changed version tournament is over
+            // if the phone version is not equal to the server version reset
             if (Versions != result.Version)
             {
                 Versions = result.Version;

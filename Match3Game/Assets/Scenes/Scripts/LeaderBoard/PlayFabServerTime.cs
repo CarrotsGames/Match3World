@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using PlayFab;
 using PlayFab.ClientModels;
-public class ChallengeRewards : MonoBehaviour {
+public class PlayFabServerTime : MonoBehaviour {
     private GameObject PowerUpManGameObj;
     private PowerUpManager PowerUpManagerScript;
     GameObject DotManagerObj;
@@ -90,7 +90,7 @@ public class ChallengeRewards : MonoBehaviour {
     }
     void SubtractPremiumCurrencyFailure(PlayFabError error)
     {
-        Debug.Log("NO MONEY EARNED");
+        Debug.Log("DailyNotreset");
         // Debug.LogError("ERROR GETTING GAME CURRENCY" + error.Error + "" + error.ErrorMessage);
     }
 }
