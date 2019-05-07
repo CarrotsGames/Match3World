@@ -19,15 +19,5 @@ public class LoadScene : MonoBehaviour {
 
     }
   
-    public void DesplayLeaderboard()
-    {
-        scoreboard.SetActive(true);
-        hungerBar.SetActive(false);
-    }
-
-    public void TurnOffScoreboard()
-    {
-        scoreboard.SetActive(false);
-        hungerBar.SetActive(true);
-    }
+   
 }
