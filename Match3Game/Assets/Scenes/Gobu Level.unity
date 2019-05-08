@@ -1967,7 +1967,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &828448467
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2020,13 +2020,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 828448466}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.2, y: -97, z: 12}
-  m_LocalScale: {x: 7.94, y: 7.94, z: 7.94}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.23564875, y: 26.377588, z: -5.8999996}
+  m_LocalScale: {x: 7.4842114, y: 7.3409767, z: 7.94}
   m_Children:
   - {fileID: 1860237339}
-  m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_Father: {fileID: 2129640819}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &882890261
 Prefab:
@@ -5617,10 +5617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f38cf8eee56ff429756c54678129db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimerCountDown: 0
-  TimerCountDown1: 0
-  TimerCountDown2: 0
-  DailyTimerCountDown: 0
+  HappinessCountDown: []
   SaveNum: 0
 --- !u!224 &1801285941 stripped
 RectTransform:
@@ -6546,11 +6543,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1266555554428142, guid: 4e6ef3740c972984e99b2437585cc990, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e6ef3740c972984e99b2437585cc990, type: 2}
   m_IsPrefabAsset: 0
+--- !u!4 &2129640819 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4793902956837146, guid: 4e6ef3740c972984e99b2437585cc990,
+    type: 2}
+  m_PrefabInternal: {fileID: 2129640818}
 --- !u!114 &2136536070 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114483892377142432, guid: 80f0e3485178431459f21c55fcb59424,
