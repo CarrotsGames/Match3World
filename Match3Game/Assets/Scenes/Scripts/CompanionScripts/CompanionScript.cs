@@ -77,8 +77,10 @@ public class CompanionScript : MonoBehaviour
             Debug.Log(chance);
             //  DotManagerScript.Currency 
         }
+        // displays total score to Text
         DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
         int RandomSound = Random.Range(0, CompanionSounds.Length);
+        // When fed the companion will play a random sound in list
         PlaySound = CompanionSounds[RandomSound];
         Audio.clip = PlaySound;
         Audio.Play();

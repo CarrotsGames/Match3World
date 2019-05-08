@@ -15,16 +15,21 @@ public class UnlockableCreatures : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        // find companion list in scene
         CompanionStorage = GameObject.FindGameObjectWithTag("Creatures");
         CompNav = GetComponent<CompanionNavigation>();
 
+        // bools that check if that character is unlocked
         NewGobuUnlocked = PlayerPrefs.GetString("NEWGOBU");
         CriusUnlocked = PlayerPrefs.GetString("CRIUS");
 
+        // Activates unlocked characters
         Unlock();
+        // unlocks the character 
         GetUnlocked();
 
     }
+ 
     // Goes through an checks which companins are unlocked
     public void GetUnlocked()
     {

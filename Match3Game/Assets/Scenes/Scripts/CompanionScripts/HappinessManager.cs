@@ -31,7 +31,7 @@ public class HappinessManager : MonoBehaviour
         CheckValue = true;
       
 
-
+        // Checks which companion is loaded to gather save data 
         switch (CompanionName)
         {
             case "Gobu":
@@ -49,7 +49,10 @@ public class HappinessManager : MonoBehaviour
             case "Koko":
                 CompanionSave = "KokoHappiness"; 
                 SaveStrings = "KOKOSAVE";
-
+                break;
+            case "Crius":
+                CompanionSave = "CriusHappiness";
+                SaveStrings = "CRIUSSAVE";
                 break;
             
 
@@ -88,7 +91,7 @@ public class HappinessManager : MonoBehaviour
         // Slowly counts down Happiness value
         HappinessSliderValue -= Time.deltaTime / 6;
        
-        //displays cuttent slider information with currently used companion
+        //displays current slider information with currently used companion
         HappinessSlider.value = HappinessSliderValue;
         PlayerPrefs.SetFloat(CompanionSave, HappinessSliderValue);
 

@@ -25,8 +25,11 @@ public class StoreScript : MonoBehaviour
 
     public void Shop(int ButtonNumber)
     {
+        // each store button has a number which gives the player
+        // their desired item
         switch (ButtonNumber)
         {
+                // SuperColourRemover purchase
             case 1:
                 if (PowerUpManagerScript.Currency > SuperColourRemoverAmount)
                 {
@@ -40,6 +43,7 @@ public class StoreScript : MonoBehaviour
 
                 }
                 break;
+                // SuperShuffleAmount purchase
             case 2:
                 if (PowerUpManagerScript.Currency > SuperShuffleAmount)
                 {
@@ -52,6 +56,7 @@ public class StoreScript : MonoBehaviour
                     Debug.Log("Insufficient funds");
                 }
                 break;
+                // SuperMultplier purchase
             case 3:
                 if (PowerUpManagerScript.Currency > SuperMultiplierAmount)
                 {
@@ -64,6 +69,7 @@ public class StoreScript : MonoBehaviour
                     Debug.Log("Insufficient funds");
                 }
                 break;
+                // SuperBomb purchase
             case 4:
                 if (PowerUpManagerScript.Currency > SuperBombAmount)
                 {
@@ -78,6 +84,7 @@ public class StoreScript : MonoBehaviour
                     Debug.Log("Insufficient funds");
                 }
                 break;
+                // Cruis Creature purchase
             case 5:
                 if (PowerUpManagerScript.Currency > 5)
                 {

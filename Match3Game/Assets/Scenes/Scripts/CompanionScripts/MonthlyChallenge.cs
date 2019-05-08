@@ -19,10 +19,11 @@ public class MonthlyChallenge : MonoBehaviour {
         NameOfPrize = "NEWGOBU";
         DotManagerGameObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerGameObj.GetComponent<DotManager>();
+        //Saves value to check HasUnlockedGift bool 
         UnlockGift = PlayerPrefs.GetInt("MONTHLYPRIZE");
         PlayerPrefs.SetString("UNLOCKED", NameOfPrize);
         MonthlyVersions = PlayerPrefs.GetInt("MONTHLYVERSIONVALUE");
-
+        
         if (UnlockGift > 0)
         {
             HasUnlockedGift = true;
@@ -39,14 +40,17 @@ public class MonthlyChallenge : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        // checks if the tournament is still going
         MonthlyChallengeStatus();
-        DelayTimerCheck -= Time.deltaTime;
+    //    DelayTimerCheck -= Time.deltaTime;
 
+        // Cooldown for checking tournament status to avoid sending to much information 
         if(DelayTimerCheck < 0)
         {
             DelayTimerCheck += 4;
             MonthlyChallengeStatus();
         }
+        // checks if the player unlocked the monthly gift
         if (!HasUnlockedGift)
         {
             if (DotManagerScript.TotalScore > ChallengeScore)
@@ -66,7 +70,7 @@ public class MonthlyChallenge : MonoBehaviour {
     void MonthlyChallengeStatus()
     {
 
-
+        // checks tournament for the current leaderboard
         PlayFabClientAPI.GetLeaderboard(new GetLeaderboardRequest()
         {
             StatisticName = "TournamentScore",
@@ -93,13 +97,14 @@ public class MonthlyChallenge : MonoBehaviour {
 
         }, MonthlyChallengeGoing);
     }
-
+    // informs player that tournament is over
     void MonthlyChallengeEnded()
     {
-        Debug.Log("MONTHLYCHALLENGE STILL GOING");
+        Debug.Log("MONTHLYCHALLENGE STILL Ended");
     }
+    //inform player how long until tournament is over
     void MonthlyChallengeGoing(PlayFabError Error)
     {
-        Debug.Log("MONTHLYCHALLENGE  ENDED");
+        Debug.Log("MONTHLYCHALLENGE  still going");
     }
 }

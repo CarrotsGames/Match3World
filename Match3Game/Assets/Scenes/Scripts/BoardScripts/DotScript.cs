@@ -184,31 +184,33 @@ public class DotScript : MonoBehaviour
      
         foreach (DotScript dot in Dots)
         {
+            // if the Node is not the current node
             if (dot.gameObject.GetInstanceID() != gameObject.GetInstanceID())
              {
-                if (CircleOverlap)
-                  {
-                     
-                        if (neighbours.Contains(dot.gameObject) && dot.gameObject.tag == Colour)
-                        {
+           
+                 if (neighbours.Contains(dot.gameObject) && dot.gameObject.tag == Colour)
+                 {
 
-
-                        }
-                        else if (!neighbours.Contains(dot.gameObject) && dot.gameObject.tag == Colour)
-                        {
-
-                            dot.gameObject.layer = LayerType;
-
-                            neighbours.Add(dot.gameObject);
-                            dot.gameObject.GetComponent<DotScript>().GrowSize = true;
-
-                            DotManagerScript.GetComponent<DotManager>().NumberOfNeighbours += 1;
-                            if (dot.gameObject.tag != Colour)
-                            {
-                                 OnMouseUp();
-                            }
-                        }                       
-                }
+                    // do nothing
+                 }
+                 // If the neighbour list doesent contain the selected node
+                 else if (!neighbours.Contains(dot.gameObject) && dot.gameObject.tag == Colour)
+                 {
+                    // change node layer to the layertype needed to connect nodes
+                     dot.gameObject.layer = LayerType;
+                    // add to list
+                     neighbours.Add(dot.gameObject);
+                    // Grow selected node 
+                     dot.gameObject.GetComponent<DotScript>().GrowSize = true;
+                    // 
+                     DotManagerScript.GetComponent<DotManager>().NumberOfNeighbours += 1;
+                    // if the node selected is not equal to the colour node before it end chain
+                     if (dot.gameObject.tag != Colour)
+                     {
+                          OnMouseUp();
+                     }
+                 }                       
+           
             }
          }
     

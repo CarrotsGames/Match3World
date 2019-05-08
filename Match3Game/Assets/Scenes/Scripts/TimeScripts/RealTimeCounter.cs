@@ -5,10 +5,10 @@ public class RealTimeCounter : MonoBehaviour
 {
     //TestTimer
     //TEMP Holds each Happyness value from each companion
-    public float TimerCountDown;
-    public float TimerCountDown1;
-    public float TimerCountDown2;
-    public float DailyTimerCountDown;
+    public float[] HappinessCountDown;
+   // public float TimerCountDown1;
+   // public float TimerCountDown2;
+    //public float DailyTimerCountDown;
 
     private float MultlpierCountdown;
     private GameObject HappinessGameObj;
@@ -30,26 +30,29 @@ public class RealTimeCounter : MonoBehaviour
         // Starting timer amount
         // Update timer with real time passed
         //TODO [Find a better way of doing this]
+        ////////////////////////HAPPINESS COUNTDOWNS//////////////////////////
         //Gobus Happiness Timer
-        TimerCountDown = PlayerPrefs.GetFloat("GobuHappiness");
+        HappinessCountDown[0] = PlayerPrefs.GetFloat("GobuHappiness");
         // update timer when real time passes 
-        TimerCountDown -= TimeMasterScript.instance.CheckDate() / 25;
-      
+        HappinessCountDown[0] -= TimeMasterScript.instance.CheckDate() / 25;
+
         // Binkies Happiness Timer
-        TimerCountDown1 = PlayerPrefs.GetFloat("BinkyHappiness");
+        HappinessCountDown[1] = PlayerPrefs.GetFloat("BinkyHappiness");
         // update timer when real time passes 
-        TimerCountDown1 -= TimeMasterScript.instance.CheckDate() / 25;
-    
+        HappinessCountDown[1] -= TimeMasterScript.instance.CheckDate() / 25;
+
         // Kokos Happiness timer
-        TimerCountDown2 = PlayerPrefs.GetFloat("KokoHappiness");
+        HappinessCountDown[2] = PlayerPrefs.GetFloat("KokoHappiness");
         // update timer when real time passes 
-        TimerCountDown2 -= TimeMasterScript.instance.CheckDate() / 25;
+        HappinessCountDown[2] -= TimeMasterScript.instance.CheckDate() / 25;
 
-        DailyTimerCountDown = PlayerPrefs.GetFloat("DAILYTEST1");
+        HappinessCountDown[3] = PlayerPrefs.GetFloat("CriusHappiness");
         // update timer when real time passes 
-        DailyTimerCountDown -= TimeMasterScript.instance.CheckDate();
+        HappinessCountDown[3] -= TimeMasterScript.instance.CheckDate() / 25;
+        /////////////////////////////////////////////////////////////////////
 
- 
+
+
         if (SuperMultiplier.MultlpierTimer > -1)
         {
             SuperMultiplier.MultlpierTimer = PlayerPrefs.GetFloat("SMTIMER");
@@ -64,24 +67,29 @@ public class RealTimeCounter : MonoBehaviour
         {
             case "GobuHappiness":
 
-                HappinessManagerScript.HappinessSliderValue = TimerCountDown;
+                HappinessManagerScript.HappinessSliderValue = HappinessCountDown[0];
                 companionName = "GobuHappiness";
 
                 break;
             case "BinkyHappiness":
 
-                HappinessManagerScript.HappinessSliderValue = TimerCountDown1;
+                HappinessManagerScript.HappinessSliderValue = HappinessCountDown[1];
                 companionName = "BinkyHappiness";
 
 
                 break;
             case "KokoHappiness":
 
-                HappinessManagerScript.HappinessSliderValue = TimerCountDown2;
+                HappinessManagerScript.HappinessSliderValue = HappinessCountDown[2];
                 companionName = "KokoHappiness";
 
                 break;
-            
+            case "CriusHappiness":
+
+                HappinessManagerScript.HappinessSliderValue = HappinessCountDown[3];
+                companionName = "CriusHappiness";
+
+                break;
         }
     }
 
@@ -90,42 +98,54 @@ public class RealTimeCounter : MonoBehaviour
     {
         if (companionName == "GobuHappiness")
         {
-            TimerCountDown = HappinessManagerScript.HappinessSliderValue;
+            HappinessCountDown[0] = HappinessManagerScript.HappinessSliderValue;
             PlayerPrefs.SetFloat("GobuHappiness", HappinessManagerScript.HappinessSliderValue);
 
         }
         else if (companionName == "BinkyHappiness")
         {
-            TimerCountDown1 = HappinessManagerScript.HappinessSliderValue;
+            HappinessCountDown[1] = HappinessManagerScript.HappinessSliderValue;
 
-            TimerCountDown1 = HappinessManagerScript.HappinessSliderValue;
+          //  HappinessCountDown[1] = HappinessManagerScript.HappinessSliderValue;
 
         }
         else if (companionName == "KokoHappiness")
         {
-            TimerCountDown2 = HappinessManagerScript.HappinessSliderValue;
+            HappinessCountDown[2] = HappinessManagerScript.HappinessSliderValue;
 
-            TimerCountDown2 = HappinessManagerScript.HappinessSliderValue;
+          //  HappinessCountDown[2] = HappinessManagerScript.HappinessSliderValue;
 
 
         }
-         TimerCountDown = Mathf.Clamp(TimerCountDown, 0, 100);
-         // Update timer each frame by delay
-        TimerCountDown -= Time.deltaTime / 10;
-        PlayerPrefs.SetFloat("GobuHappiness", TimerCountDown);
-    
-        TimerCountDown1 = Mathf.Clamp(TimerCountDown1, 0, 100);  
-        // Update timer each frame by delay
-         TimerCountDown1 -= Time.deltaTime / 10;
-        PlayerPrefs.SetFloat("BinkyHappiness", TimerCountDown1);
-     
-        TimerCountDown2 = Mathf.Clamp(TimerCountDown2, 0, 100);
-        // Update timer each frame by delay
-         TimerCountDown2 -= Time.deltaTime / 10;
-        PlayerPrefs.SetFloat("KokoHappiness", TimerCountDown2);
+        else if (companionName == "CriusHappiness")
+        {
+            HappinessCountDown[3] = HappinessManagerScript.HappinessSliderValue;
 
-        DailyTimerCountDown -= Time.deltaTime;
-    }
+           // HappinessCountDown[2] = HappinessManagerScript.HappinessSliderValue;
+
+
+        }
+        HappinessCountDown[0] = Mathf.Clamp(HappinessCountDown[0], 0, 100);
+        // Update timer each frame by delay
+        HappinessCountDown[0] -= Time.deltaTime / 10;
+        PlayerPrefs.SetFloat("GobuHappiness", HappinessCountDown[0]);
+
+        HappinessCountDown[1] = Mathf.Clamp(HappinessCountDown[1], 0, 100);
+        // Update timer each frame by delay
+        HappinessCountDown[1] -= Time.deltaTime / 10;
+        PlayerPrefs.SetFloat("BinkyHappiness", HappinessCountDown[1]);
+
+        HappinessCountDown[2] = Mathf.Clamp(HappinessCountDown[2], 0, 100);
+        // Update timer each frame by delay
+        HappinessCountDown[2] -= Time.deltaTime / 10;
+        PlayerPrefs.SetFloat("KokoHappiness", HappinessCountDown[2]);
+
+        HappinessCountDown[3] = Mathf.Clamp(HappinessCountDown[3], 0, 100);
+        // Update timer each frame by delay
+        HappinessCountDown[3] -= Time.deltaTime / 10;
+        PlayerPrefs.SetFloat("CriusHappiness", HappinessCountDown[3]);
+
+     }
 
     private void OnGUI()
     {
@@ -147,9 +167,9 @@ public class RealTimeCounter : MonoBehaviour
     {
         // GOBU
         TimeMasterScript.instance.SaveDate();
-        TimerCountDown = PlayerPrefs.GetFloat("GobuHappiness");
-        TimerCountDown -= TimeMasterScript.instance.CheckDate();
-        PlayerPrefs.SetFloat("DAILYTEST1", DailyTimerCountDown);
+        HappinessCountDown[0] = PlayerPrefs.GetFloat("GobuHappiness");
+        HappinessCountDown[0] -= TimeMasterScript.instance.CheckDate();
+      //  PlayerPrefs.SetFloat("DAILYTEST1", DailyTimerCountDown);
 
         //  // BINKY
         //  TimeMasterScript.instance.SaveDate();

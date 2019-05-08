@@ -15,6 +15,7 @@ public class CompanionMonitor : MonoBehaviour
     float Happiness;
     float Happiness1;
     float Happiness2;
+    float Happiness3;
 
     CreatureSelect CreatureSelectScript;
  
@@ -33,19 +34,21 @@ public class CompanionMonitor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Displays specific Creatures happiness on the main scene 
+        // with a slider bar
          if (CreatureSelectScript.rightCreature)
         {
             Happiness1 = PlayerPrefs.GetFloat("BinkyHappiness");
-            RealTimeScript.TimerCountDown1 = Happiness1;
-            HappySlider.value = RealTimeScript.TimerCountDown1;
+            RealTimeScript.HappinessCountDown[1] = Happiness1;
+            HappySlider.value = RealTimeScript.HappinessCountDown[1];
         }
         else if (CreatureSelectScript.middleCreature)
         {
             Happiness = PlayerPrefs.GetFloat("GobuHappiness");
 
             //HappinessManagerScript.Happiness = RealTimeScript.TimerCountDown;
-            RealTimeScript.TimerCountDown = Happiness;
-            HappySlider.value = RealTimeScript.TimerCountDown;
+            RealTimeScript.HappinessCountDown[0] = Happiness;
+            HappySlider.value = RealTimeScript.HappinessCountDown[0];
 
         }
         else if(CreatureSelectScript.leftCreature)
@@ -53,8 +56,17 @@ public class CompanionMonitor : MonoBehaviour
             Happiness2 = PlayerPrefs.GetFloat("KokoHappiness");
 
             //HappinessManagerScript.Happiness = RealTimeScript.TimerCountDown2;
-            RealTimeScript.TimerCountDown2 = Happiness2;
-            HappySlider.value = RealTimeScript.TimerCountDown2;
+            RealTimeScript.HappinessCountDown[2] = Happiness2;
+            HappySlider.value = RealTimeScript.HappinessCountDown[2];
+
+        }
+        else if (CreatureSelectScript.leftCreature)
+        {
+            Happiness3 = PlayerPrefs.GetFloat("CriusHappiness");
+
+            //HappinessManagerScript.Happiness = RealTimeScript.TimerCountDown2;
+            RealTimeScript.HappinessCountDown[3] = Happiness3;
+            HappySlider.value = RealTimeScript.HappinessCountDown[3];
 
         }
         MouseTrail.SetActive(false);
