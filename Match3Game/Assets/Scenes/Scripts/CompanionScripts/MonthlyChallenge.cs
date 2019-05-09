@@ -23,8 +23,8 @@ public class MonthlyChallenge : MonoBehaviour {
         UnlockGift = PlayerPrefs.GetInt("MONTHLYPRIZE");
         PlayerPrefs.SetString("UNLOCKED", NameOfPrize);
         MonthlyVersions = PlayerPrefs.GetInt("MONTHLYVERSIONVALUE");
-        
-        if (UnlockGift > 0)
+        DelayTimerCheck = 3;
+         if (UnlockGift > 0)
         {
             HasUnlockedGift = true;
         }
@@ -41,8 +41,7 @@ public class MonthlyChallenge : MonoBehaviour {
     void Update()
     {
         // checks if the tournament is still going
-        MonthlyChallengeStatus();
-    //    DelayTimerCheck -= Time.deltaTime;
+          DelayTimerCheck -= Time.deltaTime;
 
         // Cooldown for checking tournament status to avoid sending to much information 
         if(DelayTimerCheck < 0)

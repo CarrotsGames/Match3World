@@ -21,6 +21,10 @@ public class HappinessManager : MonoBehaviour
     public bool IsSleeping;
     string SaveStrings;
     public Animator Anim;
+
+    public GameObject DayTime;
+    public GameObject NightTime;
+    public GameObject AwakeHead;
     // Use this for initialization
     void Start()
     {
@@ -29,7 +33,8 @@ public class HappinessManager : MonoBehaviour
         CompanionName = Companion.name;
         CanGetCurrency = false;
         CheckValue = true;
-      
+
+        
 
         // Checks which companion is loaded to gather save data 
         switch (CompanionName)
@@ -106,7 +111,7 @@ public class HappinessManager : MonoBehaviour
         
         if (!CanEarnGold)
         {
-            if (HappinessSliderValue > 90)
+            if (HappinessSliderValue > 95)
             {
                 // go to sleep
                 // Add multiplier    
@@ -124,7 +129,7 @@ public class HappinessManager : MonoBehaviour
         if (CanEarnGold)
         {
             // if Happiness less than 20
-            if (HappinessSliderValue < 20 && IsSleeping)
+            if (HappinessSliderValue < 33 && IsSleeping)
             {
                 // wake up
                 // Deduct multiplier    
@@ -186,31 +191,45 @@ public class HappinessManager : MonoBehaviour
 
     void HappinessStates()
     {
-        if (HappinessSliderValue > 0 && HappinessSliderValue < 33)
+        if (HappinessSliderValue > 0 && HappinessSliderValue < 20 && !IsSleeping)
         {
             // Animation 
+            Anim.SetBool("<20", true);
             Anim.SetBool("is>33", false);
+            Anim.SetBool("is>66", false);
+            NightTime.SetActive(false);
+            DayTime.SetActive(true);
+            AwakeHead.SetActive(true);
+            Anim.SetBool("is sleepy", false);
 
         }
-        else if (HappinessSliderValue > 33 && HappinessSliderValue < 66)
+        else if (HappinessSliderValue > 20 && HappinessSliderValue < 66 && !IsSleeping)
         {
             // Animation 
             Anim.SetBool("is>33", true);
+            Anim.SetBool("<20", false);
             Anim.SetBool("is>66", false);
 
         }
-        else if (HappinessSliderValue > 66 && HappinessSliderValue < 95)
+        else if (HappinessSliderValue > 66 && HappinessSliderValue < 95 && !IsSleeping) 
         {
             // Animation 
+            Anim.SetBool("is>33", false);
+            Anim.SetBool("<20", false);
             Anim.SetBool("is>66", true);
 
         }
         else if (HappinessSliderValue > 95 && HappinessSliderValue < 100)
         {
             // Animation 
+            Anim.SetBool("is sleepy", true);
+            //Anim.SetBool("is>66", false);
+            NightTime.SetActive(true);
+            DayTime.SetActive(false);
+            AwakeHead.SetActive(false);
             // Music Change
         }
-      
+
     }
 
     void Sleeping()
@@ -218,8 +237,15 @@ public class HappinessManager : MonoBehaviour
         // checks if Companion is sleeping
         if(IsSleeping)
         {
+            Anim.SetBool("is>33", false);
+
+            Anim.SetBool("is sleepy", true);
+            NightTime.SetActive(true);
+            AwakeHead.SetActive(false);
             CanEarnGold = true;
             MultlpierNum = PlayerPrefs.GetInt("Multiplier");
+            NightTime.SetActive(true);
+            DayTime.SetActive(false);
 
             Debug.Log("Sleeping");
         }
@@ -227,6 +253,9 @@ public class HappinessManager : MonoBehaviour
         {
             CanEarnGold = false;
             MultlpierNum = PlayerPrefs.GetInt("Multiplier");
+            DayTime.SetActive(true);
+            NightTime.SetActive(false);
+            Anim.SetBool("<20", true);
 
             Debug.Log("NotSleeping");
 
