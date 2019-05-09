@@ -10,13 +10,13 @@ Shader "Sprites/MovingShader2D"
 			_ScrollSpeedU("ScrollSpeedU", Range(-5.0,5.0)) = 1
 			_ScrollSpeedV("ScrollSpeedV", Range(-5.0,5.0)) = 1
 
-				// Scrolls Texture to the left
-					_ScrollTexture1("ScrollTexture1" , 2D) = "white" {}
-					_ScrollSpeedU1("ScrollSpeedsU1", Range(-5.0,5.0)) = 1
-					_ScrollSpeedV1("ScrollSpeedV1", Range(-5.0,5.0)) = 1
+		// Scrolls Texture to the left
+			_ScrollTexture1("ScrollTexture1" , 2D) = "white" {}
+			_ScrollSpeedU1("ScrollSpeedsU1", Range(-5.0,5.0)) = 1
+			_ScrollSpeedV1("ScrollSpeedV1", Range(-5.0,5.0)) = 1
 
- 					_Colour("Colour" , Color) = (0,0,0,0)
-					_Transparency("Transparency ", Range(0.0, 1)) = 0.6
+ 			_Colour("Colour" , Color) = (0,0,0,0)
+			_Transparency("Transparency ", Range(0.0, 1)) = 0.6
 	}
 		SubShader
 					{
@@ -94,6 +94,7 @@ Shader "Sprites/MovingShader2D"
 
 							 Colour.g = _Transparency;
 							  // Reutrns the main texture with the moving texture
+
 							 return   ScrollColour + ScrollColour1 + Colour;
 							 }
 							 ENDCG

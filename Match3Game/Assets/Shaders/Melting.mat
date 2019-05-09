@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Purple 1
-  m_Shader: {fileID: 4800000, guid: 1cfa322a904d2a249acbaf5e6ea5ebd1, type: 3}
+  m_Name: Melting
+  m_Shader: {fileID: 4800000, guid: 8d40f31330857854a9e162ba6a398938, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -54,44 +54,36 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _ScrollTexture:
-        m_Texture: {fileID: 2800000, guid: 3ffb46dc96d26cb4f87ea935488f068d, type: 3}
-        m_Scale: {x: 10, y: 2.5}
-        m_Offset: {x: 0, y: 0}
-    - _ScrollTexture1:
-        m_Texture: {fileID: 2800000, guid: dacb750e0366fd3498493a6ed9929a47, type: 3}
-        m_Scale: {x: 0, y: 0}
-        m_Offset: {x: 0, y: 0}
     m_Floats:
-    - PixelSnap: 0
+    - _BasePoint: 0
     - _BumpScale: 1
     - _Cutoff: 0.5
-    - _CutoutThreshold: 0.6
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _HStack: 0.198
+    - _Melt: 0
+    - _MeltAmplify: 0.26
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _Outline: 0
+    - _Offset: 0
     - _Parallax: 0.02
-    - _ScrollSpeedU: 0
-    - _ScrollSpeedU1: 0
-    - _ScrollSpeedV: -0.1
-    - _ScrollSpeedV1: -0.09
+    - _RHz: 1.69
+    - _RStack: 1
+    - _Smooth: 0.348
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
+    - _Spread: 0.432
     - _SrcBlend: 1
-    - _Transparency: 0.255
-    - _Transparency1: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 0.8642505, b: 0.0047169924, a: 1}
-    - _Colour: {r: 0, g: 0, b: 0, a: 1}
+    - _Center: {r: 0, g: 0, b: 0, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
-    - _OutlineColour: {r: 1, g: 1, b: 1, a: 1}
-    - _Tint: {r: 0, g: 0.15958741, b: 0.54901963, a: 0.45490196}
+    - _Gravity: {r: 0, g: -1, b: 0, a: 1}
+    - _MeltTint: {r: 1, g: 0.7688679, b: 0.7688679, a: 1}
+    - _NorthReference: {r: 0, g: 0, b: 1, a: 0}
