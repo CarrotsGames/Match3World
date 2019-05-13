@@ -133,6 +133,18 @@ public class CompanionNavigation : MonoBehaviour
                 Companions[Navigate].SetActive(true);
                 CompanionName = Companions[Navigate].name;
                  break;
+            case 5:
+                Companions[Navigate].SetActive(true);
+                CompanionName = Companions[Navigate].name;
+                break;
+            case 6:
+                Companions[Navigate].SetActive(true);
+                CompanionName = Companions[Navigate].name;
+                break;
+            case 7:
+                Companions[Navigate].SetActive(true);
+                CompanionName = Companions[Navigate].name;
+                break;
         }
     }
     // Update is called once per frame

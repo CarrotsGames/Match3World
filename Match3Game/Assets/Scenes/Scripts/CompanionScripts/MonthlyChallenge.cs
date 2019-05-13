@@ -100,17 +100,21 @@ public class MonthlyChallenge : MonoBehaviour {
     }
     void CreatureUnlock()
     {
-        if (DotManagerScript.TotalScore > 100)
+        if (DotManagerScript.TotalScore > 10000)
+        {
+            Debug.Log("UNLOCK KOKO");
+            UnlockableString = "KOKO";
+            PlayerPrefs.SetString("UNLOCKED", UnlockableString);
+
+        }
+        if (DotManagerScript.TotalScore > 15000)
         {
             Debug.Log("UNLOCK BINKY");
             UnlockableString = "BINKY";
             PlayerPrefs.SetString("UNLOCKED", UnlockableString);
 
         }
-        else if (DotManagerScript.TotalScore > 200)
-        {
-            Debug.Log("UNLOCK KOKO");
-        }
+      
     }
     // informs player that tournament is over
     void MonthlyChallengeEnded()

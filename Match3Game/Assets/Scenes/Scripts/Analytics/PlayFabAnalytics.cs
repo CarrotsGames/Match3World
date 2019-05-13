@@ -37,9 +37,18 @@ public class PlayFabAnalytics : MonoBehaviour {
 
                 }
                 break;
+            case "Koko":
+                {
+                    SaveScoreName = "KOKOSCORETRACK";
+                    DotManagerScript.SceneScore = PlayerPrefs.GetFloat(SaveScoreName);
+
+                }
+                break;
             case "Crius":
                 {
                     SaveScoreName = "CRIUSSCORETRACK";
+                    DotManagerScript.SceneScore = PlayerPrefs.GetFloat(SaveScoreName);
+
                 }
                 break;
         }

@@ -1,17 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class UnlockableCreatures : MonoBehaviour
 {
     public string CompanionName;
     private string NewGobuUnlocked;
     public string CriusUnlocked;
-    public string[] UnlockableMoobling;
+    // Put all locked companions in here 
+    public GameObject[] LockedCompanions;
+    // holds all the Available companions in gameobject
     private GameObject CompanionStorage;
+    // Has all available companions in list
     public GameObject[] Companions;
     private int NEWGOBU;
     private CompanionNavigation CompNav;
+    // Names for Each moobling
+    public string[] UnlockableMoobling;
+    public Sprite[] CompanionImages;
     // MOOBLING NUMBERS FOR UNLOCKABLEMOOBLING STRING
     // 0 GOBU
     // 1 BINKY
@@ -30,8 +37,8 @@ public class UnlockableCreatures : MonoBehaviour
 
         CriusUnlocked = PlayerPrefs.GetString("CRIUS");
 
-        UnlockableMoobling[1] = PlayerPrefs.GetString("BINKY");
-        UnlockableMoobling[2] = PlayerPrefs.GetString("KOKO");
+        UnlockableMoobling[0] = PlayerPrefs.GetString("BINKY");
+        UnlockableMoobling[1] = PlayerPrefs.GetString("KOKO");
 
         // Activates unlocked characters
         Unlock();
@@ -39,7 +46,11 @@ public class UnlockableCreatures : MonoBehaviour
         GetUnlocked();
 
     }
- 
+    private void Update()
+    {
+       // Unlock();
+       // GetUnlocked();
+    }
     // Goes through an checks which companins are unlocked
     public void GetUnlocked()
     {
@@ -59,15 +70,21 @@ public class UnlockableCreatures : MonoBehaviour
             // CompNav.Companions.Add(Creature.transform.gameObject);
             Creature.SetActive(false);
         }
-        if(UnlockableMoobling[1] == "BINKY")
+        if(UnlockableMoobling[0] == "BINKY")
         {
-            GameObject Creature = Instantiate(Companions[2], CompanionStorage.transform.position, Quaternion.identity);
-            Creature.transform.parent = CompanionStorage.transform;
-            Creature.SetActive(false);
+            LockedCompanions[0].GetComponent<Image>().sprite = CompanionImages[0];
+            LockedCompanions[0].GetComponent<Button>().enabled = true;
+            //
+            //Destroy(LockedCompanions[1]);
+            // GameObject Creature = Instantiate(Companions[2], CompanionStorage.transform.position, Quaternion.identity);
+            //Creature.transform.parent = CompanionStorage.transform;
+            //LockedCompanions[1] = Creature;
+            //Creature.SetActive(false);
         }
-        else if (UnlockableMoobling[2] == "KOKO")
+         if (UnlockableMoobling[1] == "KOKO")
         {
-
+            LockedCompanions[1].GetComponent<Image>().sprite = CompanionImages[1];
+            LockedCompanions[1].GetComponent<Button>().enabled = true;
         }
 
     }
@@ -88,14 +105,14 @@ public class UnlockableCreatures : MonoBehaviour
                 break;
             case "BINKY":
                 {
-                    UnlockableMoobling[1] = CompanionName;
-                    PlayerPrefs.SetString("BINKY", UnlockableMoobling[2]);
+                    UnlockableMoobling[0] = CompanionName;
+                    PlayerPrefs.SetString("BINKY", UnlockableMoobling[0]);
                 }
                 break;
             case "KOKO":
                 {
-                    UnlockableMoobling[2] = CompanionName;
-                    PlayerPrefs.SetString("KOKO", UnlockableMoobling[2]);
+                    UnlockableMoobling[1] = CompanionName;
+                    PlayerPrefs.SetString("KOKO", UnlockableMoobling[1]);
                 }
                 break;
             case "CRIUS":
