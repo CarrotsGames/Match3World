@@ -236,6 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChallengeScore: 1000000
   PrizeCompanion: {fileID: 0}
+  UnlockableString: 
 --- !u!1 &164615115
 GameObject:
   m_ObjectHideFlags: 0
@@ -3440,22 +3441,6 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 95156337391162928, guid: 4e6ef3740c972984e99b2437585cc990,
     type: 2}
   m_PrefabInternal: {fileID: 1587989245}
---- !u!1 &1193867620 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1406275828080372, guid: 4f44b75f02601ed4083c9fd0fa0e3c8e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1769281169}
---- !u!114 &1193867621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1193867620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22a4f1d9974ae474589f54ab2d4b6e36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1200800291 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114562225730985500, guid: 80f0e3485178431459f21c55fcb59424,
@@ -5395,53 +5380,45 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4778895993398186, guid: 4f44b75f02601ed4083c9fd0fa0e3c8e, type: 2}
+    - target: {fileID: 4210125406880974, guid: bf3605dd2212720418b844a549b03eea, type: 2}
       propertyPath: m_LocalPosition.x
       value: 68.30099
       objectReference: {fileID: 0}
-    - target: {fileID: 4778895993398186, guid: 4f44b75f02601ed4083c9fd0fa0e3c8e, type: 2}
+    - target: {fileID: 4210125406880974, guid: bf3605dd2212720418b844a549b03eea, type: 2}
       propertyPath: m_LocalPosition.y
       value: -209.58258
       objectReference: {fileID: 0}
-    - target: {fileID: 4778895993398186, guid: 4f44b75f02601ed4083c9fd0fa0e3c8e, type: 2}
+    - target: {fileID: 4210125406880974, guid: bf3605dd2212720418b844a549b03eea, type: 2}
       propertyPath: m_LocalPosition.z
       value: 68.1549
       objectReference: {fileID: 0}
-    - target: {fileID: 4778895993398186, guid: 4f44b75f02601ed4083c9fd0fa0e3c8e, type: 2}
+    - target: {fileID: 4210125406880974, guid: bf3605dd2212720418b844a549b03eea, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4778895993398186, guid: 4f44b75f02601ed4083c9fd0fa0e3c8e, type: 2}
+    - target: {fileID: 4210125406880974, guid: bf3605dd2212720418b844a549b03eea, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4778895993398186, guid: 4f44b75f02601ed4083c9fd0fa0e3c8e, type: 2}
+    - target: {fileID: 4210125406880974, guid: bf3605dd2212720418b844a549b03eea, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4778895993398186, guid: 4f44b75f02601ed4083c9fd0fa0e3c8e, type: 2}
+    - target: {fileID: 4210125406880974, guid: bf3605dd2212720418b844a549b03eea, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4778895993398186, guid: 4f44b75f02601ed4083c9fd0fa0e3c8e, type: 2}
+    - target: {fileID: 4210125406880974, guid: bf3605dd2212720418b844a549b03eea, type: 2}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1406275828080372, guid: 4f44b75f02601ed4083c9fd0fa0e3c8e, type: 2}
-      propertyPath: m_Name
-      value: PLAYFAB_TRACKING
-      objectReference: {fileID: 0}
-    - target: {fileID: 1406275828080372, guid: 4f44b75f02601ed4083c9fd0fa0e3c8e, type: 2}
-      propertyPath: m_TagString
-      value: PlayFab
-      objectReference: {fileID: 0}
-    - target: {fileID: 114428675597983764, guid: 4f44b75f02601ed4083c9fd0fa0e3c8e,
+    - target: {fileID: 114697194608924240, guid: bf3605dd2212720418b844a549b03eea,
         type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: CompanionScore
+      value: 
+      objectReference: {fileID: 1694413304}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4f44b75f02601ed4083c9fd0fa0e3c8e, type: 2}
+  m_SourcePrefab: {fileID: 100100000, guid: bf3605dd2212720418b844a549b03eea, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1781371921
 GameObject:

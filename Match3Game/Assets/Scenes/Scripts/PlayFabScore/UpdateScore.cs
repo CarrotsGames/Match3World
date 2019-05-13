@@ -4,7 +4,7 @@ using PlayFab.ClientModels;
 using System.Collections.Generic;
 using System.Collections;
  
-public class UpdateScore : MonoBehaviour
+public class PlayFabLogin : MonoBehaviour
 {
     GameObject DotManagerObj;
     DotManager DotManagerScript;

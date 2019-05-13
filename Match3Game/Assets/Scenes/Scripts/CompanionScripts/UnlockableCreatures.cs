@@ -7,12 +7,18 @@ public class UnlockableCreatures : MonoBehaviour
     public string CompanionName;
     private string NewGobuUnlocked;
     public string CriusUnlocked;
-
+    public string[] UnlockableMoobling;
     private GameObject CompanionStorage;
     public GameObject[] Companions;
     private int NEWGOBU;
     private CompanionNavigation CompNav;
-    // Use this for initialization
+    // MOOBLING NUMBERS FOR UNLOCKABLEMOOBLING STRING
+    // 0 GOBU
+    // 1 BINKY
+    // 2 KOKO
+    // 3 CRIUS
+    // 4 ROBO
+    // 5 MONKA
     void Start()
     {
         // find companion list in scene
@@ -21,7 +27,11 @@ public class UnlockableCreatures : MonoBehaviour
 
         // bools that check if that character is unlocked
         NewGobuUnlocked = PlayerPrefs.GetString("NEWGOBU");
+
         CriusUnlocked = PlayerPrefs.GetString("CRIUS");
+
+        UnlockableMoobling[1] = PlayerPrefs.GetString("BINKY");
+        UnlockableMoobling[2] = PlayerPrefs.GetString("KOKO");
 
         // Activates unlocked characters
         Unlock();
@@ -49,6 +59,17 @@ public class UnlockableCreatures : MonoBehaviour
             // CompNav.Companions.Add(Creature.transform.gameObject);
             Creature.SetActive(false);
         }
+        if(UnlockableMoobling[1] == "BINKY")
+        {
+            GameObject Creature = Instantiate(Companions[2], CompanionStorage.transform.position, Quaternion.identity);
+            Creature.transform.parent = CompanionStorage.transform;
+            Creature.SetActive(false);
+        }
+        else if (UnlockableMoobling[2] == "KOKO")
+        {
+
+        }
+
     }
     // Checks the companionName strings name and unlocks that character
     public void Unlock()
@@ -65,8 +86,16 @@ public class UnlockableCreatures : MonoBehaviour
                     PlayerPrefs.SetString("NEWGOBU", NewGobuUnlocked);
                 }
                 break;
-            case "ROBO":
+            case "BINKY":
                 {
+                    UnlockableMoobling[1] = CompanionName;
+                    PlayerPrefs.SetString("BINKY", UnlockableMoobling[2]);
+                }
+                break;
+            case "KOKO":
+                {
+                    UnlockableMoobling[2] = CompanionName;
+                    PlayerPrefs.SetString("KOKO", UnlockableMoobling[2]);
                 }
                 break;
             case "CRIUS":

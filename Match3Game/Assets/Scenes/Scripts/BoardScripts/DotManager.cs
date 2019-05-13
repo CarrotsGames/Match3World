@@ -55,6 +55,8 @@ public class DotManager : MonoBehaviour
     private int YellowCount;
     private int GreenCount;
     private int test;
+
+    public float SceneScore;
     private MouseFollowScript MouseFollow;
     private GameObject PowerUpManGameObj;
     private PowerUpManager PowerUpManagerScript;
@@ -263,12 +265,12 @@ public class DotManager : MonoBehaviour
         // if the colour wasnt matched reset lists, scores, counts and selections
         if (RedCount != Peices.Count || BlueCount != Peices.Count || GreenCount != Peices.Count || YellowCount != Peices.Count)
             {
-
+            SceneScore += RedScore + BlueScore + GreenScore + YellowScore;
                 //  Debug.Log("No connection");
                 RedPieces.Clear();
                 BluePieces.Clear();
                 YellowPieces.Clear();
-                GreenPieces.Clear();
+                GreenPieces.Clear();               
                 RedCount = 0;
                 BlueCount = 0;
                 YellowCount = 0;

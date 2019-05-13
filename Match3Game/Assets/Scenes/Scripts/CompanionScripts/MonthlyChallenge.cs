@@ -13,6 +13,7 @@ public class MonthlyChallenge : MonoBehaviour {
     bool HasUnlockedGift;
     int MonthlyVersions;
     float DelayTimerCheck;
+    public string UnlockableString;
     // Use this for initialization
     void Start()
     {
@@ -40,11 +41,11 @@ public class MonthlyChallenge : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        CreatureUnlock();
         // checks if the tournament is still going
           DelayTimerCheck -= Time.deltaTime;
-
         // Cooldown for checking tournament status to avoid sending to much information 
-        if(DelayTimerCheck < 0)
+        if (DelayTimerCheck < 0)
         {
             DelayTimerCheck += 4;
             MonthlyChallengeStatus();
@@ -66,6 +67,7 @@ public class MonthlyChallenge : MonoBehaviour {
              }
         }
     }
+    // UNLOCK THE MONTHLY COMPANION
     void MonthlyChallengeStatus()
     {
 
@@ -96,6 +98,20 @@ public class MonthlyChallenge : MonoBehaviour {
 
         }, MonthlyChallengeGoing);
     }
+    void CreatureUnlock()
+    {
+        if (DotManagerScript.TotalScore > 100)
+        {
+            Debug.Log("UNLOCK BINKY");
+            UnlockableString = "BINKY";
+            PlayerPrefs.SetString("UNLOCKED", UnlockableString);
+
+        }
+        else if (DotManagerScript.TotalScore > 200)
+        {
+            Debug.Log("UNLOCK KOKO");
+        }
+    }
     // informs player that tournament is over
     void MonthlyChallengeEnded()
     {
@@ -106,4 +122,6 @@ public class MonthlyChallenge : MonoBehaviour {
     {
         Debug.Log("MONTHLYCHALLENGE  still going");
     }
+    // UNLOCK NORMAL COMPANIONS
+  
 }
