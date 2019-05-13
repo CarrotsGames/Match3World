@@ -62,31 +62,22 @@ public class UnlockableCreatures : MonoBehaviour
            // CompNav.Companions.Add(Creature.transform.gameObject);
             Creature.SetActive(false);
         }
-        if (CriusUnlocked == "CRIUS")
-        {
-            // int UnlockNUM
-            GameObject Creature = Instantiate(Companions[1], CompanionStorage.transform.position, Quaternion.identity);
-            Creature.transform.parent = CompanionStorage.transform;
-            // CompNav.Companions.Add(Creature.transform.gameObject);
-            Creature.SetActive(false);
-        }
+      
         if(UnlockableMoobling[0] == "BINKY")
         {
             LockedCompanions[0].GetComponent<Image>().sprite = CompanionImages[0];
             LockedCompanions[0].GetComponent<Button>().enabled = true;
-            //
-            //Destroy(LockedCompanions[1]);
-            // GameObject Creature = Instantiate(Companions[2], CompanionStorage.transform.position, Quaternion.identity);
-            //Creature.transform.parent = CompanionStorage.transform;
-            //LockedCompanions[1] = Creature;
-            //Creature.SetActive(false);
         }
          if (UnlockableMoobling[1] == "KOKO")
         {
             LockedCompanions[1].GetComponent<Image>().sprite = CompanionImages[1];
             LockedCompanions[1].GetComponent<Button>().enabled = true;
         }
-
+        if (CriusUnlocked == "CRIUS")
+        {
+            LockedCompanions[2].GetComponent<Image>().sprite = CompanionImages[2];
+            LockedCompanions[2].GetComponent<Button>().enabled = true;
+        }
     }
     // Checks the companionName strings name and unlocks that character
     public void Unlock()
