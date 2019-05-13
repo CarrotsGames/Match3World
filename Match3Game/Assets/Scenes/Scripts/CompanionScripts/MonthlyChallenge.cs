@@ -14,6 +14,10 @@ public class MonthlyChallenge : MonoBehaviour {
     int MonthlyVersions;
     float DelayTimerCheck;
     public string UnlockableString;
+    public int[] UnlockScore;
+    // UNLOCK SCORE COMPANIONS
+    // 0 BINKY
+    // 1 KOKO
     // Use this for initialization
     void Start()
     {
@@ -100,17 +104,17 @@ public class MonthlyChallenge : MonoBehaviour {
     }
     void CreatureUnlock()
     {
-        if (DotManagerScript.TotalScore > 10000)
-        {
-            Debug.Log("UNLOCK KOKO");
-            UnlockableString = "KOKO";
-            PlayerPrefs.SetString("UNLOCKED", UnlockableString);
-
-        }
-        if (DotManagerScript.TotalScore > 15000)
+        if (DotManagerScript.TotalScore > UnlockScore[0])
         {
             Debug.Log("UNLOCK BINKY");
             UnlockableString = "BINKY";
+            PlayerPrefs.SetString("UNLOCKED", UnlockableString);
+
+        }
+        if (DotManagerScript.TotalScore > UnlockScore[1])
+        {
+            Debug.Log("UNLOCK KOKO");
+            UnlockableString = "KOKO";
             PlayerPrefs.SetString("UNLOCKED", UnlockableString);
 
         }
