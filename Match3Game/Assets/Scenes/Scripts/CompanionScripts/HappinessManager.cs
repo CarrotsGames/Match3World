@@ -191,7 +191,8 @@ public class HappinessManager : MonoBehaviour
 
     void HappinessStates()
     {
-        if (HappinessSliderValue > 0 && HappinessSliderValue < 20 && !IsSleeping)
+        // Slider value stops at -0.01 for somereason so -5 is to make sure it resets 
+        if (HappinessSliderValue > -5 && HappinessSliderValue < 20)
         {
             // Animation 
             Anim.SetBool("<20", true);
@@ -203,6 +204,7 @@ public class HappinessManager : MonoBehaviour
             Anim.SetBool("is sleepy", false);
 
         }
+        // if this is reached while not sleeping, companion changes animation
         else if (HappinessSliderValue > 20 && HappinessSliderValue < 66 && !IsSleeping)
         {
             // Animation 
