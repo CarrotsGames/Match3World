@@ -10,7 +10,6 @@ public class DailySpin : MonoBehaviour
     public float TimeToStopWheel;
     // Caps velocity of wheel using startUpspeed and maxSpeed
     public  float WheelVelocity;
-  
     // Stores values 
     [HideInInspector]
     public float TimeToStopWheelStore;
@@ -18,13 +17,14 @@ public class DailySpin : MonoBehaviour
     public float MaxSpeedStore;
     [HideInInspector]
     public float StartUpSpeedStore;
-    
-    private bool IsDailyOver;
-    private bool StopSpinning;
+    [HideInInspector]
+    public bool IsDailyOver;
+    [HideInInspector]
+    public bool StopSpinning;
 
-    EventScript DailyEvent;
-    GameObject Events;
-    // Use this for initialization
+    public EventScript DailyEvent;
+    public GameObject Events;
+     // Use this for initialization
     void Start ()
     {
         StartUpSpeed *= 100;
@@ -82,19 +82,17 @@ public class DailySpin : MonoBehaviour
         }
         // RESETS script 
         // if daily set CanDoDaily to false and turn off gameobject  
-        if (IsDailyOver)
-        {
-            // TURN ON CHILDREN COLLIDERS
-
-            // TODO  GIVE PRIZE
-            TimeToStopWheel = TimeToStopWheelStore;
-            DailyEvent.CanDoDaily = false;
-            PlayerPrefs.SetInt(Events.GetComponent<PlayFabServerTime>().SaveBool, (DailyEvent.CanDoDaily ? 1 : 0));
-
-            
-            IsDailyOver = false;
-            StopSpinning = false;
-            gameObject.SetActive(false);
-        }
+       //if (IsDailyOver)
+       //{
+       // //   TimeToStopWheel = TimeToStopWheelStore;
+       // //   DailyEvent.CanDoDaily = false;
+       // //   PlayerPrefs.SetInt(Events.GetComponent<PlayFabServerTime>().SaveBool, (DailyEvent.CanDoDaily ? 1 : 0));
+       // //
+       // //   DailyEvent.DailySpinner.SetActive(false);
+       // //
+       // //   IsDailyOver = false;
+       // //   StopSpinning = false;
+       //      
+       //}
     }
 }
