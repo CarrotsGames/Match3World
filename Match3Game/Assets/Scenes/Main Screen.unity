@@ -1340,14 +1340,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b197ab50ed658364da73690e06146e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartUpSpeed: 2
-  MaxSpeed: 6
-  TimeToStopWheel: 0
-  WheelVelocity: 0
-  TimeToStopWheelStore: 0
-  MaxSpeedStore: 0
-  StartUpSpeedStore: 0
-  WheelArrow: {fileID: 0}
 --- !u!212 &282343844
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5153,14 +5145,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b197ab50ed658364da73690e06146e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartUpSpeed: 2
-  MaxSpeed: 6
-  TimeToStopWheel: 0
-  WheelVelocity: 0
-  TimeToStopWheelStore: 0
-  MaxSpeedStore: 0
-  StartUpSpeedStore: 0
-  WheelArrow: {fileID: 0}
 --- !u!212 &873563833
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5421,14 +5405,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b197ab50ed658364da73690e06146e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartUpSpeed: 2
-  MaxSpeed: 6
-  TimeToStopWheel: 0
-  WheelVelocity: 0
-  TimeToStopWheelStore: 0
-  MaxSpeedStore: 0
-  StartUpSpeedStore: 0
-  WheelArrow: {fileID: 0}
 --- !u!212 &883535687
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6877,14 +6853,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b197ab50ed658364da73690e06146e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartUpSpeed: 2
-  MaxSpeed: 6
-  TimeToStopWheel: 0
-  WheelVelocity: 0
-  TimeToStopWheelStore: 0
-  MaxSpeedStore: 0
-  StartUpSpeedStore: 0
-  WheelArrow: {fileID: 0}
 --- !u!212 &1256731814
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7316,14 +7284,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b197ab50ed658364da73690e06146e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartUpSpeed: 2
-  MaxSpeed: 6
-  TimeToStopWheel: 0
-  WheelVelocity: 0
-  TimeToStopWheelStore: 0
-  MaxSpeedStore: 0
-  StartUpSpeedStore: 0
-  WheelArrow: {fileID: 0}
 --- !u!212 &1308495847
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7759,14 +7719,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b197ab50ed658364da73690e06146e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartUpSpeed: 2
-  MaxSpeed: 6
-  TimeToStopWheel: 0
-  WheelVelocity: 0
-  TimeToStopWheelStore: 0
-  MaxSpeedStore: 0
-  StartUpSpeedStore: 0
-  WheelArrow: {fileID: 0}
 --- !u!212 &1330163582
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8717,6 +8669,7 @@ GameObject:
   - component: {fileID: 1513580218}
   - component: {fileID: 1513580219}
   - component: {fileID: 1513580220}
+  - component: {fileID: 1513580222}
   - component: {fileID: 1513580221}
   m_Layer: 0
   m_Name: Arrow
@@ -8829,6 +8782,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1513580222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1513580217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e1740a7322be434da0cc470d11f372c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DailySpinWheel: {fileID: 1879366893}
+  PowerUpManagerGameObj: {fileID: 0}
 --- !u!1 &1536619499
 GameObject:
   m_ObjectHideFlags: 0
@@ -9154,7 +9120,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1635073773
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9606,14 +9572,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b197ab50ed658364da73690e06146e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartUpSpeed: 2
-  MaxSpeed: 6
-  TimeToStopWheel: 0
-  WheelVelocity: 0
-  TimeToStopWheelStore: 0
-  MaxSpeedStore: 0
-  StartUpSpeedStore: 0
-  WheelArrow: {fileID: 0}
 --- !u!212 &1668652405
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11031,7 +10989,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1879366893}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b197ab50ed658364da73690e06146e56, type: 3}
+  m_Script: {fileID: 11500000, guid: 4794fbde66e254d4aa0edc1ffccd255f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   StartUpSpeed: 2
@@ -11041,7 +10999,10 @@ MonoBehaviour:
   TimeToStopWheelStore: 0
   MaxSpeedStore: 0
   StartUpSpeedStore: 0
-  WheelArrow: {fileID: 1513580217}
+  IsDailyOver: 0
+  StopSpinning: 0
+  DailyEvent: {fileID: 0}
+  Events: {fileID: 0}
 --- !u!50 &1879366897
 Rigidbody2D:
   serializedVersion: 4
@@ -11272,14 +11233,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b197ab50ed658364da73690e06146e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartUpSpeed: 2
-  MaxSpeed: 6
-  TimeToStopWheel: 0
-  WheelVelocity: 0
-  TimeToStopWheelStore: 0
-  MaxSpeedStore: 0
-  StartUpSpeedStore: 0
-  WheelArrow: {fileID: 0}
 --- !u!212 &2002041615
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11599,14 +11552,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b197ab50ed658364da73690e06146e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartUpSpeed: 2
-  MaxSpeed: 6
-  TimeToStopWheel: 0
-  WheelVelocity: 0
-  TimeToStopWheelStore: 0
-  MaxSpeedStore: 0
-  StartUpSpeedStore: 0
-  WheelArrow: {fileID: 0}
 --- !u!212 &2067798871
 SpriteRenderer:
   m_ObjectHideFlags: 0

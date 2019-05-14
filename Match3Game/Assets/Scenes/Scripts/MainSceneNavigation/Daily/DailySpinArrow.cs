@@ -6,11 +6,15 @@ public class DailySpinArrow : MonoBehaviour
 {
      public GameObject DailySpinWheel;
      private DailySpin DailySpinScript;
-     private string Colour;
+    public GameObject PowerUpManagerGameObj;
+    private PowerUpManager PowerUpManagerScript;
+    private string Colour;
 
     // Use this for initialization
     void Start()
     {
+        PowerUpManagerGameObj = GameObject.FindGameObjectWithTag("PUM");
+        PowerUpManagerScript = PowerUpManagerGameObj.GetComponent<PowerUpManager>();
         DailySpinScript = DailySpinWheel.GetComponent<DailySpin>();
     }
 
@@ -24,30 +28,39 @@ public class DailySpinArrow : MonoBehaviour
             switch (Colour)
             {
                 case "Blue":
+                    PowerUpManagerScript.NumOfSCR += 5;
                     Debug.Log("BLUE");
                     break;
                 case "Red":
                     Debug.Log("RED");
+                    PowerUpManagerScript.NumOfBombs += 2;
                     break;
                 case "Green":
+                    PowerUpManagerScript.Currency += 25;
                     Debug.Log("GREEN");
                     break;
                 case "Yellow":
+                    PowerUpManagerScript.Currency += 100;
                     Debug.Log("YELLOW");
                     break;
                 case "Purple":
+                    PowerUpManagerScript.NumOfSCR += 2;
                     Debug.Log("PURPLE");
                     break;
                 case "PurpleGrad":
+                    PowerUpManagerScript.NumOfMultilpiers += 5;
                     Debug.Log("PURPLEGRAD");
                     break;
                 case "LightBlue":
                     Debug.Log("LIGHTBLUE");
+                    PowerUpManagerScript.NumOfMultilpiers += 1;
                     break;
                 case "White":
+                    PowerUpManagerScript.NumOfShuffles += 5;
                     Debug.Log("WHITE");
                     break;
                 case "Orange":
+                    PowerUpManagerScript.NumOfShuffles += 2;
                     Debug.Log("ORANGE");
                     break;
 
