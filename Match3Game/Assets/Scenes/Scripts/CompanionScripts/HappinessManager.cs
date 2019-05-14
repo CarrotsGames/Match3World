@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 public class HappinessManager : MonoBehaviour
 {
+    public GameObject Board;
+       // CHANGE NAME BOARDSCRIPT TO BOARD//
+    private BoardScript BoardScriptRef;
     public GameObject Companion;
     public float HappinessSliderValue;
     private GameObject DotManagerObj;
@@ -28,6 +31,8 @@ public class HappinessManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Board = GameObject.FindGameObjectWithTag("BoardSpawn");
+        BoardScriptRef = Board.GetComponent<BoardScript>();
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
         CompanionName = Companion.name;
@@ -111,6 +116,8 @@ public class HappinessManager : MonoBehaviour
         
         if (!CanEarnGold)
         {
+            BoardScriptRef.Gold = 1;
+
             if (HappinessSliderValue > 95)
             {
                 // go to sleep
@@ -129,8 +136,10 @@ public class HappinessManager : MonoBehaviour
         if (CanEarnGold)
         {
             // if Happiness less than 20
+            BoardScriptRef.Gold = 0;
             if (HappinessSliderValue < 33 && IsSleeping)
             {
+
                 // wake up
                 // Deduct multiplier    
                 MultlpierNum -= 1;

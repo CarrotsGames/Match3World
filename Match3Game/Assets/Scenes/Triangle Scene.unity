@@ -1222,12 +1222,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Width: 7
   Height: 7
+  Gold: 0
   TilePrefab: {fileID: 1826161997128130, guid: a7b5c648e1340cc429b95bd0d68f649b, type: 2}
   Dots:
   - {fileID: 1906746673825504, guid: bffcf3a86e4e8084caca1c2291581818, type: 2}
   - {fileID: 1844472985487344, guid: 60062170fa83e8849bc8984c686ab8dc, type: 2}
   - {fileID: 1310575611718344, guid: 4eda3dc611d0cc94f98a2edeb1c16ff8, type: 2}
   - {fileID: 1766755826017016, guid: 0b6c14be4e631a8478ed497d97af37da, type: 2}
+  - {fileID: 1063094474349120, guid: bcf6c6e79b25cd9459703152c93c0b2e, type: 2}
   Spawner: {fileID: 192660692}
 --- !u!4 &192660696
 Transform:
@@ -10685,6 +10687,7 @@ MonoBehaviour:
   BluePieces: []
   GreenPieces: []
   YellowPieces: []
+  Gold: []
   ParticleEffectPink: {fileID: 1870360911939206, guid: 78f50dec7db1afd41baaf58c46b7e196,
     type: 2}
   ParticleEffectPurple: {fileID: 1893942707620932, guid: 3c5fded986baaab45be039677b0ada92,
@@ -10705,6 +10708,7 @@ MonoBehaviour:
   BlueSelection: 0
   YellowSelection: 0
   PurpleSelection: 0
+  GoldSelection: 0
   ResetLayer: 0
   ResetMaterial: 0
   StopInteracting: 0
@@ -10714,6 +10718,7 @@ MonoBehaviour:
   BlueScore: 0
   YellowScore: 0
   GreenScore: 0
+  GoldAmount: 0
   Multipier: 0
   LineCount: 0
   Limit: 2

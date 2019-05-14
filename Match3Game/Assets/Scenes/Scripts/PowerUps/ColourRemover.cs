@@ -35,8 +35,7 @@ public class ColourRemover : MonoBehaviour
         Board = BoardGameObj.GetComponent<BoardScript>();
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
-        MouseCursorObj = GameObject.FindGameObjectWithTag("Mouse");
- 
+        MouseCursorObj = GameObject.FindGameObjectWithTag("Mouse");   
  
         PowerUpInUse = false;
         Red = false;

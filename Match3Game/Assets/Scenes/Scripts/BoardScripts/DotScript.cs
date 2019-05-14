@@ -20,7 +20,8 @@ public class DotScript : MonoBehaviour
     private int LayerType = 10;
     private float time;
     private BoardScript Board;
-
+    private GameObject HappinessManagerGameobj;
+    public HappinessManager HappinessManagerScript;
     private AudioSource audio;
     private DotManager DotManagerScript;
     private GameObject DotManagerObj;
@@ -32,8 +33,9 @@ public class DotScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        HappinessManagerGameobj = GameObject.FindGameObjectWithTag("HM");
+        HappinessManagerScript = HappinessManagerGameobj.GetComponent<HappinessManager>();
 
-  
         audio = GetComponent<AudioSource>();
         DrawLine = GetComponent<LineRenderer>();
         DrawLine.enabled = false;
@@ -52,7 +54,11 @@ public class DotScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
- 
+        if(transform.tag == "Gold" && !HappinessManagerScript.IsSleeping)
+        {
+            Destroy(gameObject);
+        }
+
         if (DotManagerScript.StopInteracting)
         {
             OnMouseUp();
@@ -155,7 +161,11 @@ public class DotScript : MonoBehaviour
                 Colour = "Yellow";
                 //    DotManagerScript.PurpleSelection = true;
                 DotManagerScript.PurpleSelection = true;
-
+                break;
+            case "Gold":
+                Colour = "Gold";
+                //    DotManagerScript.PurpleSelection = true;
+                DotManagerScript.GoldSelection = true;
                 break;
         }
 
@@ -378,8 +388,46 @@ public class DotScript : MonoBehaviour
                         OnMouseUp();
                     }
                 }
+                if (DotManagerScript.GoldSelection)
+                {
+                    if (DotManagerScript.Peices.Contains(hitInfo.collider.gameObject) && hitInfo.collider.gameObject.tag == "Gold")
+                    {
 
-             }
+
+
+                    }
+                    else if (!DotManagerScript.Peices.Contains(hitInfo.collider.gameObject) && hitInfo.collider.gameObject.tag == "Gold")
+                    {
+                        hitInfo.collider.gameObject.GetComponent<Renderer>().material.color = Color.black;
+                        // draws line renderer to hit position
+                        DrawLine.SetPosition(DotManagerScript.LineCount, hitInfo.collider.gameObject.transform.position);
+                        // increases linecount so it can be drawn onto the next peice
+                        DotManagerScript.LineCount += 1;
+                        // increase amount of line renderer positions
+                        DrawLine.positionCount += 1;
+
+                        if (DotManagerScript.LineCount < 2)
+                        {
+                            DrawLine.SetPosition(DotManagerScript.LineCount, transform.position);
+
+                        }
+                        else
+                        {
+                            DrawLine.SetPosition(DotManagerScript.LineCount, hitInfo.collider.gameObject.transform.position);
+
+                        }
+
+                        // adds hit.collider to Peices list
+                        DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
+
+                    }
+                    if (hitInfo.collider.gameObject.tag == "Blue" || hitInfo.collider.gameObject.tag == "Yellow" || hitInfo.collider.gameObject.tag == "Green"
+                         || hitInfo.collider.gameObject.tag == "Red")
+                    {
+                        OnMouseUp();
+                    }
+                }
+            }
             else
             {
                 gameObject.layer = 0;

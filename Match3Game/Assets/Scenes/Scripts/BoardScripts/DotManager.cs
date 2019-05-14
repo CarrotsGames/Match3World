@@ -14,6 +14,7 @@ public class DotManager : MonoBehaviour
     public List<GameObject> BluePieces;
     public List<GameObject>  GreenPieces;
     public List<GameObject> YellowPieces;
+    public List<GameObject> Gold;
 
     public GameObject ParticleEffectPink;
     public GameObject ParticleEffectPurple;
@@ -33,6 +34,7 @@ public class DotManager : MonoBehaviour
     public bool BlueSelection;
     public bool YellowSelection;
     public bool PurpleSelection;
+    public bool GoldSelection;
     public bool ResetLayer;
     public bool ResetMaterial;
     public bool StopInteracting;
@@ -43,6 +45,7 @@ public class DotManager : MonoBehaviour
     public int BlueScore;
     public int YellowScore;
     public int GreenScore;
+    public int GoldAmount;
     public int Multipier;
     public int LineCount;
     public int Limit;
@@ -158,7 +161,15 @@ public class DotManager : MonoBehaviour
 
                     GreenPieces.Add(Peices[i]);
                 }
+                else if (Peices[i].tag == "Gold")
+                {
+                    Debug.Log("GOLDCONNECTION");
+                    GoldAmount += 1;
+                    Peices[i].GetComponent<Renderer>().material = Green;
+                    Peices[i].gameObject.layer = 0;
 
+                    Gold.Add(Peices[i]);
+                 }
             }
             // Checks which colour made a match
             SortingColours();
@@ -262,6 +273,15 @@ public class DotManager : MonoBehaviour
                 Companion.FeedMonster();
                 //    GreenPieces.Clear();
             }
+        if(GoldAmount == Peices.Count && GoldAmount > Limit)
+        {
+           PowerUpManagerScript.Currency += GoldAmount;
+            for (int i = 0; i < GoldAmount; i++)
+            {
+                Destroy(Gold[i].gameObject);
+
+            }
+        }
         // if the colour wasnt matched reset lists, scores, counts and selections
         if (RedCount != Peices.Count || BlueCount != Peices.Count || GreenCount != Peices.Count || YellowCount != Peices.Count)
             {
@@ -270,11 +290,13 @@ public class DotManager : MonoBehaviour
                 RedPieces.Clear();
                 BluePieces.Clear();
                 YellowPieces.Clear();
-                GreenPieces.Clear();               
+                GreenPieces.Clear();
+                Gold.Clear();
                 RedCount = 0;
                 BlueCount = 0;
                 YellowCount = 0;
                 GreenCount = 0;
+                GoldAmount = 0;
                 NumberOfNeighbours = 0;
                 RedScore = 0;
                 BlueScore = 0;
@@ -285,6 +307,7 @@ public class DotManager : MonoBehaviour
                 BlueSelection = false;
                 YellowSelection = false;
                 PurpleSelection = false;
+                GoldSelection = false;
             // ResetDotLayers = true;
         }
             Peices.Clear();

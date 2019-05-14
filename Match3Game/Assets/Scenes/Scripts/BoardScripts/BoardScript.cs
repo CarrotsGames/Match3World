@@ -7,6 +7,7 @@ public class BoardScript : MonoBehaviour
 
     public int Width;
     public int Height;
+    public int Gold;
     public GameObject TilePrefab;
     public GameObject[] Dots;
     public GameObject[,] AllDots;
@@ -23,11 +24,11 @@ public class BoardScript : MonoBehaviour
     void Start()
     {
         SpawnBool = false;
-           AllTiles = new BackgroundTileScript[Width, Height];
+        AllTiles = new BackgroundTileScript[Width, Height];
         AllDots = new GameObject[Width, Height];
         SetUpBoard();
         HasChildren = true;
-
+        Gold = 0;
     }
 
     private void SetUpBoard()
@@ -42,7 +43,7 @@ public class BoardScript : MonoBehaviour
                 BackGroundTile.transform.parent = this.transform;
                 BackGroundTile.name = "( " + i + "," + j + ")";
                 // Creates dots for positions
-                int DotToUse = Random.Range(0, Dots.Length);
+                int DotToUse = Random.Range(0, Dots.Length - 1 + Gold);
                 GameObject Dot = Instantiate(Dots[DotToUse], TempPosition, Quaternion.identity);
               //  ReachableNodes.Add(Dot);
                 Dot.transform.parent = this.transform;
@@ -68,7 +69,7 @@ public class BoardScript : MonoBehaviour
        {
             
             // Creates dots for positions
-           int DotToUse = Random.Range(0, Dots.Length);
+           int DotToUse = Random.Range(0, Dots.Length - Gold);
            GameObject Dot = Instantiate(Dots[DotToUse], new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
             Dot.transform.parent = this.transform;
 
