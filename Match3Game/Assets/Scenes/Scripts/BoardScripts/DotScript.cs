@@ -16,14 +16,14 @@ public class DotScript : MonoBehaviour
     public bool ClearNeighbours;
     public bool DefaultColour;
     public bool GrowSize;
-
-    private int LayerType = 10;
+    [HideInInspector]
+    public int LayerType = 10;
     private float time;
     private BoardScript Board;
     private GameObject HappinessManagerGameobj;
     public HappinessManager HappinessManagerScript;
     private AudioSource audio;
-    private DotManager DotManagerScript;
+    public DotManager DotManagerScript;
     private GameObject DotManagerObj;
     private LineRenderer DrawLine;
     private Collider2D col2d;
@@ -446,7 +446,7 @@ public class DotScript : MonoBehaviour
    
     }
  
-    private void OnMouseUp()
+    public void OnMouseUp()
     {
  
         // Resets Linerenderer

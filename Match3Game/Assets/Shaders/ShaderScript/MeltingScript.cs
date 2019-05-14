@@ -10,10 +10,12 @@ public class MeltingScript : MonoBehaviour {
     public Material ShaderMat;
     public float DisolveSpeed;
     public float DisolveCountDown;
+    private DotScript DotScriptRef;
+    private bool IsConnecting;
     // Use this for initialization
     void Start () {
         rend = GetComponent<Renderer>();
-   
+        DotScriptRef = GetComponent<DotScript>();
         Disolve = false;
 
     }
@@ -33,8 +35,10 @@ public class MeltingScript : MonoBehaviour {
             {
                 Destroy(gameObject);
             }
+         
         }
     }
+ 
     void Melting()
     {
         //TODO
@@ -49,10 +53,17 @@ public class MeltingScript : MonoBehaviour {
  
         Child.GetComponent<Renderer>().material.SetFloat("_Progress", Test);
         Debug.Log(Disolve);
+        if (this.gameObject.layer == DotScriptRef.LayerType)
+        {
+            Debug.Log("INNEIGHRBOURS");
+            GetComponent<DotScript>().DotManagerScript.CheckConnection = true;
+            IsConnecting = false;
+            DotScriptRef.DotManagerScript.MouseCursorObj.SetActive(false);
+            DotScriptRef.OnMouseUp();
+        }
         //rend.gameObject.GetComponentInChildren<Renderer>().sharedMaterial.SetFloat("_Progress", Test);
         Disolve = true;
-
-    }
+     }
     private void OnTriggerStay2D(Collider2D collision)
     {
 
