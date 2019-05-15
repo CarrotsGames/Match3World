@@ -12,9 +12,11 @@ public class DotScript : MonoBehaviour
     public LayerMask layerMask;
     public List<GameObject> neighbours = new List<GameObject>();
     public int ToggleHighlite;
- 
+    [HideInInspector]
     public bool ClearNeighbours;
+    [HideInInspector]
     public bool DefaultColour;
+    [HideInInspector]
     public bool GrowSize;
     [HideInInspector]
     public int LayerType = 10;

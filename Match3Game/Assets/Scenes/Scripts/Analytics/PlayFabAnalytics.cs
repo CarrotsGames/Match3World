@@ -81,7 +81,7 @@ public class PlayFabAnalytics : MonoBehaviour {
              {CompanionTime,"" + TimeOnScene }
          }
         },
-        result => Debug.Log("Damn"),
+        result => Debug.Log("Analytics Sent"),
         error =>
         {
             Debug.Log("Got error setting user data Ancestory to Jacob");
