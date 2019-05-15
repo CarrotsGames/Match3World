@@ -3925,6 +3925,7 @@ GameObject:
   - component: {fileID: 664875756}
   - component: {fileID: 664875755}
   - component: {fileID: 664875754}
+  - component: {fileID: 664875758}
   m_Layer: 5
   m_Name: Left Arrow
   m_TagString: Untagged
@@ -3938,17 +3939,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 664875752}
-  m_LocalRotation: {x: -0, y: -0, z: 1, w: -0.000001952052}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 14169747}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180.00002}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -287, y: 222.79}
-  m_SizeDelta: {x: 247.6, y: 201.4}
+  m_AnchoredPosition: {x: -301, y: 122}
+  m_SizeDelta: {x: 202.6, y: 201.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &664875754
 MonoBehaviour:
@@ -4033,7 +4034,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: cdf5b461c84b32b43a6a9fddad74c62d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3797459387dc63e4aaa3a5d87e1c3eea, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4048,6 +4049,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 664875752}
   m_CullTransparentMesh: 0
+--- !u!114 &664875758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 664875752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.3882353}
+  m_EffectDistance: {x: 7.62, y: 9.17}
+  m_UseGraphicAlpha: 1
 --- !u!1 &705348708
 GameObject:
   m_ObjectHideFlags: 0
@@ -10327,6 +10342,7 @@ GameObject:
   - component: {fileID: 1782546178}
   - component: {fileID: 1782546177}
   - component: {fileID: 1782546176}
+  - component: {fileID: 1782546180}
   m_Layer: 5
   m_Name: Right Arrow
   m_TagString: Untagged
@@ -10340,17 +10356,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1782546174}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 14169747}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 276.2, y: 222}
-  m_SizeDelta: {x: 247.6, y: 201.4}
+  m_AnchoredPosition: {x: 306.7, y: 152}
+  m_SizeDelta: {x: 186.6, y: 201.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1782546176
 MonoBehaviour:
@@ -10435,7 +10451,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: cdf5b461c84b32b43a6a9fddad74c62d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3797459387dc63e4aaa3a5d87e1c3eea, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10450,6 +10466,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1782546174}
   m_CullTransparentMesh: 0
+--- !u!114 &1782546180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1782546174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.3882353}
+  m_EffectDistance: {x: 7.62, y: 9.17}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1801323349
 GameObject:
   m_ObjectHideFlags: 0
