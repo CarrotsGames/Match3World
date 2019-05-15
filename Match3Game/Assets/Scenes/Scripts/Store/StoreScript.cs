@@ -39,6 +39,8 @@ public class StoreScript : MonoBehaviour
         {
             // left
             case 1:
+                Debug.Log("LEFT");
+
                 if (Navigate == 0)
                 {
 
@@ -54,13 +56,15 @@ public class StoreScript : MonoBehaviour
 
                     StoreItems[Navigate].SetActive(false);
                     Navigate -= 1;
+                    StoreItems[Navigate].SetActive(true);
                     //   Companions[Navigate].SetActive(true);
-                   // Navigation();
+                    // Navigation();
 
                 }
                 break;
                 //right
             case 2:
+                Debug.Log("RIGHT");
                 StoreItems[Navigate].SetActive(false);
                 if (Navigate == StoreItems.Count - 1)
                 {
