@@ -12,8 +12,7 @@ public class CompanionScript : MonoBehaviour
  
     
     // max it can go to is 10
-    public float[] GrowingSizes;
-    public AudioClip[] CompanionSounds;
+     public AudioClip[] CompanionSounds;
     private AudioClip PlaySound;
     public Slider HungerSlider;
     public AudioSource Audio;
