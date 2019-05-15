@@ -55,7 +55,7 @@ public class MeltingScript : MonoBehaviour {
         Debug.Log(Disolve);
         if (this.gameObject.layer == DotScriptRef.LayerType)
         {
-            Debug.Log("INNEIGHRBOURS");
+ 
             GetComponent<DotScript>().DotManagerScript.CheckConnection = true;
             IsConnecting = false;
             DotScriptRef.DotManagerScript.MouseCursorObj.SetActive(false);
