@@ -27,10 +27,12 @@ public class CompanionNavigation : MonoBehaviour
         RealTimerGameObj = GameObject.FindGameObjectWithTag("MainCamera");
         RealTimeScript = RealTimerGameObj.GetComponent<RealTimeCounter>();
         CompanionStorage = GameObject.FindGameObjectWithTag("Creatures");
+        // Adds all objects in gameobject to the Companions list 
         for (int i = 0; i < CompanionStorage.transform.childCount; i++)
         {
             Companions.Add(CompanionStorage.transform.GetChild(i).gameObject);
         }
+        // sets the first avaialble companion to appear on screen(GOBU)
         Companions[0].SetActive(true);
 
     }
@@ -69,14 +71,17 @@ public class CompanionNavigation : MonoBehaviour
         // each arrow has its own value which navigates through the companions
         switch (Arrows)
         {
+            // Left 
             case 0:
                 if (Navigate == 0)
                 {
 
                     Companions[Navigate].SetActive(false);
                     Navigate = Companions.Count - 1;
+                    Companions[Navigate].SetActive(true);
+                    CompanionName = Companions[Navigate].name;
                     //   Companions[Navigate].SetActive(true);
-                    Navigation();
+                    //     Navigation();
 
                 }
                 else
@@ -84,69 +89,36 @@ public class CompanionNavigation : MonoBehaviour
                     Companions[Navigate].SetActive(false);
 
                     Navigate -= 1;
+                    Companions[Navigate].SetActive(true);
+                    CompanionName = Companions[Navigate].name;
                     //   Companions[Navigate].SetActive(true);
-                    Navigation();
+                    //   Navigation();
 
                 }
                 break;
-
+             // right
             case 1:
                 Companions[Navigate].SetActive(false);
                 if (Navigate == Companions.Count - 1)
                 {
                     Navigate = 0;
-                    Navigation();
+                    Companions[Navigate].SetActive(true);
+                    CompanionName = Companions[Navigate].name;
+                    //     Navigation();
                     //  Companions[CompanionNumber].SetActive(true);
                 }
                 else
                 {
                     Navigate += 1;
-                    Navigation();
+                    Companions[Navigate].SetActive(true);
+                    CompanionName = Companions[Navigate].name;
+                    //    Navigation();
                 }
                 break;
         }
 
     }
-    void Navigation()
-    {
-        // Sets which companion the player is currently highliting 
-        switch (Navigate)
-        {
-            case 0:
-                Companions[Navigate].SetActive(true);
-                CompanionName = Companions[Navigate].name;
-                 break;
-
-            case 1:
-                Companions[Navigate].SetActive(true);
-                CompanionName = Companions[Navigate].name;
-                 break;
-            case 2:
-                Companions[Navigate].SetActive(true);
-                CompanionName = Companions[Navigate].name;
-                 break;
-            case 3:
-                Companions[Navigate].SetActive(true);
-                CompanionName = Companions[Navigate].name;
-                 break;
-            case 4:
-                Companions[Navigate].SetActive(true);
-                CompanionName = Companions[Navigate].name;
-                 break;
-            case 5:
-                Companions[Navigate].SetActive(true);
-                CompanionName = Companions[Navigate].name;
-                break;
-            case 6:
-                Companions[Navigate].SetActive(true);
-                CompanionName = Companions[Navigate].name;
-                break;
-            case 7:
-                Companions[Navigate].SetActive(true);
-                CompanionName = Companions[Navigate].name;
-                break;
-        }
-    }
+     
     // Update is called once per frame
     void Update()
     {

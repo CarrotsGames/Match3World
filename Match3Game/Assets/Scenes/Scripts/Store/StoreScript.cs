@@ -1,17 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class StoreScript : MonoBehaviour
 {
 
     private GameObject PowerUpManGameObj;
     private PowerUpManager PowerUpManagerScript;
-    public UnlockableCreatures UnlockScript;
+    public List<GameObject> StoreItems;
+    public GameObject ItemStorage;
+
     public int SuperColourRemoverQuantity;
     public int SuperShuffleQuantity;
     public int SuperBombQuantity;
     public int SuperMultiplierQuantity;
-    
+    public int Navigate;
+
     public int SuperColourRemoverAmount;
     public int SuperShuffleAmount;
     public int SuperBombAmount;
@@ -21,6 +25,60 @@ public class StoreScript : MonoBehaviour
     {
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
+        for (int i = 0; i < ItemStorage.transform.childCount; i++)
+        {
+            StoreItems.Add(ItemStorage.transform.GetChild(i).gameObject);
+        }
+        StoreItems[0].SetActive(true);
+    }
+   
+    // Navigates through the store items
+    public void Navigation(int ArrowNum)
+    {
+        switch(ArrowNum)
+        {
+            // left
+            case 1:
+                if (Navigate == 0)
+                {
+
+                    StoreItems[Navigate].SetActive(false);
+                    Navigate = StoreItems.Count - 1;
+                    StoreItems[Navigate].SetActive(true);
+                    //   Companions[Navigate].SetActive(true);
+                  //  Navigation();
+
+                }
+                else
+                {
+
+                    StoreItems[Navigate].SetActive(false);
+                    Navigate -= 1;
+                    //   Companions[Navigate].SetActive(true);
+                   // Navigation();
+
+                }
+                break;
+                //right
+            case 2:
+                StoreItems[Navigate].SetActive(false);
+                if (Navigate == StoreItems.Count - 1)
+                {
+                    Navigate = 0;
+                    StoreItems[Navigate].SetActive(true);
+                    //CompanionName = Companions[Navigate].name;
+                    //     Navigation();
+                    //  Companions[CompanionNumber].SetActive(true);
+                }
+                else
+                {
+                    Navigate += 1;
+                    StoreItems[Navigate].SetActive(true);
+                    //CompanionName = Companions[Navigate].name;
+                    //    Navigation();
+                }
+                break;
+        }
     }
 
     public void Shop(int ButtonNumber)
