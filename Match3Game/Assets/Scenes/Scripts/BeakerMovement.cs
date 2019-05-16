@@ -13,8 +13,10 @@ public class BeakerMovement : MonoBehaviour
     float ShakeStore;
     float TimeStore;
     bool ReturnToStart;
+    int A;
     private void Start()
     {
+        TimeTillShake = 0.25f;
         TimeStore = TimeTillShake;
         ShakeStore = ShakeTime;
         StartPos = transform.position;
@@ -27,10 +29,11 @@ public class BeakerMovement : MonoBehaviour
         TimeTillShake -= Time.deltaTime;
         if (TimeTillShake < 0)
         {
+          
             ReturnToStart = false;
             // how long the shake will last
             ShakeTime -= Time.deltaTime;
-            transform.position = StartPos + new Vector3(0, Mathf.Sin(Time.time * speed) * 20, 0);
+            transform.position = StartPos + new Vector3(0, Mathf.Sin(Time.time * speed) * 12, 0);
             if (ShakeTime < 0)
             {
                 TimeTillShake = TimeStore;
@@ -41,8 +44,9 @@ public class BeakerMovement : MonoBehaviour
         // returns beaker to starting position
         if(ReturnToStart)
         {
-            transform.position = Vector3.MoveTowards(transform.position, StartPos, 0.5f);
+            transform.position = Vector3.MoveTowards(transform.position, StartPos,100);
         }
 
     }
+ 
 }

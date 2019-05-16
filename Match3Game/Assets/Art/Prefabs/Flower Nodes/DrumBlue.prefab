@@ -19,7 +19,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4226389194617708}
+  - component: {fileID: 114411927154237552}
   - component: {fileID: 212938990095590532}
+  - component: {fileID: 114841052856117762}
   m_Layer: 0
   m_Name: Lotus Blue
   m_TagString: Untagged
@@ -36,14 +38,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4896472606102938}
   - component: {fileID: 212946333131789198}
+  - component: {fileID: 114576089926820832}
   - component: {fileID: 58404978054226986}
   - component: {fileID: 50392442964490986}
-  - component: {fileID: 114208900028259170}
   - component: {fileID: 114406908593100698}
   - component: {fileID: 120655072721939260}
   - component: {fileID: 82845619057558102}
   m_Layer: 0
-  m_Name: ZeroGBlue
+  m_Name: DrumBlue
   m_TagString: Blue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89,9 +91,9 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 3
   m_LinearDrag: 0
-  m_AngularDrag: 1
-  m_GravityScale: 5
-  m_Material: {fileID: 6200000, guid: b3f83258a9727ea4bb7ec13a2918d113, type: 2}
+  m_AngularDrag: 0.05
+  m_GravityScale: 10
+  m_Material: {fileID: 6200000, guid: b3a4a4ef29cb3da4097f44bdbd0a0dfc, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -117,11 +119,11 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1906746673825504}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 950bea84423e729418a45fdede4320a5, type: 3}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: 73d0146aa77807742995ac9662cfb420, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -206,19 +208,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &114208900028259170
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1906746673825504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4be1f41eea0609469070c30cf4cfd20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TimeTillZeroG: 1.5
-  Lid: {fileID: 0}
 --- !u!114 &114406908593100698
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -244,6 +233,54 @@ MonoBehaviour:
   HappinessManagerScript: {fileID: 0}
   DotManagerScript: {fileID: 0}
   BlueEmmision: {fileID: 0}
+--- !u!114 &114411927154237552
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1382993232819544}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8299356e28712984d9fd3adcdb138187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Test: 1
+  Disolve: 0
+  ShaderMat: {fileID: 0}
+  DisolveSpeed: 0
+  DisolveCountDown: 0
+--- !u!114 &114576089926820832
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1906746673825504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8299356e28712984d9fd3adcdb138187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Test: 1
+  Disolve: 0
+  ShaderMat: {fileID: 2100000, guid: 592f20914d6e09a4bae255d94da3d68e, type: 2}
+  DisolveSpeed: 3
+  DisolveCountDown: 2
+--- !u!114 &114841052856117762
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1382993232819544}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8299356e28712984d9fd3adcdb138187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Test: 1
+  Disolve: 0
+  ShaderMat: {fileID: 0}
+  DisolveSpeed: 0
+  DisolveCountDown: 0
 --- !u!120 &120655072721939260
 LineRenderer:
   m_ObjectHideFlags: 1

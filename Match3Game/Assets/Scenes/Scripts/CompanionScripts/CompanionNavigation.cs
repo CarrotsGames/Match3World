@@ -8,15 +8,16 @@ public class CompanionNavigation : MonoBehaviour
 {
     private RealTimeCounter RealTimeScript;
     private GameObject RealTimerGameObj;
-    private string CompanionName;
+    [HideInInspector]
+    public string CompanionName;
     public int CompanionNumber;
     public List<GameObject> Companions;
     private GameObject CompanionStorage;
     private UnlockableCreatures Unlocklables;
      public int Navigate;
-    float Happiness;
-    float Happiness1;
-    float Happiness2;
+    public float[] Happiness;
+  //  float Happiness1;
+  //  float Happiness2;
     public Slider HappySlider;
      // Use this for initialization
     void Start()
@@ -127,35 +128,35 @@ public class CompanionNavigation : MonoBehaviour
         switch (CompanionName)
         {
             case "Gobu":
-                Happiness = PlayerPrefs.GetFloat("GobuHappiness");
-                RealTimeScript.HappinessCountDown[0] = Happiness;
+                Happiness[0] = PlayerPrefs.GetFloat("GobuHappiness");
+                RealTimeScript.HappinessCountDown[0] = Happiness[0];
                 HappySlider.value = RealTimeScript.HappinessCountDown[0];
 
                 break;
-            case "Binky":
-                Happiness1 = PlayerPrefs.GetFloat("BinkyHappiness");
-                RealTimeScript.HappinessCountDown[1] = Happiness1;
+            case "Binkie Locked":
+                Happiness[1] = PlayerPrefs.GetFloat("BinkyHappiness");
+                RealTimeScript.HappinessCountDown[1] = Happiness[1];
                 HappySlider.value = RealTimeScript.HappinessCountDown[1];
 
                 break;
-            case "Koko":
-                Happiness2 = PlayerPrefs.GetFloat("KokoHappiness");
+            case "Koko Locked":
+                Happiness[2] = PlayerPrefs.GetFloat("KokoHappiness");
                 //HappinessManagerScript.Happiness = RealTimeScript.TimerCountDown2;
-                RealTimeScript.HappinessCountDown[2] = Happiness2;
+                RealTimeScript.HappinessCountDown[2] = Happiness[2];
                 HappySlider.value = RealTimeScript.HappinessCountDown[2];
 
                 break;
                 //shares happiness with Gobu
             case "NEWGOBU(Clone)":
-                Happiness = PlayerPrefs.GetFloat("GobuHappiness");
-                RealTimeScript.HappinessCountDown[0] = Happiness;
-                HappySlider.value = RealTimeScript.HappinessCountDown[0];
+                Happiness[3] = PlayerPrefs.GetFloat("GobuHappiness");
+                RealTimeScript.HappinessCountDown[3] = Happiness[3];
+                HappySlider.value = RealTimeScript.HappinessCountDown[3];
 
                 break;
-            case "KRAS(Clone)":
-                Happiness = PlayerPrefs.GetFloat("CriusHappiness");
-                RealTimeScript.HappinessCountDown[0] = Happiness;
-                HappySlider.value = RealTimeScript.HappinessCountDown[0];
+            case "Crius Locked":
+                Happiness[4] = PlayerPrefs.GetFloat("CriusHappiness");
+                RealTimeScript.HappinessCountDown[4] = Happiness[4];
+                HappySlider.value = RealTimeScript.HappinessCountDown[4];
 
                 break;
         }
