@@ -20,38 +20,42 @@ public class LeaderBoardManager : MonoBehaviour {
 
     // Use this for initialization
     void Awake () {
+        leaderboardNoShow = true;
     }
 	
 	// Update is called once per frame
 	void Update () {
 		if(leaderboardShowing == true)
         {
-            leaderboardButton.SetActive(true);
-            leaderboardButton2.SetActive(false);
-        }else if (leaderboardButton2 == true)
-        {
+            DesplayLeaderboard();
             leaderboardButton.SetActive(false);
             leaderboardButton2.SetActive(true);
+
+        }else if (leaderboardNoShow == true)
+        {
+            TurnOffScoreboard();
+            leaderboardButton.SetActive(true);
+            leaderboardButton2.SetActive(false);
         }
 
     }
 
     public void DesplayLeaderboard()
     {
-        leaderboardShowing = false;
+        leaderboardShowing = true;
         scoreboard.SetActive(true);
         hungerBar.SetActive(false);
         inputName.SetActive(true);
-        leaderboardNoShow = true;
+        leaderboardNoShow = false;
     }
 
     public void TurnOffScoreboard()
     {
-        leaderboardNoShow = false;
+        leaderboardNoShow = true;
         scoreboard.SetActive(false);
         hungerBar.SetActive(true);
         inputName.SetActive(false);
-        leaderboardShowing = true;
+        leaderboardShowing = false;
     }
 
 }
