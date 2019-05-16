@@ -8,10 +8,12 @@ public class HappinessManager : MonoBehaviour
        // CHANGE NAME BOARDSCRIPT TO BOARD//
     private BoardScript BoardScriptRef;
     public GameObject Companion;
+    public GameObject AudioGameObj;
     public float HappinessSliderValue;
     private GameObject DotManagerObj;
     // Must cap at 4
     public int[] multiplier;
+
     public Slider HappinessSlider;
     string CompanionName;
     private DotManager DotManagerScript;
@@ -22,6 +24,7 @@ public class HappinessManager : MonoBehaviour
     public bool ResetTheMultlpier;
     public bool CheckValue;
     public bool IsSleeping;
+    
     string SaveStrings;
     public Animator Anim;
 
@@ -114,43 +117,13 @@ public class HappinessManager : MonoBehaviour
             ResetTheMultlpier = false;
         }
         
-        if (!CanEarnGold)
-        {
-            BoardScriptRef.Gold = 1;
-
-            if (HappinessSliderValue > 95)
-            {
-                // go to sleep
-                // Add multiplier    
-                MultlpierNum += 1;
-                PlayerPrefs.SetInt("Multiplier", MultlpierNum);
-                CanEarnGold = true;
-                Multplier();
-                IsSleeping = true;
-                PlayerPrefs.SetInt(SaveStrings, (IsSleeping ? 1 : 0));
-
-                // yourBool = (PlayerPrefs.GetInt("Name") != 0);
-            }
-
-        }
         if (CanEarnGold)
         {
-            // if Happiness less than 20
             BoardScriptRef.Gold = 0;
-            if (HappinessSliderValue < 33 && IsSleeping)
-            {
-
-                // wake up
-                // Deduct multiplier    
-                MultlpierNum -= 1;
-                PlayerPrefs.SetInt("Multiplier", MultlpierNum);
-                CanEarnGold = false;
-                Multplier();
-                IsSleeping = false ;
-                // SavesBool
-                PlayerPrefs.SetInt(SaveStrings, (IsSleeping ? 1 : 0));
-
-            }
+        }
+        else
+        {
+            BoardScriptRef.Gold = 1;
         }
          
     }
@@ -203,6 +176,15 @@ public class HappinessManager : MonoBehaviour
         // Slider value stops at -0.01 for somereason so -5 is to make sure it resets 
         if (HappinessSliderValue > -5 && HappinessSliderValue < 20)
         {
+            // Adds multplier
+            MultlpierNum -= 1;
+            PlayerPrefs.SetInt("Multiplier", MultlpierNum);
+            CanEarnGold = false;
+            Multplier();
+          
+            // SavesBool
+            PlayerPrefs.SetInt(SaveStrings, (IsSleeping ? 1 : 0));
+
             // Animation 
             Anim.SetBool("<20", true);
             Anim.SetBool("is>33", false);
@@ -211,7 +193,11 @@ public class HappinessManager : MonoBehaviour
             DayTime.SetActive(true);
             AwakeHead.SetActive(true);
             Anim.SetBool("is sleepy", false);
-
+            if (IsSleeping)
+            {
+                AudioGameObj.GetComponent<SceneAudio>().Daymode = true;
+            }
+            IsSleeping = false;
         }
         // if this is reached while not sleeping, companion changes animation
         else if (HappinessSliderValue > 20 && HappinessSliderValue < 66 && !IsSleeping)
@@ -232,6 +218,16 @@ public class HappinessManager : MonoBehaviour
         }
         else if (HappinessSliderValue > 95 && HappinessSliderValue < 100)
         {
+            // go to sleep
+            // Add multiplier    
+            MultlpierNum += 1;
+            PlayerPrefs.SetInt("Multiplier", MultlpierNum);
+            CanEarnGold = true;
+            Multplier();
+        
+            PlayerPrefs.SetInt(SaveStrings, (IsSleeping ? 1 : 0));
+
+      
             // Animation 
             Anim.SetBool("is sleepy", true);
             //Anim.SetBool("is>66", false);
@@ -239,6 +235,11 @@ public class HappinessManager : MonoBehaviour
             DayTime.SetActive(false);
             AwakeHead.SetActive(false);
             // Music Change
+            if (!IsSleeping)
+            {
+                AudioGameObj.GetComponent<SceneAudio>().NightMode = true;
+            }
+            IsSleeping = true;
         }
 
     }
