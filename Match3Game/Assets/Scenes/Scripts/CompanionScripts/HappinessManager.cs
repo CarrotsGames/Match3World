@@ -177,6 +177,7 @@ public class HappinessManager : MonoBehaviour
             Anim.SetBool("is>66", false);
             Anim.SetBool("is sleepy", false);
             NightTime.SetActive(false);
+
             DayTime.SetActive(true);
             AwakeHead.SetActive(true);
           
@@ -188,6 +189,8 @@ public class HappinessManager : MonoBehaviour
                 // Decreases multiplierNum
                 MultlpierNum -= 1;
                 PlayerPrefs.SetInt("Multiplier", MultlpierNum);
+                AudioGameObj.GetComponent<SceneAudio>().CompanionSound.PlayOneShot
+                    (AudioGameObj.GetComponent<SceneAudio>().WakeUpSound[0]);
                 AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
 
             }
@@ -232,6 +235,9 @@ public class HappinessManager : MonoBehaviour
                 MultlpierNum += 1;
                 PlayerPrefs.SetInt("Multiplier", MultlpierNum);
                 //Changes the track in the SceneAudio script
+                AudioGameObj.GetComponent<SceneAudio>().CompanionSound.PlayOneShot
+                    (AudioGameObj.GetComponent<SceneAudio>().WakeUpSound[1]);
+
                 AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
 
             }

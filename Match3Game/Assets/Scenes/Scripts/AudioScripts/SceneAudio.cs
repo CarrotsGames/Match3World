@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class SceneAudio : MonoBehaviour {
     public AudioClip[] SceneMusic;
-    public AudioClip WakeUpSound;
+    public AudioClip[] WakeUpSound;
 
     // Wake up and sleeping sounds
     [HideInInspector]
     public GameObject HappinessManagerGameObj;
 
-    public AudioSource WakeUpSource;
+    public AudioSource CompanionSound;
     public AudioSource Source;
 
     private HappinessManager HappinessManagerScript;
@@ -36,6 +36,7 @@ public class SceneAudio : MonoBehaviour {
         // if its nighttime
         if (!Daymode)
         {
+ 
             // play night music
             Source.clip = SceneMusic[1];
             Source.Play();
@@ -47,9 +48,8 @@ public class SceneAudio : MonoBehaviour {
         }
         else
         {
-          //  WakeUpSource.clip = WakeUpSound;
-            WakeUpSource.PlayOneShot(WakeUpSound);
-            Source.clip = SceneMusic[0];
+            //  WakeUpSource.clip = WakeUpSound;
+             Source.clip = SceneMusic[0];
             Source.Play();
             // save bool as false so if the game is reset it will go back here
             PlayerPrefs.SetInt(MorningSave, (Daymode ? 1 : 0));
