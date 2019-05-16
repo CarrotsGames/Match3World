@@ -7,6 +7,7 @@ public class HappinessManager : MonoBehaviour
     public GameObject Board;
        // CHANGE NAME BOARDSCRIPT TO BOARD//
     private BoardScript BoardScriptRef;
+    private AudioSource Source;
     public GameObject Companion;
     public GameObject AudioGameObj;
     public float HappinessSliderValue;
@@ -19,10 +20,13 @@ public class HappinessManager : MonoBehaviour
     private DotManager DotManagerScript;
     public bool CanGetCurrency;
     bool CanEarnGold;
+    // gets a companions name which loads their save
     public string CompanionSave;
+    // Determines what multplier the player is on
     public int MultlpierNum;
+    // Reset multplier for DEBUG purposes 
     public bool ResetTheMultlpier;
-    public bool CheckValue;
+     [HideInInspector]
     public bool IsSleeping;
     
     string SaveStrings;
@@ -40,9 +44,8 @@ public class HappinessManager : MonoBehaviour
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
         CompanionName = Companion.name;
         CanGetCurrency = false;
-        CheckValue = true;
-
-        
+        // CompanionSounds = GetComponent<AudioClip[]>();
+        Source = GetComponent<AudioSource>();
 
         // Checks which companion is loaded to gather save data 
         switch (CompanionName)
@@ -86,16 +89,7 @@ public class HappinessManager : MonoBehaviour
     void Update()
     {
         HappinessStates();
-        if (CheckValue)
-        {
-            if (HappinessSliderValue < 20)
-            {
-                Multplier();
-                CanEarnGold = false;
-            }
-         
-            CheckValue = false;
-        }
+        
         // Displays hunger value (used in debug)
         //HungerMetre.text = "" + Hunger;
 
@@ -176,31 +170,34 @@ public class HappinessManager : MonoBehaviour
         // Slider value stops at -0.01 for somereason so -5 is to make sure it resets 
         if (HappinessSliderValue > -5 && HappinessSliderValue < 20)
         {
-            // Adds multplier
-          
-            CanEarnGold = false;
-            Multplier();
-          
-            // SavesBool
-            PlayerPrefs.SetInt(SaveStrings, (IsSleeping ? 1 : 0));
-
+       
             // Animation 
             Anim.SetBool("<20", true);
             Anim.SetBool("is>33", false);
             Anim.SetBool("is>66", false);
+            Anim.SetBool("is sleepy", false);
             NightTime.SetActive(false);
             DayTime.SetActive(true);
             AwakeHead.SetActive(true);
-            Anim.SetBool("is sleepy", false);
+          
+            //Changes the track in the SceneAudio script
             if (IsSleeping)
             {
+                // plays wake up sound
+
+                // Decreases multiplierNum
                 MultlpierNum -= 1;
                 PlayerPrefs.SetInt("Multiplier", MultlpierNum);
-                //  AudioGameObj.GetComponent<SceneAudio>().Daymode = true;
                 AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
 
             }
+            // Adds multplier
+            CanEarnGold = false;
+            Multplier();
+
+            //sets bool to false and saves
             IsSleeping = false;
+            PlayerPrefs.SetInt(SaveStrings, (IsSleeping ? 1 : 0));
         }
         // if this is reached while not sleeping, companion changes animation
         else if (HappinessSliderValue > 20 && HappinessSliderValue < 66 && !IsSleeping)
@@ -219,32 +216,31 @@ public class HappinessManager : MonoBehaviour
             Anim.SetBool("is>66", true);
 
         }
+        // Goes to sleep
         else if (HappinessSliderValue > 95 && HappinessSliderValue < 100)
         {
-            // go to sleep
-            // Add multiplier    
 
-            CanEarnGold = true;
-            Multplier();
-        
-            PlayerPrefs.SetInt(SaveStrings, (IsSleeping ? 1 : 0));
-
-      
             // Animation 
             Anim.SetBool("is sleepy", true);
-            //Anim.SetBool("is>66", false);
-            NightTime.SetActive(true);
+
             DayTime.SetActive(false);
             AwakeHead.SetActive(false);
             // Music Change
             if (!IsSleeping)
             {
+                // increases multlpier number and saves it
                 MultlpierNum += 1;
                 PlayerPrefs.SetInt("Multiplier", MultlpierNum);
-                //AudioGameObj.GetComponent<SceneAudio>().Daymode = true;
+                //Changes the track in the SceneAudio script
                 AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
 
             }
+            // Add multiplier    
+            CanEarnGold = true;
+            Multplier();
+            NightTime.SetActive(true);
+            //sets bool to false and saves
+            PlayerPrefs.SetInt(SaveStrings, (IsSleeping ? 1 : 0));
             IsSleeping = true;
         }
 
@@ -255,15 +251,15 @@ public class HappinessManager : MonoBehaviour
         // checks if Companion is sleeping
         if(IsSleeping)
         {
+            NightTime.SetActive(true);
+
             Anim.SetBool("is>33", false);
            // AudioGameObj.GetComponent<SceneAudio>().Daymode = true;
 
             Anim.SetBool("is sleepy", true);
-            NightTime.SetActive(true);
             AwakeHead.SetActive(false);
             CanEarnGold = true;
             MultlpierNum = PlayerPrefs.GetInt("Multiplier");
-            NightTime.SetActive(true);
             DayTime.SetActive(false);
             AudioGameObj.GetComponent<SceneAudio>().Daymode = false;
             AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
@@ -273,10 +269,11 @@ public class HappinessManager : MonoBehaviour
         }
         else
         {
+            NightTime.SetActive(false);
+
             CanEarnGold = false;
             MultlpierNum = PlayerPrefs.GetInt("Multiplier");
             DayTime.SetActive(true);
-            NightTime.SetActive(false);
             Anim.SetBool("<20", true);
             AudioGameObj.GetComponent<SceneAudio>().Daymode = true;
             AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
