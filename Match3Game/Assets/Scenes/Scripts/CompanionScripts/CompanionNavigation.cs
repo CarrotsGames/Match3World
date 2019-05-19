@@ -3,21 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+// uses Realtime script to count down happiness
 public class CompanionNavigation : MonoBehaviour
 {
     private RealTimeCounter RealTimeScript;
     private GameObject RealTimerGameObj;
-    [HideInInspector]
+   // [HideInInspector]
     public string CompanionName;
     public int CompanionNumber;
+    // Gets unlcoked companions in list
     public List<GameObject> Companions;
     private GameObject CompanionStorage;
-    private UnlockableCreatures Unlocklables;
-     public int Navigate;
+    public int Navigate;
     public float[] Happiness;
-  //  float Happiness1;
-  //  float Happiness2;
+  
     public Slider HappySlider;
      // Use this for initialization
     void Start()
@@ -35,6 +34,7 @@ public class CompanionNavigation : MonoBehaviour
         }
         // sets the first avaialble companion to appear on screen(GOBU)
         Companions[0].SetActive(true);
+        CompanionName = Companions[0].name;
 
     }
 
@@ -117,11 +117,12 @@ public class CompanionNavigation : MonoBehaviour
                 }
                 break;
         }
+        CompanionSwitch();
 
     }
      
     // Update is called once per frame
-    void Update()
+    void CompanionSwitch()
     {
         // checks name of companion and displays how much happiness 
         // that specific companion has when highlited 

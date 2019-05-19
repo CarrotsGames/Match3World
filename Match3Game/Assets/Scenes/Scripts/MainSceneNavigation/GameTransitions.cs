@@ -14,7 +14,7 @@ public class GameTransitions : MonoBehaviour {
     private RealTimeCounter RealTimeScript;
 
     // Use this for initialization
-    void Awake () {
+    void Start () {
         anim = sceneTransitions.GetComponent<Animator>();
 
         anim.SetBool("UnTransition", true);

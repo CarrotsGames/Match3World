@@ -89,8 +89,8 @@ public class CompanionScript : MonoBehaviour
     //when game closes save the current hugner and start counting down outside of the app
     private void OnApplicationPause(bool pause)
     {
-        RealTimeScript.ResetClock();
-        pause = true;
+      // RealTimeScript.ResetClock();
+      // pause = true;
     }
     private void OnApplicationQuit()
     {

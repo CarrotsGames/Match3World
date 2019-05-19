@@ -190,7 +190,7 @@ public class HappinessManager : MonoBehaviour
                 MultlpierNum -= 1;
                 PlayerPrefs.SetInt("Multiplier", MultlpierNum);
                 AudioGameObj.GetComponent<SceneAudio>().CompanionSound.PlayOneShot
-                    (AudioGameObj.GetComponent<SceneAudio>().WakeUpSound[0]);
+                (AudioGameObj.GetComponent<SceneAudio>().WakeUpSound[0]);
                 AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
 
             }

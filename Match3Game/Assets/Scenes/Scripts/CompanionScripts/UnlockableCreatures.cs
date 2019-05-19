@@ -54,14 +54,14 @@ public class UnlockableCreatures : MonoBehaviour
     // Goes through an checks which companins are unlocked
     public void GetUnlocked()
     {
-        if (NewGobuUnlocked == "NEWGOBU")
-        {
-                                            // int UnlockNUM
-            GameObject Creature = Instantiate(Companions[0], CompanionStorage.transform.position, Quaternion.identity);
-            Creature.transform.parent = CompanionStorage.transform;
-           // CompNav.Companions.Add(Creature.transform.gameObject);
-            Creature.SetActive(false);
-        }
+       //if (NewGobuUnlocked == "NEWGOBU")
+       //{
+       //                                    // int UnlockNUM
+       //    GameObject Creature = Instantiate(Companions[0], CompanionStorage.transform.position, Quaternion.identity);
+       //    Creature.transform.parent = CompanionStorage.transform;
+       //   // CompNav.Companions.Add(Creature.transform.gameObject);
+       //    Creature.SetActive(false);
+       //}
       
         if(UnlockableMoobling[0] == "BINKY")
         {
