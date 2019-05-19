@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+// Counts down happiness of each moobling
+// used in HappinessManager, CompanionMonitorScript and CompanionNavigation
+// Used in main scene
 public class RealTimeCounter : MonoBehaviour
 {
     //TestTimer
@@ -92,7 +94,7 @@ public class RealTimeCounter : MonoBehaviour
                 break;
         }
     }
-
+    // Counts down the happiness of each moobling
     // Update is called once per frame
     void Update()
     {
@@ -120,9 +122,6 @@ public class RealTimeCounter : MonoBehaviour
         else if (companionName == "CriusHappiness")
         {
             HappinessCountDown[3] = HappinessManagerScript.HappinessSliderValue;
-
-           // HappinessCountDown[2] = HappinessManagerScript.HappinessSliderValue;
-
 
         }
         HappinessCountDown[0] = Mathf.Clamp(HappinessCountDown[0], 0, 100);

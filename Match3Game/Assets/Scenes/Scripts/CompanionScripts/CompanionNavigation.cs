@@ -35,7 +35,7 @@ public class CompanionNavigation : MonoBehaviour
         // sets the first avaialble companion to appear on screen(GOBU)
         Companions[0].SetActive(true);
         CompanionName = Companions[0].name;
-
+        CompanionSwitch();
     }
 
     public void PlayLevel(int Level)

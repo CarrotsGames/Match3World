@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-
+// OBSOLETE SCRIPT 
 //USED IN MAIN SCENE TO CHECK COMPANION STATS
 public class CompanionMonitor : MonoBehaviour
 {
