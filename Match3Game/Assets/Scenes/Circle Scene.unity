@@ -124,6 +124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 10013359}
   - component: {fileID: 10013360}
+  - component: {fileID: 10013361}
   m_Layer: 11
   m_Name: Iris
   m_TagString: Untagged
@@ -192,6 +193,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &10013361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 10013358}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 867f11b346a75d24a9b706c4dcf3d2f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 1
+  Limit: 2
 --- !u!114 &20703182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4398,6 +4412,11 @@ Prefab:
       propertyPath: SceneMusic.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: bd04b6a75117e584fb4b10a989bac888, type: 3}
+    - target: {fileID: 82399504689600170, guid: bd866eb15c48b0245ba33cc99194724d,
+        type: 2}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd866eb15c48b0245ba33cc99194724d, type: 2}
   m_IsPrefabAsset: 0
@@ -5028,6 +5047,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1503710248}
   - component: {fileID: 1503710249}
+  - component: {fileID: 1503710250}
   m_Layer: 11
   m_Name: Iris
   m_TagString: Untagged
@@ -5096,6 +5116,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1503710250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1503710247}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 867f11b346a75d24a9b706c4dcf3d2f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 1
+  Limit: 2
 --- !u!1001 &1531784646
 Prefab:
   m_ObjectHideFlags: 0
@@ -6756,7 +6789,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
