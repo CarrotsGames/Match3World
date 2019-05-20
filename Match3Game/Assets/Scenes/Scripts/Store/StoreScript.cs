@@ -154,6 +154,7 @@ public class StoreScript : MonoBehaviour
                     PlayerPrefs.SetString("UNLOCKED", "CRIUS");
                     Debug.Log("YOU HAVE PURCHASED KRRRRAASSS");
                     unlockScreen.SetActive(true);
+
                 }
                 else
                 {
