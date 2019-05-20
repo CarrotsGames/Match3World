@@ -2245,6 +2245,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &395002229 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1092681858607636, guid: e8b0a68b4e9c87b439896e6ea9e14ad4,
+    type: 2}
+  m_PrefabInternal: {fileID: 2101017912}
 --- !u!1 &399273384
 GameObject:
   m_ObjectHideFlags: 0
@@ -4105,6 +4110,11 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.3882353}
   m_EffectDistance: {x: 7.62, y: 9.17}
   m_UseGraphicAlpha: 1
+--- !u!1 &677869076 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1328153081943276, guid: 1fbc98c3587098445a60d05f5aa8d987,
+    type: 2}
+  m_PrefabInternal: {fileID: 524752326}
 --- !u!1 &705348708
 GameObject:
   m_ObjectHideFlags: 0
@@ -5886,6 +5896,7 @@ GameObject:
   - component: {fileID: 975719869}
   - component: {fileID: 975719868}
   - component: {fileID: 975719867}
+  - component: {fileID: 975719871}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -5910,7 +5921,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -131, y: 44}
+  m_AnchoredPosition: {x: 461, y: 1299}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &975719867
@@ -5965,8 +5976,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 975719867}
-        m_MethodName: GivePowerUp
+      - m_Target: {fileID: 975719871}
+        m_MethodName: ResetData
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6014,6 +6025,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 975719865}
   m_CullTransparentMesh: 0
+--- !u!114 &975719871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 975719865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c2885333c32ca43b45a57722996118, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Reset: 0
+  NodeManager: {fileID: 677869076}
+  Unlockables: {fileID: 395002229}
 --- !u!1 &1013469662
 GameObject:
   m_ObjectHideFlags: 0
@@ -10937,7 +10962,8 @@ Prefab:
       propertyPath: WakeUpSound.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: 81427d9953892754e961ec85b4a840ec, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114376168571624716, guid: bd866eb15c48b0245ba33cc99194724d, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: bd866eb15c48b0245ba33cc99194724d, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1850310526
