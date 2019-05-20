@@ -5,13 +5,12 @@ public class ColourRemover : MonoBehaviour
 {
 
     float Timer = 0.25f;
-
     public bool Red;
     public bool Blue;
     public bool Yellow;
     public bool Purple;
     bool GoTimer;
-     public GameObject MouseCursorObj;
+    public GameObject MouseCursorObj;
     public Component[] Renderer;
     public Material RedMat;
     public Material BlueMat;
@@ -19,12 +18,13 @@ public class ColourRemover : MonoBehaviour
     public Material PurpleMat;
 
     private bool PowerUpInUse;
-     private DotManager DotManagerScript;
+    private DotManager DotManagerScript;
     private GameObject PowerUpManGameObj;
     private GameObject DotManagerObj;
     private BoardScript Board;
     private GameObject BoardGameObj;
     private PowerUpManager PowerUpManagerScript;
+    private int SCRAmount;
 
     // Use this for initialization
     void Start()
@@ -88,26 +88,30 @@ public class ColourRemover : MonoBehaviour
 
                 // Do something with the object that was hit by the raycast.
             }
-
+            // if the desired colour is true destroy all nodes with that colour
             if (Red)
             {
                 for (int i = 0; i < BoardGameObj.transform.childCount; i++)
                 {
+                    SCRAmount += 1;
                     if (BoardGameObj.transform.GetChild(i).tag == "Red")
                     {
                         Destroy(BoardGameObj.transform.GetChild(i).gameObject);
                     }
-                }
+                 }
                 Red = false;
                 PowerUpInUse = false;
                 DotManagerScript.ResetMaterial = true;
                 GoTimer = true;
-
+                DotManagerScript.TotalScore += SCRAmount * DotManagerScript.Multipier;
+                DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
             }
             if (Blue)
             {
                 for (int i = 0; i < BoardGameObj.transform.childCount; i++)
                 {
+                    SCRAmount += 1;
+
                     if (BoardGameObj.transform.GetChild(i).tag == "Blue")
                     {
                         Destroy(BoardGameObj.transform.GetChild(i).gameObject);
@@ -117,12 +121,15 @@ public class ColourRemover : MonoBehaviour
                 PowerUpInUse = false;
                 DotManagerScript.ResetMaterial = true;
                 GoTimer = true;
-
+                DotManagerScript.TotalScore += SCRAmount * DotManagerScript.Multipier;
+                DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
             }
             if (Yellow)
             {
                 for (int i = 0; i < BoardGameObj.transform.childCount; i++)
                 {
+                    SCRAmount += 1;
+
                     if (BoardGameObj.transform.GetChild(i).tag == "Green")
                     {
                         Destroy(BoardGameObj.transform.GetChild(i).gameObject);
@@ -132,23 +139,31 @@ public class ColourRemover : MonoBehaviour
                 PowerUpInUse = false;
                 DotManagerScript.ResetMaterial = true;
                 GoTimer = true;
-
+                DotManagerScript.TotalScore += SCRAmount * DotManagerScript.Multipier;
+                DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
             }
             if (Purple)
             {
                 for (int i = 0; i < BoardGameObj.transform.childCount; i++)
                 {
+                    SCRAmount += 1;
+
                     if (BoardGameObj.transform.GetChild(i).tag == "Yellow")
                     {
                         Destroy(BoardGameObj.transform.GetChild(i).gameObject);
+
+
                     }
                 }
                 Purple = false;
                 PowerUpInUse = false;
                 DotManagerScript.ResetMaterial = true;
                 GoTimer = true;
-
+                DotManagerScript.TotalScore += SCRAmount * DotManagerScript.Multipier;
+                DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
             }
+
+
             MouseCursorObj.SetActive(false);
         }
 
@@ -157,9 +172,11 @@ public class ColourRemover : MonoBehaviour
     {
         if(PowerUpManagerScript.HasSCR)
         { 
-        PowerUpInUse = true;
-        DotManagerScript.ResetMaterial = false;
+            PowerUpInUse = true;
+            DotManagerScript.ResetMaterial = false;
             PowerUpManagerScript.NumOfSCR -= 1;
+ 
+            // Highlights Colours nodes with their desired colour eg red has red outline
             for (int i = 0; i < BoardGameObj.transform.childCount; i++)
             {
 
@@ -167,28 +184,24 @@ public class ColourRemover : MonoBehaviour
                 {
                     case "Red":
                         BoardGameObj.transform.GetChild(i).GetComponent<Renderer>().material = RedMat;
-                        //BoardGameObj.transform.GetChild(i).GetComponentInChildren<Renderer>().material = RedMat;
-
+ 
                         break;
                     case "Blue":
                         BoardGameObj.transform.GetChild(i).GetComponent<Renderer>().material = BlueMat;
-                        //    BoardGameObj.transform.GetChild(i).GetComponentInChildren<Renderer>().material = BlueMat;
-
+ 
                         break;
                     case "Green":
                         BoardGameObj.transform.GetChild(i).GetComponent<Renderer>().material = YellowMat;
-                        //    BoardGameObj.transform.GetChild(i).GetComponentInChildren<Renderer>().material = YellowMat;
-
+ 
                         break;
                     case "Yellow":
                         BoardGameObj.transform.GetChild(i).GetComponent<Renderer>().material = PurpleMat;
-                        //    BoardGameObj.transform.GetChild(i).GetComponentInChildren<Renderer>().material = PurpleMat;
-
+ 
                         break;
                 }
-                Debug.Log("Permanent");
-            }
+             }
         }
+        // If player has no more colourRemovovers Play pop up and bring them to store
         else
         {
             Debug.Log("PowerUpEmpty");
@@ -196,27 +209,5 @@ public class ColourRemover : MonoBehaviour
         }
     }
 
-   //public void RedButton()
-   //{
-   //   Red = true;
-   //   Menu.SetActive(false);
-   //
-   //}
-   //public void BlueButton()
-   //{
-   //   Blue = true;
-   //   Menu.SetActive(false);
-   //
-   //}
-   //public void PurpleButton()
-   //{
-   //   Purple = true;
-   //   Menu.SetActive(false);
-   //
-   //}
-   //public void YellowButton()
-   //{
-   //   Yellow = true;
-   //   Menu.SetActive(false);
-   //}
+ 
 }
