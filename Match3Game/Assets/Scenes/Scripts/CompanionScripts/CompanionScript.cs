@@ -25,7 +25,7 @@ public class CompanionScript : MonoBehaviour
     private DotManager DotManagerScriptRef;
     private RealTimeCounter RealTimeScript;
     private PowerUpManager PowerUpManagerScript;
-    private HappinessManager HappinessManagerScript;
+    public HappinessManager HappinessManagerScript;
     // Update is called once per frame
     private int posX;
     private int posY;
@@ -60,8 +60,8 @@ public class CompanionScript : MonoBehaviour
         for (int i = 0; i < EatingPeices.Count; i++)
         {
          
-             EatingPeices[i].transform.position = EatingPeiceSpawner.transform.position + new Vector3(posX, posY, 0);
-             CurrencyChance = HungerMultiplier;
+            EatingPeices[i].transform.position = EatingPeiceSpawner.transform.position + new Vector3(posX, posY, 0);
+            CurrencyChance = HungerMultiplier;
             Destroy(EatingPeices[i].gameObject);
             HungerMultiplier = i / 2;
             HappinessManagerScript.HappinessSliderValue += HungerMultiplier;

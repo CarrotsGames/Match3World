@@ -7,11 +7,13 @@ public class MeltingScript : MonoBehaviour {
     Renderer rend;
     public bool Disolve;
     GameObject Child;
+    private GameObject CollidedNode;
     public Material ShaderMat;
     public float DisolveSpeed;
     public float DisolveCountDown;
     private DotScript DotScriptRef;
     private bool IsConnecting;
+     
     // Use this for initialization
     void Start () {
         rend = GetComponent<Renderer>();
@@ -52,22 +54,29 @@ public class MeltingScript : MonoBehaviour {
         Child.GetComponent<Renderer>().material = ShaderMat;
  
         Child.GetComponent<Renderer>().material.SetFloat("_Progress", Test);
-        Debug.Log(Disolve);
-        if (this.gameObject.layer == DotScriptRef.LayerType)
-        {
  
-           // GetComponent<DotScript>().DotManagerScript.CheckConnection = true;
-            IsConnecting = false;
-            DotScriptRef.DotManagerScript.MouseCursorObj.SetActive(false);
-         //  DotScriptRef.OnMouseUp();
+        if(DotScriptRef.DotManagerScript.Peices.Contains(this.gameObject))    
+         {
+           //  if (CollidedNode.layer == DotScriptRef.LayerType)
+          //  {
+                GetComponent<DotScript>().DotManagerScript.CheckConnection = true;
+                IsConnecting = false;
+                DotScriptRef.DotManagerScript.MouseCursorObj.SetActive(false);
+                DotScriptRef.OnMouseUp();
+           // }
         }
-        //rend.gameObject.GetComponentInChildren<Renderer>().sharedMaterial.SetFloat("_Progress", Test);
+        else
+        {
+            Debug.Log("NOTHING");
+        }
+
         Disolve = true;
      }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.name == "Fire")
         {
+          //  CollidedNode = collision.gameObject;    
             DisolveCountDown -= Time.deltaTime;
             if (DisolveCountDown < 0)
             {
