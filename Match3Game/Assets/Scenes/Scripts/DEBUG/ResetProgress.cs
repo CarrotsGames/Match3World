@@ -22,6 +22,8 @@ public class ResetProgress : MonoBehaviour {
             PlayerPrefs.SetString("BINKY", "Nothing");
             //  Unlockables.GetComponent<UnlockableCreatures>().UnlockableMoobling[1] = "";
             PlayerPrefs.SetString("KOKO", "Nothing");
+            PlayerPrefs.SetString("CRIUS", "Nothing");
+
             PlayerPrefs.SetString("UNLOCKED", "Nothing");
         }
     }
