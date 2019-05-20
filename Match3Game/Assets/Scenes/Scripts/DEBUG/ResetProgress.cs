@@ -39,6 +39,7 @@ public class ResetProgress : MonoBehaviour {
             PowerUpManGameObj.GetComponent<PowerUpManager>().NumOfBombs = 5;
             PowerUpManGameObj.GetComponent<PowerUpManager>().NumOfSCR = 5;
             PowerUpManGameObj.GetComponent<PowerUpManager>().NumOfMultilpiers = 5;
+            PowerUpManGameObj.GetComponent<PowerUpManager>().Currency = 0;
 
             PlayFabClientAPI.UpdateUserData(new UpdateUserDataRequest()
             {
