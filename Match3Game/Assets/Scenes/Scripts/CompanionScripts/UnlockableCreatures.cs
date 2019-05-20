@@ -19,7 +19,7 @@ public class UnlockableCreatures : MonoBehaviour
     // Names for Each moobling
     public string[] UnlockableMoobling;
     public Sprite[] CompanionImages;
-    // MOOBLING NUMBERS FOR UNLOCKABLEMOOBLING STRING
+     // MOOBLING NUMBERS FOR UNLOCKABLEMOOBLING STRING
     // 0 GOBU
     // 1 BINKY
     // 2 KOKO
