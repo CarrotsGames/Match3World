@@ -9,6 +9,7 @@ public class StoreScript : MonoBehaviour
     private PowerUpManager PowerUpManagerScript;
     public List<GameObject> StoreItems;
     public GameObject ItemStorage;
+    public GameObject unlockScreen;
 
     public int SuperColourRemoverQuantity;
     public int SuperShuffleQuantity;
@@ -152,7 +153,7 @@ public class StoreScript : MonoBehaviour
                 {
                     PlayerPrefs.SetString("UNLOCKED", "CRIUS");
                     Debug.Log("YOU HAVE PURCHASED KRRRRAASSS");
-
+                    unlockScreen.SetActive(true);
                 }
                 else
                 {
