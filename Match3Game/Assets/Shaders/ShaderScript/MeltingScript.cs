@@ -56,17 +56,16 @@ public class MeltingScript : MonoBehaviour {
         if (this.gameObject.layer == DotScriptRef.LayerType)
         {
  
-            GetComponent<DotScript>().DotManagerScript.CheckConnection = true;
+           // GetComponent<DotScript>().DotManagerScript.CheckConnection = true;
             IsConnecting = false;
             DotScriptRef.DotManagerScript.MouseCursorObj.SetActive(false);
-            DotScriptRef.OnMouseUp();
+         //  DotScriptRef.OnMouseUp();
         }
         //rend.gameObject.GetComponentInChildren<Renderer>().sharedMaterial.SetFloat("_Progress", Test);
         Disolve = true;
      }
     private void OnTriggerStay2D(Collider2D collision)
     {
-
         if (collision.name == "Fire")
         {
             DisolveCountDown -= Time.deltaTime;

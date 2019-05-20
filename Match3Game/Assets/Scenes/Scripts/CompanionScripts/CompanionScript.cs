@@ -31,6 +31,7 @@ public class CompanionScript : MonoBehaviour
     private int posY;
     private int HungerMultiplier = 1;
     private int CurrencyChance;
+
     private void Start()
     {
         Audio = GetComponent<AudioSource>();
@@ -76,13 +77,16 @@ public class CompanionScript : MonoBehaviour
             Debug.Log(chance);
             //  DotManagerScript.Currency 
         }
-        // displays total score to Text
-        DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
-        int RandomSound = Random.Range(0, CompanionSounds.Length);
-        // When fed the companion will play a random sound in list
-        PlaySound = CompanionSounds[RandomSound];
-        Audio.clip = PlaySound;
-        Audio.Play();
+        if (!HappinessManagerScript.IsSleeping)
+        {
+            // displays total score to Text
+            DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
+            int RandomSound = Random.Range(0, CompanionSounds.Length);
+            // When fed the companion will play a random sound in list
+            PlaySound = CompanionSounds[RandomSound];
+            Audio.clip = PlaySound;
+            Audio.Play();
+        }
     }
 // when the pieces collide with the companion it will destory them
  
