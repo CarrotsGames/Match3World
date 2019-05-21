@@ -10,6 +10,19 @@ public class settings : MonoBehaviour {
 
     public bool musicOff;
 
+ 
+    private void Start()
+    {
+        musicOff = PlayerPrefs.GetInt("MusicSave") != 0;
+        if(musicOff)
+        {
+            sceneAudio.SetActive(false);
+        }
+        else
+        {
+            sceneAudio.SetActive(true);
+        }
+    }
 
     public void TurnOffTab()
     {
@@ -23,15 +36,20 @@ public class settings : MonoBehaviour {
 
     public void NoMusic()
     {
-        if (musicOff == true)
+        if (musicOff)
         {
             sceneAudio.SetActive(true);
             musicOff = false;
-        }else
+            PlayerPrefs.SetInt("MusicSave", (musicOff ? 1 : 0));
+
+        }
+        else
         {
             sceneAudio.SetActive(false);
             musicOff = true;
+            PlayerPrefs.SetInt("MusicSave", (musicOff ? 1 : 0));
+
         }
-      
+
     }
 }
