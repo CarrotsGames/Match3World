@@ -7449,7 +7449,8 @@ MonoBehaviour:
     type: 2}
   ParticleEffectYellow: {fileID: 1718129443868558, guid: d741843d787cb7b4c85a074712673b0b,
     type: 2}
-  ParticleEffectFireWork: {fileID: 0}
+  ParticleEffectFireWork: {fileID: 1055935001457142, guid: fb183ec8089723c4fbbfd2615be2133c,
+    type: 2}
   MouseCursorObj: {fileID: 493837227}
   Red: {fileID: 2100000, guid: 42944a42ec16d2b47a640b6313923061, type: 2}
   Blue: {fileID: 2100000, guid: 42f09c1d07f6bec4aabf45eec21cfc2f, type: 2}
@@ -7566,6 +7567,16 @@ Prefab:
     - target: {fileID: 1036474427024022, guid: e4066718ae92203429c2f18e97d90c1e, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114287902399798286, guid: e4066718ae92203429c2f18e97d90c1e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1026769276}
+    - target: {fileID: 114287902399798286, guid: e4066718ae92203429c2f18e97d90c1e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NoMusic
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4066718ae92203429c2f18e97d90c1e, type: 2}
