@@ -121,50 +121,7 @@ public class HappinessManager : MonoBehaviour
         }
          
     }
-
-    void Multplier()
-    {
-        // Number of multlpier matches number of creatures in game (10 creatures MAX at the moment
-        switch (MultlpierNum)
-        {
-            case 1:
-                DotManagerScript.Multipier = multiplier[0];
-                break;
-            case 2:
-                DotManagerScript.Multipier = multiplier[1];
-
-                break;
-            case 3:
-                DotManagerScript.Multipier = multiplier[2];
-
-                break;
-            case 4:
-                DotManagerScript.Multipier = multiplier[3];
-
-                break;
-            case 5:
-                DotManagerScript.Multipier = multiplier[4];
-
-                break;
-            case 6:
-                DotManagerScript.Multipier = multiplier[5];
-
-                break;
-            case 7:
-                DotManagerScript.Multipier = multiplier[6];
-
-                break;
-            case 8:
-                DotManagerScript.Multipier = multiplier[7];
-
-                break;
-            case 9:
-                DotManagerScript.Multipier = multiplier[8];
-
-                break;
-        }
-    }
-
+    // Plays animation at happiness states
     void HappinessStates()
     {
         // Slider value stops at -0.01 for somereason so -5 is to make sure it resets 
@@ -251,7 +208,7 @@ public class HappinessManager : MonoBehaviour
         }
 
     }
-
+    // Checks if companion is sleeping on startUp
     void Sleeping()
     {
         // checks if Companion is sleeping
@@ -287,6 +244,49 @@ public class HappinessManager : MonoBehaviour
 
             Debug.Log("NotSleeping");
 
+        }
+    }
+    // Multlpier of companions
+    void Multplier()
+    {
+        // Number of multlpier matches number of creatures in game (10 creatures MAX at the moment
+        switch (MultlpierNum)
+        {
+            case 1:
+                DotManagerScript.Multipier = multiplier[0];
+                break;
+            case 2:
+                DotManagerScript.Multipier = multiplier[1];
+
+                break;
+            case 3:
+                DotManagerScript.Multipier = multiplier[2];
+
+                break;
+            case 4:
+                DotManagerScript.Multipier = multiplier[3];
+
+                break;
+            case 5:
+                DotManagerScript.Multipier = multiplier[4];
+
+                break;
+            case 6:
+                DotManagerScript.Multipier = multiplier[5];
+
+                break;
+            case 7:
+                DotManagerScript.Multipier = multiplier[6];
+
+                break;
+            case 8:
+                DotManagerScript.Multipier = multiplier[7];
+
+                break;
+            case 9:
+                DotManagerScript.Multipier = multiplier[8];
+
+                break;
         }
     }
 }
