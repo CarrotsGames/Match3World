@@ -8,7 +8,7 @@ public class ParticleDecay : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        DecayTimer = 1.25f;
+        DecayTimer = 1.5f;
     }
 
     // Update is called once per frame

@@ -20,6 +20,8 @@ public class DotManager : MonoBehaviour
     public GameObject ParticleEffectPurple;
     public GameObject ParticleEffectBlue;
     public GameObject ParticleEffectYellow;
+    public GameObject ParticleEffectFireWork;
+
     public GameObject MouseCursorObj;
 
     public Material Red;
@@ -39,7 +41,7 @@ public class DotManager : MonoBehaviour
     public bool ResetMaterial;
     public bool StopInteracting;
     public bool ChangeMaterial;
-
+ 
     public int NumberOfNeighbours = 0;
     public int RedScore;
     public int BlueScore;
@@ -173,6 +175,7 @@ public class DotManager : MonoBehaviour
             }
             // Checks which colour made a match
             SortingColours();
+ 
             CheckConnection = false;
             // clears EatingPeice List
             Companion.EatingPeices.Clear();
@@ -183,6 +186,7 @@ public class DotManager : MonoBehaviour
     // Checks which colour made a match
     void SortingColours()
     {
+      
         // If the times red was counted is equal to the amount of the peices list Red was connected
             if (RedCount == Peices.Count && RedCount > Limit)
             {
@@ -193,9 +197,16 @@ public class DotManager : MonoBehaviour
 
                 for (test = 0; test < RedCount; test++)
                 {
-                    RedPieces[test].layer = LayerMask.GetMask("Default");
-                    Instantiate(ParticleEffectPink, RedPieces[test].transform.position, Quaternion.identity);
-                    Companion.EatingPeices.Add(RedPieces[test]);
+
+                RedPieces[test].layer = LayerMask.GetMask("Default");
+                Instantiate(ParticleEffectPink, RedPieces[test].transform.position, Quaternion.identity);
+
+                if (  Peices.Count > 4)
+                {
+                    Instantiate(ParticleEffectFireWork, RedPieces[test].transform.position, Quaternion.identity);
+                }
+                
+                Companion.EatingPeices.Add(RedPieces[test]);
 
                 }
                 Companion.FeedMonster();
@@ -217,7 +228,13 @@ public class DotManager : MonoBehaviour
                 {
                     BluePieces[i].layer = LayerMask.GetMask("Default");
                     Instantiate(ParticleEffectBlue, BluePieces[i].transform.position, Quaternion.identity);
-                    Companion.EatingPeices.Add(BluePieces[i]);
+
+                if (  Peices.Count > 4)
+                {
+                    Instantiate(ParticleEffectFireWork, BluePieces[i].transform.position, Quaternion.identity);
+                }
+              
+                Companion.EatingPeices.Add(BluePieces[i]);
                 }
                 Companion.FeedMonster();
                 RedSelection = false;
@@ -240,7 +257,12 @@ public class DotManager : MonoBehaviour
                 {
                     YellowPieces[i].layer = LayerMask.GetMask("Default");
                     Instantiate(ParticleEffectPurple, YellowPieces[i].transform.position, Quaternion.identity);
-                    Companion.EatingPeices.Add(YellowPieces[i]);
+                if ( Peices.Count > 4)
+                {
+                    Instantiate(ParticleEffectFireWork, YellowPieces[i].transform.position, Quaternion.identity);
+                }
+                
+                Companion.EatingPeices.Add(YellowPieces[i]);
                 }
                 Companion.FeedMonster();
                 RedSelection = false;
@@ -263,7 +285,13 @@ public class DotManager : MonoBehaviour
                 {
                     GreenPieces[i].layer = LayerMask.GetMask("Default");
                     Instantiate(ParticleEffectYellow, GreenPieces[i].transform.position, Quaternion.identity);
-                    Companion.EatingPeices.Add(GreenPieces[i]);
+
+                if ( Peices.Count > 4)
+                {
+                    Instantiate(ParticleEffectFireWork, GreenPieces[i].transform.position, Quaternion.identity);
+                }
+               
+                Companion.EatingPeices.Add(GreenPieces[i]);
 
                 }
                 RedSelection = false;

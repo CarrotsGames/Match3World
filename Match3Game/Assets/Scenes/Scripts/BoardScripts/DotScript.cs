@@ -12,6 +12,7 @@ public class DotScript : MonoBehaviour
     public LayerMask layerMask;
     public List<GameObject> neighbours = new List<GameObject>();
     public int ToggleHighlite;
+    public bool StartDrawingLine;
     [HideInInspector]
     public bool ClearNeighbours;
     [HideInInspector]
@@ -56,7 +57,7 @@ public class DotScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.tag == "Gold" && !HappinessManagerScript.IsSleeping)
+        if (transform.tag == "Gold" && !HappinessManagerScript.IsSleeping)
         {
             Destroy(gameObject);
         }
@@ -74,18 +75,29 @@ public class DotScript : MonoBehaviour
 
         }
         // restes dot layer
-        if(DotManagerScript.ResetLayer)
+        if (DotManagerScript.ResetLayer)
         {
             gameObject.layer = 0;
             DotManagerScript.ResetLayer = false;
         }
         // resets dot material 
-        if(DotManagerScript.ResetMaterial)
+        if (DotManagerScript.ResetMaterial)
         {
             gameObject.GetComponent<Renderer>().material = Default;
 
         }
-
+       // if (DotManagerScript.StartHighliting)
+       // {
+       //     for (int i = 0; i < DotManagerScript.Peices.Count; i++)
+       //     {
+       //         GameObject Test;
+       //         transform.gameObject.GetComponent<DotScript>().DrawLine.positionCount = i;
+       //         DrawLine.SetPosition(DotManagerScript.LineCount, DotManagerScript.Peices[i].transform.position);
+       //
+       //
+       //     }
+       //
+       // }
     }
     private void OnMouseExit()
     {
@@ -173,7 +185,7 @@ public class DotScript : MonoBehaviour
 
          
         DotManagerScript.Peices.Clear();
-        DrawLine.SetPosition(0, transform.position);
+       // DrawLine.SetPosition(0, transform.position);
         // Increases size of peice when selected
         Vector3 newScale = new Vector3();
         newScale.x = Mathf.Clamp(transform.localScale.x, jucSize, jucSize);
