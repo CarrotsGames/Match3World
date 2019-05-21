@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198578959712158864}
   - component: {fileID: 199556568087480670}
   m_Layer: 0
-  m_Name: Firework Effect Green 1
+  m_Name: Firework Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1921974670268442}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -85.58548, y: -129.8686, z: -999.8548}
+  m_LocalPosition: {x: 140.3844, y: 237.08507, z: -356.7107}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -225,27 +225,27 @@ ParticleSystem:
         m_RotationOrder: 4
     startColor:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 4
       minColor: {r: 1, g: 1, b: 1, a: 1}
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
-        key2: {r: 0, g: 0, b: 0, a: 0}
-        key3: {r: 0, g: 0, b: 0, a: 0}
-        key4: {r: 0, g: 0, b: 0, a: 0}
-        key5: {r: 0, g: 0, b: 0, a: 0}
-        key6: {r: 0, g: 0, b: 0, a: 0}
-        key7: {r: 0, g: 0, b: 0, a: 0}
+        key0: {r: 1, g: 0, b: 0, a: 1}
+        key1: {r: 1, g: 0.36811948, b: 0, a: 1}
+        key2: {r: 1, g: 0.8593202, b: 0, a: 0}
+        key3: {r: 0.55299723, g: 1, b: 0, a: 0}
+        key4: {r: 0, g: 1, b: 0.89762115, a: 0}
+        key5: {r: 0.7638054, g: 0, b: 1, a: 0}
+        key6: {r: 0.07098818, g: 0, b: 1, a: 0}
+        key7: {r: 1, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 65535
-        ctime2: 0
-        ctime3: 0
-        ctime4: 0
-        ctime5: 0
-        ctime6: 0
-        ctime7: 0
+        ctime1: 9638
+        ctime2: 18504
+        ctime3: 28720
+        ctime4: 36815
+        ctime5: 45489
+        ctime6: 53585
+        ctime7: 65535
         atime0: 0
         atime1: 65535
         atime2: 0
@@ -255,7 +255,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_NumColorKeys: 2
+        m_NumColorKeys: 8
         m_NumAlphaKeys: 2
       minGradient:
         serializedVersion: 2
@@ -1418,29 +1418,29 @@ ParticleSystem:
     enabled: 1
     gradient:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 1
       minColor: {r: 1, g: 1, b: 1, a: 1}
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 0, a: 1}
+        key0: {r: 1, g: 0, b: 0.08989811, a: 1}
         key1: {r: 1, g: 1, b: 0, a: 0.09411765}
-        key2: {r: 1, g: 1, b: 0, a: 0}
-        key3: {r: 0, g: 0, b: 0, a: 0}
-        key4: {r: 0, g: 0, b: 0, a: 0}
-        key5: {r: 0, g: 0, b: 0, a: 0}
-        key6: {r: 0, g: 0, b: 0, a: 0}
-        key7: {r: 0, g: 0, b: 0, a: 0}
+        key2: {r: 0.16439486, g: 1, b: 0, a: 0}
+        key3: {r: 0, g: 1, b: 0.9831753, a: 0}
+        key4: {r: 0.49512815, g: 0, b: 1, a: 0}
+        key5: {r: 0, g: 1, b: 0.9284024, a: 0}
+        key6: {r: 1, g: 0, b: 0.9424448, a: 0}
+        key7: {r: 0.13207865, g: 0, b: 1, a: 0}
         ctime0: 964
-        ctime1: 65535
-        ctime2: 65535
-        ctime3: 0
-        ctime4: 0
-        ctime5: 0
-        ctime6: 0
-        ctime7: 0
+        ctime1: 8288
+        ctime2: 16191
+        ctime3: 24479
+        ctime4: 31226
+        ctime5: 41827
+        ctime6: 57054
+        ctime7: 65535
         atime0: 0
-        atime1: 39321
+        atime1: 65535
         atime2: 65535
         atime3: 65535
         atime4: 0
@@ -1448,8 +1448,8 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_NumColorKeys: 2
-        m_NumAlphaKeys: 3
+        m_NumColorKeys: 8
+        m_NumAlphaKeys: 2
       minGradient:
         serializedVersion: 2
         key0: {r: 0, g: 1, b: 1, a: 1}
