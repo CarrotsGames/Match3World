@@ -4,37 +4,38 @@ using UnityEngine.UI;
 
 public class HappinessManager : MonoBehaviour
 {
-    public GameObject Board;
-       // CHANGE NAME BOARDSCRIPT TO BOARD//
     private BoardScript BoardScriptRef;
-    private AudioSource Source;
+    public GameObject Board;
     public GameObject Companion;
     public GameObject AudioGameObj;
-    public float HappinessSliderValue;
-    private GameObject DotManagerObj;
-    // Must cap at 4
-    public int[] multiplier;
+   
 
     public Slider HappinessSlider;
-    string CompanionName;
-    private DotManager DotManagerScript;
-    public bool CanGetCurrency;
-    bool CanEarnGold;
+    // Must cap at 4
+    public int[] multiplier;
+    public float HappinessSliderValue;
     // gets a companions name which loads their save
     public string CompanionSave;
     // Determines what multplier the player is on
     public int MultlpierNum;
+    public bool CanGetCurrency;
     // Reset multplier for DEBUG purposes 
     public bool ResetTheMultlpier;
-     [HideInInspector]
-    public bool IsSleeping;
-    
-    string SaveStrings;
+    public bool IsSleeping;   
+    // CHANGE NAME BOARDSCRIPT TO BOARD//
     public Animator Anim;
 
     public GameObject DayTime;
     public GameObject NightTime;
     public GameObject AwakeHead;
+
+    string CompanionName;
+
+    private GameObject DotManagerObj;
+    private DotManager DotManagerScript;
+    bool CanEarnGold;
+     [HideInInspector]
+    string SaveStrings;
     // Use this for initialization
     void Start()
     {
@@ -45,8 +46,7 @@ public class HappinessManager : MonoBehaviour
         CompanionName = Companion.name;
         CanGetCurrency = false;
         // CompanionSounds = GetComponent<AudioClip[]>();
-        Source = GetComponent<AudioSource>();
-
+ 
         // Checks which companion is loaded to gather save data 
         switch (CompanionName)
         {
@@ -190,7 +190,7 @@ public class HappinessManager : MonoBehaviour
                 MultlpierNum -= 1;
                 PlayerPrefs.SetInt("Multiplier", MultlpierNum);
                 AudioGameObj.GetComponent<SceneAudio>().CompanionSound.PlayOneShot
-                    (AudioGameObj.GetComponent<SceneAudio>().WakeUpSound[0]);
+                (AudioGameObj.GetComponent<SceneAudio>().WakeUpSound[0]);
                 AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
 
             }
@@ -236,7 +236,7 @@ public class HappinessManager : MonoBehaviour
                 PlayerPrefs.SetInt("Multiplier", MultlpierNum);
                 //Changes the track in the SceneAudio script
                 AudioGameObj.GetComponent<SceneAudio>().CompanionSound.PlayOneShot
-                    (AudioGameObj.GetComponent<SceneAudio>().WakeUpSound[1]);
+               (AudioGameObj.GetComponent<SceneAudio>().WakeUpSound[1]);
 
                 AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
 

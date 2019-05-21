@@ -189,7 +189,7 @@ public class DotManager : MonoBehaviour
                 RedScore += RedCount;
                 RedScore *= Peices.Count;
                 RedScore *= Multipier;
-                TotalScore += RedScore;
+              //  TotalScore += RedScore;
 
                 for (test = 0; test < RedCount; test++)
                 {
@@ -211,7 +211,7 @@ public class DotManager : MonoBehaviour
                 BlueScore += BlueCount;
                 BlueScore *= Peices.Count;
                 BlueScore *= Multipier;
-                TotalScore += BlueScore;
+             //   TotalScore += BlueScore;
 
                 for (int i = 0; i < BlueCount; i++)
                 {
@@ -233,7 +233,7 @@ public class DotManager : MonoBehaviour
                 YellowScore += YellowCount;
                 YellowScore *= Peices.Count;
                 YellowScore *= Multipier;
-                TotalScore += YellowScore;
+            //    TotalScore += YellowScore;
 
 
                 for (int i = 0; i < YellowCount; i++)
@@ -257,7 +257,7 @@ public class DotManager : MonoBehaviour
                 GreenScore += GreenCount;
                 GreenScore *= Peices.Count;
                 GreenScore *= Multipier;
-                TotalScore += GreenScore;
+               // TotalScore += GreenScore;
 
                 for (int i = 0; i < GreenCount; i++)
                 {
@@ -286,28 +286,32 @@ public class DotManager : MonoBehaviour
         if (RedCount != Peices.Count || BlueCount != Peices.Count || GreenCount != Peices.Count || YellowCount != Peices.Count)
             {
             SceneScore += RedScore + BlueScore + GreenScore + YellowScore;
-                //  Debug.Log("No connection");
-                RedPieces.Clear();
-                BluePieces.Clear();
-                YellowPieces.Clear();
-                GreenPieces.Clear();
-                Gold.Clear();
-                RedCount = 0;
-                BlueCount = 0;
-                YellowCount = 0;
-                GreenCount = 0;
-                GoldAmount = 0;
-                NumberOfNeighbours = 0;
-                RedScore = 0;
-                BlueScore = 0;
-                YellowScore = 0;
-                GreenScore = 0;
-                LineCount = 0;
-                RedSelection = false;
-                BlueSelection = false;
-                YellowSelection = false;
-                PurpleSelection = false;
-                GoldSelection = false;
+            if (!Companion.HappinessManagerScript.IsSleeping)
+            {
+                TotalScore += RedScore + BlueScore + GreenScore + YellowScore;
+            }
+            //  Debug.Log("No connection");
+            RedPieces.Clear();
+             BluePieces.Clear();
+             YellowPieces.Clear();
+             GreenPieces.Clear();
+             Gold.Clear();
+             RedCount = 0;
+             BlueCount = 0;
+             YellowCount = 0;
+             GreenCount = 0;
+             GoldAmount = 0;
+             NumberOfNeighbours = 0;
+             RedScore = 0;
+             BlueScore = 0;
+             YellowScore = 0;
+             GreenScore = 0;
+             LineCount = 0;
+             RedSelection = false;
+             BlueSelection = false;
+             YellowSelection = false;
+             PurpleSelection = false;
+             GoldSelection = false;
             // ResetDotLayers = true;
         }
             Peices.Clear();

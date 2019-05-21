@@ -6,6 +6,7 @@ public class PlayFabCurrency : MonoBehaviour
 {
     private GameObject PowerUpManGameObj;
     private PowerUpManager PowerUpManagerScript;
+    private PlayFabLogin PlayFabLoginScript;
     GameObject DotManagerObj;
     DotManager DotManagerScript;
     int amount;
@@ -19,13 +20,13 @@ public class PlayFabCurrency : MonoBehaviour
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
         Versions = PlayerPrefs.GetInt("VERSIONVALUE");
-
+     
         LoggedIn();
     }
 
     public void LoggedIn()
     {
-        if (string.IsNullOrEmpty(PlayFabSettings.TitleId))
+         if (string.IsNullOrEmpty(PlayFabSettings.TitleId))
         {
             PlayFabSettings.TitleId = "(DE2C) Superflat Connect 3"; // Please change this value to your own titleId from PlayFab Game Manager
         }

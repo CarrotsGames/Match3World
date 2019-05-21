@@ -61,6 +61,7 @@ public class PlayFabAnalytics : MonoBehaviour {
         if (DelayTime > 5)
         {
             SetUserData();
+            GraphedData();
             DelayTime = 0;
         }
         // Test = false;
@@ -89,6 +90,22 @@ public class PlayFabAnalytics : MonoBehaviour {
 
         });
      }
+
+  
+    private void GraphedData()
+    {
+        PlayFabClientAPI.WritePlayerEvent(new WriteClientPlayerEventRequest()
+        {
+            Body = new Dictionary<string, object>() {
+        { CompanionScore.name, Score },
+        { CompanionTime, "" + TimeOnScene }
+    },
+            EventName = "player_progression"
+        },
+        result => Debug.Log("Success"),
+        error => Debug.LogError(error.GenerateErrorReport()));
+    }
+    
   // void GetUserData()
   // {
   //     PlayFabClientAPI.GetUserData(new GetUserDataRequest()

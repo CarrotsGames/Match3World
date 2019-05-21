@@ -8,35 +8,35 @@ public class CompanionScript : MonoBehaviour
 {
     public List<GameObject> EatingPeices;
     // Use this for initialization
-    public GameObject EatingPeiceSpawner; 
+    public GameObject EatingPeiceSpawner;
  
-    
     // max it can go to is 10
-     public AudioClip[] CompanionSounds;
+    public AudioClip[] CompanionSounds;
     private AudioClip PlaySound;
     public Slider HungerSlider;
     public AudioSource Audio;
 
 
     private GameObject DotManagerObj;
-    private GameObject RealTimerGameObj;
+    private GameObject MainCamera;
     private GameObject PowerUpManGameObj;
     private GameObject HappinessGameObj;
     private DotManager DotManagerScriptRef;
     private RealTimeCounter RealTimeScript;
     private PowerUpManager PowerUpManagerScript;
-    private HappinessManager HappinessManagerScript;
+    public HappinessManager HappinessManagerScript;
     // Update is called once per frame
     private int posX;
     private int posY;
     private int HungerMultiplier = 1;
     private int CurrencyChance;
+
     private void Start()
     {
         Audio = GetComponent<AudioSource>();
         // References the Realtimescript which is located on camera (TEMP)
-        RealTimerGameObj = GameObject.FindGameObjectWithTag("MainCamera");
-        RealTimeScript = RealTimerGameObj.GetComponent<RealTimeCounter>();
+        MainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        RealTimeScript = MainCamera.GetComponent<RealTimeCounter>();
 
         HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
         HappinessManagerScript = HappinessGameObj.GetComponent<HappinessManager>();
@@ -59,12 +59,11 @@ public class CompanionScript : MonoBehaviour
         for (int i = 0; i < EatingPeices.Count; i++)
         {
          
-             EatingPeices[i].transform.position = EatingPeiceSpawner.transform.position + new Vector3(posX, posY, 0);
-             CurrencyChance = HungerMultiplier;
+            EatingPeices[i].transform.position = EatingPeiceSpawner.transform.position + new Vector3(posX, posY, 0);
+            CurrencyChance = HungerMultiplier;
             Destroy(EatingPeices[i].gameObject);
             HungerMultiplier = i / 2;
-            HappinessManagerScript.HappinessSliderValue += HungerMultiplier;
-
+            MainCamera.GetComponent<CameraShake>().ShakeCamera(HungerMultiplier / 1.5f , 0.25f);
         }
         if (HappinessManagerScript.CanGetCurrency)
         {
@@ -76,21 +75,27 @@ public class CompanionScript : MonoBehaviour
             Debug.Log(chance);
             //  DotManagerScript.Currency 
         }
-        // displays total score to Text
-        DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
-        int RandomSound = Random.Range(0, CompanionSounds.Length);
-        // When fed the companion will play a random sound in list
-        PlaySound = CompanionSounds[RandomSound];
-        Audio.clip = PlaySound;
-        Audio.Play();
+        if (!HappinessManagerScript.IsSleeping)
+        {
+            // adds happyness to the companion
+            // Hunger multlplier = i(Num of peices) / 2 
+            HappinessManagerScript.HappinessSliderValue += HungerMultiplier;
+            // displays total score to Text
+            DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
+            int RandomSound = Random.Range(0, CompanionSounds.Length);
+            // When fed the companion will play a random sound in list
+            PlaySound = CompanionSounds[RandomSound];
+            Audio.clip = PlaySound;
+            Audio.Play();
+        }
     }
 // when the pieces collide with the companion it will destory them
  
     //when game closes save the current hugner and start counting down outside of the app
     private void OnApplicationPause(bool pause)
     {
-        RealTimeScript.ResetClock();
-        pause = true;
+      // RealTimeScript.ResetClock();
+      // pause = true;
     }
     private void OnApplicationQuit()
     {

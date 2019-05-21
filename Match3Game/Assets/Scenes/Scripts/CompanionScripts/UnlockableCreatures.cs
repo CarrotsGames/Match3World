@@ -19,7 +19,7 @@ public class UnlockableCreatures : MonoBehaviour
     // Names for Each moobling
     public string[] UnlockableMoobling;
     public Sprite[] CompanionImages;
-    // MOOBLING NUMBERS FOR UNLOCKABLEMOOBLING STRING
+     // MOOBLING NUMBERS FOR UNLOCKABLEMOOBLING STRING
     // 0 GOBU
     // 1 BINKY
     // 2 KOKO
@@ -54,14 +54,14 @@ public class UnlockableCreatures : MonoBehaviour
     // Goes through an checks which companins are unlocked
     public void GetUnlocked()
     {
-        if (NewGobuUnlocked == "NEWGOBU")
-        {
-                                            // int UnlockNUM
-            GameObject Creature = Instantiate(Companions[0], CompanionStorage.transform.position, Quaternion.identity);
-            Creature.transform.parent = CompanionStorage.transform;
-           // CompNav.Companions.Add(Creature.transform.gameObject);
-            Creature.SetActive(false);
-        }
+       //if (NewGobuUnlocked == "NEWGOBU")
+       //{
+       //                                    // int UnlockNUM
+       //    GameObject Creature = Instantiate(Companions[0], CompanionStorage.transform.position, Quaternion.identity);
+       //    Creature.transform.parent = CompanionStorage.transform;
+       //   // CompNav.Companions.Add(Creature.transform.gameObject);
+       //    Creature.SetActive(false);
+       //}
       
         if(UnlockableMoobling[0] == "BINKY")
         {

@@ -9,6 +9,7 @@ public class MonthlyChallenge : MonoBehaviour {
     GameObject DotManagerGameObj;
     public GameObject PrizeCompanion;
     int UnlockGift;
+    
     private string NameOfPrize;
     bool HasUnlockedGift;
     int MonthlyVersions;
@@ -21,14 +22,14 @@ public class MonthlyChallenge : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        NameOfPrize = "NEWGOBU";
         DotManagerGameObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerGameObj.GetComponent<DotManager>();
         //Saves value to check HasUnlockedGift bool 
         UnlockGift = PlayerPrefs.GetInt("MONTHLYPRIZE");
-        PlayerPrefs.SetString("UNLOCKED", NameOfPrize);
         MonthlyVersions = PlayerPrefs.GetInt("MONTHLYVERSIONVALUE");
         DelayTimerCheck = 3;
+        // checks if the unlock gift value is greater than 0
+        // for the monthly unlock
          if (UnlockGift > 0)
         {
             HasUnlockedGift = true;
@@ -82,10 +83,7 @@ public class MonthlyChallenge : MonoBehaviour {
         }, result =>
         {
             Debug.Log("Leaderboard version: " + result.Version);
-            // foreach (var entry in result.Leaderboard)
-            // {
-            //     Debug.Log(entry.DisplayName + " " + entry.StatValue);
-            // }
+  
             // if the phone version is not equal to the server version reset
             if (MonthlyVersions != result.Version)
             {
@@ -102,6 +100,7 @@ public class MonthlyChallenge : MonoBehaviour {
 
         }, MonthlyChallengeGoing);
     }
+    // unlcoks the creature when the score has been met
     void CreatureUnlock()
     {
         if (DotManagerScript.TotalScore > UnlockScore[0])
