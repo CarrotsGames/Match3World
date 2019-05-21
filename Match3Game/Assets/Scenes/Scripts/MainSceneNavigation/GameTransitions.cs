@@ -12,6 +12,7 @@ public class GameTransitions : MonoBehaviour {
     private Animator anim;
     private GameObject RealTimerGameObj;
     private RealTimeCounter RealTimeScript;
+    public GameObject settingsMenu;
 
     // Use this for initialization
     void Start () {
@@ -57,6 +58,7 @@ public class GameTransitions : MonoBehaviour {
         RealTimeScript.ResetClock();
 
         anim.SetBool("Transition", true);
+        settingsMenu.SetActive(false);
     }
 
 
