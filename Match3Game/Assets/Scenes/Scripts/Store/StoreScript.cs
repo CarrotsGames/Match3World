@@ -22,6 +22,7 @@ public class StoreScript : MonoBehaviour
     public int SuperBombAmount;
     public int SuperMultiplierAmount;
 
+    public int[] CompanionPrice;
     private void Start()
     {
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
@@ -149,16 +150,16 @@ public class StoreScript : MonoBehaviour
                 break;
                 // Cruis Creature purchase
             case 5:
-                if (PowerUpManagerScript.Currency > 5)
+                if (PowerUpManagerScript.Currency > CompanionPrice[0])
                 {
                     PlayerPrefs.SetString("UNLOCKED", "CRIUS");
                     Debug.Log("YOU HAVE PURCHASED KRRRRAASSS");
+                    PowerUpManagerScript.Currency -= CompanionPrice[0];
                     unlockScreen.SetActive(true);
 
                 }
                 else
                 {
-
                     Debug.Log("Insufficient funds");
                 }
 

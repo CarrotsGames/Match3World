@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 4707124773752448}
   - component: {fileID: 198578959712158864}
   - component: {fileID: 199556568087480670}
+  - component: {fileID: 114524463641272022}
   m_Layer: 0
   m_Name: Firework Effect
   m_TagString: Untagged
@@ -72,6 +73,17 @@ Transform:
   m_Father: {fileID: 4707124773752448}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -17.264}
+--- !u!114 &114524463641272022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1921974670268442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23c1ca20c9829484cbc6d15cd32e06a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198122693515958638
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -955,7 +967,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 3
-        scalar: 25
+        scalar: 10
         minScalar: 0
         maxCurve:
           serializedVersion: 2
@@ -5293,7 +5305,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1, y: 0, z: 1}
+    m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -9466,8 +9478,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1194284023
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
