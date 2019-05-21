@@ -281,6 +281,11 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 65908824}
   m_CullTransparentMesh: 0
+--- !u!1 &82433897 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1102098166596148, guid: e4066718ae92203429c2f18e97d90c1e,
+    type: 2}
+  m_PrefabInternal: {fileID: 239335129}
 --- !u!1 &143294310
 GameObject:
   m_ObjectHideFlags: 0
@@ -1329,31 +1334,21 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2051829845}
-    - target: {fileID: 114482752548685878, guid: e4066718ae92203429c2f18e97d90c1e,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: NoMusic
-      objectReference: {fileID: 0}
-    - target: {fileID: 114911462501810902, guid: e4066718ae92203429c2f18e97d90c1e,
+    - target: {fileID: 114287902399798286, guid: e4066718ae92203429c2f18e97d90c1e,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2051829845}
     - target: {fileID: 114911462501810902, guid: e4066718ae92203429c2f18e97d90c1e,
         type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TurnOffTab
-      objectReference: {fileID: 0}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2051829845}
     - target: {fileID: 114827397064085078, guid: e4066718ae92203429c2f18e97d90c1e,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1647165519}
-    - target: {fileID: 114827397064085078, guid: e4066718ae92203429c2f18e97d90c1e,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: HomeButton
-      objectReference: {fileID: 0}
     - target: {fileID: 1036474427024022, guid: e4066718ae92203429c2f18e97d90c1e, type: 2}
       propertyPath: m_IsActive
       value: 0
@@ -7185,6 +7180,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1363671168 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1135214695968918, guid: e4066718ae92203429c2f18e97d90c1e,
+    type: 2}
+  m_PrefabInternal: {fileID: 239335129}
 --- !u!1 &1374271145 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1266555554428142, guid: 4e6ef3740c972984e99b2437585cc990,
@@ -10714,6 +10714,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingsMenu: {fileID: 842981958}
   sceneAudio: {fileID: 648267674}
+  NoMusicImage: {fileID: 82433897}
+  MusicImage: {fileID: 1363671168}
   musicOff: 0
 --- !u!1001 &2069675662
 Prefab:
