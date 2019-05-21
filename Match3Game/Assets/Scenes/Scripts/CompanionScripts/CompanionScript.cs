@@ -64,6 +64,8 @@ public class CompanionScript : MonoBehaviour
             Destroy(EatingPeices[i].gameObject);
             HungerMultiplier = i / 2;
             MainCamera.GetComponent<CameraShake>().ShakeCamera(HungerMultiplier / 1.5f , 0.25f);
+            // displays total score to Text
+            DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
         }
         if (HappinessManagerScript.CanGetCurrency)
         {
@@ -80,8 +82,7 @@ public class CompanionScript : MonoBehaviour
             // adds happyness to the companion
             // Hunger multlplier = i(Num of peices) / 2 
             HappinessManagerScript.HappinessSliderValue += HungerMultiplier;
-            // displays total score to Text
-            DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
+  
             int RandomSound = Random.Range(0, CompanionSounds.Length);
             // When fed the companion will play a random sound in list
             PlaySound = CompanionSounds[RandomSound];
