@@ -7,10 +7,11 @@ public class BombExplodeScript : MonoBehaviour
     float Timer = 1;
     public GameObject Board;
     public GameObject ExplosionEffect;
-    public List<GameObject> CollidedOutfits;
+    public List<GameObject> CollidedNodes;
+    public AudioClip Audio;
     private DotManager DotManagerScript;
     private GameObject DotManagerObj;
-
+    private AudioSource Source;
     // Update is called once per frame
     private void Start()
     {
@@ -20,6 +21,7 @@ public class BombExplodeScript : MonoBehaviour
         Physics2D.IgnoreLayerCollision( 12, 11);
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
+        Source = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -27,7 +29,9 @@ public class BombExplodeScript : MonoBehaviour
         Timer -= Time.deltaTime;
         if(Timer < 0)
         {
-        Instantiate(ExplosionEffect,transform.position, Quaternion.identity);
+            Source.clip = Audio;
+            Source.Play();
+            Instantiate(ExplosionEffect,transform.position, Quaternion.identity);
         }
        
     }
@@ -35,22 +39,22 @@ public class BombExplodeScript : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
 
-        if (CollidedOutfits.Contains(collision.gameObject))
+        if (CollidedNodes.Contains(collision.gameObject))
         {
             Debug.Log("Already contains me");
         }
         else
         {
-            CollidedOutfits.Add(collision.gameObject);
+            CollidedNodes.Add(collision.gameObject);
 
         }
         if (Timer < 0 )
         {
-            DotManagerScript.TotalScore += CollidedOutfits.Count * DotManagerScript.Multipier;
+            DotManagerScript.TotalScore += CollidedNodes.Count * DotManagerScript.Multipier;
             DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
-            CollidedOutfits.Clear();
+            CollidedNodes.Clear();
 
         }
     }
