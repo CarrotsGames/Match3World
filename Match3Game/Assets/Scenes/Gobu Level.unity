@@ -2064,7 +2064,6 @@ GameObject:
   m_Component:
   - component: {fileID: 384602315}
   - component: {fileID: 384602317}
-  - component: {fileID: 384602316}
   m_Layer: 11
   m_Name: Blink
   m_TagString: Untagged
@@ -2084,22 +2083,8 @@ Transform:
   m_LocalScale: {x: 1.012, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1587989246}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &384602316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114610521499402630, guid: 4e6ef3740c972984e99b2437585cc990,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 384602314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 867f11b346a75d24a9b706c4dcf3d2f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 1
-  Limit: 2
 --- !u!212 &384602317
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8193,6 +8178,18 @@ Prefab:
         type: 2}
       propertyPath: m_Color.b
       value: 0.16140087
+      objectReference: {fileID: 0}
+    - target: {fileID: 4252550037250480, guid: 4e6ef3740c972984e99b2437585cc990, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376419826743532, guid: 4e6ef3740c972984e99b2437585cc990, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579184957825642, guid: 4e6ef3740c972984e99b2437585cc990, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e6ef3740c972984e99b2437585cc990, type: 2}
