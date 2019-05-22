@@ -38,6 +38,7 @@ public class DotScript : MonoBehaviour
     {
         HappinessManagerGameobj = GameObject.FindGameObjectWithTag("HM");
         HappinessManagerScript = HappinessManagerGameobj.GetComponent<HappinessManager>();
+        Physics2D.IgnoreLayerCollision(0, 14);
 
         audio = GetComponent<AudioSource>();
         DrawLine = GetComponent<LineRenderer>();

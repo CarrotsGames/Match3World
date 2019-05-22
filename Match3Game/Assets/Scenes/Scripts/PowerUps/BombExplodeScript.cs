@@ -18,7 +18,9 @@ public class BombExplodeScript : MonoBehaviour
         // 12 = BOMB Layer
         // 11 = WALL layer
         // ignroe collisions Between this layer and this layer
-        Physics2D.IgnoreLayerCollision( 12, 11);
+        Physics2D.IgnoreLayerCollision(12, 11);
+        Physics2D.IgnoreLayerCollision(12, 14);
+
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
         Source = GetComponent<AudioSource>();
@@ -27,19 +29,28 @@ public class BombExplodeScript : MonoBehaviour
     void Update()
     {
         Timer -= Time.deltaTime;
-        if(Timer < 0)
+        if (Timer < 0 )
         {
             Source.clip = Audio;
             Source.Play();
-            Instantiate(ExplosionEffect,transform.position, Quaternion.identity);
+            Instantiate(ExplosionEffect, transform.position, Quaternion.identity);
+            if(CollidedNodes.Count == 0)
+            {
+                DestoryMe();
+            }
         }
-       
-    }
 
+    }
+     void DestoryMe()
+    {
+        DotManagerScript.TotalScore += CollidedNodes.Count * DotManagerScript.Multipier;
+        DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
+        Destroy(this.gameObject);
+        CollidedNodes.Clear();
+    }
     private void OnTriggerStay2D(Collider2D collision)
     {
-
-        if (CollidedNodes.Contains(collision.gameObject))
+         if (CollidedNodes.Contains(collision.gameObject))
         {
             Debug.Log("Already contains me");
         }
@@ -50,12 +61,11 @@ public class BombExplodeScript : MonoBehaviour
         }
         if (Timer < 0 )
         {
-            DotManagerScript.TotalScore += CollidedNodes.Count * DotManagerScript.Multipier;
-            DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
+            DestoryMe();
             Destroy(collision.gameObject);
-            Destroy(this.gameObject);
-            CollidedNodes.Clear();
 
         }
+        
+
     }
 }

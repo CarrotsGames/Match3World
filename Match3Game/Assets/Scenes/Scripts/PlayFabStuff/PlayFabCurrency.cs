@@ -39,7 +39,7 @@ public class PlayFabCurrency : MonoBehaviour
 
         }, result =>
         {
-            Debug.Log("Logged in");
+ 
             AddPremiumCurrency();
             // Refresh available items 
         }, error => Debug.LogError(error.GenerateErrorReport()));
@@ -97,8 +97,7 @@ public class PlayFabCurrency : MonoBehaviour
     void AddPreimiumCurrencySuccess(ModifyUserVirtualCurrencyResult result)
     {
 
-        Debug.Log("SUCCESS");
-        amount = result.Balance;
+         amount = result.Balance;
         PowerUpManagerScript.Currency += result.Balance;
        
         SubtractUserVirtualCurrencyRequest SubRequest = new SubtractUserVirtualCurrencyRequest();

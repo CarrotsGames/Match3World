@@ -5,6 +5,7 @@ public class SuperBombScript : MonoBehaviour
 {
 
     public GameObject SuperBombPrefab;
+    public GameObject BombPlayArea;
     private bool CanPlaceBomb;
 
     private GameObject PowerUpManGameObj;
@@ -14,6 +15,8 @@ public class SuperBombScript : MonoBehaviour
     {
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
+        BombPlayArea.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -24,22 +27,30 @@ public class SuperBombScript : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-                if (hit.collider.gameObject.layer != 0)
+                if (hit.transform.gameObject.layer == 14 || hit.transform.gameObject.layer == 10)
                 {
+                    BombPlayArea.SetActive(false);
+
                     Vector2 PlaceBomb = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
                     Instantiate(SuperBombPrefab, new Vector2(PlaceBomb.x, PlaceBomb.y), Quaternion.identity);
                     CanPlaceBomb = false;
                 }
+         
             }
         }       
     }
 
     public void SuperBomb()
     {
-        if (PowerUpManagerScript.HasBombs)
+        if (!CanPlaceBomb)
         {
-            PowerUpManagerScript.NumOfBombs -= 1;
-            CanPlaceBomb = true;
+            if (PowerUpManagerScript.HasBombs)
+            {
+                BombPlayArea.SetActive(true);
+
+                PowerUpManagerScript.NumOfBombs -= 1;
+                CanPlaceBomb = true;
+            }
         }
     }
 }
