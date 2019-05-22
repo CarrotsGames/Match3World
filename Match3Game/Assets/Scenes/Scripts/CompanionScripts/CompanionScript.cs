@@ -52,21 +52,23 @@ public class CompanionScript : MonoBehaviour
     }
 
  
+  
     public void FeedMonster()
     {
-        
         // transforms the peices to the eatingspawner position
         for (int i = 0; i < EatingPeices.Count; i++)
         {
-         
+
             EatingPeices[i].transform.position = EatingPeiceSpawner.transform.position + new Vector3(posX, posY, 0);
             CurrencyChance = HungerMultiplier;
             Destroy(EatingPeices[i].gameObject);
             HungerMultiplier = i / 2;
-            MainCamera.GetComponent<CameraShake>().ShakeCamera(HungerMultiplier / 1.5f , 0.25f);
+            MainCamera.GetComponent<CameraShake>().ShakeCamera(HungerMultiplier / 1.5f, 0.25f);
             // displays total score to Text
+ 
             DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
         }
+
         if (HappinessManagerScript.CanGetCurrency)
         {
             int chance = Random.Range(CurrencyChance, 100);
@@ -90,8 +92,9 @@ public class CompanionScript : MonoBehaviour
             Audio.Play();
         }
     }
-// when the pieces collide with the companion it will destory them
  
+    // when the pieces collide with the companion it will destory them
+
     //when game closes save the current hugner and start counting down outside of the app
     private void OnApplicationPause(bool pause)
     {
