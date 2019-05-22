@@ -23,10 +23,13 @@ public class SuperBombScript : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-
-                Vector2 PlaceBomb = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-                Instantiate(SuperBombPrefab, new Vector2(PlaceBomb.x, PlaceBomb.y), Quaternion.identity);
-                CanPlaceBomb = false;
+                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+                if (hit.collider.gameObject.layer != 0)
+                {
+                    Vector2 PlaceBomb = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+                    Instantiate(SuperBombPrefab, new Vector2(PlaceBomb.x, PlaceBomb.y), Quaternion.identity);
+                    CanPlaceBomb = false;
+                }
             }
         }       
     }

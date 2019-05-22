@@ -281,7 +281,7 @@ public class DotScript : MonoBehaviour
                         DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
 
                     }
-                    if (hitInfo.collider.gameObject.tag == "Blue" || hitInfo.collider.gameObject.tag == "Yellow" || hitInfo.collider.gameObject.tag == "Green")
+                    if (hitInfo.collider.gameObject.tag == "Gold" || hitInfo.collider.gameObject.tag == "Blue" || hitInfo.collider.gameObject.tag == "Yellow" || hitInfo.collider.gameObject.tag == "Green")
                     {
                         OnMouseUp();
                     }
@@ -320,7 +320,7 @@ public class DotScript : MonoBehaviour
                         DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
 
                     }
-                    if (hitInfo.collider.gameObject.tag == "Red" || hitInfo.collider.gameObject.tag == "Yellow" || hitInfo.collider.gameObject.tag == "Green")
+                    if (hitInfo.collider.gameObject.tag == "Gold" || hitInfo.collider.gameObject.tag == "Red" || hitInfo.collider.gameObject.tag == "Yellow" || hitInfo.collider.gameObject.tag == "Green")
                     {
                         OnMouseUp();
                     }
@@ -358,7 +358,7 @@ public class DotScript : MonoBehaviour
                         // adds hit.collider to Peices list
                         DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
                     }
-                        if (hitInfo.collider.gameObject.tag == "Blue" || hitInfo.collider.gameObject.tag == "Green" || hitInfo.collider.gameObject.tag == "Red")
+                        if (hitInfo.collider.gameObject.tag == "Gold" || hitInfo.collider.gameObject.tag == "Blue" || hitInfo.collider.gameObject.tag == "Green" || hitInfo.collider.gameObject.tag == "Red")
                         {
                             OnMouseUp();
                         }
@@ -397,7 +397,8 @@ public class DotScript : MonoBehaviour
                         DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
                         
                     }
-                    if (hitInfo.collider.gameObject.tag == "Blue" || hitInfo.collider.gameObject.tag == "Red" || hitInfo.collider.gameObject.tag == "Yellow")
+                    if (hitInfo.collider.gameObject.tag == "Blue" || hitInfo.collider.gameObject.tag == "Red" || hitInfo.collider.gameObject.tag == "Yellow" ||
+                        hitInfo.collider.gameObject.tag == "Gold")
                     {
                         OnMouseUp();
                     }
