@@ -147,15 +147,16 @@ public class CompanionNavigation : MonoBehaviour
                 HappySlider.value = RealTimeScript.HappinessCountDown[2];
 
                 break;
-                //shares happiness with Gobu
-            case "NEWGOBU(Clone)":
-                Happiness[3] = PlayerPrefs.GetFloat("GobuHappiness");
+            //shares happiness with Gobu
+            case "Crius Locked":
+                Happiness[3] = PlayerPrefs.GetFloat("CriusHappiness");
                 RealTimeScript.HappinessCountDown[3] = Happiness[3];
                 HappySlider.value = RealTimeScript.HappinessCountDown[3];
 
                 break;
-            case "Crius Locked":
-                Happiness[4] = PlayerPrefs.GetFloat("CriusHappiness");
+          
+            case "Sauco":
+                Happiness[4] = PlayerPrefs.GetFloat("SaucoHappiness");
                 RealTimeScript.HappinessCountDown[4] = Happiness[4];
                 HappySlider.value = RealTimeScript.HappinessCountDown[4];
 

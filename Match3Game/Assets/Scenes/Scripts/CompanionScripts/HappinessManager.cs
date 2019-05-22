@@ -50,6 +50,7 @@ public class HappinessManager : MonoBehaviour
         // Checks which companion is loaded to gather save data 
         switch (CompanionName)
         {
+
             case "Gobu":
                 CompanionSave = "GobuHappiness";
                 SaveStrings = "GOBUSAVE";
@@ -70,7 +71,10 @@ public class HappinessManager : MonoBehaviour
                 CompanionSave = "CriusHappiness";
                 SaveStrings = "CRIUSSAVE";
                 break;
-            
+            case "Sauco":
+                CompanionSave = "SaucoHappiness";
+                SaveStrings = "SAUCOSAVE";
+                break;
 
         }
         // Gets the last known bool for this companion
