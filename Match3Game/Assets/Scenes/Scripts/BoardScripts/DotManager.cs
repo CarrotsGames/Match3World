@@ -73,6 +73,7 @@ public class DotManager : MonoBehaviour
     private GameObject PowerUpManGameObj;
     private PowerUpManager PowerUpManagerScript;
     private CreatureSelect CreatureSelectScript;
+    private string Colour;
      private void Awake()
     {
         TotalScore = PlayerPrefs.GetInt("SCORE");
@@ -189,17 +190,23 @@ public class DotManager : MonoBehaviour
 
     }
     // adds particle effect to the map
-    void AddParticles()
+    void AddBoardParticles()
     {
-        if (Peices.Count == 7)
+      
+        if (Peices.Count >= 5)
         {
             Instantiate(PartyEffect[0], PartySpawner.transform.position, Quaternion.identity);
         }
-        else if (Peices.Count >= 8)
+        else if (Peices.Count == 7)
         {
+            Instantiate(PartyEffect[0], PartySpawner.transform.position, Quaternion.identity);
             Instantiate(PartyEffect[1], PartySpawner.transform.position, Quaternion.identity);
+
         }
+
     }
+
+ 
     // Checks which colour made a match
     void AddColourToScore()
     {
@@ -212,27 +219,19 @@ public class DotManager : MonoBehaviour
             RedScore *= Multipier;
             TotalScore += RedScore;
 
-
             for (Num = 0; Num < RedCount; Num++)
-
             {
-
                 RedPieces[Num].layer = LayerMask.GetMask("Default");
                 Instantiate(ParticleEffectPink, RedPieces[Num].transform.position, Quaternion.identity);
-                if (Peices.Count >= 5)
+                Companion.EatingPeices.Add(RedPieces[Num]);
+                if (Peices.Count >= 8)
                 {
                     Instantiate(ParticleEffectFireWork, RedPieces[Num].transform.position, Quaternion.identity);
-                  
-                }
-                Companion.EatingPeices.Add(RedPieces[Num]);
 
+                }
             }
-            Companion.FeedMonster();
-            RedSelection = false;
-            BlueSelection = false;
-            YellowSelection = false;
-            PurpleSelection = false;
-            // RedPieces.Clear();
+             Companion.FeedMonster();
+ 
         }
         // If the times Blue was counted is equal to the amount of the peices list Blue was connected
         if (BlueCount == Peices.Count && BlueCount > Limit)
@@ -245,24 +244,19 @@ public class DotManager : MonoBehaviour
             for (Num = 0; Num < BlueCount; Num++)
             {
                 BluePieces[Num].layer = LayerMask.GetMask("Default");
-                 Instantiate(ParticleEffectBlue, BluePieces[Num].transform.position, Quaternion.identity);
-                if (Peices.Count >= 5)
+                Instantiate(ParticleEffectBlue, BluePieces[Num].transform.position, Quaternion.identity);                
+                Companion.EatingPeices.Add(BluePieces[Num]);
+                if(Peices.Count >= 8)
                 {
                     Instantiate(ParticleEffectFireWork, BluePieces[Num].transform.position, Quaternion.identity);
- 
                 }
-                Companion.EatingPeices.Add(BluePieces[Num]);
-
             }
 
             Companion.FeedMonster();
-            RedSelection = false;
-            BlueSelection = false;
-            YellowSelection = false;
-            PurpleSelection = false;
-            // BluePieces.Clear();
+ 
 
         }
+
         // If the times Yellow was counted is equal to the amount of the peices list Yellow was connected
         if (YellowCount == Peices.Count && YellowCount > Limit)
         {
@@ -275,21 +269,16 @@ public class DotManager : MonoBehaviour
             {
 
                 YellowPieces[Num].layer = LayerMask.GetMask("Default");
-                 Instantiate(ParticleEffectPurple, YellowPieces[Num].transform.position, Quaternion.identity);
-                if (Peices.Count >= 5)
+                Instantiate(ParticleEffectPurple, YellowPieces[Num].transform.position, Quaternion.identity);
+                Companion.EatingPeices.Add(YellowPieces[Num]);
+                if (Peices.Count >= 8)
                 {
                     Instantiate(ParticleEffectFireWork, YellowPieces[Num].transform.position, Quaternion.identity);
- 
                 }
-                Companion.EatingPeices.Add(YellowPieces[Num]);
-
             }
 
             Companion.FeedMonster();
-            RedSelection = false;
-            BlueSelection = false;
-            YellowSelection = false;
-            PurpleSelection = false;
+ 
             //YellowPieces.Clear();
         }
         // TODO CHANGE GREEN TO PURPLE
@@ -306,19 +295,14 @@ public class DotManager : MonoBehaviour
             {
 
                 GreenPieces[Num].layer = LayerMask.GetMask("Default");
-                 Instantiate(ParticleEffectYellow, GreenPieces[Num].transform.position, Quaternion.identity);
-                if (Peices.Count >= 5)
+                Instantiate(ParticleEffectYellow, GreenPieces[Num].transform.position, Quaternion.identity);
+                Companion.EatingPeices.Add(GreenPieces[Num]);
+                if (Peices.Count >= 8)
                 {
                     Instantiate(ParticleEffectFireWork, GreenPieces[Num].transform.position, Quaternion.identity);
- 
                 }
-                Companion.EatingPeices.Add(GreenPieces[Num]);
-
             }
-            RedSelection = false;
-            BlueSelection = false;
-            YellowSelection = false;
-            PurpleSelection = false;
+       
             Companion.FeedMonster();
             //    GreenPieces.Clear();
         }
@@ -358,10 +342,10 @@ public class DotManager : MonoBehaviour
             YellowSelection = false;
             PurpleSelection = false;
             GoldSelection = false;
+            AddBoardParticles();
             // ResetDotLayers = true;
             // Adds board particles
-            AddParticles();
-        }
+         }
         Peices.Clear();
     }
 
