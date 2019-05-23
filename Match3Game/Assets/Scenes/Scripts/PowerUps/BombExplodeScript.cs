@@ -12,6 +12,8 @@ public class BombExplodeScript : MonoBehaviour
     private DotManager DotManagerScript;
     private GameObject DotManagerObj;
     private AudioSource Source;
+     bool Detonate;
+    bool AddScore;
     // Update is called once per frame
     private void Start()
     {
@@ -20,7 +22,8 @@ public class BombExplodeScript : MonoBehaviour
         // ignroe collisions Between this layer and this layer
         Physics2D.IgnoreLayerCollision(12, 11);
         Physics2D.IgnoreLayerCollision(12, 14);
-
+         Detonate = true;
+        AddScore = false;
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
         Source = GetComponent<AudioSource>();
@@ -29,22 +32,18 @@ public class BombExplodeScript : MonoBehaviour
     void Update()
     {
         Timer -= Time.deltaTime;
-        if (Timer < 0 )
+        
+        if(AddScore)
         {
-            Source.clip = Audio;
-            Source.Play();
-            Instantiate(ExplosionEffect, transform.position, Quaternion.identity);
-            if(CollidedNodes.Count == 0)
-            {
-                DestoryMe();
-            }
+            DotManagerScript.TotalScore += CollidedNodes.Count * DotManagerScript.Multipier;
+            DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
+            AddScore = false;
         }
+      
 
     }
      void DestoryMe()
     {
-        DotManagerScript.TotalScore += CollidedNodes.Count * DotManagerScript.Multipier;
-        DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
         Destroy(this.gameObject);
         CollidedNodes.Clear();
     }
@@ -61,8 +60,23 @@ public class BombExplodeScript : MonoBehaviour
         }
         if (Timer < 0 )
         {
-            DestoryMe();
-            Destroy(collision.gameObject);
+            if (Detonate)
+            {
+                AddScore = true;
+                Source.PlayOneShot(Audio);
+                Instantiate(ExplosionEffect, transform.position, Quaternion.identity);
+                GetComponent<SpriteRenderer>().enabled = false;
+                GetComponent<CircleCollider2D>().enabled = false;
+                Detonate = false;
+            }
+            if(Timer >= -0.25f)
+            {
+                Destroy(collision.gameObject);
+            }
+            else if (Timer <= -1)
+            {
+                DestoryMe();
+            }
 
         }
         
