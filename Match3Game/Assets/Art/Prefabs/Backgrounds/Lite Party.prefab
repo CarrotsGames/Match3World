@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4052022197086488}
+  - component: {fileID: 114959780726752150}
   - component: {fileID: 198839554563451474}
   - component: {fileID: 199103280572521610}
   m_Layer: 0
@@ -36,6 +37,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4967166024055380}
+  - component: {fileID: 114056975713906622}
   - component: {fileID: 198416774749469706}
   - component: {fileID: 199875478016976952}
   m_Layer: 0
@@ -115,7 +117,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1707061488972364}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.97622, y: -182.95526, z: 29.721783}
+  m_LocalPosition: {x: 73.11399, y: -104.076935, z: -96.98716}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4052022197086488}
@@ -163,6 +165,30 @@ Transform:
   m_Father: {fileID: 4069880161726780}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -57.180004, y: 90.00001, z: -90.00001}
+--- !u!114 &114056975713906622
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1538775103291868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23c1ca20c9829484cbc6d15cd32e06a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ParticleAudio: {fileID: 8300000, guid: 28521526fc48ac9498ce452d481b55a7, type: 3}
+--- !u!114 &114959780726752150
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1356626096029864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23c1ca20c9829484cbc6d15cd32e06a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ParticleAudio: {fileID: 8300000, guid: 28521526fc48ac9498ce452d481b55a7, type: 3}
 --- !u!198 &198369798684741260
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -4774,7 +4800,7 @@ ParticleSystem:
   stopAction: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -13981,7 +14007,7 @@ ParticleSystem:
   stopAction: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
