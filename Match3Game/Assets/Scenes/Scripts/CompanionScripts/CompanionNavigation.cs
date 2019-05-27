@@ -149,7 +149,7 @@ public class CompanionNavigation : MonoBehaviour
         }
 
     }
-    public void NavRight()
+    public void NavLeft()
     {
         // disable current companion
         Companions[Navigate].SetActive(false);
@@ -174,7 +174,7 @@ public class CompanionNavigation : MonoBehaviour
         CompanionSwitch();
 
     }
-    public void NavLeft()
+    public void NavRight()
     {
 
         // if companions on right go right
