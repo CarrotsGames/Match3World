@@ -95,7 +95,7 @@ public class StoreScript : MonoBehaviour
         {
                 // SuperColourRemover purchase
             case 1:
-                if (PowerUpManagerScript.Currency > SuperColourRemoverAmount)
+                if (PowerUpManagerScript.Currency >= SuperColourRemoverAmount)
                 {
                     PowerUpManagerScript.NumOfSCR += SuperColourRemoverQuantity;
                     PowerUpManagerScript.Currency -= SuperColourRemoverAmount;
@@ -109,7 +109,7 @@ public class StoreScript : MonoBehaviour
                 break;
                 // SuperShuffleAmount purchase
             case 2:
-                if (PowerUpManagerScript.Currency > SuperShuffleAmount)
+                if (PowerUpManagerScript.Currency >= SuperShuffleAmount)
                 {
                     PowerUpManagerScript.NumOfShuffles += SuperShuffleQuantity;
                     PowerUpManagerScript.Currency -= SuperShuffleAmount;
@@ -122,7 +122,7 @@ public class StoreScript : MonoBehaviour
                 break;
                 // SuperMultplier purchase
             case 3:
-                if (PowerUpManagerScript.Currency > SuperMultiplierAmount)
+                if (PowerUpManagerScript.Currency >= SuperMultiplierAmount)
                 {
                     PowerUpManagerScript.NumOfMultilpiers += SuperMultiplierQuantity;
                     PowerUpManagerScript.Currency -= SuperMultiplierAmount;
@@ -135,7 +135,7 @@ public class StoreScript : MonoBehaviour
                 break;
                 // SuperBomb purchase
             case 4:
-                if (PowerUpManagerScript.Currency > SuperBombAmount)
+                if (PowerUpManagerScript.Currency >= SuperBombAmount)
                 {
                     PowerUpManagerScript.NumOfBombs += SuperBombQuantity;
                  //   PowerUpManagerScript.NumOfSCR += 5;
@@ -150,7 +150,7 @@ public class StoreScript : MonoBehaviour
                 break;
                 // Cruis Creature purchase
             case 5:
-                if (PowerUpManagerScript.Currency > CompanionPrice[0])
+                if (PowerUpManagerScript.Currency >= CompanionPrice[0])
                 {
                     PlayerPrefs.SetString("UNLOCKED", "CRIUS");
                     Debug.Log("YOU HAVE PURCHASED KRRRRAASSS");
