@@ -164,8 +164,7 @@ public class ColourRemover : MonoBehaviour
             }
 
 
-            MouseCursorObj.SetActive(false);
-        }
+         }
 
     }
     public void SuperColourRemoverMenu()

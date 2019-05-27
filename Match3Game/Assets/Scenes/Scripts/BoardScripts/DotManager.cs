@@ -192,16 +192,15 @@ public class DotManager : MonoBehaviour
     // adds particle effect to the map
     void AddBoardParticles()
     {
-      
-        if (Peices.Count >= 5)
-        {
-            Instantiate(PartyEffect[0], PartySpawner.transform.position, Quaternion.identity);
-        }
-        else if (Peices.Count == 7)
+        if (Peices.Count >= 7)
         {
             Instantiate(PartyEffect[0], PartySpawner.transform.position, Quaternion.identity);
             Instantiate(PartyEffect[1], PartySpawner.transform.position, Quaternion.identity);
 
+        }
+        else if (Peices.Count >= 5)
+        {
+            Instantiate(PartyEffect[0], PartySpawner.transform.position, Quaternion.identity);
         }
 
     }
