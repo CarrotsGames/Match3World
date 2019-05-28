@@ -5,7 +5,6 @@ using PlayFab.AuthenticationModels;
 using PlayFab.ClientModels;
 using UnityEngine.UI;
 using UnityEngine;
-using UnityEditor.Playables;
 using System;
 
 public class EggHatch : MonoBehaviour {
