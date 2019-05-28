@@ -1557,6 +1557,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c45a246a9084f4b4585e6f620e3c9ed9, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &405300939 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1209955372087326, guid: c45a246a9084f4b4585e6f620e3c9ed9,
+    type: 2}
+  m_PrefabInternal: {fileID: 405300938}
 --- !u!1 &422749041
 GameObject:
   m_ObjectHideFlags: 0
@@ -13756,7 +13761,11 @@ MonoBehaviour:
   sceneAudio: {fileID: 891405840}
   NoMusicImage: {fileID: 2143613192}
   MusicImage: {fileID: 2143613193}
+  noSound: {fileID: 2143613196}
+  sound: {fileID: 2143613195}
+  soundEffects: {fileID: 405300939}
   musicOff: 0
+  soundOff: 0
 --- !u!1 &1184539079
 GameObject:
   m_ObjectHideFlags: 0
@@ -18823,6 +18832,26 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 3.088803
       objectReference: {fileID: 0}
+    - target: {fileID: 114869602833746234, guid: e4066718ae92203429c2f18e97d90c1e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1155585508}
+    - target: {fileID: 114869602833746234, guid: e4066718ae92203429c2f18e97d90c1e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NoSounds
+      objectReference: {fileID: 0}
+    - target: {fileID: 114791283084293716, guid: e4066718ae92203429c2f18e97d90c1e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1155585508}
+    - target: {fileID: 114791283084293716, guid: e4066718ae92203429c2f18e97d90c1e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NoSounds
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4066718ae92203429c2f18e97d90c1e, type: 2}
   m_IsPrefabAsset: 0
@@ -18844,5 +18873,15 @@ GameObject:
 --- !u!1 &2143613194 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1036474427024022, guid: e4066718ae92203429c2f18e97d90c1e,
+    type: 2}
+  m_PrefabInternal: {fileID: 2143613190}
+--- !u!1 &2143613195 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1710252745952654, guid: e4066718ae92203429c2f18e97d90c1e,
+    type: 2}
+  m_PrefabInternal: {fileID: 2143613190}
+--- !u!1 &2143613196 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1175655962476402, guid: e4066718ae92203429c2f18e97d90c1e,
     type: 2}
   m_PrefabInternal: {fileID: 2143613190}

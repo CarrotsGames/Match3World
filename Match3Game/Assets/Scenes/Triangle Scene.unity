@@ -5771,6 +5771,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c45a246a9084f4b4585e6f620e3c9ed9, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &909253956 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1209955372087326, guid: c45a246a9084f4b4585e6f620e3c9ed9,
+    type: 2}
+  m_PrefabInternal: {fileID: 909253955}
 --- !u!1 &915610034
 GameObject:
   m_ObjectHideFlags: 0
@@ -9062,6 +9067,26 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114791283084293716, guid: e4066718ae92203429c2f18e97d90c1e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1917611281}
+    - target: {fileID: 114791283084293716, guid: e4066718ae92203429c2f18e97d90c1e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NoSounds
+      objectReference: {fileID: 0}
+    - target: {fileID: 114869602833746234, guid: e4066718ae92203429c2f18e97d90c1e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1917611281}
+    - target: {fileID: 114869602833746234, guid: e4066718ae92203429c2f18e97d90c1e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NoSounds
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4066718ae92203429c2f18e97d90c1e, type: 2}
   m_IsPrefabAsset: 0
@@ -9073,6 +9098,16 @@ GameObject:
 --- !u!1 &1625923608 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1102098166596148, guid: e4066718ae92203429c2f18e97d90c1e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1625923606}
+--- !u!1 &1625923609 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1710252745952654, guid: e4066718ae92203429c2f18e97d90c1e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1625923606}
+--- !u!1 &1625923610 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1175655962476402, guid: e4066718ae92203429c2f18e97d90c1e,
     type: 2}
   m_PrefabInternal: {fileID: 1625923606}
 --- !u!1 &1656633072
@@ -10954,7 +10989,11 @@ MonoBehaviour:
   sceneAudio: {fileID: 58582953}
   NoMusicImage: {fileID: 1625923608}
   MusicImage: {fileID: 1625923607}
+  noSound: {fileID: 1625923610}
+  sound: {fileID: 1625923609}
+  soundEffects: {fileID: 909253956}
   musicOff: 0
+  soundOff: 0
 --- !u!1 &1931614050
 GameObject:
   m_ObjectHideFlags: 0

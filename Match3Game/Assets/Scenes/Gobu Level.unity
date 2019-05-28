@@ -227,7 +227,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -279, y: -56.95}
+  m_AnchoredPosition: {x: -279, y: -56.94995}
   m_SizeDelta: {x: 113.9, y: 113.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &65908826
@@ -1363,9 +1363,39 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114791283084293716, guid: e4066718ae92203429c2f18e97d90c1e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2051829845}
+    - target: {fileID: 114791283084293716, guid: e4066718ae92203429c2f18e97d90c1e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NoSounds
+      objectReference: {fileID: 0}
+    - target: {fileID: 114869602833746234, guid: e4066718ae92203429c2f18e97d90c1e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2051829845}
+    - target: {fileID: 114869602833746234, guid: e4066718ae92203429c2f18e97d90c1e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NoSounds
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4066718ae92203429c2f18e97d90c1e, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &239335130 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1710252745952654, guid: e4066718ae92203429c2f18e97d90c1e,
+    type: 2}
+  m_PrefabInternal: {fileID: 239335129}
+--- !u!1 &239335131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1175655962476402, guid: e4066718ae92203429c2f18e97d90c1e,
+    type: 2}
+  m_PrefabInternal: {fileID: 239335129}
 --- !u!1 &243787849
 GameObject:
   m_ObjectHideFlags: 0
@@ -3292,7 +3322,7 @@ Prefab:
     - target: {fileID: 224346048689091292, guid: b82d59094eebc364ba87b89b4aa10924,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 12.999817
+      value: 12.999756
       objectReference: {fileID: 0}
     - target: {fileID: 224346048689091292, guid: b82d59094eebc364ba87b89b4aa10924,
         type: 2}
@@ -6700,6 +6730,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c45a246a9084f4b4585e6f620e3c9ed9, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1280245433 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1209955372087326, guid: c45a246a9084f4b4585e6f620e3c9ed9,
+    type: 2}
+  m_PrefabInternal: {fileID: 1280245432}
 --- !u!1 &1292097794
 GameObject:
   m_ObjectHideFlags: 0
@@ -10942,7 +10977,9 @@ MonoBehaviour:
   sceneAudio: {fileID: 648267674}
   NoMusicImage: {fileID: 82433897}
   MusicImage: {fileID: 1363671168}
-  soundEffects: {fileID: 0}
+  noSound: {fileID: 239335131}
+  sound: {fileID: 239335130}
+  soundEffects: {fileID: 1280245433}
   musicOff: 0
   soundOff: 0
 --- !u!1001 &2069675662
