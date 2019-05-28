@@ -7,56 +7,91 @@ using UnityEngine.UI;
 using UnityEngine;
 using System;
 
-public class EggHatch : MonoBehaviour {
+public class EggHatch : MonoBehaviour
+{
 
     DateTime Target;
     public Text TimerText;
     public float Timer;
+    private float CurrentTime;
+    private int TargetTime;
+    private int EggNumber;
     private float DefaultTime;
-    DateTime now;
-    // Use this for initialization
-    void Start ()
-    {
-        Target = new DateTime(0, 0, 0, 0, 0, 0);
+    private float RefreshTimer;
 
-        DefaultTime = Timer;
-        StartCountdownTimer();
+    // Use this for initialization
+    void Start()
+    {
+        TargetTime = PlayerPrefs.GetInt("EggHatch" + 1);
+
+
     }
     private void Update()
     {
-        if(Input.GetKeyUp(KeyCode.W))
+        Debug.Log(TargetTime);
+        // Debug purpose 
+        // checks what the current time is 
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            GetServerTime();
+            Debug.Log(CurrentTime);
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            StartCountdownTimer();
+        }
+
+        if (CurrentTime < 3)
+        {
+            GetCurrentTime();
+        }
+
+        // works similarly to the distance from x position from y
+        // Current time counts up to get difference
+        CurrentTime += Time.deltaTime;
+        // gets the difference between target time and current time 
+        Timer = TargetTime - CurrentTime;
+
+        // Displays as timer
+        string minutes = Mathf.Floor(Timer / 60).ToString("00");
+        string seconds = (Timer % 60).ToString("00");
+        TimerText.text = "Time Left: " + minutes + ":" + seconds + ":";
+
+        if (CurrentTime > TargetTime)
+        {
+            Debug.Log("EGGHATCH CONGRATS");
         }
     }
-    public void GetServerTime()
+    // checks the current time on server
+    void GetCurrentTime()
+    {
+        // gets the current time for countdown
+        PlayFabClientAPI.GetTime(new GetTimeRequest(), (GetTimeResult result) =>
+        {
+            // Gets current time to countup 
+            DateTime now = result.Time.AddHours(1); // GMT+1
+            CurrentTime = now.Hour * 60 + now.Minute * 60;
+
+        }, null);
+    }
+    // begins countdown 
+    void StartCountdownTimer()
     {
         PlayFabClientAPI.GetTime(new GetTimeRequest(), (GetTimeResult result) =>
         {
-            now = result.Time.AddHours(1); // GMT+1
+            // Eggnumber is the current egg being hatched (WILL CHANGE TO ARRAY THE MORE EGGS WE HAVE)
+            EggNumber = 1;
+            DateTime now = result.Time.AddHours(1); // GMT+1
+            // The target time is set to be 2 hours ahead
+            Target = result.Time.AddHours(3);
+            CurrentTime = now.Hour * 60 + now.Minute * 60;
+            //180 so it coutns down to 3 hours
+            TargetTime = Target.Hour * 180 + Target.Minute * 180;
+            // save target time
+            //                          PLUS ARRAY NUM
+            PlayerPrefs.SetInt("EggHatch" + 1, TargetTime);
 
-            int TargetSec = Target.Hour * 60 * 60 + Target.Minute * 60 + Target.Second;
-         }, null);
-    }
-    void StartCountdownTimer()
-    {
-          
-        if(TimerText != null)
-        {
-            Timer = DefaultTime;
-            TimerText.text = "Time Left :";
-            InvokeRepeating("UpdateTimer", 0.0f, 0.01667f);
-        }
-    }
-    void UpdateTimer()
-    {
-        if (TimerText != null)
-        {
-            Timer -= Time.deltaTime;
-            string minutes = Mathf.Floor(Timer / 60).ToString("00");
-            string seconds = (Timer % 60).ToString("00");
-            TimerText.text = "Time Left: " + now.Minute + ":" + now.Second + ":";
-        }
+        }, null);
 
     }
+
 }
