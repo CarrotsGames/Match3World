@@ -11,9 +11,13 @@ public class settings : MonoBehaviour {
     public GameObject NoMusicImage;
     public GameObject MusicImage;
 
+    public GameObject noSound;
+    public GameObject sound;
+
     public GameObject soundEffects;
 
     public bool musicOff;
+
     public bool soundOff;
 
 
@@ -36,6 +40,20 @@ public class settings : MonoBehaviour {
             NoMusicImage.SetActive(false);
             MusicImage.SetActive(true);
         }
+
+        if (soundOff)
+        {
+            AudioManagerScript.soundOn = false;
+            noSound.SetActive(true);
+            sound.SetActive(false);
+        }else
+        {
+            AudioManagerScript.soundOn = true;
+            noSound.SetActive(false);
+            sound.SetActive(true);
+        }
+
+
 
     }
 
@@ -73,9 +91,20 @@ public class settings : MonoBehaviour {
 
     public void NoSounds()
     {
+        if (soundOff)
+        {
+            AudioManagerScript.soundOn = true;
+            soundOff = false;
+            noSound.SetActive(false);
+            sound.SetActive(true);
 
-        AudioManagerScript.soundOn = true;
-        AudioManagerScript.soundOn = false;
+        }else
+        {
+            AudioManagerScript.soundOn = false;
+            soundOff = true;
+            noSound.SetActive(true);
+            sound.SetActive(false);
+        }
 
     }
 }
