@@ -11,11 +11,18 @@ public class settings : MonoBehaviour {
     public GameObject NoMusicImage;
     public GameObject MusicImage;
 
-    public bool musicOff;
+    public GameObject soundEffects;
 
- 
+    public bool musicOff;
+    public bool soundOff;
+
+
+    private GameObject AudioManagerGameObj;
+    private AudioManager AudioManagerScript;
     private void Start()
     {
+        AudioManagerGameObj = GameObject.FindGameObjectWithTag("AudioManager");
+        AudioManagerScript = AudioManagerGameObj.GetComponent<AudioManager>();
         musicOff = PlayerPrefs.GetInt("MusicSave") != 0;
         if(musicOff)
         {
@@ -60,6 +67,15 @@ public class settings : MonoBehaviour {
             NoMusicImage.SetActive(true);
             MusicImage.SetActive(false);
         }
+
+    }
+
+
+    public void NoSounds()
+    {
+
+        AudioManagerScript.soundOn = true;
+        AudioManagerScript.soundOn = false;
 
     }
 }
