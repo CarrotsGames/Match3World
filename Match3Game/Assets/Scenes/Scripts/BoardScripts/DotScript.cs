@@ -21,16 +21,18 @@ public class DotScript : MonoBehaviour
     public bool GrowSize;
     [HideInInspector]
     public int LayerType = 10;
+    private bool HasPlayedSound;
     private float time;
     private BoardScript Board;
     private GameObject HappinessManagerGameobj;
     public HappinessManager HappinessManagerScript;
-    private AudioSource audio;
     public DotManager DotManagerScript;
     private GameObject DotManagerObj;
     private LineRenderer DrawLine;
     private Collider2D col2d;
     private Material Default;
+    private GameObject AudioManagerGameObj;
+    private AudioManager AudioManagerScript;
     public Material BlueEmmision;
     string Colour;
     // Use this for initialization
@@ -39,8 +41,8 @@ public class DotScript : MonoBehaviour
         HappinessManagerGameobj = GameObject.FindGameObjectWithTag("HM");
         HappinessManagerScript = HappinessManagerGameobj.GetComponent<HappinessManager>();
         Physics2D.IgnoreLayerCollision(0, 14);
-
-        audio = GetComponent<AudioSource>();
+        AudioManagerGameObj = GameObject.FindGameObjectWithTag("AudioManager");
+        AudioManagerScript = AudioManagerGameObj.GetComponent<AudioManager>();
         DrawLine = GetComponent<LineRenderer>();
         DrawLine.enabled = false;
         GrowSize = false;
@@ -52,7 +54,7 @@ public class DotScript : MonoBehaviour
         Board = FindObjectOfType<BoardScript>();
         Default = GetComponent<Renderer>().material;
         BlueEmmision = GetComponent<SpriteRenderer>().material;
-
+        HasPlayedSound = true;
     }
 
     // Update is called once per frame
@@ -128,8 +130,13 @@ public class DotScript : MonoBehaviour
             newScale.z = Mathf.Clamp(transform.localScale.y, jucSize, jucSize);
             newScale.y = Mathf.Clamp(transform.localScale.y, jucSize, jucSize);
             transform.localScale = newScale;
-            audio.PlayDelayed(0.15f);
- 
+            if (HasPlayedSound)
+            {
+                // Plays the Node Highlite Sound
+                AudioManagerScript.NodeSource.clip = AudioManagerScript.NodeAudio[0];
+                AudioManagerScript.NodeSource.Play();
+                HasPlayedSound = false;
+            }
         }
         else
         {
@@ -199,7 +206,10 @@ public class DotScript : MonoBehaviour
         this.gameObject.layer = LayerType;
  
         ToggleHighlite += 1;
-        audio.PlayDelayed(0);
+        // plays the node highlite sound
+        AudioManagerScript.NodeSource.clip = AudioManagerScript.NodeAudio[0];
+        AudioManagerScript.NodeSource.PlayOneShot(AudioManagerScript.NodeSource.clip);
+
         DotManagerScript.MouseCursorObj.SetActive(true);
     }
     private void OnMouseDrag()

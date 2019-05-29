@@ -5,21 +5,35 @@ using System.Collections;
 public class ParticleDecay : MonoBehaviour
 {
     float DecayTimer;
-    private AudioSource Source;
-    public AudioClip ParticleAudio;
-    // Use this for initialization
+    public int AudioIndex;
+    // 0 BOMBSOUND
+    // 1 FIREWORKSOUND 
+    // 2 LITE PARTY
+    // 3 HEAVY PARTY
+    bool PlayAudio;
+
+
+    private GameObject AudioManagerGameObj;
+    private AudioManager AudioManagerScript;
     void Start()
     {
-        Source = GetComponent<AudioSource>();
-        DecayTimer = 1.5f;
-        Source.clip = ParticleAudio;
-        Source.Play();
+        PlayAudio = true;
+        AudioManagerGameObj = GameObject.FindGameObjectWithTag("AudioManager");
+        AudioManagerScript = AudioManagerGameObj.GetComponent<AudioManager>();
+         DecayTimer = 1.5f;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-         
+        if(PlayAudio)
+        {
+            AudioManagerScript.ParticleSource.clip = AudioManagerScript.ParticleAudio[AudioIndex];
+            AudioManagerScript.ParticleSource.Play();
+            PlayAudio = false;
+        }
+
         DecayTimer -= Time.deltaTime;
         if(DecayTimer < 0)
         {

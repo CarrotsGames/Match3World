@@ -8,15 +8,18 @@ public class BombExplodeScript : MonoBehaviour
     public GameObject Board;
     public GameObject ExplosionEffect;
     public List<GameObject> CollidedNodes;
-    public AudioClip Audio;
+  
     private DotManager DotManagerScript;
     private GameObject DotManagerObj;
-    private AudioSource Source;
-     bool Detonate;
+      bool Detonate;
     bool AddScore;
-    // Update is called once per frame
-    private void Start()
+    private GameObject AudioManagerGameObj;
+    private AudioManager AudioManagerScript;
+
+    void Start()
     {
+        AudioManagerGameObj = GameObject.FindGameObjectWithTag("AudioManager");
+        AudioManagerScript = AudioManagerGameObj.GetComponent<AudioManager>();
         // 12 = BOMB Layer
         // 11 = WALL layer
         // ignroe collisions Between this layer and this layer
@@ -26,8 +29,8 @@ public class BombExplodeScript : MonoBehaviour
         AddScore = false;
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
-        Source = GetComponent<AudioSource>();
-    }
+
+     }
 
     void Update()
     {
@@ -63,7 +66,7 @@ public class BombExplodeScript : MonoBehaviour
             if (Detonate)
             {
                 AddScore = true;
-                Source.PlayOneShot(Audio);
+                AudioManagerScript.ParticleSource.PlayOneShot(AudioManagerScript.ParticleAudio[0]);
                 Instantiate(ExplosionEffect, transform.position, Quaternion.identity);
                 GetComponent<SpriteRenderer>().enabled = false;
                 GetComponent<CircleCollider2D>().enabled = false;
