@@ -26,7 +26,7 @@ public class PlayFabCurrency : MonoBehaviour
 
     public void LoggedIn()
     {
-         if (string.IsNullOrEmpty(PlayFabSettings.TitleId))
+          if (string.IsNullOrEmpty(PlayFabSettings.TitleId))
         {
             PlayFabSettings.TitleId = "(DE2C) Superflat Connect 3"; // Please change this value to your own titleId from PlayFab Game Manager
         }

@@ -8,7 +8,7 @@ public class UpdateScore : MonoBehaviour
 {
     GameObject DotManagerObj;
     DotManager DotManagerScript;
-  
+    public GameObject EggHatchGameObj;
     float UpdateScoreTimer;
  
     public void Start()
@@ -35,7 +35,7 @@ public class UpdateScore : MonoBehaviour
         }, result =>
         {
             Debug.Log("Logged in");
-            //  GetLeaderBoard();
+             //  GetLeaderBoard();
 
             // Refresh available items 
         }, error => Debug.LogError(error.GenerateErrorReport()));
