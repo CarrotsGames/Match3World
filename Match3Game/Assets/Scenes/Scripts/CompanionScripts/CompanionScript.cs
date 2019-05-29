@@ -26,6 +26,7 @@ public class CompanionScript : MonoBehaviour
     // Update is called once per frame
     private int posX;
     private int posY;
+    // Chain multiplier depending on how big your chain is
     private int HungerMultiplier = 1;
     private int CurrencyChance;
     private GameObject AudioManagerGameObj;
@@ -65,7 +66,7 @@ public class CompanionScript : MonoBehaviour
             CurrencyChance = HungerMultiplier;
             Destroy(EatingPeices[i].gameObject);
             HungerMultiplier = i / 2;
-            MainCamera.GetComponent<CameraShake>().ShakeCamera(HungerMultiplier / 1.5f, 0.25f);
+            MainCamera.GetComponent<CameraShake>().ShakeCamera(HappinessManagerScript.MultlpierNum / 1.5f, 0.25f);
             // displays total score to Text
  
             DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
