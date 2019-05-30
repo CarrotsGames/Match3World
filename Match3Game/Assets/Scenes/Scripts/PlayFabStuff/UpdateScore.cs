@@ -30,8 +30,7 @@ public class PlayFabLogin : MonoBehaviour
             
         }, result =>
         {
-            Debug.Log("Logged in");
-          //  GetLeaderBoard();
+           //  GetLeaderBoard();
 
             // Refresh available items 
         }, error => Debug.LogError(error.GenerateErrorReport()));

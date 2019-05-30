@@ -102,13 +102,11 @@ public class CompanionNavigation : MonoBehaviour
             {
                 if(x < 0)
                 {
-                    Debug.Log("left");
                     NavLeft();
                 }
                 else
                 {
-                    Debug.Log("right");
-                    NavRight();
+                     NavRight();
                 }
             }
             Reset();

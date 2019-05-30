@@ -9,7 +9,8 @@ public class MonthlyChallenge : MonoBehaviour {
     GameObject DotManagerGameObj;
     public GameObject PrizeCompanion;
     int UnlockGift;
-    
+    public GameObject UnlockMoobling;
+
     private string NameOfPrize;
     bool HasUnlockedGift;
     int MonthlyVersions;
@@ -64,6 +65,7 @@ public class MonthlyChallenge : MonoBehaviour {
                 Debug.Log("YOU GOT THE PRIZE");
                 UnlockGift += 1;
                 PlayerPrefs.SetInt("MONTHLYPRIZE", UnlockGift);
+
             }
             else
             {
@@ -105,19 +107,21 @@ public class MonthlyChallenge : MonoBehaviour {
     {
         if (DotManagerScript.TotalScore > UnlockScore[0])
         {
-            Debug.Log("UNLOCK BINKY");
+ 
             UnlockableString = "BINKY";
             PlayerPrefs.SetString("UNLOCKED", UnlockableString);
+            UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
 
         }
         if (DotManagerScript.TotalScore > UnlockScore[1])
         {
-            Debug.Log("UNLOCK KOKO");
+ 
             UnlockableString = "KOKO";
             PlayerPrefs.SetString("UNLOCKED", UnlockableString);
+            UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
 
         }
-      
+
     }
     // informs player that tournament is over
     void MonthlyChallengeEnded()

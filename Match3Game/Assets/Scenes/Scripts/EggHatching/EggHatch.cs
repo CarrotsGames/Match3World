@@ -61,7 +61,8 @@ public class EggHatch : MonoBehaviour
 
         if (Test > TimeStamp)
         {
-            Debug.Log("TIMEHIT");
+            //TODO
+            //HATCH EGG
         }
     }
     // checks the current time on server

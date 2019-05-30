@@ -165,6 +165,7 @@ public class StoreScript : MonoBehaviour
                     Debug.Log("YOU HAVE PURCHASED KRRRRAASSS");
                     PowerUpManagerScript.Currency -= CompanionPrice[0];
                     unlockScreen.SetActive(true);
+                    UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
 
                 }
                 else

@@ -46,6 +46,6 @@ public class TimeMasterScript : MonoBehaviour
     {
         //saves current system time
         PlayerPrefs.SetString(SaveLocation, System.DateTime.Now.ToBinary().ToString());
-        print("Saving This Date to PlayerPrefs : " + System.DateTime.Now);
+ 
     }
 }

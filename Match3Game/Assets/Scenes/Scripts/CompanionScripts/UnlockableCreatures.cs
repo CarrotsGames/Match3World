@@ -19,6 +19,7 @@ public class UnlockableCreatures : MonoBehaviour
     // Names for Each moobling
     public string[] UnlockableMoobling;
     public Sprite[] CompanionImages;
+    private float CheckUnlocks;
      // MOOBLING NUMBERS FOR UNLOCKABLEMOOBLING STRING
     // 0 GOBU
     // 1 BINKY
@@ -45,13 +46,9 @@ public class UnlockableCreatures : MonoBehaviour
         Unlock();
         // unlocks the character 
         GetUnlocked();
-
+ 
     }
-    private void Update()
-    {
-       // Unlock();
-       // GetUnlocked();
-    }
+ 
     // Goes through an checks which companins are unlocked
     public void GetUnlocked()
     {
