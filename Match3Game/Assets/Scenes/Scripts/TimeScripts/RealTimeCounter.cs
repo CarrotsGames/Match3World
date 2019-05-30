@@ -37,12 +37,13 @@ public class RealTimeCounter : MonoBehaviour
         //1 Assign a save to happinesscountdown array with new companion
         //2 Add a "TimeMasterScript.instance.CheckDate() / 25" to deduct that companions happiness
         //3 In this script go to happinessmanagerscript(line 74) switch and add a case with a save name
-        //4 Then in update add an else if with that companion name and countdown the time (Make sure HappinessCountdown is set to right array)
-        //5 Make that companon array equal the happiness slidervalue(happienssmetre)
-        //6 In "happinessmanager" script go to companion save switch (line 51) and add that companion save 
-        //7 Make sure the case is equal to the companions name in scene
-        //8 Give that companion savestring name(savestring saves the sleeping bool for that companion)
-        //9 Finally go to CompanionNaviagion "CompanionSwitch" (Line 125) and add that companions name in the navigation menu 
+        //4 Now go into update and make the new happiness countdown (line 159 to end of update)
+        //5 Then in update add an else if with that companion name and countdown the time (Make sure HappinessCountdown is set to right array)
+        //6 Make that companon array equal the happiness slidervalue(happienssmetre)
+        //7 In "happinessmanager" script go to companion save switch (line 51) and add that companion save 
+        //8 Make sure the case is equal to the companions name in scene
+        //9 Give that companion savestring name(savestring saves the sleeping bool for that companion)
+        //10 Finally go to CompanionNaviagion "CompanionSwitch" (Line 125) and add that companions name in the navigation menu 
         //with their arrays 
         ////////////////////////HAPPINESS COUNTDOWNS////////////////////////////////
        

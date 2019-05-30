@@ -10,7 +10,7 @@ public class StoreScript : MonoBehaviour
     public List<GameObject> StoreItems;
     public GameObject ItemStorage;
     public GameObject unlockScreen;
-
+    public GameObject UnlockMoobling;
     public int SuperColourRemoverQuantity;
     public int SuperShuffleQuantity;
     public int SuperBombQuantity;
@@ -86,6 +86,15 @@ public class StoreScript : MonoBehaviour
                 break;
         }
     }
+    // Set in store scene
+    // HOW TO SET UP COMPANION PURCHASE
+    // 1: add a case for that companion and there price
+    // 2: set the UNLOCK string to a suitable name for the companion. eg SAUCO 
+    //NOTE:UNLOCKED cannot be changed because that saves the unlockables name 
+    // 3 Go to unlockable script and give the new companions its own LockedMoobling,UnlockableMoobling index (line 56)
+    // 4 now go to the Unlock void in that script and add the unlock string name (set before) to a new case
+    // 5 Add that mooblings unlocableMoobling index to equal companion name
+    // 6 finally save the string to that unlockableMoobling index and were good to go
 
     public void Shop(int ButtonNumber)
     {
@@ -170,7 +179,7 @@ public class StoreScript : MonoBehaviour
                     Debug.Log("YOU HAVE PURCHASED THE SAUUUUUUUCE");
                     PowerUpManagerScript.Currency -= CompanionPrice[1];
                     unlockScreen.SetActive(true);
-
+                    UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
                 }
                 else
                 {

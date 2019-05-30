@@ -55,26 +55,28 @@ public class UnlockableCreatures : MonoBehaviour
     // Goes through an checks which companins are unlocked
     public void GetUnlocked()
     {
-       
-        if(UnlockableMoobling[0] == "BINKY")
+        if (LockedCompanions[0].name != "Dummy")
         {
-            LockedCompanions[0].GetComponent<Image>().sprite = CompanionImages[0];
-            LockedCompanions[0].GetComponent<Button>().enabled = true;
-        }
-         if (UnlockableMoobling[1] == "KOKO")
-        {
-            LockedCompanions[1].GetComponent<Image>().sprite = CompanionImages[1];
-            LockedCompanions[1].GetComponent<Button>().enabled = true;
-        }
-        if (CriusUnlocked == "CRIUS")
-        {
-            LockedCompanions[2].GetComponent<Image>().sprite = CompanionImages[2];
-            LockedCompanions[2].GetComponent<Button>().enabled = true;
-        }
-        if (UnlockableMoobling[3] == "SAUCO")
-        {
-            LockedCompanions[3].GetComponent<Image>().sprite = CompanionImages[3];
-            LockedCompanions[3].GetComponent<Button>().enabled = true;
+            if (UnlockableMoobling[0] == "BINKY")
+            {
+                LockedCompanions[0].GetComponent<Image>().sprite = CompanionImages[0];
+                LockedCompanions[0].GetComponent<Button>().enabled = true;
+            }
+            if (UnlockableMoobling[1] == "KOKO")
+            {
+                LockedCompanions[1].GetComponent<Image>().sprite = CompanionImages[1];
+                LockedCompanions[1].GetComponent<Button>().enabled = true;
+            }
+            if (CriusUnlocked == "CRIUS")
+            {
+                LockedCompanions[2].GetComponent<Image>().sprite = CompanionImages[2];
+                LockedCompanions[2].GetComponent<Button>().enabled = true;
+            }
+            if (UnlockableMoobling[3] == "SAUCO")
+            {
+                LockedCompanions[3].GetComponent<Image>().sprite = CompanionImages[3];
+                LockedCompanions[3].GetComponent<Button>().enabled = true;
+            }
         }
     }
     // Checks the companionName strings name and unlocks that character

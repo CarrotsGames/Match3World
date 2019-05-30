@@ -2121,6 +2121,34 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4144176880081426, guid: e4066718ae92203429c2f18e97d90c1e,
     type: 2}
   m_PrefabInternal: {fileID: 1156522790}
+--- !u!1 &413375202
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 413375203}
+  m_Layer: 0
+  m_Name: Dummy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &413375203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 413375202}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.12037432, y: -5.6297774, z: 2.1457984}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &419389646
 GameObject:
   m_ObjectHideFlags: 0
@@ -2364,6 +2392,63 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 429046332}
   m_CullTransparentMesh: 0
+--- !u!1001 &436064733
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 114872690170545272, guid: 454f8424e61f4b94598935dfa480b552,
+        type: 2}
+      propertyPath: LockedCompanions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114872690170545272, guid: 454f8424e61f4b94598935dfa480b552,
+        type: 2}
+      propertyPath: UnlockableMoobling.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764294800479426, guid: 454f8424e61f4b94598935dfa480b552, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.12037432
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764294800479426, guid: 454f8424e61f4b94598935dfa480b552, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -5.6297774
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764294800479426, guid: 454f8424e61f4b94598935dfa480b552, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 2.1457984
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764294800479426, guid: 454f8424e61f4b94598935dfa480b552, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764294800479426, guid: 454f8424e61f4b94598935dfa480b552, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764294800479426, guid: 454f8424e61f4b94598935dfa480b552, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764294800479426, guid: 454f8424e61f4b94598935dfa480b552, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764294800479426, guid: 454f8424e61f4b94598935dfa480b552, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114872690170545272, guid: 454f8424e61f4b94598935dfa480b552,
+        type: 2}
+      propertyPath: LockedCompanions.Array.data[0]
+      value: 
+      objectReference: {fileID: 413375202}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 454f8424e61f4b94598935dfa480b552, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &456886685
 GameObject:
   m_ObjectHideFlags: 0
@@ -8729,6 +8814,11 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1981322385}
   m_CullTransparentMesh: 0
+--- !u!1 &2020436074 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1269676272982220, guid: 454f8424e61f4b94598935dfa480b552,
+    type: 2}
+  m_PrefabInternal: {fileID: 436064733}
 --- !u!1 &2023842596
 GameObject:
   m_ObjectHideFlags: 0
@@ -8937,6 +9027,7 @@ MonoBehaviour:
   StoreItems: []
   ItemStorage: {fileID: 1193772153}
   unlockScreen: {fileID: 1259920103}
+  UnlockMoobling: {fileID: 2020436074}
   SuperColourRemoverQuantity: 5
   SuperShuffleQuantity: 5
   SuperBombQuantity: 5
