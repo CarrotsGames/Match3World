@@ -162,7 +162,20 @@ public class StoreScript : MonoBehaviour
                 {
                     Debug.Log("Insufficient funds");
                 }
+                break;
+            case 6:
+                if (PowerUpManagerScript.Currency >= CompanionPrice[1])
+                {
+                    PlayerPrefs.SetString("UNLOCKED", "SAUCO");
+                    Debug.Log("YOU HAVE PURCHASED THE SAUUUUUUUCE");
+                    PowerUpManagerScript.Currency -= CompanionPrice[1];
+                    unlockScreen.SetActive(true);
 
+                }
+                else
+                {
+                    Debug.Log("Insufficient funds");
+                }
                 break;
 
         }

@@ -122,6 +122,7 @@ public class RealTimeCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // changes the HappinessSlider to that companions happiness
         if (companionName == "GobuHappiness")
         {
             HappinessCountDown[0] = HappinessManagerScript.HappinessSliderValue;
@@ -153,6 +154,7 @@ public class RealTimeCounter : MonoBehaviour
             HappinessCountDown[4] = HappinessManagerScript.HappinessSliderValue;
 
         }
+        // COUNTS DOWN ALL COMPANION HAPPINESS WHILE NOT IN SCENE
         HappinessCountDown[0] = Mathf.Clamp(HappinessCountDown[0], 0, 100);
         // Update timer each frame by delay
         HappinessCountDown[0] -= Time.deltaTime / 10;
@@ -173,7 +175,12 @@ public class RealTimeCounter : MonoBehaviour
         HappinessCountDown[3] -= Time.deltaTime / 10;
         PlayerPrefs.SetFloat("CriusHappiness", HappinessCountDown[3]);
 
-     }
+        HappinessCountDown[4] = Mathf.Clamp(HappinessCountDown[4], 0, 100);
+        // Update timer each frame by delay
+        HappinessCountDown[4] -= Time.deltaTime / 10;
+        PlayerPrefs.SetFloat("SaucoHappiness", HappinessCountDown[4]);
+
+    }
 
     private void OnGUI()
     {

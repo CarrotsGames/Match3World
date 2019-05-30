@@ -146,6 +146,10 @@ public class CompanionNavigation : MonoBehaviour
             case 5:
                 SceneManager.LoadScene("Crius");
                 break;
+
+            case 6:
+                SceneManager.LoadScene("Sauco");
+                break;
         }
 
     }
@@ -239,7 +243,7 @@ public class CompanionNavigation : MonoBehaviour
 
                 break;
           
-            case "Sauco":
+            case "Sauco Locked":
                 Happiness[4] = PlayerPrefs.GetFloat("SaucoHappiness");
                 RealTimeScript.HappinessCountDown[4] = Happiness[4];
                 HappySlider.value = RealTimeScript.HappinessCountDown[4];

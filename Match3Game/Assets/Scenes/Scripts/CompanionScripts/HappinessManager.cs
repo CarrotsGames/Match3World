@@ -232,8 +232,7 @@ public class HappinessManager : MonoBehaviour
             AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
             PlayerPrefs.SetInt(AudioGameObj.GetComponent<SceneAudio>().MorningSave, (AudioGameObj.GetComponent<SceneAudio>().Daymode ? 1 : 0));
 
-            Debug.Log("Sleeping");
-        }
+         }
         else
         {
             NightTime.SetActive(false);
@@ -246,8 +245,7 @@ public class HappinessManager : MonoBehaviour
             AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
             PlayerPrefs.SetInt(AudioGameObj.GetComponent<SceneAudio>().MorningSave, (AudioGameObj.GetComponent<SceneAudio>().Daymode ? 1 : 0));
 
-            Debug.Log("NotSleeping");
-
+ 
         }
     }
     // Multlpier of companions
