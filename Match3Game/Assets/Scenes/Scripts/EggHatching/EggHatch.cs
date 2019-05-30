@@ -15,26 +15,27 @@ public class EggHatch : MonoBehaviour
     public Text TimerText;
     public float Timer;
     private float CurrentTime;
-    private int TargetTime;
-    private int EggNumber;
-    private float DefaultTime;
-    private float RefreshTimer;
+     private int EggNumber;
+     private float RefreshTimer;
+    double MinutesFromTs;
     DateTime now;
     long Period;
     long TimeStamp;
+    long Test;
     // Use this for initialization
     void Start()
     {
-        Period = System.Convert.ToInt64(PlayerPrefs.GetString("EggHatch"));
+        CurrentTime = 3;
+        TimeStamp = System.Convert.ToInt64(PlayerPrefs.GetString("EggHatch"));
     }
     private void Update()
     {
-        Debug.Log(TargetTime);
+
         // Debug purpose 
         // checks what the current time is 
         if (Input.GetKeyDown(KeyCode.W))
         {
-            Debug.Log(CurrentTime);
+            
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
@@ -46,20 +47,21 @@ public class EggHatch : MonoBehaviour
         {
             GetCurrentTime();
         }
-
+    
         // works similarly to the distance from x position from y
         // Current time counts up to get difference
         // gets the difference between target time and current time 
-      //  Timer = TargetTime - CurrentTime;
-      //
-      //  // Displays as timer
-      //  string minutes = Mathf.Floor(Timer / 60).ToString("00");
-      //  string seconds = (Timer % 60).ToString("00");
-      //  TimerText.text = "Time Left: " + minutes + ":" + seconds + ":";
-      //
-        if (TimeStamp > Period)
+        //  Timer = TargetTime - CurrentTime;
+        //
+        //  // Displays as timer
+        //  string minutes = Mathf.Floor(Timer / 60).ToString("00");
+        //  string seconds = (Timer % 60).ToString("00");
+        //  TimerText.text = "Time Left: " + minutes + ":" + seconds + ":";
+        //
+
+        if (Test > TimeStamp)
         {
-        
+            Debug.Log("TIMEHIT");
         }
     }
     // checks the current time on server
@@ -70,7 +72,8 @@ public class EggHatch : MonoBehaviour
         {
             // Gets current time to countup 
             now = result.Time.AddHours(0); // GMT+1
-            TimeStamp = now.Hour * 60 + now.Minute * 60;
+            Test = now.Ticks;
+           
             CurrentTime = 5;
 
         }, null);
@@ -80,15 +83,19 @@ public class EggHatch : MonoBehaviour
     {
         PlayFabClientAPI.GetTime(new GetTimeRequest(), (GetTimeResult result) =>
         {
-            // Eggnumber is the current egg being hatched (WILL CHANGE TO ARRAY THE MORE EGGS WE HAVE)
-            EggNumber = 1;
-            now = result.Time.AddHours(0);
-            Target = result.Time.AddHours(3); // GMT+1
-            Period = Target.Hour * 540 + Target.Minute * 540;
-            TimeStamp = now.Hour * 60 + now.Minute * 60;
-         
+            // Eggnumber is the current egg being hatched (WILL CHANGE TO ARRAY THE MORE EGGS WE HAVE)ssssss
+           //EggNumber = 1;
+           now = result.Time.AddHours(0);
+            Period = 36L * 1000000000L ;
+            TimeStamp = now.Ticks + Period;
+            TimeSpan ts = TimeSpan.FromTicks(Period);
+            MinutesFromTs = ts.TotalMinutes;
+            //Target = result.Time.AddHours(3); // GMT+1
+            //Period = Target.Hour * 540 + Target.Minute * 540;
+            //TimeStamp = now.Hour * 60 + now.Minute * 60;
+
             // //                          PLUS ARRAY NUM
-            PlayerPrefs.SetString("EggHatch", "" +  Period);
+            PlayerPrefs.SetString("EggHatch", "" + TimeStamp);
 
         }, null);
 
