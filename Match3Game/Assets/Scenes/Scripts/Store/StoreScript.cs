@@ -187,7 +187,20 @@ public class StoreScript : MonoBehaviour
                     Debug.Log("Insufficient funds");
                 }
                 break;
-
+            case 7:
+                if (PowerUpManagerScript.Currency >= CompanionPrice[1])
+                {
+                    PlayerPrefs.SetString("UNLOCKED", "CHICKPEA");
+                    Debug.Log("EAT YOUR PEA PROFESSSSSSSSSOOOOOOOOOOOOORRRRRRRRRRRR");
+                    PowerUpManagerScript.Currency -= CompanionPrice[1];
+                    unlockScreen.SetActive(true);
+                    UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
+                }
+                else
+                {
+                    Debug.Log("Insufficient funds");
+                }
+                break;
         }
     }
 

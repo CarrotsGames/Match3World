@@ -105,6 +105,7 @@ public class MonthlyChallenge : MonoBehaviour {
     // unlcoks the creature when the score has been met
     void CreatureUnlock()
     {
+
         if (DotManagerScript.TotalScore > UnlockScore[0])
         {
  

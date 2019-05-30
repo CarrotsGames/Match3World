@@ -74,6 +74,11 @@ public class UnlockableCreatures : MonoBehaviour
                 LockedCompanions[3].GetComponent<Image>().sprite = CompanionImages[3];
                 LockedCompanions[3].GetComponent<Button>().enabled = true;
             }
+            if (UnlockableMoobling[4] == "CHICKPEA")
+            {
+                LockedCompanions[4].GetComponent<Image>().sprite = CompanionImages[4];
+                LockedCompanions[4].GetComponent<Button>().enabled = true;
+            }
         }
     }
     // Checks the companionName strings name and unlocks that character
@@ -113,6 +118,12 @@ public class UnlockableCreatures : MonoBehaviour
                 {
                     UnlockableMoobling[3] = CompanionName;
                     PlayerPrefs.SetString("SAUCO", UnlockableMoobling[3]);
+                }
+                break;
+            case "CHICKPEA":
+                {
+                    UnlockableMoobling[4] = CompanionName;
+                    PlayerPrefs.SetString("CHICKPEA", UnlockableMoobling[4]);
                 }
                 break;
         }
