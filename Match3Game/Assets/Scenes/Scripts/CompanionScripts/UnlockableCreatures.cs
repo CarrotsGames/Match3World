@@ -42,6 +42,8 @@ public class UnlockableCreatures : MonoBehaviour
         // TODO: Change to UnlockableMoobling[2]
         CriusUnlocked = PlayerPrefs.GetString("CRIUS");
         UnlockableMoobling[3] = PlayerPrefs.GetString("SAUCO");
+        UnlockableMoobling[4] = PlayerPrefs.GetString("CHICKPEA");
+
         // Activates unlocked characters
         Unlock();
         // unlocks the character 
