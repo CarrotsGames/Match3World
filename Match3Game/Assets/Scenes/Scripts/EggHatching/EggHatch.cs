@@ -32,33 +32,21 @@ public class EggHatch : MonoBehaviour
     {
 
         // Debug purpose 
-        // checks what the current time is 
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            
-        }
+  
         if (Input.GetKeyDown(KeyCode.S))
         {
             StartCountdownTimer();
         }
         CurrentTime -= Time.deltaTime;
 
+        // Gets time every second
         if (CurrentTime <  1)
         {
             GetCurrentTime();
         }
     
-        // works similarly to the distance from x position from y
-        // Current time counts up to get difference
-        // gets the difference between target time and current time 
-        //  Timer = TargetTime - CurrentTime;
-        //
-        //  // Displays as timer
-        //  string minutes = Mathf.Floor(Timer / 60).ToString("00");
-        //  string seconds = (Timer % 60).ToString("00");
-        //  TimerText.text = "Time Left: " + minutes + ":" + seconds + ":";
-        //
-
+  
+        // if the time is greater than time stamp hatch egg
         if (Test > TimeStamp)
         {
             //TODO
@@ -86,16 +74,13 @@ public class EggHatch : MonoBehaviour
         {
             // Eggnumber is the current egg being hatched (WILL CHANGE TO ARRAY THE MORE EGGS WE HAVE)ssssss
            //EggNumber = 1;
-           now = result.Time.AddHours(0);
+            now = result.Time.AddHours(0);
             Period = 36L * 1000000000L ;
             TimeStamp = now.Ticks + Period;
             TimeSpan ts = TimeSpan.FromTicks(Period);
             MinutesFromTs = ts.TotalMinutes;
-            //Target = result.Time.AddHours(3); // GMT+1
-            //Period = Target.Hour * 540 + Target.Minute * 540;
-            //TimeStamp = now.Hour * 60 + now.Minute * 60;
-
-            // //                          PLUS ARRAY NUM
+       
+            // sets egghatch save to timestamp    PLUS ARRAY NUM
             PlayerPrefs.SetString("EggHatch", "" + TimeStamp);
 
         }, null);
