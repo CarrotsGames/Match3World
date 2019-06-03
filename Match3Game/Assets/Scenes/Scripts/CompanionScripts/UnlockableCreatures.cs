@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class UnlockableCreatures : MonoBehaviour
 {
+    [HideInInspector]
     public string CompanionName;
-    private string NewGobuUnlocked;
+    [HideInInspector]
     public string CriusUnlocked;
+    private string NewGobuUnlocked;
     // Put all locked companions in here 
     public GameObject[] LockedCompanions;
     // holds all the Available companions in gameobject
@@ -35,7 +37,6 @@ public class UnlockableCreatures : MonoBehaviour
 
         // bools that check if that character is unlocked
         NewGobuUnlocked = PlayerPrefs.GetString("NEWGOBU");
-
 
         UnlockableMoobling[0] = PlayerPrefs.GetString("BINKY");
         UnlockableMoobling[1] = PlayerPrefs.GetString("KOKO");
@@ -129,5 +130,6 @@ public class UnlockableCreatures : MonoBehaviour
                 }
                 break;
         }
+        GetUnlocked();
     }
 }

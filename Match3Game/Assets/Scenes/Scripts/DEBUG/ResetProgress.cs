@@ -28,6 +28,9 @@ public class ResetProgress : MonoBehaviour {
             PlayerPrefs.SetString("BINKY", "Nothing");
             PlayerPrefs.SetString("KOKO", "Nothing");
             PlayerPrefs.SetString("CRIUS", "Nothing");
+            PlayerPrefs.SetString("SAUCO", "Nothing");
+            PlayerPrefs.SetString("CHICKPEA", "Nothing");
+
             PlayerPrefs.SetString("UNLOCKED", "Nothing");
             PlayerPrefs.SetFloat("GOBUSCORETRACK", 0);
             PlayerPrefs.SetFloat("BINKYSCORETRACK", 0);

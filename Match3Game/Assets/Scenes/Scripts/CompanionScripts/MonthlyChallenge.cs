@@ -9,7 +9,7 @@ public class MonthlyChallenge : MonoBehaviour {
     GameObject DotManagerGameObj;
     public GameObject PrizeCompanion;
     int UnlockGift;
-    public GameObject UnlockMoobling;
+    public GameObject UnlockableCreatures;
 
     private string NameOfPrize;
     bool HasUnlockedGift;
@@ -111,7 +111,7 @@ public class MonthlyChallenge : MonoBehaviour {
  
             UnlockableString = "BINKY";
             PlayerPrefs.SetString("UNLOCKED", UnlockableString);
-            UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
+            UnlockableCreatures.GetComponent<UnlockableCreatures>().Unlock();
 
         }
         if (DotManagerScript.TotalScore > UnlockScore[1])
@@ -119,7 +119,7 @@ public class MonthlyChallenge : MonoBehaviour {
  
             UnlockableString = "KOKO";
             PlayerPrefs.SetString("UNLOCKED", UnlockableString);
-            UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
+            UnlockableCreatures.GetComponent<UnlockableCreatures>().Unlock();
 
         }
 

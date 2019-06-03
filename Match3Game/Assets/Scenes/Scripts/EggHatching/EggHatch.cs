@@ -14,52 +14,101 @@ public class EggHatch : MonoBehaviour
     [HideInInspector]
     public bool StartCountDown;
     public Text TimerText;
+    public GameObject UnlockMoobling;
+
     private float CurrentTime;
     private int EggNumber;
     double MinutesFromTs;
     DateTime now;
     long Period;
     long TimeStamp;
-    long Test;
+    long NowTime;
     private string BoolSave;
-    TimeSpan TimeTillEggHatch; 
+    private string UnlockedCompanion;
+    TimeSpan TimeTillEggHatch;
+    public GameObject[] EggCreatures;
     // Use this for initialization
     void Start()
     {
-        CurrentTime = 3;
+        
+        CurrentTime = 2;
         TimeStamp = System.Convert.ToInt64(PlayerPrefs.GetString("EggHatch"));
         StartCountDown = (PlayerPrefs.GetInt(BoolSave) != 0);
     }
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            StartCountdownTimer();
+        }
 
         // Debug purpose 
         if (StartCountDown)
         {
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                StartCountdownTimer();
-            }
-            CurrentTime -= Time.deltaTime;
 
-            // Gets time every second
-            if (CurrentTime < 1)
+            CurrentTime -= Time.deltaTime;
+            if(Input.GetKeyDown(KeyCode.T))
             {
+                NowTime = TimeStamp;
+                NowTime += 1;
+            }
+            // Gets time every second
+            if (CurrentTime < 0)
+            {
+
                 GetCurrentTime();
             }
-            MinutesFromTs = TimeTillEggHatch.TotalMinutes;
-            MinutesFromTs -= Time.deltaTime;
-            TimerText.text = "" + MinutesFromTs;
+           // MinutesFromTs = TimeTillEggHatch.TotalMinutes;
+            int test = unchecked((int)MinutesFromTs);
+           // test -= (int)Time.deltaTime;
+            TimerText.text = "" + test;
 
             // if the time is greater than time stamp hatch egg
-            if (Test > TimeStamp)
+            if (NowTime > TimeStamp)
             {
-                //TODO
-                //HATCH EGG
-                StartCountDown = false;
-                PlayerPrefs.SetInt(BoolSave, (StartCountDown ? 1 : 0));
+                Debug.Log(NowTime);
+                Debug.Log(TimeStamp);
+                Debug.Log("fnished");
+                HatchCreature();
+
             }
         }
+    }
+    void HatchCreature()
+    {
+        int Random = UnityEngine.Random.Range(0, EggCreatures.Length);
+        UnlockedCompanion = EggCreatures[Random].name ;
+        switch (UnlockedCompanion)
+        {
+            case "Crius Locked":
+                //TODO
+                //SPLASH EGG HATCH ON SCREEEN
+                //ADD COMPANION TO LIST
+                PlayerPrefs.SetString("UNLOCKED", "CRIUS");
+                UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
+                StartCountDown = false;
+
+                break;
+
+            case "Sauco Locked":
+                PlayerPrefs.SetString("UNLOCKED", "SAUCO");
+
+                UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
+                StartCountDown = false;
+
+                break;
+
+            case "Chick-Pee Locked":
+                PlayerPrefs.SetString("UNLOCKED", "CHICKPEA");
+
+                UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
+                StartCountDown = false;
+
+                break;
+
+        }
+        PlayerPrefs.SetInt(BoolSave, (StartCountDown ? 1 : 0));
+
     }
     // checks the current time on server
     void GetCurrentTime()
@@ -69,11 +118,11 @@ public class EggHatch : MonoBehaviour
         {
             // Gets current time to countup 
             now = result.Time.AddHours(0); // GMT+1
-            Test = now.Ticks;
-            TimeTillEggHatch = TimeSpan.FromTicks(TimeStamp - Test);
+            NowTime = now.Ticks;
+            TimeTillEggHatch = TimeSpan.FromTicks(TimeStamp - NowTime);
             MinutesFromTs = TimeTillEggHatch.TotalMinutes;
-            TimerText.text = "" + MinutesFromTs;
-             CurrentTime = 5;
+           // TimerText.text = "" + MinutesFromTs;
+            CurrentTime = 5;
 
         }, null);
     }
