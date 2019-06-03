@@ -102,25 +102,31 @@ public class PlayFabAnalytics : MonoBehaviour {
     },
             EventName = "player_progression"
         },
-        result => Debug.Log("Success"),
+        result => SentOutAnalytics(), //ANALYTICS RESULTS,
+
+
         error => Debug.LogError(error.GenerateErrorReport()));
     }
-    
-  // void GetUserData()
-  // {
-  //     PlayFabClientAPI.GetUserData(new GetUserDataRequest()
-  //     {
-  //         PlayFabId = "This is an ID?",
-  //         Keys = null
-  //     }, result => {
-  //         Debug.Log("Got user data:");
-  //         if (result.Data == null || !result.Data.ContainsKey("Ancestor")) Debug.Log("No Ancestor");
-  //         else Debug.Log("Ancestor: " + result.Data["Ancestor"].Value);
-  //     }, (error) => {
-  //         Debug.Log("Got error retrieving user data:");
-  //         Debug.Log(error.GenerateErrorReport());
-  //     });
-  // }
+
+    void SentOutAnalytics( )
+    {
+        // Anayltics sent out
+    }
+    // void GetUserData()
+    // {
+    //     PlayFabClientAPI.GetUserData(new GetUserDataRequest()
+    //     {
+    //         PlayFabId = "This is an ID?",
+    //         Keys = null
+    //     }, result => {
+    //         Debug.Log("Got user data:");
+    //         if (result.Data == null || !result.Data.ContainsKey("Ancestor")) Debug.Log("No Ancestor");
+    //         else Debug.Log("Ancestor: " + result.Data["Ancestor"].Value);
+    //     }, (error) => {
+    //         Debug.Log("Got error retrieving user data:");
+    //         Debug.Log(error.GenerateErrorReport());
+    //     });
+    // }
 
 }
 

@@ -34,7 +34,7 @@ public class UpdateScore : MonoBehaviour
 
         }, result =>
         {
-            Debug.Log("Logged in");
+        // LOGGED IN
              //  GetLeaderBoard();
 
             // Refresh available items 

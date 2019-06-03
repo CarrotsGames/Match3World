@@ -71,7 +71,7 @@ public class PlayFabCurrency : MonoBehaviour
             StatisticName = "TournamentScore",
         }, result =>
         {
-            Debug.Log("Leaderboard version: " + result.Version);
+ 
             // foreach (var entry in result.Leaderboard)
             // {
             //     Debug.Log(entry.DisplayName + " " + entry.StatValue);
@@ -113,11 +113,10 @@ public class PlayFabCurrency : MonoBehaviour
     void SubtractPremiumCurrencySuccess(ModifyUserVirtualCurrencyResult result)
     {
         result.Balance = amount;
-        Debug.Log("Success1");
-    }
+     }
     void SubtractPremiumCurrencyFailure(PlayFabError error)
     {
-        Debug.Log("NO MONEY EARNED");
+ 
        // Debug.LogError("ERROR GETTING GAME CURRENCY" + error.Error + "" + error.ErrorMessage);
     }
    // void AddPreimiumCurrencySuccess(ModifyUserVirtualCurrencyResult result)

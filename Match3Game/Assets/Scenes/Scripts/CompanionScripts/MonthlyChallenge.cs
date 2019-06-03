@@ -84,7 +84,7 @@ public class MonthlyChallenge : MonoBehaviour {
             StatisticName = "TournamentScore",
         }, result =>
         {
-            Debug.Log("Leaderboard version: " + result.Version);
+ 
  
             // if the phone version is not equal to the server version reset
             if (MonthlyVersions != result.Version)
