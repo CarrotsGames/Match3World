@@ -9,7 +9,7 @@ public class StoreScript : MonoBehaviour
     private PowerUpManager PowerUpManagerScript;
     public List<GameObject> StoreItems;
     public GameObject ItemStorage;
-    public GameObject unlockScreen;
+    public GameObject eggUnlocked;
     public GameObject UnlockMoobling;
     public int SuperColourRemoverQuantity;
     public int SuperShuffleQuantity;
@@ -164,7 +164,7 @@ public class StoreScript : MonoBehaviour
                     PlayerPrefs.SetString("UNLOCKED", "CRIUS");
                     Debug.Log("YOU HAVE PURCHASED KRRRRAASSS");
                     PowerUpManagerScript.Currency -= CompanionPrice[0];
-                    unlockScreen.SetActive(true);
+                    eggUnlocked.SetActive(true);
                     UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
 
                 }
@@ -179,7 +179,7 @@ public class StoreScript : MonoBehaviour
                     PlayerPrefs.SetString("UNLOCKED", "SAUCO");
                     Debug.Log("YOU HAVE PURCHASED THE SAUUUUUUUCE");
                     PowerUpManagerScript.Currency -= CompanionPrice[1];
-                    unlockScreen.SetActive(true);
+                    eggUnlocked.SetActive(true);
                     UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
                 }
                 else
@@ -193,7 +193,7 @@ public class StoreScript : MonoBehaviour
                     PlayerPrefs.SetString("UNLOCKED", "CHICKPEA");
                     Debug.Log("EAT YOUR PEA PROFESSSSSSSSSOOOOOOOOOOOOORRRRRRRRRRRR");
                     PowerUpManagerScript.Currency -= CompanionPrice[1];
-                    unlockScreen.SetActive(true);
+                    eggUnlocked.SetActive(true);
                     UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
                 }
                 else
