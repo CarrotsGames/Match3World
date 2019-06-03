@@ -21,7 +21,8 @@ public class DailySpin : MonoBehaviour
     public bool IsDailyOver;
     [HideInInspector]
     public bool StopSpinning;
-
+    public GameObject CreatureList;
+    public GameObject MenuButtons;
     public EventScript DailyEvent;
     public GameObject Events;
      // Use this for initialization
@@ -29,8 +30,9 @@ public class DailySpin : MonoBehaviour
     {
         StartUpSpeed *= 100;
         MaxSpeed *= 100;
-   
-        IsDailyOver = false;
+        CreatureList.SetActive(false);
+        MenuButtons.SetActive(false);
+             IsDailyOver = false;
          StopSpinning = false;
         // Reference EventsScript
         Events = GameObject.FindGameObjectWithTag("ES");
@@ -72,6 +74,9 @@ public class DailySpin : MonoBehaviour
             if (WheelVelocity < 1)
             {
                 IsDailyOver = true;
+                CreatureList.SetActive(true);
+                MenuButtons.SetActive(true);
+
             }
             else
             {

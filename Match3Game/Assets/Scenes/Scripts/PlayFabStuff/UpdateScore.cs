@@ -44,13 +44,13 @@ public class PlayFabLogin : MonoBehaviour
         // Updates player Score to server every x Seconds
         if (UpdateScoreTimer < 0)
         {
- 
+
             PlayFabClientAPI.UpdatePlayerStatistics(new UpdatePlayerStatisticsRequest
             {
                 Statistics = new List<StatisticUpdate>
             {
 
-                new StatisticUpdate {StatisticName = "TournamentScore", Value = DotManagerScript.TotalScore,},
+                new StatisticUpdate {StatisticName = "TournamentScore", Value = DotManagerScript.TotalScore, },
              }
 
             },

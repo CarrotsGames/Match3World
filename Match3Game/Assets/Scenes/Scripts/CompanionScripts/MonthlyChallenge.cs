@@ -85,13 +85,14 @@ public class MonthlyChallenge : MonoBehaviour {
         }, result =>
         {
             Debug.Log("Leaderboard version: " + result.Version);
-  
+ 
             // if the phone version is not equal to the server version reset
             if (MonthlyVersions != result.Version)
             {
                 MonthlyVersions = result.Version;
-
                 Debug.Log("NEW VERSION");
+                // Changes MonthlyCompanion array to next companion
+                
                 DotManagerScript.TotalScore = 0;
                 // gives players currency
                 DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
@@ -127,7 +128,9 @@ public class MonthlyChallenge : MonoBehaviour {
     // informs player that tournament is over
     void MonthlyChallengeEnded()
     {
-        Debug.Log("MONTHLYCHALLENGE STILL Ended");
+        //PlayFabClientAPI.GetLeaderboard(new GetLeaderboardRequest()
+ 
+Debug.Log("MONTHLYCHALLENGE STILL Ended");
     }
     //inform player how long until tournament is over
     void MonthlyChallengeGoing(PlayFabError Error)
