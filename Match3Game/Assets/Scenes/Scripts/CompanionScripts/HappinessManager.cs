@@ -75,6 +75,10 @@ public class HappinessManager : MonoBehaviour
                 CompanionSave = "SaucoHappiness";
                 SaveStrings = "SAUCOSAVE";
                 break;
+            case "Chick-Pee":
+                CompanionSave = "ChickPeaHappiness";
+                SaveStrings = "CHICKPEASAVE";
+                break;
 
         }
         // Gets the last known bool for this companion
