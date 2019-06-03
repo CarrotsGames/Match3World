@@ -20,7 +20,7 @@ public class DotManager : MonoBehaviour
     public GameObject ParticleEffectPurple;
     public GameObject ParticleEffectBlue;
     public GameObject ParticleEffectYellow;
-    public GameObject ParticleEffectFireWork;
+   // public GameObject ParticleEffectFireWork;
 
     public GameObject PartySpawner;
     // Will contain light[0] and Heavy[1] particle 
@@ -225,7 +225,7 @@ public class DotManager : MonoBehaviour
                 Companion.EatingPeices.Add(RedPieces[Num]);
                 if (Peices.Count >= 8)
                 {
-                    Instantiate(ParticleEffectFireWork, RedPieces[Num].transform.position, Quaternion.identity);
+                  //  Instantiate(ParticleEffectFireWork, RedPieces[Num].transform.position, Quaternion.identity);
 
                 }
             }
@@ -247,7 +247,7 @@ public class DotManager : MonoBehaviour
                 Companion.EatingPeices.Add(BluePieces[Num]);
                 if(Peices.Count >= 8)
                 {
-                    Instantiate(ParticleEffectFireWork, BluePieces[Num].transform.position, Quaternion.identity);
+                  //  Instantiate(ParticleEffectFireWork, BluePieces[Num].transform.position, Quaternion.identity);
                 }
             }
 
@@ -272,7 +272,7 @@ public class DotManager : MonoBehaviour
                 Companion.EatingPeices.Add(YellowPieces[Num]);
                 if (Peices.Count >= 8)
                 {
-                    Instantiate(ParticleEffectFireWork, YellowPieces[Num].transform.position, Quaternion.identity);
+                  //  Instantiate(ParticleEffectFireWork, YellowPieces[Num].transform.position, Quaternion.identity);
                 }
             }
 
@@ -298,7 +298,7 @@ public class DotManager : MonoBehaviour
                 Companion.EatingPeices.Add(GreenPieces[Num]);
                 if (Peices.Count >= 8)
                 {
-                    Instantiate(ParticleEffectFireWork, GreenPieces[Num].transform.position, Quaternion.identity);
+                  //  Instantiate(ParticleEffectFireWork, GreenPieces[Num].transform.position, Quaternion.identity);
                 }
             }
        
