@@ -28,12 +28,11 @@ public class AudioManager : MonoBehaviour {
             // saves bool as false
             PlayerPrefs.SetInt(SaveBool, (soundOn ? 1 : 0));
 
-            Debug.Log("OFF");
-        }
+         }
         if (Input.GetKey(KeyCode.S))
         {
             soundOn = true;
-            Debug.Log("ON");
+ 
             // saves bool as true
             PlayerPrefs.SetInt(SaveBool, (soundOn ? 1 : 0));
 

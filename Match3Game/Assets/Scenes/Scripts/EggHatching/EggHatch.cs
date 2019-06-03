@@ -26,7 +26,7 @@ public class EggHatch : MonoBehaviour
     private string BoolSave;
     private string UnlockedCompanion;
     TimeSpan TimeTillEggHatch;
-    public GameObject[] EggCreatures;
+    public string[] EggCreatures;
     // Use this for initialization
     void Start()
     {
@@ -77,10 +77,10 @@ public class EggHatch : MonoBehaviour
     void HatchCreature()
     {
         int Random = UnityEngine.Random.Range(0, EggCreatures.Length);
-        UnlockedCompanion = EggCreatures[Random].name ;
+        UnlockedCompanion = EggCreatures[Random] ;
         switch (UnlockedCompanion)
         {
-            case "Crius Locked":
+            case "Crius":
                 //TODO
                 //SPLASH EGG HATCH ON SCREEEN
                 //ADD COMPANION TO LIST
@@ -90,7 +90,7 @@ public class EggHatch : MonoBehaviour
 
                 break;
 
-            case "Sauco Locked":
+            case "Sauco":
                 PlayerPrefs.SetString("UNLOCKED", "SAUCO");
 
                 UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
@@ -98,7 +98,7 @@ public class EggHatch : MonoBehaviour
 
                 break;
 
-            case "Chick-Pee Locked":
+            case "ChickPee":
                 PlayerPrefs.SetString("UNLOCKED", "CHICKPEA");
 
                 UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
