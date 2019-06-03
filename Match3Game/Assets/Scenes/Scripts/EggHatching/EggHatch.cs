@@ -11,46 +11,54 @@ public class EggHatch : MonoBehaviour
 {
 
     DateTime Target;
- 
+    [HideInInspector]
+    public bool StartCountDown;
     public Text TimerText;
-    public float Timer;
     private float CurrentTime;
-     private int EggNumber;
-     private float RefreshTimer;
+    private int EggNumber;
     double MinutesFromTs;
     DateTime now;
     long Period;
     long TimeStamp;
     long Test;
+    private string BoolSave;
+    TimeSpan TimeTillEggHatch; 
     // Use this for initialization
     void Start()
     {
         CurrentTime = 3;
         TimeStamp = System.Convert.ToInt64(PlayerPrefs.GetString("EggHatch"));
+        StartCountDown = (PlayerPrefs.GetInt(BoolSave) != 0);
     }
     private void Update()
     {
 
         // Debug purpose 
-  
-        if (Input.GetKeyDown(KeyCode.S))
+        if (StartCountDown)
         {
-            StartCountdownTimer();
-        }
-        CurrentTime -= Time.deltaTime;
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                StartCountdownTimer();
+            }
+            CurrentTime -= Time.deltaTime;
 
-        // Gets time every second
-        if (CurrentTime <  1)
-        {
-            GetCurrentTime();
-        }
-    
-  
-        // if the time is greater than time stamp hatch egg
-        if (Test > TimeStamp)
-        {
-            //TODO
-            //HATCH EGG
+            // Gets time every second
+            if (CurrentTime < 1)
+            {
+                GetCurrentTime();
+            }
+            MinutesFromTs = TimeTillEggHatch.TotalMinutes;
+            MinutesFromTs -= Time.deltaTime;
+            TimerText.text = "" + MinutesFromTs;
+
+            // if the time is greater than time stamp hatch egg
+            if (Test > TimeStamp)
+            {
+                //TODO
+                //HATCH EGG
+                StartCountDown = false;
+                PlayerPrefs.SetInt(BoolSave, (StartCountDown ? 1 : 0));
+            }
         }
     }
     // checks the current time on server
@@ -62,8 +70,10 @@ public class EggHatch : MonoBehaviour
             // Gets current time to countup 
             now = result.Time.AddHours(0); // GMT+1
             Test = now.Ticks;
-           
-            CurrentTime = 5;
+            TimeTillEggHatch = TimeSpan.FromTicks(TimeStamp - Test);
+            MinutesFromTs = TimeTillEggHatch.TotalMinutes;
+            TimerText.text = "" + MinutesFromTs;
+             CurrentTime = 5;
 
         }, null);
     }
@@ -82,6 +92,8 @@ public class EggHatch : MonoBehaviour
        
             // sets egghatch save to timestamp    PLUS ARRAY NUM
             PlayerPrefs.SetString("EggHatch", "" + TimeStamp);
+            StartCountDown = true;
+            PlayerPrefs.SetInt(BoolSave, (StartCountDown ? 1 : 0));
 
         }, null);
 

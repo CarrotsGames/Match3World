@@ -3940,7 +3940,7 @@ GameObject:
   - component: {fileID: 643827998}
   - component: {fileID: 643827999}
   m_Layer: 5
-  m_Name: TestTimer
+  m_Name: EggHatchTimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3975,8 +3975,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9451146b94bbeb84d9681880923d1eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartCountDown: 0
   TimerText: {fileID: 172240449}
-  Timer: 0
 --- !u!1001 &656754256
 Prefab:
   m_ObjectHideFlags: 0
@@ -13108,14 +13108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d484bd7b84dc4489139f4798598dd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneMusic:
-  - {fileID: 8300000, guid: 347014f5d289f184cb14a48965a6b333, type: 3}
-  - {fileID: 8300000, guid: 347014f5d289f184cb14a48965a6b333, type: 3}
-  - {fileID: 8300000, guid: 347014f5d289f184cb14a48965a6b333, type: 3}
-  WakeUpSound:
-  - {fileID: 8300000, guid: 347014f5d289f184cb14a48965a6b333, type: 3}
-  - {fileID: 8300000, guid: 347014f5d289f184cb14a48965a6b333, type: 3}
-  - {fileID: 8300000, guid: 347014f5d289f184cb14a48965a6b333, type: 3}
+  SceneMusic: []
+  WakeUpSound: []
   HappinessManagerGameObj: {fileID: 0}
   CompanionSound: {fileID: 1995419959}
   Source: {fileID: 1995419958}

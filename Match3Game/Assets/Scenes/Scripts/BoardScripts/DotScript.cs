@@ -23,6 +23,7 @@ public class DotScript : MonoBehaviour
     public int LayerType = 10;
     private bool HasPlayedSound;
     private float time;
+    private GameObject MainCamera;
     private BoardScript Board;
     private GameObject HappinessManagerGameobj;
     public HappinessManager HappinessManagerScript;
@@ -38,6 +39,8 @@ public class DotScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        MainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+
         HappinessManagerGameobj = GameObject.FindGameObjectWithTag("HM");
         HappinessManagerScript = HappinessManagerGameobj.GetComponent<HappinessManager>();
         Physics2D.IgnoreLayerCollision(0, 14);
@@ -89,18 +92,7 @@ public class DotScript : MonoBehaviour
             gameObject.GetComponent<Renderer>().material = Default;
 
         }
-       // if (DotManagerScript.StartHighliting)
-       // {
-       //     for (int i = 0; i < DotManagerScript.Peices.Count; i++)
-       //     {
-       //         GameObject Test;
-       //         transform.gameObject.GetComponent<DotScript>().DrawLine.positionCount = i;
-       //         DrawLine.SetPosition(DotManagerScript.LineCount, DotManagerScript.Peices[i].transform.position);
-       //
-       //
-       //     }
-       //
-       // }
+ 
     }
     private void OnMouseExit()
     {
@@ -132,7 +124,12 @@ public class DotScript : MonoBehaviour
             transform.localScale = newScale;
             if (HasPlayedSound)
             {
-                // Plays the Node Highlite Sound
+                if (DotManagerScript.Peices.Count > 4)
+                {
+                    float clamp = Mathf.Clamp(DotManagerScript.Peices.Count / 5,0 , 1.25f);
+
+                    MainCamera.GetComponent<CameraShake>().ShakeCamera(clamp / 4, 0.25f);
+                }                // Plays the Node Highlite Sound
                 AudioManagerScript.NodeSource.clip = AudioManagerScript.NodeAudio[0];
                 AudioManagerScript.NodeSource.Play();
                 HasPlayedSound = false;
@@ -247,7 +244,8 @@ public class DotScript : MonoBehaviour
                  }                       
            
             }
-         }
+
+        }
     
      //   neighbours.Clear();
      // Detects which peices are being chosen via raycast

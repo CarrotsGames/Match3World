@@ -10,11 +10,8 @@ public class CompanionScript : MonoBehaviour
     // Use this for initialization
     public GameObject EatingPeiceSpawner;
  
- 
     public Slider HungerSlider;
  
-
-
     private GameObject DotManagerObj;
     private GameObject MainCamera;
     private GameObject PowerUpManGameObj;
