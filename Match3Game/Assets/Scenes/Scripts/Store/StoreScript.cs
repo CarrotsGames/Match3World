@@ -12,6 +12,20 @@ public class StoreScript : MonoBehaviour
     public GameObject eggUnlocked;
     public GameObject UnlockMoobling;
 
+
+// Max "You Unlocked SplashScreen"
+    public GameObject youBoughtCanvus;
+
+    public GameObject eggUnlock;
+    public GameObject scrUnlock;
+    public GameObject shuffleUnlock;
+    public GameObject bombUnlock;
+    public GameObject multiUnlock;
+
+
+
+
+
     public Sprite[] EggImages;
     // Link the egg hatch button in scene to this
     public GameObject EggHatchButton;
@@ -119,6 +133,8 @@ public class StoreScript : MonoBehaviour
                 {
                     PowerUpManagerScript.NumOfSCR += SuperColourRemoverQuantity;
                     PowerUpManagerScript.Currency -= SuperColourRemoverAmount;
+                    youBoughtCanvus.SetActive(true);
+                    scrUnlock.SetActive(true);
                 }
                 else
                 {
@@ -133,6 +149,8 @@ public class StoreScript : MonoBehaviour
                 {
                     PowerUpManagerScript.NumOfShuffles += SuperShuffleQuantity;
                     PowerUpManagerScript.Currency -= SuperShuffleAmount;
+                    youBoughtCanvus.SetActive(true);
+                    shuffleUnlock.SetActive(true);
                 }
                 else
                 {
@@ -146,6 +164,8 @@ public class StoreScript : MonoBehaviour
                 {
                     PowerUpManagerScript.NumOfMultilpiers += SuperMultiplierQuantity;
                     PowerUpManagerScript.Currency -= SuperMultiplierAmount;
+                    youBoughtCanvus.SetActive(true);
+                    multiUnlock.SetActive(true);
                 }
                 else
                 {
@@ -161,6 +181,9 @@ public class StoreScript : MonoBehaviour
                     //   PowerUpManagerScript.NumOfSCR += 5;
 
                     PowerUpManagerScript.Currency -= SuperBombAmount;
+                    youBoughtCanvus.SetActive(true);
+                    bombUnlock.SetActive(true);
+
                 }
                 else
                 {
@@ -180,7 +203,8 @@ public class StoreScript : MonoBehaviour
                         // YOU HAVE PURCHASED AN EGG UI
 
                         // SHOW EGG ON SCREEN 
-
+                        youBoughtCanvus.SetActive(true);
+                        eggUnlock.SetActive(true);
                     }
                     else
                     {
