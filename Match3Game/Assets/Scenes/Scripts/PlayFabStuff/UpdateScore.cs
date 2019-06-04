@@ -4,24 +4,12 @@ using PlayFab.ClientModels;
 using System.Collections.Generic;
 using System.Collections;
  
-public class PlayFabLogin : MonoBehaviour
+public class UpdateScore : MonoBehaviour
 {
-    GameObject DotManagerObj;
-    DotManager DotManagerScript;
   
-    float UpdateScoreTimer;
- 
     public void Start()
     {
-        UpdateScoreTimer = 3;
-        DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
-        DotManagerScript = DotManagerObj.GetComponent<DotManager>();
-        //Note: Setting title Id here can be skipped if you have set the value in Editor Extensions already.
-        if (string.IsNullOrEmpty(PlayFabSettings.TitleId))
-        {
-            PlayFabSettings.TitleId = "(DE2C) Superflat Connect 3"; // Please change this value to your own titleId from PlayFab Game Manager
-        }
-    
+       
          // Login with Android ID
         PlayFabClientAPI.LoginWithAndroidDeviceID(new LoginWithAndroidDeviceIDRequest()
         {
@@ -37,28 +25,7 @@ public class PlayFabLogin : MonoBehaviour
 
     }
 
-    private void Update()
-    {
-        UpdateScoreTimer -= Time.deltaTime;
-     
-        // Updates player Score to server every x Seconds
-        if (UpdateScoreTimer < 0)
-        {
-
-            PlayFabClientAPI.UpdatePlayerStatistics(new UpdatePlayerStatisticsRequest
-            {
-                Statistics = new List<StatisticUpdate>
-            {
-
-                new StatisticUpdate {StatisticName = "TournamentScore", Value = DotManagerScript.TotalScore, },
-             }
-
-            },
-              result => { Debug.Log("User statistics updated"); },
-              error => { Debug.LogError(error.GenerateErrorReport()); });
-              UpdateScoreTimer = 10;
-        }
-    }
+   
     // 
   // void GetLeaderBoard()
   // {

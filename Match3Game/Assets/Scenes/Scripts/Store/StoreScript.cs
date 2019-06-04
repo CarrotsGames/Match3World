@@ -11,6 +11,7 @@ public class StoreScript : MonoBehaviour
     public GameObject ItemStorage;
     public GameObject eggUnlocked;
     public GameObject UnlockMoobling;
+    public GameObject EggHatch;
     public int SuperColourRemoverQuantity;
     public int SuperShuffleQuantity;
     public int SuperBombQuantity;
@@ -157,15 +158,16 @@ public class StoreScript : MonoBehaviour
                     Debug.Log("Insufficient funds");
                 }
                 break;
-                // Cruis Creature purchase
+            // EGG 
             case 5:
                 if (PowerUpManagerScript.Currency >= CompanionPrice[0])
                 {
-                    PlayerPrefs.SetString("UNLOCKED", "CRIUS");
-                    Debug.Log("YOU HAVE PURCHASED KRRRRAASSS");
+                    EggHatch.GetComponent<EggHatch>().CountDownTimer();
                     PowerUpManagerScript.Currency -= CompanionPrice[0];
-                    eggUnlocked.SetActive(true);
-                    UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
+
+                    // YOU HAVE PURCHASED AN EGG UI
+
+                    // SHOW EGG ON SCREEN 
 
                 }
                 else
@@ -187,6 +189,7 @@ public class StoreScript : MonoBehaviour
                     Debug.Log("Insufficient funds");
                 }
                 break;
+                // Egg 
             case 7:
                 if (PowerUpManagerScript.Currency >= CompanionPrice[1])
                 {

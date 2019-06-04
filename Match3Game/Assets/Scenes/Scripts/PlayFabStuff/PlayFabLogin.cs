@@ -4,7 +4,7 @@ using PlayFab.ClientModels;
 using System.Collections.Generic;
 using System.Collections;
  
-public class UpdateScore : MonoBehaviour
+public class PlayFabLogin : MonoBehaviour
 {
     GameObject DotManagerObj;
     DotManager DotManagerScript;
@@ -44,6 +44,7 @@ public class UpdateScore : MonoBehaviour
     }
     private void Update()
     {
+        Debug.Log(this.gameObject);
         UpdateScoreTimer -= Time.deltaTime;
      
         // Updates player Score to server every x Seconds

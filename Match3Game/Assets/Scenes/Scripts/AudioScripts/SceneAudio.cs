@@ -27,7 +27,7 @@ public class SceneAudio : MonoBehaviour {
         // Daymode = true;
         HappinessManagerGameObj = GameObject.FindGameObjectWithTag("HM");
         HappinessManagerScript = HappinessManagerGameObj.GetComponent<HappinessManager>();
-       
+     
     }
 
    

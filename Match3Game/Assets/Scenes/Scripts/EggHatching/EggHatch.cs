@@ -23,8 +23,7 @@ public class EggHatch : MonoBehaviour
     long Period;
     long TimeStamp;
     long NowTime;
-    private string BoolSave;
-    private string UnlockedCompanion;
+     private string UnlockedCompanion;
     TimeSpan TimeTillEggHatch;
      public List<string> EggCreatures;
     // Use this for initialization
@@ -33,14 +32,12 @@ public class EggHatch : MonoBehaviour
         
         CurrentTime = 2;
         TimeStamp = System.Convert.ToInt64(PlayerPrefs.GetString("EggHatch"));
-        StartCountDown = (PlayerPrefs.GetInt(BoolSave) != 0);
+        StartCountDown = (PlayerPrefs.GetInt("EGGCOUNTDOWN") != 0);
     }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            StartCountdownTimer();
-        }
+        StartCountDown = (PlayerPrefs.GetInt("EGGCOUNTDOWN") != 0);
 
         // Debug purpose 
         if (StartCountDown)
@@ -73,6 +70,11 @@ public class EggHatch : MonoBehaviour
 
             }
         }
+
+    }
+    public void CountDownTimer()
+    {
+        StartCountdownTimer();
     }
     void HatchCreature()
     {
@@ -110,7 +112,7 @@ public class EggHatch : MonoBehaviour
                 break;
 
         }
-        PlayerPrefs.SetInt(BoolSave, (StartCountDown ? 1 : 0));
+        PlayerPrefs.SetInt("EGGCOUNTDOWN", (StartCountDown ? 1 : 0));
 
     }
     // checks the current time on server
@@ -132,6 +134,8 @@ public class EggHatch : MonoBehaviour
     // begins countdown 
     void StartCountdownTimer()
     {
+        StartCountDown = true;
+        PlayerPrefs.SetInt("EGGCOUNTDOWN", (StartCountDown ? 1 : 0));
         PlayFabClientAPI.GetTime(new GetTimeRequest(), (GetTimeResult result) =>
         {
             // Eggnumber is the current egg being hatched (WILL CHANGE TO ARRAY THE MORE EGGS WE HAVE)ssssss
@@ -144,8 +148,7 @@ public class EggHatch : MonoBehaviour
        
             // sets egghatch save to timestamp    PLUS ARRAY NUM
             PlayerPrefs.SetString("EggHatch", "" + TimeStamp);
-            StartCountDown = true;
-            PlayerPrefs.SetInt(BoolSave, (StartCountDown ? 1 : 0));
+           
 
         }, null);
 
