@@ -61,8 +61,7 @@ public class PlayFabAnalytics : MonoBehaviour {
         if (DelayTime > 5)
         {
             SetUserData();
-            GraphedData();
-            DelayTime = 0;
+             DelayTime = 0;
         }
         // Test = false;
          
@@ -71,7 +70,7 @@ public class PlayFabAnalytics : MonoBehaviour {
        PlayerPrefs.SetFloat(CompanionTime, TimeOnScene);
 
     }
-
+    
     void SetUserData()
     {
         PlayFabClientAPI.UpdateUserData(new UpdateUserDataRequest()
@@ -92,7 +91,7 @@ public class PlayFabAnalytics : MonoBehaviour {
      }
 
   
-    private void GraphedData()
+    public void GraphedData()
     {
         PlayFabClientAPI.WritePlayerEvent(new WriteClientPlayerEventRequest()
         {
@@ -100,7 +99,7 @@ public class PlayFabAnalytics : MonoBehaviour {
         { CompanionScore.name, Score },
         { CompanionTime, "" + TimeOnScene }
     },
-            EventName = "player_progression"
+            EventName = "TestPlayer_Progression"
         },
         result => SentOutAnalytics(), //ANALYTICS RESULTS,
 

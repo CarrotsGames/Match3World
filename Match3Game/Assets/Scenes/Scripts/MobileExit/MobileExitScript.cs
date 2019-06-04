@@ -7,6 +7,7 @@ public class MobileExitScript : MonoBehaviour {
     private GameObject RealTimerGameObj;
     private RealTimeCounter RealTimeScript;
     GameTransitions GT;
+    public GameObject Analytics;
     // Update is called once per frame
     // Exits the game using Android Back Button 
 
@@ -24,6 +25,7 @@ public class MobileExitScript : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             GT.HomeButton();
+            Analytics.GetComponent<PlayFabAnalytics>().GraphedData();
         }
          
          
