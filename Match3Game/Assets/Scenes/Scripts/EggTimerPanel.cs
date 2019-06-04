@@ -14,10 +14,30 @@ public class EggTimerPanel : MonoBehaviour {
 
     public bool isOpen;
 
+    private StoreScript store;
+    public GameObject EggHatchObj;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
+        store = GetComponent<StoreScript>();
+    }
+
+    public void Update()
+    {
+        // If the countdown has begun 
+        if (EggHatchObj.GetComponent<EggHatch>().StartCountDown)
+        {
+            // Egg panel is active
+            eggPanel.SetActive(true);
+        }
+        else
+        {
+            eggPanel.SetActive(false);
+
+        }
+
+
     }
 
 

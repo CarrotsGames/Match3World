@@ -22,6 +22,9 @@ public class StoreScript : MonoBehaviour
     public GameObject bombUnlock;
     public GameObject multiUnlock;
 
+    //eggIncubation true = Egg in panel falses = egg needs to be bought
+    public bool eggIncubation;
+
 
 
 
@@ -205,6 +208,7 @@ public class StoreScript : MonoBehaviour
                         // SHOW EGG ON SCREEN 
                         youBoughtCanvus.SetActive(true);
                         eggUnlock.SetActive(true);
+                        eggIncubation = true;
                     }
                     else
                     {
