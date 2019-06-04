@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+using UnityEngine.UI;
 public class StoreScript : MonoBehaviour
 {
 
@@ -11,34 +11,44 @@ public class StoreScript : MonoBehaviour
     public GameObject ItemStorage;
     public GameObject eggUnlocked;
     public GameObject UnlockMoobling;
-    public GameObject EggHatch;
+
+    public Sprite[] EggImages;
+    // Link the egg hatch button in scene to this
+    public GameObject EggHatchButton;
+    // Refrences the EggHatchScript
+    public GameObject EggHatchScript;
+    // Item Quantities
     public int SuperColourRemoverQuantity;
     public int SuperShuffleQuantity;
     public int SuperBombQuantity;
     public int SuperMultiplierQuantity;
     public int Navigate;
-
+    // item Cost
     public int SuperColourRemoverAmount;
     public int SuperShuffleAmount;
     public int SuperBombAmount;
     public int SuperMultiplierAmount;
 
     public int[] CompanionPrice;
+
+
     private void Start()
     {
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
+        // Adds all the items to the store
         for (int i = 0; i < ItemStorage.transform.childCount; i++)
         {
             StoreItems.Add(ItemStorage.transform.GetChild(i).gameObject);
         }
         StoreItems[0].SetActive(true);
+        DisableEggButton();
     }
-   
+
     // Navigates through the store items
     public void Navigation(int ArrowNum)
     {
-        switch(ArrowNum)
+        switch (ArrowNum)
         {
             // left
             case 1:
@@ -51,7 +61,7 @@ public class StoreScript : MonoBehaviour
                     Navigate = StoreItems.Count - 1;
                     StoreItems[Navigate].SetActive(true);
                     //   Companions[Navigate].SetActive(true);
-                  //  Navigation();
+                    //  Navigation();
 
                 }
                 else
@@ -65,7 +75,7 @@ public class StoreScript : MonoBehaviour
 
                 }
                 break;
-                //right
+            //right
             case 2:
                 Debug.Log("RIGHT");
                 StoreItems[Navigate].SetActive(false);
@@ -103,7 +113,7 @@ public class StoreScript : MonoBehaviour
         // their desired item
         switch (ButtonNumber)
         {
-                // SuperColourRemover purchase
+            // SuperColourRemover purchase
             case 1:
                 if (PowerUpManagerScript.Currency >= SuperColourRemoverAmount)
                 {
@@ -117,7 +127,7 @@ public class StoreScript : MonoBehaviour
 
                 }
                 break;
-                // SuperShuffleAmount purchase
+            // SuperShuffleAmount purchase
             case 2:
                 if (PowerUpManagerScript.Currency >= SuperShuffleAmount)
                 {
@@ -130,7 +140,7 @@ public class StoreScript : MonoBehaviour
                     Debug.Log("Insufficient funds");
                 }
                 break;
-                // SuperMultplier purchase
+            // SuperMultplier purchase
             case 3:
                 if (PowerUpManagerScript.Currency >= SuperMultiplierAmount)
                 {
@@ -143,12 +153,12 @@ public class StoreScript : MonoBehaviour
                     Debug.Log("Insufficient funds");
                 }
                 break;
-                // SuperBomb purchase
+            // SuperBomb purchase
             case 4:
                 if (PowerUpManagerScript.Currency >= SuperBombAmount)
                 {
                     PowerUpManagerScript.NumOfBombs += SuperBombQuantity;
-                 //   PowerUpManagerScript.NumOfSCR += 5;
+                    //   PowerUpManagerScript.NumOfSCR += 5;
 
                     PowerUpManagerScript.Currency -= SuperBombAmount;
                 }
@@ -160,19 +170,28 @@ public class StoreScript : MonoBehaviour
                 break;
             // EGG 
             case 5:
-                if (PowerUpManagerScript.Currency >= CompanionPrice[0])
+                if (!EggHatchScript.GetComponent<EggHatch>().StartCountDown)
                 {
-                    EggHatch.GetComponent<EggHatch>().CountDownTimer();
-                    PowerUpManagerScript.Currency -= CompanionPrice[0];
+                    if (PowerUpManagerScript.Currency >= CompanionPrice[0])
+                    {
+                        EggHatchScript.GetComponent<EggHatch>().CountDownTimer();
+                        PowerUpManagerScript.Currency -= CompanionPrice[0];
 
-                    // YOU HAVE PURCHASED AN EGG UI
+                        // YOU HAVE PURCHASED AN EGG UI
 
-                    // SHOW EGG ON SCREEN 
+                        // SHOW EGG ON SCREEN 
 
+                    }
+                    else
+                    {
+                        Debug.Log("Insufficient funds");
+                    }
                 }
                 else
                 {
-                    Debug.Log("Insufficient funds");
+                    // TELL PLAYERS THAT EGG IS CURRENTLY BEING HATCHED
+                    Debug.Log("Please wait for the egg to stop egging");
+
                 }
                 break;
             case 6:
@@ -189,7 +208,7 @@ public class StoreScript : MonoBehaviour
                     Debug.Log("Insufficient funds");
                 }
                 break;
-                // Egg 
+            // Egg 
             case 7:
                 if (PowerUpManagerScript.Currency >= CompanionPrice[1])
                 {
@@ -207,4 +226,24 @@ public class StoreScript : MonoBehaviour
         }
     }
 
+    void DisableEggButton()
+    {
+        // disables the egg button and changes picture
+        if (EggHatchScript.GetComponent<EggHatch>().StartCountDown)
+        {
+            //   EggHatchButton.transform.GetChild(0).GetComponent<Button>().enabled = false;
+            EggHatchButton.GetComponent<Image>().sprite = EggImages[1];
+            EggHatchButton.GetComponent<Image>().color = new Color(0.25f, 0.25f, 0.25f);
+            EggHatchButton.transform.GetChild(0).GetComponent<Image>().color = new Color(0.25f, 0.25f, 0.25f);
+
+        }
+        else
+        {
+            // EggHatchButton.transform.GetChild(0).GetComponent<Button>().enabled = true;
+            EggHatchButton.GetComponent<Image>().sprite = EggImages[0];
+            EggHatchButton.GetComponent<Image>().color = new Color(1, 1, 1);
+            EggHatchButton.transform.GetChild(0).GetComponent<Image>().color = new Color(1, 1, 1);
+
+        }
+    }
 }

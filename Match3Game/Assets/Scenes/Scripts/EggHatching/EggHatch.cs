@@ -19,18 +19,18 @@ public class EggHatch : MonoBehaviour
     private float CurrentTime;
     private int EggNumber;
     double MinutesFromTs;
-    DateTime now;
-    long Period;
-    long TimeStamp;
-    long NowTime;
-     private string UnlockedCompanion;
+    private  DateTime now; 
+    private  long Period;
+    private  long TimeStamp;
+    private  long NowTime;
+    private string UnlockedCompanion;
     TimeSpan TimeTillEggHatch;
-     public List<string> EggCreatures;
-    // Use this for initialization
+    public List<string> EggCreatures;
+     // Use this for initialization
     void Start()
     {
         
-        CurrentTime = 2;
+        CurrentTime = 1;
         TimeStamp = System.Convert.ToInt64(PlayerPrefs.GetString("EggHatch"));
         StartCountDown = (PlayerPrefs.GetInt("EGGCOUNTDOWN") != 0);
     }
