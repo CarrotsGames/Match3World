@@ -113,11 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!224 &26130945 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 224981282556173594, guid: 1ffc143ed5592fd47a5a4743fc9d6136,
-    type: 2}
-  m_PrefabInternal: {fileID: 1090599210}
 --- !u!1 &46240822
 GameObject:
   m_ObjectHideFlags: 0
@@ -6188,6 +6183,11 @@ Prefab:
       propertyPath: UnlockMoobling
       value: 
       objectReference: {fileID: 932378640}
+    - target: {fileID: 224813714020350452, guid: 1ffc143ed5592fd47a5a4743fc9d6136,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ffc143ed5592fd47a5a4743fc9d6136, type: 2}
   m_IsPrefabAsset: 0
@@ -6401,7 +6401,7 @@ RectTransform:
   - {fileID: 2051829840}
   - {fileID: 622262662}
   - {fileID: 842981959}
-  - {fileID: 26130945}
+  - {fileID: 1578886357}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7722,6 +7722,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1398508704 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1798270318024600, guid: 6e21ef18f925f614bb8952d2a3856f01,
+    type: 2}
+  m_PrefabInternal: {fileID: 227157799}
+--- !u!114 &1398508705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1398508704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e66ce22ae128248a7dc73fc26edf93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplier: 02000000030000000400000005000000060000000700000008000000090000000a00000000000000
+  MultlpierNum: 0
+  ResetTheMultlpier: 0
 --- !u!1001 &1448586658
 Prefab:
   m_ObjectHideFlags: 0
@@ -8212,6 +8231,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4263835391068148, guid: 4718389357c997f4a83a056949ff456f,
     type: 2}
   m_PrefabInternal: {fileID: 1572655118}
+--- !u!224 &1578886357 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224813714020350452, guid: 1ffc143ed5592fd47a5a4743fc9d6136,
+    type: 2}
+  m_PrefabInternal: {fileID: 1090599210}
 --- !u!1 &1581144648
 GameObject:
   m_ObjectHideFlags: 0

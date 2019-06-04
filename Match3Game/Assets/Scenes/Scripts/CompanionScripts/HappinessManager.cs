@@ -11,16 +11,13 @@ public class HappinessManager : MonoBehaviour
    
 
     public Slider HappinessSlider;
-    // Must cap at 4
-    public int[] multiplier;
+
     public float HappinessSliderValue;
     // gets a companions name which loads their save
     public string CompanionSave;
-    // Determines what multplier the player is on
-    public int MultlpierNum;
+
     public bool CanGetCurrency;
     // Reset multplier for DEBUG purposes 
-    public bool ResetTheMultlpier;
     public bool IsSleeping;   
     // CHANGE NAME BOARDSCRIPT TO BOARD//
     public Animator Anim;
@@ -31,8 +28,7 @@ public class HappinessManager : MonoBehaviour
 
     string CompanionName;
 
-    private GameObject DotManagerObj;
-    private DotManager DotManagerScript;
+ 
     bool CanEarnGold;
      [HideInInspector]
     string SaveStrings;
@@ -41,8 +37,7 @@ public class HappinessManager : MonoBehaviour
     {
         Board = GameObject.FindGameObjectWithTag("BoardSpawn");
         BoardScriptRef = Board.GetComponent<BoardScript>();
-        DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
-        DotManagerScript = DotManagerObj.GetComponent<DotManager>();
+ 
         CompanionName = Companion.name;
         CanGetCurrency = false;
         // CompanionSounds = GetComponent<AudioClip[]>();
@@ -85,13 +80,9 @@ public class HappinessManager : MonoBehaviour
         IsSleeping = (PlayerPrefs.GetInt(SaveStrings) != 0);
         // checks if bool puts companion to sleep
         Sleeping();
-        Multplier();
 
-        if (MultlpierNum < 1)
-        {
-            MultlpierNum = 1;
-        }
-     }
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -112,12 +103,8 @@ public class HappinessManager : MonoBehaviour
 
         // Saving Companions Happiness value
 
-        if(ResetTheMultlpier)
-        {
-            MultlpierNum = 2;
-            PlayerPrefs.SetInt("Multiplier", MultlpierNum);
-            ResetTheMultlpier = false;
-        }
+        
+     
         
         if (CanEarnGold)
         {
@@ -152,8 +139,8 @@ public class HappinessManager : MonoBehaviour
                 // plays wake up sound
 
                 // Decreases multiplierNum
-                MultlpierNum -= 1;
-                PlayerPrefs.SetInt("Multiplier", MultlpierNum);
+                this.gameObject.GetComponent<HappyMultlpier>().MultlpierNum -= 1;
+                 PlayerPrefs.SetInt("Multiplier", this.gameObject.GetComponent<HappyMultlpier>().MultlpierNum);
                 AudioGameObj.GetComponent<SceneAudio>().CompanionSound.PlayOneShot
                 (AudioGameObj.GetComponent<SceneAudio>().WakeUpSound[0]);
                 AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
@@ -161,7 +148,7 @@ public class HappinessManager : MonoBehaviour
             }
             // Adds multplier
             CanEarnGold = false;
-            Multplier();
+            this.gameObject.GetComponent<HappyMultlpier>().Multplier();
 
             //sets bool to false and saves
             IsSleeping = false;
@@ -197,8 +184,8 @@ public class HappinessManager : MonoBehaviour
             if (!IsSleeping)
             {
                 // increases multlpier number and saves it
-                MultlpierNum += 1;
-                PlayerPrefs.SetInt("Multiplier", MultlpierNum);
+                this.gameObject.GetComponent<HappyMultlpier>().MultlpierNum  += 1;
+                PlayerPrefs.SetInt("Multiplier", this.gameObject.GetComponent<HappyMultlpier>().MultlpierNum);
                 //Changes the track in the SceneAudio script
                 AudioGameObj.GetComponent<SceneAudio>().CompanionSound.PlayOneShot
                (AudioGameObj.GetComponent<SceneAudio>().WakeUpSound[1]);
@@ -208,7 +195,7 @@ public class HappinessManager : MonoBehaviour
             }
             // Add multiplier    
             CanEarnGold = true;
-            Multplier();
+            this.gameObject.GetComponent<HappyMultlpier>().Multplier();
             NightTime.SetActive(true);
             //sets bool to false and saves
             PlayerPrefs.SetInt(SaveStrings, (IsSleeping ? 1 : 0));
@@ -230,7 +217,7 @@ public class HappinessManager : MonoBehaviour
             Anim.SetBool("is sleepy", true);
             AwakeHead.SetActive(false);
             CanEarnGold = true;
-            MultlpierNum = PlayerPrefs.GetInt("Multiplier");
+            this.gameObject.GetComponent<HappyMultlpier>().MultlpierNum = PlayerPrefs.GetInt("Multiplier");
             DayTime.SetActive(false);
             AudioGameObj.GetComponent<SceneAudio>().Daymode = false;
             AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
@@ -242,7 +229,7 @@ public class HappinessManager : MonoBehaviour
             NightTime.SetActive(false);
 
             CanEarnGold = false;
-            MultlpierNum = PlayerPrefs.GetInt("Multiplier");
+            GetComponent<HappyMultlpier>().MultlpierNum = PlayerPrefs.GetInt("Multiplier");
             DayTime.SetActive(true);
             Anim.SetBool("<20", true);
             AudioGameObj.GetComponent<SceneAudio>().Daymode = true;
@@ -252,47 +239,5 @@ public class HappinessManager : MonoBehaviour
  
         }
     }
-    // Multlpier of companions
-    void Multplier()
-    {
-        // Number of multlpier matches number of creatures in game (10 creatures MAX at the moment
-        switch (MultlpierNum)
-        {
-            case 1:
-                DotManagerScript.Multipier = multiplier[0];
-                break;
-            case 2:
-                DotManagerScript.Multipier = multiplier[1];
-
-                break;
-            case 3:
-                DotManagerScript.Multipier = multiplier[2];
-
-                break;
-            case 4:
-                DotManagerScript.Multipier = multiplier[3];
-
-                break;
-            case 5:
-                DotManagerScript.Multipier = multiplier[4];
-
-                break;
-            case 6:
-                DotManagerScript.Multipier = multiplier[5];
-
-                break;
-            case 7:
-                DotManagerScript.Multipier = multiplier[6];
-
-                break;
-            case 8:
-                DotManagerScript.Multipier = multiplier[7];
-
-                break;
-            case 9:
-                DotManagerScript.Multipier = multiplier[8];
-
-                break;
-        }
-    }
+  
 }

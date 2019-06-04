@@ -36,7 +36,10 @@ public class ResetProgress : MonoBehaviour {
             PlayerPrefs.SetFloat("BINKYSCORETRACK", 0);
             PlayerPrefs.SetFloat("KOKOSCORETRACK", 0);
             PlayerPrefs.SetFloat("CRIUSSCORETRACK", 0);
-           
+
+            PlayerPrefs.SetFloat("GobuTIME", 0);
+            PlayerPrefs.SetFloat("BinkyTIME", 0);
+            PlayerPrefs.SetFloat("KokoTIME", 0);
             // resets powerups
             PowerUpManGameObj.GetComponent<PowerUpManager>().NumOfShuffles = 5;
             PowerUpManGameObj.GetComponent<PowerUpManager>().NumOfBombs = 5;

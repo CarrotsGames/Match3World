@@ -48,9 +48,9 @@ public class SuperMultiplierScript : MonoBehaviour
         if (CanUseSuperMultiplier)
         {
             // goes through multiplier list and times each one by super multlplier
-            for (int i = 0; i < HappinessManagerScript.multiplier.Length; i++)
+            for (int i = 0; i < HappinessGameObj.GetComponent<HappyMultlpier>().multiplier.Length; i++)
             {
-                HappinessManagerScript.multiplier[i] *= SuperMultiplier;
+                HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[i] *= SuperMultiplier;
             }
             StartCountdown = true;
         }
@@ -67,9 +67,9 @@ public class SuperMultiplierScript : MonoBehaviour
             if (MultlpierTimer < 0)
             {
                 // Goes through multiplier list and returns variables to defual
-                for (int i = 0; i < HappinessManagerScript.multiplier.Length; i++)
+                for (int i = 0; i < HappinessGameObj.GetComponent<HappyMultlpier>().multiplier.Length; i++)
                 {
-                    HappinessManagerScript.multiplier[i] /= SuperMultiplier;
+                    HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[i] /= SuperMultiplier;
                 }
                 StartCountdown = false;
                 MultlpierTimer = TimerStore;

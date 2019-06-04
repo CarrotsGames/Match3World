@@ -1,0 +1,115 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class HappyMultlpier : MonoBehaviour {
+
+    private float Timer;
+    // Must cap at 4
+    public int[] multiplier;
+    // Determines what multplier the player is on
+    public int MultlpierNum;
+    public bool ResetTheMultlpier;
+    private GameObject DotManagerObj;
+    private DotManager DotManagerScript;
+    private GameObject RealTimeGameObj;
+    private RealTimeCounter RealtTimeScript;
+    // Use this for initialization
+    void Start ()
+    {
+        DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
+        DotManagerScript = DotManagerObj.GetComponent<DotManager>();
+        MultlpierNum = 10;
+        RealTimeGameObj = GameObject.FindGameObjectWithTag("MainCamera");
+        RealtTimeScript = RealTimeGameObj.GetComponent<RealTimeCounter>();
+
+        if (MultlpierNum < 1)
+        {
+            MultlpierNum = 1;
+        }
+        Multplier();
+
+    }
+
+    // Update is called once per frame
+    void Update ()
+    {
+        Timer -= Time.deltaTime;
+        if(Timer <= 0)
+        {
+            CheckMultplier();
+            Timer += 5;
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            CheckMultplier();
+        }
+        if (ResetTheMultlpier)
+        {
+            MultlpierNum = 2;
+            PlayerPrefs.SetInt("Multiplier", MultlpierNum);
+            ResetTheMultlpier = false;
+        }
+    }
+    public void CheckMultplier()
+    {
+        MultlpierNum = 10;
+
+        for (int i = 0; i < RealTimeGameObj.GetComponent<RealTimeCounter>().HappinessCountDown.Length; i++)
+        {
+            if (RealtTimeScript.GetComponent<RealTimeCounter>().HappinessCountDown[i] <= 30)
+            {
+                MultlpierNum -= 1;
+            }
+          
+        }
+        if (MultlpierNum < 1)
+        {
+            MultlpierNum = 1;
+        }
+        Multplier();
+    }
+    // Multlpier of companions
+    public void Multplier()
+    {
+        // Number of multlpier matches number of creatures in game (10 creatures MAX at the moment
+        switch (MultlpierNum)
+        {
+            case 1:
+                DotManagerScript.Multipier = multiplier[0];
+                break;
+            case 2:
+                DotManagerScript.Multipier = multiplier[1];
+
+                break;
+            case 3:
+                DotManagerScript.Multipier = multiplier[2];
+
+                break;
+            case 4:
+                DotManagerScript.Multipier = multiplier[3];
+
+                break;
+            case 5:
+                DotManagerScript.Multipier = multiplier[4];
+
+                break;
+            case 6:
+                DotManagerScript.Multipier = multiplier[5];
+
+                break;
+            case 7:
+                DotManagerScript.Multipier = multiplier[6];
+
+                break;
+            case 8:
+                DotManagerScript.Multipier = multiplier[7];
+
+                break;
+            case 9:
+                DotManagerScript.Multipier = multiplier[8];
+
+                break;
+        }
+    }
+}

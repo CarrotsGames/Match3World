@@ -63,7 +63,7 @@ public class CompanionScript : MonoBehaviour
             CurrencyChance = HungerMultiplier;
             Destroy(EatingPeices[i].gameObject);
             HungerMultiplier = i / 2;
-            MainCamera.GetComponent<CameraShake>().ShakeCamera(HappinessManagerScript.MultlpierNum / 1.5f, 0.25f);
+            MainCamera.GetComponent<CameraShake>().ShakeCamera(HappinessGameObj.GetComponent<HappyMultlpier>().MultlpierNum / 1.5f, 0.25f);
             // displays total score to Text
  
             DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;

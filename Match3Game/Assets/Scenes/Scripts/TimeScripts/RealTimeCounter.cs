@@ -80,7 +80,7 @@ public class RealTimeCounter : MonoBehaviour
         HappinessCountDown[5] -= TimeMasterScript.instance.CheckDate() / 25;
         /////////////////////////////////////////////////////////////////////
 
-
+        HappinessGameObj.GetComponent<HappyMultlpier>().CheckMultplier();
 
         if (SuperMultiplier.MultlpierTimer > -1)
         {
