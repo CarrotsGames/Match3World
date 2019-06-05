@@ -51,7 +51,7 @@ public class HappyMultlpier : MonoBehaviour {
         }
         if (ResetTheMultlpier)
         {
-            MultlpierNum = 2;
+            MultlpierNum = 1;
             PlayerPrefs.SetInt("Multiplier", MultlpierNum);
             ResetTheMultlpier = false;
         }
@@ -75,16 +75,18 @@ public class HappyMultlpier : MonoBehaviour {
 
                 MultlpierNum -= 1;
             }
-            else if (RealtTimeScript.GetComponent<RealTimeCounter>().HappinessCountDown[i] >= 30 && IsSleeping)
+            else if (!GetComponent<HappinessManager>().IsSleeping)
             {
-
-                if (GetComponent<HappinessManager>().HappinessSliderValue == RealtTimeScript.GetComponent<RealTimeCounter>().HappinessCountDown[i])
+                if(RealtTimeScript.GetComponent<RealTimeCounter>().HappinessCountDown[i] >= 95)             
                 {
+                    GetComponent<HappinessManager>().IsSleeping = true;
+                    PlayerPrefs.SetInt(GetComponent<HappinessManager>().SaveStrings, (GetComponent<HappinessManager>().IsSleeping ? 1 : 0));
+
                     MultlpierNum += 1;
                 }
             }
 
-            if (MultlpierNum < 1)
+            if (MultlpierNum < 0 || MultlpierNum > 10)
             {
                 MultlpierNum = 1;
             }

@@ -31,7 +31,7 @@ public class HappinessManager : MonoBehaviour
  
     bool CanEarnGold;
      [HideInInspector]
-    string SaveStrings;
+    public string SaveStrings;
     // Use this for initialization
     void Start()
     {
@@ -182,16 +182,10 @@ public class HappinessManager : MonoBehaviour
             AwakeHead.SetActive(false);
             // Music Change
             if (!IsSleeping)
-            {
-                // increases multlpier number and saves it
-                this.gameObject.GetComponent<HappyMultlpier>().MultlpierNum  += 1;
-                PlayerPrefs.SetInt("Multiplier", this.gameObject.GetComponent<HappyMultlpier>().MultlpierNum);
-                this.gameObject.GetComponent<HappyMultlpier>().Multplier();
-
+            {          
                 //Changes the track in the SceneAudio script
                 AudioGameObj.GetComponent<SceneAudio>().CompanionSound.PlayOneShot
                (AudioGameObj.GetComponent<SceneAudio>().WakeUpSound[1]);
-
                 AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
 
             }
@@ -200,8 +194,7 @@ public class HappinessManager : MonoBehaviour
             NightTime.SetActive(true);
             //sets bool to false and saves
             PlayerPrefs.SetInt(SaveStrings, (IsSleeping ? 1 : 0));
-            IsSleeping = true;
-        }
+         }
 
     }
     // Checks if companion is sleeping on startUp
