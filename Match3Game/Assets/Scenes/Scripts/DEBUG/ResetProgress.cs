@@ -9,7 +9,7 @@ public class ResetProgress : MonoBehaviour {
     public GameObject NodeManager;
     public GameObject Unlockables;
     public GameObject PowerUpManGameObj;
-
+    public GameObject EggHatch;
     // Use this for initialization
     void Start () {
         Reset = false;

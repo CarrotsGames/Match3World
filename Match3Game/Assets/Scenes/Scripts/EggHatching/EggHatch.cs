@@ -42,7 +42,11 @@ public class EggHatch : MonoBehaviour
         {
             CountDownTimer();
      
-            }
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            HatchCreature();
+        }
         // Debug purpose 
         if (StartCountDown)
         {
@@ -56,7 +60,6 @@ public class EggHatch : MonoBehaviour
             // Gets time every second
             if (CurrentTime < 0)
             {
-
                 GetCurrentTime();
             }
            // MinutesFromTs = TimeTillEggHatch.TotalMinutes;
@@ -67,6 +70,8 @@ public class EggHatch : MonoBehaviour
             // if the time is greater than time stamp hatch egg
             if (NowTime > TimeStamp)
             {
+                StartCountDown = false;
+
                 Debug.Log(NowTime);
                 Debug.Log(TimeStamp);
                 Debug.Log("fnished");
@@ -93,7 +98,6 @@ public class EggHatch : MonoBehaviour
                 PlayerPrefs.SetString("UNLOCKED", "CRIUS");
                 UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
                 EggCreatures.RemoveAt(Random);
-                StartCountDown = false;
 
                 break;
 
@@ -102,8 +106,7 @@ public class EggHatch : MonoBehaviour
 
                 UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
                 EggCreatures.RemoveAt(Random);
-                StartCountDown = false;
-
+ 
                 break;
 
             case "ChickPee":
@@ -111,8 +114,7 @@ public class EggHatch : MonoBehaviour
 
                 UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
                 EggCreatures.RemoveAt(Random);
-                StartCountDown = false;
-
+ 
                 break;
 
         }
