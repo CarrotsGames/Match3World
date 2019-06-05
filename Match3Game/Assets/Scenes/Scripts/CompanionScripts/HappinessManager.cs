@@ -186,6 +186,8 @@ public class HappinessManager : MonoBehaviour
                 // increases multlpier number and saves it
                 this.gameObject.GetComponent<HappyMultlpier>().MultlpierNum  += 1;
                 PlayerPrefs.SetInt("Multiplier", this.gameObject.GetComponent<HappyMultlpier>().MultlpierNum);
+                this.gameObject.GetComponent<HappyMultlpier>().Multplier();
+
                 //Changes the track in the SceneAudio script
                 AudioGameObj.GetComponent<SceneAudio>().CompanionSound.PlayOneShot
                (AudioGameObj.GetComponent<SceneAudio>().WakeUpSound[1]);
@@ -195,7 +197,6 @@ public class HappinessManager : MonoBehaviour
             }
             // Add multiplier    
             CanEarnGold = true;
-            this.gameObject.GetComponent<HappyMultlpier>().Multplier();
             NightTime.SetActive(true);
             //sets bool to false and saves
             PlayerPrefs.SetInt(SaveStrings, (IsSleeping ? 1 : 0));

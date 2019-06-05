@@ -14,18 +14,21 @@ public class HappyMultlpier : MonoBehaviour {
     private DotManager DotManagerScript;
     private GameObject RealTimeGameObj;
     private RealTimeCounter RealtTimeScript;
+    private string[] SaveStrings= { "GOBUSAVE","BINKYSAVE","KOKOSAVE","CRIUSSAVE","SAUCOSAVE","CHICKPEASAVE" };
+    private List<string> ListOfSaves;
+    int AddNewNum;
     // Use this for initialization
     void Start ()
     {
+        ListOfSaves = new List<string>();
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
-        MultlpierNum = 10;
         RealTimeGameObj = GameObject.FindGameObjectWithTag("MainCamera");
         RealtTimeScript = RealTimeGameObj.GetComponent<RealTimeCounter>();
 
-        if (MultlpierNum < 1)
+        for (int i = 0; i < SaveStrings.Length; i++)
         {
-            MultlpierNum = 1;
+            ListOfSaves.Add(SaveStrings[i]);
         }
         Multplier();
 
@@ -34,11 +37,13 @@ public class HappyMultlpier : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
+        MultlpierNum = PlayerPrefs.GetInt("Multiplier");
+
         Timer -= Time.deltaTime;
         if(Timer <= 0)
         {
             CheckMultplier();
-            Timer += 5;
+            Timer += 3;
         }
         if (Input.GetKeyDown(KeyCode.W))
         {
@@ -53,25 +58,50 @@ public class HappyMultlpier : MonoBehaviour {
     }
     public void CheckMultplier()
     {
-        MultlpierNum = 10;
+      
 
         for (int i = 0; i < RealTimeGameObj.GetComponent<RealTimeCounter>().HappinessCountDown.Length; i++)
         {
-            if (RealtTimeScript.GetComponent<RealTimeCounter>().HappinessCountDown[i] <= 30)
+            bool IsSleeping = false;          
+            if(ListOfSaves.Count > i)
             {
+                IsSleeping = (PlayerPrefs.GetInt(ListOfSaves[i]) != 0);
+            }    
+        
+            if (RealtTimeScript.GetComponent<RealTimeCounter>().HappinessCountDown[i] <= 30 && IsSleeping)
+            {
+                IsSleeping = false; 
+                PlayerPrefs.SetInt(ListOfSaves[i], (IsSleeping ? 1 : 0));
+
                 MultlpierNum -= 1;
             }
-          
+            else if (RealtTimeScript.GetComponent<RealTimeCounter>().HappinessCountDown[i] >= 30 && IsSleeping)
+            {
+
+                if (GetComponent<HappinessManager>().HappinessSliderValue == RealtTimeScript.GetComponent<RealTimeCounter>().HappinessCountDown[i])
+                {
+                    MultlpierNum += 1;
+                }
+            }
+
+            if (MultlpierNum < 1)
+            {
+                MultlpierNum = 1;
+            }
         }
-        if (MultlpierNum < 1)
-        {
-            MultlpierNum = 1;
-        }
+     
+        PlayerPrefs.SetInt("Multiplier", MultlpierNum);
+
         Multplier();
+
+    
+    
     }
     // Multlpier of companions
     public void Multplier()
     {
+      
+
         // Number of multlpier matches number of creatures in game (10 creatures MAX at the moment
         switch (MultlpierNum)
         {

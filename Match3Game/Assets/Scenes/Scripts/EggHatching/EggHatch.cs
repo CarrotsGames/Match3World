@@ -38,7 +38,11 @@ public class EggHatch : MonoBehaviour
     private void Update()
     {
         StartCountDown = (PlayerPrefs.GetInt("EGGCOUNTDOWN") != 0);
-
+        if(Input.GetKeyDown(KeyCode.W))
+        {
+            CountDownTimer();
+     
+            }
         // Debug purpose 
         if (StartCountDown)
         {
