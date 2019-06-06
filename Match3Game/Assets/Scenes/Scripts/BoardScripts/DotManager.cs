@@ -36,10 +36,8 @@ public class DotManager : MonoBehaviour
     public bool ResetDotLayers;
     public bool StartHighliting;
     // Checks if speicifc colour is being highlited in dotscript 
-    public bool RedSelection;
-    public bool BlueSelection;
-    public bool YellowSelection;
-    public bool PurpleSelection;
+    public bool NodeSelection;
+ 
     public bool GoldSelection;
     // Resets node properties
     public bool ResetLayer;
@@ -82,10 +80,8 @@ public class DotManager : MonoBehaviour
     private void Start()
     {
         // Bools start false to be activated later
-        RedSelection = false;
-        BlueSelection = false;
-        YellowSelection = false;
-        PurpleSelection = false;
+        NodeSelection = false;
+ 
         StartHighliting = false;
         ResetMaterial = false;
         ResetLayer = false;
@@ -331,10 +327,8 @@ public class DotManager : MonoBehaviour
             YellowScore = 0;
             GreenScore = 0;
             LineCount = 0;
-            RedSelection = false;
-            BlueSelection = false;
-            YellowSelection = false;
-            PurpleSelection = false;
+            NodeSelection = false;
+ 
             GoldSelection = false;
             AddBoardParticles();
             // ResetDotLayers = true;

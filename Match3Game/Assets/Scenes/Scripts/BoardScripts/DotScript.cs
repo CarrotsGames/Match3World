@@ -144,10 +144,8 @@ public class DotScript : MonoBehaviour
             newScale.y = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
             transform.localScale = newScale;
             gameObject.layer = 0;
-            DotManagerScript.RedSelection = false;
-            DotManagerScript.BlueSelection = false;
-            DotManagerScript.YellowSelection = false;
-            DotManagerScript.PurpleSelection = false;
+            DotManagerScript.NodeSelection = false;
+         
             DotManagerScript.ResetLayer = true;
 
         }
@@ -156,36 +154,29 @@ public class DotScript : MonoBehaviour
     {
 
         DotManagerScript.StartHighliting = true;
+        DotManagerScript.NodeSelection = true;
+
         // Checks which colout tag the mouse is interacting with to know which colour to focus on
         switch (transform.tag)
         {
             case  "Red":
                 Colour = "Red";
-                DotManagerScript.RedSelection = true;
-                
+                 
                 break;
             case "Blue":
                 Colour = "Blue";
-                //DotManagerScript.BlueSelection = true;
-                DotManagerScript.BlueSelection = true;
-
+  
                 break;
             case "Green":
                 Colour = "Green";
-                // DotManagerScript.YellowSelection = true;
-                DotManagerScript.YellowSelection = true;
-
+  
                 break;
             case "Yellow":
                 Colour = "Yellow";
-                //    DotManagerScript.PurpleSelection = true;
-                DotManagerScript.PurpleSelection = true;
-                break;
+                  break;
             case "Gold":
                 Colour = "Gold";
-                //    DotManagerScript.PurpleSelection = true;
-                DotManagerScript.GoldSelection = true;
-                break;
+                  break;
         }
 
          
@@ -256,16 +247,16 @@ public class DotScript : MonoBehaviour
 
             if (hitInfo.collider.gameObject.layer == 10)
              {
-                // Checks for only Red pieces
-                if (DotManagerScript.RedSelection)
+                // Checks for that specific colour pieces
+                if (DotManagerScript.NodeSelection)
                 {
-                    if (DotManagerScript.Peices.Contains(hitInfo.collider.gameObject) && hitInfo.collider.gameObject.tag == "Red")
+                    if (DotManagerScript.Peices.Contains(hitInfo.collider.gameObject) && hitInfo.collider.gameObject.tag == Colour)
                     {
 
 
 
                     }
-                    else if (!DotManagerScript.Peices.Contains(hitInfo.collider.gameObject) && hitInfo.collider.gameObject.tag == "Red")
+                    else if (!DotManagerScript.Peices.Contains(hitInfo.collider.gameObject) && hitInfo.collider.gameObject.tag == Colour)
                     {
                         hitInfo.collider.gameObject.GetComponent<Renderer>().material.color = Color.black;
                         // draws line renderer to hit position
@@ -290,128 +281,13 @@ public class DotScript : MonoBehaviour
                         DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
 
                     }
-                    if (hitInfo.collider.gameObject.tag == "Gold" || hitInfo.collider.gameObject.tag == "Blue" || hitInfo.collider.gameObject.tag == "Yellow" || hitInfo.collider.gameObject.tag == "Green")
+                    // if the colour is different from the current colour being connected stop chain
+                    if (hitInfo.collider.gameObject.tag != Colour && hitInfo.collider.gameObject.layer == LayerType)
                     {
                         OnMouseUp();
                     }
                 }
-                // Checks for only Blue pieces
-                if (DotManagerScript.BlueSelection)
-                {
-                    if (DotManagerScript.Peices.Contains(hitInfo.collider.gameObject) && hitInfo.collider.gameObject.tag == "Blue")
-                    {
-
-
-
-                    }
-                    else if (!DotManagerScript.Peices.Contains(hitInfo.collider.gameObject) && hitInfo.collider.gameObject.tag == "Blue")
-                    {
-                        hitInfo.collider.gameObject.GetComponent<Renderer>().material.color = Color.black;
-                        // draws line renderer to hit position
-                        DrawLine.SetPosition(DotManagerScript.LineCount, hitInfo.collider.gameObject.transform.position);
-                        // increases linecount so it can be drawn onto the next peice
-                        DotManagerScript.LineCount += 1;
-                        // increase amount of line renderer positions
-                        DrawLine.positionCount += 1;
-
-                        if (DotManagerScript.LineCount < 2)
-                        {
-                            DrawLine.SetPosition(DotManagerScript.LineCount, transform.position);
-
-                        }
-                        else
-                        {
-                            DrawLine.SetPosition(DotManagerScript.LineCount, hitInfo.collider.gameObject.transform.position);
-
-                        }
-
-                        // adds hit.collider to Peices list
-                        DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
-
-                    }
-                    if (hitInfo.collider.gameObject.tag == "Gold" || hitInfo.collider.gameObject.tag == "Red" || hitInfo.collider.gameObject.tag == "Yellow" || hitInfo.collider.gameObject.tag == "Green")
-                    {
-                        OnMouseUp();
-                    }
-                }
-                // Checks for only Purple pieces
-                if (DotManagerScript.PurpleSelection)
-                {
-                    if (DotManagerScript.Peices.Contains(hitInfo.collider.gameObject) && hitInfo.collider.gameObject.tag == "Yellow")
-                    {
-
-
-
-                    }
-                    else if (!DotManagerScript.Peices.Contains(hitInfo.collider.gameObject) && hitInfo.collider.gameObject.tag == "Yellow")
-                    {
-                        hitInfo.collider.gameObject.GetComponent<Renderer>().material.color = Color.black;
-                        // draws line renderer to hit position
-                        DrawLine.SetPosition(DotManagerScript.LineCount, hitInfo.collider.gameObject.transform.position);
-                        // increases linecount so it can be drawn onto the next peice
-                        DotManagerScript.LineCount += 1;
-                        // increase amount of line renderer positions
-                        DrawLine.positionCount += 1;
-
-                        if (DotManagerScript.LineCount < 2)
-                        {
-                            DrawLine.SetPosition(DotManagerScript.LineCount, transform.position);
-
-                        }
-                        else
-                        {
-                            DrawLine.SetPosition(DotManagerScript.LineCount, hitInfo.collider.gameObject.transform.position);
-
-                        }
-
-                        // adds hit.collider to Peices list
-                        DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
-                    }
-                        if (hitInfo.collider.gameObject.tag == "Gold" || hitInfo.collider.gameObject.tag == "Blue" || hitInfo.collider.gameObject.tag == "Green" || hitInfo.collider.gameObject.tag == "Red")
-                        {
-                            OnMouseUp();
-                        }
-                }
-                // Checks for only yellow pieces
-                if (DotManagerScript.YellowSelection)
-                {
-                    if (DotManagerScript.Peices.Contains(hitInfo.collider.gameObject) && hitInfo.collider.gameObject.tag == "Green")
-                    {
-
-
-
-                    }
-                    else if (!DotManagerScript.Peices.Contains(hitInfo.collider.gameObject) && hitInfo.collider.gameObject.tag == "Green")
-                    {
-                        hitInfo.collider.gameObject.GetComponent<Renderer>().material.color = Color.black;
-                        // draws line renderer to hit position
-                        DrawLine.SetPosition(DotManagerScript.LineCount, hitInfo.collider.gameObject.transform.position);
-                        // increases linecount so it can be drawn onto the next peice
-                        DotManagerScript.LineCount += 1;
-                        // increase amount of line renderer positions
-                        DrawLine.positionCount += 1;
-
-                        if (DotManagerScript.LineCount < 2)
-                        {
-                            DrawLine.SetPosition(DotManagerScript.LineCount, transform.position);
-
-                        }
-                        else
-                        {
-                            DrawLine.SetPosition(DotManagerScript.LineCount, hitInfo.collider.gameObject.transform.position);
-
-                        }
-
-                        // adds hit.collider to Peices list
-                        DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
-                        
-                    }
-                    if (hitInfo.collider.gameObject.tag == "Blue" || hitInfo.collider.gameObject.tag == "Red" || hitInfo.collider.gameObject.tag == "Yellow" ||
-                        hitInfo.collider.gameObject.tag == "Gold")
-                    {
-                        OnMouseUp();
-                    }
-                }
+           
                 if (DotManagerScript.GoldSelection)
                 {
                     if (DotManagerScript.Peices.Contains(hitInfo.collider.gameObject) && hitInfo.collider.gameObject.tag == "Gold")
@@ -445,8 +321,7 @@ public class DotScript : MonoBehaviour
                         DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
 
                     }
-                    if (hitInfo.collider.gameObject.tag == "Blue" || hitInfo.collider.gameObject.tag == "Yellow" || hitInfo.collider.gameObject.tag == "Green"
-                         || hitInfo.collider.gameObject.tag == "Red")
+                    if (hitInfo.collider.gameObject.tag != Colour && hitInfo.collider.gameObject.layer == LayerType)
                     {
                         OnMouseUp();
                     }

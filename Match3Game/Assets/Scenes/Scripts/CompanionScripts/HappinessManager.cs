@@ -181,14 +181,7 @@ public class HappinessManager : MonoBehaviour
             DayTime.SetActive(false);
             AwakeHead.SetActive(false);
             // Music Change
-            if (!IsSleeping)
-            {          
-                //Changes the track in the SceneAudio script
-                AudioGameObj.GetComponent<SceneAudio>().CompanionSound.PlayOneShot
-               (AudioGameObj.GetComponent<SceneAudio>().WakeUpSound[1]);
-                AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
-
-            }
+ 
             // Add multiplier    
             CanEarnGold = true;
             NightTime.SetActive(true);

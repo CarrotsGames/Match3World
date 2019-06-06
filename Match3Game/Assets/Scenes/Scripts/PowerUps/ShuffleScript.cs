@@ -28,9 +28,12 @@ public class ShuffleScript : MonoBehaviour
     {
         if(Shuffle)
         {
-          Go.transform.localScale += new Vector3(-1, -1, -1) * ShuffleSpeed * Time.deltaTime;
+            if (Go.transform.localScale.x >= 0.25f)
+            {
+                Go.transform.localScale += new Vector3(-1, -1, -1) * ShuffleSpeed * Time.deltaTime;
+            }
             // if x is less than 0 stop(NOTE it can be any axis we just need to check if a value is less than 0)
-            if (Go.transform.localScale.x <= 0)
+            if (Go.transform.localScale.x <= 0.25f)
             {
                 Destroy(Go);
                 Shuffle = false;
