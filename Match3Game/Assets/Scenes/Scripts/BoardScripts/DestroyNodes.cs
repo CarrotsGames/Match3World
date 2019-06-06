@@ -17,6 +17,8 @@ public class DestroyNodes : MonoBehaviour {
     private CompanionScript CompanionScriptRef;
     public GameObject ComboGameObj;
     public Text ComboText;
+    public Text ComboScore;
+
     bool CanChangeText;
     // Use this for initialization
     void Start ()
@@ -62,7 +64,7 @@ public class DestroyNodes : MonoBehaviour {
 
         }
         ComboNum = 0;
-
+        ComboText.text = "";
         StartDestroy = false;
         // Resest list
         CompanionScriptRef.EatingPeices.Clear();
@@ -70,6 +72,8 @@ public class DestroyNodes : MonoBehaviour {
     }
     IEnumerator ChangeText()
     {
+        CanChangeText = false;
+
         WaitForSeconds ComboVanish = new WaitForSeconds(ComboVanishSpeed);
 
         WaitForSeconds ComboPause = new WaitForSeconds(ComboScorePause);
@@ -77,15 +81,13 @@ public class DestroyNodes : MonoBehaviour {
         if (!StartDestroy)
         {
             yield return ComboVanish;
-            
-            ComboText.text = "COMBOSCORE: " + GetComponent<DotManager>().ComboScore;
-            yield return ComboPause;
 
+            ComboScore.text = "           " + GetComponent<DotManager>().ComboScore;
+            yield return ComboPause;
             ComboGameObj.SetActive(false);
             GetComponent<DotManager>().ComboScore = 0;
         }
-        CanChangeText = false;
-
+        ComboScore.text = "           " ;
     }
     // plays particle effect for each node
     void PlayParticle()
