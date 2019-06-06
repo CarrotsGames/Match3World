@@ -56,6 +56,8 @@ public class DotManager : MonoBehaviour
     public int Limit;
     public int NumOfPeices;
     public int TotalScore;
+    [HideInInspector]
+    public int ComboScore;
     // public int Currency;
 
     private int RedCount;
@@ -308,7 +310,7 @@ public class DotManager : MonoBehaviour
         // if the colour wasnt matched reset lists, scores, counts and selections
         if (RedCount != Peices.Count || BlueCount != Peices.Count || GreenCount != Peices.Count || YellowCount != Peices.Count)
         {
-      
+            ComboScore += RedScore + BlueScore + GreenScore + YellowScore; 
             SceneScore += RedScore + BlueScore + GreenScore + YellowScore;
             //  Debug.Log("No connection");
             RedPieces.Clear();

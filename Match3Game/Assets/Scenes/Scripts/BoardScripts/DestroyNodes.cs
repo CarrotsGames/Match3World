@@ -4,7 +4,10 @@ using UnityEngine.UI;
 using UnityEngine;
 
 public class DestroyNodes : MonoBehaviour {
-
+    // Yeild return values
+    public float ComboSpeed;
+    public float ComboVanishSpeed;
+    public float ComboScorePause;
 
     public bool StartDestroy;
     int Index;
@@ -14,7 +17,7 @@ public class DestroyNodes : MonoBehaviour {
     private CompanionScript CompanionScriptRef;
     public GameObject ComboGameObj;
     public Text ComboText;
-
+    bool CanChangeText;
     // Use this for initialization
     void Start ()
     {
@@ -33,13 +36,17 @@ public class DestroyNodes : MonoBehaviour {
             ComboGameObj.SetActive(true);
 
         }
+        if(CanChangeText)
+        {
+            StartCoroutine(ChangeText());
+        }
 
     }
     // Destorys nodes in the eatingPeices list
     IEnumerator DestoyNodes()
     {
        // Set time for delay
-        WaitForSeconds wait = new WaitForSeconds(0.15f);
+        WaitForSeconds wait = new WaitForSeconds(ComboSpeed);
 
         for (int i = 0; i < CompanionScriptRef.EatingPeices.Count; i++)
         {
@@ -54,15 +61,32 @@ public class DestroyNodes : MonoBehaviour {
             yield return wait;
 
         }
-        ComboGameObj.SetActive(false);
         ComboNum = 0;
 
         StartDestroy = false;
         // Resest list
         CompanionScriptRef.EatingPeices.Clear();
+        CanChangeText = true;
+    }
+    IEnumerator ChangeText()
+    {
+        WaitForSeconds ComboVanish = new WaitForSeconds(ComboVanishSpeed);
+
+        WaitForSeconds ComboPause = new WaitForSeconds(ComboScorePause);
+
+        if (!StartDestroy)
+        {
+            yield return ComboVanish;
+            
+            ComboText.text = "COMBOSCORE: " + GetComponent<DotManager>().ComboScore;
+            yield return ComboPause;
+
+            ComboGameObj.SetActive(false);
+            GetComponent<DotManager>().ComboScore = 0;
+        }
+        CanChangeText = false;
 
     }
-
     // plays particle effect for each node
     void PlayParticle()
     {
