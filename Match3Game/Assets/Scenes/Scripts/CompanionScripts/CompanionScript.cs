@@ -28,9 +28,7 @@ public class CompanionScript : MonoBehaviour
     private int CurrencyChance;
     private GameObject AudioManagerGameObj;
     private AudioManager AudioManagerScript;
-    bool StartDestroy;
-    int Index;
-    string Colour;
+
 
     void Start()
     {
@@ -54,70 +52,7 @@ public class CompanionScript : MonoBehaviour
     }
 
 
-    private void Update()
-    {
-        if(StartDestroy)
-        {
-            StartCoroutine(DestoyNodes());
-        }
-       
-          
 
-         
-    }
-    void PlayParticle()
-    {
-        switch (EatingPeices[Index].tag)
-        {
-            case "Red":
-                {
-                    Instantiate(DotManagerScriptRef.ParticleEffectPink, EatingPeices[Index].transform.position, Quaternion.identity);
-
-                }
-                break;
-            case "Blue":
-                {
-                    Instantiate(DotManagerScriptRef.ParticleEffectBlue, EatingPeices[Index].transform.position, Quaternion.identity);
-
-                }
-                break;
-            case "Yellow":
-                {
-                    Instantiate(DotManagerScriptRef.ParticleEffectPurple, EatingPeices[Index].transform.position, Quaternion.identity);
-                }
-                break;
-            case "Green":
-                {
-                    Instantiate(DotManagerScriptRef.ParticleEffectYellow, EatingPeices[Index].transform.position, Quaternion.identity);
-                }
-                break;
-        }
-        
-    }
-    IEnumerator DestoyNodes()
-    {
-        //   Destroy(EatingPeices[Index++]);
-        //   Invoke("AHHHH", 1);
-        //   if(EatingPeices.Count <= 0)
-        //   {
-        //       Test = false;
-        //   }
-     
-        WaitForSeconds wait = new WaitForSeconds(0.15f);
-      
-        for (int i = 0; i < EatingPeices.Count; i++)
-        {
-            Index = i;
-            PlayParticle();
-            Destroy(EatingPeices[i].gameObject);
-            yield return wait;
-        
-        }
-       
-        StartDestroy = false;
-        EatingPeices.Clear();
-         
-    }
     public void FeedMonster()
     {
         // transforms the peices to the eatingspawner position
@@ -156,11 +91,10 @@ public class CompanionScript : MonoBehaviour
             AudioManagerScript.MooblingSource.Play();
      
         }
-        StartDestroy = true;
+        DotManagerObj.GetComponent<DestroyNodes>().StartDestroy = true;
     }
  
-    // when the pieces collide with the companion it will destory them
-
+ 
     //when game closes save the current hugner and start counting down outside of the app
     private void OnApplicationPause(bool pause)
     {
