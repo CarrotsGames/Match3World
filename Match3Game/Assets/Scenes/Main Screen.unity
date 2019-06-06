@@ -1349,6 +1349,25 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 215165048}
   m_CullTransparentMesh: 0
+--- !u!1 &229242377 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1326263430003298, guid: f8b235ecc99a122448d05892e14384e0,
+    type: 2}
+  m_PrefabInternal: {fileID: 761629959}
+--- !u!114 &229242378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 229242377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e66ce22ae128248a7dc73fc26edf93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplier: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  MultlpierNum: 0
+  ResetTheMultlpier: 0
 --- !u!1 &236537943
 GameObject:
   m_ObjectHideFlags: 0
@@ -2247,6 +2266,11 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 330996370}
   m_CullTransparentMesh: 0
+--- !u!1 &332442413 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1269676272982220, guid: 454f8424e61f4b94598935dfa480b552,
+    type: 2}
+  m_PrefabInternal: {fileID: 1002306155}
 --- !u!1 &339735279
 GameObject:
   m_ObjectHideFlags: 0
@@ -7570,6 +7594,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114089813701204056, guid: 1ffc143ed5592fd47a5a4743fc9d6136,
+        type: 2}
+      propertyPath: UnlockMoobling
+      value: 
+      objectReference: {fileID: 332442413}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ffc143ed5592fd47a5a4743fc9d6136, type: 2}
   m_IsPrefabAsset: 0
@@ -7685,7 +7714,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 231.84492, y: -37.453163}
+  m_AnchoredPosition: {x: 231.84492, y: -37.453186}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &975719867
@@ -7804,6 +7833,7 @@ MonoBehaviour:
   NodeManager: {fileID: 677869076}
   Unlockables: {fileID: 395002229}
   PowerUpManGameObj: {fileID: 1092839679}
+  EggHatch: {fileID: 0}
 --- !u!1001 &1002306155
 Prefab:
   m_ObjectHideFlags: 0

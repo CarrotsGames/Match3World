@@ -184,7 +184,6 @@ public class DotManager : MonoBehaviour
 
             CheckConnection = false;
             // clears EatingPeice List
-            Companion.EatingPeices.Clear();
         }
 
 

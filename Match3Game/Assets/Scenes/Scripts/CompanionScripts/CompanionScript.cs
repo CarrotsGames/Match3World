@@ -28,8 +28,8 @@ public class CompanionScript : MonoBehaviour
     private int CurrencyChance;
     private GameObject AudioManagerGameObj;
     private AudioManager AudioManagerScript;
-
- 
+    bool Test;
+    int Index;
     void Start()
     {
         AudioManagerGameObj = GameObject.FindGameObjectWithTag("AudioManager");
@@ -51,17 +51,45 @@ public class CompanionScript : MonoBehaviour
         HungerSlider.minValue = 0f;
     }
 
- 
-  
+
+    private void Update()
+    {
+        if(Test)
+        {
+            StartCoroutine(AHHHH());
+        }
+    }
+    IEnumerator AHHHH()
+    {
+     //   Destroy(EatingPeices[Index++]);
+     //   Invoke("AHHHH", 1);
+     //   if(EatingPeices.Count <= 0)
+     //   {
+     //       Test = false;
+     //   }
+        WaitForSeconds wait = new WaitForSeconds(0.15f);
+      
+        for (int i = 0; i < EatingPeices.Count; i++)
+        {
+            Destroy(EatingPeices[i].gameObject);
+            yield return wait;
+      
+        }
+        if (EatingPeices.Count <= 0)
+        {
+            Test = false;
+            EatingPeices.Clear();
+
+        }
+    }
     public void FeedMonster()
     {
         // transforms the peices to the eatingspawner position
         for (int i = 0; i < EatingPeices.Count; i++)
         {
 
-            EatingPeices[i].transform.position = EatingPeiceSpawner.transform.position + new Vector3(posX, posY, 0);
             CurrencyChance = HungerMultiplier;
-            Destroy(EatingPeices[i].gameObject);
+           // Destroy(EatingPeices[i].gameObject);
             HungerMultiplier = i / 2;
             MainCamera.GetComponent<CameraShake>().ShakeCamera(HappinessGameObj.GetComponent<HappyMultlpier>().MultlpierNum / 1.5f, 0.25f);
             // displays total score to Text
@@ -92,6 +120,7 @@ public class CompanionScript : MonoBehaviour
             AudioManagerScript.MooblingSource.Play();
      
         }
+        Test = true;
     }
  
     // when the pieces collide with the companion it will destory them
