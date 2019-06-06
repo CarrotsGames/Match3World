@@ -220,7 +220,6 @@ public class DotManager : MonoBehaviour
             for (Num = 0; Num < RedCount; Num++)
             {
                 RedPieces[Num].layer = LayerMask.GetMask("Default");
-                Instantiate(ParticleEffectPink, RedPieces[Num].transform.position, Quaternion.identity);
                 Companion.EatingPeices.Add(RedPieces[Num]);
                 if (Peices.Count >= 8)
                 {
@@ -242,7 +241,6 @@ public class DotManager : MonoBehaviour
             for (Num = 0; Num < BlueCount; Num++)
             {
                 BluePieces[Num].layer = LayerMask.GetMask("Default");
-                Instantiate(ParticleEffectBlue, BluePieces[Num].transform.position, Quaternion.identity);                
                 Companion.EatingPeices.Add(BluePieces[Num]);
                 if(Peices.Count >= 8)
                 {
@@ -267,7 +265,6 @@ public class DotManager : MonoBehaviour
             {
 
                 YellowPieces[Num].layer = LayerMask.GetMask("Default");
-                Instantiate(ParticleEffectPurple, YellowPieces[Num].transform.position, Quaternion.identity);
                 Companion.EatingPeices.Add(YellowPieces[Num]);
                 if (Peices.Count >= 8)
                 {
@@ -293,7 +290,6 @@ public class DotManager : MonoBehaviour
             {
 
                 GreenPieces[Num].layer = LayerMask.GetMask("Default");
-                Instantiate(ParticleEffectYellow, GreenPieces[Num].transform.position, Quaternion.identity);
                 Companion.EatingPeices.Add(GreenPieces[Num]);
                 if (Peices.Count >= 8)
                 {

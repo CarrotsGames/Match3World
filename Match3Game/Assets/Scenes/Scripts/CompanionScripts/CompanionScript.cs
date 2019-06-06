@@ -28,8 +28,10 @@ public class CompanionScript : MonoBehaviour
     private int CurrencyChance;
     private GameObject AudioManagerGameObj;
     private AudioManager AudioManagerScript;
-    bool Test;
+    bool StartDestroy;
     int Index;
+    string Colour;
+
     void Start()
     {
         AudioManagerGameObj = GameObject.FindGameObjectWithTag("AudioManager");
@@ -54,33 +56,67 @@ public class CompanionScript : MonoBehaviour
 
     private void Update()
     {
-        if(Test)
+        if(StartDestroy)
         {
-            StartCoroutine(AHHHH());
+            StartCoroutine(DestoyNodes());
         }
+       
+          
+
+         
     }
-    IEnumerator AHHHH()
+    void PlayParticle()
     {
-     //   Destroy(EatingPeices[Index++]);
-     //   Invoke("AHHHH", 1);
-     //   if(EatingPeices.Count <= 0)
-     //   {
-     //       Test = false;
-     //   }
+        switch (EatingPeices[Index].tag)
+        {
+            case "Red":
+                {
+                    Instantiate(DotManagerScriptRef.ParticleEffectPink, EatingPeices[Index].transform.position, Quaternion.identity);
+
+                }
+                break;
+            case "Blue":
+                {
+                    Instantiate(DotManagerScriptRef.ParticleEffectBlue, EatingPeices[Index].transform.position, Quaternion.identity);
+
+                }
+                break;
+            case "Yellow":
+                {
+                    Instantiate(DotManagerScriptRef.ParticleEffectPurple, EatingPeices[Index].transform.position, Quaternion.identity);
+                }
+                break;
+            case "Green":
+                {
+                    Instantiate(DotManagerScriptRef.ParticleEffectYellow, EatingPeices[Index].transform.position, Quaternion.identity);
+                }
+                break;
+        }
+        
+    }
+    IEnumerator DestoyNodes()
+    {
+        //   Destroy(EatingPeices[Index++]);
+        //   Invoke("AHHHH", 1);
+        //   if(EatingPeices.Count <= 0)
+        //   {
+        //       Test = false;
+        //   }
+     
         WaitForSeconds wait = new WaitForSeconds(0.15f);
       
         for (int i = 0; i < EatingPeices.Count; i++)
         {
+            Index = i;
+            PlayParticle();
             Destroy(EatingPeices[i].gameObject);
             yield return wait;
-      
+        
         }
-        if (EatingPeices.Count <= 0)
-        {
-            Test = false;
-            EatingPeices.Clear();
-
-        }
+       
+        StartDestroy = false;
+        EatingPeices.Clear();
+         
     }
     public void FeedMonster()
     {
@@ -120,7 +156,7 @@ public class CompanionScript : MonoBehaviour
             AudioManagerScript.MooblingSource.Play();
      
         }
-        Test = true;
+        StartDestroy = true;
     }
  
     // when the pieces collide with the companion it will destory them
