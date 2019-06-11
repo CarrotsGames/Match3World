@@ -74,6 +74,13 @@ public class DestroyNodes : MonoBehaviour {
             if (CompanionScriptRef.EatingPeices.Count > 4)
             {
                 ComboText.text = "COMBO:" + ComboNum;
+                bool Vibrate = true;
+                if (Vibrate)
+                {
+                    Handheld.Vibrate();
+                    Vibrate = false;
+
+                }
             }
             PlayParticle();
             Destroy(CompanionScriptRef.EatingPeices[i].gameObject);
