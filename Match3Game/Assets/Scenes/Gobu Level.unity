@@ -4403,7 +4403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ComboSpeed: 0.1
   ComboVanishSpeed: 0
-  ComboScorePause: 1
+  ComboScorePause: 1.25
   StartDestroy: 0
   ComboGameObj: {fileID: 1700133428}
   ComboText: {fileID: 522633429}
@@ -10375,6 +10375,15 @@ Prefab:
     - target: {fileID: 1433386526778856, guid: 06ad7ab32dd9b0946a59a2e3161d6430, type: 2}
       propertyPath: m_Name
       value: ComboText
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433386526778856, guid: 06ad7ab32dd9b0946a59a2e3161d6430, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114465465818347660, guid: 06ad7ab32dd9b0946a59a2e3161d6430,
+        type: 2}
+      propertyPath: m_Text
+      value: ' '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06ad7ab32dd9b0946a59a2e3161d6430, type: 2}
