@@ -8,7 +8,7 @@ public class HappinessManager : MonoBehaviour
     public GameObject Board;
     public GameObject Companion;
     public GameObject AudioGameObj;
-   
+    public Image FillColour;
 
     public Slider HappinessSlider;
 
@@ -88,7 +88,7 @@ public class HappinessManager : MonoBehaviour
     void Update()
     {
         HappinessStates();
-        
+
         // Displays hunger value (used in debug)
         //HungerMetre.text = "" + Hunger;
 
@@ -122,7 +122,8 @@ public class HappinessManager : MonoBehaviour
         // Slider value stops at -0.01 for somereason so -5 is to make sure it resets 
         if (HappinessSliderValue > -5 && HappinessSliderValue < 20)
         {
-       
+            FillColour.color = Color.yellow;
+
             // Animation 
             Anim.SetBool("<20", true);
             Anim.SetBool("is>33", false);
@@ -174,6 +175,7 @@ public class HappinessManager : MonoBehaviour
         // Goes to sleep
         else if (HappinessSliderValue > 95 && HappinessSliderValue < 100)
         {
+            FillColour.color = Color.green;
 
             // Animation 
             Anim.SetBool("is sleepy", true);
@@ -197,6 +199,7 @@ public class HappinessManager : MonoBehaviour
         if(IsSleeping)
         {
             NightTime.SetActive(true);
+            FillColour.color = Color.green;
 
             Anim.SetBool("is>33", false);
            // AudioGameObj.GetComponent<SceneAudio>().Daymode = true;
@@ -214,6 +217,7 @@ public class HappinessManager : MonoBehaviour
         else
         {
             NightTime.SetActive(false);
+            FillColour.color = Color.yellow;
 
             CanEarnGold = false;
             GetComponent<HappyMultlpier>().MultlpierNum = PlayerPrefs.GetInt("Multiplier");

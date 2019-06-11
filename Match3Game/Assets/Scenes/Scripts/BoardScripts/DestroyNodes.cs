@@ -53,10 +53,10 @@ public class DestroyNodes : MonoBehaviour {
             ClearText -= Time.deltaTime;
             if (ClearText < 0)
             {
-                ClearText = 1;
                 TextVanish = false;
                 GetComponent<DotManager>().ComboScore = 0;
                 ComboScore.text = "           ";
+                ClearText = 1;
 
            }
         }
