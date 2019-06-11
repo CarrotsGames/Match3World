@@ -8,7 +8,7 @@ public class DestroyNodes : MonoBehaviour {
     public float ComboSpeed;
     public float ComboVanishSpeed;
     public float ComboScorePause;
-
+    private float ClearText;
     public bool StartDestroy;
     int Index;
     int ComboNum;
@@ -18,29 +18,47 @@ public class DestroyNodes : MonoBehaviour {
     public GameObject ComboGameObj;
     public Text ComboText;
     public Text ComboScore;
-
+    bool TextVanish;
     bool CanChangeText;
     // Use this for initialization
     void Start ()
     {
+        ClearText = 1;
         CompanionGameObj = GameObject.FindGameObjectWithTag("Companion");
         CompanionScriptRef = CompanionGameObj.GetComponent<CompanionScript>();
         ComboGameObj.SetActive(false);
+        TextVanish = false;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        // Begins the node destroy process
-        if (StartDestroy)
-        {
-            StartCoroutine(DestoyNodes());
-            ComboGameObj.SetActive(true);
+         
+            // Begins the node destroy process
+            if (StartDestroy)
+            {
+                StartCoroutine(DestoyNodes());
+                ComboGameObj.SetActive(true);
 
-        }
-        if(CanChangeText)
+            }
+            if (CanChangeText)
+            {
+                StartCoroutine(ChangeText());
+            }
+
+        if (TextVanish)
         {
-            StartCoroutine(ChangeText());
+            ComboScore.text = "           " + GetComponent<DotManager>().ComboScore;
+
+            ClearText -= Time.deltaTime;
+            if (ClearText < 0)
+            {
+                ClearText = 1;
+                TextVanish = false;
+                GetComponent<DotManager>().ComboScore = 0;
+                ComboScore.text = "           ";
+
+           }
         }
 
     }
@@ -53,8 +71,17 @@ public class DestroyNodes : MonoBehaviour {
         for (int i = 0; i < CompanionScriptRef.EatingPeices.Count; i++)
         {
             Index = i;
-            ComboText.text = "COMBO:" + ComboNum;
+            if (CompanionScriptRef.EatingPeices.Count > 4)
+            {
+                ComboText.text = "COMBO:" + ComboNum;
+                bool Vibrate = true;
+                if (Vibrate)
+                {
+                    Handheld.Vibrate();
+                    Vibrate = false;
 
+                }
+            }
             PlayParticle();
             Destroy(CompanionScriptRef.EatingPeices[i].gameObject);
             // Delays forloop So that nodes are destroyed one by one
@@ -64,31 +91,27 @@ public class DestroyNodes : MonoBehaviour {
 
         }
         ComboNum = 0;
-        ComboText.text = "";
+        ComboText.text = "" ;
+
         StartDestroy = false;
         // Resest list
+        if (CompanionScriptRef.EatingPeices.Count > 4)
+        {
+            CanChangeText = true;
+        }
         CompanionScriptRef.EatingPeices.Clear();
-        CanChangeText = true;
+
     }
     IEnumerator ChangeText()
     {
         CanChangeText = false;
-
         WaitForSeconds ComboVanish = new WaitForSeconds(ComboVanishSpeed);
 
-        WaitForSeconds ComboPause = new WaitForSeconds(ComboScorePause);
-
-        if (!StartDestroy)
-        {
-            yield return ComboVanish;
-
-            ComboScore.text = "           " + GetComponent<DotManager>().ComboScore;
-            yield return ComboPause;
-            ComboGameObj.SetActive(false);
-            GetComponent<DotManager>().ComboScore = 0;
-        }
-        ComboScore.text = "           " ;
-    }
+        WaitForSeconds ComboPause = new WaitForSeconds(ComboScorePause);  
+        yield return ComboVanish;
+        TextVanish = true;
+         
+     }
     // plays particle effect for each node
     void PlayParticle()
     {
