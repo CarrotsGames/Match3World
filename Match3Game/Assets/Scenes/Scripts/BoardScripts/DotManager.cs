@@ -10,10 +10,8 @@ public class DotManager : MonoBehaviour
     GameObject CampanionGameObj;
     // GamePiece lists
     public List<GameObject> Peices;
-    public List<GameObject> RedPieces;
-    public List<GameObject> BluePieces;
-    public List<GameObject> GreenPieces;
-    public List<GameObject> YellowPieces;
+    public List<GameObject> PeicesList;
+ 
     public List<GameObject> Gold;
     //Particle effects 
     public GameObject ParticleEffectPink;
@@ -60,10 +58,8 @@ public class DotManager : MonoBehaviour
     public int ComboScore;
     // public int Currency;
 
-    private int RedCount;
-    private int BlueCount;
-    private int YellowCount;
-    private int GreenCount;
+    private int PeicesCount;
+ 
     private int Num;
 
     public float SceneScore;
@@ -75,15 +71,14 @@ public class DotManager : MonoBehaviour
     private CreatureSelect CreatureSelectScript;
     private string Colour;
      private void Awake()
-    {
-        TotalScore = PlayerPrefs.GetInt("SCORE");
-        HighScore.text = "" + TotalScore;
-    }
+     {
+         TotalScore = PlayerPrefs.GetInt("SCORE");
+         HighScore.text = "" + TotalScore;
+     }
     private void Start()
     {
         // Bools start false to be activated later
         NodeSelection = false;
- 
         StartHighliting = false;
         ResetMaterial = false;
         ResetLayer = false;
@@ -136,36 +131,36 @@ public class DotManager : MonoBehaviour
 
                 if (Peices[i].tag == "Red")
                 {
-                    RedCount += 1;
+                    PeicesCount += 1;
                     Peices[i].GetComponent<Renderer>().material = Red;
                     Peices[i].gameObject.layer = 0;
-                    RedPieces.Add(Peices[i]);
+                    PeicesList.Add(Peices[i]);
                 }
                 else if (Peices[i].tag == "Blue")
                 {
-                    BlueCount += 1;
+                    PeicesCount += 1;
                     Peices[i].GetComponent<Renderer>().material = Blue;
                     Peices[i].gameObject.layer = 0;
 
-                    BluePieces.Add(Peices[i]);
+                    PeicesList.Add(Peices[i]);
 
                 }
                 else if (Peices[i].tag == "Yellow")
                 {
-                    YellowCount += 1;
+                    PeicesCount += 1;
                     Peices[i].GetComponent<Renderer>().material = Yellow;
                     Peices[i].gameObject.layer = 0;
 
-                    YellowPieces.Add(Peices[i]);
+                    PeicesList.Add(Peices[i]);
 
                 }
                 else if (Peices[i].tag == "Green")
                 {
-                    GreenCount += 1;
+                    PeicesCount += 1;
                     Peices[i].GetComponent<Renderer>().material = Green;
                     Peices[i].gameObject.layer = 0;
 
-                    GreenPieces.Add(Peices[i]);
+                    PeicesList.Add(Peices[i]);
                 }
                 else if (Peices[i].tag == "Gold")
                 {
@@ -202,102 +197,33 @@ public class DotManager : MonoBehaviour
 
     }
 
- 
+
     // Checks which colour made a match
     void AddColourToScore()
     {
 
         // If the times red was counted is equal to the amount of the peices list Red was connected
-        if (RedCount == Peices.Count && RedCount > Limit)
-        {
-            RedScore += RedCount;
+        if (PeicesCount == Peices.Count && PeicesCount > Limit)
+        { 
+            RedScore += PeicesCount;
             RedScore *= Peices.Count;
             RedScore *= Multipier;
             TotalScore += RedScore;
 
-            for (Num = 0; Num < RedCount; Num++)
+            for (Num = 0; Num < PeicesCount; Num++)
             {
-                RedPieces[Num].layer = LayerMask.GetMask("Default");
-                Companion.EatingPeices.Add(RedPieces[Num]);
+                PeicesList[Num].layer = LayerMask.GetMask("Default");
+                Companion.EatingPeices.Add(PeicesList[Num]);
                 if (Peices.Count >= 8)
                 {
-                  //  Instantiate(ParticleEffectFireWork, RedPieces[Num].transform.position, Quaternion.identity);
-
+                    //  Instantiate(ParticleEffectFireWork, RedPieces[Num].transform.position, Quaternion.identity);
                 }
-            }
-             Companion.FeedMonster();
- 
-        }
-        // If the times Blue was counted is equal to the amount of the peices list Blue was connected
-        if (BlueCount == Peices.Count && BlueCount > Limit)
-        {
-            BlueScore += BlueCount;
-            BlueScore *= Peices.Count;
-            BlueScore *= Multipier;
-            TotalScore += BlueScore;
 
-            for (Num = 0; Num < BlueCount; Num++)
-            {
-                BluePieces[Num].layer = LayerMask.GetMask("Default");
-                Companion.EatingPeices.Add(BluePieces[Num]);
-                if(Peices.Count >= 8)
-                {
-                  //  Instantiate(ParticleEffectFireWork, BluePieces[Num].transform.position, Quaternion.identity);
-                }
             }
-
             Companion.FeedMonster();
- 
 
         }
-
-        // If the times Yellow was counted is equal to the amount of the peices list Yellow was connected
-        if (YellowCount == Peices.Count && YellowCount > Limit)
-        {
-            YellowScore += YellowCount;
-            YellowScore *= Peices.Count;
-            YellowScore *= Multipier;
-            TotalScore += YellowScore;
-
-            for (Num = 0; Num < YellowCount; Num++)
-            {
-
-                YellowPieces[Num].layer = LayerMask.GetMask("Default");
-                Companion.EatingPeices.Add(YellowPieces[Num]);
-                if (Peices.Count >= 8)
-                {
-                  //  Instantiate(ParticleEffectFireWork, YellowPieces[Num].transform.position, Quaternion.identity);
-                }
-            }
-
-            Companion.FeedMonster();
- 
-            //YellowPieces.Clear();
-        }
-        // TODO CHANGE GREEN TO PURPLE
-        // If the times Green(Purple) was counted is equal to the amount of the peices list Green was connected
-
-        if (GreenCount == Peices.Count && GreenCount > Limit)
-        {
-            GreenScore += GreenCount;
-            GreenScore *= Peices.Count;
-            GreenScore *= Multipier;
-            TotalScore += GreenScore;
-
-            for (Num = 0; Num < GreenCount; Num++)
-            {
-
-                GreenPieces[Num].layer = LayerMask.GetMask("Default");
-                Companion.EatingPeices.Add(GreenPieces[Num]);
-                if (Peices.Count >= 8)
-                {
-                  //  Instantiate(ParticleEffectFireWork, GreenPieces[Num].transform.position, Quaternion.identity);
-                }
-            }
-       
-            Companion.FeedMonster();
-            //    GreenPieces.Clear();
-        }
+     
         if (GoldAmount == Peices.Count && GoldAmount > Limit)
         {
             PowerUpManagerScript.Currency += GoldAmount;
@@ -308,20 +234,14 @@ public class DotManager : MonoBehaviour
             }
         }
         // if the colour wasnt matched reset lists, scores, counts and selections
-        if (RedCount != Peices.Count || BlueCount != Peices.Count || GreenCount != Peices.Count || YellowCount != Peices.Count)
-        {
             ComboScore += RedScore + BlueScore + GreenScore + YellowScore; 
             SceneScore += RedScore + BlueScore + GreenScore + YellowScore;
             //  Debug.Log("No connection");
-            RedPieces.Clear();
-            BluePieces.Clear();
-            YellowPieces.Clear();
-            GreenPieces.Clear();
+            PeicesList.Clear();
+ 
             Gold.Clear();
-            RedCount = 0;
-            BlueCount = 0;
-            YellowCount = 0;
-            GreenCount = 0;
+            PeicesCount = 0;
+             
             GoldAmount = 0;
             NumberOfNeighbours = 0;
             RedScore = 0;
@@ -335,7 +255,7 @@ public class DotManager : MonoBehaviour
             AddBoardParticles();
             // ResetDotLayers = true;
             // Adds board particles
-         }
+          
         Peices.Clear();
     }
 
