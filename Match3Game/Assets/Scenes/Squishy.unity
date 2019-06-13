@@ -1159,8 +1159,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 676a119dca6cf4e4cb9299267ca18693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Width: 5
-  Height: 5
+  Width: 9
+  Height: 9
   Gold: 0
   TilePrefab: {fileID: 1826161997128130, guid: a7b5c648e1340cc429b95bd0d68f649b, type: 2}
   Dots:
@@ -1507,6 +1507,16 @@ Prefab:
       propertyPath: AudioGameObj
       value: 
       objectReference: {fileID: 605077689}
+    - target: {fileID: 114904152250435826, guid: 6e21ef18f925f614bb8952d2a3856f01,
+        type: 2}
+      propertyPath: FillColour
+      value: 
+      objectReference: {fileID: 1373181324}
+    - target: {fileID: 114904152250435826, guid: 6e21ef18f925f614bb8952d2a3856f01,
+        type: 2}
+      propertyPath: Board
+      value: 
+      objectReference: {fileID: 192660692}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e21ef18f925f614bb8952d2a3856f01, type: 2}
   m_IsPrefabAsset: 0
@@ -7970,6 +7980,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1373181324 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114828261088950954, guid: da1e75e2a9f2789418d547bdc4bb7460,
+    type: 2}
+  m_PrefabInternal: {fileID: 1315002850}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!224 &1383191997 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224346048689091292, guid: b82d59094eebc364ba87b89b4aa10924,
