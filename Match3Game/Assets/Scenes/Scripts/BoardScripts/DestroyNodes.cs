@@ -51,7 +51,7 @@ public class DestroyNodes : MonoBehaviour {
         {
 
             SlowMotionTimer -= Time.deltaTime;
-            Debug.Log(SlowMotionTimer);
+  
             Time.timeScale = 0.1f;
             
         }
