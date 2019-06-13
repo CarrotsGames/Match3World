@@ -761,15 +761,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 676a119dca6cf4e4cb9299267ca18693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Width: 4
-  Height: 4
+  Width: 5
+  Height: 5
   Gold: 0
   TilePrefab: {fileID: 1826161997128130, guid: a7b5c648e1340cc429b95bd0d68f649b, type: 2}
   Dots:
-  - {fileID: 1906746673825504, guid: bffcf3a86e4e8084caca1c2291581818, type: 2}
-  - {fileID: 1844472985487344, guid: 60062170fa83e8849bc8984c686ab8dc, type: 2}
-  - {fileID: 1310575611718344, guid: 4eda3dc611d0cc94f98a2edeb1c16ff8, type: 2}
-  - {fileID: 1766755826017016, guid: 0b6c14be4e631a8478ed497d97af37da, type: 2}
+  - {fileID: 1865041259595156, guid: 8f5bd295faa2170489d039cdcb22bb60, type: 2}
+  - {fileID: 1772490982767552, guid: 6d0f6a561b011c746b452ec0e3e68e6c, type: 2}
+  - {fileID: 1558750524256226, guid: 78460dda9bc1cbf429d0682ac4a9613c, type: 2}
+  - {fileID: 1603641952661596, guid: e97e7bce11230e5499cae43a18a71b82, type: 2}
   - {fileID: 1063094474349120, guid: bcf6c6e79b25cd9459703152c93c0b2e, type: 2}
   Spawner: {fileID: 192660692}
 --- !u!4 &192660696
@@ -2092,6 +2092,12 @@ MonoBehaviour:
   multiplier: 02000000030000000400000005000000060000000700000008000000090000000a00000000000000
   MultlpierNum: 0
   ResetTheMultlpier: 0
+--- !u!114 &475148663 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114904152250435826, guid: 6e21ef18f925f614bb8952d2a3856f01,
+    type: 2}
+  m_PrefabInternal: {fileID: 475148660}
+  m_Script: {fileID: 11500000, guid: 21741c4e4bb78f94e86249b9076a3b9d, type: 3}
 --- !u!1 &486816620
 GameObject:
   m_ObjectHideFlags: 0
@@ -2941,7 +2947,7 @@ MonoBehaviour:
   EatingPeices: []
   EatingPeiceSpawner: {fileID: 1018790061}
   HungerSlider: {fileID: 1200800291}
-  HappinessManagerScript: {fileID: 0}
+  HappinessManagerScript: {fileID: 475148663}
 --- !u!4 &620140866
 Transform:
   m_ObjectHideFlags: 0
@@ -4028,7 +4034,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4783255531975706, guid: 80586b738396c424683623654a216aad, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 11.5
+      value: 23.7
       objectReference: {fileID: 0}
     - target: {fileID: 4783255531975706, guid: 80586b738396c424683623654a216aad, type: 2}
       propertyPath: m_LocalPosition.y
@@ -6891,6 +6897,12 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1577695332}
   m_CullTransparentMesh: 0
+--- !u!114 &1589944712 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114042317872508798, guid: 06ad7ab32dd9b0946a59a2e3161d6430,
+    type: 2}
+  m_PrefabInternal: {fileID: 1323927234}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!4 &1592080635 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4263835391068148, guid: 4718389357c997f4a83a056949ff456f,
@@ -8712,13 +8724,13 @@ MonoBehaviour:
   Peices: []
   PeicesList: []
   Gold: []
-  ParticleEffectPink: {fileID: 1027911067415168, guid: 071592eff157bd84bba65ec6607e4c79,
+  ParticleEffectPink: {fileID: 1538918377291300, guid: 2841b927c74bcfd4a831864dd60e2348,
     type: 2}
-  ParticleEffectPurple: {fileID: 1264937599882002, guid: f9451634ded45ee43bde427f7fc7d874,
+  ParticleEffectPurple: {fileID: 1507761313320118, guid: c5ca6c02a381d8e44a9df3ac7fb36fc5,
     type: 2}
-  ParticleEffectBlue: {fileID: 1493089887617210, guid: 922e05bd1b2152c43b9692eab8262a98,
+  ParticleEffectBlue: {fileID: 1047723603705566, guid: e032a165cd831a24ab12ab77cec4cc90,
     type: 2}
-  ParticleEffectYellow: {fileID: 1718129443868558, guid: d741843d787cb7b4c85a074712673b0b,
+  ParticleEffectYellow: {fileID: 1407705529587884, guid: 950628b6dbc3e5749af3b5cfde14675a,
     type: 2}
   PartySpawner: {fileID: 448939023}
   PartyEffect:
@@ -8777,13 +8789,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f391deae19a48ea40974586c19827ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ComboSpeed: 0
-  ComboVanishSpeed: 0
-  ComboScorePause: 0
+  ComboSpeed: 0.15
+  ComboVanishSpeed: 0.5
   StartDestroy: 0
   ComboGameObj: {fileID: 1931370125}
   ComboText: {fileID: 12792855}
-  ComboScore: {fileID: 0}
+  ComboScore: {fileID: 1589944712}
+  SlowMotionTimer: 0
 --- !u!1001 &2090591698
 Prefab:
   m_ObjectHideFlags: 0
