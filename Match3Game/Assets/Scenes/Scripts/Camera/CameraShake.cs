@@ -16,10 +16,7 @@ public class CameraShake : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if(Input.GetKeyDown(KeyCode.F))
-        {
-            ShakeCamera(ShakeAmount, 0.5f);
-        }
+         
 		if(ShakeTimer >= 0)
         {
             Vector2 ShakePos = Random.insideUnitCircle * ShakeAmount;
