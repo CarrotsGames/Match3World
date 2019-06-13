@@ -19,9 +19,12 @@ public class DestroyNodes : MonoBehaviour {
     private bool SlowMotionOn;
     public float SlowMotionTimer;
     private float SlowMotionStorage;
+    bool Vibrate;
+
     // Use this for initialization
     void Start ()
     {
+        Vibrate = true;
          CompanionGameObj = GameObject.FindGameObjectWithTag("Companion");
         CompanionScriptRef = CompanionGameObj.GetComponent<CompanionScript>();
         ComboGameObj.SetActive(false);
@@ -80,7 +83,6 @@ public class DestroyNodes : MonoBehaviour {
                     SlowMotionOn = true;
                 }
                 ComboText.text = "BIG \nCOMBO:" + ComboNum;
-                bool Vibrate = true;
                 if (Vibrate)
                 {
                     Handheld.Vibrate();
@@ -92,8 +94,7 @@ public class DestroyNodes : MonoBehaviour {
             else if (CompanionScriptRef.EatingPeices.Count > 4)
             {
                 ComboText.text = "COMBO:" + ComboNum;
-                bool Vibrate = true;
-                if (Vibrate)
+                 if (Vibrate)
                 {
                     Handheld.Vibrate();
                     Vibrate = false;
@@ -110,7 +111,7 @@ public class DestroyNodes : MonoBehaviour {
             ComboNum += 1;
 
             yield return wait;
-
+            Vibrate = true;
         }
         // resets the combonumber 
         ComboNum = 0;
