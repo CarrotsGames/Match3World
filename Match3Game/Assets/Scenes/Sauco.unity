@@ -1034,6 +1034,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3dcfb00e4b02533448213287bf82e717, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &183767508 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1590064525693020, guid: 3dcfb00e4b02533448213287bf82e717,
+    type: 2}
+  m_PrefabInternal: {fileID: 183767507}
 --- !u!1 &192660692
 GameObject:
   m_ObjectHideFlags: 0
@@ -7737,6 +7742,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06ad7ab32dd9b0946a59a2e3161d6430, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &671002751 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114042317872508798, guid: 06ad7ab32dd9b0946a59a2e3161d6430,
+    type: 2}
+  m_PrefabInternal: {fileID: 671002750}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &705077055
 GameObject:
   m_ObjectHideFlags: 0
@@ -14314,6 +14325,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdada8574ce01ac42b5f660acca6d26b, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &916780124 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1128223317818842, guid: cdada8574ce01ac42b5f660acca6d26b,
+    type: 2}
+  m_PrefabInternal: {fileID: 916780123}
 --- !u!1001 &922635081
 Prefab:
   m_ObjectHideFlags: 0
@@ -18096,13 +18112,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f391deae19a48ea40974586c19827ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ComboSpeed: 0.15
-  ComboVanishSpeed: 0.5
-  ComboScorePause: 1
+  ComboSpeed: 0.1
+  ComboVanishSpeed: 1
   StartDestroy: 0
   ComboGameObj: {fileID: 960730409}
   ComboText: {fileID: 800116866}
-  ComboScore: {fileID: 0}
+  ComboScore: {fileID: 671002751}
+  SlowMotionTimer: 0.008
 --- !u!114 &1616428245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20301,9 +20317,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41bb506c9d7e5c54ca89eef7549c462a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShuffleSpawn: {fileID: 0}
-  ShuffleGameObj: {fileID: 1884717317302344, guid: 3dcfb00e4b02533448213287bf82e717,
-    type: 2}
+  ShuffleSpawn: {fileID: 916780124}
+  ShuffleGameObj: {fileID: 183767508}
   ShuffleSpeed: 13
   CircleScale: 15
 --- !u!114 &1857106636
