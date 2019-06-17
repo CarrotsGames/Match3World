@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4874126141112344}
   - component: {fileID: 114904152250435826}
+  - component: {fileID: 114961988253304716}
   m_Layer: 0
   m_Name: HappinessManager
   m_TagString: HM
@@ -51,9 +52,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21741c4e4bb78f94e86249b9076a3b9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Board: {fileID: 0}
   Companion: {fileID: 0}
-  Happiness: 0
-  multiplier: 02000000050000000a00000019000000
+  AudioGameObj: {fileID: 0}
+  FillColour: {fileID: 0}
   HappinessSlider: {fileID: 0}
-  CanGetCurrency: 0
+  HappinessSliderValue: 0
   CompanionSave: 
+  CanGetCurrency: 0
+  IsSleeping: 0
+  Anim: {fileID: 0}
+  DayTime: {fileID: 0}
+  NightTime: {fileID: 0}
+  AwakeHead: {fileID: 0}
+  SaveStrings: 
+--- !u!114 &114961988253304716
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1798270318024600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e66ce22ae128248a7dc73fc26edf93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplier: 02000000030000000400000005000000060000000700000008000000090000000a0000000b000000
+  MultlpierNum: 0
+  ResetTheMultlpier: 0
