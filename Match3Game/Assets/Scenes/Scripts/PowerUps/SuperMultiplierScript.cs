@@ -53,8 +53,8 @@ public class SuperMultiplierScript : MonoBehaviour
                 int test;
                 if (i > 0)
                 {
-                    test = HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[i - 1];
-                    test *= SuperMultiplier;
+                    test = HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[i];
+                    test *= test;
                     HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[i] = test;
                 }
                 else
