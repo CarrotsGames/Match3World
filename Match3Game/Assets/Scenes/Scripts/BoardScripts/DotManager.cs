@@ -234,7 +234,7 @@ public class DotManager : MonoBehaviour
             }
         }
         // if the colour wasnt matched reset lists, scores, counts and selections
-            ComboScore += RedScore + BlueScore + GreenScore + YellowScore; 
+            ComboScore = RedScore + BlueScore + GreenScore + YellowScore; 
             SceneScore += RedScore + BlueScore + GreenScore + YellowScore;
             //  Debug.Log("No connection");
             PeicesList.Clear();

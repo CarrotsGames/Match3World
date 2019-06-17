@@ -80,13 +80,15 @@ public class HappinessManager : MonoBehaviour
         IsSleeping = (PlayerPrefs.GetInt(SaveStrings) != 0);
         // checks if bool puts companion to sleep
         Sleeping();
-
+        HappinessSlider.maxValue = 99;
+        HappinessSlider.minValue = 0f;
 
     }
 
     // Update is called once per frame
     void Update()
     {
+ 
         HappinessStates();
 
         // Displays hunger value (used in debug)

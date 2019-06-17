@@ -50,7 +50,17 @@ public class SuperMultiplierScript : MonoBehaviour
             // goes through multiplier list and times each one by super multlplier
             for (int i = 0; i < HappinessGameObj.GetComponent<HappyMultlpier>().multiplier.Length; i++)
             {
-                HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[i] *= SuperMultiplier;
+                int test;
+                if (i > 0)
+                {
+                    test = HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[i - 1];
+                    test *= SuperMultiplier;
+                    HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[i] = test;
+                }
+                else
+                {
+                    HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[i] *= SuperMultiplier;
+                }
             }
             StartCountdown = true;
         }
@@ -66,10 +76,21 @@ public class SuperMultiplierScript : MonoBehaviour
 
             if (MultlpierTimer < 0)
             {
-                // Goes through multiplier list and returns variables to defual
+                int test;
+              
+                 // Goes through multiplier list and returns variables to defual
                 for (int i = 0; i < HappinessGameObj.GetComponent<HappyMultlpier>().multiplier.Length; i++)
                 {
-                    HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[i] /= SuperMultiplier;
+                    if (i > 0)
+                    {
+                        test = HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[i - 1];
+                        test += 1;
+                        HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[i] = test;
+                    }
+                    else
+                    {
+                        HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[i] /= SuperMultiplier;
+                    }
                 }
                 StartCountdown = false;
                 MultlpierTimer = TimerStore;

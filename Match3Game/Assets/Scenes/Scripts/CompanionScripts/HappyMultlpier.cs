@@ -68,13 +68,21 @@ public class HappyMultlpier : MonoBehaviour {
                 IsSleeping = (PlayerPrefs.GetInt(ListOfSaves[i]) != 0);
             }    
         
-            if (RealtTimeScript.GetComponent<RealTimeCounter>().HappinessCountDown[i] <= 30 && IsSleeping)
+            if (RealtTimeScript.GetComponent<RealTimeCounter>().HappinessCountDown[i] < 30 && IsSleeping)
             {
                 IsSleeping = false; 
                 PlayerPrefs.SetInt(ListOfSaves[i], (IsSleeping ? 1 : 0));
 
-                MultlpierNum -= 1;
+                AddNewNum -= 1;
             }
+            else if (RealtTimeScript.GetComponent<RealTimeCounter>().HappinessCountDown[i] >= 30 && IsSleeping)
+            {
+                PlayerPrefs.SetInt(ListOfSaves[i], (IsSleeping ? 1 : 0));
+
+                AddNewNum += 1;
+            }
+            // if not sleeping but greater than 95 
+            // then set that companion to sleeping 
             else if (!GetComponent<HappinessManager>().IsSleeping)
             {
                 if(RealtTimeScript.GetComponent<RealTimeCounter>().HappinessCountDown[i] >= 95)
@@ -85,7 +93,7 @@ public class HappyMultlpier : MonoBehaviour {
                     GetComponent<HappinessManager>().IsSleeping = true;
                     PlayerPrefs.SetInt(GetComponent<HappinessManager>().SaveStrings, (GetComponent<HappinessManager>().IsSleeping ? 1 : 0));
 
-                    MultlpierNum += 1;
+                    AddNewNum += 1;
                 }
             }
 
@@ -94,7 +102,8 @@ public class HappyMultlpier : MonoBehaviour {
                 MultlpierNum = 1;
             }
         }
-     
+        MultlpierNum = AddNewNum;
+        AddNewNum = 0;
         PlayerPrefs.SetInt("Multiplier", MultlpierNum);
 
         Multplier();
@@ -110,38 +119,38 @@ public class HappyMultlpier : MonoBehaviour {
         // Number of multlpier matches number of creatures in game (10 creatures MAX at the moment
         switch (MultlpierNum)
         {
-            case 1:
+            case 0:
                 DotManagerScript.Multipier = multiplier[0];
                 break;
-            case 2:
+            case 1:
                 DotManagerScript.Multipier = multiplier[1];
 
                 break;
-            case 3:
+            case 2:
                 DotManagerScript.Multipier = multiplier[2];
 
                 break;
-            case 4:
+            case 3:
                 DotManagerScript.Multipier = multiplier[3];
 
                 break;
-            case 5:
+            case 4:
                 DotManagerScript.Multipier = multiplier[4];
 
                 break;
-            case 6:
+            case 5:
                 DotManagerScript.Multipier = multiplier[5];
 
                 break;
-            case 7:
+            case 6:
                 DotManagerScript.Multipier = multiplier[6];
 
                 break;
-            case 8:
+            case 7:
                 DotManagerScript.Multipier = multiplier[7];
 
                 break;
-            case 9:
+            case 8:
                 DotManagerScript.Multipier = multiplier[8];
 
                 break;

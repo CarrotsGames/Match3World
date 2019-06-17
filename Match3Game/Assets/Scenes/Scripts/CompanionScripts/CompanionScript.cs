@@ -10,8 +10,7 @@ public class CompanionScript : MonoBehaviour
     // Use this for initialization
     public GameObject EatingPeiceSpawner;
  
-    public Slider HungerSlider;
- 
+  
     private GameObject DotManagerObj;
     private GameObject MainCamera;
     private GameObject PowerUpManGameObj;
@@ -47,8 +46,7 @@ public class CompanionScript : MonoBehaviour
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
         // HungerSlider min and max
-        HungerSlider.maxValue = 99;
-        HungerSlider.minValue = 0f;
+
     }
 
 
@@ -65,7 +63,9 @@ public class CompanionScript : MonoBehaviour
             MainCamera.GetComponent<CameraShake>().ShakeCamera(HappinessGameObj.GetComponent<HappyMultlpier>().MultlpierNum / 1.5f, 0.25f);
             // displays total score to Text
  
-            DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
+
+            DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore * HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[HappinessGameObj.GetComponent<HappyMultlpier>().MultlpierNum];
+
         }
 
         if (HappinessManagerScript.CanGetCurrency)

@@ -20,17 +20,21 @@ public class DestroyNodes : MonoBehaviour {
     public float SlowMotionTimer;
     private float SlowMotionStorage;
     bool Vibrate;
+    private GameObject HappinessGameObj;
+    public HappinessManager HappinessManagerScript;
 
     // Use this for initialization
     void Start ()
     {
         Vibrate = true;
-         CompanionGameObj = GameObject.FindGameObjectWithTag("Companion");
+        CompanionGameObj = GameObject.FindGameObjectWithTag("Companion");
         CompanionScriptRef = CompanionGameObj.GetComponent<CompanionScript>();
         ComboGameObj.SetActive(false);
         SlowMotionOn = false;
         SlowMotionStorage = SlowMotionTimer;
 
+        HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
+        HappinessManagerScript = HappinessGameObj.GetComponent<HappinessManager>();
     }
 
     // Update is called once per frame
@@ -68,7 +72,7 @@ public class DestroyNodes : MonoBehaviour {
     // Destorys nodes in the eatingPeices list
     IEnumerator DestoyNodes()
     {
-       // Set time for delay
+        // Set time for delay
         WaitForSeconds wait = new WaitForSeconds(ComboSpeed);
         WaitForSeconds SlowMotion = new WaitForSeconds(10);
 
@@ -132,7 +136,7 @@ public class DestroyNodes : MonoBehaviour {
     IEnumerator DisplayComboScore()
     {
          WaitForSeconds ComboVanish = new WaitForSeconds(ComboVanishSpeed);
-        ComboText.text = "Score:" + GetComponent<DotManager>().ComboScore;
+        ComboText.text = "Score:" + GetComponent<DotManager>().ComboScore * HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[HappinessGameObj.GetComponent<HappyMultlpier>().MultlpierNum];
         // waits comboVanish value until it continues
         yield return ComboVanish;
         //resets combo text 
