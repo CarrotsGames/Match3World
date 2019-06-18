@@ -133,9 +133,10 @@ public class DestroyNodes : MonoBehaviour {
             }
            
             // destroys current peice
-            Destroy(CompanionScriptRef.EatingPeices[i].gameObject);
             // plays that peices particle depending on colour
             PlayParticle();
+            Destroy(CompanionScriptRef.EatingPeices[i].gameObject);
+
             // Delays forloop So that nodes are destroyed one by one
 
             yield return wait;

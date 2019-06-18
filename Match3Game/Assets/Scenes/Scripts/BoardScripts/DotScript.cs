@@ -29,7 +29,8 @@ public class DotScript : MonoBehaviour
     public HappinessManager HappinessManagerScript;
     public DotManager DotManagerScript;
     private GameObject DotManagerObj;
-    private LineRenderer DrawLine;
+    [HideInInspector]
+    public LineRenderer DrawLine;
     private Collider2D col2d;
     private Material Default;
     private GameObject AudioManagerGameObj;
