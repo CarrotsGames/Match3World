@@ -21,7 +21,7 @@ public class DestroyNodes : MonoBehaviour {
     public HappinessManager HappinessManagerScript;
     private int Index;
     private int ComboNum;
- 
+    public List<GameObject> ComboList;
     float Timer;
     bool StartTimer;
     bool Reset;
@@ -44,6 +44,9 @@ public class DestroyNodes : MonoBehaviour {
     // Update is called once per frame
     private void Update()
     {
+
+
+     
         Debug.Log(GetComponent<DotManager>().ComboScore);
         if (StartTimer)
         {
@@ -91,6 +94,16 @@ public class DestroyNodes : MonoBehaviour {
             SlowMotionTimer = SlowMotionStorage;
         }
     }
+   
+    public void CreateComboList()
+    {
+        for (int i = 0; i < CompanionScriptRef.EatingPeices.Count; i++)
+        {
+            ComboList.Add(CompanionScriptRef.EatingPeices[i]);
+          
+        }
+        StartDestroy = true;
+    }
     // Destorys nodes in the eatingPeices list
     IEnumerator DestoyNodes()
     {
@@ -98,11 +111,11 @@ public class DestroyNodes : MonoBehaviour {
         WaitForSeconds wait = new WaitForSeconds(ComboSpeed);
         WaitForSeconds SlowMotion = new WaitForSeconds(10);
 
-        for (int i = 0; i < CompanionScriptRef.EatingPeices.Count; i++)
+        for (int i = 0; i < ComboList.Count; i++)
         {
 
             Index = i;
-            if (CompanionScriptRef.EatingPeices.Count > 6)
+            if (ComboList.Count > 6)
             {
                 if(ComboNum < 1)
                 {
@@ -119,7 +132,7 @@ public class DestroyNodes : MonoBehaviour {
                 }
             }
             // Displays the combo currently happening in game
-            else if (CompanionScriptRef.EatingPeices.Count > 4)
+            else if (ComboList.Count > 4)
             {
                 ComboText.text = "COMBO:" + ComboNum;
                  if (Vibrate)
@@ -131,13 +144,15 @@ public class DestroyNodes : MonoBehaviour {
                 }
                
             }
-           
+
             // destroys current peice
             // plays that peices particle depending on colour
+         
+             
             PlayParticle();
-            Destroy(CompanionScriptRef.EatingPeices[i].gameObject);
-
-            // Delays forloop So that nodes are destroyed one by one
+             
+            Destroy(ComboList[i].gameObject);
+             // Delays forloop So that nodes are destroyed one by one
 
             yield return wait;
             Vibrate = true;
@@ -148,13 +163,12 @@ public class DestroyNodes : MonoBehaviour {
         // disables the StartDestroy void
         StartDestroy = false;
         // Resest list
-        if (CompanionScriptRef.EatingPeices.Count > 4)
+        if (ComboList.Count > 4)
         {
             DisplayComboScore();
         }
 
-        CompanionScriptRef.EatingPeices.Clear();
-
+         ComboList.Clear();
     }
 
     // Displays the ComboScore Text
@@ -177,30 +191,29 @@ public class DestroyNodes : MonoBehaviour {
     // plays particle effect for each node
     void PlayParticle()
     {
-
-        // plays particle effect at list index and position of current node
-        switch (CompanionScriptRef.EatingPeices[Index].tag)
+            // plays particle effect at list index and position of current node
+        switch (ComboList[Index].tag)
         {
             case "Red":
                 {
-                    Instantiate(GetComponent<DotManager>().ParticleEffectPink, CompanionScriptRef.EatingPeices[Index].transform.position, Quaternion.identity);
+                    Instantiate(GetComponent<DotManager>().ParticleEffectPink, ComboList[Index].transform.position, Quaternion.identity);
 
                 }
                 break;
             case "Blue":
                 {
-                    Instantiate(GetComponent<DotManager>().ParticleEffectBlue, CompanionScriptRef.EatingPeices[Index].transform.position, Quaternion.identity);
+                    Instantiate(GetComponent<DotManager>().ParticleEffectBlue, ComboList[Index].transform.position, Quaternion.identity);
 
                 }
                 break;
             case "Yellow":
                 {
-                    Instantiate(GetComponent<DotManager>().ParticleEffectPurple, CompanionScriptRef.EatingPeices[Index].transform.position, Quaternion.identity);
+                    Instantiate(GetComponent<DotManager>().ParticleEffectPurple, ComboList[Index].transform.position, Quaternion.identity);
                 }
                 break;
             case "Green":
                 {
-                    Instantiate(GetComponent<DotManager>().ParticleEffectYellow, CompanionScriptRef.EatingPeices[Index].transform.position, Quaternion.identity);
+                    Instantiate(GetComponent<DotManager>().ParticleEffectYellow, ComboList[Index].transform.position, Quaternion.identity);
                 }
                 break;
         }

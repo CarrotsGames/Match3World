@@ -154,10 +154,13 @@ public class DotScript : MonoBehaviour
     private void OnMouseDown()
     {
 
+        if (!DotManagerScript.StartHighliting)
+        {
+            DotManagerScript.Companion.EatingPeices.Clear();
+        }
         DotManagerScript.StartHighliting = true;
         DotManagerScript.NodeSelection = true;
-
-        // Checks which colout tag the mouse is interacting with to know which colour to focus on
+         // Checks which colout tag the mouse is interacting with to know which colour to focus on
         switch (transform.tag)
         {
             case  "Red":
@@ -178,9 +181,11 @@ public class DotScript : MonoBehaviour
             case "Gold":
                 Colour = "Gold";
                   break;
+            case "COLLECTED":
+                OnMouseUp();
+                break;
         }
-
-         
+          
         DotManagerScript.Peices.Clear();
        // DrawLine.SetPosition(0, transform.position);
         // Increases size of peice when selected

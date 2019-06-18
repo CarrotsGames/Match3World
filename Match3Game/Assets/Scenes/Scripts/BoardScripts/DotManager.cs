@@ -5,9 +5,11 @@ using UnityEngine.UI;
 using System.Linq;
 public class DotManager : MonoBehaviour
 {
+    [HideInInspector]
+    public CompanionScript Companion;
+    [HideInInspector]
 
-    CompanionScript Companion;
-    GameObject CampanionGameObj;
+    public GameObject CampanionGameObj;
     // GamePiece lists
     public List<GameObject> Peices;
     public List<GameObject> PeicesList;

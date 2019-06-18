@@ -9,8 +9,7 @@ public class CompanionScript : MonoBehaviour
     public List<GameObject> EatingPeices;
     // Use this for initialization
     public GameObject EatingPeiceSpawner;
- 
-  
+
     private GameObject DotManagerObj;
     private GameObject MainCamera;
     private GameObject PowerUpManGameObj;
@@ -56,8 +55,12 @@ public class CompanionScript : MonoBehaviour
         // transforms the peices to the eatingspawner position
         for (int i = 0; i < EatingPeices.Count; i++)
         {
-
-            CurrencyChance = HungerMultiplier;
+            if(EatingPeices[i] == null)
+            {
+                EatingPeices.RemoveAt(i);
+            }
+            EatingPeices[i].transform.gameObject.tag = "COLLECTED";
+             CurrencyChance = HungerMultiplier;
            // Destroy(EatingPeices[i].gameObject);
             HungerMultiplier = i / 2;
             MainCamera.GetComponent<CameraShake>().ShakeCamera(HappinessGameObj.GetComponent<HappyMultlpier>().MultlpierNum / 1.5f, 0.25f);
@@ -91,10 +94,9 @@ public class CompanionScript : MonoBehaviour
             int RandomSound = Random.Range(0, AudioManagerScript.MooblingAudio.Length);
             // When fed the companion will play a random sound in list
             AudioManagerScript.MooblingSource.clip = AudioManagerScript.MooblingAudio[RandomSound];
-            AudioManagerScript.MooblingSource.Play();
-     
+            AudioManagerScript.MooblingSource.Play();    
         }
-        DotManagerObj.GetComponent<DestroyNodes>().StartDestroy = true;
+        DotManagerObj.GetComponent<DestroyNodes>().CreateComboList();
     }
  
  
