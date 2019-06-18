@@ -57,6 +57,7 @@ public class DotManager : MonoBehaviour
     [HideInInspector]
     public int ComboScore;
     // public int Currency;
+    public int PeicesCountCombo;
 
     public int PeicesCount;
  
@@ -122,6 +123,8 @@ public class DotManager : MonoBehaviour
         // Checkas if colours are connecting
         if (CheckConnection)
         {
+            PeicesCount = 0;
+
             ResetLayer = true;
             StartHighliting = false;
             // sorts each colour found in the peices list 
@@ -172,6 +175,9 @@ public class DotManager : MonoBehaviour
                 }
             }
             // Checks which colour made a match
+
+            PeicesCountCombo = PeicesCount;
+
             AddColourToScore();
 
             CheckConnection = false;

@@ -21,6 +21,7 @@ public class DestroyNodes : MonoBehaviour {
     public HappinessManager HappinessManagerScript;
     private int Index;
     private int ComboNum;
+
     float Timer;
     bool StartTimer;
     bool Reset;
@@ -155,14 +156,13 @@ public class DestroyNodes : MonoBehaviour {
     void DisplayComboScore()
     {
         int Total;
-        int Peices;
         int Combo;
         int Multplier;
 
-        Peices = GetComponent<DotManager>().PeicesCount;
+        GetComponent<DotManager>().PeicesCount = GetComponent<DotManager>().PeicesCount;
         Combo = GetComponent<DotManager>().ComboScore;
         Multplier = HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[HappinessGameObj.GetComponent<HappyMultlpier>().MultlpierNum];
-        Total = Peices * Combo;
+        Total = GetComponent<DotManager>().PeicesCount * Combo;
         Total *= Multplier;
 
         ComboText.text = "Score:" +  Total;
