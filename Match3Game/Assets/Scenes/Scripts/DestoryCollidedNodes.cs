@@ -12,8 +12,7 @@ public class DestoryCollidedNodes : MonoBehaviour {
     public bool Disolve;
     GameObject Child;
     private GameObject CollidedNode;
-
-    private GameObject DotScriptGameObj;
+     private GameObject DotScriptGameObj;
 
     private DotManager DotScriptRef;
     private bool IsConnecting;
@@ -48,29 +47,26 @@ public class DestoryCollidedNodes : MonoBehaviour {
         // }
     }
 
-    void Melting()
+    void CheckNodes()
     {
 
-
-      
-        
-
-     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (DotScriptRef.Peices.Contains(collision.gameObject))
+        if (DotScriptRef.Peices.Contains(CollidedNode))
         {
-            //  if (CollidedNode.layer == DotScriptRef.LayerType)
-            //  {
-            // GetComponent<DotScript>().DotManagerScript.CheckConnection = true;
+        
             DotScriptRef.CheckConnection = true;
             IsConnecting = false;
             DotScriptRef.MouseCursorObj.SetActive(false);
             DotScriptGameObj.GetComponent<DotScript>().OnMouseUp();
-            // }
-        }
-        Melting();
-        Destroy(collision.gameObject);
+         }
+       
+
+
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+       CollidedNode = collision.gameObject;
+       CheckNodes();
+    
  
     }
 }

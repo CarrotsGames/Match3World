@@ -62,11 +62,14 @@ public class CompanionScript : MonoBehaviour
             HungerMultiplier = i / 2;
             MainCamera.GetComponent<CameraShake>().ShakeCamera(HappinessGameObj.GetComponent<HappyMultlpier>().MultlpierNum / 1.5f, 0.25f);
             // displays total score to Text
-            int Multlpier = HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[HappinessGameObj.GetComponent<HappyMultlpier>().MultlpierNum];
-            DotManagerScriptRef.TotalScore += DotManagerScriptRef.ComboScore * Multlpier;
-            DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
-
+           
         }
+        int Total;
+        int Multlpier = HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[HappinessGameObj.GetComponent<HappyMultlpier>().MultlpierNum];
+        Total = DotManagerScriptRef.PeicesCount + DotManagerScriptRef.ComboScore ;
+        Total *= Multlpier;
+        DotManagerScriptRef.TotalScore += Total;
+        DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
 
         if (HappinessManagerScript.CanGetCurrency)
         {

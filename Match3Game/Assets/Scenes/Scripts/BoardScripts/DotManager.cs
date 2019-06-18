@@ -56,6 +56,7 @@ public class DotManager : MonoBehaviour
     public int TotalScore;
     [HideInInspector]
     public int ComboScore;
+     
     // public int Currency;
     public int PeicesCountCombo;
 

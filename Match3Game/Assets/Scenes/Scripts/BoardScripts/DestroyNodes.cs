@@ -21,13 +21,14 @@ public class DestroyNodes : MonoBehaviour {
     public HappinessManager HappinessManagerScript;
     private int Index;
     private int ComboNum;
-
+ 
     float Timer;
     bool StartTimer;
     bool Reset;
     // Use this for initialization
     void Start ()
-    {
+    {  // Referneces DotManagerScript
+   
         Vibrate = true;
         CompanionGameObj = GameObject.FindGameObjectWithTag("Companion");
         CompanionScriptRef = CompanionGameObj.GetComponent<CompanionScript>();
@@ -36,13 +37,14 @@ public class DestroyNodes : MonoBehaviour {
         SlowMotionStorage = SlowMotionTimer;
         Timer = ComboVanishSpeed;
         StartTimer = false;
-         HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
+        HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
         HappinessManagerScript = HappinessGameObj.GetComponent<HappinessManager>();
     }
 
     // Update is called once per frame
     private void Update()
     {
+        Debug.Log(GetComponent<DotManager>().ComboScore);
         if (StartTimer)
         {
             ComboVanishSpeed -= Time.deltaTime;
@@ -100,7 +102,7 @@ public class DestroyNodes : MonoBehaviour {
         {
 
             Index = i;
-            if (CompanionScriptRef.EatingPeices.Count > 6  )
+            if (CompanionScriptRef.EatingPeices.Count > 6)
             {
                 if(ComboNum < 1)
                 {
@@ -109,6 +111,8 @@ public class DestroyNodes : MonoBehaviour {
                 ComboText.text = "BIG \nCOMBO:" + ComboNum;
                 if (Vibrate)
                 {
+                    ComboNum += 1;
+
                     Handheld.Vibrate();
                     Vibrate = false;
 
@@ -120,7 +124,8 @@ public class DestroyNodes : MonoBehaviour {
                 ComboText.text = "COMBO:" + ComboNum;
                  if (Vibrate)
                 {
-                    Handheld.Vibrate();
+                    ComboNum += 1;
+                     Handheld.Vibrate();
                     Vibrate = false;
 
                 }
@@ -132,7 +137,6 @@ public class DestroyNodes : MonoBehaviour {
             // plays that peices particle depending on colour
             PlayParticle();
             // Delays forloop So that nodes are destroyed one by one
-            ComboNum += 1;
 
             yield return wait;
             Vibrate = true;
@@ -159,10 +163,10 @@ public class DestroyNodes : MonoBehaviour {
         int Combo;
         int Multplier;
 
-        GetComponent<DotManager>().PeicesCount = GetComponent<DotManager>().PeicesCount;
+       
         Combo = GetComponent<DotManager>().ComboScore;
         Multplier = HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[HappinessGameObj.GetComponent<HappyMultlpier>().MultlpierNum];
-        Total = GetComponent<DotManager>().PeicesCount * Combo;
+        Total = GetComponent<DotManager>().PeicesCount + Combo;
         Total *= Multplier;
 
         ComboText.text = "Score:" +  Total;
