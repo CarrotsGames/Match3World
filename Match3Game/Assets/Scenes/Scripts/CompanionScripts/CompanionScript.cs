@@ -59,7 +59,7 @@ public class CompanionScript : MonoBehaviour
             {
                 EatingPeices.RemoveAt(i);
             }
-            EatingPeices[i].transform.gameObject.tag = "COLLECTED";
+            EatingPeices[i].transform.gameObject.tag = EatingPeices[i].transform.gameObject.tag + "COLLECTED";
              CurrencyChance = HungerMultiplier;
            // Destroy(EatingPeices[i].gameObject);
             HungerMultiplier = i / 2;

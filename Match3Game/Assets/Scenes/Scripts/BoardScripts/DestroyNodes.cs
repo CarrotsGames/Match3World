@@ -194,24 +194,24 @@ public class DestroyNodes : MonoBehaviour {
             // plays particle effect at list index and position of current node
         switch (ComboList[Index].tag)
         {
-            case "Red":
+            case "RedCOLLECTED":
                 {
                     Instantiate(GetComponent<DotManager>().ParticleEffectPink, ComboList[Index].transform.position, Quaternion.identity);
 
                 }
                 break;
-            case "Blue":
+            case "BlueCOLLECTED":
                 {
                     Instantiate(GetComponent<DotManager>().ParticleEffectBlue, ComboList[Index].transform.position, Quaternion.identity);
 
                 }
                 break;
-            case "Yellow":
+            case "YellowCOLLECTED":
                 {
                     Instantiate(GetComponent<DotManager>().ParticleEffectPurple, ComboList[Index].transform.position, Quaternion.identity);
                 }
                 break;
-            case "Green":
+            case "GreenCOLLECTED":
                 {
                     Instantiate(GetComponent<DotManager>().ParticleEffectYellow, ComboList[Index].transform.position, Quaternion.identity);
                 }
