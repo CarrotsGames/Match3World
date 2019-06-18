@@ -1150,14 +1150,10 @@ MonoBehaviour:
   TilePrefab: {fileID: 1826161997128130, guid: a7b5c648e1340cc429b95bd0d68f649b, type: 2}
   Dots:
   - {fileID: 1972590858993776, guid: 093e8ea26aff026499758c0aad900bcf, type: 2}
-  - {fileID: 1574873871887150, guid: 86018645a9e12dc4799f5d2fbd423185, type: 2}
-  - {fileID: 1639736251261304, guid: a873415151626e04ba127592fafa09cf, type: 2}
-  - {fileID: 1625593536815352, guid: ebbc1a71c18dcb146848a24e07c4f603, type: 2}
   - {fileID: 1972590858993776, guid: 093e8ea26aff026499758c0aad900bcf, type: 2}
-  - {fileID: 1574873871887150, guid: 86018645a9e12dc4799f5d2fbd423185, type: 2}
-  - {fileID: 1639736251261304, guid: a873415151626e04ba127592fafa09cf, type: 2}
-  - {fileID: 1625593536815352, guid: ebbc1a71c18dcb146848a24e07c4f603, type: 2}
-  - {fileID: 1063094474349120, guid: bcf6c6e79b25cd9459703152c93c0b2e, type: 2}
+  - {fileID: 1972590858993776, guid: 093e8ea26aff026499758c0aad900bcf, type: 2}
+  - {fileID: 1972590858993776, guid: 093e8ea26aff026499758c0aad900bcf, type: 2}
+  - {fileID: 1972590858993776, guid: 093e8ea26aff026499758c0aad900bcf, type: 2}
   Spawner: {fileID: 192660692}
 --- !u!4 &192660696
 Transform:
@@ -4876,8 +4872,8 @@ GameObject:
   - component: {fileID: 849716453}
   - component: {fileID: 849716452}
   - component: {fileID: 849716451}
-  - component: {fileID: 849716454}
   - component: {fileID: 849716450}
+  - component: {fileID: 849716454}
   m_Layer: 0
   m_Name: SquishyCap
   m_TagString: Lid
@@ -4973,9 +4969,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 849716449}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebbee9a9b00b35c41919478a0647940e, type: 3}
+  m_Script: {fileID: 11500000, guid: cc7d60daec64d504c961ad49b2b39500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Timer: 0
+  DestoryNodeTimer: 0.5
+  Disolve: 0
 --- !u!1 &855978530
 GameObject:
   m_ObjectHideFlags: 0

@@ -58,7 +58,7 @@ public class DotManager : MonoBehaviour
     public int ComboScore;
     // public int Currency;
 
-    private int PeicesCount;
+    public int PeicesCount;
  
     private int Num;
 
@@ -92,8 +92,7 @@ public class DotManager : MonoBehaviour
         Multipier = 1;
         MultiplierText.text = "" + Multipier;
         HighScore.text = "" + TotalScore;
-        HighScore.text = "" + TotalScore;
-
+ 
         // Gameobject/script refrences
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
@@ -208,7 +207,6 @@ public class DotManager : MonoBehaviour
             RedScore += PeicesCount;
             RedScore *= Peices.Count;
             RedScore *= Multipier;
-            TotalScore += RedScore;
 
             for (Num = 0; Num < PeicesCount; Num++)
             {
@@ -220,7 +218,6 @@ public class DotManager : MonoBehaviour
                 }
 
             }
-            Companion.FeedMonster();
 
         }
      
@@ -234,13 +231,16 @@ public class DotManager : MonoBehaviour
             }
         }
         // if the colour wasnt matched reset lists, scores, counts and selections
+        // Counts the current combo going on 
             ComboScore = RedScore + BlueScore + GreenScore + YellowScore; 
+        // Counts the total score within scene
             SceneScore += RedScore + BlueScore + GreenScore + YellowScore;
-            //  Debug.Log("No connection");
-            PeicesList.Clear();
+        Companion.FeedMonster();
+
+        //  Debug.Log("No connection");
+        PeicesList.Clear();
  
             Gold.Clear();
-            PeicesCount = 0;
              
             GoldAmount = 0;
             NumberOfNeighbours = 0;
@@ -257,6 +257,7 @@ public class DotManager : MonoBehaviour
             // Adds board particles
           
         Peices.Clear();
+
     }
 
 }

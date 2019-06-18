@@ -8,21 +8,22 @@ public class DestroyNodes : MonoBehaviour {
     public float ComboSpeed;
     public float ComboVanishSpeed;
     public bool StartDestroy;
-    int Index;
-    int ComboNum;
     private GameObject CompanionGameObj;
     private CompanionScript CompanionScriptRef;
     public GameObject ComboGameObj;
     public Text ComboText;
     public Text ComboScore;
-    bool CanChangeText;
     private bool SlowMotionOn;
     public float SlowMotionTimer;
     private float SlowMotionStorage;
     bool Vibrate;
     private GameObject HappinessGameObj;
     public HappinessManager HappinessManagerScript;
-
+    private int Index;
+    private int ComboNum;
+    float Timer;
+    bool StartTimer;
+    bool Reset;
     // Use this for initialization
     void Start ()
     {
@@ -32,28 +33,46 @@ public class DestroyNodes : MonoBehaviour {
         ComboGameObj.SetActive(false);
         SlowMotionOn = false;
         SlowMotionStorage = SlowMotionTimer;
-
-        HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
+        Timer = ComboVanishSpeed;
+        StartTimer = false;
+         HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
         HappinessManagerScript = HappinessGameObj.GetComponent<HappinessManager>();
     }
 
     // Update is called once per frame
     private void Update()
     {
-        
-       
+        if (StartTimer)
+        {
+            ComboVanishSpeed -= Time.deltaTime;
+            if (ComboVanishSpeed <= 0)
+            {
+                StartTimer = false;
+                Reset = true;
+                ComboVanishSpeed = Timer;
+            }
+        }
+     
+        if(Reset)
+        {
+            //resets combo text 
+            ComboText.text = "";
+            //disables combo gameobject 
+            ComboGameObj.SetActive(false);
+            ComboNum = 0;
+            GetComponent<DotManager>().ComboScore = 0;
+            GetComponent<DotManager>().PeicesCount = 0;
+            Reset = false;
+        }
         // Begins the node destroy process
         if (StartDestroy)
         {
+
             StartCoroutine(DestoyNodes());
             ComboGameObj.SetActive(true);
 
         }
-        if(CanChangeText)
-        {
-            StartCoroutine(DisplayComboScore());
-
-        }
+      
         if(SlowMotionOn)
         {
 
@@ -118,7 +137,6 @@ public class DestroyNodes : MonoBehaviour {
             Vibrate = true;
         }
         // resets the combonumber 
-        ComboNum = 0;
         // resets the comboText
         ComboText.text = "" ;
         // disables the StartDestroy void
@@ -126,26 +144,29 @@ public class DestroyNodes : MonoBehaviour {
         // Resest list
         if (CompanionScriptRef.EatingPeices.Count > 4)
         {
-            CanChangeText = true;
+            DisplayComboScore();
         }
+
         CompanionScriptRef.EatingPeices.Clear();
 
     }
 
     // Displays the ComboScore Text
-    IEnumerator DisplayComboScore()
+    void DisplayComboScore()
     {
-         WaitForSeconds ComboVanish = new WaitForSeconds(ComboVanishSpeed);
-        ComboText.text = "Score:" + GetComponent<DotManager>().ComboScore * HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[HappinessGameObj.GetComponent<HappyMultlpier>().MultlpierNum];
-        // waits comboVanish value until it continues
-        yield return ComboVanish;
-        //resets combo text 
-        ComboText.text = "";
-        //disables combo gameobject 
-        ComboGameObj.SetActive(false);
-        CanChangeText = false;
-        // resets comboscore
-        GetComponent<DotManager>().ComboScore = 0;
+        int Total;
+        int Peices;
+        int Combo;
+        int Multplier;
+
+        Peices = GetComponent<DotManager>().PeicesCount;
+        Combo = GetComponent<DotManager>().ComboScore;
+        Multplier = HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[HappinessGameObj.GetComponent<HappyMultlpier>().MultlpierNum];
+        Total = Peices * Combo;
+        Total *= Multplier;
+
+        ComboText.text = "Score:" +  Total;
+        StartTimer = true;
 
     }
     // plays particle effect for each node
