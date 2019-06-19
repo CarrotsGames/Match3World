@@ -127,6 +127,7 @@ public class DotManager : MonoBehaviour
         if (CheckConnection)
         {
             PeicesCount = 0;
+            NodeSelection = false;
 
             StartHighliting = false;
             // sorts each colour found in the peices list 

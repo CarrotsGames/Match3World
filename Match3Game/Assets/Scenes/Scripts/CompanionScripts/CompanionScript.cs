@@ -67,7 +67,6 @@ public class CompanionScript : MonoBehaviour
             HungerMultiplier = i / 2;
             MainCamera.GetComponent<CameraShake>().ShakeCamera(HappinessGameObj.GetComponent<HappyMultlpier>().MultlpierNum / 1.5f, 0.25f);
             // displays total score to Text
-            DotManagerObj.GetComponent<DestroyNodes>().CreateComboList();
 
         }
         int Total;
@@ -99,9 +98,11 @@ public class CompanionScript : MonoBehaviour
             AudioManagerScript.MooblingSource.clip = AudioManagerScript.MooblingAudio[RandomSound];
             AudioManagerScript.MooblingSource.Play();    
         }
+        DotManagerObj.GetComponent<DestroyNodes>().CreateComboList();
+
     }
- 
- 
+
+
     //when game closes save the current hugner and start counting down outside of the app
     private void OnApplicationPause(bool pause)
     {

@@ -28,7 +28,7 @@ public class DestroyNodes : MonoBehaviour {
     bool ComboPause;
     int Combo;
     float ComboTime;
-
+    int Test;
     // Use this for initialization
     void Start ()
     {  // Referneces DotManagerScript
@@ -105,7 +105,7 @@ public class DestroyNodes : MonoBehaviour {
  
     public void CreateComboList()
     {
-
+        Test = CompanionScriptRef.EatingPeices.Count;
         for (int i = 0; i < CompanionScriptRef.EatingPeices.Count; i++)
         {
             ComboList.Add(CompanionScriptRef.EatingPeices[i]);
@@ -132,9 +132,9 @@ public class DestroyNodes : MonoBehaviour {
     void DestoryNodes()
     {
         Debug.Log(Index);
-        if (Index < ComboList.Count)
+        if (Index < Test)
         {
-            if (ComboList.Count > 4)
+            if (Test > 4)
             {
                 StartTimer = true;
 
@@ -149,7 +149,7 @@ public class DestroyNodes : MonoBehaviour {
         }
         else
         {
-            if (ComboList.Count > 3)
+            if (Test > 3)
             {
 
                 ComboPause = true;
