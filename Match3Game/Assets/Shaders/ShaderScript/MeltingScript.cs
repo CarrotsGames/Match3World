@@ -65,12 +65,13 @@ public class MeltingScript : MonoBehaviour {
                 DotScriptRef.OnMouseUp();
            // }
         }
-        else
+        else if (!DotScriptRef.DotManagerScript.Peices.Contains(this.gameObject) || !DotScriptRef.DotManagerScript.Companion.EatingPeices.Contains(this.gameObject))
         {
+            Disolve = true;
+
             Debug.Log("NOTHING");
         }
 
-        Disolve = true;
      }
     private void OnTriggerStay2D(Collider2D collision)
     {

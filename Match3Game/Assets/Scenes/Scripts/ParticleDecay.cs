@@ -11,28 +11,26 @@ public class ParticleDecay : MonoBehaviour
     // 2 LITE PARTY
     // 3 HEAVY PARTY
     bool PlayAudio;
-
+    int i;
 
     private GameObject AudioManagerGameObj;
     private AudioManager AudioManagerScript;
+    private AudioSource Audio;
     void Start()
     {
         PlayAudio = true;
         AudioManagerGameObj = GameObject.FindGameObjectWithTag("AudioManager");
         AudioManagerScript = AudioManagerGameObj.GetComponent<AudioManager>();
-         DecayTimer = 1.5f;
-        
+        DecayTimer = 1.5f;
+        Audio = GetComponent<AudioSource>();
+        Audio.clip = AudioManagerScript.ParticleAudio[AudioIndex];
+        Audio.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(PlayAudio)
-        {
-            AudioManagerScript.ParticleSource.clip = AudioManagerScript.ParticleAudio[AudioIndex];
-            AudioManagerScript.ParticleSource.Play();
-            PlayAudio = false;
-        }
+       
 
         DecayTimer -= Time.deltaTime;
         if(DecayTimer < 0)

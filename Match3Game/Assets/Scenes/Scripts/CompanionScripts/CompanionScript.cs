@@ -59,13 +59,16 @@ public class CompanionScript : MonoBehaviour
             {
                 EatingPeices.RemoveAt(i);
             }
-            EatingPeices[i].transform.gameObject.tag = EatingPeices[i].transform.gameObject.tag + "COLLECTED";
+ 
+            EatingPeices[i].transform.gameObject.layer = 2;
+             
              CurrencyChance = HungerMultiplier;
            // Destroy(EatingPeices[i].gameObject);
             HungerMultiplier = i / 2;
             MainCamera.GetComponent<CameraShake>().ShakeCamera(HappinessGameObj.GetComponent<HappyMultlpier>().MultlpierNum / 1.5f, 0.25f);
             // displays total score to Text
-           
+            DotManagerObj.GetComponent<DestroyNodes>().CreateComboList();
+
         }
         int Total;
         int Multlpier = HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[HappinessGameObj.GetComponent<HappyMultlpier>().MultlpierNum];
@@ -96,7 +99,6 @@ public class CompanionScript : MonoBehaviour
             AudioManagerScript.MooblingSource.clip = AudioManagerScript.MooblingAudio[RandomSound];
             AudioManagerScript.MooblingSource.Play();    
         }
-        DotManagerObj.GetComponent<DestroyNodes>().CreateComboList();
     }
  
  

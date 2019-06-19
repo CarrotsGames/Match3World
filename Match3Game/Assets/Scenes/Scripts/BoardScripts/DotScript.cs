@@ -30,16 +30,19 @@ public class DotScript : MonoBehaviour
     public DotManager DotManagerScript;
     private GameObject DotManagerObj;
     [HideInInspector]
-    public LineRenderer DrawLine;
-    private Collider2D col2d;
+     private Collider2D col2d;
     private Material Default;
     private GameObject AudioManagerGameObj;
     private AudioManager AudioManagerScript;
     public Material BlueEmmision;
     string Colour;
+    public bool SelfDestruct;
+    float Timer;
+
     // Use this for initialization
     void Start()
     {
+        Timer = 1.5f;
         MainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 
         HappinessManagerGameobj = GameObject.FindGameObjectWithTag("HM");
@@ -47,8 +50,7 @@ public class DotScript : MonoBehaviour
         Physics2D.IgnoreLayerCollision(0, 14);
         AudioManagerGameObj = GameObject.FindGameObjectWithTag("AudioManager");
         AudioManagerScript = AudioManagerGameObj.GetComponent<AudioManager>();
-        DrawLine = GetComponent<LineRenderer>();
-        DrawLine.enabled = false;
+        
         GrowSize = false;
         time = 0.25f;
         ClearNeighbours = false;
@@ -59,6 +61,7 @@ public class DotScript : MonoBehaviour
         Default = GetComponent<Renderer>().material;
         BlueEmmision = GetComponent<SpriteRenderer>().material;
         HasPlayedSound = true;
+        SelfDestruct = false;
     }
 
     // Update is called once per frame
@@ -68,7 +71,15 @@ public class DotScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
+        if(SelfDestruct)
+        {
+            Timer -= Time.deltaTime;
+            if(Timer <= 0)
+            {
+                Destroy(this.gameObject);
+                SelfDestruct = false;
+            }
+        }
         if (DotManagerScript.StopInteracting)
         {
             OnMouseUp();
@@ -76,10 +87,20 @@ public class DotScript : MonoBehaviour
         }
         if (ClearNeighbours)
         {
-            neighbours.Clear();
-            ClearNeighbours = false;
-            gameObject.layer = 0;
-
+            for (int i = 0; i < neighbours.Count; i++)
+            {
+                if(neighbours[i].layer == 2)
+                {
+                    neighbours.RemoveAt(i);
+                }
+                else
+                {
+                    neighbours.Clear();
+                    ClearNeighbours = false;
+                } 
+            }
+          
+ 
         }
         // restes dot layer
         if (DotManagerScript.ResetLayer)
@@ -106,10 +127,7 @@ public class DotScript : MonoBehaviour
             newScale.y = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
             transform.localScale = newScale;
         }
-        else
-        {
-            gameObject.layer = 0;
-        }
+       
     }
 
     private void OnMouseOver()
@@ -144,10 +162,9 @@ public class DotScript : MonoBehaviour
             newScale.z = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
             newScale.y = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
             transform.localScale = newScale;
-            gameObject.layer = 0;
-            DotManagerScript.NodeSelection = false;
+             DotManagerScript.NodeSelection = false;
          
-            DotManagerScript.ResetLayer = true;
+          //  DotManagerScript.ResetLayer = true;
 
         }
     }
@@ -213,6 +230,7 @@ public class DotScript : MonoBehaviour
      
         foreach (DotScript dot in Dots)
         {
+            
             // if the Node is not the current node
             if (dot.gameObject.GetInstanceID() != gameObject.GetInstanceID())
              {
@@ -249,8 +267,7 @@ public class DotScript : MonoBehaviour
         RaycastHit2D hitInfo = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
         if (hitInfo.collider != null)
         {
-            DrawLine.enabled = true;
-
+ 
             if (hitInfo.collider.gameObject.layer == 10)
              {
                 // Checks for that specific colour pieces
@@ -266,22 +283,11 @@ public class DotScript : MonoBehaviour
                     {
                         hitInfo.collider.gameObject.GetComponent<Renderer>().material.color = Color.black;
                         // draws line renderer to hit position
-                        DrawLine.SetPosition(DotManagerScript.LineCount, hitInfo.collider.gameObject.transform.position);
-                        // increases linecount so it can be drawn onto the next peice
+                         // increases linecount so it can be drawn onto the next peice
                         DotManagerScript.LineCount += 1;
                         // increase amount of line renderer positions
-                        DrawLine.positionCount += 1;
-
-                        if (DotManagerScript.LineCount < 2)
-                        {
-                            DrawLine.SetPosition(DotManagerScript.LineCount, transform.position);
-
-                        }
-                        else
-                        {
-                            DrawLine.SetPosition(DotManagerScript.LineCount, hitInfo.collider.gameObject.transform.position);
-
-                        }
+ 
+                   
 
                         // adds hit.collider to Peices list
                         DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
@@ -306,23 +312,10 @@ public class DotScript : MonoBehaviour
                     {
                         hitInfo.collider.gameObject.GetComponent<Renderer>().material.color = Color.black;
                         // draws line renderer to hit position
-                        DrawLine.SetPosition(DotManagerScript.LineCount, hitInfo.collider.gameObject.transform.position);
-                        // increases linecount so it can be drawn onto the next peice
+                         // increases linecount so it can be drawn onto the next peice
                         DotManagerScript.LineCount += 1;
                         // increase amount of line renderer positions
-                        DrawLine.positionCount += 1;
-
-                        if (DotManagerScript.LineCount < 2)
-                        {
-                            DrawLine.SetPosition(DotManagerScript.LineCount, transform.position);
-
-                        }
-                        else
-                        {
-                            DrawLine.SetPosition(DotManagerScript.LineCount, hitInfo.collider.gameObject.transform.position);
-
-                        }
-
+  
                         // adds hit.collider to Peices list
                         DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
 
@@ -335,8 +328,7 @@ public class DotScript : MonoBehaviour
             }
             else
             {
-                gameObject.layer = 0;
-             
+              
                 OnMouseUp();
             }
             // if player interacts with wall reset all current chains
@@ -353,30 +345,29 @@ public class DotScript : MonoBehaviour
  
     public void OnMouseUp()
     {
- 
+        Debug.Log("MOUSEUP");
+        ClearNeighbours = true;
+
         // Resets Linerenderer
-        DrawLine.positionCount = 1;
 
         // turns off highlite
         ToggleHighlite = 0;
         DotManagerScript.ResetMaterial = false;
         // Resets peices material and layer
         this.gameObject.layer = LayerMask.GetMask("Default");
-        gameObject.layer = 0;
-        // makes peices unable to grow
+         // makes peices unable to grow
         GrowSize = false;
         // Resets neighbour list
-        ClearNeighbours = true;
         // Goes into DotManagerScript to check if there was a connection
         DotManagerScript.CheckConnection = true;
         DotManagerScript.MouseCursorObj.SetActive(false);
 
         // Resets size of peices  
-         Vector3 newScale = new Vector3();
-         newScale.x = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
-         newScale.z = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
-         newScale.y = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
-         transform.localScale = newScale;
+        Vector3 newScale = new Vector3();
+        newScale.x = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
+        newScale.z = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
+        newScale.y = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
+        transform.localScale = newScale;
         DotManagerScript.StartHighliting = false;
  
 

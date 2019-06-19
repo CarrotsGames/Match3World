@@ -5503,7 +5503,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Score
+  m_Text: '
+
+'
 --- !u!222 &1427532921
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7882,6 +7884,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174f0ccf27e22164d8dc00a9fcfa2442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Companion: {fileID: 0}
+  CampanionGameObj: {fileID: 0}
   Peices: []
   PeicesList: []
   Gold: []
@@ -7923,6 +7927,8 @@ MonoBehaviour:
   NumOfPeices: 0
   TotalScore: 0
   ComboScore: 0
+  PeicesCountCombo: 0
+  PeicesCount: 0
   SceneScore: 0
   HighScore: {fileID: 583962603}
   MultiplierText: {fileID: 20703182}
@@ -7957,6 +7963,8 @@ MonoBehaviour:
   ComboText: {fileID: 2124809994}
   ComboScore: {fileID: 1427532920}
   SlowMotionTimer: 0
+  HappinessManagerScript: {fileID: 0}
+  ComboList: []
 --- !u!1001 &2090591698
 Prefab:
   m_ObjectHideFlags: 0

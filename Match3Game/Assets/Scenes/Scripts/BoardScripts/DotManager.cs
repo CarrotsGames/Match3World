@@ -128,7 +128,6 @@ public class DotManager : MonoBehaviour
         {
             PeicesCount = 0;
 
-            ResetLayer = true;
             StartHighliting = false;
             // sorts each colour found in the peices list 
             for (int i = 0; i < Peices.Count; i++)
@@ -178,13 +177,25 @@ public class DotManager : MonoBehaviour
                 }
             }
             // Checks which colour made a match
+            if (Limit < Peices.Count)
+            {
 
+                AddColourToScore();
+                Peices.Clear();
+                PeicesList.Clear();
+            }
+            else
+            {
+                Companion.EatingPeices.Clear();
+                Peices.Clear();
+                PeicesList.Clear();
+                ResetLayer = true;
+
+            }
             PeicesCountCombo = PeicesCount;
-
-            AddColourToScore();
-
-            CheckConnection = false;
-            // clears EatingPeice List
+                CheckConnection = false;
+                // clears EatingPeice List
+         
         }
 
 
@@ -221,15 +232,14 @@ public class DotManager : MonoBehaviour
             {
                 PeicesList[Num].layer = LayerMask.GetMask("Default");
                 Companion.EatingPeices.Add(PeicesList[Num]);
-                if (Peices.Count >= 8)
-                {
-                    //  Instantiate(ParticleEffectFireWork, RedPieces[Num].transform.position, Quaternion.identity);
-                }
+                
 
             }
+            PeicesList.Clear();
+
 
         }
-     
+
         if (GoldAmount == Peices.Count && GoldAmount > Limit)
         {
             PowerUpManagerScript.Currency += GoldAmount;
@@ -247,7 +257,6 @@ public class DotManager : MonoBehaviour
         Companion.FeedMonster();
 
         //  Debug.Log("No connection");
-        PeicesList.Clear();
  
             Gold.Clear();
              
@@ -265,8 +274,7 @@ public class DotManager : MonoBehaviour
             // ResetDotLayers = true;
             // Adds board particles
           
-        Peices.Clear();
-
+ 
     }
 
 }

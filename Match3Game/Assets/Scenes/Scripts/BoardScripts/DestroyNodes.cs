@@ -25,17 +25,21 @@ public class DestroyNodes : MonoBehaviour {
     float Timer;
     bool StartTimer;
     bool Reset;
+    bool ComboPause;
+    int Combo;
+    float ComboTime;
+
     // Use this for initialization
     void Start ()
     {  // Referneces DotManagerScript
-   
+        ComboTime = ComboVanishSpeed ;
         Vibrate = true;
         CompanionGameObj = GameObject.FindGameObjectWithTag("Companion");
         CompanionScriptRef = CompanionGameObj.GetComponent<CompanionScript>();
         ComboGameObj.SetActive(false);
         SlowMotionOn = false;
         SlowMotionStorage = SlowMotionTimer;
-        Timer = ComboVanishSpeed;
+        Timer = 0;
         StartTimer = false;
         HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
         HappinessManagerScript = HappinessGameObj.GetComponent<HappinessManager>();
@@ -45,132 +49,123 @@ public class DestroyNodes : MonoBehaviour {
     private void Update()
     {
 
-
-     
-        Debug.Log(GetComponent<DotManager>().ComboScore);
         if (StartTimer)
         {
-            ComboVanishSpeed -= Time.deltaTime;
-            if (ComboVanishSpeed <= 0)
+            CountCombo();
+        }
+        if(ComboPause)
+        {
+            //StartTimer = false;
+            ComboTime -= Time.deltaTime;
+            if(ComboTime < 0)
             {
-                StartTimer = false;
+                ComboPause = false;
                 Reset = true;
-                ComboVanishSpeed = Timer;
+                ComboTime = ComboVanishSpeed ;
             }
         }
-     
         if(Reset)
         {
+            StartTimer = false;
             //resets combo text 
             ComboText.text = "";
             //disables combo gameobject 
             ComboGameObj.SetActive(false);
             ComboNum = 0;
+            Combo = 0;
             GetComponent<DotManager>().ComboScore = 0;
             GetComponent<DotManager>().PeicesCount = 0;
             Reset = false;
         }
-        // Begins the node destroy process
         if (StartDestroy)
         {
 
-            StartCoroutine(DestoyNodes());
+            StartNodeDestroy();
             ComboGameObj.SetActive(true);
 
         }
-      
-        if(SlowMotionOn)
-        {
 
-            SlowMotionTimer -= Time.deltaTime;
-  
-            Time.timeScale = 0.1f;
-            
-        }
-        if (SlowMotionTimer < 0)
-        {
-            SlowMotionOn = false;
-            Time.timeScale = 1.0f;
-            SlowMotionTimer = SlowMotionStorage;
-        }
+        //if(SlowMotionOn)
+        //{
+        //
+        //    SlowMotionTimer -= Time.deltaTime;
+        //
+        //    Time.timeScale = 0.1f;
+        //    
+        //}
+        //if (SlowMotionTimer < 0)
+        //{
+        //    SlowMotionOn = false;
+        //    Time.timeScale = 1.0f;
+        //    SlowMotionTimer = SlowMotionStorage;
+        //}
+        // Begins the node destroy process
+
     }
-   
+ 
     public void CreateComboList()
     {
+
         for (int i = 0; i < CompanionScriptRef.EatingPeices.Count; i++)
         {
             ComboList.Add(CompanionScriptRef.EatingPeices[i]);
-          
+            ComboList[i].gameObject.layer = 2;         
         }
+        CompanionScriptRef.EatingPeices.Clear();
         StartDestroy = true;
     }
     // Destorys nodes in the eatingPeices list
-    IEnumerator DestoyNodes()
+    void StartNodeDestroy()
     {
-        // Set time for delay
-        WaitForSeconds wait = new WaitForSeconds(ComboSpeed);
-        WaitForSeconds SlowMotion = new WaitForSeconds(10);
-
-        for (int i = 0; i < ComboList.Count; i++)
+       //// Set time for delay
+       //WaitForSeconds wait = new WaitForSeconds(ComboSpeed);
+       //WaitForSeconds SlowMotion = new WaitForSeconds(0.5f);
+       Timer -= Time.deltaTime;
+        if (Timer < 0)
         {
-
-            Index = i;
-            if (ComboList.Count > 6)
-            {
-                if(ComboNum < 1)
-                {
-                    SlowMotionOn = true;
-                }
-                ComboText.text = "BIG \nCOMBO:" + ComboNum;
-                if (Vibrate)
-                {
-                    ComboNum += 1;
-
-                    Handheld.Vibrate();
-                    Vibrate = false;
-
-                }
-            }
-            // Displays the combo currently happening in game
-            else if (ComboList.Count > 4)
-            {
-                ComboText.text = "COMBO:" + ComboNum;
-                 if (Vibrate)
-                {
-                    ComboNum += 1;
-                     Handheld.Vibrate();
-                    Vibrate = false;
-
-                }
-               
-            }
-
-            // destroys current peice
-            // plays that peices particle depending on colour
-         
-             
-            PlayParticle();
-             
-            Destroy(ComboList[i].gameObject);
-             // Delays forloop So that nodes are destroyed one by one
-
-            yield return wait;
-            Vibrate = true;
-        }
-        // resets the combonumber 
-        // resets the comboText
-        ComboText.text = "" ;
-        // disables the StartDestroy void
-        StartDestroy = false;
-        // Resest list
-        if (ComboList.Count > 4)
-        {
-            DisplayComboScore();
+            DestoryNodes();
+            Timer = ComboSpeed;
         }
 
-         ComboList.Clear();
+
     }
+    void DestoryNodes()
+    {
+        Debug.Log(Index);
+        if (Index < ComboList.Count)
+        {
+            if (ComboList.Count > 4)
+            {
+                StartTimer = true;
 
+                Combo = Index + 1;
+                CountCombo();
+            }
+            PlayParticle();
+            ComboList[Index].transform.position += new Vector3(100, 0, 0);
+            // Delays forloop So that nodes are destroyed one by one
+            ComboList[Index].GetComponent<DotScript>().SelfDestruct = true;
+            Index++;
+        }
+        else
+        {
+            if (ComboList.Count > 3)
+            {
+
+                ComboPause = true;
+            }
+            StartDestroy = false;
+            Index = 0;
+            ComboList.Clear();
+         }
+
+
+    }
+    void CountCombo()
+    {
+    
+        ComboText.text = "COMBO : " + Combo;
+    }
     // Displays the ComboScore Text
     void DisplayComboScore()
     {
@@ -191,32 +186,29 @@ public class DestroyNodes : MonoBehaviour {
     // plays particle effect for each node
     void PlayParticle()
     {
-            // plays particle effect at list index and position of current node
-        switch (ComboList[Index].tag)
+        // plays particle effect at list index and position of current node
+        if(ComboList[Index].tag == "Red")
         {
-            case "RedCOLLECTED":
-                {
-                    Instantiate(GetComponent<DotManager>().ParticleEffectPink, ComboList[Index].transform.position, Quaternion.identity);
+            Instantiate(GetComponent<DotManager>().ParticleEffectPink, ComboList[Index].transform.position, Quaternion.identity);
 
-                }
-                break;
-            case "BlueCOLLECTED":
-                {
-                    Instantiate(GetComponent<DotManager>().ParticleEffectBlue, ComboList[Index].transform.position, Quaternion.identity);
+        }
+        else if (ComboList[Index].tag == "Blue")
+        {
+            Instantiate(GetComponent<DotManager>().ParticleEffectBlue, ComboList[Index].transform.position, Quaternion.identity);
 
-                }
-                break;
-            case "YellowCOLLECTED":
-                {
-                    Instantiate(GetComponent<DotManager>().ParticleEffectPurple, ComboList[Index].transform.position, Quaternion.identity);
-                }
-                break;
-            case "GreenCOLLECTED":
-                {
-                    Instantiate(GetComponent<DotManager>().ParticleEffectYellow, ComboList[Index].transform.position, Quaternion.identity);
-                }
-                break;
+        }
+        else if (ComboList[Index].tag == "Yellow")
+        {
+            Instantiate(GetComponent<DotManager>().ParticleEffectPurple, ComboList[Index].transform.position, Quaternion.identity);
+
+        }
+        else if (ComboList[Index].tag == "Green")
+        {
+            Instantiate(GetComponent<DotManager>().ParticleEffectYellow, ComboList[Index].transform.position, Quaternion.identity);
+
         }
 
+
     }
+     
 }

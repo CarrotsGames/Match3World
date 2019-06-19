@@ -32,45 +32,11 @@ public class DestoryCollidedNodes : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-
-        //  gameObject.GetComponent<SpriteRenderer>().sharedMaterial.SetFloat("Progress", Test);
-        // rend.material.SetFloat("Progress", Test);
-        // if (Disolve)
-        // {
-        //
-        //  
-        //     Child.GetComponent<Renderer>().material.SetFloat("_Progress", Test);
-        //     transform.localScale -= new Vector3(1, 1, 1) * Time.deltaTime;
-        //     if (Timer <= 0.25f)
-        //     {
-        //         Destroy(gameObject);
-        //     }
-        //
-        // }
-    }
-
-    void CheckNodes()
-    {
-
-        //if (DotScriptRef.Peices.Contains(CollidedNode))
-        //{
-        //
-        //    DotScriptRef.CheckConnection = true;
-        //    IsConnecting = false;
-        //    DotScriptRef.MouseCursorObj.SetActive(false);
-        //    DotScriptGameObj.GetComponent<DotScript>().OnMouseUp();
-        //}
-
-
-
-
-    }
+ 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         CollidedNode = collision.gameObject;
-        CheckNodes();
+ 
         if (DotScriptGameObj.GetComponent<DotManager>().Peices.Contains(CollidedNode))
         {
 
