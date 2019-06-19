@@ -120,6 +120,7 @@ public class DotManager : MonoBehaviour
 
     private void Update()
     {
+
         MultiplierText.text = "x" + Multipier;
 
         PlayerPrefs.SetInt("SCORE", TotalScore);

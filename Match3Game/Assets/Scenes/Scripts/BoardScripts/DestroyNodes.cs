@@ -54,7 +54,7 @@ public class DestroyNodes : MonoBehaviour {
     // Update is called once per frame
     private void Update()
     {
-
+        
         if (StartTimer)
         {
             CountCombo();
@@ -160,21 +160,27 @@ public class DestroyNodes : MonoBehaviour {
         }
         else
         {
-            if (Test > 3)
+            if (Test > 4)
             {
 
                 ComboPause = true;
             }
-            
+            else
+            {
+                ComboList.Clear();
+
+                if (ComboList.Count <= 1)
+                {
+                     DotManagerScript.CanPlay = true;
+                }
+            }
             StartDestroy = false;
             Index = 0;
             ComboList.Clear();
-         }
 
-        if(Test <= 3)
-        {
-            DotManagerScript.CanPlay = true;
         }
+
+
 
     }
     void CountCombo()
