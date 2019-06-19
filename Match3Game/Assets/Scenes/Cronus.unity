@@ -640,12 +640,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 97170537}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1, y: -47.3, z: 1556}
-  m_LocalScale: {x: 8.928518, y: 8.928518, z: 8.928516}
+  m_LocalRotation: {x: -0, y: -0, z: -0.008314213, w: 0.9999655}
+  m_LocalPosition: {x: 29.705925, y: -56.782883, z: -43.85086}
+  m_LocalScale: {x: 6.950138, y: 6.950138, z: 0.38615832}
   m_Children: []
-  m_Father: {fileID: 828679607}
-  m_RootOrder: 6
+  m_Father: {fileID: 1291412236}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &97170539
 SpriteRenderer:
@@ -1545,7 +1545,7 @@ Transform:
   m_Children:
   - {fileID: 828679607}
   m_Father: {fileID: 1291412236}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &351200173
 GameObject:
@@ -2905,7 +2905,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EatingPeices: []
   EatingPeiceSpawner: {fileID: 1018790061}
-  HungerSlider: {fileID: 2129515018}
   HappinessManagerScript: {fileID: 475148663}
 --- !u!4 &620140866
 Transform:
@@ -3707,7 +3706,6 @@ Transform:
   - {fileID: 1698223672}
   - {fileID: 1229300390}
   - {fileID: 946361599}
-  - {fileID: 97170538}
   m_Father: {fileID: 315507908}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.95300007}
@@ -5162,6 +5160,7 @@ Transform:
   m_LocalPosition: {x: -25.945982, y: 76.97099, z: 155.7466}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 97170538}
   - {fileID: 315507908}
   m_Father: {fileID: 0}
   m_RootOrder: 16
@@ -8702,6 +8701,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174f0ccf27e22164d8dc00a9fcfa2442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Companion: {fileID: 0}
+  CampanionGameObj: {fileID: 0}
   Peices: []
   PeicesList: []
   Gold: []
@@ -8743,6 +8744,8 @@ MonoBehaviour:
   NumOfPeices: 0
   TotalScore: 0
   ComboScore: 0
+  PeicesCountCombo: 0
+  PeicesCount: 0
   SceneScore: 0
   HighScore: {fileID: 583962603}
   MultiplierText: {fileID: 20703182}
@@ -8777,6 +8780,8 @@ MonoBehaviour:
   ComboText: {fileID: 12792855}
   ComboScore: {fileID: 1589944712}
   SlowMotionTimer: 0.08
+  HappinessManagerScript: {fileID: 0}
+  ComboList: []
 --- !u!1001 &2090591698
 Prefab:
   m_ObjectHideFlags: 0
