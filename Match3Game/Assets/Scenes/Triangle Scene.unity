@@ -7484,6 +7484,11 @@ Transform:
   m_Father: {fileID: 1268783874}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &958114692 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1433736228831258, guid: 454f8424e61f4b94598935dfa480b552,
+    type: 2}
+  m_PrefabInternal: {fileID: 1859965673}
 --- !u!1 &1011185035
 GameObject:
   m_ObjectHideFlags: 0
@@ -8741,7 +8746,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EatingPeices: []
   EatingPeiceSpawner: {fileID: 192660692}
-  HungerSlider: {fileID: 1200800291}
   HappinessManagerScript: {fileID: 0}
 --- !u!82 &1180074815
 AudioSource:
@@ -13641,6 +13645,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114908531856327124, guid: 454f8424e61f4b94598935dfa480b552,
+        type: 2}
+      propertyPath: UnlockableCreatures
+      value: 
+      objectReference: {fileID: 1859965674}
+    - target: {fileID: 114908531856327124, guid: 454f8424e61f4b94598935dfa480b552,
+        type: 2}
+      propertyPath: PrizeCompanion
+      value: 
+      objectReference: {fileID: 1859965674}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 454f8424e61f4b94598935dfa480b552, type: 2}
   m_IsPrefabAsset: 0
@@ -15124,6 +15138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174f0ccf27e22164d8dc00a9fcfa2442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Companion: {fileID: 0}
+  CampanionGameObj: {fileID: 0}
   Peices: []
   PeicesList: []
   Gold: []
@@ -15135,8 +15151,10 @@ MonoBehaviour:
     type: 2}
   ParticleEffectYellow: {fileID: 1645080899943084, guid: 3bcb3486ef7020046a3dfeb0c7d7cbd9,
     type: 2}
-  PartySpawner: {fileID: 0}
-  PartyEffect: []
+  PartySpawner: {fileID: 958114692}
+  PartyEffect:
+  - {fileID: 1394776921595216, guid: 164b70c4470be1343aa092b34d80e221, type: 2}
+  - {fileID: 1707061488972364, guid: 0d6f8736387e01f4e9f3ffa4793dda7e, type: 2}
   MouseCursorObj: {fileID: 1784204496}
   Red: {fileID: 2100000, guid: 42944a42ec16d2b47a640b6313923061, type: 2}
   Blue: {fileID: 2100000, guid: 42f09c1d07f6bec4aabf45eec21cfc2f, type: 2}
@@ -15151,6 +15169,7 @@ MonoBehaviour:
   ResetMaterial: 0
   StopInteracting: 0
   ChangeMaterial: 0
+  CanPlay: 0
   NumberOfNeighbours: 0
   RedScore: 0
   BlueScore: 0
@@ -15163,6 +15182,8 @@ MonoBehaviour:
   NumOfPeices: 0
   TotalScore: 0
   ComboScore: 0
+  PeicesCountCombo: 0
+  PeicesCount: 0
   SceneScore: 0
   HighScore: {fileID: 1564379153}
   MultiplierText: {fileID: 84895713}
@@ -15197,6 +15218,9 @@ MonoBehaviour:
   ComboText: {fileID: 29739571}
   ComboScore: {fileID: 29739573}
   SlowMotionTimer: 0.08
+  HappinessManagerScript: {fileID: 0}
+  DotManagerScript: {fileID: 0}
+  ComboList: []
 --- !u!1 &2099766483
 GameObject:
   m_ObjectHideFlags: 0

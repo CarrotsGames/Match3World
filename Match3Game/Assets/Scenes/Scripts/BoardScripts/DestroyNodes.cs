@@ -171,7 +171,7 @@ public class DestroyNodes : MonoBehaviour {
             ComboList.Clear();
          }
 
-        if(Test == 3)
+        if(Test <= 3)
         {
             DotManagerScript.CanPlay = true;
         }
