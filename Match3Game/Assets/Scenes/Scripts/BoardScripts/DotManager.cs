@@ -44,7 +44,7 @@ public class DotManager : MonoBehaviour
     public bool ResetMaterial;
     public bool StopInteracting;
     public bool ChangeMaterial;
-
+    public bool CanPlay;
     public int NumberOfNeighbours = 0;
     public int RedScore;
     public int BlueScore;
@@ -90,7 +90,7 @@ public class DotManager : MonoBehaviour
         ResetDotLayers = false;
         StopInteracting = false;
         ChangeMaterial = false;
-
+        CanPlay = true;
         // UI
         LineCount = 0;
         Multipier = 1;

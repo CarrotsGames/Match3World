@@ -170,58 +170,60 @@ public class DotScript : MonoBehaviour
     }
     private void OnMouseDown()
     {
-
-        if (!DotManagerScript.StartHighliting)
+        if (DotManagerScript.CanPlay)
         {
-            DotManagerScript.Companion.EatingPeices.Clear();
-        }
-        DotManagerScript.StartHighliting = true;
-        DotManagerScript.NodeSelection = true;
-         // Checks which colout tag the mouse is interacting with to know which colour to focus on
-        switch (transform.tag)
-        {
-            case  "Red":
-                Colour = "Red";
-                 
-                break;
-            case "Blue":
-                Colour = "Blue";
-  
-                break;
-            case "Green":
-                Colour = "Green";
-  
-                break;
-            case "Yellow":
-                Colour = "Yellow";
-                  break;
-            case "Gold":
-                Colour = "Gold";
-                  break;
-            case "COLLECTED":
-                OnMouseUp();
-                break;
-        }
-          
-        DotManagerScript.Peices.Clear();
-       // DrawLine.SetPosition(0, transform.position);
-        // Increases size of peice when selected
-        Vector3 newScale = new Vector3();
-        newScale.x = Mathf.Clamp(transform.localScale.x, jucSize, jucSize);
-        newScale.z = Mathf.Clamp(transform.localScale.z, jucSize, jucSize);
-        newScale.y = Mathf.Clamp(transform.localScale.y, jucSize, jucSize);
-        transform.localScale = newScale;
-        // changes colour of peice to black
-        this.gameObject.GetComponent<Renderer>().material.color = Color.black;
-        // changes peice layer
-        this.gameObject.layer = LayerType;
- 
-        ToggleHighlite += 1;
-        // plays the node highlite sound
-        AudioManagerScript.NodeSource.clip = AudioManagerScript.NodeAudio[0];
-        AudioManagerScript.NodeSource.PlayOneShot(AudioManagerScript.NodeSource.clip);
+            if (!DotManagerScript.StartHighliting)
+            {
+                DotManagerScript.Companion.EatingPeices.Clear();
+            }
+            DotManagerScript.StartHighliting = true;
+            DotManagerScript.NodeSelection = true;
+            // Checks which colout tag the mouse is interacting with to know which colour to focus on
+            switch (transform.tag)
+            {
+                case "Red":
+                    Colour = "Red";
 
-        DotManagerScript.MouseCursorObj.SetActive(true);
+                    break;
+                case "Blue":
+                    Colour = "Blue";
+
+                    break;
+                case "Green":
+                    Colour = "Green";
+
+                    break;
+                case "Yellow":
+                    Colour = "Yellow";
+                    break;
+                case "Gold":
+                    Colour = "Gold";
+                    break;
+                case "COLLECTED":
+                    OnMouseUp();
+                    break;
+            }
+
+            DotManagerScript.Peices.Clear();
+            // DrawLine.SetPosition(0, transform.position);
+            // Increases size of peice when selected
+            Vector3 newScale = new Vector3();
+            newScale.x = Mathf.Clamp(transform.localScale.x, jucSize, jucSize);
+            newScale.z = Mathf.Clamp(transform.localScale.z, jucSize, jucSize);
+            newScale.y = Mathf.Clamp(transform.localScale.y, jucSize, jucSize);
+            transform.localScale = newScale;
+            // changes colour of peice to black
+            this.gameObject.GetComponent<Renderer>().material.color = Color.black;
+            // changes peice layer
+            this.gameObject.layer = LayerType;
+
+            ToggleHighlite += 1;
+            // plays the node highlite sound
+            AudioManagerScript.NodeSource.clip = AudioManagerScript.NodeAudio[0];
+            AudioManagerScript.NodeSource.PlayOneShot(AudioManagerScript.NodeSource.clip);
+
+            DotManagerScript.MouseCursorObj.SetActive(true);
+        }
     }
     private void OnMouseDrag()
     {

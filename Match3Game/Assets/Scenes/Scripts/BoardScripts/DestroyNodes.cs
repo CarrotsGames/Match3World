@@ -21,6 +21,8 @@ public class DestroyNodes : MonoBehaviour {
     public HappinessManager HappinessManagerScript;
     private int Index;
     private int ComboNum;
+    public DotManager DotManagerScript;
+    private GameObject DotManagerObj;
     public List<GameObject> ComboList;
     float Timer;
     bool StartTimer;
@@ -31,7 +33,11 @@ public class DestroyNodes : MonoBehaviour {
     int Test;
     // Use this for initialization
     void Start ()
-    {  // Referneces DotManagerScript
+    {
+        DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
+        DotManagerScript = DotManagerObj.GetComponent<DotManager>();
+
+        // Referneces DotManagerScript
         ComboTime = ComboVanishSpeed ;
         Vibrate = true;
         CompanionGameObj = GameObject.FindGameObjectWithTag("Companion");
@@ -66,6 +72,8 @@ public class DestroyNodes : MonoBehaviour {
         }
         if(Reset)
         {
+            DotManagerScript.CanPlay = true;
+
             StartTimer = false;
             //resets combo text 
             ComboText.text = "";
@@ -105,7 +113,9 @@ public class DestroyNodes : MonoBehaviour {
  
     public void CreateComboList()
     {
+
         Test = CompanionScriptRef.EatingPeices.Count;
+        DotManagerScript.CanPlay = false;
         for (int i = 0; i < CompanionScriptRef.EatingPeices.Count; i++)
         {
             ComboList.Add(CompanionScriptRef.EatingPeices[i]);
@@ -141,6 +151,7 @@ public class DestroyNodes : MonoBehaviour {
                 Combo = Index + 1;
                 CountCombo();
             }
+           
             PlayParticle();
             ComboList[Index].transform.position += new Vector3(100, 0, 0);
             // Delays forloop So that nodes are destroyed one by one
@@ -154,11 +165,16 @@ public class DestroyNodes : MonoBehaviour {
 
                 ComboPause = true;
             }
+            
             StartDestroy = false;
             Index = 0;
             ComboList.Clear();
          }
 
+        if(Test == 3)
+        {
+            DotManagerScript.CanPlay = true;
+        }
 
     }
     void CountCombo()
