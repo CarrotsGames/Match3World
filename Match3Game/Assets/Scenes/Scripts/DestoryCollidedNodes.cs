@@ -39,12 +39,12 @@ public class DestoryCollidedNodes : MonoBehaviour
  
         if (DotScriptGameObj.GetComponent<DotManager>().Peices.Contains(CollidedNode))
         {
-
             CollidedNode.GetComponent<DotScript>().OnMouseUp();
         }
         else if(!CompanionScriptRef.EatingPeices.Contains(CollidedNode) || !DotScriptGameObj.GetComponent<DotManager>().Peices.Contains(CollidedNode))
         {
-            Destroy(CollidedNode);
+             collision.gameObject.transform.position += new Vector3(100, 0, 0);
+            collision.gameObject.GetComponent<DotScript>().SelfDestruct = true;
         }
     }
 }
