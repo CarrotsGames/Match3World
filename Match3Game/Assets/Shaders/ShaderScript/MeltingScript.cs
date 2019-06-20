@@ -35,7 +35,8 @@ public class MeltingScript : MonoBehaviour {
             transform.localScale -= new Vector3(1, 1, 1) * Time.deltaTime;
             if(Test <= 0.25f)
             {
-                Destroy(gameObject);
+                gameObject.transform.position = new Vector3(100, 0, 0);
+                gameObject.GetComponent<DotScript>().SelfDestruct = true;
             }
          
         }
