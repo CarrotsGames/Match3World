@@ -141,8 +141,7 @@ public class DestroyNodes : MonoBehaviour {
     }
     void DestoryNodes()
     {
-        Debug.Log(Index);
-        if (Index < Test)
+         if (Index < Test)
         {
             if (Test > 4)
             {
