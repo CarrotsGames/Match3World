@@ -47,8 +47,7 @@ public class PlayFabServerTime : MonoBehaviour {
         {
             Debug.Log("CAN DO DAILY SPIN");
             DailyEvent.CanDoDaily = true;
-            DailySpin();
-        }
+         }
     }
 
  
