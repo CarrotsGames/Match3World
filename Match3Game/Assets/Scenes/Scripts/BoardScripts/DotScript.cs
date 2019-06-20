@@ -37,7 +37,8 @@ public class DotScript : MonoBehaviour
     public Material BlueEmmision;
     string Colour;
     public bool SelfDestruct;
-    float Timer;
+    [HideInInspector]
+    public float Timer;
 
     // Use this for initialization
     void Start()

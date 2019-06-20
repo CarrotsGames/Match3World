@@ -146,7 +146,9 @@ public class EggHatch : MonoBehaviour
         {
             // Eggnumber is the current egg being hatched (WILL CHANGE TO ARRAY THE MORE EGGS WE HAVE)ssssss
            //EggNumber = 1;
+           //Current time 
             now = result.Time.AddHours(0);
+            // Target Time
             Period = 36L * 1000000000L ;
             TimeStamp = now.Ticks + Period;
             TimeSpan ts = TimeSpan.FromTicks(Period);

@@ -7,6 +7,7 @@ public class MeltingScript : MonoBehaviour {
     Renderer rend;
     public bool Disolve;
     GameObject Child;
+    private GameObject DotManagerGameObj;
     private GameObject CollidedNode;
     public Material ShaderMat;
     public float DisolveSpeed;
@@ -17,6 +18,7 @@ public class MeltingScript : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rend = GetComponent<Renderer>();
+        DotManagerGameObj = GameObject.FindGameObjectWithTag("DotManager");
         DotScriptRef = GetComponent<DotScript>();
         Disolve = false;
 
@@ -35,8 +37,17 @@ public class MeltingScript : MonoBehaviour {
             transform.localScale -= new Vector3(1, 1, 1) * Time.deltaTime;
             if(Test <= 0.25f)
             {
-                gameObject.transform.position = new Vector3(100, 0, 0);
-                gameObject.GetComponent<DotScript>().SelfDestruct = true;
+                if (DotManagerGameObj.GetComponent<DestroyNodes>().ComboList.Count > 5)
+                {
+                    gameObject.transform.position = new Vector3(100, 0, 0);
+                    gameObject.GetComponent<DotScript>().Timer = 5;
+                   gameObject.GetComponent<DotScript>().SelfDestruct = true;
+                }
+                else
+                {
+                    gameObject.transform.position = new Vector3(100, 0, 0);
+                    gameObject.GetComponent<DotScript>().SelfDestruct = true;
+                }
             }
          
         }

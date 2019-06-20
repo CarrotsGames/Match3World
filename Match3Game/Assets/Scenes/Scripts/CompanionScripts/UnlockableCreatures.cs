@@ -51,7 +51,24 @@ public class UnlockableCreatures : MonoBehaviour
         GetUnlocked();
  
     }
- 
+    private void Update()
+    {
+       
+    }
+    public void UnlockAll()
+    {
+        UnlockableMoobling[0] = "BINKY";
+        UnlockableMoobling[1] = "KOKO";
+        UnlockableMoobling[3] = "SAUCO";
+        UnlockableMoobling[4] = "CHICKPEA";
+        CriusUnlocked = "CRIUS";
+        PlayerPrefs.SetString("BINKY", UnlockableMoobling[0]);
+        PlayerPrefs.SetString("KOKO", UnlockableMoobling[1]);
+        PlayerPrefs.SetString("CRIUS", CriusUnlocked);
+        PlayerPrefs.SetString("SAUCO", UnlockableMoobling[3]);
+        PlayerPrefs.SetString("CHICKPEA", UnlockableMoobling[4]);
+
+    }
     // Goes through an checks which companins are unlocked
     public void GetUnlocked()
     {
