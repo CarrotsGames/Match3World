@@ -43,7 +43,7 @@ public class DotScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Timer = 1.5f;
+        Timer = 2;
         MainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 
         HappinessManagerGameobj = GameObject.FindGameObjectWithTag("HM");
@@ -77,6 +77,8 @@ public class DotScript : MonoBehaviour
             Timer -= Time.deltaTime;
             if(Timer <= 0)
             {
+                Timer = 2;
+
                 Destroy(this.gameObject);
                 SelfDestruct = false;
             }
@@ -90,15 +92,18 @@ public class DotScript : MonoBehaviour
         {
             for (int i = 0; i < neighbours.Count; i++)
             {
-                if(neighbours[i].layer == 2)
+                if (neighbours[i] != null)
                 {
-                    neighbours.RemoveAt(i);
+                    if (neighbours[i].layer == 2)
+                    {
+                        neighbours.RemoveAt(i);
+                    }
+                    else
+                    {
+                        neighbours.Clear();
+                        ClearNeighbours = false;
+                    }
                 }
-                else
-                {
-                    neighbours.Clear();
-                    ClearNeighbours = false;
-                } 
             }
           
  
@@ -348,7 +353,7 @@ public class DotScript : MonoBehaviour
  
     public void OnMouseUp()
     {
-        Debug.Log("MOUSEUP");
+ 
         ClearNeighbours = true;
 
         // Resets Linerenderer

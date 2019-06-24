@@ -28,8 +28,7 @@ public class LowGravityNodes : MonoBehaviour
         {
             TimeTillZeroG -= Time.deltaTime;
             Physics2D.IgnoreCollision(Lid.GetComponent<Collider2D>(), GetComponent<Collider2D>(),true);
-            Debug.Log("IGNORING PHYSICS");
-        }
+         }
     }
 
     private void OnTriggerStay2D(Collider2D collision)

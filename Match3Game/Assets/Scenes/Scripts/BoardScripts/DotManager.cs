@@ -208,7 +208,7 @@ public class DotManager : MonoBehaviour
         if (Peices.Count >= 7)
         {
             Instantiate(PartyEffect[0], PartySpawner.transform.position, Quaternion.identity);
-            Instantiate(PartyEffect[1], PartySpawner.transform.position, Quaternion.identity);
+            Instantiate(PartyEffect[1], PartySpawner.transform.position, Quaternion.identity); 
 
         }
         else if (Peices.Count >= 5)
