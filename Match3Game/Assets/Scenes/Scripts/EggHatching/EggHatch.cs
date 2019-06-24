@@ -45,6 +45,8 @@ public class EggHatch : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
+            StartCountDown = false;
+
             HatchCreature();
         }
         // Debug purpose 

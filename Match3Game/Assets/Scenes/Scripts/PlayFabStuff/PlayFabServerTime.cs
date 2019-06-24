@@ -30,6 +30,7 @@ public class PlayFabServerTime : MonoBehaviour {
         DelayTimer = 3;
         CurrentTime = 3;
         TimeStamp = System.Convert.ToInt64(PlayerPrefs.GetString("DailySpinTime"));
+
         DailyEvent.CanDoDaily = false;
 
     }
@@ -37,7 +38,10 @@ public class PlayFabServerTime : MonoBehaviour {
     void Update()
     {
         CurrentTime -= Time.deltaTime;
-
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            DailySpin();
+        }
         if (CurrentTime < 0 && !DailyEvent.CanDoDaily)
         {
             GetCurrentTime();
