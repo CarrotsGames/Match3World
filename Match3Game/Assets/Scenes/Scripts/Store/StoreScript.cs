@@ -61,7 +61,14 @@ public class StoreScript : MonoBehaviour
         StoreItems[0].SetActive(true);
         DisableEggButton();
     }
+    private void Update()
+    {
+        if(!EggHatchScript.GetComponent<EggHatch>().StartCountDown)
+        {
+            DisableEggButton();
 
+        }
+    }
     // Navigates through the store items
     public void Navigation(int ArrowNum)
     {
@@ -209,6 +216,7 @@ public class StoreScript : MonoBehaviour
                         youBoughtCanvus.SetActive(true);
                         eggUnlock.SetActive(true);
                         eggIncubation = true;
+                        DisableEggButton();
                     }
                     else
                     {

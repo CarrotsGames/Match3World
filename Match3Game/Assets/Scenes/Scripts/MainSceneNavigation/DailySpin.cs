@@ -52,6 +52,8 @@ public class DailySpin : MonoBehaviour
         {
             if(Input.GetMouseButtonDown(0))
             {
+                Events.GetComponent<PlayFabServerTime>().DailySpin();
+
                 StopSpinning = true;
             }
         }
@@ -74,7 +76,6 @@ public class DailySpin : MonoBehaviour
             if (WheelVelocity < 1)
             {
                 IsDailyOver = true;
-                Events.GetComponent<PlayFabServerTime>().DailySpin();
 
                 CreatureList.SetActive(true);
                 MenuButtons.SetActive(true);

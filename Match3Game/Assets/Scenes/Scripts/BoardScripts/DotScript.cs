@@ -43,7 +43,7 @@ public class DotScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Timer = 2;
+        Timer = 1.6f;
         MainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 
         HappinessManagerGameobj = GameObject.FindGameObjectWithTag("HM");
