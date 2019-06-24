@@ -92,7 +92,7 @@ Shader "Sprites/MovingShader2D"
 							 fixed4 ScrollColour = tex2D(_ScrollTexture, i.ScrollUv) ;
 							 fixed4 ScrollColour1 = tex2D(_ScrollTexture1, i.ScrollUv1) ;
 
-							 Colour.g = _Transparency;
+							 Colour.a = _Transparency;
 							  // Reutrns the main texture with the moving texture
 
 							 return   ScrollColour + ScrollColour1 + Colour;

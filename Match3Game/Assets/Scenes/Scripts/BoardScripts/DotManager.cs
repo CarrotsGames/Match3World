@@ -45,7 +45,7 @@ public class DotManager : MonoBehaviour
     public bool StopInteracting;
     public bool ChangeMaterial;
     public bool CanPlay;
-    public int NumberOfNeighbours = 0;
+     public int NumberOfNeighbours = 0;
     public int RedScore;
     public int BlueScore;
     public int YellowScore;
