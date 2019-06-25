@@ -73,9 +73,8 @@ public class HappyMultlpier : MonoBehaviour {
                 IsSleeping = false; 
                 PlayerPrefs.SetInt(ListOfSaves[i], (IsSleeping ? 1 : 0));
 
-                AddNewNum -= 1;
-            }
-            else if (RealtTimeScript.GetComponent<RealTimeCounter>().HappinessCountDown[i] >= 30 && IsSleeping)
+             }
+            else if (RealtTimeScript.GetComponent<RealTimeCounter>().HappinessCountDown[i] > 30 && IsSleeping)
             {
                 PlayerPrefs.SetInt(ListOfSaves[i], (IsSleeping ? 1 : 0));
 

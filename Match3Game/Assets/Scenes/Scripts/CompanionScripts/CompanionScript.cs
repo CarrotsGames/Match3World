@@ -70,6 +70,8 @@ public class CompanionScript : MonoBehaviour
 
         }
         int Total;
+        int mulpliernum = HappinessGameObj.GetComponent<HappyMultlpier>().MultlpierNum;
+ 
         int Multlpier = HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[HappinessGameObj.GetComponent<HappyMultlpier>().MultlpierNum];
         Total = DotManagerScriptRef.PeicesCount + DotManagerScriptRef.ComboScore ;
         Total *= Multlpier;

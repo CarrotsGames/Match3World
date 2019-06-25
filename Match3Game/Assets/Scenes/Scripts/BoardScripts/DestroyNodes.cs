@@ -36,8 +36,7 @@ public class DestroyNodes : MonoBehaviour {
     {
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
-
-        // Referneces DotManagerScript
+         // Referneces DotManagerScript
         ComboTime = ComboVanishSpeed ;
         Vibrate = true;
         CompanionGameObj = GameObject.FindGameObjectWithTag("Companion");
@@ -54,11 +53,13 @@ public class DestroyNodes : MonoBehaviour {
     // Update is called once per frame
     private void Update()
     {
-        
-        if (StartTimer)
+        if(ComboList.Count < 1)
         {
-            CountCombo();
+            DotManagerScript.CanPlay = true;
+            Index = 0;
         }
+   
+         
         if(ComboPause)
         {
             //StartTimer = false;
@@ -140,6 +141,7 @@ public class DestroyNodes : MonoBehaviour {
        Timer -= Time.deltaTime;
         if (Timer < 0)
         {
+ 
             DestoryNodes();
             Timer = ComboSpeed;
         }
@@ -148,44 +150,46 @@ public class DestroyNodes : MonoBehaviour {
     }
     void DestoryNodes()
     {
-         if (Index < Test)
-        {
-            if (Test > 4)
-            {
-                StartTimer = true;
 
-                Combo = Index + 1;
+        if (Index < ComboList.Count)
+        {  // plays particle at index
+            PlayParticle();
+            // Moves node at index out of sight
+            ComboList[Index].transform.position += new Vector3(100, 0, 0);
+            // sets the node to destroy itself
+            ComboList[Index].GetComponent<DotScript>().SelfDestruct = true;
+           
+            // if the combo is greater than 4 start the ui counting
+            if (ComboList.Count > 4)
+            {
+                // the current index is equal to the combo
+                Index++;
+                Combo = Index;
                 CountCombo();
             }
-           
-            PlayParticle();
-            ComboList[Index].transform.position += new Vector3(100, 0, 0);
-            // Delays forloop So that nodes are destroyed one by one
-            ComboList[Index].GetComponent<DotScript>().SelfDestruct = true;
-            Index++;
-        }
-        else
-        {
-            if (Test > 4)
-            {
-
-                ComboPause = true;
-            }
+            // if not than add anyway to avoid to play particles
             else
             {
-                ComboList.Clear();
-
-                if (ComboList.Count <= 1)
-                {
-                     DotManagerScript.CanPlay = true;
-                }
+                Index++;
             }
-            StartDestroy = false;
-            Index = 0;
+          
+         }
+        else
+        {
+            // if the combo is higher than 4 pause the combo 
+            if (Index > 4)
+            {
+                ComboPause = true;
+            }
+            // if there was no combo reset all properties
+            else
+            {
+                Reset = true;
+            }
+            // clear combo list
             ComboList.Clear();
-
+            StartDestroy = false;
         }
-
 
 
     }

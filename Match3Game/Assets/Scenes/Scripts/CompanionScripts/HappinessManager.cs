@@ -146,10 +146,7 @@ public class HappinessManager : MonoBehaviour
             //Changes the track in the SceneAudio script
             if (IsSleeping)
             {
-                // plays wake up sound
-
-                // Decreases multiplierNum
-                this.gameObject.GetComponent<HappyMultlpier>().MultlpierNum -= 1;
+              
                  PlayerPrefs.SetInt("Multiplier", this.gameObject.GetComponent<HappyMultlpier>().MultlpierNum);
                 AudioGameObj.GetComponent<SceneAudio>().CompanionSound.PlayOneShot
                 (AudioGameObj.GetComponent<SceneAudio>().WakeUpSound[0]);
