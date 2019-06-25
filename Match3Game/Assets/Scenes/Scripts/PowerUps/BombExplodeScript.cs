@@ -25,7 +25,9 @@ public class BombExplodeScript : MonoBehaviour
         // ignroe collisions Between this layer and this layer
         Physics2D.IgnoreLayerCollision(12, 11);
         Physics2D.IgnoreLayerCollision(12, 14);
-         Detonate = true;
+        Physics2D.IgnoreLayerCollision(12, 2);
+
+        Detonate = true;
         AddScore = false;
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();

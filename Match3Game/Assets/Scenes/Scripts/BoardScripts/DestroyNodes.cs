@@ -118,8 +118,15 @@ public class DestroyNodes : MonoBehaviour {
         DotManagerScript.CanPlay = false;
         for (int i = 0; i < CompanionScriptRef.EatingPeices.Count; i++)
         {
-            ComboList.Add(CompanionScriptRef.EatingPeices[i]);
-            ComboList[i].gameObject.layer = 2;         
+            if(!ComboList.Contains(CompanionScriptRef.EatingPeices[i]))
+            {
+                ComboList.Add(CompanionScriptRef.EatingPeices[i]);
+                ComboList[i].gameObject.layer = 2;
+            }
+            else
+            {
+                Debug.Log("Duplicate");
+            }
         }
         CompanionScriptRef.EatingPeices.Clear();
         StartDestroy = true;

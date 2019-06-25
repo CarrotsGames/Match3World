@@ -12,4 +12,9 @@ public class loadmoneystore : MonoBehaviour {
     {
         SceneManager.LoadScene("Money Store");
     }
+
+    public void LoadStore()
+    {
+        SceneManager.LoadScene("StoreScene");
+    }
 }

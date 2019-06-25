@@ -34,8 +34,7 @@ public class NodeFreeze : MonoBehaviour {
                 GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
 
             }
-            Debug.Log("FREEZEZONE");
-
+ 
         }
 
     }
