@@ -43,7 +43,7 @@ public class RealTimeCounter : MonoBehaviour
         //7 In "happinessmanager" script go to companion save switch (line 51) and add that companion save 
         //8 Make sure the case is equal to the companions name in scene
         //9 Give that companion savestring name(savestring saves the sleeping bool for that companion)
-        //10 Now go to CompanionNaviagion "PlayLevel" (Line 125) and add that companions name in the navigation menu 
+        //10 Now go to the CompanionNaviagion script "PlayLevel" (Line 125) and add that companions name in the navigation menu 
         //with their arrays
         //11 Finally go to "CompanionSwitch" (Line 214) and add a case along with their happiness string and index.
         //  Make the happySlider.value equal that index
@@ -78,6 +78,16 @@ public class RealTimeCounter : MonoBehaviour
         HappinessCountDown[5] = PlayerPrefs.GetFloat("ChickPeaHappiness");
         // update timer when real time passes 
         HappinessCountDown[5] -= TimeMasterScript.instance.CheckDate() / 25;
+
+        //  //Sauco Happiness Timer
+        //  HappinessCountDown[6] = PlayerPrefs.GetFloat("SquishyHappiness");
+        //  // update timer when real time passes 
+        //  HappinessCountDown[6] -= TimeMasterScript.instance.CheckDate() / 25;
+       
+        //Cronos Happiness Timer
+          HappinessCountDown[7] = PlayerPrefs.GetFloat("CronosHappiness");
+          // update timer when real time passes 
+          HappinessCountDown[7] -= TimeMasterScript.instance.CheckDate() / 25;
         /////////////////////////////////////////////////////////////////////
 
         HappinessGameObj.GetComponent<HappyMultlpier>().CheckMultplier();
@@ -131,6 +141,12 @@ public class RealTimeCounter : MonoBehaviour
                 companionName = "ChickPeaHappiness";
 
                 break;
+            case "CronosHappiness":
+
+                HappinessManagerScript.HappinessSliderValue = HappinessCountDown[7];
+                companionName = "CronosHappiness";
+
+                break;
         }
     }
     // Counts down the happiness of each moobling
@@ -174,6 +190,11 @@ public class RealTimeCounter : MonoBehaviour
             HappinessCountDown[5] = HappinessManagerScript.HappinessSliderValue;
 
         }
+        else if (companionName == "CronosHappiness")
+        {
+            HappinessCountDown[7] = HappinessManagerScript.HappinessSliderValue;
+
+        }
         // COUNTS DOWN ALL COMPANION HAPPINESS WHILE NOT IN SCENE
         HappinessCountDown[0] = Mathf.Clamp(HappinessCountDown[0], 0, 100);
         // Update timer each frame by delay
@@ -204,6 +225,11 @@ public class RealTimeCounter : MonoBehaviour
         // Update timer each frame by delay
         HappinessCountDown[5] -= Time.deltaTime / 10;
         PlayerPrefs.SetFloat("ChickPeaHappiness", HappinessCountDown[5]);
+
+        HappinessCountDown[7] = Mathf.Clamp(HappinessCountDown[7], 0, 100);
+        // Update timer each frame by delay
+        HappinessCountDown[7] -= Time.deltaTime / 10;
+        PlayerPrefs.SetFloat("CronosHappiness", HappinessCountDown[7]);
     }
  
     // Resets clock based on current hunger and time instance

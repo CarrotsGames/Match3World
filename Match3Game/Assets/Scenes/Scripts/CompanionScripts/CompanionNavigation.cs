@@ -151,6 +151,9 @@ public class CompanionNavigation : MonoBehaviour
             case 7:
                 SceneManager.LoadScene("Chick-Pee");
                 break;
+            case 9:
+                SceneManager.LoadScene("Cronus");
+                break;
         }
 
     }
@@ -255,6 +258,12 @@ public class CompanionNavigation : MonoBehaviour
                 Happiness[5] = PlayerPrefs.GetFloat("ChickPeaHappiness");
                 RealTimeScript.HappinessCountDown[5] = Happiness[5];
                 HappySlider.value = RealTimeScript.HappinessCountDown[5];
+
+                break;
+            case "Cronus Locked":
+                Happiness[6] = PlayerPrefs.GetFloat("ChickPeaHappiness");
+                RealTimeScript.HappinessCountDown[6] = Happiness[6];
+                HappySlider.value = RealTimeScript.HappinessCountDown[6];
 
                 break;
         }

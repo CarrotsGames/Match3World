@@ -74,7 +74,10 @@ public class HappinessManager : MonoBehaviour
                 CompanionSave = "ChickPeaHappiness";
                 SaveStrings = "CHICKPEASAVE";
                 break;
-
+            case "Cronos":
+                CompanionSave = "CronosHappiness";
+                SaveStrings = "CRONOSSAVE";
+                break;
         }
         // Gets the last known bool for this companion
         IsSleeping = (PlayerPrefs.GetInt(SaveStrings) != 0);

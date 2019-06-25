@@ -15,8 +15,7 @@ public class MonthlyChallenge : MonoBehaviour {
     bool HasUnlockedGift;
     int MonthlyVersions;
     float DelayTimerCheck;
-    private string UnlockableString;
-     // UNLOCK SCORE COMPANIONS
+       // UNLOCK SCORE COMPANIONS
     // 0 BINKY
     // 1 KOKO
     // Use this for initialization
@@ -53,6 +52,9 @@ public class MonthlyChallenge : MonoBehaviour {
             //reset Unlock array
             if (Input.GetKeyDown(KeyCode.R))
             {
+                HasUnlockedGift = false;
+                PlayerPrefs.SetInt("HASUNLOCKEDGIFT", (HasUnlockedGift ? 1 : 0));
+
                 UnlockGift = 0;
                 PlayerPrefs.SetInt("MONTHLYPRIZE", UnlockGift);
             }
@@ -64,23 +66,33 @@ public class MonthlyChallenge : MonoBehaviour {
                 DelayTimerCheck += 4;
                 MonthlyChallengeStatus();
             }
-            // checks if the player unlocked the monthly gift
-            if (!HasUnlockedGift)
+           
+        }
+    }
+   public void CheckMonthlyUnlock()
+    {
+        // checks if the player unlocked the monthly gift
+        if (!HasUnlockedGift)
+        {
+            if (DotManagerScript.TotalScore > ChallengeScore)
             {
-                if (DotManagerScript.TotalScore > ChallengeScore)
-                {
 
-                    UnlockableString = PrizeCompanion[UnlockGift].name;
-                    // ADD PRIZE COMPANION TO ROSTER
-                    Debug.Log("YOU GOT THE PRIZE");
-                    UnlockGift += 1;
-                    PlayerPrefs.SetInt("MONTHLYPRIZE", UnlockGift);
-                    HasUnlockedGift = true;
-                    PlayerPrefs.SetInt("HASUNLOCKEDGIFT", (HasUnlockedGift ? 1 : 0));
+                string UnlockName = PrizeCompanion[UnlockGift].name;
+                PlayerPrefs.SetString("UNLOCKED", UnlockName);
 
-                }
-
+                // ADD PRIZE COMPANION TO ROSTER
+                Debug.Log("YOU GOT THE PRIZE");
+                UnlockGift += 1;
+                PlayerPrefs.SetInt("MONTHLYPRIZE", UnlockGift);
+                HasUnlockedGift = true;
+                PlayerPrefs.SetInt("HASUNLOCKEDGIFT", (HasUnlockedGift ? 1 : 0));
+                UnlockableCreatures.GetComponent<UnlockableCreatures>().Unlock();
             }
+            else
+            {
+                Debug.Log("Need more credits");
+            }
+
         }
     }
     // UNLOCK THE MONTHLY COMPANION
@@ -118,6 +130,7 @@ public class MonthlyChallenge : MonoBehaviour {
     {
         //PlayFabClientAPI.GetLeaderboard(new GetLeaderboardRequest()
         HasUnlockedGift = false;
+        CheckMonthlyUnlock();
         PlayerPrefs.SetInt("HASUNLOCKEDGIFT", (HasUnlockedGift ? 1 : 0));
 
         Debug.Log("MONTHLYCHALLENGE STILL Ended");
