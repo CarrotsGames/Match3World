@@ -74,6 +74,10 @@ public class HappinessManager : MonoBehaviour
                 CompanionSave = "ChickPeaHappiness";
                 SaveStrings = "CHICKPEASAVE";
                 break;
+            case "Squishy":
+                CompanionSave = "SquishyHappiness";
+                SaveStrings = "SQUISHYSAVE";
+                break;
             case "Cronus":
                 CompanionSave = "CronosHappiness";
                 SaveStrings = "CRONOSSAVE";

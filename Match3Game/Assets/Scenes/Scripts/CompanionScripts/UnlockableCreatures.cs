@@ -44,6 +44,7 @@ public class UnlockableCreatures : MonoBehaviour
         CriusUnlocked = PlayerPrefs.GetString("CRIUS");
         UnlockableMoobling[3] = PlayerPrefs.GetString("SAUCO");
         UnlockableMoobling[4] = PlayerPrefs.GetString("CHICKPEA");
+        UnlockableMoobling[5] = PlayerPrefs.GetString("SQUISHY");
         UnlockableMoobling[6] = PlayerPrefs.GetString("Cronus Locked");
 
         // Activates unlocked characters
@@ -100,9 +101,14 @@ public class UnlockableCreatures : MonoBehaviour
                 LockedCompanions[4].GetComponent<Image>().sprite = CompanionImages[4];
                 LockedCompanions[4].GetComponent<Button>().enabled = true;
             }
+            if (UnlockableMoobling[5] == "SQUISHY")
+            {
+                LockedCompanions[5].GetComponent<Image>().sprite = CompanionImages[5];
+                LockedCompanions[5].GetComponent<Button>().enabled = true;
+            }
             if (UnlockableMoobling[6] == "Cronus Locked")
             {
-                Debug.Log("CronusUnlocked");
+ 
                 LockedCompanions[6].GetComponent<Image>().sprite = CompanionImages[6];
                 LockedCompanions[6].GetComponent<Button>().enabled = true;
             }
@@ -151,6 +157,12 @@ public class UnlockableCreatures : MonoBehaviour
                 {
                     UnlockableMoobling[4] = CompanionName;
                     PlayerPrefs.SetString("CHICKPEA", UnlockableMoobling[4]);
+                }
+                break;
+            case "SQUISHY":
+                {
+                    UnlockableMoobling[5] = CompanionName;
+                    PlayerPrefs.SetString("SQUISHY", UnlockableMoobling[5]);
                 }
                 break;
             case "Cronus Locked":

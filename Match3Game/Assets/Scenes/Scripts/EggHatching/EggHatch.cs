@@ -100,7 +100,7 @@ public class EggHatch : MonoBehaviour
                 PlayerPrefs.SetString("UNLOCKED", "CRIUS");
                 UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
                 EggCreatures.RemoveAt(Random);
-
+                Debug.Log("CRUAS");
                 break;
 
             case "Sauco":
@@ -108,7 +108,8 @@ public class EggHatch : MonoBehaviour
 
                 UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
                 EggCreatures.RemoveAt(Random);
- 
+                Debug.Log("Sauce");
+
                 break;
 
             case "ChickPee":
@@ -116,9 +117,17 @@ public class EggHatch : MonoBehaviour
 
                 UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
                 EggCreatures.RemoveAt(Random);
- 
-                break;
+                Debug.Log("ChickePee");
 
+                break;
+            case "Squishy":
+                PlayerPrefs.SetString("UNLOCKED", "SQUISHY");
+
+                UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
+                EggCreatures.RemoveAt(Random);
+                Debug.Log("Sqash");
+
+                break;
         }
         PlayerPrefs.SetInt("EGGCOUNTDOWN", (StartCountDown ? 1 : 0));
 

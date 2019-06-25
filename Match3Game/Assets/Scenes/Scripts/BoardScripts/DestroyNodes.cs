@@ -113,7 +113,7 @@ public class DestroyNodes : MonoBehaviour {
  
     public void CreateComboList()
     {
-
+        ComboList.Clear();
         Test = CompanionScriptRef.EatingPeices.Count;
         DotManagerScript.CanPlay = false;
         for (int i = 0; i < CompanionScriptRef.EatingPeices.Count; i++)
