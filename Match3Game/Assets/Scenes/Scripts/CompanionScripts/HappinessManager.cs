@@ -74,7 +74,7 @@ public class HappinessManager : MonoBehaviour
                 CompanionSave = "ChickPeaHappiness";
                 SaveStrings = "CHICKPEASAVE";
                 break;
-            case "Cronos":
+            case "Cronus":
                 CompanionSave = "CronosHappiness";
                 SaveStrings = "CRONOSSAVE";
                 break;
