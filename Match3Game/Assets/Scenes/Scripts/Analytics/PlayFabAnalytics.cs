@@ -56,6 +56,7 @@ public class PlayFabAnalytics : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
         TimeOnScene += Time.deltaTime;
         DelayTime += Time.deltaTime;
         if (DelayTime > 5)
@@ -70,26 +71,28 @@ public class PlayFabAnalytics : MonoBehaviour {
        PlayerPrefs.SetFloat(CompanionTime, TimeOnScene);
 
     }
-    
+
     void SetUserData()
     {
-        PlayFabClientAPI.UpdateUserData(new UpdateUserDataRequest()
+        if (GetComponent<PlayFabLogin>().HasLoggedIn == true)
         {
-          Data = new Dictionary<string, string>()
+            PlayFabClientAPI.UpdateUserData(new UpdateUserDataRequest()
+            {
+                Data = new Dictionary<string, string>()
          {
              {CompanionScore.name,"SCORE: "+  Score },
              {CompanionTime,"" + TimeOnScene }
          }
-        },
-        result => Debug.Log("Analytics Sent"),
-        error =>
-        {
-            Debug.Log("Got error setting user data Ancestory to Jacob");
-            Debug.Log(error.GenerateErrorReport());
+            },
+            result => Debug.Log("Analytics Sent"),
+            error =>
+            {
+                Debug.Log("Got error setting user data Ancestory to Jacob");
+                Debug.Log(error.GenerateErrorReport());
 
-        });
-     }
-
+            });
+        }
+    }
   
     public void GraphedData()
     {

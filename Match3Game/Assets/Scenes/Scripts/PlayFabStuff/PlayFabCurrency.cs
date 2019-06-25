@@ -26,23 +26,24 @@ public class PlayFabCurrency : MonoBehaviour
 
     public void LoggedIn()
     {
-          if (string.IsNullOrEmpty(PlayFabSettings.TitleId))
-        {
-            PlayFabSettings.TitleId = "(DE2C) Superflat Connect 3"; // Please change this value to your own titleId from PlayFab Game Manager
-        }
-
-        // Login with Android ID
-        PlayFabClientAPI.LoginWithAndroidDeviceID(new LoginWithAndroidDeviceIDRequest()
-        {
-            CreateAccount = true,
-            AndroidDeviceId = SystemInfo.deviceUniqueIdentifier
-
-        }, result =>
-        {
- 
-            AddPremiumCurrency();
-            // Refresh available items 
-        }, error => Debug.LogError(error.GenerateErrorReport()));
+        GetComponent<PlayFabLogin>().Login();
+     //    if (string.IsNullOrEmpty(PlayFabSettings.TitleId))
+     //  {
+     //      PlayFabSettings.TitleId = "(DE2C) Superflat Connect 3"; // Please change this value to your own titleId from PlayFab Game Manager
+     //  }
+     //
+     //  // Login with Android ID
+     //  PlayFabClientAPI.LoginWithAndroidDeviceID(new LoginWithAndroidDeviceIDRequest()
+     //  {
+     //      CreateAccount = true,
+     //      AndroidDeviceId = SystemInfo.deviceUniqueIdentifier
+     //
+     //  }, result =>
+     //  {
+     //
+     //      AddPremiumCurrency();
+     //      // Refresh available items 
+     //  }, error => Debug.LogError(error.GenerateErrorReport()));
 
 
     }

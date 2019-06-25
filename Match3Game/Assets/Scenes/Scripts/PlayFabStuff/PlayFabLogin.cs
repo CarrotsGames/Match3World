@@ -10,13 +10,14 @@ public class PlayFabLogin : MonoBehaviour
     DotManager DotManagerScript;
     public GameObject EggHatchGameObj;
     float UpdateScoreTimer;
- 
+    public bool HasLoggedIn;
     public void Start()
     {
         UpdateScoreTimer = 3;
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
         Login();
+        HasLoggedIn = false;
     }
     public void Login()
     {      
@@ -34,11 +35,12 @@ public class PlayFabLogin : MonoBehaviour
 
         }, result =>
         {
+            HasLoggedIn = true;
         // LOGGED IN
-             //  GetLeaderBoard();
+        //  GetLeaderBoard();
 
             // Refresh available items 
-        }, error => Debug.LogError(error.GenerateErrorReport()));
+        }, error => Debug.Log("Cannot connect to server"));
 
 
     }

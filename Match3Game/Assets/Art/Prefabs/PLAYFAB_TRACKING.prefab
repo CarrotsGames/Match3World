@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114467647073516412}
   - component: {fileID: 114843413387050052}
   - component: {fileID: 114697194608924240}
+  - component: {fileID: 114484701067736022}
   m_Layer: 0
   m_Name: PLAYFAB_TRACKING
   m_TagString: PlayFab
@@ -48,11 +49,24 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1122565718516828}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd347ef788290ee44860a6028f2ec191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114484701067736022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1122565718516828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 546f8af56922693409c8cc75405572b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EggHatchGameObj: {fileID: 0}
+  HasLoggedIn: 0
 --- !u!114 &114697194608924240
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -68,6 +82,7 @@ MonoBehaviour:
   TimeOnScene: 0
   CompanionScore: {fileID: 0}
   Score: 0
+  DelayTime: 0
 --- !u!114 &114843413387050052
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -10,7 +10,7 @@ public class MonthlyChallenge : MonoBehaviour {
     public GameObject[] PrizeCompanion;
     int UnlockGift;
     public GameObject UnlockableCreatures;
-
+    private GameObject PlayFab;
     private string NameOfPrize;
     bool HasUnlockedGift;
     int MonthlyVersions;
@@ -22,7 +22,8 @@ public class MonthlyChallenge : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        DotManagerGameObj = GameObject.FindGameObjectWithTag("DotManager");
+        PlayFab = GameObject.FindGameObjectWithTag("PlayFab");
+           DotManagerGameObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerGameObj.GetComponent<DotManager>();
         //Saves value to check HasUnlockedGift bool 
         UnlockGift = PlayerPrefs.GetInt("MONTHLYPRIZE");
@@ -47,36 +48,39 @@ public class MonthlyChallenge : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        //reset Unlock array
-        if(Input.GetKeyDown(KeyCode.R))
+        if (PlayFab.GetComponent<PlayFabLogin>().HasLoggedIn == true)
         {
-            UnlockGift = 0;
-            PlayerPrefs.SetInt("MONTHLYPRIZE", UnlockGift);
-        }
-        // checks if the tournament is still going
-          DelayTimerCheck -= Time.deltaTime;
-        // Cooldown for checking tournament status to avoid sending to much information 
-        if (DelayTimerCheck < 0)
-        {
-            DelayTimerCheck += 4;
-            MonthlyChallengeStatus();
-        }
-        // checks if the player unlocked the monthly gift
-        if (!HasUnlockedGift)
-        {
-            if (DotManagerScript.TotalScore > ChallengeScore)
+            //reset Unlock array
+            if (Input.GetKeyDown(KeyCode.R))
             {
-
-                UnlockableString = PrizeCompanion[UnlockGift].name;
-                // ADD PRIZE COMPANION TO ROSTER
-                Debug.Log("YOU GOT THE PRIZE");
-                UnlockGift += 1;
+                UnlockGift = 0;
                 PlayerPrefs.SetInt("MONTHLYPRIZE", UnlockGift);
-                HasUnlockedGift = true;
-                PlayerPrefs.SetInt("HASUNLOCKEDGIFT", (HasUnlockedGift ? 1 : 0));
+            }
+            // checks if the tournament is still going
+            DelayTimerCheck -= Time.deltaTime;
+            // Cooldown for checking tournament status to avoid sending to much information 
+            if (DelayTimerCheck < 0)
+            {
+                DelayTimerCheck += 4;
+                MonthlyChallengeStatus();
+            }
+            // checks if the player unlocked the monthly gift
+            if (!HasUnlockedGift)
+            {
+                if (DotManagerScript.TotalScore > ChallengeScore)
+                {
+
+                    UnlockableString = PrizeCompanion[UnlockGift].name;
+                    // ADD PRIZE COMPANION TO ROSTER
+                    Debug.Log("YOU GOT THE PRIZE");
+                    UnlockGift += 1;
+                    PlayerPrefs.SetInt("MONTHLYPRIZE", UnlockGift);
+                    HasUnlockedGift = true;
+                    PlayerPrefs.SetInt("HASUNLOCKEDGIFT", (HasUnlockedGift ? 1 : 0));
+
+                }
 
             }
-
         }
     }
     // UNLOCK THE MONTHLY COMPANION

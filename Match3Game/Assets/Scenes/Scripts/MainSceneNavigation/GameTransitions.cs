@@ -50,18 +50,18 @@ public class GameTransitions : MonoBehaviour {
     public void BackToMain()
     {
         RealTimeScript.ResetClock();
-        Analytics.GetComponent<PlayFabAnalytics>().GraphedData();
 
         SceneManager.LoadScene("Main Screen");
+        Analytics.GetComponent<PlayFabAnalytics>().GraphedData();
     }
 
     public void HomeButton()
     {
         RealTimeScript.ResetClock();
-        Analytics.GetComponent<PlayFabAnalytics>().GraphedData();
 
         anim.SetBool("Transition", true);
         settingsMenu.SetActive(false);
+        Analytics.GetComponent<PlayFabAnalytics>().GraphedData();
     }
 
 
