@@ -10,7 +10,7 @@ public class HappyMultlpier : MonoBehaviour {
     // Determines what multplier the player is on
     public int MultlpierNum;
     public bool ResetTheMultlpier;
-    private GameObject DotManagerObj;
+    private GameObject DotManagerObj; 
     private DotManager DotManagerScript;
     private GameObject RealTimeGameObj;
     [HideInInspector]
