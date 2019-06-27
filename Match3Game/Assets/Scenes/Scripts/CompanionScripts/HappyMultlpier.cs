@@ -13,18 +13,18 @@ public class HappyMultlpier : MonoBehaviour {
     private GameObject DotManagerObj;
     private DotManager DotManagerScript;
     private GameObject RealTimeGameObj;
-    private RealTimeCounter RealtTimeScript;
+    [HideInInspector]
+    public RealTimeCounter RealtTimeScript;
     private string[] SaveStrings= { "GOBUSAVE","BINKYSAVE","KOKOSAVE","CRIUSSAVE","SAUCOSAVE","CHICKPEASAVE" };
     private List<string> ListOfSaves;
     int AddNewNum;
     // Use this for initialization
-    void Start ()
+    void Awake ()
     {
         ListOfSaves = new List<string>();
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
-        RealTimeGameObj = GameObject.FindGameObjectWithTag("MainCamera");
-        RealtTimeScript = RealTimeGameObj.GetComponent<RealTimeCounter>();
+
 
         for (int i = 0; i < SaveStrings.Length; i++)
         {
@@ -58,8 +58,9 @@ public class HappyMultlpier : MonoBehaviour {
     }
     public void CheckMultplier()
     {
-      
-
+        RealTimeGameObj = GameObject.FindGameObjectWithTag("MainCamera");
+        RealtTimeScript = RealTimeGameObj.GetComponent<RealTimeCounter>();
+  
         for (int i = 0; i < RealTimeGameObj.GetComponent<RealTimeCounter>().HappinessCountDown.Length; i++)
         {
             bool IsSleeping = false;          
@@ -73,9 +74,8 @@ public class HappyMultlpier : MonoBehaviour {
                 IsSleeping = false; 
                 PlayerPrefs.SetInt(ListOfSaves[i], (IsSleeping ? 1 : 0));
 
-                AddNewNum -= 1;
-            }
-            else if (RealtTimeScript.GetComponent<RealTimeCounter>().HappinessCountDown[i] >= 30 && IsSleeping)
+             }
+            else if (RealtTimeScript.GetComponent<RealTimeCounter>().HappinessCountDown[i] > 30 && IsSleeping)
             {
                 PlayerPrefs.SetInt(ListOfSaves[i], (IsSleeping ? 1 : 0));
 

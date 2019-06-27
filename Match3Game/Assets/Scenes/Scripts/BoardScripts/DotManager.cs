@@ -238,7 +238,7 @@ public class DotManager : MonoBehaviour
 
             }
             PeicesList.Clear();
-
+            PeicesCount = 0;
 
         }
 
@@ -256,7 +256,6 @@ public class DotManager : MonoBehaviour
             ComboScore = RedScore + BlueScore + GreenScore + YellowScore; 
         // Counts the total score within scene
             SceneScore += RedScore + BlueScore + GreenScore + YellowScore;
-        Companion.FeedMonster();
 
         //  Debug.Log("No connection");
  
@@ -272,6 +271,7 @@ public class DotManager : MonoBehaviour
             NodeSelection = false;
  
             GoldSelection = false;
+            Companion.FeedMonster();
             AddBoardParticles();
             // ResetDotLayers = true;
             // Adds board particles

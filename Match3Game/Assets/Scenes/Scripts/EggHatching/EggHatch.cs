@@ -31,7 +31,7 @@ public class EggHatch : MonoBehaviour
     {
         
         CurrentTime = 1;
-        TimeStamp = System.Convert.ToInt64(PlayerPrefs.GetString("EggHatch"));
+      //  TimeStamp = System.Convert.ToInt64(PlayerPrefs.GetString("EggHatch"));
         StartCountDown = (PlayerPrefs.GetInt("EGGCOUNTDOWN") != 0);
     }
 
