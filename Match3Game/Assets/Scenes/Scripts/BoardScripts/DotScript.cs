@@ -89,26 +89,26 @@ public class DotScript : MonoBehaviour
             OnMouseUp();
             DotManagerScript.StopInteracting = false;
         }
-        if (ClearNeighbours)
-        {
-            for (int i = 0; i < neighbours.Count; i++)
-            {
-                if (neighbours[i] != null)
-                {
-                    if (neighbours[i].layer == 2)
-                    {
-                        neighbours.RemoveAt(i);
-                    }
-                    else
-                    {
-                        neighbours.Clear();
-                        ClearNeighbours = false;
-                    }
-                }
-            }
-          
- 
-        }
+       //if (ClearNeighbours)
+       //{
+       //    for (int i = 0; i < neighbours.Count; i++)
+       //    {
+       //        if (neighbours[i] != null)
+       //        {
+       //            if (neighbours[i].layer == 2)
+       //            {
+       //                neighbours.RemoveAt(i);
+       //            }
+       //            else
+       //            {
+       //                neighbours.Clear();
+       //                ClearNeighbours = false;
+       //            }
+       //        }
+       //    }
+       //  
+       //
+       //}
         // restes dot layer
         if (DotManagerScript.ResetLayer)
         {
@@ -183,6 +183,7 @@ public class DotScript : MonoBehaviour
             {
                 if (!DotManagerScript.StartHighliting)
                 {
+
                     DotManagerScript.Companion.EatingPeices.Clear();
                 }
                 DotManagerScript.StartHighliting = true;
@@ -295,8 +296,7 @@ public class DotScript : MonoBehaviour
                     {
                         hitInfo.collider.gameObject.GetComponent<Renderer>().material.color = Color.black;
                         // draws line renderer to hit position
-                         // increases linecount so it can be drawn onto the next peice
-                        DotManagerScript.LineCount += 1;
+                         
                         // increase amount of line renderer positions
  
                    
@@ -324,8 +324,7 @@ public class DotScript : MonoBehaviour
                     {
                         hitInfo.collider.gameObject.GetComponent<Renderer>().material.color = Color.black;
                         // draws line renderer to hit position
-                         // increases linecount so it can be drawn onto the next peice
-                        DotManagerScript.LineCount += 1;
+                       
                         // increase amount of line renderer positions
   
                         // adds hit.collider to Peices list
@@ -357,9 +356,9 @@ public class DotScript : MonoBehaviour
  
     public void OnMouseUp()
     {
- 
-        ClearNeighbours = true;
 
+        neighbours.Clear();
+         
         // Resets Linerenderer
 
         // turns off highlite
