@@ -155,11 +155,11 @@ public class HappinessManager : MonoBehaviour
             //Changes the track in the SceneAudio script
             if (IsSleeping)
             {
-              
+                //Sleeping();
                  PlayerPrefs.SetInt("Multiplier", this.gameObject.GetComponent<HappyMultlpier>().MultlpierNum);
                 AudioGameObj.GetComponent<SceneAudio>().CompanionSound.PlayOneShot
                 (AudioGameObj.GetComponent<SceneAudio>().WakeUpSound[0]);
-               // AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
+                 AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
 
             }
             // Adds multplier
@@ -191,10 +191,16 @@ public class HappinessManager : MonoBehaviour
         else if (HappinessSliderValue > 95 && HappinessSliderValue < 100)
         {
             FillColour.color = Color.green;
-            AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
-            // Animation 
+             // Animation 
             Anim.SetBool("is sleepy", true);
+            if (!IsSleeping)
+            {
+              //  Sleeping();
 
+                AudioGameObj.GetComponent<SceneAudio>().Daymode = false;
+                AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
+
+            }
             DayTime.SetActive(false);
             AwakeHead.SetActive(false);
             // Music Change
@@ -224,10 +230,9 @@ public class HappinessManager : MonoBehaviour
             CanEarnGold = true;
             this.gameObject.GetComponent<HappyMultlpier>().MultlpierNum = PlayerPrefs.GetInt("Multiplier");
             DayTime.SetActive(false);
-            AudioGameObj.GetComponent<SceneAudio>().Daymode = false;
-            //AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
+       
+             AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
             PlayerPrefs.SetInt(AudioGameObj.GetComponent<SceneAudio>().MorningSave, (AudioGameObj.GetComponent<SceneAudio>().Daymode ? 1 : 0));
-
          }
         else
         {
@@ -239,7 +244,7 @@ public class HappinessManager : MonoBehaviour
             DayTime.SetActive(true);
             Anim.SetBool("<20", true);
             AudioGameObj.GetComponent<SceneAudio>().Daymode = true;
-          //  AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
+             AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
             PlayerPrefs.SetInt(AudioGameObj.GetComponent<SceneAudio>().MorningSave, (AudioGameObj.GetComponent<SceneAudio>().Daymode ? 1 : 0));
 
  
