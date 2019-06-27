@@ -159,7 +159,7 @@ public class HappinessManager : MonoBehaviour
                  PlayerPrefs.SetInt("Multiplier", this.gameObject.GetComponent<HappyMultlpier>().MultlpierNum);
                 AudioGameObj.GetComponent<SceneAudio>().CompanionSound.PlayOneShot
                 (AudioGameObj.GetComponent<SceneAudio>().WakeUpSound[0]);
-                AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
+               // AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
 
             }
             // Adds multplier
@@ -191,14 +191,14 @@ public class HappinessManager : MonoBehaviour
         else if (HappinessSliderValue > 95 && HappinessSliderValue < 100)
         {
             FillColour.color = Color.green;
-
+            AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
             // Animation 
             Anim.SetBool("is sleepy", true);
 
             DayTime.SetActive(false);
             AwakeHead.SetActive(false);
             // Music Change
- 
+            IsSleeping = true;
             // Add multiplier    
             CanEarnGold = true;
             NightTime.SetActive(true);
@@ -225,7 +225,7 @@ public class HappinessManager : MonoBehaviour
             this.gameObject.GetComponent<HappyMultlpier>().MultlpierNum = PlayerPrefs.GetInt("Multiplier");
             DayTime.SetActive(false);
             AudioGameObj.GetComponent<SceneAudio>().Daymode = false;
-            AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
+            //AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
             PlayerPrefs.SetInt(AudioGameObj.GetComponent<SceneAudio>().MorningSave, (AudioGameObj.GetComponent<SceneAudio>().Daymode ? 1 : 0));
 
          }
@@ -239,7 +239,7 @@ public class HappinessManager : MonoBehaviour
             DayTime.SetActive(true);
             Anim.SetBool("<20", true);
             AudioGameObj.GetComponent<SceneAudio>().Daymode = true;
-            AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
+          //  AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
             PlayerPrefs.SetInt(AudioGameObj.GetComponent<SceneAudio>().MorningSave, (AudioGameObj.GetComponent<SceneAudio>().Daymode ? 1 : 0));
 
  

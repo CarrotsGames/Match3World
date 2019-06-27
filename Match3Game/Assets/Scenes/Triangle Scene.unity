@@ -508,6 +508,11 @@ PrefabInstance:
       propertyPath: SceneMusic.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: bd04b6a75117e584fb4b10a989bac888, type: 3}
+    - target: {fileID: 114376168571624716, guid: bd866eb15c48b0245ba33cc99194724d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4611682430196562, guid: bd866eb15c48b0245ba33cc99194724d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.1000013
@@ -545,6 +550,11 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 82546797425289626, guid: bd866eb15c48b0245ba33cc99194724d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 82399504689600170, guid: bd866eb15c48b0245ba33cc99194724d,
         type: 3}
       propertyPath: Loop
@@ -555,7 +565,8 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 82399504689600170, guid: bd866eb15c48b0245ba33cc99194724d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bd866eb15c48b0245ba33cc99194724d, type: 3}
 --- !u!1 &58582953 stripped
 GameObject:
@@ -570,7 +581,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58582953}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e5f2af8be3e284640ade54ba77af202a, type: 3}
@@ -7395,6 +7406,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114556251954913878, guid: c45a246a9084f4b4585e6f620e3c9ed9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c45a246a9084f4b4585e6f620e3c9ed9, type: 3}
 --- !u!1 &909253956 stripped
@@ -9442,6 +9458,7 @@ MonoBehaviour:
   multiplier: 02000000030000000400000005000000060000000700000008000000090000000a00000000000000
   MultlpierNum: 0
   ResetTheMultlpier: 0
+  RealtTimeScript: {fileID: 0}
 --- !u!114 &1283933641
 MonoBehaviour:
   m_ObjectHideFlags: 0
