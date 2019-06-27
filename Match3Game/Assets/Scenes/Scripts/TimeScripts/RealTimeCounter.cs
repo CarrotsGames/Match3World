@@ -32,8 +32,68 @@ public class RealTimeCounter : MonoBehaviour
         HappinessCountdowns();
 
 
+        
 
+    }
+  
+   public void HappinessCountdowns()
+    {
+        //////////////////////// HOW TO SETUP THE SAVES/////////////////////////////
+        //1 Assign a save to happinesscountdown array with new companion
+        //2 Add a "TimeMasterScript.instance.CheckDate() / 25" to deduct that companions happiness
+        //3 In this script go to happinessmanagerscript(line 74) switch and add a case with a save name
+        //4 Now go into update and make the new happiness countdown (line 159 to end of update)
+        //5 Then in update add an else if with that companion name and countdown the time (Make sure HappinessCountdown is set to right array)
+        //6 Make that companon array equal the happiness slidervalue(happienssmetre)
+        //7 In "happinessmanager" script go to companion save switch (line 51) and add that companion save 
+        //8 Make sure the case is equal to the companions name in scene
+        //9 Give that companion savestring name(savestring saves the sleeping bool for that companion)
+        //10 Now go to the CompanionNaviagion script "PlayLevel" (Line 125) and add that companions name in the navigation menu 
+        //with their arrays
+        //11 Finally go to "CompanionSwitch" (Line 214) and add a case along with their happiness string and index.
+        //  Make the happySlider.value equal that index
+        ////////////////////////HAPPINESS COUNTDOWNS////////////////////////////////
 
+        //Gobus Happiness Timer
+        HappinessCountDown[0] = PlayerPrefs.GetFloat("GobuHappiness");
+        // update timer when real time passes 
+        HappinessCountDown[0] -= TimeMasterScript.instance.CheckDate() / 25;
+                                                                         
+       // Binkies Happiness Timer                                        
+       HappinessCountDown[1] = PlayerPrefs.GetFloat("BinkyHappiness");   
+       // update timer when real time passes                             
+       HappinessCountDown[1] -= TimeMasterScript.instance.CheckDate() / 25;
+                                                                         
+       // Kokos Happiness timer                                          
+       HappinessCountDown[2] = PlayerPrefs.GetFloat("KokoHappiness");    
+       // update timer when real time passes                             
+       HappinessCountDown[2] -= TimeMasterScript.instance.CheckDate() / 25;
+                                                                         
+       //Crius Happiness timer                                           
+       HappinessCountDown[3] = PlayerPrefs.GetFloat("CriusHappiness");   
+       // update timer when real time passes                             
+       HappinessCountDown[3] -= TimeMasterScript.instance.CheckDate() / 25;
+                                                                         
+       //Sauco Happiness Timer                                           
+       HappinessCountDown[4] = PlayerPrefs.GetFloat("SaucoHappiness");
+        // update timer when real time passes                             
+       HappinessCountDown[4] -= TimeMasterScript.instance.CheckDate() / 25;
+
+        //Sauco Happiness Timer                                           
+        HappinessCountDown[5] = PlayerPrefs.GetFloat("ChickPeaHappiness");
+       // update timer when real time passes                             
+       HappinessCountDown[5] -= TimeMasterScript.instance.CheckDate() / 25;
+                                                                         
+       //squishy Happiness Timer                                         
+       HappinessCountDown[6] = PlayerPrefs.GetFloat("SquishyHappiness"); 
+       // update timer when real time passes                             
+       HappinessCountDown[6] -= TimeMasterScript.instance.CheckDate() / 25;
+                                                                         
+       //Cronos Happiness Timer                                          
+       HappinessCountDown[7] = PlayerPrefs.GetFloat("CronosHappiness");  
+       // update timer when real time passes                             
+       HappinessCountDown[7] -= TimeMasterScript.instance.CheckDate() / 25;
+        /////////////////////////////////////////////////////////////////////
     }
     public void LoadCompanionHappiness()
     {
@@ -107,67 +167,7 @@ public class RealTimeCounter : MonoBehaviour
         }
 
     }
-   public void HappinessCountdowns()
-    {
-        //////////////////////// HOW TO SETUP THE SAVES/////////////////////////////
-        //1 Assign a save to happinesscountdown array with new companion
-        //2 Add a "TimeMasterScript.instance.CheckDate() / 25" to deduct that companions happiness
-        //3 In this script go to happinessmanagerscript(line 74) switch and add a case with a save name
-        //4 Now go into update and make the new happiness countdown (line 159 to end of update)
-        //5 Then in update add an else if with that companion name and countdown the time (Make sure HappinessCountdown is set to right array)
-        //6 Make that companon array equal the happiness slidervalue(happienssmetre)
-        //7 In "happinessmanager" script go to companion save switch (line 51) and add that companion save 
-        //8 Make sure the case is equal to the companions name in scene
-        //9 Give that companion savestring name(savestring saves the sleeping bool for that companion)
-        //10 Now go to the CompanionNaviagion script "PlayLevel" (Line 125) and add that companions name in the navigation menu 
-        //with their arrays
-        //11 Finally go to "CompanionSwitch" (Line 214) and add a case along with their happiness string and index.
-        //  Make the happySlider.value equal that index
-        ////////////////////////HAPPINESS COUNTDOWNS////////////////////////////////
-
-        //Gobus Happiness Timer
-        HappinessCountDown[0] = PlayerPrefs.GetFloat("GobuHappiness");
-        // update timer when real time passes 
-   //      HappinessCountDown[0] -= TimeMasterScript.instance.CheckDate()  ;
-                                                                         
-       // Binkies Happiness Timer                                        
-       HappinessCountDown[1] = PlayerPrefs.GetFloat("BinkyHappiness");   
-       // update timer when real time passes                             
-   //      HappinessCountDown[1] -= TimeMasterScript.instance.CheckDate()  ;
-                                                                         
-       // Kokos Happiness timer                                          
-       HappinessCountDown[2] = PlayerPrefs.GetFloat("KokoHappiness");    
-       // update timer when real time passes                             
-    //     HappinessCountDown[2] -= TimeMasterScript.instance.CheckDate()  ;
-                                                                         
-       //Crius Happiness timer                                           
-       HappinessCountDown[3] = PlayerPrefs.GetFloat("CriusHappiness");   
-       // update timer when real time passes                             
-     //    HappinessCountDown[3] -= TimeMasterScript.instance.CheckDate()  ;
-                                                                         
-       //Sauco Happiness Timer                                           
-       HappinessCountDown[4] = PlayerPrefs.GetFloat("SaucoHappiness");
-        // update timer when real time passes                             
-        //     HappinessCountDown[4] -= TimeMasterScript.instance.CheckDate()  ;
-
-        //Sauco Happiness Timer                                           
-        HappinessCountDown[5] = PlayerPrefs.GetFloat("ChickPeaHappiness");
-       // update timer when real time passes                             
-  //       HappinessCountDown[5] -= TimeMasterScript.instance.CheckDate()  ;
-                                                                         
-       //squishy Happiness Timer                                         
-       HappinessCountDown[6] = PlayerPrefs.GetFloat("SquishyHappiness"); 
-       // update timer when real time passes                             
-  //       HappinessCountDown[6] -= TimeMasterScript.instance.CheckDate()  ;
-                                                                         
-       //Cronos Happiness Timer                                          
-       HappinessCountDown[7] = PlayerPrefs.GetFloat("CronosHappiness");  
-       // update timer when real time passes                             
-       //  HappinessCountDown[7] -= TimeMasterScript.instance.CheckDate()  ;
-        /////////////////////////////////////////////////////////////////////
-    }
-
-  public void HappinessSliderValues()
+    public void HappinessSliderValues()
     {
          // COUNTS DOWN ALL COMPANION HAPPINESS WHILE NOT IN SCENE
         HappinessCountDown[0] = Mathf.Clamp(HappinessCountDown[0], 0, 100);
@@ -268,7 +268,7 @@ public class RealTimeCounter : MonoBehaviour
     {
         HappinessSliderValues();
         //  // GOBU
-        //  TimeMasterScript.instance.SaveDate();
+           TimeMasterScript.instance.SaveDate();
         //  HappinessCountDown[0] = PlayerPrefs.GetFloat("GobuHappiness");
         //  HappinessCountDown[0] -= TimeMasterScript.instance.CheckDate();
         float a = PlayerPrefs.GetFloat("GobuHappiness");

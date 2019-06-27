@@ -188,6 +188,8 @@ public class DotManager : MonoBehaviour
             }
             else
             {
+                GoldAmount = 0;
+                Gold.Clear();
                 Companion.EatingPeices.Clear();
                 Peices.Clear();
                 PeicesList.Clear();

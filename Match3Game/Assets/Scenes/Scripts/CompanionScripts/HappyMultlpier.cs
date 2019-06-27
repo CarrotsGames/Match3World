@@ -10,7 +10,7 @@ public class HappyMultlpier : MonoBehaviour {
     // Determines what multplier the player is on
     public int MultlpierNum;
     public bool ResetTheMultlpier;
-    private GameObject DotManagerObj;
+    private GameObject DotManagerObj; 
     private DotManager DotManagerScript;
     private GameObject RealTimeGameObj;
     [HideInInspector]
@@ -87,10 +87,10 @@ public class HappyMultlpier : MonoBehaviour {
             {
                 if(RealtTimeScript.GetComponent<RealTimeCounter>().HappinessCountDown[i] >= 95)
                 {
-                    GetComponent<HappinessManager>().AudioGameObj.GetComponent<SceneAudio>().CompanionSound.PlayOneShot
-                    (GetComponent<HappinessManager>().AudioGameObj.GetComponent<SceneAudio>().WakeUpSound[1]);
-                    GetComponent<HappinessManager>().AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
-                    GetComponent<HappinessManager>().IsSleeping = true;
+                  //  GetComponent<HappinessManager>().AudioGameObj.GetComponent<SceneAudio>().CompanionSound.PlayOneShot;
+                 //   (GetComponent<HappinessManager>().AudioGameObj.GetComponent<SceneAudio>().WakeUpSound[1]);
+                     //GetComponent<HappinessManager>().AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
+                //    GetComponent<HappinessManager>().IsSleeping = true;
                     PlayerPrefs.SetInt(GetComponent<HappinessManager>().SaveStrings, (GetComponent<HappinessManager>().IsSleeping ? 1 : 0));
 
                     AddNewNum += 1;
