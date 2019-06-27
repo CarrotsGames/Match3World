@@ -27,8 +27,10 @@ public class HappinessManager : MonoBehaviour
     public GameObject AwakeHead;
 
     string CompanionName;
+    private GameObject RealTimeGameObj;
+    [HideInInspector]
+    public RealTimeCounter RealtTimeScript;
 
- 
     bool CanEarnGold;
      [HideInInspector]
     public string SaveStrings;
@@ -41,7 +43,20 @@ public class HappinessManager : MonoBehaviour
         CompanionName = Companion.name;
         CanGetCurrency = false;
         // CompanionSounds = GetComponent<AudioClip[]>();
- 
+        RealTimeGameObj = GameObject.FindGameObjectWithTag("MainCamera");
+        RealtTimeScript = RealTimeGameObj.GetComponent<RealTimeCounter>();
+        LoadCompanionSaves();
+      
+        // Gets the last known bool for this companion
+        IsSleeping = (PlayerPrefs.GetInt(SaveStrings) != 0);
+        // checks if bool puts companion to sleep
+        Sleeping();
+        HappinessSlider.maxValue = 99;
+        HappinessSlider.minValue = 0f;
+       
+    }
+    void LoadCompanionSaves()
+    {
         // Checks which companion is loaded to gather save data 
         switch (CompanionName)
         {
@@ -59,7 +74,7 @@ public class HappinessManager : MonoBehaviour
                 SaveStrings = "BINKYSAVE";
                 break;
             case "Koko":
-                CompanionSave = "KokoHappiness"; 
+                CompanionSave = "KokoHappiness";
                 SaveStrings = "KOKOSAVE";
                 break;
             case "Crius":
@@ -83,13 +98,7 @@ public class HappinessManager : MonoBehaviour
                 SaveStrings = "CRONOSSAVE";
                 break;
         }
-        // Gets the last known bool for this companion
-        IsSleeping = (PlayerPrefs.GetInt(SaveStrings) != 0);
-        // checks if bool puts companion to sleep
-        Sleeping();
-        HappinessSlider.maxValue = 99;
-        HappinessSlider.minValue = 0f;
-
+     RealtTimeScript.LoadCompanionHappiness();
     }
 
     // Update is called once per frame
