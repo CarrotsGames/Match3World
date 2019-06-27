@@ -976,36 +976,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114898036899560986, guid: bca90714ddbb8544796b1d79e4753570,
-        type: 3}
-      propertyPath: settingsMenu
-      value: 
-      objectReference: {fileID: 750647403}
-    - target: {fileID: 114898036899560986, guid: bca90714ddbb8544796b1d79e4753570,
-        type: 3}
-      propertyPath: Analytics
-      value: 
-      objectReference: {fileID: 2113595073}
-    - target: {fileID: 114310564447936264, guid: bca90714ddbb8544796b1d79e4753570,
-        type: 3}
-      propertyPath: UnlockScore.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114310564447936264, guid: bca90714ddbb8544796b1d79e4753570,
-        type: 3}
-      propertyPath: UnlockScore.Array.data[0]
-      value: 5000
-      objectReference: {fileID: 0}
-    - target: {fileID: 114310564447936264, guid: bca90714ddbb8544796b1d79e4753570,
-        type: 3}
-      propertyPath: UnlockScore.Array.data[1]
-      value: 15000
-      objectReference: {fileID: 0}
-    - target: {fileID: 114310564447936264, guid: bca90714ddbb8544796b1d79e4753570,
-        type: 3}
-      propertyPath: UnlockableCreatures
-      value: 
-      objectReference: {fileID: 2044793713}
     - target: {fileID: 4707880950061574, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
       propertyPath: m_LocalPosition.x
       value: 86.8
@@ -1038,10 +1008,40 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114898036899560986, guid: bca90714ddbb8544796b1d79e4753570,
+        type: 3}
+      propertyPath: settingsMenu
+      value: 
+      objectReference: {fileID: 750647403}
+    - target: {fileID: 114898036899560986, guid: bca90714ddbb8544796b1d79e4753570,
+        type: 3}
+      propertyPath: Analytics
+      value: 
+      objectReference: {fileID: 2113595073}
     - target: {fileID: 1984874776422186, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114310564447936264, guid: bca90714ddbb8544796b1d79e4753570,
+        type: 3}
+      propertyPath: UnlockScore.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114310564447936264, guid: bca90714ddbb8544796b1d79e4753570,
+        type: 3}
+      propertyPath: UnlockScore.Array.data[0]
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114310564447936264, guid: bca90714ddbb8544796b1d79e4753570,
+        type: 3}
+      propertyPath: UnlockScore.Array.data[1]
+      value: 15000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114310564447936264, guid: bca90714ddbb8544796b1d79e4753570,
+        type: 3}
+      propertyPath: UnlockableCreatures
+      value: 
+      objectReference: {fileID: 2044793713}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
 --- !u!1 &208571687 stripped
@@ -3910,7 +3910,7 @@ PrefabInstance:
     - target: {fileID: 224905297516671232, guid: cdada8574ce01ac42b5f660acca6d26b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 54.685627
+      value: -19.2
       objectReference: {fileID: 0}
     - target: {fileID: 224905297516671232, guid: cdada8574ce01ac42b5f660acca6d26b,
         type: 3}
@@ -4823,7 +4823,7 @@ GameObject:
   - component: {fileID: 1080447081}
   - component: {fileID: 1080447082}
   - component: {fileID: 1080447083}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Clock_Tower_Bell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5499,7 +5499,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1345874179}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Tower_Bell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5700,6 +5700,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114376168571624716, guid: bd866eb15c48b0245ba33cc99194724d,
+        type: 3}
+      propertyPath: SceneMusic.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 981e049652d429747bfa1c64b31f03bf, type: 3}
+    - target: {fileID: 114376168571624716, guid: bd866eb15c48b0245ba33cc99194724d,
+        type: 3}
+      propertyPath: SceneMusic.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: bd04b6a75117e584fb4b10a989bac888, type: 3}
     - target: {fileID: 4611682430196562, guid: bd866eb15c48b0245ba33cc99194724d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.1000013
@@ -5732,27 +5742,17 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114376168571624716, guid: bd866eb15c48b0245ba33cc99194724d,
+    - target: {fileID: 82546797425289626, guid: bd866eb15c48b0245ba33cc99194724d,
         type: 3}
-      propertyPath: SceneMusic.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 981e049652d429747bfa1c64b31f03bf, type: 3}
-    - target: {fileID: 114376168571624716, guid: bd866eb15c48b0245ba33cc99194724d,
-        type: 3}
-      propertyPath: SceneMusic.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: bd04b6a75117e584fb4b10a989bac888, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 82399504689600170, guid: bd866eb15c48b0245ba33cc99194724d,
         type: 3}
       propertyPath: Loop
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 82399504689600170, guid: bd866eb15c48b0245ba33cc99194724d,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 82546797425289626, guid: bd866eb15c48b0245ba33cc99194724d,
         type: 3}
       propertyPath: m_PlayOnAwake
       value: 1
@@ -5832,7 +5832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShuffleSpawn: {fileID: 1408115834}
-  ShuffleGameObj: {fileID: 1884717317302344, guid: 3dcfb00e4b02533448213287bf82e717,
+  ShuffleGameObj: {fileID: 1590064525693020, guid: 3dcfb00e4b02533448213287bf82e717,
     type: 3}
   ShuffleSpeed: 14
   CircleScale: 23
@@ -8475,6 +8475,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2037405367}
     m_Modifications:
+    - target: {fileID: 114089813701204056, guid: 1ffc143ed5592fd47a5a4743fc9d6136,
+        type: 3}
+      propertyPath: UnlockMoobling
+      value: 
+      objectReference: {fileID: 2044793713}
+    - target: {fileID: 224813714020350452, guid: 1ffc143ed5592fd47a5a4743fc9d6136,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 224981282556173594, guid: 1ffc143ed5592fd47a5a4743fc9d6136,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8566,16 +8576,6 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 114142602307518188, guid: 1ffc143ed5592fd47a5a4743fc9d6136,
-        type: 3}
-      propertyPath: UnlockMoobling
-      value: 
-      objectReference: {fileID: 2044793713}
-    - target: {fileID: 224813714020350452, guid: 1ffc143ed5592fd47a5a4743fc9d6136,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 114089813701204056, guid: 1ffc143ed5592fd47a5a4743fc9d6136,
         type: 3}
       propertyPath: UnlockMoobling
       value: 
@@ -8964,17 +8964,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 114869602833746234, guid: e4066718ae92203429c2f18e97d90c1e,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1026769276}
-    - target: {fileID: 114869602833746234, guid: e4066718ae92203429c2f18e97d90c1e,
-        type: 3}
-      propertyPath: m_SpriteState.m_PressedSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 89d429576f2db1842875c726d508129c,
-        type: 3}
     - target: {fileID: 114482752548685878, guid: e4066718ae92203429c2f18e97d90c1e,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -8990,12 +8979,23 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 109115503}
-    - target: {fileID: 114791283084293716, guid: e4066718ae92203429c2f18e97d90c1e,
+    - target: {fileID: 114287902399798286, guid: e4066718ae92203429c2f18e97d90c1e,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1026769276}
-    - target: {fileID: 114287902399798286, guid: e4066718ae92203429c2f18e97d90c1e,
+    - target: {fileID: 114869602833746234, guid: e4066718ae92203429c2f18e97d90c1e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1026769276}
+    - target: {fileID: 114869602833746234, guid: e4066718ae92203429c2f18e97d90c1e,
+        type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 89d429576f2db1842875c726d508129c,
+        type: 3}
+    - target: {fileID: 114791283084293716, guid: e4066718ae92203429c2f18e97d90c1e,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
