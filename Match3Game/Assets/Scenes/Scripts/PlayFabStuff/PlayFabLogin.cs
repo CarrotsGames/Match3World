@@ -46,7 +46,7 @@ public class PlayFabLogin : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(this.gameObject);
+ 
         UpdateScoreTimer -= Time.deltaTime;
      
         // Updates player Score to server every x Seconds

@@ -11,7 +11,7 @@ public class PlayFabCurrency : MonoBehaviour
     DotManager DotManagerScript;
     int amount;
     int Versions;
-
+    float Timer;
     // Use this for initialization
     void Start()
     {
@@ -20,31 +20,46 @@ public class PlayFabCurrency : MonoBehaviour
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
         Versions = PlayerPrefs.GetInt("VERSION VALUE");
-     
-        LoggedIn();
+
     }
 
-    public void LoggedIn()
+    public void Update()
     {
-        GetComponent<PlayFabLogin>().Login();
-     //    if (string.IsNullOrEmpty(PlayFabSettings.TitleId))
-     //  {
-     //      PlayFabSettings.TitleId = "(DE2C) Superflat Connect 3"; // Please change this value to your own titleId from PlayFab Game Manager
-     //  }
-     //
-     //  // Login with Android ID
-     //  PlayFabClientAPI.LoginWithAndroidDeviceID(new LoginWithAndroidDeviceIDRequest()
-     //  {
-     //      CreateAccount = true,
-     //      AndroidDeviceId = SystemInfo.deviceUniqueIdentifier
-     //
-     //  }, result =>
-     //  {
-     //
-     //      AddPremiumCurrency();
-     //      // Refresh available items 
-     //  }, error => Debug.LogError(error.GenerateErrorReport()));
+        Timer -= Time.deltaTime;
 
+        if (Timer <= 0)
+        {
+            if (GetComponent<PlayFabLogin>().HasLoggedIn)
+            {
+                GetCurrency();
+            }
+            else
+            {
+                Debug.Log("Not logged into servers");
+            }
+            Timer += 10;
+
+        }
+    }
+    void GetCurrency()
+    {
+        if (string.IsNullOrEmpty(PlayFabSettings.TitleId))
+      {
+          PlayFabSettings.TitleId = "(DE2C) Superflat Connect 3"; // Please change this value to your own titleId from PlayFab Game Manager
+      }
+    
+      // Login with Android ID
+      PlayFabClientAPI.LoginWithAndroidDeviceID(new LoginWithAndroidDeviceIDRequest()
+      {
+          CreateAccount = true,
+          AndroidDeviceId = SystemInfo.deviceUniqueIdentifier
+    
+      }, result =>
+      {
+    
+          AddPremiumCurrency();
+          // Refresh available items 
+      }, error => Debug.LogError(error.GenerateErrorReport()));
 
     }
     private void OnLoginSuccess(LoginResult result)
