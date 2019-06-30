@@ -4,8 +4,7 @@ using System.Collections.Generic;
 
 public class BombExplodeScript : MonoBehaviour
 {
-    float Timer = 1;
-    public GameObject Board;
+    float Timer;
     public GameObject ExplosionEffect;
     public List<GameObject> CollidedNodes;
   
@@ -16,8 +15,9 @@ public class BombExplodeScript : MonoBehaviour
     private GameObject AudioManagerGameObj;
     private AudioManager AudioManagerScript;
 
-    void Start()
+    void Awake()
     {
+        Timer = 1;
         AudioManagerGameObj = GameObject.FindGameObjectWithTag("AudioManager");
         AudioManagerScript = AudioManagerGameObj.GetComponent<AudioManager>();
         // 12 = BOMB Layer
@@ -54,15 +54,13 @@ public class BombExplodeScript : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-         if (CollidedNodes.Contains(collision.gameObject))
-        {
-            Debug.Log("Already contains me");
-        }
-        else
+         if (!CollidedNodes.Contains(collision.gameObject))
         {
             CollidedNodes.Add(collision.gameObject);
 
         }
+
+
         if (Timer < 0 )
         {
             if (Detonate)
