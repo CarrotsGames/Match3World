@@ -4,24 +4,23 @@ using UnityEngine;
 using PlayFab;
 using PlayFab.ClientModels;
 using System;
+using UnityEngine.UI;
 
 public class PlayFabServerTime : MonoBehaviour {
     private GameObject PowerUpManGameObj;
     private PowerUpManager PowerUpManagerScript;
-    GameObject DotManagerObj;
-    DotManager DotManagerScript;
-    int amount;
+    private DotManager DotManagerScript;
     int DailySpinCount;
-    EventScript DailyEvent;
-    GameObject Events;
+    private EventScript DailyEvent;
+    private GameObject Events;
     public string SaveBool;
     float DelayTimer;
     double MinutesFromTs;
-
+    public Text DailySpinTimer;
     private float CurrentTime;
     long TimeStamp;
     long NowTime;
-    // Use this for initialization
+     // Use this for initialization
     void Start () {
         DailySpinCount = PlayerPrefs.GetInt("DAILYSPINCOUNTER");
         Events = GameObject.FindGameObjectWithTag("ES");
@@ -32,13 +31,24 @@ public class PlayFabServerTime : MonoBehaviour {
         TimeStamp = System.Convert.ToInt64(PlayerPrefs.GetString("DailySpinTime"));
 
         DailyEvent.CanDoDaily = false;
-
+    
     }
 
     void Update()
     {
+        if (DailySpinTimer.text == "New Text")
+        {
+            DailySpinTimer.text = "Getting \n time....";
+        }
         CurrentTime -= Time.deltaTime;
-        if(Input.GetKeyDown(KeyCode.M))
+        int TimeTillSpin = unchecked((int)MinutesFromTs);
+        if (TimeTillSpin != 0)
+        {
+            int Minutes = (int)(TimeTillSpin % 60);
+            int Hours = (int)((TimeTillSpin / 60));
+            DailySpinTimer.text = Hours + ":" + Minutes;
+        }
+        if (Input.GetKeyDown(KeyCode.M))
         {
             DailySpin();
         }
@@ -86,50 +96,18 @@ public class PlayFabServerTime : MonoBehaviour {
         PlayFabClientAPI.GetTime(new GetTimeRequest(), (GetTimeResult result) =>
         {
             DateTime now = result.Time.AddHours(0);
-            long Period = 36L * 1000000000L;
+            DateTime TargetTime = result.Time.AddHours(24);
+            long Period = 36L * 24000000000L;
             TimeStamp = now.Ticks + Period;
             TimeSpan Ts = TimeSpan.FromTicks(Period);
             MinutesFromTs = Ts.TotalMinutes;
             PlayerPrefs.SetString("DailySpinTime", "" + TimeStamp);
 
         }, null);
-
-        //}, result =>
-        //{
-        //    Debug.Log("DailySpin version: " + result.Version);
-        //    foreach (var entry in result.Leaderboard)
-        //    {
-        //        Debug.Log(entry.DisplayName + " " + entry.StatValue);
-        //    }
-        //    if the leaderboard has changed version tournament is over
-        //    if (DailySpinCount != result.Version)
-        //    {
-        //        DailySpinCount = result.Version;
-        //        DailyEvent.CanDoDaily = true;
-        //        PlayerPrefs.SetInt(SaveBool, (DailyEvent.CanDoDaily ? 1 : 0));
-
-        //        Debug.Log("CANDAILYSPIN");
-
-        //        gives players currency
-        //        DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
-        //        PlayerPrefs.SetFloat("SCORE", DotManagerScript.TotalScore);
-        //        PlayerPrefs.SetInt("DAILYSPINCOUNTER", DailySpinCount);
-        //    }
-
-        //}, SubtractPremiumCurrencyFailure);
-
+ 
 
 
     }
  
-    void SubtractPremiumCurrencySuccess(ModifyUserVirtualCurrencyResult result)
-    {
-        result.Balance = amount;
-        Debug.Log("Success1");
-    }
-    void SubtractPremiumCurrencyFailure(PlayFabError error)
-    {
-        Debug.Log("DailyNotreset");
-        // Debug.LogError("ERROR GETTING GAME CURRENCY" + error.Error + "" + error.ErrorMessage);
-    }
+  
 }

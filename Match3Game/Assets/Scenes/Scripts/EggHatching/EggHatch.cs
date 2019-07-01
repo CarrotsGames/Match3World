@@ -31,13 +31,20 @@ public class EggHatch : MonoBehaviour
     {
         
         CurrentTime = 1;
-      //  TimeStamp = System.Convert.ToInt64(PlayerPrefs.GetString("EggHatch"));
+        TimeStamp = System.Convert.ToInt64(PlayerPrefs.GetString("EggHatch"));
         StartCountDown = (PlayerPrefs.GetInt("EGGCOUNTDOWN") != 0);
+        if (TimerText.text == "New Text")
+        {
+            TimerText.text = "loading...";
+        }
     }
 
     private void Update()
     {
+        // Changes timer text until the server grabs current time
+     
         StartCountDown = (PlayerPrefs.GetInt("EGGCOUNTDOWN") != 0);
+        //debug starts and ends timer
         if(Input.GetKeyDown(KeyCode.W))
         {
             CountDownTimer();
@@ -49,26 +56,20 @@ public class EggHatch : MonoBehaviour
 
             HatchCreature();
         }
-        // Debug purpose 
+        // begins countdown
         if (StartCountDown)
         {
 
             CurrentTime -= Time.deltaTime;
-            if(Input.GetKeyDown(KeyCode.T))
+ 
+            int TimeTillHatch = unchecked((int)MinutesFromTs);
+            if (TimeTillHatch != 0)
             {
-                NowTime = TimeStamp;
-                NowTime += 1;
+                // test -= (int)Time.deltaTime;
+                int Minutes = (int)(TimeTillHatch % 60);
+                int Hours = (int)((TimeTillHatch / 60));
+                TimerText.text = Hours + ":" + Minutes;
             }
-            // Gets time every second
-            if (CurrentTime < 0)
-            {
-                GetCurrentTime();
-            }
-           // MinutesFromTs = TimeTillEggHatch.TotalMinutes;
-            int test = unchecked((int)MinutesFromTs);
-           // test -= (int)Time.deltaTime;
-            TimerText.text = "" + test;
-
             // if the time is greater than time stamp hatch egg
             if (NowTime > TimeStamp)
             {
@@ -80,6 +81,17 @@ public class EggHatch : MonoBehaviour
                 HatchCreature();
 
             }
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                NowTime = TimeStamp;
+                NowTime += 1;
+            }
+            // Gets time every second
+            if (CurrentTime < 0)
+            {
+                GetCurrentTime();
+            }
+            // MinutesFromTs = TimeTillEggHatch.TotalMinutes;
         }
 
     }
@@ -89,8 +101,10 @@ public class EggHatch : MonoBehaviour
     }
     void HatchCreature()
     {
+        // selects random index for creature
         int Random = UnityEngine.Random.Range(0, EggCreatures.Count);
         UnlockedCompanion = EggCreatures[Random] ;
+        // Grabs the unlocked companion using its string
         switch (UnlockedCompanion)
         {
             case "Crius":
@@ -129,6 +143,7 @@ public class EggHatch : MonoBehaviour
 
                 break;
         }
+        // saves the egg countdown status(in this case its ended)
         PlayerPrefs.SetInt("EGGCOUNTDOWN", (StartCountDown ? 1 : 0));
 
     }
@@ -160,7 +175,7 @@ public class EggHatch : MonoBehaviour
            //Current time 
             now = result.Time.AddHours(0);
             // Target Time
-            Period = 36L * 1000000000L ;
+            Period = 36L * 3000000000L ;
             TimeStamp = now.Ticks + Period;
             TimeSpan ts = TimeSpan.FromTicks(Period);
             MinutesFromTs = ts.TotalMinutes;
