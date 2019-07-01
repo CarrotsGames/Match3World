@@ -19,7 +19,6 @@ public class PlayFabCurrency : MonoBehaviour
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
-        Versions = PlayerPrefs.GetInt("VERSION VALUE");
 
     }
 
@@ -29,6 +28,8 @@ public class PlayFabCurrency : MonoBehaviour
 
         if (Timer <= 0)
         {
+            Versions = PlayerPrefs.GetInt("VERSIONVALUE");
+
             if (GetComponent<PlayFabLogin>().HasLoggedIn)
             {
                 GetCurrency();

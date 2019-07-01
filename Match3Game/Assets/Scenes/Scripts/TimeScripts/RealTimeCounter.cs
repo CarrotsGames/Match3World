@@ -25,15 +25,11 @@ public class RealTimeCounter : MonoBehaviour
     void Awake()
     {
 
-
         // Starting timer amount
         // Update timer with real time passed
         //TODO [Find a better way of doing this]
         HappinessCountdowns();
-
-
-        
-
+       
     }
   
    public void HappinessCountdowns()
