@@ -21,8 +21,10 @@ public class EggHatch : MonoBehaviour
     double MinutesFromTs;
     private  DateTime now; 
     private  long Period;
-    private  long TimeStamp;
-    private  long NowTime;
+    [HideInInspector]
+    public long TimeStamp;
+    [HideInInspector]
+    public long NowTime;
     private string UnlockedCompanion;
     TimeSpan TimeTillEggHatch;
     public List<string> EggCreatures;
@@ -44,18 +46,18 @@ public class EggHatch : MonoBehaviour
         // Changes timer text until the server grabs current time
      
         StartCountDown = (PlayerPrefs.GetInt("EGGCOUNTDOWN") != 0);
-        //debug starts and ends timer
-        if(Input.GetKeyDown(KeyCode.W))
-        {
-            CountDownTimer();
-     
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            StartCountDown = false;
-
-            HatchCreature();
-        }
+      //  //debug starts and ends timer
+      //  if(Input.GetKeyDown(KeyCode.W))
+      //  {
+      //      CountDownTimer();
+      //
+      //  }
+      //  if (Input.GetKeyDown(KeyCode.S))
+      //  {
+      //      StartCountDown = false;
+      //
+      //      HatchCreature();
+      //  }
         // begins countdown
         if (StartCountDown)
         {
@@ -81,11 +83,11 @@ public class EggHatch : MonoBehaviour
                 HatchCreature();
 
             }
-            if (Input.GetKeyDown(KeyCode.T))
-            {
-                NowTime = TimeStamp;
-                NowTime += 1;
-            }
+          //  if (Input.GetKeyDown(KeyCode.T))
+          //  {
+          //      NowTime = TimeStamp;
+          //      NowTime += 1;
+          //  }
             // Gets time every second
             if (CurrentTime < 0)
             {
