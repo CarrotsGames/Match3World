@@ -93,22 +93,7 @@ public class DestroyNodes : MonoBehaviour {
             ComboGameObj.SetActive(true);
 
         }
-
-        //if(SlowMotionOn)
-        //{
-        //
-        //    SlowMotionTimer -= Time.deltaTime;
-        //
-        //    Time.timeScale = 0.1f;
-        //    
-        //}
-        //if (SlowMotionTimer < 0)
-        //{
-        //    SlowMotionOn = false;
-        //    Time.timeScale = 1.0f;
-        //    SlowMotionTimer = SlowMotionStorage;
-        //}
-        // Begins the node destroy process
+ 
 
     }
  
@@ -195,8 +180,15 @@ public class DestroyNodes : MonoBehaviour {
     }
     void CountCombo()
     {
-    
-        ComboText.text = "COMBO : " + Combo;
+        if (ComboList.Count < 6)
+        {
+            ComboText.text = "COMBO : " + Combo;
+        }
+        else
+        {
+            ComboText.text = "BIG \n COMBO : " + Combo;
+
+        }
     }
     // Displays the ComboScore Text
     void DisplayComboScore()
