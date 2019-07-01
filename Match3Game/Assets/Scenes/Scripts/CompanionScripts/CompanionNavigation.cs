@@ -291,6 +291,5 @@ public class CompanionNavigation : MonoBehaviour
         }
         RealTimeScript.LoadCompanionHappiness();
 
-        RealTimeScript.HappinessSliderValues();
-    }
+     }
 }

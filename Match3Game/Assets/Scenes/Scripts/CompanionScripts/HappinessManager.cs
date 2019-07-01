@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HappinessManager : MonoBehaviour
 {
@@ -30,13 +31,22 @@ public class HappinessManager : MonoBehaviour
     private GameObject RealTimeGameObj;
     [HideInInspector]
     public RealTimeCounter RealtTimeScript;
-
+    [HideInInspector]
+    public bool OnMainScene;
     bool CanEarnGold;
      [HideInInspector]
     public string SaveStrings;
     // Use this for initialization
     void Start()
     {
+        //checks if players in main scene
+        // if they are then the happinessStates void wont be called to avoid mixing saves
+        Scene CurrentScene = SceneManager.GetActiveScene();
+        string SceneName = CurrentScene.name;
+        if (SceneName == "Main Screen")
+        {
+            OnMainScene = true;
+        }
         Board = GameObject.FindGameObjectWithTag("BoardSpawn");
         BoardScriptRef = Board.GetComponent<BoardScript>();
  
@@ -104,9 +114,10 @@ public class HappinessManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
- 
-        HappinessStates();
-
+        if (!OnMainScene)
+        {
+            HappinessStates();
+        }
         // Displays hunger value (used in debug)
         //HungerMetre.text = "" + Hunger;
 
@@ -121,9 +132,6 @@ public class HappinessManager : MonoBehaviour
 
         // Saving Companions Happiness value
 
-        
-     
-        
         if (CanEarnGold)
         {
             BoardScriptRef.Gold = 0;

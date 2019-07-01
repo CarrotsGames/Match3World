@@ -21,20 +21,21 @@ public class HappyMultlpier : MonoBehaviour {
     // Use this for initialization
     void Awake ()
     {
+        RealTimeGameObj = GameObject.FindGameObjectWithTag("MainCamera");
+        RealtTimeScript = RealTimeGameObj.GetComponent<RealTimeCounter>();
         ListOfSaves = new List<string>();
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
-
-
+ 
         for (int i = 0; i < SaveStrings.Length; i++)
         {
             ListOfSaves.Add(SaveStrings[i]);
         }
         Multplier();
-
+        RealtTimeScript.HappinessCountdowns();
     }
-
-    // Update is called once per frame
+ 
+     // Update is called once per frame
     void Update ()
     {
         MultlpierNum = PlayerPrefs.GetInt("Multiplier");
@@ -77,20 +78,18 @@ public class HappyMultlpier : MonoBehaviour {
              }
             else if (RealtTimeScript.GetComponent<RealTimeCounter>().HappinessCountDown[i] > 30 && IsSleeping)
             {
+ 
                 PlayerPrefs.SetInt(ListOfSaves[i], (IsSleeping ? 1 : 0));
 
                 AddNewNum += 1;
             }
-            // if not sleeping but greater than 95 
+            // if this creature is not sleeping but greater than 95 
             // then set that companion to sleeping 
             else if (!GetComponent<HappinessManager>().IsSleeping)
             {
                 if(RealtTimeScript.GetComponent<RealTimeCounter>().HappinessCountDown[i] >= 95)
                 {
-                  //  GetComponent<HappinessManager>().AudioGameObj.GetComponent<SceneAudio>().CompanionSound.PlayOneShot;
-                 //   (GetComponent<HappinessManager>().AudioGameObj.GetComponent<SceneAudio>().WakeUpSound[1]);
-                     //GetComponent<HappinessManager>().AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
-                //    GetComponent<HappinessManager>().IsSleeping = true;
+  
                     PlayerPrefs.SetInt(GetComponent<HappinessManager>().SaveStrings, (GetComponent<HappinessManager>().IsSleeping ? 1 : 0));
 
                     AddNewNum += 1;
