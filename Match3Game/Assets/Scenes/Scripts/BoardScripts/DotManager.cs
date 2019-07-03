@@ -42,10 +42,8 @@ public class DotManager : MonoBehaviour
     // Resets node properties
     public bool ResetLayer;
     public bool ResetMaterial;
-    public bool StopInteracting;
     public bool ChangeMaterial;
     public bool CanPlay;
-     public int NumberOfNeighbours = 0;
     public int RedScore;
     public int BlueScore;
     public int YellowScore;
@@ -88,7 +86,6 @@ public class DotManager : MonoBehaviour
         ResetLayer = false;
         CheckConnection = false;
         ResetDotLayers = false;
-        StopInteracting = false;
         ChangeMaterial = false;
         CanPlay = true;
         // UI
@@ -264,8 +261,7 @@ public class DotManager : MonoBehaviour
             Gold.Clear();
              
             GoldAmount = 0;
-            NumberOfNeighbours = 0;
-            RedScore = 0;
+             RedScore = 0;
             BlueScore = 0;
             YellowScore = 0;
             GreenScore = 0;

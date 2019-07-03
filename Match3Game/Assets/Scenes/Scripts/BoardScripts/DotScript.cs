@@ -8,13 +8,9 @@ public class DotScript : MonoBehaviour
 
     public float defultSize = 2.5f;
     public float jucSize = 3;
-
     public LayerMask layerMask;
     public List<GameObject> neighbours = new List<GameObject>();
-    public int ToggleHighlite;
-    public bool StartDrawingLine;
-    [HideInInspector]
-    public bool ClearNeighbours;
+    public int ToggleHighlite; 
     [HideInInspector]
     public bool DefaultColour;
     [HideInInspector]
@@ -22,25 +18,25 @@ public class DotScript : MonoBehaviour
     [HideInInspector]
     public int LayerType = 10;
     private bool HasPlayedSound;
-    private float time;
     private GameObject MainCamera;
     private BoardScript Board;
     private GameObject HappinessManagerGameobj;
     public HappinessManager HappinessManagerScript;
     public DotManager DotManagerScript;
     private GameObject DotManagerObj;
-    [HideInInspector]
-     private Collider2D col2d;
     private Material Default;
     private GameObject AudioManagerGameObj;
     private AudioManager AudioManagerScript;
-    public Material BlueEmmision;
     string Colour;
     public bool SelfDestruct;
     [HideInInspector]
     public float Timer;
     [HideInInspector]
     public bool Frozen;
+    GameObject FlashingGameObj;
+    bool ReleaseNodeColour;
+    float ResetMatTime;
+
     // Use this for initialization
     void Start()
     {
@@ -52,18 +48,17 @@ public class DotScript : MonoBehaviour
         Physics2D.IgnoreLayerCollision(0, 14);
         AudioManagerGameObj = GameObject.FindGameObjectWithTag("AudioManager");
         AudioManagerScript = AudioManagerGameObj.GetComponent<AudioManager>();
-        
-        GrowSize = false;
-        time = 0.25f;
-        ClearNeighbours = false;
-        col2d = GetComponent<Collider2D>();
+        //flashes node outline red when player failes connect
+        ReleaseNodeColour = false;
+        // Enables the node to grow when hihglited
+        GrowSize = false;   
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
         Board = FindObjectOfType<BoardScript>();
         Default = GetComponent<Renderer>().material;
-        BlueEmmision = GetComponent<SpriteRenderer>().material;
         HasPlayedSound = true;
         SelfDestruct = false;
+        ReleaseNodeColour = false;
     }
 
     // Update is called once per frame
@@ -84,31 +79,18 @@ public class DotScript : MonoBehaviour
                 SelfDestruct = false;
             }
         }
-        if (DotManagerScript.StopInteracting)
+        if (ReleaseNodeColour)
         {
-            OnMouseUp();
-            DotManagerScript.StopInteracting = false;
+            ResetMatTime += Time.deltaTime;
+            if(ResetMatTime > 1)
+            {
+                FlashingGameObj.GetComponent<Renderer>().material.color = Color.white;
+                ResetMatTime = 0;
+                ReleaseNodeColour = false;
+            }
+            // DotManagerScript.StopInteracting = false;
         }
-       //if (ClearNeighbours)
-       //{
-       //    for (int i = 0; i < neighbours.Count; i++)
-       //    {
-       //        if (neighbours[i] != null)
-       //        {
-       //            if (neighbours[i].layer == 2)
-       //            {
-       //                neighbours.RemoveAt(i);
-       //            }
-       //            else
-       //            {
-       //                neighbours.Clear();
-       //                ClearNeighbours = false;
-       //            }
-       //        }
-       //    }
-       //  
-       //
-       //}
+   
         // restes dot layer
         if (DotManagerScript.ResetLayer)
         {
@@ -116,12 +98,12 @@ public class DotScript : MonoBehaviour
             DotManagerScript.ResetLayer = false;
         }
         // resets dot material 
-        if (DotManagerScript.ResetMaterial)
+        if (DotManagerScript.ResetMaterial && !ReleaseNodeColour)
         {
-            gameObject.GetComponent<Renderer>().material = Default;
+          this.gameObject.GetComponent<Renderer>().material = Default;
 
         }
- 
+
     }
     private void OnMouseExit()
     {
@@ -241,6 +223,7 @@ public class DotScript : MonoBehaviour
         DotScript[] Dots = FindObjectsOfType<DotScript>();
         bool CircleOverlap = Physics2D.OverlapCircle(transform.position, 1);
      
+        // Chenges nodes layer and adds it into list to not be added again
         foreach (DotScript dot in Dots)
         {
             
@@ -248,100 +231,60 @@ public class DotScript : MonoBehaviour
             if (dot.gameObject.GetInstanceID() != gameObject.GetInstanceID())
              {
            
-                 if (neighbours.Contains(dot.gameObject) && dot.gameObject.tag == Colour)
-                 {
-
-                    // do nothing
-                 }
-                 // If the neighbour list doesent contain the selected node
-                 else if (!neighbours.Contains(dot.gameObject) && dot.gameObject.tag == Colour)
+               if (!neighbours.Contains(dot.gameObject) && dot.gameObject.tag == Colour)
                  {
                     // change node layer to the layertype needed to connect nodes
                      dot.gameObject.layer = LayerType;
                     // add to list
                      neighbours.Add(dot.gameObject);
                     // Grow selected node 
-                     dot.gameObject.GetComponent<DotScript>().GrowSize = true;
-                    // 
-                     DotManagerScript.GetComponent<DotManager>().NumberOfNeighbours += 1;
-                    // if the node selected is not equal to the colour node before it end chain
-                     if (dot.gameObject.tag != Colour)
-                     {
-                          OnMouseUp();
-                     }
+                     dot.gameObject.GetComponent<DotScript>().GrowSize = true;                                   
                  }                       
            
             }
 
         }
     
-     //   neighbours.Clear();
-     // Detects which peices are being chosen via raycast
+     
+        // Changes colour of the nodes outline
         RaycastHit2D hitInfo = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
         if (hitInfo.collider != null)
         {
- 
-            if (hitInfo.collider.gameObject.layer == 10)
-             {
-                // Checks for that specific colour pieces
-                if (DotManagerScript.NodeSelection)
-                {
-                    if (DotManagerScript.Peices.Contains(hitInfo.collider.gameObject) && hitInfo.collider.gameObject.tag == Colour)
-                    {
-
-
-
-                    }
-                    else if (!DotManagerScript.Peices.Contains(hitInfo.collider.gameObject) && hitInfo.collider.gameObject.tag == Colour)
-                    {
-                        hitInfo.collider.gameObject.GetComponent<Renderer>().material.color = Color.black;
-                        // draws line renderer to hit position
-                         
-                        // increase amount of line renderer positions
- 
-                   
-
-                        // adds hit.collider to Peices list
-                        DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
-
-                    }
-                    // if the colour is different from the current colour being connected stop chain
-                    if (hitInfo.collider.gameObject.tag != Colour && hitInfo.collider.gameObject.layer == LayerType)
-                    {
-                        OnMouseUp();
-                    }
-                }
-           
-                if (DotManagerScript.GoldSelection)
-                {
-                    if (DotManagerScript.Peices.Contains(hitInfo.collider.gameObject) && hitInfo.collider.gameObject.tag == "Gold")
-                    {
-
-
-
-                    }
-                    else if (!DotManagerScript.Peices.Contains(hitInfo.collider.gameObject) && hitInfo.collider.gameObject.tag == "Gold")
-                    {
-                        hitInfo.collider.gameObject.GetComponent<Renderer>().material.color = Color.black;
-                        // draws line renderer to hit position
-                       
-                        // increase amount of line renderer positions
-  
-                        // adds hit.collider to Peices list
-                        DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
-
-                    }
-                    if (hitInfo.collider.gameObject.tag != Colour && hitInfo.collider.gameObject.layer == LayerType)
-                    {
-                        OnMouseUp();
-                    }
-                }
-            }
-            else
+            if(DotManagerScript.StartHighliting)
             {
-              
-                OnMouseUp();
+                if (hitInfo.collider.gameObject.layer == 10)
+                {
+                    // Checks for that specific colour pieces
+                    if (DotManagerScript.NodeSelection)
+                    {
+                        if (!DotManagerScript.Peices.Contains(hitInfo.collider.gameObject) && hitInfo.collider.gameObject.tag == Colour)
+                        {
+                            hitInfo.collider.gameObject.GetComponent<Renderer>().material.color = Color.black;
+                            // adds hit.collider to Peices list
+                            DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
+                        }
+                        // if the colour is different from the current colour being connected stop chain
+                        if (hitInfo.collider.gameObject.tag != Colour && hitInfo.collider.gameObject.layer == LayerType)
+                        {
+                            //hitInfo.collider.gameObject.GetComponent<Renderer>().material.color = Color.red;
+                            FlashingGameObj = hitInfo.collider.gameObject;
+                            FlashingGameObj.gameObject.GetComponent<Renderer>().material.color = Color.red;
+
+                            ReleaseNodeColour = true;
+                            Debug.Log("OffPattern");
+                            OnMouseUp();
+                        }
+                    }
+                }
+                else if (hitInfo.collider.gameObject.layer == 0)
+                {
+                    FlashingGameObj = hitInfo.collider.gameObject;
+                    ReleaseNodeColour = true;
+                    FlashingGameObj.gameObject.GetComponent<Renderer>().material.color = Color.red;
+                    OnMouseUp();
+                }
             }
+            
             // if player interacts with wall reset all current chains
              if(hitInfo.collider.gameObject.layer == 11)
             {
@@ -351,21 +294,23 @@ public class DotScript : MonoBehaviour
             }
            
         }
+
    
     }
+ 
  
     public void OnMouseUp()
     {
 
         neighbours.Clear();
-         
+        this.transform.gameObject.layer = 0;
         // Resets Linerenderer
 
         // turns off highlite
         ToggleHighlite = 0;
         DotManagerScript.ResetMaterial = false;
         // Resets peices material and layer
-        this.gameObject.layer = LayerMask.GetMask("Default");
+        //this.gameObject.layer = LayerMask.GetMask("Default");
          // makes peices unable to grow
         GrowSize = false;
         // Resets neighbour list

@@ -73,8 +73,7 @@ public class NeighborScript : MonoBehaviour
 
                             // Adds it to the list of available moves
                             neighbours.Add(dot.gameObject);
-                           DotManagerScript.GetComponent<DotManager>().NumberOfNeighbours += 1;
-                        }
+                         }
     
                     }
                 }

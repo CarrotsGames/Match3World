@@ -67,7 +67,7 @@ public class ColourRemover : MonoBehaviour
 
                 if (Input.GetMouseButtonDown(0))
                 {
-                    DotManagerScript.StopInteracting = true;
+                    DotManagerScript.CanPlay = false;
                     if (hit.collider.gameObject.tag == "Red")
                     {
                         Red = true;
