@@ -126,7 +126,6 @@ public class DestroyNodes : MonoBehaviour {
        Timer -= Time.deltaTime;
         if (Timer < 0)
         {
- 
             DestoryNodes();
             Timer = ComboSpeed;
         }
@@ -151,6 +150,7 @@ public class DestroyNodes : MonoBehaviour {
                 Index++;
                 Combo = Index;
                 CountCombo();
+                Handheld.Vibrate();
             }
             // if not than add anyway to avoid to play particles
             else

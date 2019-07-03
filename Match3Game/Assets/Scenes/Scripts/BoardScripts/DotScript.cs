@@ -101,7 +101,7 @@ public class DotScript : MonoBehaviour
         if (DotManagerScript.ResetMaterial && !ReleaseNodeColour)
         {
           this.gameObject.GetComponent<Renderer>().material = Default;
-
+          this.gameObject.GetComponent<Renderer>().material.color = Color.white;
         }
 
     }

@@ -42,16 +42,8 @@ public class PlayFabServerTime : MonoBehaviour {
         }
         CurrentTime -= Time.deltaTime;
         int TimeTillSpin = unchecked((int)MinutesFromTs);
-        if (TimeTillSpin != 0)
-        {
-            int Minutes = (int)(TimeTillSpin % 60);
-            int Hours = (int)((TimeTillSpin / 60));
-            DailySpinTimer.text = Hours + ":" + Minutes;
-        }
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            DailySpin();
-        }
+       
+ 
         if (CurrentTime < 0 && !DailyEvent.CanDoDaily)
         {
             GetCurrentTime();
@@ -61,7 +53,18 @@ public class PlayFabServerTime : MonoBehaviour {
         {
             Debug.Log("CAN DO DAILY SPIN");
             DailyEvent.CanDoDaily = true;
-         }
+            DailySpinTimer.text ="Spin \n ready!!";
+
+        }
+        else
+        {
+            if (TimeTillSpin != 0)
+            {
+                int Minutes = (int)(TimeTillSpin % 60);
+                int Hours = (int)((TimeTillSpin / 60));
+                DailySpinTimer.text = Hours + ":" + Minutes;
+            }
+        }
     }
 
  
