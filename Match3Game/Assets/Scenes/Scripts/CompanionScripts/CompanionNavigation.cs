@@ -26,7 +26,6 @@ public class CompanionNavigation : MonoBehaviour
     private HappinessManager HappinessManagerScript;
     private GameObject HappinessGameObj;
 
-
     public Slider HappySlider;
      // Use this for initialization
     void Start()
@@ -292,4 +291,10 @@ public class CompanionNavigation : MonoBehaviour
         RealTimeScript.LoadCompanionHappiness();
 
      }
+
+
+
+
+
+
 }
