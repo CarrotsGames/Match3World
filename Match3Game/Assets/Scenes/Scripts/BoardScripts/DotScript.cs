@@ -18,6 +18,7 @@ public class DotScript : MonoBehaviour
     [HideInInspector]
     public int LayerType = 10;
     private bool HasPlayedSound;
+    public GameObject HighlitedParticle;
     private GameObject MainCamera;
     private BoardScript Board;
     private GameObject HappinessManagerGameobj;
@@ -37,7 +38,6 @@ public class DotScript : MonoBehaviour
     bool ReleaseNodeColour;
     float ResetMatTime;
     float VibrateSeconds;
-    float FlashColour;
     // Use this for initialization
     void Start()
     {
@@ -69,7 +69,6 @@ public class DotScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        // Time until node destroys itself( Activated outside of script)
         if(SelfDestruct)
         {
             Timer -= Time.deltaTime;
@@ -84,37 +83,19 @@ public class DotScript : MonoBehaviour
         if (ReleaseNodeColour)
         {
             ResetMatTime += Time.deltaTime;
-            FlashColour += Time.deltaTime;
-            // flashes the node red to grab attention to player
-            if(FlashColour < 0.25f)
-            {
-                FlashingGameObj.GetComponent<Renderer>().material.color = Color.red;
-
-            }
-            else
+            if(ResetMatTime > 1)
             {
                 FlashingGameObj.GetComponent<Renderer>().material.color = Color.white;
-                if (FlashColour > 0.5f)
-                {
-                    FlashColour = 0;
-                }
-            }
-            // time until the highlite is returned to default
-            if (ResetMatTime > 1)
-            {
-                // StopCoroutine(VibratePhone());
-                FlashingGameObj.GetComponent<Renderer>().material.color = Color.white;
-
                 ResetMatTime = 0;
                 ReleaseNodeColour = false;
                 VibrateSeconds = 0;
             }
-            // Starts vibrating phone
             else
             {
                 StartCoroutine(VibratePhone());
             }
-         }
+            // DotManagerScript.StopInteracting = false;
+        }
    
         // restes dot layer
         if (DotManagerScript.ResetLayer)
@@ -130,22 +111,16 @@ public class DotScript : MonoBehaviour
         }
 
     }
-    // vibrates phone twice with delay inbetween
     IEnumerator VibratePhone()
     {
-        if (VibrateSeconds <= 0.55f)
+        if (VibrateSeconds < 0.5f)
         {
-            yield return new WaitForSeconds(VibrateSeconds);
-            VibrateSeconds += 0.55f;
             Handheld.Vibrate();
+            VibrateSeconds += 0.25f;
+            yield return new WaitForSeconds(VibrateSeconds);
             Debug.Log("VIBRATE");
         }
-        else
-        {
-            yield break;
-        }
     }
-    // when the players finger left the node
     private void OnMouseExit()
     {
         // Decreases size of peice when selected
@@ -156,6 +131,7 @@ public class DotScript : MonoBehaviour
             newScale.z = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
             newScale.y = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
             transform.localScale = newScale;
+            HasPlayedSound = true;
         }
        
     }
@@ -182,6 +158,7 @@ public class DotScript : MonoBehaviour
                 AudioManagerScript.NodeSource.clip = AudioManagerScript.NodeAudio[0];
                 AudioManagerScript.NodeSource.Play();
                 HasPlayedSound = false;
+                Instantiate(HighlitedParticle, transform.position, Quaternion.identity);
             }
         }
         else
@@ -254,6 +231,7 @@ public class DotScript : MonoBehaviour
                 // plays the node highlite sound
                 AudioManagerScript.NodeSource.clip = AudioManagerScript.NodeAudio[0];
                 AudioManagerScript.NodeSource.PlayOneShot(AudioManagerScript.NodeSource.clip);
+                Instantiate(HighlitedParticle, transform.position, Quaternion.identity);
 
                 DotManagerScript.MouseCursorObj.SetActive(true);
             }

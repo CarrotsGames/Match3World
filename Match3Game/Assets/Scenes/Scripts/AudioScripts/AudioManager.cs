@@ -22,7 +22,7 @@ public class AudioManager : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        if(Input.GetKey(KeyCode.W))
+         if(Input.GetKey(KeyCode.W))
         {
             soundOn = false;
             // saves bool as false
@@ -43,13 +43,14 @@ public class AudioManager : MonoBehaviour {
             NodeSource.enabled = false;
             MooblingSource.enabled = false;
             ParticleSource.enabled = false;
+            PlayerPrefs.SetInt(SaveBool, (soundOn ? 1 : 0));
         }
         else
         {
             NodeSource.enabled = true;
             MooblingSource.enabled = true;
             ParticleSource.enabled = true;
-
+            PlayerPrefs.SetInt(SaveBool, (soundOn ? 1 : 0));
             //enable audio source
         }
     }
