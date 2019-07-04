@@ -37,6 +37,7 @@ public class DotScript : MonoBehaviour
     GameObject FlashingGameObj;
     bool ReleaseNodeColour;
     float ResetMatTime;
+    float FlashColour;
     float VibrateSeconds;
     // Use this for initialization
     void Start()
@@ -83,9 +84,27 @@ public class DotScript : MonoBehaviour
         if (ReleaseNodeColour)
         {
             ResetMatTime += Time.deltaTime;
-            if(ResetMatTime > 1)
+            FlashColour += Time.deltaTime;
+            // flashes the node red to grab attention to player
+            if (FlashColour < 0.25f)
+            {
+                FlashingGameObj.GetComponent<Renderer>().material.color = Color.red;
+
+            }
+            else
             {
                 FlashingGameObj.GetComponent<Renderer>().material.color = Color.white;
+                if (FlashColour > 0.5f)
+                {
+                    FlashColour = 0;
+                }
+            }
+            // time until the highlite is returned to default
+            if (ResetMatTime > 1)
+            {
+                // StopCoroutine(VibratePhone());
+                FlashingGameObj.GetComponent<Renderer>().material.color = Color.white;
+
                 ResetMatTime = 0;
                 ReleaseNodeColour = false;
                 VibrateSeconds = 0;
@@ -94,9 +113,15 @@ public class DotScript : MonoBehaviour
             {
                 StartCoroutine(VibratePhone());
             }
+
             // DotManagerScript.StopInteracting = false;
         }
-   
+        // Starts vibrating phone
+
+
+        // DotManagerScript.StopInteracting = false;
+
+
         // restes dot layer
         if (DotManagerScript.ResetLayer)
         {
@@ -113,15 +138,19 @@ public class DotScript : MonoBehaviour
     }
     IEnumerator VibratePhone()
     {
-        if (VibrateSeconds < 0.5f)
+        if (VibrateSeconds <= 0.55f)
         {
-            Handheld.Vibrate();
-            VibrateSeconds += 0.25f;
             yield return new WaitForSeconds(VibrateSeconds);
+            VibrateSeconds += 0.55f;
+            Handheld.Vibrate();
             Debug.Log("VIBRATE");
         }
+        else
+        {
+            yield break;
+        }
     }
-    private void OnMouseExit()
+     private void OnMouseExit()
     {
         // Decreases size of peice when selected
         if (DotManagerScript.StartHighliting == true)
