@@ -26,6 +26,10 @@ public class CompanionNavigation : MonoBehaviour
     private HappinessManager HappinessManagerScript;
     private GameObject HappinessGameObj;
 
+    public GameObject pageFlip;
+    public GameObject backwardPageFlip;
+
+
     public Slider HappySlider;
      // Use this for initialization
     void Start()
@@ -105,10 +109,12 @@ public class CompanionNavigation : MonoBehaviour
                 if(x < 0)
                 {
                     NavLeft();
+                    pageFlip.SetActive(true);
                 }
                 else
                 {
                      NavRight();
+                    backwardPageFlip.SetActive(true);
                 }
             }
             Reset();
