@@ -740,11 +740,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 82546797425289626, guid: bd866eb15c48b0245ba33cc99194724d,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 82399504689600170, guid: bd866eb15c48b0245ba33cc99194724d,
         type: 3}
       propertyPath: m_Enabled
@@ -756,6 +751,11 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 82399504689600170, guid: bd866eb15c48b0245ba33cc99194724d,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82546797425289626, guid: bd866eb15c48b0245ba33cc99194724d,
         type: 3}
       propertyPath: m_PlayOnAwake
       value: 1
@@ -4556,6 +4556,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: InMatchTransitions
       objectReference: {fileID: 0}
+    - target: {fileID: 114898036899560986, guid: bca90714ddbb8544796b1d79e4753570,
+        type: 3}
+      propertyPath: settingsMenu
+      value: 
+      objectReference: {fileID: 842981958}
+    - target: {fileID: 114898036899560986, guid: bca90714ddbb8544796b1d79e4753570,
+        type: 3}
+      propertyPath: Analytics
+      value: 
+      objectReference: {fileID: 1990355654}
     - target: {fileID: 4707880950061574, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
       propertyPath: m_LocalPosition.x
       value: 86.8
@@ -4600,16 +4610,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114898036899560986, guid: bca90714ddbb8544796b1d79e4753570,
-        type: 3}
-      propertyPath: settingsMenu
-      value: 
-      objectReference: {fileID: 842981958}
-    - target: {fileID: 114898036899560986, guid: bca90714ddbb8544796b1d79e4753570,
-        type: 3}
-      propertyPath: Analytics
-      value: 
-      objectReference: {fileID: 1990355654}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
 --- !u!1001 &2335805762085885306
@@ -4623,11 +4623,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gobu Canvus
-      objectReference: {fileID: 0}
-    - target: {fileID: 2335640169551085877, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2555375599219393605, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
@@ -4653,6 +4648,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.32449654
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335640169551085877, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2335805763254419903, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
@@ -4773,22 +4773,27 @@ PrefabInstance:
         type: 3}
       propertyPath: sceneAudio
       value: 
-      objectReference: {fileID: 648267674}
+      objectReference: {fileID: 1280245433}
     - target: {fileID: 2335805763860882735, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: soundEffects
       value: 
+      objectReference: {fileID: 648267674}
+    - target: {fileID: 2335805763860882735, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: audioManager
+      value: 
       objectReference: {fileID: 1280245433}
-    - target: {fileID: 2449369487964782619, guid: d7fb396edf155de40895610ead7b8864,
+    - target: {fileID: 2449254646268538357, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
-      propertyPath: MouseCursorObj
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1842875222}
-    - target: {fileID: 2449818973851826393, guid: d7fb396edf155de40895610ead7b8864,
+      objectReference: {fileID: 1647165519}
+    - target: {fileID: 2449254646268538357, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
-      propertyPath: ShuffleSpawn
-      value: 
-      objectReference: {fileID: 1918055065}
+      propertyPath: m_Transition
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2555351538310502943, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -4824,12 +4829,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 386.2
       objectReference: {fileID: 0}
-    - target: {fileID: 2449837827214333313, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 9d00f7e1b99904f4590e08c62095f34e,
-        type: 3}
     - target: {fileID: 2555265549553285995, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -4864,27 +4863,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.13865158
-      objectReference: {fileID: 0}
-    - target: {fileID: 2449683701450174335, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 72ad783322bd3be42a47b7f32aef19f3,
-        type: 3}
-    - target: {fileID: 2449683701450174335, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2449254646268538357, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1647165519}
-    - target: {fileID: 2449254646268538357, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_Transition
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2554865718680958289, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
@@ -4931,11 +4909,38 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 4.0000076
       objectReference: {fileID: 0}
+    - target: {fileID: 2449683701450174335, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 72ad783322bd3be42a47b7f32aef19f3,
+        type: 3}
+    - target: {fileID: 2449683701450174335, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449837827214333313, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9d00f7e1b99904f4590e08c62095f34e,
+        type: 3}
+    - target: {fileID: 2449818973851826393, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: ShuffleSpawn
+      value: 
+      objectReference: {fileID: 1918055065}
     - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: UnlockMoobling
       value: 
       objectReference: {fileID: 932378640}
+    - target: {fileID: 2449369487964782619, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: MouseCursorObj
+      value: 
+      objectReference: {fileID: 1842875222}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7fb396edf155de40895610ead7b8864, type: 3}
 --- !u!1001 &3133258502028079089

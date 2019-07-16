@@ -4034,21 +4034,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 82546797425289626, guid: bd866eb15c48b0245ba33cc99194724d,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 82399504689600170, guid: bd866eb15c48b0245ba33cc99194724d,
-        type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 82399504689600170, guid: bd866eb15c48b0245ba33cc99194724d,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114376168571624716, guid: bd866eb15c48b0245ba33cc99194724d,
         type: 3}
       propertyPath: SceneMusic.Array.data[0]
@@ -4059,6 +4044,21 @@ PrefabInstance:
       propertyPath: SceneMusic.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: bd04b6a75117e584fb4b10a989bac888, type: 3}
+    - target: {fileID: 82399504689600170, guid: bd866eb15c48b0245ba33cc99194724d,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82399504689600170, guid: bd866eb15c48b0245ba33cc99194724d,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82546797425289626, guid: bd866eb15c48b0245ba33cc99194724d,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd866eb15c48b0245ba33cc99194724d, type: 3}
 --- !u!1 &1377989962
@@ -5956,6 +5956,11 @@ PrefabInstance:
       propertyPath: soundEffects
       value: 
       objectReference: {fileID: 107866649}
+    - target: {fileID: 2335805763860882735, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 208571687}
     - target: {fileID: 2449254646268538357, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -6452,10 +6457,8 @@ MonoBehaviour:
   GoldSelection: 0
   ResetLayer: 0
   ResetMaterial: 0
-  StopInteracting: 0
   ChangeMaterial: 0
   CanPlay: 0
-  NumberOfNeighbours: 0
   RedScore: 0
   BlueScore: 0
   YellowScore: 0
