@@ -165,6 +165,9 @@ public class CompanionNavigation : MonoBehaviour
             case 9:
                 SceneManager.LoadScene("Cronus");
                 break;
+            case 10:
+                SceneManager.LoadScene("Okami");
+                break;
         }
 
     }
@@ -291,6 +294,13 @@ public class CompanionNavigation : MonoBehaviour
                 RealTimeScript.HappinessCountDown[7] = Happiness[7];
                 HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[7];
                 HappinessManagerScript.CompanionSave = "CronosHappiness";
+
+                break;
+            case "Okami Locked":
+                Happiness[8] = PlayerPrefs.GetFloat("OkamiHappiness");
+                RealTimeScript.HappinessCountDown[8] = Happiness[8];
+                HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[8];
+                HappinessManagerScript.CompanionSave = "OkamiHappiness";
 
                 break;
         }
