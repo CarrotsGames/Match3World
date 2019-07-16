@@ -489,6 +489,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 1984874776422186, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114310564447936264, guid: bca90714ddbb8544796b1d79e4753570,
         type: 3}
       propertyPath: UnlockScore.Array.size
@@ -509,10 +513,6 @@ PrefabInstance:
       propertyPath: UnlockableCreatures
       value: 
       objectReference: {fileID: 2044793713}
-    - target: {fileID: 1984874776422186, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
 --- !u!1 &208571687 stripped
@@ -1305,7 +1305,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 607198230}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.74, z: 0}
+  m_LocalPosition: {x: 0, y: -3.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1155653316}
@@ -1480,8 +1480,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 620140863}
   m_LocalRotation: {x: -0, y: -0, z: -0.27724788, w: 0.96079844}
-  m_LocalPosition: {x: 25.9, y: 37.5, z: 44.469}
-  m_LocalScale: {x: 0.043245662, y: 0.043245662, z: 0.043245662}
+  m_LocalPosition: {x: 25.2, y: 43.9, z: 44.469}
+  m_LocalScale: {x: 0.043086607, y: 0.043086607, z: 0.043086607}
   m_Children:
   - {fileID: 1722539033}
   m_Father: {fileID: 0}
@@ -2026,11 +2026,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4783255531975706, guid: 80586b738396c424683623654a216aad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.7
+      value: 2.1
       objectReference: {fileID: 0}
     - target: {fileID: 4783255531975706, guid: 80586b738396c424683623654a216aad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -27.9
+      value: -36.8
       objectReference: {fileID: 0}
     - target: {fileID: 4783255531975706, guid: 80586b738396c424683623654a216aad, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2095,8 +2095,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 932546230}
   m_LocalRotation: {x: -0, y: -0, z: -0.0014193882, w: 0.99999905}
-  m_LocalPosition: {x: -0.13, y: -1.82, z: -4.0786}
-  m_LocalScale: {x: 0.18545742, y: 0.16672872, z: 0.49813974}
+  m_LocalPosition: {x: -0.2340934, y: -0.88235354, z: -4.0786}
+  m_LocalScale: {x: 0.18477532, y: 0.16611551, z: 0.4963076}
   m_Children:
   - {fileID: 1157786479}
   - {fileID: 416890847}
@@ -2510,9 +2510,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.04, y: -3.15}
+  m_Offset: {x: -0.014884937, y: -5.8938136}
   serializedVersion: 2
-  m_Radius: 0.77
+  m_Radius: 0.56246835
 --- !u!1001 &1140501860
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2701,8 +2701,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155653315}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.19841297, y: -3.2531, z: -45.412}
-  m_LocalScale: {x: 1.351968, y: 1.351968, z: 1.351968}
+  m_LocalPosition: {x: -0.30250636, y: -2.3154535, z: -45.412}
+  m_LocalScale: {x: 1.3469956, y: 1.3469956, z: 1.3469956}
   m_Children:
   - {fileID: 607198231}
   - {fileID: 1794340348}
@@ -3206,16 +3206,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 114376168571624716, guid: bd866eb15c48b0245ba33cc99194724d,
+    - target: {fileID: 82546797425289626, guid: bd866eb15c48b0245ba33cc99194724d,
         type: 3}
-      propertyPath: SceneMusic.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 981e049652d429747bfa1c64b31f03bf, type: 3}
-    - target: {fileID: 114376168571624716, guid: bd866eb15c48b0245ba33cc99194724d,
-        type: 3}
-      propertyPath: SceneMusic.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: bd04b6a75117e584fb4b10a989bac888, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 82399504689600170, guid: bd866eb15c48b0245ba33cc99194724d,
         type: 3}
       propertyPath: Loop
@@ -3226,11 +3221,16 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 82546797425289626, guid: bd866eb15c48b0245ba33cc99194724d,
+    - target: {fileID: 114376168571624716, guid: bd866eb15c48b0245ba33cc99194724d,
         type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: SceneMusic.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 981e049652d429747bfa1c64b31f03bf, type: 3}
+    - target: {fileID: 114376168571624716, guid: bd866eb15c48b0245ba33cc99194724d,
+        type: 3}
+      propertyPath: SceneMusic.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: bd04b6a75117e584fb4b10a989bac888, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd866eb15c48b0245ba33cc99194724d, type: 3}
 --- !u!1 &1419502909
@@ -3258,8 +3258,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1419502909}
   m_LocalRotation: {x: -0, y: -0, z: 0.07088913, w: 0.9974842}
-  m_LocalPosition: {x: -0.022659972, y: 1.6139, z: 15.899}
-  m_LocalScale: {x: 1.351968, y: 1.351968, z: 1.351968}
+  m_LocalPosition: {x: -0.12675336, y: 2.5515466, z: 15.899}
+  m_LocalScale: {x: 1.3469956, y: 1.3469956, z: 1.3469956}
   m_Children:
   - {fileID: 1831320240}
   - {fileID: 63820263}
@@ -3593,8 +3593,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3165244, y: 1.2269887, z: 0.11786735}
-  m_Center: {x: 1.7900035, y: -4.7865043, z: -0.44106632}
+  m_Size: {x: 0.31635386, y: 1.3892057, z: 0.11786735}
+  m_Center: {x: 1.7092191, y: -7.531145, z: -0.44106632}
 --- !u!4 &1592080635 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4263835391068148, guid: 4718389357c997f4a83a056949ff456f,
@@ -4670,8 +4670,8 @@ MonoBehaviour:
     type: 3}
   PartySpawner: {fileID: 448939023}
   PartyEffect:
-  - {fileID: 1707061488972364, guid: 0d6f8736387e01f4e9f3ffa4793dda7e, type: 3}
-  - {fileID: 1394776921595216, guid: 164b70c4470be1343aa092b34d80e221, type: 3}
+  - {fileID: 4584629529218632242, guid: 8aa149afa87c49946a65e67114bed6b7, type: 3}
+  - {fileID: 7814732012330249549, guid: 529aa711efcbe874fa65bb3edc21241e, type: 3}
   MouseCursorObj: {fileID: 493837227}
   Red: {fileID: 2100000, guid: 42944a42ec16d2b47a640b6313923061, type: 2}
   Blue: {fileID: 2100000, guid: 42f09c1d07f6bec4aabf45eec21cfc2f, type: 2}

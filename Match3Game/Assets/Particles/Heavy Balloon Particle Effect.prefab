@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3699777784344191890
+--- !u!1 &1586372476303538
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,37 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3983480410913109742}
-  - component: {fileID: 9194306939375925792}
-  - component: {fileID: 5982396944831522395}
+  - component: {fileID: 294362159065476558}
+  - component: {fileID: 5531933220434665728}
+  - component: {fileID: 6942400898614787451}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: Balloon Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3983480410913109742
+--- !u!4 &294362159065476558
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3699777784344191890}
+  m_GameObject: {fileID: 1586372476303538}
   m_LocalRotation: {x: -0.70372546, y: 0.06906928, z: -0.06906928, w: 0.70372546}
-  m_LocalPosition: {x: -38.28598, y: -29.942078, z: 0.7733667}
+  m_LocalPosition: {x: -30.6, y: 0, z: 244.1}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
-  m_Father: {fileID: 1115743211655315659}
+  m_Father: {fileID: 4334160542900755435}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -101.211, y: -90, z: 89.99999}
---- !u!198 &9194306939375925792
+--- !u!198 &5531933220434665728
 ParticleSystem:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3699777784344191890}
+  m_GameObject: {fileID: 1586372476303538}
   serializedVersion: 6
   lengthInSec: 1
   simulationSpeed: 1
@@ -975,7 +975,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 3
+        scalar: 7
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -4694,14 +4694,14 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!199 &5982396944831522395
+--- !u!199 &6942400898614787451
 ParticleSystemRenderer:
   serializedVersion: 6
   m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3699777784344191890}
+  m_GameObject: {fileID: 1586372476303538}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -4756,7 +4756,7 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!1 &6858529072927520365
+--- !u!1 &5405466070411945591
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4764,69 +4764,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1115743211655315659}
+  - component: {fileID: 6438278457724515558}
+  - component: {fileID: 3012911973731670815}
+  - component: {fileID: 1834769411082225140}
   m_Layer: 0
-  m_Name: Balloon Particle Effect
+  m_Name: Balloon Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1115743211655315659
+--- !u!4 &6438278457724515558
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6858529072927520365}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 246.36331, y: 328.9364, z: -278.41748}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 3983480410913109742}
-  - {fileID: 7639440478133415878}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8672226743400889687
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7639440478133415878}
-  - component: {fileID: 1913433893002133567}
-  - component: {fileID: 3038675789959061204}
-  m_Layer: 0
-  m_Name: Particle System (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7639440478133415878
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8672226743400889687}
+  m_GameObject: {fileID: 5405466070411945591}
   m_LocalRotation: {x: -0.7037977, y: -0.068328954, z: 0.068328954, w: 0.7037977}
-  m_LocalPosition: {x: 17.51402, y: -29.942078, z: 0.7733667}
+  m_LocalPosition: {x: 31.3, y: 0, z: 244.1}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
-  m_Father: {fileID: 1115743211655315659}
+  m_Father: {fileID: 4334160542900755435}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -78.91, y: -90.00001, z: 90.00001}
---- !u!198 &1913433893002133567
+--- !u!198 &3012911973731670815
 ParticleSystem:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8672226743400889687}
+  m_GameObject: {fileID: 5405466070411945591}
   serializedVersion: 6
   lengthInSec: 1
   simulationSpeed: 1
@@ -5763,7 +5731,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 3
+        scalar: 7
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -9482,14 +9450,14 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!199 &3038675789959061204
+--- !u!199 &1834769411082225140
 ParticleSystemRenderer:
   serializedVersion: 6
   m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8672226743400889687}
+  m_GameObject: {fileID: 5405466070411945591}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -9544,3 +9512,35 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!1 &7814732012330249549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4334160542900755435}
+  m_Layer: 0
+  m_Name: Heavy Balloon Particle Effect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4334160542900755435
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7814732012330249549}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.3, y: -190.6, z: -278.41748}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 294362159065476558}
+  - {fileID: 6438278457724515558}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
