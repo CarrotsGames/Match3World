@@ -25,11 +25,15 @@ public class DailySpin : MonoBehaviour
     public GameObject MenuButtons;
     public EventScript DailyEvent;
     public GameObject Events;
+   
      // Use this for initialization
     void Start ()
     {
+        TimeToStopWheelStore = TimeToStopWheel;
         StartUpSpeed *= 100;
+        StartUpSpeedStore = StartUpSpeed;
         MaxSpeed *= 100;
+        MaxSpeedStore = MaxSpeed;
         CreatureList.SetActive(false);
         MenuButtons.SetActive(false);
         IsDailyOver = false;
@@ -78,7 +82,9 @@ public class DailySpin : MonoBehaviour
                 IsDailyOver = true;
                 CreatureList.SetActive(true);
                 MenuButtons.SetActive(true);
-
+                StartUpSpeed = StartUpSpeedStore;
+                MaxSpeed = MaxSpeedStore;
+                TimeToStopWheel = TimeToStopWheelStore;
             }
             else
             {
