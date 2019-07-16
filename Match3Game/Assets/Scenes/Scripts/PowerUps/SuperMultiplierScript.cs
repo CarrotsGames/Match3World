@@ -31,12 +31,18 @@ public class SuperMultiplierScript : MonoBehaviour
         // if its greater than zero continue countdown
         // NOTE: Realtimecounter is always coutning down Multiplier timer 
         // It counts down past 0 to avoid this always being true
+        
         MultlpierTimer = PlayerPrefs.GetFloat("SMTIMER");
+       
         SMTimerUI.SetActive(false);
 
         if (MultlpierTimer > 0)
         {
             CanUseSuperMultiplier = true;
+        }
+        else
+        {
+            MultlpierTimer = TimerStore;
         }
     }
     
@@ -104,10 +110,13 @@ public class SuperMultiplierScript : MonoBehaviour
 
     public void SuperMultplierButton()
     {
+        Debug.Log("BUTTON PRESSED");
         if (PowerUpManagerScript.HasMultlpliers && !StartCountdown)
         {
+            MultlpierTimer = 80;
             PowerUpManagerScript.NumOfMultilpiers -= 1;
             CanUseSuperMultiplier = true;
+            Debug.Log(CanUseSuperMultiplier);
         }
     }
 }
