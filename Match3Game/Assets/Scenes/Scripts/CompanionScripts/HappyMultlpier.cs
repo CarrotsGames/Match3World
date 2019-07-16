@@ -32,6 +32,8 @@ public class HappyMultlpier : MonoBehaviour {
             ListOfSaves.Add(SaveStrings[i]);
         }
         Multplier();
+        RealTimeGameObj.GetComponent<TimeMasterScript>().CheckInstance();
+
         RealtTimeScript.HappinessCountdowns();
     }
  

@@ -17,44 +17,43 @@ public class RealTimeCounter : MonoBehaviour
     private GameObject MultiplierGameOb;
     private HappinessManager HappinessManagerScript;
     private SuperMultiplierScript SuperMultiplier;
-
     string companionName;
-
-    public float SaveNum;
-    // Use this for initialization
+     public float SaveNum;
+     // Use this for initialization
     void Start()
     {
-         
         // Starting timer amount
         // Update timer with real time passed
         //TODO [Find a better way of doing this]
+        this.gameObject.GetComponent<TimeMasterScript>().CheckInstance();
+
         HappinessCountdowns();
         LoadCompanionHappiness();
     }
     public void HappinessCountdowns()
     {
-       //////////////////////// HOW TO SETUP THE SAVES/////////////////////////////
-       //1 Assign a save to happinesscountdown array with new companion
-       //2 Add a "TimeMasterScript.instance.CheckDate() / 25" to deduct that companions happiness
-       //3 In this script go to happinessmanagerscript(line 74) switch and add a case with a save name
-       //4 Now go into update and make the new happiness countdown (line 159 to end of update)
-       //5 Then in update add an else if with that companion name and countdown the time (Make sure HappinessCountdown is set to right array)
-       //6 Make that companon array equal the happiness slidervalue(happienssmetre)
-       //7 In "happinessmanager" script go to companion save switch (line 68) and add that companion save 
-       //8 Make sure the case is equal to the companions name in scene
-       //9 Give that companion savestring name(savestring saves the sleeping bool for that companion)
-       //10 Now go to the CompanionNaviagion script "PlayLevel" (Line 125) and add that companions name in the navigation menu 
-       //with their arrays
-       //11 Finally go to "CompanionSwitch" (Line 214) and add a case along with their happiness string and index.
-       //  Make the happySlider.value equal that index
-       ////////////////////////HAPPINESS COUNTDOWNS////////////////////////////////
 
-       //Gobus Happiness Timer
-       HappinessCountDown[0] = PlayerPrefs.GetFloat("GobuHappiness");
+        //////////////////////// HOW TO SETUP THE SAVES/////////////////////////////
+        //1 Assign a save to happinesscountdown array with new companion
+        //2 Add a "TimeMasterScript.instance.CheckDate() / 25" to deduct that companions happiness
+        //3 In this script go to happinessmanagerscript(line 74) switch and add a case with a save name
+        //4 Now go into update and make the new happiness countdown (line 159 to end of update)
+        //5 Then in update add an else if with that companion name and countdown the time (Make sure HappinessCountdown is set to right array)
+        //6 Make that companon array equal the happiness slidervalue(happienssmetre)
+        //7 In "happinessmanager" script go to companion save switch (line 68) and add that companion save 
+        //8 Make sure the case is equal to the companions name in scene
+        //9 Give that companion savestring name(savestring saves the sleeping bool for that companion)
+        //10 Now go to the CompanionNaviagion script "PlayLevel" (Line 125) and add that companions name in the navigation menu 
+        //with their arrays
+        //11 Finally go to "CompanionSwitch" (Line 214) and add a case along with their happiness string and index.
+        //  Make the happySlider.value equal that index
+        ////////////////////////HAPPINESS COUNTDOWNS////////////////////////////////
+
+        //Gobus Happiness Timer
+        HappinessCountDown[0] = PlayerPrefs.GetFloat("GobuHappiness");
        // update timer when real time passes 
        HappinessCountDown[0] -= TimeMasterScript.instance.CheckDate() / 25;
-                                                                         
-       // Binkies Happiness Timer                                        
+        // Binkies Happiness Timer                                        
        HappinessCountDown[1] = PlayerPrefs.GetFloat("BinkyHappiness");   
        // update timer when real time passes                             
        HappinessCountDown[1] -= TimeMasterScript.instance.CheckDate() / 25;
@@ -289,6 +288,7 @@ public class RealTimeCounter : MonoBehaviour
     public void ResetClock()
     {
         HappinessSliderValues();
+        HappinessCountdowns();
         //  // GOBU
            TimeMasterScript.instance.SaveDate();
         //  HappinessCountDown[0] = PlayerPrefs.GetFloat("GobuHappiness");

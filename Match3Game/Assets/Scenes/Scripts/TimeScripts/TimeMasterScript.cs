@@ -16,13 +16,16 @@ public class TimeMasterScript : MonoBehaviour
     void Awake()
     {
         // create instance of our DateMaster Script 
-        instance = this;
-
+        CheckInstance();
         // set our player prefs to save location
         SaveLocation = "LastSavedDate1";
         
     }
-
+    public void CheckInstance()
+    {
+        instance = this;
+        
+    }
     public float CheckDate()
     {
         // stores current time when app starts
