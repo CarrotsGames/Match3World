@@ -32,8 +32,8 @@ public class DailySpin : MonoBehaviour
         MaxSpeed *= 100;
         CreatureList.SetActive(false);
         MenuButtons.SetActive(false);
-             IsDailyOver = false;
-         StopSpinning = false;
+        IsDailyOver = false;
+        StopSpinning = false;
         // Reference EventsScript
         Events = GameObject.FindGameObjectWithTag("ES");
         DailyEvent = Events.GetComponent<EventScript>();
@@ -76,7 +76,6 @@ public class DailySpin : MonoBehaviour
             if (WheelVelocity < 1)
             {
                 IsDailyOver = true;
-
                 CreatureList.SetActive(true);
                 MenuButtons.SetActive(true);
 
@@ -88,19 +87,6 @@ public class DailySpin : MonoBehaviour
             }
 
         }
-        // RESETS script 
-        // if daily set CanDoDaily to false and turn off gameobject  
-       //if (IsDailyOver)
-       //{
-       // //   TimeToStopWheel = TimeToStopWheelStore;
-       // //   DailyEvent.CanDoDaily = false;
-       // //   PlayerPrefs.SetInt(Events.GetComponent<PlayFabServerTime>().SaveBool, (DailyEvent.CanDoDaily ? 1 : 0));
-       // //
-       // //   DailyEvent.DailySpinner.SetActive(false);
-       // //
-       // //   IsDailyOver = false;
-       // //   StopSpinning = false;
-       //      
-       //}
+ 
     }
 }

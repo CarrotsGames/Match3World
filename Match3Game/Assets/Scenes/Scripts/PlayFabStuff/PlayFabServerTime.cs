@@ -5,7 +5,7 @@ using PlayFab;
 using PlayFab.ClientModels;
 using System;
 using UnityEngine.UI;
-
+// DAILY SPIN TIMER (MUST RENAME THIS)
 public class PlayFabServerTime : MonoBehaviour {
     private GameObject PowerUpManGameObj;
     private PowerUpManager PowerUpManagerScript;
@@ -33,9 +33,13 @@ public class PlayFabServerTime : MonoBehaviour {
         DailyEvent.CanDoDaily = false;
     
     }
-
+    public void DoTheDailySpinDebug()
+    {
+        DailyEvent.CanDoDaily = true;
+    }
     void Update()
     {
+       
         if (DailySpinTimer.text == "New Text")
         {
             DailySpinTimer.text = "Getting \n time....";
