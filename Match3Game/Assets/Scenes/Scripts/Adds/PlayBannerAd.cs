@@ -1,0 +1,33 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Advertisements;
+using UnityEngine.Monetization;
+ public class PlayBannerAd : MonoBehaviour
+{
+    public string gameId = "3222685";
+    public string placementId = "video";
+    public bool testMode = true;
+
+    void Start()
+    {
+        Advertisement.Initialize(gameId, testMode);
+        
+    }
+    private void Update()
+    {
+        //Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
+
+        Advertisement.Banner.Show(placementId);
+    }
+  //  IEnumerator ShowBannerWhenReady()
+  //  {
+  //      while (!Advertisement.IsReady(placementId))
+  //      {
+  //        
+  //
+  //          yield return new WaitForSeconds(0.5f);
+  //      }
+  //
+  //  }
+}
