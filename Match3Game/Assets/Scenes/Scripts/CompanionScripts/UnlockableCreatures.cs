@@ -46,6 +46,7 @@ public class UnlockableCreatures : MonoBehaviour
         UnlockableMoobling[4] = PlayerPrefs.GetString("CHICKPEA");
         UnlockableMoobling[5] = PlayerPrefs.GetString("SQUISHY");
         UnlockableMoobling[6] = PlayerPrefs.GetString("Cronus Locked");
+        UnlockableMoobling[7] = PlayerPrefs.GetString("OKAMI");
 
         // Activates unlocked characters
         Unlock();
@@ -112,6 +113,12 @@ public class UnlockableCreatures : MonoBehaviour
                 LockedCompanions[6].GetComponent<Image>().sprite = CompanionImages[6];
                 LockedCompanions[6].GetComponent<Button>().enabled = true;
             }
+            if (UnlockableMoobling[7] == "OKAMI")
+            {
+
+                LockedCompanions[7].GetComponent<Image>().sprite = CompanionImages[7];
+                LockedCompanions[7].GetComponent<Button>().enabled = true;
+            }
         }
     }
     // Checks the companionName strings name and unlocks that character
@@ -169,6 +176,12 @@ public class UnlockableCreatures : MonoBehaviour
                 {
                     UnlockableMoobling[6] = CompanionName;
                     PlayerPrefs.SetString("Cronus Locked", UnlockableMoobling[6]);
+                }
+                break;
+            case "OKAMI":
+                {
+                    UnlockableMoobling[7] = CompanionName;
+                    PlayerPrefs.SetString("OKAMI", UnlockableMoobling[7]);
                 }
                 break;
         }

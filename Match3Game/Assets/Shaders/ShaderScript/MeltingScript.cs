@@ -40,7 +40,7 @@ public class MeltingScript : MonoBehaviour {
                 if (DotManagerGameObj.GetComponent<DestroyNodes>().ComboList.Count > 5)
                 {
                     gameObject.transform.position = new Vector3(100, 0, 0);
-                    gameObject.GetComponent<DotScript>().Timer = 5;
+                    gameObject.GetComponent<DotScript>().Timer = 3;
                    gameObject.GetComponent<DotScript>().SelfDestruct = true;
                 }
                 else

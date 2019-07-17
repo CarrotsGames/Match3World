@@ -53,18 +53,19 @@ public class settings : MonoBehaviour {
             MusicImage.SetActive(true);
         }
 
-        if (soundOff)
+        if (!soundOff)
         {
             AudioManagerScript.soundOn = false;
             soundOff = false;
-            noSound.SetActive(true);
-            sound.SetActive(false);
-        }else
+            noSound.SetActive(false);
+            sound.SetActive(true);
+        }
+        else
         {
             AudioManagerScript.soundOn = true;
-            sound.SetActive(true);
+            sound.SetActive(false);
             soundOff = true;
-            noSound.SetActive(false);
+            noSound.SetActive(true);
         }
 
     }
