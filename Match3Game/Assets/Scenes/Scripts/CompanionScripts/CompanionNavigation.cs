@@ -125,7 +125,9 @@ public class CompanionNavigation : MonoBehaviour
         StartPos = SwipeDelta = Vector2.zero;
         IsDragging = false;
     }
- 
+    // Assigns each Scene a button
+    // Change that mooblings button number to the one assisgned eg 
+    // Saucos button is 6 in script so it should be 6 in scene
     public void PlayLevel(int Level)
     {
         // each character button has assigned Level value which when pressed loads level
@@ -133,18 +135,12 @@ public class CompanionNavigation : MonoBehaviour
         {
             case 1:
                 SceneManager.LoadScene("Gobu Level");
-
-
                 break;
             case 2:
                 SceneManager.LoadScene("Circle Scene");
-
-
                 break;
             case 3:
                 SceneManager.LoadScene("Triangle Scene");
-
-
                 break;
             case 4:
                   SceneManager.LoadScene("Royal Gobu Level 1");
