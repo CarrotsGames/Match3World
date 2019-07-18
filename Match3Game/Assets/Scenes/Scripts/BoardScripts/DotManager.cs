@@ -20,11 +20,16 @@ public class DotManager : MonoBehaviour
     public GameObject ParticleEffectPurple;
     public GameObject ParticleEffectBlue;
     public GameObject ParticleEffectYellow;
-   // public GameObject ParticleEffectFireWork;
+    public GameObject ParticleEffectGold;
+
+    // public GameObject ParticleEffectFireWork;
 
     public GameObject PartySpawner;
     // Will contain light[0] and Heavy[1] particle 
     public GameObject[] PartyEffect;
+    //Will play the Gold particle effect 
+    public GameObject GoldEffect;
+
     public GameObject MouseCursorObj;
     // Reset material colours (Green = Purple)
     public Material Red;
@@ -175,7 +180,13 @@ public class DotManager : MonoBehaviour
                     Gold.Add(Peices[i]);
                 }
             }
-            // Checks which colour made a match
+            if (Limit < Gold.Count)
+            {
+                AddColourToScore();
+                Peices.Clear();
+                AddBoardParticles();
+            }
+            // Checks which colour made a match  
             if (Limit < Peices.Count)
             {
 
@@ -192,10 +203,7 @@ public class DotManager : MonoBehaviour
                 ResetLayer = true;
 
             }
-            if(Limit < Gold.Count)
-            {
-                AddColourToScore();
-            }
+          
             PeicesCountCombo = PeicesCount;
             CheckConnection = false;
             // clears EatingPeice List
@@ -207,7 +215,11 @@ public class DotManager : MonoBehaviour
     // adds particle effect to the map
     void AddBoardParticles()
     {
-        if (Peices.Count >= 7)
+        if (Gold.Count >= 5)
+        {
+            Instantiate(GoldEffect, PartySpawner.transform.position, Quaternion.identity);
+        }
+        else if (Peices.Count >= 7)
         {
             Instantiate(PartyEffect[0], PartySpawner.transform.position, Quaternion.identity);
             Instantiate(PartyEffect[1], PartySpawner.transform.position, Quaternion.identity); 
@@ -215,9 +227,11 @@ public class DotManager : MonoBehaviour
         }
         else if (Peices.Count >= 5)
         {
-            Instantiate(PartyEffect[0], PartySpawner.transform.position, Quaternion.identity);
+             Instantiate(PartyEffect[0], PartySpawner.transform.position, Quaternion.identity);
         }
-
+     
+        Gold.Clear();
+        Peices.Clear();    
     }
 
 
@@ -258,7 +272,6 @@ public class DotManager : MonoBehaviour
 
         //  Debug.Log("No connection");
  
-            Gold.Clear();
              
             GoldAmount = 0;
              RedScore = 0;
@@ -276,11 +289,5 @@ public class DotManager : MonoBehaviour
           
  
     }
-    // This exists only to play particle on gold which works differently than normal nodes 
-    // (doesent give score, happiness or combo)
-    // and at the time seemed like the cleanest way of spawning a particle on the gold
-    void PlayGoldPartice()
-    {
-
-    }
+ 
 }

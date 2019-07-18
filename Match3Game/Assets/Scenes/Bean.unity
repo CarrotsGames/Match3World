@@ -3417,6 +3417,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4973804303055971695, guid: d6dbfef233633fd489cc0e0b4d74afbe,
         type: 3}
+    - target: {fileID: 114116024551390298, guid: 1fbc98c3587098445a60d05f5aa8d987,
+        type: 3}
+      propertyPath: ParticleEffectGold
+      value: 
+      objectReference: {fileID: 3581877317542592088, guid: 91a6a9763507c6248b5a513ebf9de683,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fbc98c3587098445a60d05f5aa8d987, type: 3}
 --- !u!114 &1010132890 stripped
@@ -4640,10 +4646,11 @@ MonoBehaviour:
   ComboGameObj: {fileID: 1930990598}
   ComboText: {fileID: 865754809}
   ComboScore: {fileID: 1796525131}
-  SlowMotionTimer: 0.008
   HappinessManagerScript: {fileID: 107124199}
   DotManagerScript: {fileID: 1590831268}
   ComboList: []
+  NormalCombo: 0
+  BigCombo: 0
 --- !u!114 &1590831268 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114116024551390298, guid: 1fbc98c3587098445a60d05f5aa8d987,
@@ -4656,6 +4663,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174f0ccf27e22164d8dc00a9fcfa2442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1590831269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590831266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f790a04433c86d940947a6bb6dc9611e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartDestroyGold: 0
+  GoldList: []
 --- !u!114 &1616428245 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114898036899560986, guid: bca90714ddbb8544796b1d79e4753570,
