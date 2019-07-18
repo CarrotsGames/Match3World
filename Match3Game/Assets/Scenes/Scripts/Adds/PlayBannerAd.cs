@@ -20,6 +20,13 @@ using UnityEngine.Monetization;
 
         Advertisement.Banner.Show(placementId);
     }
+
+
+    public void HideBanner()
+    {
+        Advertisement.Banner.Hide();
+    }
+
   //  IEnumerator ShowBannerWhenReady()
   //  {
   //      while (!Advertisement.IsReady(placementId))
