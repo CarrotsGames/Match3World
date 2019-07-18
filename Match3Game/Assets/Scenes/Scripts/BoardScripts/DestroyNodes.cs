@@ -8,29 +8,31 @@ public class DestroyNodes : MonoBehaviour {
     public float ComboSpeed;
     public float ComboVanishSpeed;
     public bool StartDestroy;
-    private GameObject CompanionGameObj;
-    private CompanionScript CompanionScriptRef;
     public GameObject ComboGameObj;
     public Text ComboText;
     public Text ComboScore;
-    private bool SlowMotionOn;
-    public float SlowMotionTimer;
-    private float SlowMotionStorage;
-    bool Vibrate;
-    private GameObject HappinessGameObj;
     public HappinessManager HappinessManagerScript;
-    private int Index;
-    private int ComboNum;
     public DotManager DotManagerScript;
-    private GameObject DotManagerObj;
     public List<GameObject> ComboList;
-    float Timer;
-    bool StartTimer;
-    bool Reset;
-    bool ComboPause;
-    int Combo;
-    float ComboTime;
-    int Test;
+     
+    private GameObject CompanionGameObj;
+    private CompanionScript CompanionScriptRef;
+    private GameObject HappinessGameObj;
+    private int Index;
+    private GameObject DotManagerObj;
+    private float Timer;
+    private int Combo;
+    private float ComboTime;
+    private int Test;
+    private bool Reset;
+    private bool ComboPause;
+
+    // These are used in the Idasauros Script to know when the animation should play
+    [HideInInspector]
+    public bool NormalCombo;
+    [HideInInspector]
+    public bool BigCombo;
+
     // Use this for initialization
     void Start ()
     {
@@ -38,15 +40,12 @@ public class DestroyNodes : MonoBehaviour {
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
          // Referneces DotManagerScript
         ComboTime = ComboVanishSpeed ;
-        Vibrate = true;
         CompanionGameObj = GameObject.FindGameObjectWithTag("Companion");
         CompanionScriptRef = CompanionGameObj.GetComponent<CompanionScript>();
         ComboGameObj.SetActive(false);
-        SlowMotionOn = false;
-        SlowMotionStorage = SlowMotionTimer;
+       
         Timer = 0;
-        StartTimer = false;
-        HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
+         HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
         HappinessManagerScript = HappinessGameObj.GetComponent<HappinessManager>();
     }
 
@@ -59,11 +58,9 @@ public class DestroyNodes : MonoBehaviour {
             DotManagerScript.CanPlay = true;
             Index = 0;
         }
-   
-         
+        // pauses the combo display 
         if(ComboPause)
         {
-            //StartTimer = false;
             ComboTime -= Time.deltaTime;
             if(ComboTime < 0)
             {
@@ -72,27 +69,26 @@ public class DestroyNodes : MonoBehaviour {
                 ComboTime = ComboVanishSpeed ;
             }
         }
+        // when the combo is over it resets all values
         if(Reset)
         {
             DotManagerScript.CanPlay = true;
-
-            StartTimer = false;
-            //resets combo text 
+             //resets combo text 
             ComboText.text = "";
             //disables combo gameobject 
             ComboGameObj.SetActive(false);
-            ComboNum = 0;
             Combo = 0;
             GetComponent<DotManager>().ComboScore = 0;
             GetComponent<DotManager>().PeicesCount = 0;
             Reset = false;
+            BigCombo = false;
+            NormalCombo = false;
         }
+        // begins coutning the combo and addind particles
         if (StartDestroy)
         {
-
             StartNodeDestroy();
             ComboGameObj.SetActive(true);
-
         }
  
 
@@ -183,12 +179,13 @@ public class DestroyNodes : MonoBehaviour {
     {
         if (ComboList.Count < 6)
         {
+            NormalCombo = true;
             ComboText.text = "COMBO : " + Combo;
         }
         else
         {
+            BigCombo = true;
             ComboText.text = "BIG \n COMBO : " + Combo;
-
         }
     }
     // Displays the ComboScore Text
@@ -205,8 +202,7 @@ public class DestroyNodes : MonoBehaviour {
         Total *= Multplier;
 
         ComboText.text = "Score:" +  Total;
-        StartTimer = true;
-
+ 
     }
     // plays particle effect for each node
     void PlayParticle()
