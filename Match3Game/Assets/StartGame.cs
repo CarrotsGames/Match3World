@@ -14,7 +14,17 @@ public class StartGame : MonoBehaviour
     public AudioClip pageFlip;
     public AudioSource audioSource;
 
+    public bool stopAd = false;
 
+    public GameObject playBannerGameObject;
+    private PlayBannerAd playBannerAdScript;
+    
+
+
+    public void Start()
+    {
+        playBannerAdScript = playBannerGameObject.GetComponent<PlayBannerAd>(); 
+    }
 
     public void LoadGame()
     {
@@ -24,6 +34,7 @@ public class StartGame : MonoBehaviour
     public void StartFade()
     {
         fadeAnim.SetBool("Start", true);
+        stopAd = true;
     }
 
     public void StartAnim()
@@ -41,6 +52,15 @@ public class StartGame : MonoBehaviour
     public void StartCamera()
     {
         cameraAnim.SetBool("StartZoom", true);
+    }
+
+
+    public void Update()
+    {
+        if (stopAd == true)
+        {
+            playBannerAdScript.HideBanner();
+        }
     }
 
 
