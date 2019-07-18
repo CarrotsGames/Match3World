@@ -55,8 +55,10 @@ public class HappinessManager : MonoBehaviour
         // CompanionSounds = GetComponent<AudioClip[]>();
         RealTimeGameObj = GameObject.FindGameObjectWithTag("MainCamera");
         RealtTimeScript = RealTimeGameObj.GetComponent<RealTimeCounter>();
+        // Gets the last known bool for this companion
+        IsSleeping = (PlayerPrefs.GetInt(SaveStrings) != 0);
         LoadCompanionSaves();
-      
+        
         // Gets the last known bool for this companion
         IsSleeping = (PlayerPrefs.GetInt(SaveStrings) != 0);
         // checks if bool puts companion to sleep
@@ -118,7 +120,7 @@ public class HappinessManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!OnMainScene)
+         if (!OnMainScene)
         {
             HappinessStates();
         }
@@ -211,17 +213,18 @@ public class HappinessManager : MonoBehaviour
 
                 AudioGameObj.GetComponent<SceneAudio>().Daymode = false;
                 AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
+                IsSleeping = true;
+                //sets bool to false and saves
+                PlayerPrefs.SetInt(SaveStrings, (IsSleeping ? 1 : 0));
 
             }
             DayTime.SetActive(false);
             AwakeHead.SetActive(false);
             // Music Change
-            IsSleeping = true;
             // Add multiplier    
             CanEarnGold = true;
             NightTime.SetActive(true);
-            //sets bool to false and saves
-            PlayerPrefs.SetInt(SaveStrings, (IsSleeping ? 1 : 0));
+       
          }
 
     }

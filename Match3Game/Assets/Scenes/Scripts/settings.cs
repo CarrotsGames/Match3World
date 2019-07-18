@@ -23,10 +23,7 @@ public class settings : MonoBehaviour {
 
     private GameObject AudioManagerGameObj;
     private AudioManager AudioManagerScript;
-    void Update()
-    {
-        Debug.Log(gameObject);
-    }
+ 
     private void Start()
     {
         AudioManagerGameObj = GameObject.FindGameObjectWithTag("AudioManager");

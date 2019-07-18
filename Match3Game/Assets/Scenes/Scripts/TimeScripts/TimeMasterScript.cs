@@ -21,6 +21,11 @@ public class TimeMasterScript : MonoBehaviour
         SaveLocation = "LastSavedDate1";
         
     }
+    private void Start()
+    {
+        CheckInstance();
+        SaveLocation = "LastSavedDate1";
+    }
     public void CheckInstance()
     {
         instance = this;
@@ -28,6 +33,8 @@ public class TimeMasterScript : MonoBehaviour
     }
     public float CheckDate()
     {
+        SaveLocation = "LastSavedDate1";
+
         // stores current time when app starts
         CurrentDate = System.DateTime.Now;
 

@@ -15,26 +15,23 @@ public class HappyMultlpier : MonoBehaviour {
     private GameObject RealTimeGameObj;
     [HideInInspector]
     public RealTimeCounter RealtTimeScript;
-    private string[] SaveStrings= { "GOBUSAVE","BINKYSAVE","KOKOSAVE","CRIUSSAVE","SAUCOSAVE","CHICKPEASAVE" };
+    private string[] SaveStrings = { "GOBUSAVE", "BINKYSAVE", "KOKOSAVE", "CRIUSSAVE", "SAUCOSAVE", "CHICKPEASAVE" };
     private List<string> ListOfSaves;
     int AddNewNum;
     // Use this for initialization
-    void Awake ()
+    void Start ()
     {
         RealTimeGameObj = GameObject.FindGameObjectWithTag("MainCamera");
         RealtTimeScript = RealTimeGameObj.GetComponent<RealTimeCounter>();
         ListOfSaves = new List<string>();
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
- 
         for (int i = 0; i < SaveStrings.Length; i++)
         {
             ListOfSaves.Add(SaveStrings[i]);
         }
+        CheckMultplier();
         Multplier();
-        RealTimeGameObj.GetComponent<TimeMasterScript>().CheckInstance();
-
-        RealtTimeScript.HappinessCountdowns();
     }
  
      // Update is called once per frame

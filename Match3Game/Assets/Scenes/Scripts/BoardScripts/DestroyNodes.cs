@@ -53,8 +53,9 @@ public class DestroyNodes : MonoBehaviour {
     // Update is called once per frame
     private void Update()
     {
-        if(ComboList.Count < 1)
+        if(ComboList.Count < 1 && GetComponent<DestroyGold>().GoldList.Count < 1)
         {
+
             DotManagerScript.CanPlay = true;
             Index = 0;
         }

@@ -19,16 +19,27 @@ public class RealTimeCounter : MonoBehaviour
     private SuperMultiplierScript SuperMultiplier;
     string companionName;
      public float SaveNum;
-     // Use this for initialization
-    void Start()
+ 
+    // Use this for initialization
+    void Awake()
     {
+        HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
+        HappinessManagerScript = HappinessGameObj.GetComponent<HappinessManager>();
         // Starting timer amount
         // Update timer with real time passed
         //TODO [Find a better way of doing this]
         this.gameObject.GetComponent<TimeMasterScript>().CheckInstance();
+        HappinessCountdowns();
+        LoadCompanionHappiness();
+    }
+
+    private void Start()
+    {
+        this.gameObject.GetComponent<TimeMasterScript>().CheckInstance();
 
         HappinessCountdowns();
         LoadCompanionHappiness();
+
     }
     public void HappinessCountdowns()
     {
@@ -49,10 +60,11 @@ public class RealTimeCounter : MonoBehaviour
         //  Make the happySlider.value equal that index
         ////////////////////////HAPPINESS COUNTDOWNS////////////////////////////////
 
-        //Gobus Happiness Timer
-        HappinessCountDown[0] = PlayerPrefs.GetFloat("GobuHappiness");
+       //Gobus Happiness Timer
+       HappinessCountDown[0] = PlayerPrefs.GetFloat("GobuHappiness");
        // update timer when real time passes 
        HappinessCountDown[0] -= TimeMasterScript.instance.CheckDate() / 25;
+
         // Binkies Happiness Timer                                        
        HappinessCountDown[1] = PlayerPrefs.GetFloat("BinkyHappiness");   
        // update timer when real time passes                             
@@ -92,18 +104,19 @@ public class RealTimeCounter : MonoBehaviour
        HappinessCountDown[8] = PlayerPrefs.GetFloat("OkamiHappiness");
        // update timer when real time passes                             
        HappinessCountDown[8] -= TimeMasterScript.instance.CheckDate() / 25;
-        /////////////////////////////////////////////////////////////////////
+       /////////////////////////////////////////////////////////////////////
+     
+
     }
     public void LoadCompanionHappiness()
     {
-        HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
-        HappinessManagerScript = HappinessGameObj.GetComponent<HappinessManager>();
+        
         // loads companion happiness save        
         switch (HappinessManagerScript.CompanionSave)
 
         {
             case "GobuHappiness":
-
+                //This is starting 0
                 HappinessManagerScript.HappinessSliderValue = HappinessCountDown[0];
                 companionName = "GobuHappiness";
 
@@ -163,7 +176,7 @@ public class RealTimeCounter : MonoBehaviour
 
                 break;
         }
-        HappinessGameObj.GetComponent<HappyMultlpier>().CheckMultplier();
+      //  HappinessGameObj.GetComponent<HappyMultlpier>().CheckMultplier();
 
         MultiplierGameOb = GameObject.FindGameObjectWithTag("SM");
         SuperMultiplier = MultiplierGameOb.GetComponent<SuperMultiplierScript>();
@@ -223,12 +236,19 @@ public class RealTimeCounter : MonoBehaviour
     }
     // Counts down the happiness of each moobling
     // Update is called once per frame
-    void Update()
-       
+    void Update()    
     { 
         if(HappinessManagerScript.OnMainScene)
         {
-            HappinessSliderValues();
+            // Grabs the happiness countdowns in scene once
+            //(there is most defintely a better way to do this)
+
+          // if (CheckOnce < 1)
+          // {
+          //     HappinessCountdowns();
+          //     CheckOnce++;
+          // }
+                HappinessSliderValues();
         }
         // changes the HappinessSlider to that companions happiness
         if (companionName == "GobuHappiness")
@@ -287,6 +307,8 @@ public class RealTimeCounter : MonoBehaviour
     // Resets clock based on current hunger and time instance
     public void ResetClock()
     {
+        this.gameObject.GetComponent<TimeMasterScript>().CheckInstance();
+
         HappinessSliderValues();
         HappinessCountdowns();
         //  // GOBU

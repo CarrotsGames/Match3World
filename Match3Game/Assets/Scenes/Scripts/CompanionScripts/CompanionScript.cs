@@ -85,8 +85,7 @@ public class CompanionScript : MonoBehaviour
             {
                 PowerUpManagerScript.Currency += 1;
             }
-            Debug.Log(chance);
-            //  DotManagerScript.Currency 
+             //  DotManagerScript.Currency 
         }
         if (!HappinessManagerScript.IsSleeping)
         {

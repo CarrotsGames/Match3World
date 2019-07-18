@@ -186,12 +186,15 @@ public class DotManager : MonoBehaviour
             else
             {
                 GoldAmount = 0;
-                Gold.Clear();
                 Companion.EatingPeices.Clear();
                 Peices.Clear();
                 PeicesList.Clear();
                 ResetLayer = true;
 
+            }
+            if(Limit < Gold.Count)
+            {
+                AddColourToScore();
             }
             PeicesCountCombo = PeicesCount;
             CheckConnection = false;
@@ -243,12 +246,9 @@ public class DotManager : MonoBehaviour
 
         if (GoldAmount == Peices.Count && GoldAmount > Limit)
         {
-            PowerUpManagerScript.Currency += GoldAmount;
-            for (int i = 0; i < GoldAmount; i++)
-            {
-                Destroy(Gold[i].gameObject);
-
-            }
+            PowerUpManagerScript.Currency += GoldAmount;       
+            GetComponent<DestroyGold>().StartGoldDestroy();
+             
         }
         // if the colour wasnt matched reset lists, scores, counts and selections
         // Counts the current combo going on 
