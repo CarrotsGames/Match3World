@@ -12104,10 +12104,11 @@ MonoBehaviour:
   ComboGameObj: {fileID: 1041851058}
   ComboText: {fileID: 122867453}
   ComboScore: {fileID: 60915232}
-  SlowMotionTimer: 0.08
   HappinessManagerScript: {fileID: 17941713}
   DotManagerScript: {fileID: 995296469}
   ComboList: []
+  NormalCombo: 0
+  BigCombo: 0
 --- !u!114 &995296469 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114116024551390298, guid: 1fbc98c3587098445a60d05f5aa8d987,
@@ -12120,6 +12121,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174f0ccf27e22164d8dc00a9fcfa2442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &995296471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995296467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f790a04433c86d940947a6bb6dc9611e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartDestroyGold: 0
+  GoldList: []
 --- !u!1 &1012828921
 GameObject:
   m_ObjectHideFlags: 0
@@ -12352,6 +12367,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1062951965}
   - component: {fileID: 1062951966}
+  - component: {fileID: 1062951967}
   m_Layer: 0
   m_Name: Idasaurous Head
   m_TagString: Untagged
@@ -12394,6 +12410,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1062951967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062951964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790b5d8dd944ad34b8aa16b454330420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idaAnimator: {fileID: 1062951966}
 --- !u!1 &1063776810
 GameObject:
   m_ObjectHideFlags: 0
@@ -14211,17 +14240,17 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 82546797425289626, guid: bd866eb15c48b0245ba33cc99194724d,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 82399504689600170, guid: bd866eb15c48b0245ba33cc99194724d,
         type: 3}
       propertyPath: Loop
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 82399504689600170, guid: bd866eb15c48b0245ba33cc99194724d,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82546797425289626, guid: bd866eb15c48b0245ba33cc99194724d,
         type: 3}
       propertyPath: m_PlayOnAwake
       value: 1
