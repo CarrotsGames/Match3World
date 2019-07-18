@@ -2343,6 +2343,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8950568520873973856, guid: 4217bd362841c5b4c9825d637e2f13e9,
         type: 3}
+    - target: {fileID: 114116024551390298, guid: 1fbc98c3587098445a60d05f5aa8d987,
+        type: 3}
+      propertyPath: ParticleEffectGold
+      value: 
+      objectReference: {fileID: 3581877317542592088, guid: 91a6a9763507c6248b5a513ebf9de683,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fbc98c3587098445a60d05f5aa8d987, type: 3}
 --- !u!114 &1009313187 stripped
@@ -3916,10 +3922,11 @@ MonoBehaviour:
   ComboGameObj: {fileID: 1050811117}
   ComboText: {fileID: 1879526955}
   ComboScore: {fileID: 852995485}
-  SlowMotionTimer: 0.008
   HappinessManagerScript: {fileID: 107124199}
   DotManagerScript: {fileID: 1590831268}
   ComboList: []
+  NormalCombo: 0
+  BigCombo: 0
 --- !u!114 &1590831268 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114116024551390298, guid: 1fbc98c3587098445a60d05f5aa8d987,
