@@ -5,7 +5,7 @@ using UnityEngine;
 //THIS SCRIPT EXISTS TO DESTORY INSTANTIATED PARTICLES AFTER THE BOMB GAMEOBJECT WAS DESTORYED
 public class DestroyGameObject : MonoBehaviour {
 
-    float Timer;
+    public float Timer;
 	// Use this for initialization
 	void Start () {
         Timer = 1;
