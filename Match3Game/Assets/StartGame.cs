@@ -7,6 +7,7 @@ public class StartGame : MonoBehaviour
 {
     public Animator fadeAnim;
     public Animator gameAnim;
+    public Animator cameraAnim;
 
     public GameObject startText;
 
@@ -35,6 +36,11 @@ public class StartGame : MonoBehaviour
     public void PlayAudio()
     {
         audioSource.PlayOneShot(pageFlip, 0.7f);
+    }
+
+    public void StartCamera()
+    {
+        cameraAnim.SetBool("StartZoom", true);
     }
 
 
