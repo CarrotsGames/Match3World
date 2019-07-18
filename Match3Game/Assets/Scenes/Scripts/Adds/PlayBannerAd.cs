@@ -6,7 +6,7 @@ using UnityEngine.Monetization;
  public class PlayBannerAd : MonoBehaviour
 {
     public string gameId = "3222685";
-    public string placementId = "video";
+    public string placementId = "OpeningSceneBanner";
     public bool testMode = true;
 
     void Start()

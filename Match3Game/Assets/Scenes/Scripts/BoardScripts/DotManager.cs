@@ -194,8 +194,8 @@ public class DotManager : MonoBehaviour
 
             }
             PeicesCountCombo = PeicesCount;
-                CheckConnection = false;
-                // clears EatingPeice List
+            CheckConnection = false;
+            // clears EatingPeice List
          
         }
 
@@ -276,5 +276,11 @@ public class DotManager : MonoBehaviour
           
  
     }
+    // This exists only to play particle on gold which works differently than normal nodes 
+    // (doesent give score, happiness or combo)
+    // and at the time seemed like the cleanest way of spawning a particle on the gold
+    void PlayGoldPartice()
+    {
 
+    }
 }
