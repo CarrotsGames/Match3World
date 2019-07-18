@@ -8,7 +8,7 @@ public class DestroyGameObject : MonoBehaviour {
     public float Timer;
 	// Use this for initialization
 	void Start () {
-        Timer = 1;
+   
 
     }
 	
