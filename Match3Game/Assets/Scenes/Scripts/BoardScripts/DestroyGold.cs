@@ -69,7 +69,7 @@ public class DestroyGold : MonoBehaviour
         // while the index is greater than the goldlist count
         if (Index < GoldList.Count)
         {
-            Instantiate(GetComponent<DotManager>().ParticleEffectYellow, GoldList[Index].transform.position, Quaternion.identity);
+            Instantiate(GetComponent<DotManager>().ParticleEffectGold, GoldList[Index].transform.position, Quaternion.identity);
             GoldList[Index].transform.position += new Vector3(100, 0, 0);
             GoldList[Index].GetComponent<DotScript>().SelfDestruct = true;
             Index++;

@@ -8205,6 +8205,7 @@ GameObject:
   - component: {fileID: 2085261490}
   - component: {fileID: 2085261489}
   - component: {fileID: 2085261491}
+  - component: {fileID: 2085261492}
   m_Layer: 0
   m_Name: Node Manager
   m_TagString: DotManager
@@ -8237,10 +8238,14 @@ MonoBehaviour:
     type: 3}
   ParticleEffectYellow: {fileID: 1645080899943084, guid: 3bcb3486ef7020046a3dfeb0c7d7cbd9,
     type: 3}
+  ParticleEffectGold: {fileID: 3581877317542592088, guid: 91a6a9763507c6248b5a513ebf9de683,
+    type: 3}
   PartySpawner: {fileID: 237903051}
   PartyEffect:
   - {fileID: 7814732012330249549, guid: 529aa711efcbe874fa65bb3edc21241e, type: 3}
   - {fileID: 4584629529218632242, guid: 8aa149afa87c49946a65e67114bed6b7, type: 3}
+  GoldEffect: {fileID: 3127394436162725588, guid: fbd427e3cc401474380ba17009089cbf,
+    type: 3}
   MouseCursorObj: {fileID: 1784204496}
   Red: {fileID: 2100000, guid: 42944a42ec16d2b47a640b6313923061, type: 2}
   Blue: {fileID: 2100000, guid: 42f09c1d07f6bec4aabf45eec21cfc2f, type: 2}
@@ -8303,10 +8308,25 @@ MonoBehaviour:
   ComboGameObj: {fileID: 878289684}
   ComboText: {fileID: 1708635294}
   ComboScore: {fileID: 1466038476}
-  SlowMotionTimer: 0.08
   HappinessManagerScript: {fileID: 1279690371}
   DotManagerScript: {fileID: 2085261489}
   ComboList: []
+  NormalCombo: 0
+  BigCombo: 0
+--- !u!114 &2085261492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085261488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f790a04433c86d940947a6bb6dc9611e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartDestroyGold: 0
+  GoldList: []
 --- !u!1 &2099766483
 GameObject:
   m_ObjectHideFlags: 0

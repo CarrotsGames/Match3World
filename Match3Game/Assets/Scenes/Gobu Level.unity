@@ -740,6 +740,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 82546797425289626, guid: bd866eb15c48b0245ba33cc99194724d,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 82399504689600170, guid: bd866eb15c48b0245ba33cc99194724d,
         type: 3}
       propertyPath: m_Enabled
@@ -751,11 +756,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 82399504689600170, guid: bd866eb15c48b0245ba33cc99194724d,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 82546797425289626, guid: bd866eb15c48b0245ba33cc99194724d,
         type: 3}
       propertyPath: m_PlayOnAwake
       value: 1
@@ -1468,10 +1468,11 @@ MonoBehaviour:
   ComboGameObj: {fileID: 1700133428}
   ComboText: {fileID: 522633429}
   ComboScore: {fileID: 690574437}
-  SlowMotionTimer: 0.08
   HappinessManagerScript: {fileID: 0}
   DotManagerScript: {fileID: 0}
   ComboList: []
+  NormalCombo: 0
+  BigCombo: 0
 --- !u!114 &856235944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1686,7 +1687,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d9174d06c8ee46341b432e6fa430a134, type: 2}
+      objectReference: {fileID: 2100000, guid: b7e8e3c9834895140a5b9942cab84298, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdada8574ce01ac42b5f660acca6d26b, type: 3}
 --- !u!1 &932378640 stripped
@@ -1939,6 +1940,12 @@ PrefabInstance:
       propertyPath: PartySpawner
       value: 
       objectReference: {fileID: 669741312}
+    - target: {fileID: 114116024551390298, guid: 1fbc98c3587098445a60d05f5aa8d987,
+        type: 3}
+      propertyPath: ParticleEffectGold
+      value: 
+      objectReference: {fileID: 3581877317542592088, guid: 91a6a9763507c6248b5a513ebf9de683,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fbc98c3587098445a60d05f5aa8d987, type: 3}
 --- !u!1 &1012828921
@@ -4718,11 +4725,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gobu Canvus
       objectReference: {fileID: 0}
-    - target: {fileID: 2335640169551085877, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2555375599219393605, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4747,6 +4749,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.32449654
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335640169551085877, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2335805763254419903, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
