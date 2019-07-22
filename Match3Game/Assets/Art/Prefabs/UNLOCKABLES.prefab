@@ -127,7 +127,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 194.39421, y: 253.15236, z: -6.7707987}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 3468149265002196328}
   m_Father: {fileID: 4764294800479426}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -143,9 +144,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bfdbec3bc0066d439a92b63f3af9d48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChallengeScore: 10000
+  ChallengeScore: 1000000
   PrizeCompanion:
-  - {fileID: 1433736228831258}
+  - {fileID: 8092940704040772783}
   UnlockableCreatures: {fileID: 1269676272982220}
 --- !u!1 &1734176546214480
 GameObject:
@@ -192,3 +193,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnlockScore: 88130000983a0000
   UnlockableCreaturesGameObj: {fileID: 1269676272982220}
+--- !u!1 &8092940704040772783
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3468149265002196328}
+  m_Layer: 0
+  m_Name: Cronus Locked
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3468149265002196328
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8092940704040772783}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -192.41458, y: -250.62259, z: 40.116875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4530868507874312}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
