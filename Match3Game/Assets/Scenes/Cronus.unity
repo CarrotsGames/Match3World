@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 47175495}
   - component: {fileID: 47175496}
   m_Layer: 0
-  m_Name: Collider (2)
+  m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -434,7 +434,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 192660692}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.6, y: 3.7, z: 80.5}
+  m_LocalPosition: {x: 4.6, y: 32.7, z: 80.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -813,6 +813,7 @@ Transform:
   m_Children:
   - {fileID: 1419502910}
   - {fileID: 932546231}
+  - {fileID: 1448476661}
   - {fileID: 1155653316}
   m_Father: {fileID: 0}
   m_RootOrder: 21
@@ -1291,7 +1292,7 @@ GameObject:
   - component: {fileID: 607198231}
   - component: {fileID: 607198232}
   m_Layer: 0
-  m_Name: Collider
+  m_Name: Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1351,6 +1352,7 @@ GameObject:
   - component: {fileID: 1694413307}
   - component: {fileID: 620140864}
   - component: {fileID: 1694413305}
+  - component: {fileID: 620140867}
   m_Layer: 11
   m_Name: Cronus
   m_TagString: Companion
@@ -1487,6 +1489,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -32.192}
+--- !u!114 &620140867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620140863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac24ef0c49d23e645be5a290a6e9b8bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BottomCollider: {fileID: 607198230}
+  ClockTimer: 12
 --- !u!1001 &633538862
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2568,7 +2584,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1543697491, guid: d7fb396edf155de40895610ead7b8864, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7fb396edf155de40895610ead7b8864, type: 3}
@@ -2604,7 +2620,7 @@ Transform:
   - {fileID: 47175495}
   - {fileID: 1321590438}
   m_Father: {fileID: 294113352}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1157786478
 GameObject:
@@ -2886,7 +2902,7 @@ GameObject:
   - component: {fileID: 1321590438}
   - component: {fileID: 1321590439}
   m_Layer: 0
-  m_Name: Collider (3)
+  m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3320,6 +3336,79 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1448476660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1448476661}
+  - component: {fileID: 1448476663}
+  - component: {fileID: 1448476662}
+  m_Layer: 0
+  m_Name: DestoryNodes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1448476661
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448476660}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.30250636, y: -18.08, z: -45.412}
+  m_LocalScale: {x: 8.385047, y: 1.3469956, z: 1.3469956}
+  m_Children: []
+  m_Father: {fileID: 294113352}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1448476662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448476660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc7d60daec64d504c961ad49b2b39500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Timer: 0
+  DestoryNodeTimer: 0
+  Disolve: 0
+--- !u!61 &1448476663
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448476660}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.97, y: 1}
+  m_EdgeRadius: 0
 --- !u!1001 &1531784646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4027,7 +4116,7 @@ GameObject:
   - component: {fileID: 1794340348}
   - component: {fileID: 1794340349}
   m_Layer: 0
-  m_Name: Collider (1)
+  m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
