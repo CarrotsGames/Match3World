@@ -108,9 +108,9 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 2
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -287,7 +287,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1036,7 +1036,7 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 1
-      scalar: 1
+      scalar: 30
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4754,7 +4754,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: -1194284023
   m_SortingLayer: 10
   m_SortingOrder: 0
-  m_RenderMode: 0
+  m_RenderMode: 4
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
@@ -4772,7 +4772,7 @@ ParticleSystemRenderer:
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_VertexStreams: 00010304
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
@@ -4882,9 +4882,9 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 2
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -5061,7 +5061,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5114,7 +5114,7 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 30
+      scalar: 50
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5378,7 +5378,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     maxNumParticles: 1000
-    size3D: 1
+    size3D: 0
     rotation3D: 0
     gravityModifier:
       serializedVersion: 2
@@ -5810,7 +5810,7 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 1
-      scalar: 1
+      scalar: 30
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -9528,7 +9528,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: -1194284023
   m_SortingLayer: 10
   m_SortingOrder: 0
-  m_RenderMode: 0
+  m_RenderMode: 4
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
@@ -9546,7 +9546,7 @@ ParticleSystemRenderer:
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_VertexStreams: 00010304
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
@@ -9720,8 +9720,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 50
-      minScalar: 20
+      scalar: 75
+      minScalar: 35
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -12069,7 +12069,7 @@ ParticleSystem:
     magnitude:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.7
+      scalar: 0.8
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -12123,7 +12123,7 @@ ParticleSystem:
     inWorldSpace: 0
     multiplyDragByParticleSize: 1
     multiplyDragByParticleVelocity: 1
-    dampen: 0.6
+    dampen: 0.4
     drag:
       serializedVersion: 2
       minMaxState: 1
@@ -19075,6 +19075,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2595874867179949578, guid: 6fe9f9acee2afc340a39a5250571aedb,
         type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2595874867179949578, guid: 6fe9f9acee2afc340a39a5250571aedb,
+        type: 3}
+      propertyPath: scalingMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2595874867179949578, guid: 6fe9f9acee2afc340a39a5250571aedb,
+        type: 3}
       propertyPath: InitialModule.startColor.maxGradient.key0.g
       value: 1
       objectReference: {fileID: 0}
@@ -19131,7 +19141,12 @@ PrefabInstance:
     - target: {fileID: 2595874867179949578, guid: 6fe9f9acee2afc340a39a5250571aedb,
         type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 60
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2595874867179949578, guid: 6fe9f9acee2afc340a39a5250571aedb,
+        type: 3}
+      propertyPath: SizeModule.curve.scalar
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2595874867179949578, guid: 6fe9f9acee2afc340a39a5250571aedb,
         type: 3}
@@ -19178,6 +19193,16 @@ PrefabInstance:
       propertyPath: UVModule.frameOverTime.maxCurve.m_Curve.Array.data[1].outWeight
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8454656747988913101, guid: 6fe9f9acee2afc340a39a5250571aedb,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454656747988913101, guid: 6fe9f9acee2afc340a39a5250571aedb,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fe9f9acee2afc340a39a5250571aedb, type: 3}
 --- !u!4 &9042858535072527687 stripped
