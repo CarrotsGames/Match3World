@@ -338,7 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 676a119dca6cf4e4cb9299267ca18693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Width: 4
+  Width: 6
   Height: 5
   Gold: 0
   TilePrefab: {fileID: 1826161997128130, guid: a7b5c648e1340cc429b95bd0d68f649b, type: 3}
@@ -740,11 +740,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 82546797425289626, guid: bd866eb15c48b0245ba33cc99194724d,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 82399504689600170, guid: bd866eb15c48b0245ba33cc99194724d,
         type: 3}
       propertyPath: m_Enabled
@@ -756,6 +751,11 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 82399504689600170, guid: bd866eb15c48b0245ba33cc99194724d,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82546797425289626, guid: bd866eb15c48b0245ba33cc99194724d,
         type: 3}
       propertyPath: m_PlayOnAwake
       value: 1
@@ -841,6 +841,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &375582360 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2336660659435952756, guid: d7fb396edf155de40895610ead7b8864,
+    type: 3}
+  m_PrefabInstance: {fileID: 2335805762085885306}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &384602314
 GameObject:
   m_ObjectHideFlags: 0
@@ -3822,6 +3828,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114484701067736022, guid: bf3605dd2212720418b844a549b03eea,
+        type: 3}
+      propertyPath: EggHatchGameObj
+      value: 
+      objectReference: {fileID: 375582360}
     - target: {fileID: 114697194608924240, guid: bf3605dd2212720418b844a549b03eea,
         type: 3}
       propertyPath: CompanionScore
@@ -4893,6 +4904,10 @@ PrefabInstance:
     - target: {fileID: 2449254646268538357, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_Transition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1543697491, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2555351538310502943, guid: d7fb396edf155de40895610ead7b8864,
