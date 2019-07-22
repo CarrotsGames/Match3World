@@ -11,13 +11,9 @@ using System.Collections.Generic;
 
     DotManager DotManagerScript;
 
-      public int[] NumberOfNames;
-    [HideInInspector]
-    public int[] NumbOfNamesStore;
+  
     public Text text;
-    [HideInInspector]
     public List<Text> ListNames;
-    Vector3 Names;
     public int OffsetY;
     [HideInInspector]
     public int i;
@@ -29,18 +25,10 @@ using System.Collections.Generic;
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
         
-        NumbOfNamesStore = NumberOfNames;
-        ListNames = new List<Text>();
+      ///   ListNames = new List<Text>();
         OffsetY = 0;
         // sets up the top 10 on leaderboards position
-        for (int i = 0; i < NumberOfNames.Length; i++)
-        {
-            Text Go;
-            Go = Instantiate(text, transform.position + new Vector3(0, OffsetY, 0), Quaternion.identity) as Text;
-            Go.transform.parent = transform;
-            ListNames.Add(Go);
-            OffsetY -= 7;
-        }
+      
         // logins into playfab with android device ID
         if (string.IsNullOrEmpty(PlayFabSettings.TitleId))
         {
@@ -104,8 +92,8 @@ using System.Collections.Generic;
                     ListNames[i].text = entry.DisplayName + " " + entry.StatValue;
                     i++;
                 }
-                
-             
+            i = 0;
+
           // if login is failed throw error
         }, OnLoginFailure);
 

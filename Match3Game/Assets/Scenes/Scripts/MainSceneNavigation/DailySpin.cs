@@ -54,12 +54,11 @@ public class DailySpin : MonoBehaviour
         // When Time to stop wheel has reached less than 0 player can stop wheel
         if (TimeToStopWheel < 0)
         {
-            if(Input.GetMouseButtonDown(0))
-            {
+            
                 Events.GetComponent<PlayFabServerTime>().DailySpin();
 
                 StopSpinning = true;
-            }
+             
         }
 
       // When wheel starts spinning
