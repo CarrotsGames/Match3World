@@ -6,12 +6,9 @@ using System.Collections;
 using System.Collections.Generic;
   public class LeaderBoardScript : MonoBehaviour
 {
-
     GameObject DotManagerObj;
-
     DotManager DotManagerScript;
 
-  
     public Text text;
     public List<Text> ListNames;
     public int OffsetY;

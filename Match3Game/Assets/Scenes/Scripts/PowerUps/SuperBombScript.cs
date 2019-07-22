@@ -27,7 +27,8 @@ public class SuperBombScript : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-                if (hit.transform.gameObject.layer == 14 || hit.transform.gameObject.layer == 10)
+                //Places bomb on Areas
+                if (hit.transform.gameObject.layer == 14 || hit.transform.gameObject.layer == 10 || hit.transform.gameObject.layer == 15)
                 {
                     BombPlayArea.SetActive(false);
 

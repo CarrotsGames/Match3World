@@ -74,8 +74,15 @@ public class BombExplodeScript : MonoBehaviour
             }
             if(Timer >= -0.25f)
             {
-                collision.gameObject.transform.position = new Vector3(100, 0, 0);
-                collision.gameObject.GetComponent<DotScript>().SelfDestruct = true ;
+                if (collision.gameObject.name == "FreezeZone(Clone)")
+                {
+                    Destroy(collision.gameObject);
+                }
+                else
+                {
+                    collision.gameObject.transform.position = new Vector3(100, 0, 0);
+                    collision.gameObject.GetComponent<DotScript>().SelfDestruct = true;
+                }
             }
             else if (Timer <= -1)
             {
