@@ -16,12 +16,12 @@ public class MeltingScript : MonoBehaviour {
     private bool IsConnecting;
      
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         rend = GetComponent<Renderer>();
         DotManagerGameObj = GameObject.FindGameObjectWithTag("DotManager");
         DotScriptRef = GetComponent<DotScript>();
         Disolve = false;
-
     }
 
     // Update is called once per frame
@@ -37,7 +37,15 @@ public class MeltingScript : MonoBehaviour {
             transform.localScale -= new Vector3(1, 1, 1) * Time.deltaTime;
             if(Test <= 0.25f)
             {
-                if (DotManagerGameObj.GetComponent<DestroyNodes>().ComboList.Count > 5)
+                if(this.gameObject.tag == "DeadNode")
+                {
+                    gameObject.transform.position = new Vector3(100, 0, 0);
+                    if(Test <= 0)
+                    {
+                        Destroy(this.gameObject);
+                    }
+                }
+                else if (DotManagerGameObj.GetComponent<DestroyNodes>().ComboList.Count > 5)
                 {
                     gameObject.transform.position = new Vector3(100, 0, 0);
                     gameObject.GetComponent<DotScript>().Timer = 3;
@@ -66,8 +74,11 @@ public class MeltingScript : MonoBehaviour {
         Child.GetComponent<Renderer>().material = ShaderMat;
  
         Child.GetComponent<Renderer>().material.SetFloat("_Progress", Test);
- 
-        if(DotScriptRef.DotManagerScript.Peices.Contains(this.gameObject))    
+        if (this.gameObject.tag == "DeadNode")
+        {
+            Disolve = true;
+        }
+        else if(DotScriptRef.DotManagerScript.Peices.Contains(this.gameObject))    
          {
            //  if (CollidedNode.layer == DotScriptRef.LayerType)
           //  {
