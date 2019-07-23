@@ -36,15 +36,19 @@ public class DestoryCollidedNodes : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         CollidedNode = collision.gameObject;
- 
+        
         if (DotScriptGameObj.GetComponent<DotManager>().Peices.Contains(CollidedNode))
         {
             CollidedNode.GetComponent<DotScript>().OnMouseUp();
         }
+        else if (collision.gameObject.tag == "Rainbow")
+        {
+            Destroy(collision.gameObject);
+        }
         else if(!CompanionScriptRef.EatingPeices.Contains(CollidedNode) || !DotScriptGameObj.GetComponent<DotManager>().Peices.Contains(CollidedNode))
         {
              collision.gameObject.transform.position += new Vector3(100, 0, 0);
-            collision.gameObject.GetComponent<DotScript>().SelfDestruct = true;
+             collision.gameObject.GetComponent<DotScript>().SelfDestruct = true;
         }
     }
 }

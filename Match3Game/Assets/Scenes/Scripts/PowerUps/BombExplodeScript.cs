@@ -25,6 +25,7 @@ public class BombExplodeScript : MonoBehaviour
         // ignroe collisions Between this layer and this layer
         Physics2D.IgnoreLayerCollision(12, 11);
         Physics2D.IgnoreLayerCollision(12, 14);
+        Physics2D.IgnoreLayerCollision(12, 15);
         Physics2D.IgnoreLayerCollision(12, 2);
 
         Detonate = true;
@@ -74,9 +75,15 @@ public class BombExplodeScript : MonoBehaviour
             }
             if(Timer >= -0.25f)
             {
-                if (collision.gameObject.name == "FreezeZone(Clone)")
+            
+
+                if (collision.gameObject.tag == "DeadNode")
                 {
                     Destroy(collision.gameObject);
+                }        
+                else if (collision.gameObject.tag == "Rainbow")
+                {
+                    // do nothing
                 }
                 else
                 {
