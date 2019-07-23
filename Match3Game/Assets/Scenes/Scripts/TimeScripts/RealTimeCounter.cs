@@ -191,65 +191,66 @@ public class RealTimeCounter : MonoBehaviour
          // COUNTS DOWN ALL COMPANION HAPPINESS WHILE NOT IN SCENE
         HappinessCountDown[0] = Mathf.Clamp(HappinessCountDown[0], 0, 100);
         // Update timer each frame by delay
-        HappinessCountDown[0] -= Time.deltaTime / 10;
+        HappinessCountDown[0] -= Time.deltaTime / 15;
         PlayerPrefs.SetFloat("GobuHappiness", HappinessCountDown[0]);
 
         HappinessCountDown[1] = Mathf.Clamp(HappinessCountDown[1], 0, 100);
         // Update timer each frame by delay
-        HappinessCountDown[1] -= Time.deltaTime / 10;
+        HappinessCountDown[1] -= Time.deltaTime / 15;
         PlayerPrefs.SetFloat("BinkyHappiness", HappinessCountDown[1]);
 
         HappinessCountDown[2] = Mathf.Clamp(HappinessCountDown[2], 0, 100);
         // Update timer each frame by delay
-        HappinessCountDown[2] -= Time.deltaTime / 10;
+        HappinessCountDown[2] -= Time.deltaTime / 15;
         PlayerPrefs.SetFloat("KokoHappiness", HappinessCountDown[2]);
 
         HappinessCountDown[3] = Mathf.Clamp(HappinessCountDown[3], 0, 100);
         // Update timer each frame by delay
-        HappinessCountDown[3] -= Time.deltaTime / 10;
+        HappinessCountDown[3] -= Time.deltaTime / 15;
         PlayerPrefs.SetFloat("CriusHappiness", HappinessCountDown[3]);
 
         HappinessCountDown[4] = Mathf.Clamp(HappinessCountDown[4], 0, 100);
         // Update timer each frame by delay
-        HappinessCountDown[4] -= Time.deltaTime / 10;
+        HappinessCountDown[4] -= Time.deltaTime / 15;
         PlayerPrefs.SetFloat("SaucoHappiness", HappinessCountDown[4]);
 
         HappinessCountDown[5] = Mathf.Clamp(HappinessCountDown[5], 0, 100);
         // Update timer each frame by delay
-        HappinessCountDown[5] -= Time.deltaTime / 10;
+        HappinessCountDown[5] -= Time.deltaTime / 15;
         PlayerPrefs.SetFloat("ChickPeaHappiness", HappinessCountDown[5]);
 
         HappinessCountDown[6] = Mathf.Clamp(HappinessCountDown[6], 0, 100);
         // Update timer each frame by delay
-        HappinessCountDown[6] -= Time.deltaTime / 10;
+        HappinessCountDown[6] -= Time.deltaTime / 15;
         PlayerPrefs.SetFloat("SquishyHappiness", HappinessCountDown[6]);
 
         HappinessCountDown[7] = Mathf.Clamp(HappinessCountDown[7], 0, 100);
         // Update timer each frame by delay
-        HappinessCountDown[7] -= Time.deltaTime / 10;
+        HappinessCountDown[7] -= Time.deltaTime / 15;
         PlayerPrefs.SetFloat("CronosHappiness", HappinessCountDown[7]);
 
         HappinessCountDown[8] = Mathf.Clamp(HappinessCountDown[8], 0, 100);
         // Update timer each frame by delay
-        HappinessCountDown[8] -= Time.deltaTime / 10;
+        HappinessCountDown[8] -= Time.deltaTime / 15;
         PlayerPrefs.SetFloat("OkamiHappiness", HappinessCountDown[8]);
     }
     // Counts down the happiness of each moobling
     // Update is called once per frame
-    void Update()    
-    { 
-        if(HappinessManagerScript.OnMainScene)
-        {
-            // Grabs the happiness countdowns in scene once
-            //(there is most defintely a better way to do this)
-
-          // if (CheckOnce < 1)
-          // {
-          //     HappinessCountdowns();
-          //     CheckOnce++;
-          // }
-                HappinessSliderValues();
-        }
+    void Update()
+    {
+        HappinessSliderValues();
+        // IF MULTIPLIER THING BREAKS RE ENABLE THIS AND REMOVE LINE ABOVE
+       // if (HappinessManagerScript.OnMainScene)
+       // {
+       //     // Grabs the happiness countdowns in scene once
+       //     //(there is most defintely a better way to do this)
+       //
+       //   // if (CheckOnce < 1)
+       //   // {
+       //   //     HappinessCountdowns();
+       //   //     CheckOnce++;
+       //   // }
+       // }
         // changes the HappinessSlider to that companions happiness
         if (companionName == "GobuHappiness")
         {

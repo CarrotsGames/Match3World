@@ -5,7 +5,9 @@ using System;
 
 public class HalfTime : MonoBehaviour
 {
+    [HideInInspector]
     public GameObject PowerUpManagerGameObj;
+    [HideInInspector]
     public PowerUpManager PowerUpManagerScript;
     public int[] Prices;
     private void Start()
