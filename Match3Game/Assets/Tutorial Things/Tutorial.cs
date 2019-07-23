@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Tutorial : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class Tutorial : MonoBehaviour
     public GameObject leaderboardIntro;
     public GameObject nameInputBubble;
     public GameObject storeBubble;
+
+    public GameObject particle;
+    public GameObject particle2;
 
     public Button gobuButton;
 
@@ -38,6 +42,8 @@ public class Tutorial : MonoBehaviour
     {
         leaderboardNotShowing = true;
         inputField.SetActive(false);
+        gobuButton.interactable = false;
+
     }
 
 
@@ -47,7 +53,6 @@ public class Tutorial : MonoBehaviour
         {
             welcomeToMooblings.SetActive(false);
             gobuIntroduction.SetActive(true);
-            gobuButton.interactable = false;
 
             numberOfClicks++;
             return;
@@ -68,6 +73,7 @@ public class Tutorial : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0) && numberOfClicks == 3f)
         {
+            particle.SetActive(true);
             finger.SetActive(true);
             gobu1.SetActive(false);
             leaderboardIntro.SetActive(false);
@@ -81,6 +87,7 @@ public class Tutorial : MonoBehaviour
             gobu2.SetActive(false);
             tutPanel.SetActive(false);
             finger2.SetActive(true);
+            particle2.SetActive(true);
         }
     }
 
@@ -90,6 +97,7 @@ public class Tutorial : MonoBehaviour
     {
         if(leaderboardNotShowing == true)
         {
+            particle.SetActive(false);
             gobu1.SetActive(true);
             scoreboard.SetActive(true);
             inputField.SetActive(true);
@@ -113,6 +121,12 @@ public class Tutorial : MonoBehaviour
         }
 
 
+    }
+
+
+    public void LoadTutorialStore()
+    {
+        SceneManager.LoadScene("StoreScene Tutorial");
     }
 
 

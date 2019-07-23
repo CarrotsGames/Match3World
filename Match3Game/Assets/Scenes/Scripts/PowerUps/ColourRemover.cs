@@ -9,6 +9,7 @@ public class ColourRemover : MonoBehaviour
     public bool Blue;
     public bool Yellow;
     public bool Purple;
+    public bool Rainbow;
     bool GoTimer;
     public GameObject MouseCursorObj;
     public Component[] Renderer;
@@ -83,6 +84,10 @@ public class ColourRemover : MonoBehaviour
                     if (hit.collider.gameObject.tag == "Yellow")
                     {
                         Purple = true;
+                    }
+                    if (hit.collider.gameObject.tag == "Rainbow")
+                    {
+                        Rainbow = true;
                     }
                 }
 
@@ -162,9 +167,27 @@ public class ColourRemover : MonoBehaviour
                 DotManagerScript.TotalScore += SCRAmount * DotManagerScript.Multipier;
                 DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
             }
+            if (Rainbow)
+            {
+                for (int i = 0; i < BoardGameObj.transform.childCount; i++)
+                {
+                    SCRAmount += 1;
+
+                    if (BoardGameObj.transform.GetChild(i).tag == "Rainbow")
+                    {
+                        Destroy(BoardGameObj.transform.GetChild(i).gameObject);
+                    }
+                }
+                Rainbow = false;
+                PowerUpInUse = false;
+                DotManagerScript.ResetMaterial = true;
+                GoTimer = true;
+                DotManagerScript.TotalScore += SCRAmount * DotManagerScript.Multipier;
+                DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
+            }
 
 
-         }
+        }
 
     }
     public void SuperColourRemoverMenu()
