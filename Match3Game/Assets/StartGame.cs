@@ -28,7 +28,7 @@ public class StartGame : MonoBehaviour
 
     public void LoadGame()
     {
-        SceneManager.LoadScene("Main Screen");
+        SceneManager.LoadScene("Tutorial Scene");
     }
 
     public void StartFade()
