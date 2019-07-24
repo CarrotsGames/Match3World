@@ -1989,15 +1989,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: HomeButton
       objectReference: {fileID: 0}
-    - target: {fileID: 1543697491, guid: d7fb396edf155de40895610ead7b8864, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2449818973851826393, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: ShuffleSpawn
       value: 
       objectReference: {fileID: 1903594540}
+    - target: {fileID: 1543697491, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7fb396edf155de40895610ead7b8864, type: 3}
 --- !u!1 &721898473
@@ -3501,7 +3501,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 227157799}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1247223086}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 21741c4e4bb78f94e86249b9076a3b9d, type: 3}
@@ -3666,6 +3666,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0ea7a4790d5f694989ea5eee2c0d989, type: 3}
+--- !u!1 &1247223086 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1798270318024600, guid: 6e21ef18f925f614bb8952d2a3856f01,
+    type: 3}
+  m_PrefabInstance: {fileID: 227157799}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1255596007
 GameObject:
   m_ObjectHideFlags: 0
@@ -6512,6 +6518,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2117046587 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1560744639066648, guid: b185bdf05ea873040a8a15922e46da61,
+    type: 3}
+  m_PrefabInstance: {fileID: 2118602760}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2117046588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117046587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 789d21544937b844ba3a382bf9303b36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HappyManagerGameObj: {fileID: 1247223086}
 --- !u!1001 &2118602760
 PrefabInstance:
   m_ObjectHideFlags: 0

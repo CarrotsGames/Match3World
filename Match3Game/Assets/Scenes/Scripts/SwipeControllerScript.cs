@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwipeControllerScript : MonoBehaviour {
+public class SwipeControllerScript : MonoBehaviour
+{
+    public GameObject HappyManagerGameObj;
+     
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
 	// Update is called once per frame
-	void Update () {
-		
+	void Update ()
+    {
+		if(HappyManagerGameObj.GetComponent<HappinessManager>().HappinessSliderValue > 50)
+        {
+            HappyManagerGameObj.GetComponent<HappinessManager>().HappinessSliderValue += 10;
+        }
 	}
 }
