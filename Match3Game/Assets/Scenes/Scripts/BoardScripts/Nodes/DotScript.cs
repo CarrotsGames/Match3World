@@ -143,7 +143,7 @@ public class DotScript : MonoBehaviour
             yield return new WaitForSeconds(VibrateSeconds);
             VibrateSeconds += 0.55f;
             Handheld.Vibrate();
-            Debug.Log("VIBRATE");
+          //  Debug.Log("VIBRATE");
         }
         else
         {

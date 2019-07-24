@@ -56,26 +56,27 @@ public class SuperMultiplierScript : MonoBehaviour
             // goes through multiplier list and times each one by super multlplier
             for (int i = 0; i < HappinessGameObj.GetComponent<HappyMultlpier>().multiplier.Length; i++)
             {
-                int test;
+            //    int test;
                 if (i > 0)
                 {
-                    test = HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[i];
-                    test *= test;
-                    HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[i] = test;
-                }
+                   // test = HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[i];
+                   // test *= test;
+                    HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[i] = HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[i] * 2;
+                    StartCountdown = true;
+                 }
                 else
                 {
                     HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[i] *= SuperMultiplier;
                 }
             }
-            StartCountdown = true;
+            CanUseSuperMultiplier = false;
+
         }
         if (StartCountdown)
         {
             PlayerPrefs.SetFloat("SMTIMER", MultlpierTimer);
             MultlpierTimer -= Time.deltaTime;
             // Disables button so user cannot stack multplier
-            CanUseSuperMultiplier = false;
             SMTimerUI.SetActive(true);
             MultlpierTimerText.text = "" + MultlpierTimer;
             MultplierBar.GetComponent<Image>().fillAmount = MultlpierTimer / 80;
@@ -110,13 +111,13 @@ public class SuperMultiplierScript : MonoBehaviour
 
     public void SuperMultplierButton()
     {
-        Debug.Log("BUTTON PRESSED");
+        //Debug.Log("BUTTON PRESSED");
         if (PowerUpManagerScript.HasMultlpliers && !StartCountdown)
         {
             MultlpierTimer = 80;
             PowerUpManagerScript.NumOfMultilpiers -= 1;
             CanUseSuperMultiplier = true;
-            Debug.Log(CanUseSuperMultiplier);
+          //  Debug.Log(CanUseSuperMultiplier);
         }
     }
 }

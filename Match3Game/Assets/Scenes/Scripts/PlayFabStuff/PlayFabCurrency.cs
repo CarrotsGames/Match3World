@@ -36,7 +36,7 @@ public class PlayFabCurrency : MonoBehaviour
             }
             else
             {
-                Debug.Log("Not logged into servers");
+              //  Debug.Log("Not logged into servers");
             }
             Timer += 10;
 

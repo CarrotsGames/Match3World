@@ -122,8 +122,8 @@ public class DotManager : MonoBehaviour
 
     private void Update()
     {
-
-        MultiplierText.text = "x" + Multipier;
+        Debug.Log(Multipier);
+        MultiplierText.text = "" + Multipier;
 
         PlayerPrefs.SetInt("SCORE", TotalScore);
         // Checkas if colours are connecting
