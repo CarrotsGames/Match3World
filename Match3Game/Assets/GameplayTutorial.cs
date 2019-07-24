@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameplayTutorial : MonoBehaviour
 {
+
+
+    //Speak Bubbles
     public GameObject basicBubble;
     public GameObject scoreboardBubble;
     public GameObject connectionBubble;
@@ -19,12 +22,14 @@ public class GameplayTutorial : MonoBehaviour
     public GameObject multtBubble2;
     public GameObject multiBubble3;
     public GameObject thatsAllBubble;
+    //Gubu Image
     public GameObject gobu;
 
+    //Finger Animation set up to just play on awake finger1 is the swipe anim and finger2 is a scoreboard anim 
     public GameObject finger1;
     public GameObject finger2;
 
-
+    //the amount of times the player has clicked on the screen
     public int clickAmount;
 
 
@@ -37,6 +42,7 @@ public class GameplayTutorial : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //when the player clicks for the first time the first speak bubble turns of and the second one turns on finger2 anim also starts to show the player the scoreboard
         if (Input.GetMouseButtonDown(0) && clickAmount == 0f)
         {
             basicBubble.SetActive(false);
@@ -45,6 +51,7 @@ public class GameplayTutorial : MonoBehaviour
             clickAmount++;
             return;
         }
+        //when the player clicks again it turns the 2nd bubble and finger off turns the 3rd bubble on.
         if (Input.GetMouseButtonDown(0) && clickAmount == 1f)
         {
             finger2.SetActive(false);
@@ -53,6 +60,7 @@ public class GameplayTutorial : MonoBehaviour
             clickAmount++;
             return;
         }
+        //turns 3rd off and turns 4 on
         if (Input.GetMouseButtonDown(0) && clickAmount == 2f)
         {
             connectionBubble.SetActive(false);
@@ -60,6 +68,7 @@ public class GameplayTutorial : MonoBehaviour
             clickAmount++;
             return;
         }
+        //turns 4 off and 5 on this is where the finger animation starts and the player will need to start to swipe
         if (Input.GetMouseButtonDown(0) && clickAmount == 3f)
         {
             finger1.SetActive(true);
@@ -68,6 +77,8 @@ public class GameplayTutorial : MonoBehaviour
             gobu.SetActive(false);
             return;
         }
+
+        //this is where the code needs to check if the player has swipe if so then turn on speak bubble 5
 
 
     }
