@@ -34,6 +34,10 @@ public class GameplayTutorial : MonoBehaviour
     //the amount of times the player has clicked on the screen
     public int clickAmount;
 
+    //node groups
+    public GameObject nodeRound1;
+    public GameObject nodeRound2;
+
 
     // Start is called before the first frame update
     void Start()
@@ -82,12 +86,31 @@ public class GameplayTutorial : MonoBehaviour
             gobu.SetActive(false);
             return;
         }
+        if (Input.GetMouseButton(0)&& clickAmount == 5f)
+        {
+            badNodesBubble.SetActive(false);
+            bombBubble.SetActive(true);
+            nodeRound1.SetActive(false);
+            nodeRound2.SetActive(true);
+            clickAmount++;
+            return;
+        }
+        if (Input.GetMouseButton(0) && clickAmount == 6f)
+        {
+            bombBubble.SetActive(false);
+            gobu.SetActive(false);
+            clickAmount++;
+            return;
+        }
 
         //this is where the code needs to check if the player has swipe if so then turn on speak bubble 5
         if(dotManagerScript.ConnectionMade)
         {
-            
+            finger1.SetActive(false);
+            badNodesBubble.SetActive(true);
+            gobu.SetActive(true);
             Debug.Log("Connectionmade");
+            clickAmount++;
             //Disables connectionMade just in case you wanna do it again
             dotManagerScript.ConnectionMade = false;
         }
