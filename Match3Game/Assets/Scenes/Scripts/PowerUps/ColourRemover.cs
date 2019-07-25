@@ -24,6 +24,7 @@ public class ColourRemover : MonoBehaviour
     private GameObject DotManagerObj;
     private BoardScript Board;
     private GameObject BoardGameObj;
+    private GameObject SpecialBoardGameObj;
     private PowerUpManager PowerUpManagerScript;
     private int SCRAmount;
 
@@ -36,8 +37,8 @@ public class ColourRemover : MonoBehaviour
         Board = BoardGameObj.GetComponent<BoardScript>();
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
-        MouseCursorObj = GameObject.FindGameObjectWithTag("Mouse");   
- 
+        MouseCursorObj = GameObject.FindGameObjectWithTag("Mouse");
+        SpecialBoardGameObj = GameObject.Find("SpecialNodeSpawn");
         PowerUpInUse = false;
         Red = false;
         Blue = false;
@@ -169,13 +170,13 @@ public class ColourRemover : MonoBehaviour
             }
             if (Rainbow)
             {
-                for (int i = 0; i < BoardGameObj.transform.childCount; i++)
+                for (int i = 0; i < SpecialBoardGameObj.transform.childCount; i++)
                 {
                     SCRAmount += 1;
 
-                    if (BoardGameObj.transform.GetChild(i).tag == "Rainbow")
+                    if (SpecialBoardGameObj.transform.GetChild(i).tag == "Rainbow")
                     {
-                        Destroy(BoardGameObj.transform.GetChild(i).gameObject);
+                        Destroy(SpecialBoardGameObj.transform.GetChild(i).gameObject);
                     }
                 }
                 Rainbow = false;

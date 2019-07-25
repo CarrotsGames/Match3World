@@ -319,7 +319,7 @@ public class DotScript : MonoBehaviour
                             FlashingGameObj.gameObject.GetComponent<Renderer>().material.color = Color.red;
 
                             ReleaseNodeColour = true;
-                            Debug.Log("OffPattern");
+ 
                             OnMouseUp();
                         }
                     }
