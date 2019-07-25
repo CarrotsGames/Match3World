@@ -242,7 +242,8 @@ public class DotManager : MonoBehaviour
 
         // If the times red was counted is equal to the amount of the peices list Red was connected
         if (PeicesCount == Peices.Count && PeicesCount > Limit)
-        { 
+        {
+            ConnectionMade = true;
             RedScore += PeicesCount;
             RedScore *= Peices.Count;
             RedScore *= Multipier;
