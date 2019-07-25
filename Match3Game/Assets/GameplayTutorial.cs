@@ -116,6 +116,20 @@ public class GameplayTutorial : MonoBehaviour
         {
             rainbowBubble.SetActive(false);
             scrFinger.SetActive(true);
+            clickAmount++;
+            return;
+        }
+        if(Input.GetMouseButtonDown(0) && clickAmount == 11f)
+        {
+            happinessBubble.SetActive(false);
+            happinessBubble2.SetActive(true);
+            finger2.SetActive(false);
+        }
+        if (Input.GetMouseButtonDown(0) && clickAmount == 12f)
+        {
+            happinessBubble2.SetActive(false);
+            goldBubble.SetActive(true);
+            //set happiness to 100 and make gobu sleep sleep
         }
 
         //this is where the code needs to check if the player has swipe if so then turn on speak bubble 5
@@ -139,6 +153,10 @@ public class GameplayTutorial : MonoBehaviour
         }
         if (superColourRemover.GetComponent<ColourRemover>().HasUsedSCR == true)
         {
+            StartCoroutine(WaitForSCR());
+            scrFinger.SetActive(false);
+            scrFinger2.SetActive(false);
+            clickAmount++;
             Debug.Log("HASUSEDSCR");
             superColourRemover.GetComponent<ColourRemover>().HasUsedSCR = false;
         }
@@ -158,11 +176,18 @@ public class GameplayTutorial : MonoBehaviour
 
 IEnumerator WaitForBomb()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         rainbowBubble.SetActive(true);
         gobu.SetActive(true);
         nodeRound2.SetActive(false);
         nodeRound3.SetActive(true);
+        clickAmount++;
+    }
+    IEnumerator WaitForSCR()
+    {
+        yield return new WaitForSeconds(1f);
+        happinessBubble.SetActive(true);
+        finger2.SetActive(true);
         clickAmount++;
     }
 
