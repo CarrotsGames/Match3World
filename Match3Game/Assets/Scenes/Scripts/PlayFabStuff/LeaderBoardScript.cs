@@ -11,21 +11,24 @@ using System.Collections.Generic;
 
     public Text text;
     public List<Text> ListNames;
+    public List<Text> ListScores;
+
     public int OffsetY;
     [HideInInspector]
     public int i;
     //FirstTimeStartUp
     public int FirstTimeStartUp;
     public InputField NameTextBox;
+
     private void Start()
     {
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
-        
-      ///   ListNames = new List<Text>();
+
+        ///   ListNames = new List<Text>();
         OffsetY = 0;
         // sets up the top 10 on leaderboards position
-      
+
         // logins into playfab with android device ID
         if (string.IsNullOrEmpty(PlayFabSettings.TitleId))
         {
@@ -47,14 +50,14 @@ using System.Collections.Generic;
 
             // Refresh available items 
         }, error => Debug.LogError(error.GenerateErrorReport()));
-     }
+    }
 
-   public void UpdateName()
+    public void UpdateName()
     {
         // Players Playfab name is equal to desired name
         PlayFabClientAPI.UpdateUserTitleDisplayName(new UpdateUserTitleDisplayNameRequest()
         {
-             DisplayName = NameTextBox.text
+            DisplayName = NameTextBox.text
 
         }, success =>
         {
@@ -63,14 +66,14 @@ using System.Collections.Generic;
             // first time startup is greater than one making it not appear on screen anymore
             FirstTimeStartUp += 1;
             PlayerPrefs.SetFloat("FTS", FirstTimeStartUp);
-         }, failure =>
+        }, failure =>
         {
             Debug.Log(failure.ErrorMessage); //this is line 106
 
         });
 
     }
-   public void LoggedIn()
+    public void LoggedIn()
     {
         // logs player into this specific leaderboard
         PlayFabClientAPI.GetLeaderboard(new GetLeaderboardRequest()
@@ -82,16 +85,16 @@ using System.Collections.Generic;
         {
             // Gets leaderboard version and gets each person in leaderboard statistics
             Debug.Log("Leaderboard version: " + result.Version);
-                foreach (var entry in result.Leaderboard)
-                {
+            foreach (var entry in result.Leaderboard)
+            {
 
-                    Debug.Log(entry.DisplayName + " " + entry.StatValue);
-                    ListNames[i].text = entry.DisplayName + "   " + entry.StatValue;
-                    i++;
-                }
+                Debug.Log(entry.DisplayName + " " + entry.StatValue);
+                ListNames[i].text = entry.DisplayName;
+                ListScores[i].text = "" + entry.StatValue;
+                i++;
+            }
             i = 0;
-
-          // if login is failed throw error
+            // if login is failed throw error
         }, OnLoginFailure);
 
     }
