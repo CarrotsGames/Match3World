@@ -42,7 +42,9 @@ public class DotManager : MonoBehaviour
     public bool StartHighliting;
     // Checks if speicifc colour is being highlited in dotscript 
     public bool NodeSelection;
- 
+    //Used in tutorial
+    [HideInInspector]
+    public bool ConnectionMade;
     public bool GoldSelection;
     // Resets node properties
     public bool ResetLayer;

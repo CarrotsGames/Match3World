@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MooblingSelectionTut : MonoBehaviour
 {
@@ -43,7 +44,15 @@ public class MooblingSelectionTut : MonoBehaviour
         if (swipeTotal == 5)
         {
             selectBubble.SetActive(true);
+            clickAmount++;
+            swipeTotal++;
+            return;
+        }
+        if (Input.GetMouseButtonDown(0) && clickAmount == 2f)
+        {
             gobuSelect.interactable = true;
+            selectBubble.SetActive(false);
+            return;
         }
     }
 
@@ -52,6 +61,12 @@ public class MooblingSelectionTut : MonoBehaviour
     public void AddCount()
     {
         swipeTotal++;
+        return;
+    }
+
+    public void LoadScene()
+    {
+        SceneManager.LoadScene("Gobu Tutorial");
     }
 
 

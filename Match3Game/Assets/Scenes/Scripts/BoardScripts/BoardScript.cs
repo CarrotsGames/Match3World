@@ -12,22 +12,20 @@ public class BoardScript : MonoBehaviour
     public GameObject[] Dots;
     public GameObject[,] AllDots;
     public GameObject Spawner;
-    int SpawnQueue = 0;
-    bool SpawnBool;
-    bool HasChildren;
+    private List<GameObject> test = new List<GameObject>();
+     
     int Total;
- 
+    private GameObject SpecialSpawn;
     // List of all nodes in their order
     //  List<GameObject> ReachableNodes = new List<GameObject>();
     private BackgroundTileScript[,] AllTiles;
     // Start is called before the first frame update
     void Start()
     {
-        SpawnBool = false;
-        AllTiles = new BackgroundTileScript[Width, Height];
+        SpecialSpawn = GameObject.Find("SpecialNodeSpawn");
+           AllTiles = new BackgroundTileScript[Width, Height];
         AllDots = new GameObject[Width, Height];
         SetUpBoard();
-        HasChildren = true;
         Gold = 0;
     }
 
@@ -45,35 +43,28 @@ public class BoardScript : MonoBehaviour
                 // Creates dots for positions
                 int DotToUse = Random.Range(0, Dots.Length - 1 + Gold);
                 GameObject Dot = Instantiate(Dots[DotToUse], TempPosition, Quaternion.identity);
-              //  ReachableNodes.Add(Dot);
                 Dot.transform.parent = this.transform;
+                test.Add(Dot);
+             
                 Dot.name = "( " + i + "," + j + ")";
                 AllDots[i, j] = Dot;
             }
         }
-        Total = transform.childCount ;
-        // for (int i = 0 + 1; i < Dots.Length; i++)
-        // {
-        //     Vector3 end = Dots[i].transform.position;
-        //     if (Physics.Linecast(Dots[i].transform.position, Dots[i + 1].transform.position, layerMask))
-        //         continue;
-        //     if (Physics.Linecast(Dots[i + 1].transform.position, Dots[i].transform.position, layerMask))
-        //         continue;
-        //     // Link node i and n
-        // }
+        Total = transform.childCount;
+ 
     }
     private void Update()
     {
  
-         if(transform.childCount < Total)
+        if(transform.childCount < Total)
        {
-            
-            // Creates dots for positions
+ 
+           // Creates dots for positions
            int DotToUse = Random.Range(0, Dots.Length - Gold);
            GameObject Dot = Instantiate(Dots[DotToUse], new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-            Dot.transform.parent = this.transform;
-
-        }
+           Dot.transform.parent = this.transform;
+            SpecialSpawn.GetComponent<AddSpecialNodes>().SpawnNode();
+         }
     }
   
 }
