@@ -40,6 +40,7 @@ public class ColourRemover : MonoBehaviour
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
         BoardGameObj = GameObject.FindGameObjectWithTag("BoardSpawn");
+        SpecialBoardGameObj = GameObject.Find("SpecialNodeSpawn");
 
         // Disables if tutorial is on
         if (SceneName != "Gobu Tutorial")
@@ -56,7 +57,6 @@ public class ColourRemover : MonoBehaviour
             BoardGameObj = GameObject.FindGameObjectWithTag("BoardSpawn");
             BoardGameObj.SetActive(false);
         }
-        SpecialBoardGameObj = GameObject.Find("SpecialNodeSpawn");
         PowerUpInUse = false;
         Red = false;
         HasUsedSCR = false;
