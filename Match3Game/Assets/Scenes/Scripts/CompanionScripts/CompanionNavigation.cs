@@ -6,6 +6,9 @@ using UnityEngine.UI;
 // uses Realtime script to count down happiness
 public class CompanionNavigation : MonoBehaviour
 {
+    private GameObject GameController;
+    private LeaderBoardManager LeaderBoardManagerScript;
+
     private RealTimeCounter RealTimeScript;
     private GameObject RealTimerGameObj;
     // [HideInInspector]
@@ -34,6 +37,8 @@ public class CompanionNavigation : MonoBehaviour
      // Use this for initialization
     void Start()
     {
+        GameController = GameObject.FindGameObjectWithTag("GC");
+        LeaderBoardManagerScript = GameController.GetComponent<LeaderBoardManager>();
         HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
         HappinessManagerScript = HappinessGameObj.GetComponent<HappinessManager>();
         //  HappySlider.value = 0;
@@ -68,20 +73,22 @@ public class CompanionNavigation : MonoBehaviour
         // gets the first finger on the screen and follows that position 
         if (Input.touches.Length > 0)
         {
-            if(Input.touches[0].phase == TouchPhase.Began)
-            {
-                IsDragging = true;
+                if (Input.touches[0].phase == TouchPhase.Began)
+                {
 
-                StartPos = Input.touches[0].position;
+                    IsDragging = true;
 
-            }
-            else if (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
-            {
-                IsDragging = false;
+                    StartPos = Input.touches[0].position;
 
-                Reset();
+                }
+                else if (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
+                {
+                    IsDragging = false;
 
-            }
+                    Reset();
+
+                }
+             
         }
         
         SwipeDelta = Vector2.zero;
@@ -106,15 +113,20 @@ public class CompanionNavigation : MonoBehaviour
             float y = SwipeDelta.y;
             if(Mathf.Abs(x) > Mathf.Abs(y))
             {
-                if(x < 0)
+
+                if (!LeaderBoardManagerScript.leaderboardShowing)
                 {
-                    NavLeft();
-                    pageFlip.SetActive(true);
-                }
-                else
-                {
-                     NavRight();
-                    backwardPageFlip.SetActive(true);
+                    if (x < 0)
+                    {
+
+                        NavLeft();
+                        pageFlip.SetActive(true);
+                    }
+                    else
+                    {
+                        NavRight();
+                        backwardPageFlip.SetActive(true);
+                    }
                 }
             }
             Reset();
@@ -143,7 +155,7 @@ public class CompanionNavigation : MonoBehaviour
                 SceneManager.LoadScene("Triangle Scene");
                 break;
             case 4:
-                  SceneManager.LoadScene("Royal Gobu Level 1");
+                SceneManager.LoadScene("Royal Gobu Level 1");
                 break;
             case 5:
                 SceneManager.LoadScene("Crius");
