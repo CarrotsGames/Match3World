@@ -39,12 +39,15 @@ public class ColourRemover : MonoBehaviour
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
+        BoardGameObj = GameObject.FindGameObjectWithTag("BoardSpawn");
 
-     
+
+
         // Disables if tutorial is on
         if (SceneName != "Gobu Tutorial")
         {
             Board = BoardGameObj.GetComponent<BoardScript>();
+
             BoardGameObj.SetActive(true);
 
             MouseCursorObj = GameObject.FindGameObjectWithTag("Mouse");
