@@ -34,6 +34,9 @@ public class GameplayTutorial : MonoBehaviour
     //Finger Animation set up to just play on awake finger1 is the swipe anim and finger2 is a scoreboard anim 
     public GameObject finger1;
     public GameObject finger2;
+    public GameObject bombFinger;
+    public GameObject bombFinger2;
+    public GameObject scrFinger;
 
     //the amount of times the player has clicked on the screen
     public int clickAmount;
@@ -103,6 +106,7 @@ public class GameplayTutorial : MonoBehaviour
         {
             bombBubble.SetActive(false);
             gobu.SetActive(false);
+            bombFinger.SetActive(true);
             clickAmount++;
             return;
         }
@@ -120,8 +124,11 @@ public class GameplayTutorial : MonoBehaviour
         }
         if(superBomb.GetComponent<SuperBombScript>().BombHasBeenUsed == true)
         {
+            StartCoroutine(WaitForBomb());
+            bombFinger2.SetActive(false);
             Debug.Log("HASUSEDBOMB");
             superBomb.GetComponent<SuperBombScript>().BombHasBeenUsed = false;
+
         }
         if (superColourRemover.GetComponent<ColourRemover>().HasUsedSCR == true)
         {
@@ -129,4 +136,19 @@ public class GameplayTutorial : MonoBehaviour
             superColourRemover.GetComponent<ColourRemover>().HasUsedSCR = false;
         }
     }
+
+    public void ShowBomb()
+    {
+        bombFinger.SetActive(false);
+        bombFinger2.SetActive(true);
+    }
+
+    IEnumerator WaitForBomb()
+    {
+        yield return new WaitForSeconds(3f);
+        rainbowBubble.SetActive(true);
+        gobu.SetActive(true);
+    }
+
+
 }
