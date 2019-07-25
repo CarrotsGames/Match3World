@@ -39,6 +39,8 @@ public class GameplayTutorial : MonoBehaviour
     public GameObject scrFinger;
     public GameObject scrFinger2;
 
+    private HappinessManager HappinessManagerScript;
+    private GameObject HappinessGameObj;
 
     //the amount of times the player has clicked on the screen
     public int clickAmount;
@@ -55,7 +57,10 @@ public class GameplayTutorial : MonoBehaviour
         dotManagerGameObj = GameObject.FindGameObjectWithTag("DotManager");
         // Grabs dotmanager script on that gameobject to get info
         dotManagerScript = dotManagerGameObj.GetComponent<DotManager>();
-     }
+
+        HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
+        HappinessManagerScript = HappinessGameObj.GetComponent<HappinessManager>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -124,6 +129,9 @@ public class GameplayTutorial : MonoBehaviour
             happinessBubble.SetActive(false);
             happinessBubble2.SetActive(true);
             finger2.SetActive(false);
+            //Puts moobling to sleep
+            HappinessManagerScript.HappinessSliderValue = 100;
+
         }
         if (Input.GetMouseButtonDown(0) && clickAmount == 12f)
         {

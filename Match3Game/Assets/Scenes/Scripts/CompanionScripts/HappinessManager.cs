@@ -47,9 +47,12 @@ public class HappinessManager : MonoBehaviour
         {
             OnMainScene = true;
         }
-        Board = GameObject.FindGameObjectWithTag("BoardSpawn");
-        BoardScriptRef = Board.GetComponent<BoardScript>();
- 
+            Board = GameObject.FindGameObjectWithTag("BoardSpawn");
+
+        if (SceneName != "Gobu Tutorial")
+        {
+            BoardScriptRef = Board.GetComponent<BoardScript>();
+        }
         CompanionName = Companion.name;
         CanGetCurrency = false;
         // CompanionSounds = GetComponent<AudioClip[]>();
