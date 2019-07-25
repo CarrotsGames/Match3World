@@ -86,7 +86,7 @@ using System.Collections.Generic;
                 {
 
                     Debug.Log(entry.DisplayName + " " + entry.StatValue);
-                    ListNames[i].text = entry.DisplayName + " " + entry.StatValue;
+                    ListNames[i].text = entry.DisplayName + "   " + entry.StatValue;
                     i++;
                 }
             i = 0;
