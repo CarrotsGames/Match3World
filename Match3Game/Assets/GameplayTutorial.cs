@@ -7,6 +7,8 @@ public class GameplayTutorial : MonoBehaviour
 
 
     //Speak Bubbles
+    private GameObject dotManagerGameObj;
+    private DotManager dotManagerScript;
     public GameObject basicBubble;
     public GameObject scoreboardBubble;
     public GameObject connectionBubble;
@@ -36,7 +38,10 @@ public class GameplayTutorial : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        // Finds gameobject with tag in hierarchy 
+        dotManagerGameObj = GameObject.FindGameObjectWithTag("DotManager");
+        // Grabs dotmanager script on that gameobject to get info
+        dotManagerScript = dotManagerGameObj.GetComponent<DotManager>();
     }
 
     // Update is called once per frame
@@ -79,7 +84,12 @@ public class GameplayTutorial : MonoBehaviour
         }
 
         //this is where the code needs to check if the player has swipe if so then turn on speak bubble 5
-
-
+        if(dotManagerScript.ConnectionMade)
+        {
+            
+            Debug.Log("Connectionmade");
+            //Disables connectionMade just in case you wanna do it again
+            dotManagerScript.ConnectionMade = false;
+        }
     }
 }
