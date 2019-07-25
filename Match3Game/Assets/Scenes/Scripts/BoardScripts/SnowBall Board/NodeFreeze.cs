@@ -30,7 +30,15 @@ public class NodeFreeze : MonoBehaviour {
             }
         }
 	}
+   public void FreezeNode()
+    {
+        Freeze = true;
 
+        GetComponent<DotScript>().Frozen = true;
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
+    }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if(collision.gameObject.name == "FreezeZone")
@@ -40,11 +48,7 @@ public class NodeFreeze : MonoBehaviour {
 
             if (FreezeTimer < 0)
             {
-                Freeze = true;
-                GetComponent<DotScript>().Frozen = true;               
-                GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-                GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
-                GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
+                FreezeNode();
             }
         
         }
