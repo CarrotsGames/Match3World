@@ -81,6 +81,13 @@ public class Tutorial : MonoBehaviour
             numberOfClicks++;
             return;
         }
+        if (Input.GetMouseButtonDown(0) && numberOfClicks == 4f)
+        {
+            gobu1.SetActive(false);
+            nameInputBubble.SetActive(false);
+        }
+
+
         if (Input.GetMouseButtonDown(0) && numberOfClicks == 5f)
         {
             storeBubble.SetActive(false);
