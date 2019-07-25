@@ -26,7 +26,7 @@ public class HappinessManager : MonoBehaviour
     public GameObject DayTime;
     public GameObject NightTime;
     public GameObject AwakeHead;
-
+    string SceneName;
     string CompanionName;
     private GameObject RealTimeGameObj;
     [HideInInspector]
@@ -42,7 +42,7 @@ public class HappinessManager : MonoBehaviour
         //checks if players in main scene
         // if they are then the happinessStates void wont be called to avoid mixing saves
         Scene CurrentScene = SceneManager.GetActiveScene();
-        string SceneName = CurrentScene.name;
+        SceneName = CurrentScene.name;
         if (SceneName == "Main Screen")
         {
             OnMainScene = true;
@@ -137,14 +137,16 @@ public class HappinessManager : MonoBehaviour
         PlayerPrefs.SetFloat(CompanionSave, HappinessSliderValue);
 
         // Saving Companions Happiness value
-
-        if (CanEarnGold)
+        if (SceneName != "Gobu Tutorial")
         {
-            BoardScriptRef.Gold = 0;
-        }
-        else
-        {
-            BoardScriptRef.Gold = 1;
+            if (CanEarnGold)
+            {
+                BoardScriptRef.Gold = 0;
+            }
+            else
+            {
+                BoardScriptRef.Gold = 1;
+            }
         }
          
     }

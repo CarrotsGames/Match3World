@@ -55,7 +55,6 @@ public class PowerUpManager : MonoBehaviour
         PlayerPrefs.SetInt("NUMSRC", NumOfSCR);
         PlayerPrefs.SetInt("NUMBOMB", NumOfBombs);
         PlayerPrefs.SetInt("NUMSM", NumOfMultilpiers);
-
         PlayerPrefs.SetInt("CURRENCY", Currency);
 
         CurrencyText.text = " " + Currency;

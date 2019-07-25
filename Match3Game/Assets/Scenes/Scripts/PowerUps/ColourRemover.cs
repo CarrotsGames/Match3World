@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class ColourRemover : MonoBehaviour
 {
 
     float Timer = 0.25f;
-    public bool Red;
-    public bool Blue;
-    public bool Yellow;
-    public bool Purple;
+    public bool Red;  
     public bool Rainbow;
+    [HideInInspector]
+    public bool HasUsedSCR;
     bool GoTimer;
     public GameObject MouseCursorObj;
     public Component[] Renderer;
@@ -27,23 +27,38 @@ public class ColourRemover : MonoBehaviour
     private GameObject SpecialBoardGameObj;
     private PowerUpManager PowerUpManagerScript;
     private int SCRAmount;
+    private string Colour;
+    private string SceneName;
 
     // Use this for initialization
     void Start()
     {
-         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
-        PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
-        BoardGameObj = GameObject.FindGameObjectWithTag("BoardSpawn");
-        Board = BoardGameObj.GetComponent<BoardScript>();
+        Scene CurrentScene = SceneManager.GetActiveScene();
+        SceneName = CurrentScene.name;
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
-        MouseCursorObj = GameObject.FindGameObjectWithTag("Mouse");
+        PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
+        PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
+
+     
+        // Disables if tutorial is on
+        if (SceneName != "Gobu Tutorial")
+        {
+            Board = BoardGameObj.GetComponent<BoardScript>();
+            BoardGameObj.SetActive(true);
+
+            MouseCursorObj = GameObject.FindGameObjectWithTag("Mouse");
+        }
+        else
+        {
+            // Sets tutorial board to Boardgameobj
+            BoardGameObj = GameObject.FindGameObjectWithTag("BoardSpawn");
+            BoardGameObj.SetActive(false);
+        }
         SpecialBoardGameObj = GameObject.Find("SpecialNodeSpawn");
         PowerUpInUse = false;
         Red = false;
-        Blue = false;
-        Yellow = false;
-        Purple = false;
+        HasUsedSCR = false;
         GoTimer = false;
     }
     private void Update()
@@ -72,22 +87,31 @@ public class ColourRemover : MonoBehaviour
                     DotManagerScript.CanPlay = false;
                     if (hit.collider.gameObject.tag == "Red")
                     {
-                        Red = true;
+                        Colour = hit.collider.gameObject.tag;
+                           Red = true;
                     }
                     if (hit.collider.gameObject.tag == "Blue")
                     {
-                        Blue = true;
+                        Colour = hit.collider.gameObject.tag;
+
+                        Red = true;
                     }
                     if (hit.collider.gameObject.tag == "Green")
                     {
-                        Yellow = true;
+                        Colour = hit.collider.gameObject.tag;
+
+                        Red = true;
                     }
                     if (hit.collider.gameObject.tag == "Yellow")
                     {
-                        Purple = true;
+                        Colour = hit.collider.gameObject.tag;
+
+                        Red = true;
                     }
                     if (hit.collider.gameObject.tag == "Rainbow")
                     {
+                        Colour = hit.collider.gameObject.tag;
+
                         Rainbow = true;
                     }
                 }
@@ -100,7 +124,7 @@ public class ColourRemover : MonoBehaviour
                 for (int i = 0; i < BoardGameObj.transform.childCount; i++)
                 {
                     SCRAmount += 1;
-                    if (BoardGameObj.transform.GetChild(i).tag == "Red")
+                    if (BoardGameObj.transform.GetChild(i).tag == Colour)
                     {
                         Destroy(BoardGameObj.transform.GetChild(i).gameObject);
                     }
@@ -111,69 +135,17 @@ public class ColourRemover : MonoBehaviour
                 GoTimer = true;
                 DotManagerScript.TotalScore += SCRAmount * DotManagerScript.Multipier;
                 DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
+                HasUsedSCR = true;
             }
-            if (Blue)
-            {
-                for (int i = 0; i < BoardGameObj.transform.childCount; i++)
-                {
-                    SCRAmount += 1;
-
-                    if (BoardGameObj.transform.GetChild(i).tag == "Blue")
-                    {
-                        Destroy(BoardGameObj.transform.GetChild(i).gameObject);
-                    }
-                }
-                Blue = false;
-                PowerUpInUse = false;
-                DotManagerScript.ResetMaterial = true;
-                GoTimer = true;
-                DotManagerScript.TotalScore += SCRAmount * DotManagerScript.Multipier;
-                DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
-            }
-            if (Yellow)
-            {
-                for (int i = 0; i < BoardGameObj.transform.childCount; i++)
-                {
-                    SCRAmount += 1;
-
-                    if (BoardGameObj.transform.GetChild(i).tag == "Green")
-                    {
-                        Destroy(BoardGameObj.transform.GetChild(i).gameObject);
-                    }
-                }
-                Yellow = false;
-                PowerUpInUse = false;
-                DotManagerScript.ResetMaterial = true;
-                GoTimer = true;
-                DotManagerScript.TotalScore += SCRAmount * DotManagerScript.Multipier;
-                DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
-            }
-            if (Purple)
-            {
-                for (int i = 0; i < BoardGameObj.transform.childCount; i++)
-                {
-                    SCRAmount += 1;
-
-                    if (BoardGameObj.transform.GetChild(i).tag == "Yellow")
-                    {
-                        Destroy(BoardGameObj.transform.GetChild(i).gameObject);
-
-
-                    }
-                }
-                Purple = false;
-                PowerUpInUse = false;
-                DotManagerScript.ResetMaterial = true;
-                GoTimer = true;
-                DotManagerScript.TotalScore += SCRAmount * DotManagerScript.Multipier;
-                DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
-            }
+            //Destroys rainbows nodes 
+            // NOTE: this has its own if statement because it is getting the child of a 
+            // diffrent gameobject
             if (Rainbow)
             {
                 for (int i = 0; i < SpecialBoardGameObj.transform.childCount; i++)
                 {
                     SCRAmount += 1;
-
+            
                     if (SpecialBoardGameObj.transform.GetChild(i).tag == "Rainbow")
                     {
                         Destroy(SpecialBoardGameObj.transform.GetChild(i).gameObject);
@@ -185,6 +157,8 @@ public class ColourRemover : MonoBehaviour
                 GoTimer = true;
                 DotManagerScript.TotalScore += SCRAmount * DotManagerScript.Multipier;
                 DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
+                HasUsedSCR = true;
+
             }
 
 

@@ -7,7 +7,9 @@ public class SuperBombScript : MonoBehaviour
     public GameObject SuperBombPrefab;
     public GameObject BombPlayArea;
     private bool CanPlaceBomb;
-
+    // Used in tutorial
+    [HideInInspector]
+    public bool BombHasBeenUsed;
     private GameObject PowerUpManGameObj;
     private PowerUpManager PowerUpManagerScript;
     // Use this for initialization
@@ -35,6 +37,7 @@ public class SuperBombScript : MonoBehaviour
                     Vector2 PlaceBomb = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
                     Instantiate(SuperBombPrefab, new Vector2(PlaceBomb.x, PlaceBomb.y), Quaternion.identity);
                     CanPlaceBomb = false;
+                    BombHasBeenUsed = true;
                 }
          
             }

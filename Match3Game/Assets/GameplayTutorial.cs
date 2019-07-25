@@ -9,6 +9,9 @@ public class GameplayTutorial : MonoBehaviour
     //Speak Bubbles
     private GameObject dotManagerGameObj;
     private DotManager dotManagerScript;
+    public GameObject superBomb;
+    public GameObject superColourRemover;
+ 
     public GameObject basicBubble;
     public GameObject scoreboardBubble;
     public GameObject connectionBubble;
@@ -24,6 +27,7 @@ public class GameplayTutorial : MonoBehaviour
     public GameObject multtBubble2;
     public GameObject multiBubble3;
     public GameObject thatsAllBubble;
+    
     //Gubu Image
     public GameObject gobu;
 
@@ -46,7 +50,7 @@ public class GameplayTutorial : MonoBehaviour
         dotManagerGameObj = GameObject.FindGameObjectWithTag("DotManager");
         // Grabs dotmanager script on that gameobject to get info
         dotManagerScript = dotManagerGameObj.GetComponent<DotManager>();
-    }
+     }
 
     // Update is called once per frame
     void Update()
@@ -113,6 +117,16 @@ public class GameplayTutorial : MonoBehaviour
             clickAmount++;
             //Disables connectionMade just in case you wanna do it again
             dotManagerScript.ConnectionMade = false;
+        }
+        if(superBomb.GetComponent<SuperBombScript>().BombHasBeenUsed == true)
+        {
+            Debug.Log("HASUSEDBOMB");
+            superBomb.GetComponent<SuperBombScript>().BombHasBeenUsed = false;
+        }
+        if (superColourRemover.GetComponent<ColourRemover>().HasUsedSCR == true)
+        {
+            Debug.Log("HASUSEDSCR");
+            superColourRemover.GetComponent<ColourRemover>().HasUsedSCR = false;
         }
     }
 }
