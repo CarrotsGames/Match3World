@@ -41,8 +41,6 @@ public class ColourRemover : MonoBehaviour
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
         BoardGameObj = GameObject.FindGameObjectWithTag("BoardSpawn");
 
-
-
         // Disables if tutorial is on
         if (SceneName != "Gobu Tutorial")
         {
