@@ -5068,10 +5068,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Red: 0
-  Blue: 0
-  Yellow: 0
-  Purple: 0
   Rainbow: 0
+  HasUsedSCR: 0
   MouseCursorObj: {fileID: 1330711879}
   Renderer: []
   RedMat: {fileID: 2100000, guid: 2aa747bd3d7e62e47a942c9e94cbb17f, type: 2}
@@ -6849,6 +6847,7 @@ MonoBehaviour:
   particle: {fileID: 403326383}
   particle2: {fileID: 685013735}
   gobuButton: {fileID: 1338668415}
+  storeButton: {fileID: 1595286767}
   finger: {fileID: 728263603}
   finger2: {fileID: 451576821}
   leaderboardNotShowing: 0
@@ -10559,11 +10558,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114089813701204056, guid: 1ffc143ed5592fd47a5a4743fc9d6136,
-        type: 3}
-      propertyPath: UnlockMoobling
-      value: 
-      objectReference: {fileID: 332442413}
     - target: {fileID: 224813714020350452, guid: 1ffc143ed5592fd47a5a4743fc9d6136,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10669,6 +10663,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114089813701204056, guid: 1ffc143ed5592fd47a5a4743fc9d6136,
+        type: 3}
+      propertyPath: UnlockMoobling
+      value: 
+      objectReference: {fileID: 332442413}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ffc143ed5592fd47a5a4743fc9d6136, type: 3}
 --- !u!224 &959288874 stripped
@@ -11542,6 +11541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SuperBombPrefab: {fileID: 1105575582}
   BombPlayArea: {fileID: 1105575582}
+  BombHasBeenUsed: 0
 --- !u!114 &1069783604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14256,7 +14256,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -2.6, y: -17.399994}
+  m_AnchoredPosition: {x: -2.6, y: -17.399963}
   m_SizeDelta: {x: 107.45, y: 116.7}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1302509077

@@ -12,12 +12,21 @@ public class MooblingSelectionTut : MonoBehaviour
     public int clickAmount;
     public Button gobuSelect;
     public GameObject finger;
+    public GameObject gobu;
+    public Button store;
+    public Button leader;
+    public Button leader2;
+
+
 
     public int swipeTotal;
 
     public void Start()
     {
         gobuSelect.interactable = false;
+        store.interactable = false;
+        leader.interactable = false;
+        leader2.interactable = false;
     }
 
     public void Update()
@@ -52,6 +61,7 @@ public class MooblingSelectionTut : MonoBehaviour
         {
             gobuSelect.interactable = true;
             selectBubble.SetActive(false);
+            gobu.SetActive(false);
             return;
         }
     }

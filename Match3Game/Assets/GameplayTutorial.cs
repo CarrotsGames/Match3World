@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameplayTutorial : MonoBehaviour
 {
@@ -27,9 +28,10 @@ public class GameplayTutorial : MonoBehaviour
     public GameObject multtBubble2;
     public GameObject multiBubble3;
     public GameObject thatsAllBubble;
-    
-    //Gubu Image
+
+    //Misalanious Image
     public GameObject gobu;
+    public Button pause;
 
     //Finger Animation set up to just play on awake finger1 is the swipe anim and finger2 is a scoreboard anim 
     public GameObject finger1;
@@ -62,6 +64,7 @@ public class GameplayTutorial : MonoBehaviour
 
         HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
         HappinessManagerScript = HappinessGameObj.GetComponent<HappinessManager>();
+        pause.interactable = false;
     }
 
     // Update is called once per frame
@@ -186,8 +189,8 @@ public class GameplayTutorial : MonoBehaviour
             gearFinger.SetActive(true);
             gobu.SetActive(false);
             clickAmount++;
+            pause.interactable = true;
             return;
-           
         }
 
 
@@ -210,7 +213,6 @@ public class GameplayTutorial : MonoBehaviour
             Debug.Log("HASUSEDBOMB");
             superBomb.GetComponent<SuperBombScript>().BombHasBeenUsed = false;
             return;
-
         }
         if (superColourRemover.GetComponent<ColourRemover>().HasUsedSCR == true)
         {

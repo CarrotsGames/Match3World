@@ -25,6 +25,7 @@ public class Tutorial : MonoBehaviour
     public GameObject particle2;
 
     public Button gobuButton;
+    public Button storeButton;
 
     //Animation Stuff
     public GameObject finger;
@@ -43,6 +44,7 @@ public class Tutorial : MonoBehaviour
         leaderboardNotShowing = true;
         inputField.SetActive(false);
         gobuButton.interactable = false;
+        storeButton.interactable = false;
 
     }
 
@@ -95,6 +97,7 @@ public class Tutorial : MonoBehaviour
             tutPanel.SetActive(false);
             finger2.SetActive(true);
             particle2.SetActive(true);
+            storeButton.interactable = true;
         }
     }
 
