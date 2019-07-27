@@ -38,6 +38,8 @@ public class GameplayTutorial : MonoBehaviour
     public GameObject bombFinger2;
     public GameObject scrFinger;
     public GameObject scrFinger2;
+    public GameObject gearFinger;
+    public GameObject exitFinger;
 
     private HappinessManager HappinessManagerScript;
     private GameObject HappinessGameObj;
@@ -129,16 +131,65 @@ public class GameplayTutorial : MonoBehaviour
             happinessBubble.SetActive(false);
             happinessBubble2.SetActive(true);
             finger2.SetActive(false);
-            //Puts moobling to sleep
-            HappinessManagerScript.HappinessSliderValue = 100;
+            clickAmount++;
+            return;
 
         }
         if (Input.GetMouseButtonDown(0) && clickAmount == 12f)
         {
             happinessBubble2.SetActive(false);
             goldBubble.SetActive(true);
+            //Puts moobling to sleep
+            HappinessManagerScript.HappinessSliderValue = 100;
+            clickAmount++;
+            return;
             //set happiness to 100 and make gobu sleep sleep
         }
+        if (Input.GetMouseButtonDown(0) && clickAmount == 13f)
+        {
+            goldBubble.SetActive(false);
+            golfBubble2.SetActive(true);
+            clickAmount++;
+            return;
+        }
+        if (Input.GetMouseButtonDown(0) && clickAmount == 14f)
+        {
+            golfBubble2.SetActive(false);
+            multiBubble.SetActive(true);
+            clickAmount++;
+            return;
+        }
+        if(Input.GetMouseButtonDown(0) && clickAmount == 15f)
+        {
+            multiBubble.SetActive(false);
+            multtBubble2.SetActive(true);
+            clickAmount++;
+            return;
+        }
+        if(Input.GetMouseButtonDown(0) && clickAmount == 16f)
+        {
+            multtBubble2.SetActive(false);
+            multiBubble3.SetActive(true);
+            clickAmount++;
+            return;
+        }
+        if(Input.GetMouseButtonDown(0) && clickAmount == 17f)
+        {
+            multiBubble3.SetActive(false);
+            thatsAllBubble.SetActive(true);
+            clickAmount++;
+            return;
+        }
+        if(Input.GetMouseButtonDown(0) && clickAmount == 18f)
+        {
+            thatsAllBubble.SetActive(false);
+            gearFinger.SetActive(true);
+            gobu.SetActive(false);
+            clickAmount++;
+            return;
+           
+        }
+
 
         //this is where the code needs to check if the player has swipe if so then turn on speak bubble 5
         if (dotManagerScript.ConnectionMade)
@@ -150,6 +201,7 @@ public class GameplayTutorial : MonoBehaviour
             clickAmount++;
             //Disables connectionMade just in case you wanna do it again
             dotManagerScript.ConnectionMade = false;
+            return;
         }
         if(superBomb.GetComponent<SuperBombScript>().BombHasBeenUsed == true)
         {
@@ -157,6 +209,7 @@ public class GameplayTutorial : MonoBehaviour
             bombFinger2.SetActive(false);
             Debug.Log("HASUSEDBOMB");
             superBomb.GetComponent<SuperBombScript>().BombHasBeenUsed = false;
+            return;
 
         }
         if (superColourRemover.GetComponent<ColourRemover>().HasUsedSCR == true)
@@ -167,6 +220,7 @@ public class GameplayTutorial : MonoBehaviour
             clickAmount++;
             Debug.Log("HASUSEDSCR");
             superColourRemover.GetComponent<ColourRemover>().HasUsedSCR = false;
+            return;
         }
     }
 
@@ -197,6 +251,17 @@ IEnumerator WaitForBomb()
         happinessBubble.SetActive(true);
         finger2.SetActive(true);
         clickAmount++;
+    }
+
+    public void PointHome()
+    {
+        gearFinger.SetActive(false);
+        exitFinger.SetActive(true);
+    }
+
+    public void NoFinger()
+    {
+        exitFinger.SetActive(false);
     }
 
 
