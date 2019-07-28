@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Advertisements;
 public class PlayAdd : MonoBehaviour
 {
-    string gameId = "3222685";
+    public string gameId = "3222685";
     public bool testMode = false;
     //Located in Canvas
     public GameObject EventsGameObj;

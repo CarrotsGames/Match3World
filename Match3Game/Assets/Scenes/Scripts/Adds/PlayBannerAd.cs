@@ -17,7 +17,6 @@ using UnityEngine.Monetization;
     private void Update()
     {
         //Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
-
         Advertisement.Banner.Show(placementId);
     }
 
