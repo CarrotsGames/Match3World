@@ -154,7 +154,7 @@ public class EggHatch : MonoBehaviour
 
     }
     // checks the current time on server
-    void GetCurrentTime()
+   public void GetCurrentTime()
     {
         // gets the current time for countdown
         PlayFabClientAPI.GetTime(new GetTimeRequest(), (GetTimeResult result) =>

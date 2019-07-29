@@ -50,7 +50,11 @@ public class HappinessManager : MonoBehaviour
         {
             OnMainScene = true;
         }
-            Board = GameObject.FindGameObjectWithTag("BoardSpawn");
+        else
+        {
+            PlayLevelAdScript = SleepAd.GetComponent<PlayLevelAd>();
+        }
+        Board = GameObject.FindGameObjectWithTag("BoardSpawn");
 
         if (SceneName != "Gobu Tutorial")
         {
@@ -62,7 +66,6 @@ public class HappinessManager : MonoBehaviour
         RealTimeGameObj = GameObject.FindGameObjectWithTag("MainCamera");
         RealtTimeScript = RealTimeGameObj.GetComponent<RealTimeCounter>();
         SleepAd = GameObject.FindGameObjectWithTag("SleepingAd");
-        PlayLevelAdScript = SleepAd.GetComponent<PlayLevelAd>();
         // Gets the last known bool for this companion
         IsSleeping = (PlayerPrefs.GetInt(SaveStrings) != 0);
         LoadCompanionSaves();
