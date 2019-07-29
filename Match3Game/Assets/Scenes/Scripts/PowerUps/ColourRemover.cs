@@ -29,10 +29,14 @@ public class ColourRemover : MonoBehaviour
     private int SCRAmount;
     private string Colour;
     private string SceneName;
+    private GameObject PowerUpGameObj;
+
 
     // Use this for initialization
     void Start()
     {
+      
+        PowerUpGameObj = GameObject.Find("PowerUps");
         Scene CurrentScene = SceneManager.GetActiveScene();
         SceneName = CurrentScene.name;
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
@@ -115,6 +119,8 @@ public class ColourRemover : MonoBehaviour
 
                         Rainbow = true;
                     }
+                    PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
+
                 }
 
                 // Do something with the object that was hit by the raycast.
@@ -169,7 +175,8 @@ public class ColourRemover : MonoBehaviour
     public void SuperColourRemoverMenu()
     {
         if(PowerUpManagerScript.HasSCR)
-        { 
+        {
+            PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonDisable();
             PowerUpInUse = true;
             DotManagerScript.ResetMaterial = false;
             PowerUpManagerScript.NumOfSCR -= 1;

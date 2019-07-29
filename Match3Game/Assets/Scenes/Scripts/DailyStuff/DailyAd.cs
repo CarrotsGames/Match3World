@@ -28,6 +28,7 @@ public class DailyAd : MonoBehaviour
     }
     private void Update()
     {
+        // Diplsays a temp text until it gets the current time
         if (DailyAdPlays.text == "New Text")
         {
             DailyAdPlays.text = "Getting \n time....";
