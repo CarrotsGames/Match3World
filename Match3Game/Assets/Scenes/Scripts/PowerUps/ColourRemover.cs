@@ -92,29 +92,34 @@ public class ColourRemover : MonoBehaviour
                     DotManagerScript.CanPlay = false;
                     if (hit.collider.gameObject.tag == "Red")
                     {
+ 
                         Colour = hit.collider.gameObject.tag;
                            Red = true;
                     }
                     if (hit.collider.gameObject.tag == "Blue")
                     {
+ 
                         Colour = hit.collider.gameObject.tag;
 
                         Red = true;
                     }
                     if (hit.collider.gameObject.tag == "Green")
                     {
+ 
                         Colour = hit.collider.gameObject.tag;
 
                         Red = true;
                     }
                     if (hit.collider.gameObject.tag == "Yellow")
                     {
+ 
                         Colour = hit.collider.gameObject.tag;
 
                         Red = true;
                     }
                     if (hit.collider.gameObject.tag == "Rainbow")
                     {
+
                         Colour = hit.collider.gameObject.tag;
 
                         Rainbow = true;

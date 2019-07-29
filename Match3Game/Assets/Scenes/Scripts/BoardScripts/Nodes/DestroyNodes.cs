@@ -57,7 +57,6 @@ public class DestroyNodes : MonoBehaviour {
     {
         if(ComboList.Count < 1 && GetComponent<DestroyGold>().GoldList.Count < 1)
         {
-            PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
 
             DotManagerScript.CanPlay = true;
             Index = 0;
@@ -76,6 +75,7 @@ public class DestroyNodes : MonoBehaviour {
         // when the combo is over it resets all values
         if(Reset)
         {
+            PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
 
             DotManagerScript.CanPlay = true;
              //resets combo text 
