@@ -26,6 +26,7 @@ public class Tutorial : MonoBehaviour
 
     public Button gobuButton;
     public Button storeButton;
+    public Button leaderButton;
 
     //Animation Stuff
     public GameObject finger;
@@ -127,6 +128,7 @@ public class Tutorial : MonoBehaviour
             gobu2.SetActive(true);
             storeBubble.SetActive(true);
             tutPanel.SetActive(true);
+            leaderButton.interactable = false;
             numberOfClicks++;
         }
 
