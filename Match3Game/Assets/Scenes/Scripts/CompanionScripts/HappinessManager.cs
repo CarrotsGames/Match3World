@@ -46,6 +46,7 @@ public class HappinessManager : MonoBehaviour
         // if they are then the happinessStates void wont be called to avoid mixing saves
         Scene CurrentScene = SceneManager.GetActiveScene();
         SceneName = CurrentScene.name;
+        SleepAd = GameObject.FindGameObjectWithTag("SleepingAd");
         if (SceneName == "Main Screen")
         {
             OnMainScene = true;
@@ -65,7 +66,6 @@ public class HappinessManager : MonoBehaviour
         // CompanionSounds = GetComponent<AudioClip[]>();
         RealTimeGameObj = GameObject.FindGameObjectWithTag("MainCamera");
         RealtTimeScript = RealTimeGameObj.GetComponent<RealTimeCounter>();
-        SleepAd = GameObject.FindGameObjectWithTag("SleepingAd");
         // Gets the last known bool for this companion
         IsSleeping = (PlayerPrefs.GetInt(SaveStrings) != 0);
         LoadCompanionSaves();
