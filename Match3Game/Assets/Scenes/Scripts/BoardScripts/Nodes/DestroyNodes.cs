@@ -26,6 +26,7 @@ public class DestroyNodes : MonoBehaviour {
     private int Test;
     private bool Reset;
     private bool ComboPause;
+    private GameObject PowerUpGameObj;
 
     // These are used in the Idasauros Script to know when the animation should play
     [HideInInspector]
@@ -36,6 +37,8 @@ public class DestroyNodes : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        PowerUpGameObj = GameObject.Find("PowerUps");
+
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
          // Referneces DotManagerScript
@@ -72,6 +75,8 @@ public class DestroyNodes : MonoBehaviour {
         // when the combo is over it resets all values
         if(Reset)
         {
+            PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
+
             DotManagerScript.CanPlay = true;
              //resets combo text 
             ComboText.text = "";
@@ -87,6 +92,7 @@ public class DestroyNodes : MonoBehaviour {
         // begins coutning the combo and addind particles
         if (StartDestroy)
         {
+            PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonDisable();
             StartNodeDestroy();
             ComboGameObj.SetActive(true);
         }
