@@ -13,10 +13,13 @@ public class ShuffleScript : MonoBehaviour
     private GameObject PowerUpManGameObj;
     Rigidbody2D rb2d;
     private PowerUpManager PowerUpManagerScript;
+    private GameObject PowerUpGameObj;
 
     // Use this for initialization
     void Start()
     {
+        PowerUpGameObj = GameObject.Find("PowerUps");
+
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
         Shuffle = false;
@@ -35,6 +38,8 @@ public class ShuffleScript : MonoBehaviour
             // if x is less than 0 stop(NOTE it can be any axis we just need to check if a value is less than 0)
             if (Go.transform.localScale.x <= 0.25f)
             {
+                PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
+
                 Destroy(Go);
                 Shuffle = false;
                 CanShuffle = true;
@@ -50,6 +55,8 @@ public class ShuffleScript : MonoBehaviour
         {
             if (CanShuffle)
             {
+                PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonDisable();
+
                 PowerUpManagerScript.NumOfShuffles -= 1;
 
                 ShuffleGameObj.transform.localScale = new Vector3(CircleScale, CircleScale, CircleScale);

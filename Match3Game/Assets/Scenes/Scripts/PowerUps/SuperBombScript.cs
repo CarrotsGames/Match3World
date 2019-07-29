@@ -12,9 +12,13 @@ public class SuperBombScript : MonoBehaviour
     public bool BombHasBeenUsed;
     private GameObject PowerUpManGameObj;
     private PowerUpManager PowerUpManagerScript;
+    private GameObject PowerUpGameObj;
+
     // Use this for initialization
     void Start()
     {
+        PowerUpGameObj = GameObject.Find("PowerUps");
+
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
         BombPlayArea.SetActive(false);
@@ -38,8 +42,9 @@ public class SuperBombScript : MonoBehaviour
                     Instantiate(SuperBombPrefab, new Vector2(PlaceBomb.x, PlaceBomb.y), Quaternion.identity);
                     CanPlaceBomb = false;
                     BombHasBeenUsed = true;
+
                 }
-         
+
             }
         }       
     }
@@ -48,6 +53,8 @@ public class SuperBombScript : MonoBehaviour
     {
         if (!CanPlaceBomb)
         {
+            PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonDisable();
+
             if (PowerUpManagerScript.HasBombs)
             {
                 BombPlayArea.SetActive(true);

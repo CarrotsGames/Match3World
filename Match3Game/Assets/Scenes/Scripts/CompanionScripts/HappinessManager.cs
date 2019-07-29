@@ -4,7 +4,9 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class HappinessManager : MonoBehaviour
-{
+{    //TODO
+    // CHANGE NAME BOARDSCRIPT TO BOARD//
+
     private BoardScript BoardScriptRef;
     public GameObject Board;
     public GameObject Companion;
@@ -20,12 +22,13 @@ public class HappinessManager : MonoBehaviour
     public bool CanGetCurrency;
     // Reset multplier for DEBUG purposes 
     public bool IsSleeping;   
-    // CHANGE NAME BOARDSCRIPT TO BOARD//
     public Animator Anim;
-
     public GameObject DayTime;
     public GameObject NightTime;
     public GameObject AwakeHead;
+    // Plays ad when sleeping
+    private GameObject SleepAd;
+    private PlayLevelAd PlayLevelAdScript;
     string SceneName;
     string CompanionName;
     private GameObject RealTimeGameObj;
@@ -34,7 +37,7 @@ public class HappinessManager : MonoBehaviour
     [HideInInspector]
     public bool OnMainScene;
     bool CanEarnGold;
-     [HideInInspector]
+    [HideInInspector]
     public string SaveStrings;
     // Use this for initialization
     void Start()
@@ -43,11 +46,16 @@ public class HappinessManager : MonoBehaviour
         // if they are then the happinessStates void wont be called to avoid mixing saves
         Scene CurrentScene = SceneManager.GetActiveScene();
         SceneName = CurrentScene.name;
+        SleepAd = GameObject.FindGameObjectWithTag("SleepingAd");
         if (SceneName == "Main Screen")
         {
             OnMainScene = true;
         }
-            Board = GameObject.FindGameObjectWithTag("BoardSpawn");
+        else
+        {
+            PlayLevelAdScript = SleepAd.GetComponent<PlayLevelAd>();
+        }
+        Board = GameObject.FindGameObjectWithTag("BoardSpawn");
 
         if (SceneName != "Gobu Tutorial")
         {
@@ -221,7 +229,7 @@ public class HappinessManager : MonoBehaviour
                 IsSleeping = true;
                 //sets bool to false and saves
                 PlayerPrefs.SetInt(SaveStrings, (IsSleeping ? 1 : 0));
-
+                PlayLevelAdScript.PlayAdNow();
             }
             DayTime.SetActive(false);
             AwakeHead.SetActive(false);

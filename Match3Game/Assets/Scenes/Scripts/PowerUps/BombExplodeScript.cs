@@ -14,9 +14,12 @@ public class BombExplodeScript : MonoBehaviour
     bool AddScore;
     private GameObject AudioManagerGameObj;
     private AudioManager AudioManagerScript;
+    private GameObject PowerUpGameObj;
 
     void Awake()
     {
+        PowerUpGameObj = GameObject.Find("PowerUps");
+
         Timer = 1;
         AudioManagerGameObj = GameObject.FindGameObjectWithTag("AudioManager");
         AudioManagerScript = AudioManagerGameObj.GetComponent<AudioManager>();
@@ -50,6 +53,7 @@ public class BombExplodeScript : MonoBehaviour
     }
      void DestoryMe()
     {
+
         Destroy(this.gameObject);
         CollidedNodes.Clear();
     }
@@ -72,8 +76,10 @@ public class BombExplodeScript : MonoBehaviour
                 GetComponent<SpriteRenderer>().enabled = false;
                 GetComponent<CircleCollider2D>().enabled = false;
                 Detonate = false;
+                PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
+
             }
-            if(Timer >= -0.25f)
+            if (Timer >= -0.25f)
             {
             
 

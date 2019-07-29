@@ -9,8 +9,12 @@ public class DestroyGold : MonoBehaviour
     private float Timer;
     private int Index;
     public List<GameObject> GoldList = new List<GameObject>();
+    private GameObject PowerUpGameObj;
+
     private void Start()
     {
+        PowerUpGameObj = GameObject.Find("PowerUps");
+
         StartDestroyGold = false;
         Timer = 0.1f;
         Index = 0;
@@ -21,12 +25,15 @@ public class DestroyGold : MonoBehaviour
          // Begins the process
         if (StartDestroyGold)
         {
+            PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonDisable();
+
             StartDestory();
         }
+     
         // when both destroy node lists are less than 0 the player can play
         if (GoldList.Count < 1 && GetComponent<DestroyNodes>().ComboList.Count < 1)
         {
- 
+
             GetComponent<DotManager>().CanPlay = true;
             Index = 0;
             GoldList.Clear();
@@ -43,6 +50,7 @@ public class DestroyGold : MonoBehaviour
         // puts gold into a new list to begin the destroging process
         for (int i = 0; i < GetComponent<DotManager>().Gold.Count; i++)
         {
+ 
             GoldList.Add(GetComponent<DotManager>().Gold[i]);
         }
 
@@ -78,6 +86,7 @@ public class DestroyGold : MonoBehaviour
         {
             GoldList.Clear();
             StartDestroyGold = false;
+            PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
 
         }
     }

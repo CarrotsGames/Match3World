@@ -187,6 +187,10 @@ public class DotManager : MonoBehaviour
                 Peices.Clear();
                 AddBoardParticles();
             }
+            else
+            {
+                Gold.Clear();
+            }
             // Checks which colour made a match  
             if (Limit < Peices.Count)
             {
