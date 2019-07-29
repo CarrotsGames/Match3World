@@ -3,19 +3,27 @@ using PlayFab;
 using PlayFab.ClientModels;
 using System.Collections.Generic;
 using System.Collections;
- 
+using UnityEngine.SceneManagement;
+
 public class PlayFabLogin : MonoBehaviour
 {
     GameObject DotManagerObj;
     DotManager DotManagerScript;
     public GameObject EggHatchGameObj;
     float UpdateScoreTimer;
+    string SceneName;
+
     public bool HasLoggedIn;
     public void Start()
     {
-        UpdateScoreTimer = 3;
-        DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
-        DotManagerScript = DotManagerObj.GetComponent<DotManager>();
+        Scene CurrentScene = SceneManager.GetActiveScene();
+        SceneName = CurrentScene.name;
+        if (SceneName != "Money Store"  )
+        {
+            UpdateScoreTimer = 3;
+            DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
+            DotManagerScript = DotManagerObj.GetComponent<DotManager>();
+        }
         Login();
         HasLoggedIn = false;
     }
@@ -48,23 +56,25 @@ public class PlayFabLogin : MonoBehaviour
     {
  
         UpdateScoreTimer -= Time.deltaTime;
-     
-        // Updates player Score to server every x Seconds
-        if (UpdateScoreTimer < 0)
+        if (SceneName != "Money Store"  )
         {
- 
-            PlayFabClientAPI.UpdatePlayerStatistics(new UpdatePlayerStatisticsRequest
+            // Updates player Score to server every x Seconds
+            if (UpdateScoreTimer < 0)
             {
-                Statistics = new List<StatisticUpdate>
+
+                PlayFabClientAPI.UpdatePlayerStatistics(new UpdatePlayerStatisticsRequest
+                {
+                    Statistics = new List<StatisticUpdate>
             {
 
                 new StatisticUpdate {StatisticName = "TournamentScore", Value = DotManagerScript.TotalScore,},
              }
 
-            },
-              result => { Debug.Log("User statistics updated"); },
-              error => { Debug.LogError(error.GenerateErrorReport()); });
-              UpdateScoreTimer = 10;
+                },
+                  result => { Debug.Log("User statistics updated"); },
+                  error => { Debug.LogError(error.GenerateErrorReport()); });
+                UpdateScoreTimer = 10;
+            }
         }
     }
  
