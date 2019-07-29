@@ -18,6 +18,7 @@ public class DisablePowerUps : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
         {
             transform.GetChild(i).GetComponent<Button>().enabled = false;
+            transform.GetChild(i).GetComponent<Image>().color = Color.gray;
         }
     }
     public void OnButtonEnable()
@@ -25,6 +26,8 @@ public class DisablePowerUps : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
         {
             transform.GetChild(i).GetComponent<Button>().enabled = true;
+            transform.GetChild(i).GetComponent<Image>().color = Color.white;
+
         }
     }
 }
