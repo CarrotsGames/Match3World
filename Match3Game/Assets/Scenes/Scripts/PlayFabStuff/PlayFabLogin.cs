@@ -18,12 +18,13 @@ public class PlayFabLogin : MonoBehaviour
     {
         Scene CurrentScene = SceneManager.GetActiveScene();
         SceneName = CurrentScene.name;
-        if (SceneName != "Money Store"  )
+        if (SceneName != "Money Store" && SceneName != "StoreScene")
         {
             UpdateScoreTimer = 3;
             DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
             DotManagerScript = DotManagerObj.GetComponent<DotManager>();
         }
+        
         Login();
         HasLoggedIn = false;
     }
@@ -56,8 +57,9 @@ public class PlayFabLogin : MonoBehaviour
     {
  
         UpdateScoreTimer -= Time.deltaTime;
-        if (SceneName != "Money Store"  )
+        if (SceneName != "Money Store" && SceneName != "StoreScene")
         {
+
             // Updates player Score to server every x Seconds
             if (UpdateScoreTimer < 0)
             {
@@ -76,6 +78,7 @@ public class PlayFabLogin : MonoBehaviour
                 UpdateScoreTimer = 10;
             }
         }
+    
     }
  
 }

@@ -46,18 +46,7 @@ public class EggHatch : MonoBehaviour
         // Changes timer text until the server grabs current time
      
         StartCountDown = (PlayerPrefs.GetInt("EGGCOUNTDOWN") != 0);
-        //debug starts and ends timer
-        if(Input.GetKeyDown(KeyCode.W))
-        {
-            CountDownTimer();
-       
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            StartCountDown = false;
-       
-            HatchCreature();
-        }
+     
         // begins countdown
         if (StartCountDown)
         {
@@ -99,6 +88,9 @@ public class EggHatch : MonoBehaviour
     }
     void HatchCreature()
     {
+        GetComponent<EggTimerOptions>().HasHalfedTime = false;
+        PlayerPrefs.SetInt("HalfTime", (GetComponent<EggTimerOptions>().HasHalfedTime ? 1 : 0));
+
         // selects random index for creature
         int Random = UnityEngine.Random.Range(0, EggCreatures.Count);
         UnlockedCompanion = EggCreatures[Random] ;

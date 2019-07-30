@@ -194,7 +194,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 236685338}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 826367302}
+        m_MethodName: HalfTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &343082382
@@ -834,7 +845,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PowerUpManagerGameObj: {fileID: 0}
   PowerUpManagerScript: {fileID: 0}
-  Prices: 6400000096000000c8000000
+  Prices: 6400000096000000c8000000640000004b000000
+  HalfTimePrice: 0
 --- !u!1 &1728527778790748
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,7 +1002,7 @@ RectTransform:
   m_GameObject: {fileID: 1986311212693028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5217609, y: 0.5217609, z: 0.5217609}
+  m_LocalScale: {x: 0.19536412, y: 0.19536412, z: 0.19536412}
   m_Children:
   - {fileID: 224274166784722182}
   - {fileID: 224776741892562092}
