@@ -222,14 +222,17 @@ public class HappinessManager : MonoBehaviour
             Anim.SetBool("is sleepy", true);
             if (!IsSleeping)
             {
-              //  Sleeping();
-
+                //  Sleeping();
+             
                 AudioGameObj.GetComponent<SceneAudio>().Daymode = false;
                 AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
                 IsSleeping = true;
+                AudioGameObj.GetComponent<SceneAudio>().CompanionSound.PlayOneShot
+             (AudioGameObj.GetComponent<SceneAudio>().WakeUpSound[1]);
                 //sets bool to false and saves
                 PlayerPrefs.SetInt(SaveStrings, (IsSleeping ? 1 : 0));
                 PlayLevelAdScript.PlayAdNow();
+
             }
             DayTime.SetActive(false);
             AwakeHead.SetActive(false);
@@ -247,35 +250,46 @@ public class HappinessManager : MonoBehaviour
         // checks if Companion is sleeping
         if(IsSleeping)
         {
+            // Backdrop is set to night time
             NightTime.SetActive(true);
+            // Changes happiness value to green
             FillColour.color = Color.green;
-
+            // Sets default animation to false
             Anim.SetBool("is>33", false);
-           // AudioGameObj.GetComponent<SceneAudio>().Daymode = true;
-
+            //Plays sleep animation
             Anim.SetBool("is sleepy", true);
+            // Turns off awake head
             AwakeHead.SetActive(false);
+            // Gold will begin to drop
             CanEarnGold = true;
+            // Mutlpier is set to current multlpier value
             this.gameObject.GetComponent<HappyMultlpier>().MultlpierNum = PlayerPrefs.GetInt("Multiplier");
+            // Turns off day backdrop
             DayTime.SetActive(false);
-       
-             AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
+           // Plays nightime music 
+            AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
+            // Saves current bool
             PlayerPrefs.SetInt(AudioGameObj.GetComponent<SceneAudio>().MorningSave, (AudioGameObj.GetComponent<SceneAudio>().Daymode ? 1 : 0));
          }
         else
         {
+            // Night backdrop is disabled
             NightTime.SetActive(false);
+            // Happiness value is yellow
             FillColour.color = Color.yellow;
-
+            // Player can no longer earn gold
             CanEarnGold = false;
+            // Mutlpier is set to current multlpier value
             GetComponent<HappyMultlpier>().MultlpierNum = PlayerPrefs.GetInt("Multiplier");
+            // Daytime backdrop is enabled
             DayTime.SetActive(true);
+            // Plays starting animation
             Anim.SetBool("<20", true);
+            // Plays daytime music
             AudioGameObj.GetComponent<SceneAudio>().Daymode = true;
              AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
+            // Saves current bool
             PlayerPrefs.SetInt(AudioGameObj.GetComponent<SceneAudio>().MorningSave, (AudioGameObj.GetComponent<SceneAudio>().Daymode ? 1 : 0));
-
- 
         }
     }
   

@@ -27,36 +27,51 @@ public class SceneAudio : MonoBehaviour {
         // Daymode = true;
         HappinessManagerGameObj = GameObject.FindGameObjectWithTag("HM");
         HappinessManagerScript = HappinessManagerGameObj.GetComponent<HappinessManager>();
-     
+        if(Daymode)
+        {
+            NightMusic();
+        }
+        else
+        {
+            DayMusic();
+        }
     }
 
-   
+    void DayMusic()
+    {
+
+        // play night music
+        Source.clip = SceneMusic[0];
+        Source.Play();
+        // save bool as false so if the game is reset it will go back here
+        PlayerPrefs.SetInt(MorningSave, (Daymode ? 1 : 0));
+        // this will work in the game session to switch between night and day
+        // This is not saved because if a restart happens during sleep it will play 
+        Daymode = false;
+
+    }
+    void NightMusic()
+    {
+        //  WakeUpSource.clip = WakeUpSound;
+        Source.clip = SceneMusic[1];
+        Source.Play();
+        // save bool as false so if the game is reset it will go back here
+        PlayerPrefs.SetInt(MorningSave, (Daymode ? 1 : 0));
+        // this will work in the game session to switch between night and day
+        // This is not saved because if a restart happens during sleep it will play 
+        Daymode = true;
+
+    }
     public void PlayMusic()
     {
         // if its nighttime
         if (!Daymode)
         {
- 
-            // play night music
-            Source.clip = SceneMusic[1];
-            Source.Play();
-             // save bool as false so if the game is reset it will go back here
-            PlayerPrefs.SetInt(MorningSave, (Daymode ? 1 : 0));
-            // this will work in the game session to switch between night and day
-            // This is not saved because if a restart happens during sleep it will play 
-            Daymode = true;
+            NightMusic();
         }
         else
         {
-            //  WakeUpSource.clip = WakeUpSound;
-             Source.clip = SceneMusic[0];
-            Source.Play();
-            // save bool as false so if the game is reset it will go back here
-            PlayerPrefs.SetInt(MorningSave, (Daymode ? 1 : 0));
-            // this will work in the game session to switch between night and day
-            // This is not saved because if a restart happens during sleep it will play 
-            Daymode = false;
-
+            DayMusic();
         }
     }
 }
