@@ -27,16 +27,21 @@ public class ParticleDecay : MonoBehaviour
         Audio = GetComponent<AudioSource>();
         Audio.clip = AudioManagerScript.ParticleAudio[AudioIndex];
         Audio.Play();
+
+        if (Settings.GetComponent<settings>().soundOff)
+        {
+            GetComponent<AudioSource>().enabled = false;
+        }
+        else
+        {
+            GetComponent<AudioSource>().enabled = true;       
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (Settings.GetComponent<settings>().soundOff)
-        {
-            GetComponent<AudioSource>().enabled = false;
-        }
             DecayTimer -= Time.deltaTime;
             if (DecayTimer < 0)
             {
