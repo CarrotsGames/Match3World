@@ -33,40 +33,23 @@ public class settings : MonoBehaviour {
 
         if (musicOff)
         {
-            audioManager.GetComponent<AudioManager>().NodeSource.enabled = false;
-            soundEffects.GetComponent<SceneAudio>().Source.enabled = false;
-
-            // sceneAudio.SetActive(false);
-            NoMusicImage.SetActive(true);
-            MusicImage.SetActive(false);
+            MusicOff();
         }
         else
         {
-            audioManager.GetComponent<AudioManager>().NodeSource.enabled = true;
-            soundEffects.GetComponent<SceneAudio>().Source.enabled = true;
-
-            // sceneAudio.SetActive(true);
-            NoMusicImage.SetActive(false);
-            MusicImage.SetActive(true);
+            MusicOn();
         }
 
-        if (!soundOff)
+        if (soundOff)
         {
-            AudioManagerScript.soundOn = false;
-            soundOff = false;
-            noSound.SetActive(false);
-            sound.SetActive(true);
+            SoundOff();
         }
         else
         {
-            AudioManagerScript.soundOn = true;
-            sound.SetActive(false);
-            soundOff = true;
-            noSound.SetActive(true);
+            SoundOn();
         }
 
     }
-
     public void TurnOffTab()
     {
         settingsMenu.SetActive(false);
@@ -77,55 +60,48 @@ public class settings : MonoBehaviour {
         settingsMenu.SetActive(true);
     }
 
-    public void NoMusic()
+   
+   public void MusicOn()
     {
-        if (musicOff)
-        {
 
-            // sceneAudio.SetActive(true);
-            audioManager.GetComponent<AudioManager>().NodeSource.enabled = true;
-             //DO THIS TO OTHERS!!!!!!///////////////////////////////////////
-            soundEffects.GetComponent<SceneAudio>().Source.enabled = true;
-            musicOff = false;
-            PlayerPrefs.SetInt("MusicSave", (musicOff ? 1 : 0));
-            NoMusicImage.SetActive(false);
-            MusicImage.SetActive(true);
-        }
-        else
-        {
-            //  sceneAudio.SetActive(false);
-            audioManager.GetComponent<AudioManager>().NodeSource.enabled = false;
-            soundEffects.GetComponent<SceneAudio>().Source.enabled = false;
+        // sceneAudio.SetActive(true);
+        audioManager.GetComponent<AudioManager>().NodeSource.enabled = true;
+        //DO THIS TO OTHERS!!!!!!///////////////////////////////////////
+        soundEffects.GetComponent<SceneAudio>().Source.enabled = true;
+        musicOff = false;
+        PlayerPrefs.SetInt("MusicSave", (musicOff ? 1 : 0));
+        NoMusicImage.SetActive(false);
+        MusicImage.SetActive(true);
+    }
+    public void MusicOff()
+    {
+        //  sceneAudio.SetActive(false);
+        audioManager.GetComponent<AudioManager>().NodeSource.enabled = false;
+        soundEffects.GetComponent<SceneAudio>().Source.enabled = false;
 
-            musicOff = true;
-            PlayerPrefs.SetInt("MusicSave", (musicOff ? 1 : 0));
-            NoMusicImage.SetActive(true);
-            MusicImage.SetActive(false);
-        }
+        musicOff = true;
+        PlayerPrefs.SetInt("MusicSave", (musicOff ? 1 : 0));
+        NoMusicImage.SetActive(true);
+        MusicImage.SetActive(false);
+    }
+    public void SoundOn()
+    {
+        soundOff = false;
+
+        AudioManagerScript.soundOn = true;
+        noSound.SetActive(false);
+        sound.SetActive(true);
+        PlayerPrefs.SetInt("SoundSave", (soundOff ? 1 : 0));
+    }
+    public void SoundOff()
+    {
+        AudioManagerScript.soundOn = false;
+        soundOff = true;
+        noSound.SetActive(true);
+        sound.SetActive(false);
+        PlayerPrefs.SetInt("SoundSave", (soundOff ? 1 : 0));
+
 
     }
-
-
-    public void NoSounds()
-    {
-        if (soundOff)
-        {
-            AudioManagerScript.soundOn = true;
-            soundOff = false;
-            noSound.SetActive(false);
-            sound.SetActive(true);
-            PlayerPrefs.SetInt("SoundSave", (soundOff ? 1 : 0));
-
-        }
-        else
-        {
-            AudioManagerScript.soundOn = false;
-            soundOff = true;
-            noSound.SetActive(true);
-            sound.SetActive(false);
-            PlayerPrefs.SetInt("SoundSave", (soundOff ? 1 : 0));
-
-        }
-
-    }
+  
 }
