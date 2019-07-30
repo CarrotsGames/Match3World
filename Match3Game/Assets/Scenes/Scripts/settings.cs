@@ -67,7 +67,7 @@ public class settings : MonoBehaviour {
         // sceneAudio.SetActive(true);
         audioManager.GetComponent<AudioManager>().NodeSource.enabled = true;
         //DO THIS TO OTHERS!!!!!!///////////////////////////////////////
-        soundEffects.GetComponent<SceneAudio>().Source.enabled = true;
+        soundEffects.GetComponent<SceneAudio>().SceneMusicSource.enabled = true;
         musicOff = false;
         PlayerPrefs.SetInt("MusicSave", (musicOff ? 1 : 0));
         NoMusicImage.SetActive(false);
@@ -77,7 +77,7 @@ public class settings : MonoBehaviour {
     {
         //  sceneAudio.SetActive(false);
         audioManager.GetComponent<AudioManager>().NodeSource.enabled = false;
-        soundEffects.GetComponent<SceneAudio>().Source.enabled = false;
+        soundEffects.GetComponent<SceneAudio>().SceneMusicSource.enabled = false;
 
         musicOff = true;
         PlayerPrefs.SetInt("MusicSave", (musicOff ? 1 : 0));

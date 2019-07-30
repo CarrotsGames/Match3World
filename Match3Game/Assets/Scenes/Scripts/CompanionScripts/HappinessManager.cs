@@ -67,8 +67,8 @@ public class HappinessManager : MonoBehaviour
         RealTimeGameObj = GameObject.FindGameObjectWithTag("MainCamera");
         RealtTimeScript = RealTimeGameObj.GetComponent<RealTimeCounter>();
         // Gets the last known bool for this companion
-        IsSleeping = (PlayerPrefs.GetInt(SaveStrings) != 0);
         LoadCompanionSaves();
+        IsSleeping = (PlayerPrefs.GetInt(SaveStrings) != 0);
         
         // Gets the last known bool for this companion
         IsSleeping = (PlayerPrefs.GetInt(SaveStrings) != 0);
@@ -228,7 +228,7 @@ public class HappinessManager : MonoBehaviour
                 AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
                 IsSleeping = true;
                 AudioGameObj.GetComponent<SceneAudio>().CompanionSound.PlayOneShot
-             (AudioGameObj.GetComponent<SceneAudio>().WakeUpSound[1]);
+               (AudioGameObj.GetComponent<SceneAudio>().WakeUpSound[1]);
                 //sets bool to false and saves
                 PlayerPrefs.SetInt(SaveStrings, (IsSleeping ? 1 : 0));
                 PlayLevelAdScript.PlayAdNow();
@@ -266,7 +266,8 @@ public class HappinessManager : MonoBehaviour
             this.gameObject.GetComponent<HappyMultlpier>().MultlpierNum = PlayerPrefs.GetInt("Multiplier");
             // Turns off day backdrop
             DayTime.SetActive(false);
-           // Plays nightime music 
+            // Plays nightime music 
+            AudioGameObj.GetComponent<SceneAudio>().Daymode = false;
             AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
             // Saves current bool
             PlayerPrefs.SetInt(AudioGameObj.GetComponent<SceneAudio>().MorningSave, (AudioGameObj.GetComponent<SceneAudio>().Daymode ? 1 : 0));

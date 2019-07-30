@@ -11,7 +11,7 @@ public class SceneAudio : MonoBehaviour {
     public GameObject HappinessManagerGameObj;
 
     public AudioSource CompanionSound;
-    public AudioSource Source;
+    public AudioSource SceneMusicSource;
 
     private HappinessManager HappinessManagerScript;
     public bool Daymode;
@@ -22,48 +22,49 @@ public class SceneAudio : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        Daymode = (PlayerPrefs.GetInt(MorningSave) != 0);
       
         // Daymode = true;
         HappinessManagerGameObj = GameObject.FindGameObjectWithTag("HM");
         HappinessManagerScript = HappinessManagerGameObj.GetComponent<HappinessManager>();
-        if(Daymode)
-        {
-            NightMusic();
-        }
-        else
-        {
-            DayMusic();
-        }
+      // if(Daymode)
+      // {
+      //     NightMusic();
+      // }
+      // else
+      // {
+      //     DayMusic();
+      // }
     }
 
     void DayMusic()
     {
 
         // play night music
-        Source.clip = SceneMusic[0];
-        Source.Play();
+        SceneMusicSource.clip = SceneMusic[0];
+        SceneMusicSource.Play();
         // save bool as false so if the game is reset it will go back here
-        PlayerPrefs.SetInt(MorningSave, (Daymode ? 1 : 0));
         // this will work in the game session to switch between night and day
         // This is not saved because if a restart happens during sleep it will play 
         Daymode = false;
+        PlayerPrefs.SetInt("AUDIOSAVE", (Daymode ? 1 : 0));
 
     }
     void NightMusic()
     {
         //  WakeUpSource.clip = WakeUpSound;
-        Source.clip = SceneMusic[1];
-        Source.Play();
+        SceneMusicSource.clip = SceneMusic[1];
+        SceneMusicSource.Play();
         // save bool as false so if the game is reset it will go back here
-        PlayerPrefs.SetInt(MorningSave, (Daymode ? 1 : 0));
         // this will work in the game session to switch between night and day
         // This is not saved because if a restart happens during sleep it will play 
         Daymode = true;
+        PlayerPrefs.SetInt("AUDIOSAVE", (Daymode ? 1 : 0));
 
     }
     public void PlayMusic()
     {
+      //  Daymode = (PlayerPrefs.GetInt("AUDIOSAVE") != 0);
+
         // if its nighttime
         if (!Daymode)
         {

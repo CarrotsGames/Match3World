@@ -65,10 +65,7 @@ public class EggHatch : MonoBehaviour
             if (NowTime > TimeStamp)
             {
                 StartCountDown = false;
-
-                Debug.Log(NowTime);
-                Debug.Log(TimeStamp);
-                Debug.Log("fnished");
+ 
                 HatchCreature();
 
             }

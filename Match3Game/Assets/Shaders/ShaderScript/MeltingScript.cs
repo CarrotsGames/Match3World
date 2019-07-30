@@ -92,8 +92,7 @@ public class MeltingScript : MonoBehaviour {
         {
             Disolve = true;
 
-            Debug.Log("NOTHING");
-        }
+         }
 
      }
     private void OnTriggerStay2D(Collider2D collision)
@@ -106,8 +105,7 @@ public class MeltingScript : MonoBehaviour {
             {
                 //     Melting();
                 Melting();
-                Debug.Log("HIT");
-            }
+             }
         }
     }
 }
