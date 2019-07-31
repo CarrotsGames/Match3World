@@ -13,10 +13,12 @@ public class SuperBombScript : MonoBehaviour
     private GameObject PowerUpManGameObj;
     private PowerUpManager PowerUpManagerScript;
     private GameObject PowerUpGameObj;
-
+    int TimesUsed;
     // Use this for initialization
     void Start()
     {
+        TimesUsed = PlayerPrefs.GetInt("SUPERBOMB");
+
         PowerUpGameObj = GameObject.Find("PowerUps");
 
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
@@ -57,6 +59,10 @@ public class SuperBombScript : MonoBehaviour
 
             if (PowerUpManagerScript.HasBombs)
             {
+                // Counts how many times player uses this powerup
+                TimesUsed++;
+                PlayerPrefs.SetInt("SUPERBOMB", TimesUsed);
+
                 BombPlayArea.SetActive(true);
 
                 PowerUpManagerScript.NumOfBombs -= 1;

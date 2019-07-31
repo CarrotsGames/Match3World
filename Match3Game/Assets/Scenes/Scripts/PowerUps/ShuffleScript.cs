@@ -15,9 +15,12 @@ public class ShuffleScript : MonoBehaviour
     private PowerUpManager PowerUpManagerScript;
     private GameObject PowerUpGameObj;
 
+    int TimesUsed;
     // Use this for initialization
     void Start()
     {
+        TimesUsed = PlayerPrefs.GetInt("SHUFFLE");
+
         PowerUpGameObj = GameObject.Find("PowerUps");
 
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
@@ -54,7 +57,11 @@ public class ShuffleScript : MonoBehaviour
         if (PowerUpManagerScript.HasShuffles)
         {
             if (CanShuffle)
-            {
+            {            
+                // Counts how many times player uses this powerup
+                TimesUsed++;
+                PlayerPrefs.SetInt("SHUFFLE", TimesUsed);
+
                 PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonDisable();
 
                 PowerUpManagerScript.NumOfShuffles -= 1;

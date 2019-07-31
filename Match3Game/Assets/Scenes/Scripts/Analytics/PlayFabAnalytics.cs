@@ -15,43 +15,23 @@ public class PlayFabAnalytics : MonoBehaviour {
     public float Score;
     private string SaveScoreName;
     public float DelayTime;
+    int SCR;
+    int Shuffle;
+    int SuperBomb;
+    int SuperMultlpier;
     // Use this for initialization
     void Start () {
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
         Test = false;
+        // Tracks companion Level Time
         CompanionTime = CompanionScore.name + "TIME";
         TimeOnScene = PlayerPrefs.GetFloat(CompanionTime);
-        switch (CompanionScore.name)
-        {
-            case "Gobu":
-            {
-                    SaveScoreName = "GOBUSCORETRACK";
-                    DotManagerScript.SceneScore = PlayerPrefs.GetFloat(SaveScoreName);
-            }
-            break;
-            case "Binky":
-                {
-                    SaveScoreName = "BINKYSCORETRACK";
-                    DotManagerScript.SceneScore = PlayerPrefs.GetFloat(SaveScoreName);
-
-                }
-                break;
-            case "Koko":
-                {
-                    SaveScoreName = "KOKOSCORETRACK";
-                    DotManagerScript.SceneScore = PlayerPrefs.GetFloat(SaveScoreName);
-
-                }
-                break;
-            case "Crius":
-                {
-                    SaveScoreName = "CRIUSSCORETRACK";
-                    DotManagerScript.SceneScore = PlayerPrefs.GetFloat(SaveScoreName);
-
-                }
-                break;
-        }
+        // Tracks companion Level Score
+        SaveScoreName = CompanionScore.name + "TRACK";
+        Score = PlayerPrefs.GetFloat(SaveScoreName);
+        DotManagerScript.SceneScore = Score;
+     
     }
 	
 	// Update is called once per frame
@@ -66,9 +46,13 @@ public class PlayFabAnalytics : MonoBehaviour {
         }
         // Test = false;
          
-      Score = DotManagerScript.SceneScore;
+       Score = DotManagerScript.SceneScore;
        PlayerPrefs.SetFloat(SaveScoreName, Score);
        PlayerPrefs.SetFloat(CompanionTime, TimeOnScene);
+       SCR = PlayerPrefs.GetInt("SCR");
+       Shuffle = PlayerPrefs.GetInt("SHUFFLE");
+       SuperBomb = PlayerPrefs.GetInt("SUPERBOMB");
+       SuperMultlpier = PlayerPrefs.GetInt("SUPERMULTLPIER");
 
     }
 
@@ -81,7 +65,12 @@ public class PlayFabAnalytics : MonoBehaviour {
                 Data = new Dictionary<string, string>()
          {
              {CompanionScore.name,"SCORE: "+  Score },
-             {CompanionTime,"" + TimeOnScene }
+             {CompanionTime,"" + TimeOnScene },
+             {"(1)POWERUP: SCR","" + SCR  },
+             {"(2)POWERUP: SHUFFLE","" + Shuffle  },
+             {"(3)POWERUP: BOMB","" + SuperBomb  },
+             {"(4)POWERUP: SM","" + SuperMultlpier  }
+
          }
             },
             result => Debug.Log("AnalyticsSent"),
@@ -101,6 +90,7 @@ public class PlayFabAnalytics : MonoBehaviour {
             Body = new Dictionary<string, object>() {
         { CompanionScore.name, Score },
         { CompanionTime, "" + TimeOnScene }
+               
     },
             EventName = "TestPlayer_Progression"
         },
