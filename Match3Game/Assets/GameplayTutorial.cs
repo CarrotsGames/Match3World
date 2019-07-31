@@ -264,6 +264,7 @@ IEnumerator WaitForBomb()
     public void NoFinger()
     {
         exitFinger.SetActive(false);
+        PlayerPrefs.SetInt("TUTORIAL", 1);
     }
 
 
