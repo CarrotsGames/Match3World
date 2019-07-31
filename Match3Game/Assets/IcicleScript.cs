@@ -19,9 +19,9 @@ public class IcicleScript : MonoBehaviour
         if (collision.gameObject.tag == "Red" || collision.gameObject.tag == "Blue" || collision.gameObject.tag == "Green" ||
             collision.gameObject.tag == "Yellow")
         {
-            //  collision.gameObject.GetComponent<DotScript>().OnMouseUp();
-            //    Debug.Log(collision.transform.position);
+           
              collision.GetComponent<NodeFreeze>().FreezeNode();
+            collision.gameObject.GetComponent<Renderer>().material.color = Color.white;
 
         }
     }
