@@ -30,12 +30,12 @@ public class ColourRemover : MonoBehaviour
     private string Colour;
     private string SceneName;
     private GameObject PowerUpGameObj;
-
+    int TimesUsed;
 
     // Use this for initialization
     void Start()
     {
-      
+        TimesUsed = PlayerPrefs.GetInt("SCR");
         PowerUpGameObj = GameObject.Find("PowerUps");
         Scene CurrentScene = SceneManager.GetActiveScene();
         SceneName = CurrentScene.name;
@@ -185,7 +185,9 @@ public class ColourRemover : MonoBehaviour
             PowerUpInUse = true;
             DotManagerScript.ResetMaterial = false;
             PowerUpManagerScript.NumOfSCR -= 1;
- 
+            // Counts how many times player uses this powerup
+            TimesUsed++;
+            PlayerPrefs.SetInt("SCR", TimesUsed);
             // Highlights Colours nodes with their desired colour eg red has red outline
             for (int i = 0; i < BoardGameObj.transform.childCount; i++)
             {

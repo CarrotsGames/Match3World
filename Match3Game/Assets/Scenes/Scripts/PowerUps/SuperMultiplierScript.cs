@@ -17,9 +17,12 @@ public class SuperMultiplierScript : MonoBehaviour
     private PowerUpManager PowerUpManagerScript;
     bool CanUseSuperMultiplier;
     bool StartCountdown;
+    int TimesUsed;
     // Use this for initialization
     void Start()
     {
+        TimesUsed = PlayerPrefs.GetInt("SUPERMULTLPIER");
+
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
         HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
@@ -114,6 +117,10 @@ public class SuperMultiplierScript : MonoBehaviour
         //Debug.Log("BUTTON PRESSED");
         if (PowerUpManagerScript.HasMultlpliers && !StartCountdown)
         {
+            // Counts how many times player uses this powerup
+            TimesUsed++;
+            PlayerPrefs.SetInt("SUPERMULTLPIER", TimesUsed);
+
             MultlpierTimer = 80;
             PowerUpManagerScript.NumOfMultilpiers -= 1;
             CanUseSuperMultiplier = true;
