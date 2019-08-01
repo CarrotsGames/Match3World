@@ -46,6 +46,10 @@ public class SuperBombScript : MonoBehaviour
                     BombHasBeenUsed = true;
 
                 }
+                else if (hit.transform == null)
+                {
+                    Debug.Log("PLACE BOMB IN AREA");
+                }
 
             }
         }       

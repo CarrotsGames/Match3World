@@ -83,11 +83,11 @@ public class BombExplodeScript : MonoBehaviour
             {
             
 
-                if (collision.gameObject.tag == "DeadNode")
+                if (collision.gameObject.tag == "DeadNode" || collision.transform.gameObject.layer == 16)
                 {
                     Destroy(collision.gameObject);
-                }        
-                else if (collision.gameObject.tag == "Rainbow")
+                }
+                else if (collision.gameObject.tag == "Rainbow" )
                 {
                     // do nothing
                 }
