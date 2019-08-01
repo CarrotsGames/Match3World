@@ -11,6 +11,7 @@ public class PlayBannerAd : MonoBehaviour
     public string placementId = "OpeningSceneBanner";
     public bool testMode = true;
     string SceneName;
+    
     void Start()
     {
         Scene CurrentScene = SceneManager.GetActiveScene();
@@ -20,11 +21,12 @@ public class PlayBannerAd : MonoBehaviour
     }
     private void Update()
     {
-        if(SceneName != "Main Screen")
+        if(SceneName == "Book")
         {
           //Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
           Advertisement.Banner.Show(placementId);
         }
+     
     }
 
 
