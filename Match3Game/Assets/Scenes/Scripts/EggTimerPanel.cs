@@ -41,7 +41,7 @@ public class EggTimerPanel : MonoBehaviour {
     }
 
 
-
+    //is for the button so it actually opens
     public void OpenPanel ()
     {
         if (isOpen == false)
@@ -59,7 +59,7 @@ public class EggTimerPanel : MonoBehaviour {
 
 
 
-
+    //Is for the animation for the panel
     public void HardReset()
     {
         if (isOpen)
