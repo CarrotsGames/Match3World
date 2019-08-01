@@ -70,6 +70,7 @@ public class DotScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
         if(SelfDestruct)
         {
             Timer -= Time.deltaTime;
@@ -109,19 +110,10 @@ public class DotScript : MonoBehaviour
                 ReleaseNodeColour = false;
                 VibrateSeconds = 0;
             }
-            else
-            {
-                StartCoroutine(VibratePhone());
-            }
+ 
 
             // DotManagerScript.StopInteracting = false;
         }
-        // Starts vibrating phone
-
-
-        // DotManagerScript.StopInteracting = false;
-
-
         // restes dot layer
         if (DotManagerScript.ResetLayer)
         {
@@ -136,20 +128,7 @@ public class DotScript : MonoBehaviour
         }
 
     }
-    IEnumerator VibratePhone()
-    {
-        if (VibrateSeconds <= 0.55f)
-        {
-            yield return new WaitForSeconds(VibrateSeconds);
-            VibrateSeconds += 0.55f;
-            Handheld.Vibrate();
-          //  Debug.Log("VIBRATE");
-        }
-        else
-        {
-            yield break;
-        }
-    }
+  
      private void OnMouseExit()
     {
         // Decreases size of peice when selected
