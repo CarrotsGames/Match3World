@@ -3,21 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
 using UnityEngine.Monetization;
- public class PlayBannerAd : MonoBehaviour
+using UnityEngine.SceneManagement;
+
+public class PlayBannerAd : MonoBehaviour
 {
     public string gameId = "3222685";
     public string placementId = "OpeningSceneBanner";
     public bool testMode = true;
-
+    string SceneName;
     void Start()
     {
+        Scene CurrentScene = SceneManager.GetActiveScene();
+        SceneName = CurrentScene.name;
         Advertisement.Initialize(gameId, testMode);
         
     }
     private void Update()
     {
-        //Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
-        Advertisement.Banner.Show(placementId);
+        if(SceneName != "Main Screen")
+        {
+          //Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
+          Advertisement.Banner.Show(placementId);
+        }
     }
 
 

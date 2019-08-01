@@ -47,13 +47,14 @@ public class DestroyGold : MonoBehaviour
    
    public void StartGoldDestroy()
     {
+        GoldList.Clear();
         // puts gold into a new list to begin the destroging process
         for (int i = 0; i < GetComponent<DotManager>().Gold.Count; i++)
         {
  
             GoldList.Add(GetComponent<DotManager>().Gold[i]);
         }
-
+        GetComponent<DotManager>().Gold.Clear();
         StartDestroyGold = true;
      }
    public void StartDestory()

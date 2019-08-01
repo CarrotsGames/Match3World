@@ -48,7 +48,7 @@ public class StoreScript : MonoBehaviour
 
     public int[] CompanionPrice;
 
-
+    public GameObject PurchaseAnalytics;
     private void Start()
     {
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
@@ -67,7 +67,7 @@ public class StoreScript : MonoBehaviour
         {
             DisableEggButton();
 
-        }
+        }      
     }
     // Navigates through the store items
     public void Navigation(int ArrowNum)
@@ -141,6 +141,10 @@ public class StoreScript : MonoBehaviour
             case 1:
                 if (PowerUpManagerScript.Currency >= SuperColourRemoverAmount)
                 {
+                    int SCRPurchaseCount = PlayerPrefs.GetInt("SCRPURCHASE");
+                    SCRPurchaseCount++;
+                    PlayerPrefs.SetInt("SCRPURCHASE", SCRPurchaseCount);
+ 
                     PowerUpManagerScript.NumOfSCR += SuperColourRemoverQuantity;
                     PowerUpManagerScript.Currency -= SuperColourRemoverAmount;
                     youBoughtCanvus.SetActive(true);
@@ -157,6 +161,10 @@ public class StoreScript : MonoBehaviour
             case 2:
                 if (PowerUpManagerScript.Currency >= SuperShuffleAmount)
                 {
+                    int ShufflePurchaseCount = PlayerPrefs.GetInt("SHUFFLEPURCHASE");
+                    ShufflePurchaseCount++;
+                    PlayerPrefs.SetInt("SHUFFLEPURCHASE", ShufflePurchaseCount);
+ 
                     PowerUpManagerScript.NumOfShuffles += SuperShuffleQuantity;
                     PowerUpManagerScript.Currency -= SuperShuffleAmount;
                     youBoughtCanvus.SetActive(true);
@@ -172,6 +180,10 @@ public class StoreScript : MonoBehaviour
             case 3:
                 if (PowerUpManagerScript.Currency >= SuperMultiplierAmount)
                 {
+                    int SMPurchaseCount = PlayerPrefs.GetInt("SMPURCHASE");
+                    SMPurchaseCount++;
+                    PlayerPrefs.SetInt("SMPURCHASE", SMPurchaseCount);
+ 
                     PowerUpManagerScript.NumOfMultilpiers += SuperMultiplierQuantity;
                     PowerUpManagerScript.Currency -= SuperMultiplierAmount;
                     youBoughtCanvus.SetActive(true);
@@ -187,6 +199,10 @@ public class StoreScript : MonoBehaviour
             case 4:
                 if (PowerUpManagerScript.Currency >= SuperBombAmount)
                 {
+                    int SuperBombCount = PlayerPrefs.GetInt("BOMBPURCHASE");
+                    SuperBombCount++;
+                    PlayerPrefs.SetInt("BOMBPURCHASE", SuperBombCount);
+ 
                     PowerUpManagerScript.NumOfBombs += SuperBombQuantity;
                     //   PowerUpManagerScript.NumOfSCR += 5;
 
@@ -207,6 +223,10 @@ public class StoreScript : MonoBehaviour
                 {
                     if (PowerUpManagerScript.Currency >= CompanionPrice[0])
                     {
+                        int EggPurchaseCount = PlayerPrefs.GetInt("EGGPURCHASE");
+                        EggPurchaseCount++;
+                        PlayerPrefs.SetInt("EGGPURCHASE", EggPurchaseCount);
+
                         EggHatchScript.GetComponent<EggHatch>().CountDownTimer();
                         PowerUpManagerScript.Currency -= CompanionPrice[0];
 
@@ -229,37 +249,9 @@ public class StoreScript : MonoBehaviour
                     Debug.Log("Please wait for the egg to stop egging");
 
                 }
-                break;
-            case 6:
-                if (PowerUpManagerScript.Currency >= CompanionPrice[1])
-                {
-                    PlayerPrefs.SetString("UNLOCKED", "SAUCO");
-                    Debug.Log("YOU HAVE PURCHASED THE SAUUUUUUUCE");
-                    PowerUpManagerScript.Currency -= CompanionPrice[1];
-                    eggUnlocked.SetActive(true);
-                    UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
-                }
-                else
-                {
-                    Debug.Log("Insufficient funds");
-                }
-                break;
-            // Egg 
-            case 7:
-                if (PowerUpManagerScript.Currency >= CompanionPrice[1])
-                {
-                    PlayerPrefs.SetString("UNLOCKED", "CHICKPEA");
-                    Debug.Log("EAT YOUR PEA PROFESSSSSSSSSOOOOOOOOOOOOORRRRRRRRRRRR");
-                    PowerUpManagerScript.Currency -= CompanionPrice[1];
-                    eggUnlocked.SetActive(true);
-                    UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
-                }
-                else
-                {
-                    Debug.Log("Insufficient funds");
-                }
-                break;
-        }
+                break;  
+             
+         }
     }
 
     void DisableEggButton()

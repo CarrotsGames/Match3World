@@ -19,6 +19,7 @@ public class PlayFabAnalytics : MonoBehaviour {
     int Shuffle;
     int SuperBomb;
     int SuperMultlpier;
+    int Currency;
     // Use this for initialization
     void Start () {
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
@@ -39,9 +40,10 @@ public class PlayFabAnalytics : MonoBehaviour {
 
         TimeOnScene += Time.deltaTime;
         DelayTime += Time.deltaTime;
-        if (DelayTime > 5)
+        if (DelayTime > 15)
         {
             SetUserData();
+            TrackedGold();
              DelayTime = 0;
         }
         // Test = false;
@@ -53,10 +55,10 @@ public class PlayFabAnalytics : MonoBehaviour {
        Shuffle = PlayerPrefs.GetInt("SHUFFLE");
        SuperBomb = PlayerPrefs.GetInt("SUPERBOMB");
        SuperMultlpier = PlayerPrefs.GetInt("SUPERMULTLPIER");
-
+       Currency = PlayerPrefs.GetInt("CURRENCY");
     }
 
-    void SetUserData()
+   void SetUserData()
     {
         if (GetComponent<PlayFabLogin>().HasLoggedIn == true)
         {
@@ -66,6 +68,7 @@ public class PlayFabAnalytics : MonoBehaviour {
          {
              {CompanionScore.name,"SCORE: "+  Score },
              {CompanionTime,"" + TimeOnScene },
+             {"(0)TOTALGOLD","" + Currency  },
              {"(1)POWERUP: SCR","" + SCR  },
              {"(2)POWERUP: SHUFFLE","" + Shuffle  },
              {"(3)POWERUP: BOMB","" + SuperBomb  },
@@ -82,15 +85,31 @@ public class PlayFabAnalytics : MonoBehaviour {
             });
         }
     }
+//
+  public void TrackedGold()
+  {
+      PlayFabClientAPI.WritePlayerEvent(new WriteClientPlayerEventRequest()
+      {
+          Body = new Dictionary<string, object>() {
+           {"(0)TOTALGOLD","" + Currency  },
+        
+     },
+          EventName = "CHECKGOLD"
+      },
+      result => SentOutAnalytics(), //ANALYTICS RESULTS,
   
+  
+      error => Debug.LogError(error.GenerateErrorReport()));
+  }
     public void GraphedData()
     {
         PlayFabClientAPI.WritePlayerEvent(new WriteClientPlayerEventRequest()
         {
             Body = new Dictionary<string, object>() {
         { CompanionScore.name, Score },
-        { CompanionTime, "" + TimeOnScene }
-               
+        { CompanionTime, "" + TimeOnScene },
+
+
     },
             EventName = "TestPlayer_Progression"
         },
