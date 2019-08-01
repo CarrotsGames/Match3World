@@ -5,7 +5,11 @@ using UnityEngine.UI;
 
 public class GameplayTutorial : MonoBehaviour
 {
-
+    //Unity Buttons (Powerups)
+    public Button scr;
+    public Button bomb;
+    public Button shuffle;
+    public Button multi;
 
     //Speak Bubbles
     private GameObject dotManagerGameObj;
@@ -65,6 +69,10 @@ public class GameplayTutorial : MonoBehaviour
         HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
         HappinessManagerScript = HappinessGameObj.GetComponent<HappinessManager>();
         pause.interactable = false;
+        bomb.interactable = false;
+        scr.interactable = false;
+        shuffle.interactable = false;
+        multi.interactable = false;
     }
 
     // Update is called once per frame
@@ -116,6 +124,7 @@ public class GameplayTutorial : MonoBehaviour
         }
         if (Input.GetMouseButton(0) && clickAmount == 6f)
         {
+            bomb.interactable = true;
             bombBubble.SetActive(false);
             gobu.SetActive(false);
             bombFinger.SetActive(true);
@@ -126,6 +135,7 @@ public class GameplayTutorial : MonoBehaviour
         {
             rainbowBubble.SetActive(false);
             scrFinger.SetActive(true);
+            scr.interactable = true;
             clickAmount++;
             return;
         }
@@ -245,6 +255,7 @@ IEnumerator WaitForBomb()
         gobu.SetActive(true);
         nodeRound2.SetActive(false);
         nodeRound3.SetActive(true);
+        bomb.interactable = false;
         clickAmount++;
     }
     IEnumerator WaitForSCR()
@@ -253,6 +264,7 @@ IEnumerator WaitForBomb()
         happinessBubble.SetActive(true);
         finger2.SetActive(true);
         clickAmount++;
+        scr.interactable = false;
     }
 
     public void PointHome()
