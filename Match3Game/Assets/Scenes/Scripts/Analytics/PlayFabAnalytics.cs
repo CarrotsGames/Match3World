@@ -58,7 +58,7 @@ public class PlayFabAnalytics : MonoBehaviour {
        Currency = PlayerPrefs.GetInt("CURRENCY");
     }
 
-    void SetUserData()
+   void SetUserData()
     {
         if (GetComponent<PlayFabLogin>().HasLoggedIn == true)
         {
