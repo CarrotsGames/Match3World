@@ -21,9 +21,6 @@ public class Tutorial : MonoBehaviour
     public GameObject nameInputBubble;
     public GameObject storeBubble;
 
-    public GameObject particle;
-    public GameObject particle2;
-
     public Button gobuButton;
     public Button storeButton;
     public Button leaderButton;
@@ -76,7 +73,6 @@ public class Tutorial : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0) && numberOfClicks == 3f)
         {
-            particle.SetActive(true);
             finger.SetActive(true);
             gobu1.SetActive(false);
             leaderboardIntro.SetActive(false);
@@ -97,7 +93,6 @@ public class Tutorial : MonoBehaviour
             gobu2.SetActive(false);
             tutPanel.SetActive(false);
             finger2.SetActive(true);
-            particle2.SetActive(true);
             storeButton.interactable = true;
         }
     }
@@ -108,7 +103,6 @@ public class Tutorial : MonoBehaviour
     {
         if(leaderboardNotShowing == true)
         {
-            particle.SetActive(false);
             gobu1.SetActive(true);
             scoreboard.SetActive(true);
             inputField.SetActive(true);

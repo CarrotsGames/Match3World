@@ -13,8 +13,6 @@ public class StoreTutorial : MonoBehaviour
     public GameObject fingers;
     public GameObject finger;
 
-    public GameObject particle;
-
     public int clickNumber;
     public int arrowClickNumber;
 
@@ -53,7 +51,6 @@ public class StoreTutorial : MonoBehaviour
             headHomeBubble.SetActive(false);
             finger.SetActive(true);
             clickNumber++;
-            particle.SetActive(true);
             return;
         }
     }
