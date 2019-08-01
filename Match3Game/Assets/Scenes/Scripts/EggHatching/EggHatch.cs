@@ -15,7 +15,17 @@ public class EggHatch : MonoBehaviour
     public bool StartCountDown;
     public Text TimerText;
     public GameObject UnlockMoobling;
+    [HideInInspector]
     public GameObject PowerUpManager;
+
+    public GameObject Congratulations;
+    public GameObject CriusUnlockImage;
+    public GameObject OkamiUnlockImage;
+    public GameObject SaucoUnlockImage;
+    public GameObject ChickPeaUnlockImage;
+    public GameObject SquishyUnlockImage;
+
+    public GameObject MoneyUnlockImage;
 
     private float CurrentTime;
     private int EggNumber;
@@ -95,6 +105,8 @@ public class EggHatch : MonoBehaviour
         int Random = UnityEngine.Random.Range(0, EggCreatures.Count);
         UnlockedCompanion = EggCreatures[Random] ;
         // Grabs the unlocked companion using its string
+        Congratulations.SetActive(true);
+
         switch (UnlockedCompanion)
         {
             case "Crius":
@@ -107,12 +119,14 @@ public class EggHatch : MonoBehaviour
                     UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
                     EggCreatures.RemoveAt(Random);
                     Debug.Log("CRUAS");
+                    CriusUnlockImage.SetActive(true);
                 }
                 else
                 {
                     Debug.Log("DUPECRIUS");
 
                     PowerUpManager.GetComponent<PowerUpManager>().Currency += 150;
+                    MoneyUnlockImage.SetActive(true); 
                 }
                 break;
 
@@ -123,6 +137,7 @@ public class EggHatch : MonoBehaviour
 
                     UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
                     EggCreatures.RemoveAt(Random);
+                    SaucoUnlockImage.SetActive(true);
                     Debug.Log("Sauce");
                 }
                 else
@@ -130,6 +145,8 @@ public class EggHatch : MonoBehaviour
                     Debug.Log("DUPESAUCE");
 
                     PowerUpManager.GetComponent<PowerUpManager>().Currency += 150;
+                    MoneyUnlockImage.SetActive(true);
+
                 }
                 break;
 
@@ -140,6 +157,7 @@ public class EggHatch : MonoBehaviour
 
                     UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
                     EggCreatures.RemoveAt(Random);
+                    ChickPeaUnlockImage.SetActive(true); 
                     Debug.Log("ChickePee");
                 }
                 else
@@ -147,6 +165,8 @@ public class EggHatch : MonoBehaviour
                     Debug.Log("DUPECHICKPEA");
 
                     PowerUpManager.GetComponent<PowerUpManager>().Currency += 150;
+                    MoneyUnlockImage.SetActive(true);
+
                 }
                 break;
             case "Squishy":
@@ -156,6 +176,7 @@ public class EggHatch : MonoBehaviour
 
                     UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
                     EggCreatures.RemoveAt(Random);
+                    SquishyUnlockImage.SetActive(true);
                     Debug.Log("Sqash");
                 }
                 else
@@ -163,6 +184,8 @@ public class EggHatch : MonoBehaviour
                     Debug.Log("DUPECSQUISHY");
 
                     PowerUpManager.GetComponent<PowerUpManager>().Currency += 150;
+                    MoneyUnlockImage.SetActive(true);
+
                 }
                 break;
             case "Okami":
@@ -172,6 +195,7 @@ public class EggHatch : MonoBehaviour
 
                     UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
                     EggCreatures.RemoveAt(Random);
+                    OkamiUnlockImage.SetActive(true);
                     Debug.Log("Okamzzz");
                 }
                 else
@@ -179,6 +203,8 @@ public class EggHatch : MonoBehaviour
                     Debug.Log("DUPEOKAMI");
 
                     PowerUpManager.GetComponent<PowerUpManager>().Currency += 150;
+                    MoneyUnlockImage.SetActive(true);
+
                 }
                 break;
         }
