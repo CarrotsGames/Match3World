@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class StoreTutorial : MonoBehaviour
@@ -15,6 +16,14 @@ public class StoreTutorial : MonoBehaviour
 
     public int clickNumber;
     public int arrowClickNumber;
+
+    public Button homeButton;
+
+
+    private void Start()
+    {
+        homeButton.interactable = false;
+    }
 
     void Update()
     {
@@ -51,6 +60,7 @@ public class StoreTutorial : MonoBehaviour
             headHomeBubble.SetActive(false);
             finger.SetActive(true);
             clickNumber++;
+            homeButton.interactable = true;
             return;
         }
     }
