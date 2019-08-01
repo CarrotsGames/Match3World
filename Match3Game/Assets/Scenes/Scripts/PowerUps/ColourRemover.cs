@@ -124,7 +124,6 @@ public class ColourRemover : MonoBehaviour
 
                         Rainbow = true;
                     }
-                    PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
 
                 }
 
@@ -132,7 +131,10 @@ public class ColourRemover : MonoBehaviour
             }
             // if the desired colour is true destroy all nodes with that colour
             if (Red)
-            {
+            {    
+                // Counts how many times player uses this powerup
+                TimesUsed++;
+                PlayerPrefs.SetInt("SCR", TimesUsed);
                 for (int i = 0; i < BoardGameObj.transform.childCount; i++)
                 {
                     SCRAmount += 1;
@@ -148,12 +150,17 @@ public class ColourRemover : MonoBehaviour
                 DotManagerScript.TotalScore += SCRAmount * DotManagerScript.Multipier;
                 DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
                 HasUsedSCR = true;
+                PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
+
             }
             //Destroys rainbows nodes 
             // NOTE: this has its own if statement because it is getting the child of a 
             // diffrent gameobject
             if (Rainbow)
-            {
+            {  
+                // Counts how many times player uses this powerup
+                TimesUsed++;
+                PlayerPrefs.SetInt("SCR", TimesUsed);
                 for (int i = 0; i < SpecialBoardGameObj.transform.childCount; i++)
                 {
                     SCRAmount += 1;
@@ -170,6 +177,7 @@ public class ColourRemover : MonoBehaviour
                 DotManagerScript.TotalScore += SCRAmount * DotManagerScript.Multipier;
                 DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
                 HasUsedSCR = true;
+                PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
 
             }
 
@@ -185,9 +193,7 @@ public class ColourRemover : MonoBehaviour
             PowerUpInUse = true;
             DotManagerScript.ResetMaterial = false;
             PowerUpManagerScript.NumOfSCR -= 1;
-            // Counts how many times player uses this powerup
-            TimesUsed++;
-            PlayerPrefs.SetInt("SCR", TimesUsed);
+    
             // Highlights Colours nodes with their desired colour eg red has red outline
             for (int i = 0; i < BoardGameObj.transform.childCount; i++)
             {
