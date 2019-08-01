@@ -15,6 +15,7 @@ public class EggHatch : MonoBehaviour
     public bool StartCountDown;
     public Text TimerText;
     public GameObject UnlockMoobling;
+    public GameObject PowerUpManager;
 
     private float CurrentTime;
     private int EggNumber;
@@ -33,6 +34,7 @@ public class EggHatch : MonoBehaviour
     {
         
         CurrentTime = 1;
+        PowerUpManager = GameObject.FindGameObjectWithTag("PUM");
         TimeStamp = System.Convert.ToInt64(PlayerPrefs.GetString("EggHatch"));
         StartCountDown = (PlayerPrefs.GetInt("EGGCOUNTDOWN") != 0);
         if (TimerText.text == "New Text")
@@ -65,7 +67,8 @@ public class EggHatch : MonoBehaviour
             if (NowTime > TimeStamp)
             {
                 StartCountDown = false;
- 
+                PlayerPrefs.SetInt("EGGCOUNTDOWN", (StartCountDown ? 1 : 0));
+
                 HatchCreature();
 
             }
@@ -95,47 +98,88 @@ public class EggHatch : MonoBehaviour
         switch (UnlockedCompanion)
         {
             case "Crius":
-                //TODO
-                //SPLASH EGG HATCH ON SCREEEN
-                //ADD COMPANION TO LIST
-                PlayerPrefs.SetString("UNLOCKED", "CRIUS");
-                UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
-                EggCreatures.RemoveAt(Random);
-                Debug.Log("CRUAS");
+                if (UnlockMoobling.GetComponent<UnlockableCreatures>().CriusUnlocked != "CRIUS")
+                {
+                    //TODO
+                    //SPLASH EGG HATCH ON SCREEEN
+                    //ADD COMPANION TO LIST
+                    PlayerPrefs.SetString("UNLOCKED", "CRIUS");
+                    UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
+                    EggCreatures.RemoveAt(Random);
+                    Debug.Log("CRUAS");
+                }
+                else
+                {
+                    Debug.Log("DUPECRIUS");
+
+                    PowerUpManager.GetComponent<PowerUpManager>().Currency += 150;
+                }
                 break;
 
             case "Sauco":
-                PlayerPrefs.SetString("UNLOCKED", "SAUCO");
+                if (UnlockMoobling.GetComponent<UnlockableCreatures>().UnlockableMoobling[3] != "SAUCO")
+                {
+                    PlayerPrefs.SetString("UNLOCKED", "SAUCO");
 
-                UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
-                EggCreatures.RemoveAt(Random);
-                Debug.Log("Sauce");
+                    UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
+                    EggCreatures.RemoveAt(Random);
+                    Debug.Log("Sauce");
+                }
+                else
+                {
+                    Debug.Log("DUPESAUCE");
 
+                    PowerUpManager.GetComponent<PowerUpManager>().Currency += 150;
+                }
                 break;
 
             case "ChickPee":
-                PlayerPrefs.SetString("UNLOCKED", "CHICKPEA");
+                if (UnlockMoobling.GetComponent<UnlockableCreatures>().UnlockableMoobling[4] != "CHICKPEA")
+                {
+                    PlayerPrefs.SetString("UNLOCKED", "CHICKPEA");
 
-                UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
-                EggCreatures.RemoveAt(Random);
-                Debug.Log("ChickePee");
+                    UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
+                    EggCreatures.RemoveAt(Random);
+                    Debug.Log("ChickePee");
+                }
+                else
+                {
+                    Debug.Log("DUPECHICKPEA");
 
+                    PowerUpManager.GetComponent<PowerUpManager>().Currency += 150;
+                }
                 break;
             case "Squishy":
-                PlayerPrefs.SetString("UNLOCKED", "SQUISHY");
+                if (UnlockMoobling.GetComponent<UnlockableCreatures>().UnlockableMoobling[5] != "SQUISHY")
+                {
+                    PlayerPrefs.SetString("UNLOCKED", "SQUISHY");
 
-                UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
-                EggCreatures.RemoveAt(Random);
-                Debug.Log("Sqash");
+                    UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
+                    EggCreatures.RemoveAt(Random);
+                    Debug.Log("Sqash");
+                }
+                else
+                {
+                    Debug.Log("DUPECSQUISHY");
 
+                    PowerUpManager.GetComponent<PowerUpManager>().Currency += 150;
+                }
                 break;
             case "Okami":
-                PlayerPrefs.SetString("UNLOCKED", "OKAMI");
+                if (UnlockMoobling.GetComponent<UnlockableCreatures>().UnlockableMoobling[7] != "OKAMI")
+                {
+                    PlayerPrefs.SetString("UNLOCKED", "OKAMI");
 
-                UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
-                EggCreatures.RemoveAt(Random);
-                Debug.Log("Okamzzz");
+                    UnlockMoobling.GetComponent<UnlockableCreatures>().Unlock();
+                    EggCreatures.RemoveAt(Random);
+                    Debug.Log("Okamzzz");
+                }
+                else
+                {
+                    Debug.Log("DUPEOKAMI");
 
+                    PowerUpManager.GetComponent<PowerUpManager>().Currency += 150;
+                }
                 break;
         }
         // saves the egg countdown status(in this case its ended)
