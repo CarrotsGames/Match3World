@@ -2050,6 +2050,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gobu Canvus
       objectReference: {fileID: 0}
+    - target: {fileID: 2336660659435952756, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335640169551085877, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2335805763254419903, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2195,20 +2205,19 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: HomeButton
       objectReference: {fileID: 0}
+    - target: {fileID: 2449818973851826393, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: ShuffleSpawn
+      value: 
+      objectReference: {fileID: 1903594540}
     - target: {fileID: 2335805762105582881, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 2c7943fa499caca44a612fcca57a0d02,
         type: 3}
-    - target: {fileID: 2335640169551085877, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2336660659435952756, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 1543697491, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2554878093451859364, guid: d7fb396edf155de40895610ead7b8864,
@@ -2289,22 +2298,42 @@ PrefabInstance:
     - target: {fileID: 2555323700490799286, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 128.02641
+      value: 124.5
       objectReference: {fileID: 0}
     - target: {fileID: 2555323700490799286, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -72.90002
+      value: -85.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555323700490799286, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 32.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555323700490799286, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 64.22
       objectReference: {fileID: 0}
     - target: {fileID: 2555453007751426330, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 128.02641
+      value: 124.5
       objectReference: {fileID: 0}
     - target: {fileID: 2555453007751426330, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -72.90002
+      value: -85.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555453007751426330, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 32.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555453007751426330, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 64.22
       objectReference: {fileID: 0}
     - target: {fileID: 2335805763390923138, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
@@ -2351,15 +2380,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 712ea1636cbda86469c28d81bc68be86, type: 2}
-    - target: {fileID: 1543697491, guid: d7fb396edf155de40895610ead7b8864, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2449818973851826393, guid: d7fb396edf155de40895610ead7b8864,
+    - target: {fileID: 2449821724921795210, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
-      propertyPath: ShuffleSpawn
+      propertyPath: skipButton
       value: 
-      objectReference: {fileID: 1903594540}
+      objectReference: {fileID: 721159906}
     - target: {fileID: 2321959881743238727, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_Enabled
@@ -2367,6 +2392,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+--- !u!114 &721159906 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2335805763390923139, guid: d7fb396edf155de40895610ead7b8864,
+    type: 3}
+  m_PrefabInstance: {fileID: 721159905}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &721898473
 GameObject:
   m_ObjectHideFlags: 0

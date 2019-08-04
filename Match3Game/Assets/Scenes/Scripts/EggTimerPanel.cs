@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EggTimerPanel : MonoBehaviour {
 
@@ -17,10 +18,13 @@ public class EggTimerPanel : MonoBehaviour {
     private StoreScript store;
     public GameObject EggHatchObj;
 
+    public Button skipButton;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
         store = GetComponent<StoreScript>();
+        skipButton.interactable = false;
     }
 
     public void Update()
@@ -48,6 +52,7 @@ public class EggTimerPanel : MonoBehaviour {
         {
             anim.SetBool("StartAnim", true);
             isOpen = true;
+            skipButton.interactable = true;
 
         } else
         {
