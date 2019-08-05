@@ -58,6 +58,7 @@ public class EggTimerPanel : MonoBehaviour {
         {
             anim.SetBool("CloseAnim", true);
             isOpen = false;
+            skipButton.interactable = false;
         }
        
     }
