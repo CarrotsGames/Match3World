@@ -18,6 +18,7 @@ public class HappyMultlpier : MonoBehaviour {
     private string[] SaveStrings = { "GOBUSAVE", "BINKYSAVE", "KOKOSAVE", "CRIUSSAVE" ,"SAUCOSAVE", "CHICKPEASAVE" , "SQUISHYSAVE" , "CRONOSSAVE" , "OKAMISAVE" };
     private List<string> ListOfSaves;
     int AddNewNum;
+    private bool TrackMultlpier;
     // Use this for initialization
     void Start ()
     {
@@ -26,6 +27,7 @@ public class HappyMultlpier : MonoBehaviour {
         ListOfSaves = new List<string>();
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
+        TrackMultlpier = false;
         for (int i = 0; i < SaveStrings.Length; i++)
         {
             ListOfSaves.Add(SaveStrings[i]);
@@ -60,53 +62,55 @@ public class HappyMultlpier : MonoBehaviour {
     {
         RealTimeGameObj = GameObject.FindGameObjectWithTag("MainCamera");
         RealtTimeScript = RealTimeGameObj.GetComponent<RealTimeCounter>();
-  
-        for (int i = 0; i < RealTimeGameObj.GetComponent<RealTimeCounter>().HappinessCountDown.Length; i++)
+        TrackMultlpier  = PlayerPrefs.GetInt("FreezeMultlpier") != 0;
+        if (!TrackMultlpier)
         {
-            bool IsSleeping = false;          
-            if(ListOfSaves.Count > i)
+            for (int i = 0; i < RealTimeGameObj.GetComponent<RealTimeCounter>().HappinessCountDown.Length; i++)
             {
-                IsSleeping = (PlayerPrefs.GetInt(ListOfSaves[i]) != 0);
-            }    
-        
-            if (RealtTimeScript.GetComponent<RealTimeCounter>().HappinessCountDown[i] < 20 && IsSleeping)
-            {
-                IsSleeping = false; 
-                PlayerPrefs.SetInt(ListOfSaves[i], (IsSleeping ? 1 : 0));
-
-             }
-            else if (RealtTimeScript.GetComponent<RealTimeCounter>().HappinessCountDown[i] > 20 && IsSleeping)
-            {
- 
-                PlayerPrefs.SetInt(ListOfSaves[i], (IsSleeping ? 1 : 0));
-
-                AddNewNum += 1;
-            }
-            // if this creature is not sleeping but greater than 95 
-            // then set that companion to sleeping 
-            else if (!GetComponent<HappinessManager>().IsSleeping)
-            {
-                if(RealtTimeScript.GetComponent<RealTimeCounter>().HappinessCountDown[i] >= 95)
+                bool IsSleeping = false;
+                if (ListOfSaves.Count > i)
                 {
-  
-                    PlayerPrefs.SetInt(GetComponent<HappinessManager>().SaveStrings, (GetComponent<HappinessManager>().IsSleeping ? 1 : 0));
+                    IsSleeping = (PlayerPrefs.GetInt(ListOfSaves[i]) != 0);
+                }
+
+                if (RealtTimeScript.GetComponent<RealTimeCounter>().HappinessCountDown[i] < 20 && IsSleeping)
+                {
+                    IsSleeping = false;
+                    PlayerPrefs.SetInt(ListOfSaves[i], (IsSleeping ? 1 : 0));
+
+                }
+                else if (RealtTimeScript.GetComponent<RealTimeCounter>().HappinessCountDown[i] > 20 && IsSleeping)
+                {
+
+                    PlayerPrefs.SetInt(ListOfSaves[i], (IsSleeping ? 1 : 0));
 
                     AddNewNum += 1;
                 }
-            }
+                // if this creature is not sleeping but greater than 95 
+                // then set that companion to sleeping 
+                else if (!GetComponent<HappinessManager>().IsSleeping)
+                {
+                    if (RealtTimeScript.GetComponent<RealTimeCounter>().HappinessCountDown[i] >= 95)
+                    {
 
-            if (MultlpierNum < 0 || MultlpierNum > 10)
-            {
-                MultlpierNum = 1;
+                        PlayerPrefs.SetInt(GetComponent<HappinessManager>().SaveStrings, (GetComponent<HappinessManager>().IsSleeping ? 1 : 0));
+
+                        AddNewNum += 1;
+                    }
+                }
+
+                if (MultlpierNum < 0 || MultlpierNum > 10)
+                {
+                    MultlpierNum = 1;
+                }
             }
+            MultlpierNum = AddNewNum;
+            AddNewNum = 0;
+            PlayerPrefs.SetInt("Multiplier", MultlpierNum);
+
+            Multplier();
+
         }
-        MultlpierNum = AddNewNum;
-        AddNewNum = 0;
-        PlayerPrefs.SetInt("Multiplier", MultlpierNum);
-
-        Multplier();
-
-    
     
     }
     // Multlpier of companions
@@ -119,37 +123,46 @@ public class HappyMultlpier : MonoBehaviour {
         {
             case 0:
                 DotManagerScript.Multipier = multiplier[0];
+                PlayerPrefs.SetInt("SavedMultlpier", multiplier[0]);
                 break;
             case 1:
                 DotManagerScript.Multipier = multiplier[1];
+                PlayerPrefs.SetInt("SavedMultlpier", multiplier[1]);
 
                 break;
             case 2:
                 DotManagerScript.Multipier = multiplier[2];
+                PlayerPrefs.SetInt("SavedMultlpier", multiplier[2]);
 
                 break;
             case 3:
                 DotManagerScript.Multipier = multiplier[3];
+                PlayerPrefs.SetInt("SavedMultlpier", multiplier[3]);
 
                 break;
             case 4:
                 DotManagerScript.Multipier = multiplier[4];
+                PlayerPrefs.SetInt("SavedMultlpier", multiplier[4]);
 
                 break;
             case 5:
                 DotManagerScript.Multipier = multiplier[5];
+                PlayerPrefs.SetInt("SavedMultlpier", multiplier[5]);
 
                 break;
             case 6:
                 DotManagerScript.Multipier = multiplier[6];
+                PlayerPrefs.SetInt("SavedMultlpier", multiplier[6]);
 
                 break;
             case 7:
                 DotManagerScript.Multipier = multiplier[7];
+                PlayerPrefs.SetInt("SavedMultlpier", multiplier[7]);
 
                 break;
             case 8:
                 DotManagerScript.Multipier = multiplier[8];
+                PlayerPrefs.SetInt("SavedMultlpier", multiplier[8]);
 
                 break;
         }
