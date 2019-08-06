@@ -13,13 +13,17 @@ public class PlayFabAnalytics : MonoBehaviour {
     public GameObject CompanionScore;
     private string CompanionTime;
     public float Score;
-    private string SaveScoreName;
+    [HideInInspector]
+    public string SaveScoreName;
     public float DelayTime;
     int SCR;
     int Shuffle;
     int SuperBomb;
     int SuperMultlpier;
     int Currency;
+    int ComboNum;
+    int BigComboNum;
+
     // Use this for initialization
     void Start () {
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
@@ -56,9 +60,12 @@ public class PlayFabAnalytics : MonoBehaviour {
        SuperBomb = PlayerPrefs.GetInt("SUPERBOMB");
        SuperMultlpier = PlayerPrefs.GetInt("SUPERMULTLPIER");
        Currency = PlayerPrefs.GetInt("CURRENCY");
+       ComboNum = PlayerPrefs.GetInt(SaveScoreName + "COMBONUM");
+       BigComboNum = PlayerPrefs.GetInt(SaveScoreName + "BIGCOMBONUM");
+
     }
 
-   void SetUserData()
+    void SetUserData()
     {
         if (GetComponent<PlayFabLogin>().HasLoggedIn == true)
         {
@@ -72,7 +79,9 @@ public class PlayFabAnalytics : MonoBehaviour {
              {"(1)POWERUP: SCR","" + SCR  },
              {"(2)POWERUP: SHUFFLE","" + Shuffle  },
              {"(3)POWERUP: BOMB","" + SuperBomb  },
-             {"(4)POWERUP: SM","" + SuperMultlpier  }
+             {"(4)POWERUP: SM","" + SuperMultlpier  },
+             {CompanionScore.name +  "COMBONUM", "" + ComboNum },
+             {CompanionScore.name + "BIGCOMBONUM", "" + BigComboNum }
 
          }
             },

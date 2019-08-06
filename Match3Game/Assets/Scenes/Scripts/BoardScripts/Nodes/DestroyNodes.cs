@@ -27,35 +27,38 @@ public class DestroyNodes : MonoBehaviour {
     private bool Reset;
     private bool ComboPause;
     private GameObject PowerUpGameObj;
-
+    // Checks how many combos have been done all time
+    private int ComboNum;
+    // Checks how many Big Combos have been done all time
+    private int BigComboNum;
     // These are used in the Idasauros Script to know when the animation should play
     [HideInInspector]
     public bool NormalCombo;
     [HideInInspector]
     public bool BigCombo;
-
+    private GameObject Analytics;
     // Use this for initialization
     void Start ()
     {
         PowerUpGameObj = GameObject.Find("PowerUps");
-
+        Analytics = GameObject.FindGameObjectWithTag("PlayFab");
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
          // Referneces DotManagerScript
         ComboTime = ComboVanishSpeed ;
         CompanionGameObj = GameObject.FindGameObjectWithTag("Companion");
         CompanionScriptRef = CompanionGameObj.GetComponent<CompanionScript>();
-        ComboGameObj.SetActive(false);
-       
+        ComboGameObj.SetActive(false);    
         Timer = 0;
-         HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
+        HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
         HappinessManagerScript = HappinessGameObj.GetComponent<HappinessManager>();
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if(ComboList.Count < 1 && GetComponent<DestroyGold>().GoldList.Count < 1)
+      
+        if (ComboList.Count < 1 && GetComponent<DestroyGold>().GoldList.Count < 1)
         {
 
             DotManagerScript.CanPlay = true;
@@ -75,8 +78,19 @@ public class DestroyNodes : MonoBehaviour {
         // when the combo is over it resets all values
         if(Reset)
         {
+            if(NormalCombo)
+            {
+                ComboNum = PlayerPrefs.GetInt(Analytics.GetComponent<PlayFabAnalytics>().SaveScoreName + "COMBONUM");
+                ComboNum++;
+                PlayerPrefs.SetInt(Analytics.GetComponent<PlayFabAnalytics>().SaveScoreName + "COMBONUM", ComboNum);
+            }
+            else if(BigCombo)
+            {
+                BigComboNum = PlayerPrefs.GetInt(Analytics.GetComponent<PlayFabAnalytics>().SaveScoreName + "BIGCOMBONUM");
+                BigComboNum++;
+                PlayerPrefs.SetInt(Analytics.GetComponent<PlayFabAnalytics>().SaveScoreName + "BIGCOMBONUM", BigComboNum);
+            }
             PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
-
             DotManagerScript.CanPlay = true;
              //resets combo text 
             ComboText.text = "";
@@ -184,12 +198,12 @@ public class DestroyNodes : MonoBehaviour {
     void CountCombo()
     {
         if (ComboList.Count < 6)
-        {
+        {         
             NormalCombo = true;
             ComboText.text = "COMBO : " + Combo;
         }
         else
-        {
+        {     
             BigCombo = true;
             ComboText.text = "BIG \n COMBO : " + Combo;
         }
