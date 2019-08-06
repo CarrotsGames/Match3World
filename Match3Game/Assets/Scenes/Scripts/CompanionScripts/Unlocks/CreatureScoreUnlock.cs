@@ -9,6 +9,13 @@ public class CreatureScoreUnlock : MonoBehaviour {
     DotManager DotManagerScript;
     GameObject DotManagerGameObj;
 
+    public GameObject kokoCanvus;
+    public GameObject binkieCanvus;
+
+
+
+
+
     // Use this for initialization
     void Start ()
     {
@@ -31,7 +38,7 @@ public class CreatureScoreUnlock : MonoBehaviour {
             //Binkies unlock
             if (DotManagerScript.TotalScore > UnlockScore[0] && UnlockableCreaturesGameObj.GetComponent<UnlockableCreatures>().UnlockableMoobling[0] != "BINKY")
             {
-
+                binkieCanvus.SetActive(true);
                 UnlockableString = "BINKY";
                 PlayerPrefs.SetString("UNLOCKED", UnlockableString);
                 UnlockableCreaturesGameObj.GetComponent<UnlockableCreatures>().Unlock();
@@ -40,7 +47,7 @@ public class CreatureScoreUnlock : MonoBehaviour {
             //kokos unlock
             if (DotManagerScript.TotalScore > UnlockScore[1] && UnlockableCreaturesGameObj.GetComponent<UnlockableCreatures>().UnlockableMoobling[0] != "KOKO")
             {
-
+                kokoCanvus.SetActive(false);
                 UnlockableString = "KOKO";
                 PlayerPrefs.SetString("UNLOCKED", UnlockableString);
                 UnlockableCreaturesGameObj.GetComponent<UnlockableCreatures>().Unlock();
