@@ -41,18 +41,17 @@ public class SlowDownHapiness : MonoBehaviour
     {
         if (SlowDownTime)
         {
+            DisplayTime();
+            // disabled button
+            GetComponent<Button>().enabled = false;
+            // changes button to gray
+            GetComponent<Image>().color = Color.gray;
+            // Loads the saved mutlpier value
             Multipliersave = PlayerPrefs.GetInt("SavedMultlpier");
-
+            // assigns the Multipier that value
             DotManagerScript.Multipier = Multipliersave;
-            CurrentTime -= Time.deltaTime;
-            TimeTillHatch = unchecked((int)MinutesFromTs);
-            if (TimeTillHatch != 0)
-            {
-                // test -= (int)Time.deltaTime;
-                int Minutes = (int)(TimeTillHatch % 60);
-                int Hours = (int)((TimeTillHatch / 60));
-                TimerText.text = Hours + ":" + Minutes;
-            }
+        
+            // if the current time is greater than target time end powerup
             if (NowTime > TimeStamp)
             {
                 Debug.Log("TIMES OVER");
@@ -60,7 +59,8 @@ public class SlowDownHapiness : MonoBehaviour
                 PlayerPrefs.SetInt("FreezeMultlpier", (SlowDownTime ? 1 : 0));
             }
 
-            // Gets time every second
+            CurrentTime -= Time.deltaTime;
+            // Gets time every few seconds
             if (CurrentTime < 0)
             {
                 GetCurrentTime();
@@ -70,6 +70,18 @@ public class SlowDownHapiness : MonoBehaviour
         {
             SlowDownTime = false;
             PlayerPrefs.SetInt("FreezeMultlpier", (SlowDownTime ? 1 : 0));
+        }
+    }
+    public void DisplayTime()
+    {
+        // converts the tick time to minutes
+        TimeTillHatch = unchecked((int)MinutesFromTs);
+        if (TimeTillHatch != 0)
+        {
+            //displays the minutes and hours in game
+            int Minutes = (int)(TimeTillHatch % 60);
+            int Hours = (int)((TimeTillHatch / 60));
+            TimerText.text = Hours + ":" + Minutes;
         }
     }
     // Update is called once per frame
