@@ -4,6 +4,7 @@ using UnityEngine;
 using PlayFab;
 using PlayFab.AuthenticationModels;
 using PlayFab.ClientModels;
+using UnityEngine.UI;
 using System;
 public class SlowDownHapiness : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class SlowDownHapiness : MonoBehaviour
     private GameObject DotManagerObj;
     private DotManager DotManagerScript;
     int Multipliersave;
+    public Text TimerText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +36,6 @@ public class SlowDownHapiness : MonoBehaviour
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
         HappinessManagerScript = HappinessGameObj.GetComponent<HappyMultlpier>();
         TimeStamp = System.Convert.ToInt64(PlayerPrefs.GetString("SDTimer"));
-
     }
     private void Update()
     {
@@ -44,6 +46,13 @@ public class SlowDownHapiness : MonoBehaviour
             DotManagerScript.Multipier = Multipliersave;
             CurrentTime -= Time.deltaTime;
             TimeTillHatch = unchecked((int)MinutesFromTs);
+            if (TimeTillHatch != 0)
+            {
+                // test -= (int)Time.deltaTime;
+                int Minutes = (int)(TimeTillHatch % 60);
+                int Hours = (int)((TimeTillHatch / 60));
+                TimerText.text = Hours + ":" + Minutes;
+            }
             if (NowTime > TimeStamp)
             {
                 Debug.Log("TIMES OVER");
@@ -83,7 +92,6 @@ public class SlowDownHapiness : MonoBehaviour
             MinutesFromTs = TimeTillEggHatch.TotalMinutes;
             // TimerText.text = "" + MinutesFromTs;
             CurrentTime = 5;
-
         }, null);
     }
     void StartCountdownTimer()
@@ -96,7 +104,7 @@ public class SlowDownHapiness : MonoBehaviour
           // now is equal to current time
           DateTime now = result.Time.AddHours(0);
           // Target Time (3 hours)
-          long Period = 36L * 3000000000L;
+          long Period = 36L * 1000000000L;
           // Timestamp is equal to now time plus 3 hours
           TimeStamp = now.Ticks + Period;
           // Convert the target time into ticks
