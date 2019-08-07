@@ -11,5 +11,6 @@ public class Close : MonoBehaviour
     public void CloseMenu()
     {
         menu.SetActive(false);
+        Debug.Log("Menu Closed");
     }
 }

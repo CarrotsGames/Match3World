@@ -45,7 +45,7 @@ public class CreatureScoreUnlock : MonoBehaviour {
 
             }
             //kokos unlock
-            if (DotManagerScript.TotalScore > UnlockScore[1] && UnlockableCreaturesGameObj.GetComponent<UnlockableCreatures>().UnlockableMoobling[0] != "KOKO")
+            if (DotManagerScript.TotalScore > UnlockScore[1] && UnlockableCreaturesGameObj.GetComponent<UnlockableCreatures>().UnlockableMoobling[1] != "KOKO")
             {
                 kokoCanvus.SetActive(true);
                 UnlockableString = "KOKO";
