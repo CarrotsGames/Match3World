@@ -15,7 +15,7 @@ public class HappyMultlpier : MonoBehaviour {
     private GameObject RealTimeGameObj;
     [HideInInspector]
     public RealTimeCounter RealtTimeScript;
-    private string[] SaveStrings = { "GOBUSAVE", "BINKYSAVE", "KOKOSAVE", "CRIUSSAVE" ,"SAUCOSAVE", "CHICKPEASAVE" , "SQUISHYSAVE" , "CRONOSSAVE" , "OKAMISAVE" };
+    private string[] SaveStrings = { "GOBUSAVE", "BINKYSAVE", "KOKOSAVE", "CRIUSSAVE" ,"SAUCOSAVE", "CHICKPEASAVE" , "SQUISHYSAVE" , "CRONOSSAVE" , "OKAMISAVE" , "IDASAVE" };
     private List<string> ListOfSaves;
     int AddNewNum;
     private bool TrackMultlpier;

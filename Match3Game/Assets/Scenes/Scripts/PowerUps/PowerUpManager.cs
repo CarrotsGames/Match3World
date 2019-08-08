@@ -8,6 +8,8 @@ public class PowerUpManager : MonoBehaviour
     public int NumOfSCR;
     public int NumOfBombs;
     public int NumOfMultilpiers;
+    public int NumOfFreezeMultilpiers;
+
     public int Currency;
     private int FirstTimeLogin;
 
@@ -15,6 +17,8 @@ public class PowerUpManager : MonoBehaviour
     public bool HasSCR;
     public bool HasBombs;
     public bool HasMultlpliers;
+    public bool HasFreezeMultlpliers;
+
     public Text NumOfShufflesText;
     public Text NumOfSCRText;
     public Text NumOfBombsText;
@@ -38,6 +42,8 @@ public class PowerUpManager : MonoBehaviour
             NumOfSCR = PlayerPrefs.GetInt("NUMSRC");
             NumOfBombs = PlayerPrefs.GetInt("NUMBOMB");
             NumOfMultilpiers = PlayerPrefs.GetInt("NUMSM");
+            NumOfFreezeMultilpiers = PlayerPrefs.GetInt("NUMFREEZE");
+
         }
         FirstTimeLogin += 1;
         PlayerPrefs.SetInt("FirstTime", FirstTimeLogin);
@@ -55,6 +61,8 @@ public class PowerUpManager : MonoBehaviour
         PlayerPrefs.SetInt("NUMSRC", NumOfSCR);
         PlayerPrefs.SetInt("NUMBOMB", NumOfBombs);
         PlayerPrefs.SetInt("NUMSM", NumOfMultilpiers);
+        PlayerPrefs.SetInt("NUMFREEZE", NumOfFreezeMultilpiers);
+
         PlayerPrefs.SetInt("CURRENCY", Currency);
 
         CurrencyText.text = " " + Currency;
@@ -96,6 +104,14 @@ public class PowerUpManager : MonoBehaviour
         else
         {
             HasMultlpliers = false;
+        }
+        if (NumOfFreezeMultilpiers > 0)
+        {
+            HasFreezeMultlpliers = true;
+        }
+        else
+        {
+            HasFreezeMultlpliers = false;
         }
     }
 

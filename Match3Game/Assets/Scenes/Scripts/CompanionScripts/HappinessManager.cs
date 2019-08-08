@@ -124,6 +124,10 @@ public class HappinessManager : MonoBehaviour
                 CompanionSave = "OkamiHappiness";
                 SaveStrings = "OKAMISAVE";
                 break;
+            case "Idasaurous":
+                CompanionSave = "IdaHappiness";
+                SaveStrings = "IDASAVE";
+                break;
         }
      RealtTimeScript.LoadCompanionHappiness();
     }

@@ -20,6 +20,8 @@ public class SlowDownHapiness : MonoBehaviour
     public HappyMultlpier HappinessManagerScript;
     private GameObject DotManagerObj;
     private DotManager DotManagerScript;
+    private GameObject PowerUpManagerGameObj;
+    private PowerUpManager PowerUpManagerScript;
     int Multipliersave;
     public Text TimerText;
 
@@ -31,6 +33,8 @@ public class SlowDownHapiness : MonoBehaviour
         SlowDownTime = false;
         SlowDownTime = PlayerPrefs.GetInt("FreezeMultlpier") != 0;
         HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
+        PowerUpManagerGameObj = GameObject.FindGameObjectWithTag("PUM");
+        PowerUpManagerScript = PowerUpManagerGameObj.GetComponent<PowerUpManager>();
 
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
@@ -68,6 +72,9 @@ public class SlowDownHapiness : MonoBehaviour
         }
         else
         {
+            GetComponent<Button>().enabled = true;
+            GetComponent<Image>().color = Color.white;
+
             SlowDownTime = false;
             PlayerPrefs.SetInt("FreezeMultlpier", (SlowDownTime ? 1 : 0));
         }
@@ -87,9 +94,16 @@ public class SlowDownHapiness : MonoBehaviour
     // Update is called once per frame
    public void FreezeMultlpier()
     {
-        SlowDownTime = true;
-        PlayerPrefs.SetInt("FreezeMultlpier", (SlowDownTime ? 1 : 0));
-        StartCountdownTimer();
+        if (PowerUpManagerScript.HasFreezeMultlpliers)
+        {
+            SlowDownTime = true;
+            PlayerPrefs.SetInt("FreezeMultlpier", (SlowDownTime ? 1 : 0));
+            StartCountdownTimer();
+        }
+        else
+        {
+            Debug.Log("Got no FreezeMultplier");
+        }
     }
     // checks the current time on server
     void GetCurrentTime()

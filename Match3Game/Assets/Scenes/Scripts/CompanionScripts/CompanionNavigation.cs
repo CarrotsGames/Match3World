@@ -176,6 +176,9 @@ public class CompanionNavigation : MonoBehaviour
             case 10:
                 SceneManager.LoadScene("Okami");
                 break;
+            case 11:
+                SceneManager.LoadScene("Idasaurous");
+                break;
         }
 
     }
@@ -309,6 +312,13 @@ public class CompanionNavigation : MonoBehaviour
                 RealTimeScript.HappinessCountDown[8] = Happiness[8];
                 HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[8];
                 HappinessManagerScript.CompanionSave = "OkamiHappiness";
+
+                break;
+            case "Idasaurous":
+                Happiness[9] = PlayerPrefs.GetFloat("IdaHappiness");
+                RealTimeScript.HappinessCountDown[9] = Happiness[9];
+                HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[9];
+                HappinessManagerScript.CompanionSave = "IdaHappiness";
 
                 break;
         }
