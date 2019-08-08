@@ -195,7 +195,7 @@ public class HappinessManager : MonoBehaviour
             }
             // Adds multplier
             CanEarnGold = false;
-            this.gameObject.GetComponent<HappyMultlpier>().Multplier();
+         //   this.gameObject.GetComponent<HappyMultlpier>().Multplier();
 
             //sets bool to false and saves
             IsSleeping = false;

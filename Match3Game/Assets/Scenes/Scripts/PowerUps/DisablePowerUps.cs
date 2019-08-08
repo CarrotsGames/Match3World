@@ -29,7 +29,7 @@ public class DisablePowerUps : MonoBehaviour
             if (transform.GetChild(i).name == "FreezeMultiplier")
             {
                 // if the slowdownTime is active keep button disabled
-                if (transform.GetChild(i).GetComponent<SlowDownHapiness>().SlowDownTime)
+                if (transform.GetChild(i).GetComponent<FreezeMultiplier>().SlowDownTime)
                 {
                     transform.GetChild(i).gameObject.layer = 2;
                     transform.GetChild(i).GetComponent<Button>().enabled = false;

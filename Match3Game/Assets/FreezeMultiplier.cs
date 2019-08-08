@@ -6,7 +6,7 @@ using PlayFab.AuthenticationModels;
 using PlayFab.ClientModels;
 using UnityEngine.UI;
 using System;
-public class SlowDownHapiness : MonoBehaviour
+public class FreezeMultiplier : MonoBehaviour
 {
     public bool SlowDownTime;
      [SerializeField]
@@ -96,6 +96,7 @@ public class SlowDownHapiness : MonoBehaviour
     {
         if (PowerUpManagerScript.HasFreezeMultlpliers)
         {
+            PowerUpManagerScript.NumOfFreezeMultilpiers -= 1;
             SlowDownTime = true;
             PlayerPrefs.SetInt("FreezeMultlpier", (SlowDownTime ? 1 : 0));
             StartCountdownTimer();
