@@ -23,6 +23,7 @@ public class PowerUpManager : MonoBehaviour
     public Text NumOfSCRText;
     public Text NumOfBombsText;
     public Text NumOfSMText;
+    public Text NumOfFMText;
 
     public Text CurrencyText;
     // Use this for initialization
@@ -62,7 +63,6 @@ public class PowerUpManager : MonoBehaviour
         PlayerPrefs.SetInt("NUMBOMB", NumOfBombs);
         PlayerPrefs.SetInt("NUMSM", NumOfMultilpiers);
         PlayerPrefs.SetInt("NUMFREEZE", NumOfFreezeMultilpiers);
-
         PlayerPrefs.SetInt("CURRENCY", Currency);
 
         CurrencyText.text = " " + Currency;
@@ -70,6 +70,7 @@ public class PowerUpManager : MonoBehaviour
         NumOfSCRText.text = "" + NumOfSCR;
         NumOfBombsText.text = "" + NumOfBombs;
         NumOfSMText.text = "" + NumOfMultilpiers;
+        NumOfFMText.text = "" + NumOfFreezeMultilpiers;
 
         if (NumOfShuffles > 0)
         {
