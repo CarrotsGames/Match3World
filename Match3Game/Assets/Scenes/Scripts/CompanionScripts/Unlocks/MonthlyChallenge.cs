@@ -110,6 +110,8 @@ public class MonthlyChallenge : MonoBehaviour {
             // if the phone version is not equal to the server version reset
             if (MonthlyVersions != result.Version)
             {
+                HasUnlockedGift = false;
+                PlayerPrefs.SetInt("HASUNLOCKEDGIFT", (HasUnlockedGift ? 1 : 0));
                 MonthlyVersions = result.Version;
                 Debug.Log("NEW VERSION");
                 // Changes MonthlyCompanion array to next companion

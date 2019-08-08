@@ -18,7 +18,7 @@ public class RealTimeCounter : MonoBehaviour
     private HappinessManager HappinessManagerScript;
     private SuperMultiplierScript SuperMultiplier;
     string companionName;
-     public float SaveNum;
+    public float SaveNum;
  
     // Use this for initialization
     void Awake()
