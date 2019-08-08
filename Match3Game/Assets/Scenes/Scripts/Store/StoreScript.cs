@@ -21,6 +21,7 @@ public class StoreScript : MonoBehaviour
     public GameObject shuffleUnlock;
     public GameObject bombUnlock;
     public GameObject multiUnlock;
+    public GameObject multiFreezeUnlock;
 
     //eggIncubation true = Egg in panel falses = egg needs to be bought
     public bool eggIncubation;
@@ -266,6 +267,7 @@ public class StoreScript : MonoBehaviour
 
                     PowerUpManagerScript.Currency -= FreezeMultiplierAmount;
                     youBoughtCanvus.SetActive(true);
+                    multiFreezeUnlock.SetActive(true);
  
                 }
                 else

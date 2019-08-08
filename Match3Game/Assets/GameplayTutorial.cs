@@ -124,7 +124,7 @@ public class GameplayTutorial : MonoBehaviour
         }
         if (Input.GetMouseButton(0) && clickAmount == 6f)
         {
-            bomb.interactable = true;
+            bomb    .interactable = true;
             bombBubble.SetActive(false);
             gobu.SetActive(false);
             bombFinger.SetActive(true);
