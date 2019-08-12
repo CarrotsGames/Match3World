@@ -2124,6 +2124,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 804607155}
     m_Modifications:
+    - target: {fileID: 1036474427024022, guid: e4066718ae92203429c2f18e97d90c1e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4144176880081426, guid: e4066718ae92203429c2f18e97d90c1e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -50
@@ -2167,10 +2171,6 @@ PrefabInstance:
     - target: {fileID: 4144176880081426, guid: e4066718ae92203429c2f18e97d90c1e, type: 3}
       propertyPath: m_LocalScale.z
       value: 1.0003058
-      objectReference: {fileID: 0}
-    - target: {fileID: 1036474427024022, guid: e4066718ae92203429c2f18e97d90c1e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224144849637071048, guid: e4066718ae92203429c2f18e97d90c1e,
         type: 3}
@@ -20237,6 +20237,7 @@ GameObject:
   - component: {fileID: 1962286363}
   - component: {fileID: 1962286362}
   - component: {fileID: 1962286359}
+  - component: {fileID: 1962286364}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -20344,6 +20345,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SaveLocation: 
+--- !u!114 &1962286364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962286358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b5aed90a8515b4092b0f565c1b19d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CSVName: SelectGobuTutorial
+  CVSTexts:
+  - {fileID: 1718664772}
+  - {fileID: 298667011}
+  - {fileID: 213275942}
 --- !u!114 &1980024373 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114908531856327124, guid: 454f8424e61f4b94598935dfa480b552,

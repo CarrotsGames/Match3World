@@ -605,6 +605,7 @@ GameObject:
   - component: {fileID: 105737500}
   - component: {fileID: 105737499}
   - component: {fileID: 105737498}
+  - component: {fileID: 105737501}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -676,6 +677,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &105737501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105737497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b5aed90a8515b4092b0f565c1b19d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CSVName: StoreScneTutorial
+  CVSTexts:
+  - {fileID: 1124289652}
+  - {fileID: 1894365878}
+  - {fileID: 1728592511}
+  - {fileID: 1592106879}
 --- !u!1 &128522080
 GameObject:
   m_ObjectHideFlags: 0
@@ -710,6 +729,14 @@ MonoBehaviour:
   StartCountDown: 0
   TimerText: {fileID: 1006764224}
   UnlockMoobling: {fileID: 2020436074}
+  PowerUpManager: {fileID: 0}
+  Congratulations: {fileID: 0}
+  CriusUnlockImage: {fileID: 0}
+  OkamiUnlockImage: {fileID: 0}
+  SaucoUnlockImage: {fileID: 0}
+  ChickPeaUnlockImage: {fileID: 0}
+  SquishyUnlockImage: {fileID: 0}
+  MoneyUnlockImage: {fileID: 0}
   TimeStamp: 0
   NowTime: 0
   EggCreatures:
@@ -2469,6 +2496,7 @@ MonoBehaviour:
   shuffle: {fileID: 0}
   bomb: {fileID: 0}
   multi: {fileID: 0}
+  multiFreeze: {fileID: 0}
 --- !u!114 &337969996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3645,6 +3673,7 @@ MonoBehaviour:
   shuffle: {fileID: 0}
   bomb: {fileID: 0}
   multi: {fileID: 0}
+  multiFreeze: {fileID: 0}
 --- !u!114 &470129251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7281,6 +7310,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1355467002}
     m_Modifications:
+    - target: {fileID: 1036474427024022, guid: e4066718ae92203429c2f18e97d90c1e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4144176880081426, guid: e4066718ae92203429c2f18e97d90c1e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -152.57323
@@ -7312,10 +7345,6 @@ PrefabInstance:
     - target: {fileID: 4144176880081426, guid: e4066718ae92203429c2f18e97d90c1e, type: 3}
       propertyPath: m_RootOrder
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1036474427024022, guid: e4066718ae92203429c2f18e97d90c1e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114911462501810902, guid: e4066718ae92203429c2f18e97d90c1e,
         type: 3}
@@ -11485,6 +11514,7 @@ MonoBehaviour:
   shuffleUnlock: {fileID: 754086448}
   bombUnlock: {fileID: 173490919}
   multiUnlock: {fileID: 1711905760}
+  multiFreezeUnlock: {fileID: 0}
   eggIncubation: 0
   EggImages:
   - {fileID: 21300000, guid: 804dcf90cb5dca84d948561af3b9f1d1, type: 3}
@@ -11495,11 +11525,13 @@ MonoBehaviour:
   SuperShuffleQuantity: 5
   SuperBombQuantity: 5
   SuperMultiplierQuantity: 1
+  FreezeMultplierQuantity: 0
   Navigate: 0
   SuperColourRemoverAmount: 85
   SuperShuffleAmount: 85
   SuperBombAmount: 85
   SuperMultiplierAmount: 150
+  FreezeMultiplierAmount: 0
   CompanionPrice: c8000000
   PurchaseAnalytics: {fileID: 0}
 --- !u!1001 &2135580781
