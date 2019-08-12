@@ -33,7 +33,7 @@ public class ChangeNameScript : MonoBehaviour
         LeaderBoardGameObj = GameObject.FindGameObjectWithTag("LeaderBoard");
         LeaderScript = LeaderBoardGameObj.GetComponent<LeaderBoardScript>();
 //        LeaderScript.ListNames.Clear();
-        LeaderScript.OffsetY = 0;
+     //   LeaderScript.OffsetY = 0;
  
         LeaderScript.UpdateName();
         CountDown = true;

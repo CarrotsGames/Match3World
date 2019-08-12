@@ -8,12 +8,10 @@ public class DotManager : MonoBehaviour
     [HideInInspector]
     public CompanionScript Companion;
     [HideInInspector]
-
     public GameObject CampanionGameObj;
     // GamePiece lists
     public List<GameObject> Peices;
     public List<GameObject> PeicesList;
- 
     public List<GameObject> Gold;
     //Particle effects 
     public GameObject ParticleEffectPink;
@@ -22,14 +20,11 @@ public class DotManager : MonoBehaviour
     public GameObject ParticleEffectYellow;
     public GameObject ParticleEffectGold;
 
-    // public GameObject ParticleEffectFireWork;
-
     public GameObject PartySpawner;
     // Will contain light[0] and Heavy[1] particle 
     public GameObject[] PartyEffect;
     //Will play the Gold particle effect 
     public GameObject GoldEffect;
-
     public GameObject MouseCursorObj;
     // Reset material colours (Green = Purple)
     public Material Red;
@@ -49,21 +44,15 @@ public class DotManager : MonoBehaviour
     // Resets node properties
     public bool ResetLayer;
     public bool ResetMaterial;
-    public bool ChangeMaterial;
     public bool CanPlay;
     public int RedScore;
-    public int BlueScore;
-    public int YellowScore;
-    public int GreenScore;
     public int GoldAmount;
     public int Multipier;
-    public int LineCount;
     public int Limit;
-    public int NumOfPeices;
     public int TotalScore;
+
     [HideInInspector]
-    public int ComboScore;
-     
+    public int ComboScore;   
     // public int Currency;
     public int PeicesCountCombo;
 
@@ -72,6 +61,8 @@ public class DotManager : MonoBehaviour
     private int Num;
 
     public float SceneScore;
+    // Getting gold score here to write to analytics
+    public int GoldScore;
     public Text HighScore;
     public Text MultiplierText;
     private MouseFollowScript MouseFollow;
@@ -93,10 +84,8 @@ public class DotManager : MonoBehaviour
         ResetLayer = false;
         CheckConnection = false;
         ResetDotLayers = false;
-        ChangeMaterial = false;
         CanPlay = true;
         // UI
-        LineCount = 0;
         Multipier = 1;
         MultiplierText.text = "" + Multipier;
         HighScore.text = "" + TotalScore;
@@ -183,8 +172,13 @@ public class DotManager : MonoBehaviour
             }
             if (Limit < Gold.Count)
             {
+                // Adds to goldscore analytic
+                GoldScore += Gold.Count;
+                // Adds specific color node to score(Now just adds nodes to score)
                 AddColourToScore();
+                // clears list to avoid null refs
                 Peices.Clear();
+                // adds the board particles
                 AddBoardParticles();
             }
             else
@@ -272,19 +266,12 @@ public class DotManager : MonoBehaviour
         }
         // if the colour wasnt matched reset lists, scores, counts and selections
         // Counts the current combo going on 
-            ComboScore = RedScore + BlueScore + GreenScore + YellowScore; 
+            ComboScore = RedScore; 
         // Counts the total score within scene
-            SceneScore += RedScore + BlueScore + GreenScore + YellowScore;
-
-        //  Debug.Log("No connection");
- 
-             
+            SceneScore += RedScore;
+        
             GoldAmount = 0;
-             RedScore = 0;
-            BlueScore = 0;
-            YellowScore = 0;
-            GreenScore = 0;
-            LineCount = 0;
+            RedScore = 0;            
             NodeSelection = false;
  
             GoldSelection = false;

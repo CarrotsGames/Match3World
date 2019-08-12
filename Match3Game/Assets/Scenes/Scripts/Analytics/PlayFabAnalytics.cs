@@ -12,6 +12,9 @@ public class PlayFabAnalytics : MonoBehaviour {
     public float TimeOnScene;
     public GameObject CompanionScore;
     private string CompanionTime;
+    private string GoldFoundLevel;
+    int GoldFound;
+
     public float Score;
     [HideInInspector]
     public string SaveScoreName;
@@ -31,6 +34,10 @@ public class PlayFabAnalytics : MonoBehaviour {
         Test = false;
         // Tracks companion Level Time
         CompanionTime = CompanionScore.name + "TIME";
+        // Tracks how much gold is found in level
+        GoldFoundLevel = CompanionScore.name + "GoldTrack";
+        GoldFound = PlayerPrefs.GetInt(GoldFoundLevel);
+        DotManagerScript.GoldScore = GoldFound;
         TimeOnScene = PlayerPrefs.GetFloat(CompanionTime);
         // Tracks companion Level Score
         SaveScoreName = CompanionScore.name + "TRACK";
@@ -53,16 +60,19 @@ public class PlayFabAnalytics : MonoBehaviour {
         // Test = false;
          
        Score = DotManagerScript.SceneScore;
+       GoldFound = DotManagerScript.GoldScore;
        PlayerPrefs.SetFloat(SaveScoreName, Score);
        PlayerPrefs.SetFloat(CompanionTime, TimeOnScene);
-       SCR = PlayerPrefs.GetInt("SCR");
+       PlayerPrefs.SetInt(GoldFoundLevel, GoldFound);
+
+        SCR = PlayerPrefs.GetInt("SCR");
        Shuffle = PlayerPrefs.GetInt("SHUFFLE");
        SuperBomb = PlayerPrefs.GetInt("SUPERBOMB");
        SuperMultlpier = PlayerPrefs.GetInt("SUPERMULTLPIER");
        Currency = PlayerPrefs.GetInt("CURRENCY");
        ComboNum = PlayerPrefs.GetInt(SaveScoreName + "COMBONUM");
        BigComboNum = PlayerPrefs.GetInt(SaveScoreName + "BIGCOMBONUM");
-
+        
     }
 
     void SetUserData()
@@ -75,6 +85,8 @@ public class PlayFabAnalytics : MonoBehaviour {
          {
              {CompanionScore.name,"SCORE: "+  Score },
              {CompanionTime,"" + TimeOnScene },
+             {GoldFoundLevel,"" + GoldFound },
+
              {"(0)TOTALGOLD","" + Currency  },
              {"(1)POWERUP: SCR","" + SCR  },
              {"(2)POWERUP: SHUFFLE","" + Shuffle  },
