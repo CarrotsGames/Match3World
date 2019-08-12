@@ -47,7 +47,7 @@ public class UnlockableCreatures : MonoBehaviour
         UnlockableMoobling[5] = PlayerPrefs.GetString("SQUISHY");
         UnlockableMoobling[6] = PlayerPrefs.GetString("Cronus Locked");
         UnlockableMoobling[7] = PlayerPrefs.GetString("OKAMI");
-
+        UnlockableMoobling[8] = PlayerPrefs.GetString("Ida Locked");
         // Activates unlocked characters
         Unlock();
         // unlocks the character 
@@ -56,6 +56,12 @@ public class UnlockableCreatures : MonoBehaviour
     }
     private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.T))
+        {
+            UnlockableMoobling[8] = "Ida Locked";
+            PlayerPrefs.SetString("Ida Locked", UnlockableMoobling[8]);
+            GetUnlocked();
+        }
     }
     public void UnlockAll()
     {
@@ -106,6 +112,7 @@ public class UnlockableCreatures : MonoBehaviour
                 LockedCompanions[5].GetComponent<Image>().sprite = CompanionImages[5];
                 LockedCompanions[5].GetComponent<Button>().enabled = true;
             }
+            //MONTHLY
             if (UnlockableMoobling[6] == "Cronus Locked")
             {
  
@@ -117,6 +124,13 @@ public class UnlockableCreatures : MonoBehaviour
 
                 LockedCompanions[7].GetComponent<Image>().sprite = CompanionImages[7];
                 LockedCompanions[7].GetComponent<Button>().enabled = true;
+            }
+            //MONTHLY
+            if (UnlockableMoobling[8] == "Ida Locked")
+            {
+                Debug.Log("IDA");
+                LockedCompanions[8].GetComponent<Image>().sprite = CompanionImages[8];
+                LockedCompanions[8].GetComponent<Button>().enabled = true;
             }
         }
     }

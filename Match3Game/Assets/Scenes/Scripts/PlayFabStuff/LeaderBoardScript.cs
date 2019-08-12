@@ -26,7 +26,7 @@ using System.Collections.Generic;
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
 
         ///   ListNames = new List<Text>();
-        OffsetY = 0;
+       // OffsetY = 0;
         // sets up the top 10 on leaderboards position
 
         // logins into playfab with android device ID

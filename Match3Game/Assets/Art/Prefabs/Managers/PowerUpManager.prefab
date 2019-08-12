@@ -1,21 +1,11 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1432129931864154}
-  m_IsPrefabAsset: 1
 --- !u!1 &1432129931864154
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4920240668668318}
@@ -29,11 +19,12 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4920240668668318
 Transform:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1432129931864154}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.1000013, y: -3.1000004, z: 35.491875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -42,9 +33,10 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114944472890173658
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1432129931864154}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -53,7 +45,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NumOfShuffles: 5
   NumOfSCR: 5
+  NumOfBombs: 0
+  NumOfMultilpiers: 0
+  NumOfFreezeMultilpiers: 0
+  Currency: 0
   HasShuffles: 0
   HasSCR: 0
+  HasBombs: 0
+  HasMultlpliers: 0
+  HasFreezeMultlpliers: 0
   NumOfShufflesText: {fileID: 0}
   NumOfSCRText: {fileID: 0}
+  NumOfBombsText: {fileID: 0}
+  NumOfSMText: {fileID: 0}
+  NumOfFMText: {fileID: 0}
+  CurrencyText: {fileID: 0}

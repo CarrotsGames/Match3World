@@ -66,7 +66,12 @@ public class DotScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.tag == "Gold" && !HappinessManagerScript.IsSleeping)
+
+        if (Input.touchCount > 1)
+        {
+            OnMouseUp();
+        }
+            if (transform.tag == "Gold" && !HappinessManagerScript.IsSleeping)
         {
             Destroy(gameObject);
         }
@@ -185,10 +190,8 @@ public class DotScript : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (DotManagerScript.CanPlay)
+        if (DotManagerScript.CanPlay && !Frozen)
         {
-            if (!Frozen)
-            {
                 if (!DotManagerScript.StartHighliting)
                 {
 
@@ -242,7 +245,7 @@ public class DotScript : MonoBehaviour
                 Instantiate(HighlitedParticle, transform.position, Quaternion.identity);
 
                 DotManagerScript.MouseCursorObj.SetActive(true);
-            }
+            
         }
     }
     private void OnMouseDrag()

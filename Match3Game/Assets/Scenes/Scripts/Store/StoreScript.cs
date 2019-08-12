@@ -21,6 +21,7 @@ public class StoreScript : MonoBehaviour
     public GameObject shuffleUnlock;
     public GameObject bombUnlock;
     public GameObject multiUnlock;
+    public GameObject multiFreezeUnlock;
 
     //eggIncubation true = Egg in panel falses = egg needs to be bought
     public bool eggIncubation;
@@ -39,12 +40,15 @@ public class StoreScript : MonoBehaviour
     public int SuperShuffleQuantity;
     public int SuperBombQuantity;
     public int SuperMultiplierQuantity;
+    public int FreezeMultplierQuantity;
+
     public int Navigate;
     // item Cost
     public int SuperColourRemoverAmount;
     public int SuperShuffleAmount;
     public int SuperBombAmount;
     public int SuperMultiplierAmount;
+    public int FreezeMultiplierAmount;
 
     public int[] CompanionPrice;
 
@@ -249,9 +253,30 @@ public class StoreScript : MonoBehaviour
                     Debug.Log("Please wait for the egg to stop egging");
 
                 }
-                break;  
-             
-         }
+                break;
+            case 6:
+                if (PowerUpManagerScript.Currency >= FreezeMultiplierAmount)
+                {
+                    //ANALYTICS
+                   // int FreezeMultilpier = PlayerPrefs.GetInt("FREEZEMULTIPURCHASE");
+                   // FreezeMultilpier++;
+                  //  PlayerPrefs.SetInt("FREEZEMULTIPURCHASE", FreezeMultilpier);
+
+                    PowerUpManagerScript.NumOfFreezeMultilpiers += FreezeMultplierQuantity;
+                    //   PowerUpManagerScript.NumOfSCR += 5;
+
+                    PowerUpManagerScript.Currency -= FreezeMultiplierAmount;
+                    youBoughtCanvus.SetActive(true);
+                    multiFreezeUnlock.SetActive(true);
+ 
+                }
+                else
+                {
+
+                    Debug.Log("Insufficient funds");
+                }
+                break;
+        }
     }
 
     void DisableEggButton()

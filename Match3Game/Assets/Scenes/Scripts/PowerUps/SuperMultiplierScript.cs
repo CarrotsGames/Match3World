@@ -59,7 +59,6 @@ public class SuperMultiplierScript : MonoBehaviour
             // goes through multiplier list and times each one by super multlplier
             for (int i = 0; i < HappinessGameObj.GetComponent<HappyMultlpier>().multiplier.Length; i++)
             {
-            //    int test;
                 if (i > 0)
                 {
                    // test = HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[i];
@@ -103,7 +102,6 @@ public class SuperMultiplierScript : MonoBehaviour
                     }
                 }
                 StartCountdown = false;
-                MultlpierTimer = TimerStore;
                 CanUseSuperMultiplier = false;
                 PowerUpManagerScript.HasMultlpliers = true;
                 SMTimerUI.SetActive(false);
@@ -117,6 +115,8 @@ public class SuperMultiplierScript : MonoBehaviour
         //Debug.Log("BUTTON PRESSED");
         if (PowerUpManagerScript.HasMultlpliers && !StartCountdown)
         {
+            MultlpierTimer = TimerStore;
+
             // Counts how many times player uses this powerup
             TimesUsed++;
             PlayerPrefs.SetInt("SUPERMULTLPIER", TimesUsed);

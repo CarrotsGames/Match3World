@@ -26,7 +26,11 @@ public class PlayBannerAd : MonoBehaviour
           //Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
           Advertisement.Banner.Show(placementId);
         }
-     
+        else
+        {
+            Advertisement.Banner.Hide();
+        }
+
     }
 
 

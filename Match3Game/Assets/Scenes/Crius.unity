@@ -2186,6 +2186,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1929677184829160893, guid: c48dae2b39178bc498df340966b5eef7,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a680d02fbd59f54abc58467bad752d2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c48dae2b39178bc498df340966b5eef7, type: 3}
 --- !u!4 &990760247 stripped
@@ -3387,16 +3392,52 @@ PrefabInstance:
       propertyPath: ShuffleSpawn
       value: 
       objectReference: {fileID: 1620135680}
+    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: UnlockMoobling
+      value: 
+      objectReference: {fileID: 323793062}
+    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: Congratulations
+      value: 
+      objectReference: {fileID: 1978995414}
+    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: CriusUnlockImage
+      value: 
+      objectReference: {fileID: 1978995420}
+    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: OkamiUnlockImage
+      value: 
+      objectReference: {fileID: 1978995419}
+    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: SaucoUnlockImage
+      value: 
+      objectReference: {fileID: 1978995418}
+    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: ChickPeaUnlockImage
+      value: 
+      objectReference: {fileID: 1978995417}
+    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: SquishyUnlockImage
+      value: 
+      objectReference: {fileID: 1978995416}
+    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: MoneyUnlockImage
+      value: 
+      objectReference: {fileID: 1978995415}
     - target: {fileID: 2335805762105582881, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 2c7943fa499caca44a612fcca57a0d02,
         type: 3}
-    - target: {fileID: 1543697491, guid: d7fb396edf155de40895610ead7b8864, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2554878093451859364, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3572,6 +3613,10 @@ PrefabInstance:
       propertyPath: skipButton
       value: 
       objectReference: {fileID: 1390942710}
+    - target: {fileID: 1543697491, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2334539968821297527, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3625,6 +3670,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1390942711 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2095555180, guid: d7fb396edf155de40895610ead7b8864,
+    type: 3}
+  m_PrefabInstance: {fileID: 1390942707}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1442276535 stripped
@@ -4010,6 +4067,11 @@ PrefabInstance:
       propertyPath: NumOfSMText
       value: 
       objectReference: {fileID: 690540329}
+    - target: {fileID: 114944472890173658, guid: 9a6df9f76c474724c973f6d01c92d34f,
+        type: 3}
+      propertyPath: NumOfFMText
+      value: 
+      objectReference: {fileID: 1390942711}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a6df9f76c474724c973f6d01c92d34f, type: 3}
 --- !u!1 &1685197000
@@ -4618,6 +4680,12 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   SaveNum: 0
 --- !u!1 &1785544981
 GameObject:
@@ -4969,6 +5037,48 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 256a7a897b484f341b8817f6a62295f2, type: 3}
+--- !u!1 &1978995414 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5417023198510313167, guid: 256a7a897b484f341b8817f6a62295f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1978995413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1978995415 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5417023196482754093, guid: 256a7a897b484f341b8817f6a62295f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1978995413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1978995416 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5417023198312494412, guid: 256a7a897b484f341b8817f6a62295f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1978995413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1978995417 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5417023196462425199, guid: 256a7a897b484f341b8817f6a62295f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1978995413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1978995418 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5417023197626468327, guid: 256a7a897b484f341b8817f6a62295f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1978995413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1978995419 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5417023198017188183, guid: 256a7a897b484f341b8817f6a62295f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1978995413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1978995420 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5417023198348912966, guid: 256a7a897b484f341b8817f6a62295f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1978995413}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1993961532
 GameObject:
   m_ObjectHideFlags: 0

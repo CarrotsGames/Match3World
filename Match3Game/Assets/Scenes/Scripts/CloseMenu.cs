@@ -10,6 +10,7 @@ public class CloseMenu : MonoBehaviour {
     public GameObject shuffle;
     public GameObject bomb;
     public GameObject multi;
+    public GameObject multiFreeze;
 
 
     public void TurnOffTab()
@@ -20,6 +21,7 @@ public class CloseMenu : MonoBehaviour {
         shuffle.SetActive(false);
         bomb.SetActive(false);
         multi.SetActive(false);
+        multiFreeze.SetActive(false);
     }
 
 }

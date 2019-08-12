@@ -18,7 +18,7 @@ public class RealTimeCounter : MonoBehaviour
     private HappinessManager HappinessManagerScript;
     private SuperMultiplierScript SuperMultiplier;
     string companionName;
-     public float SaveNum;
+    public float SaveNum;
  
     // Use this for initialization
     void Awake()
@@ -47,8 +47,8 @@ public class RealTimeCounter : MonoBehaviour
         //////////////////////// HOW TO SETUP THE SAVES/////////////////////////////
         //1 Assign a save to happinesscountdown array with new companion
         //2 Add a "TimeMasterScript.instance.CheckDate() / 25" to deduct that companions happiness
-        //3 In this script go to happinessmanagerscript(line 74) switch and add a case with a save name
-        //4 Now go into update and make the new happiness countdown (line 159 to end of update)
+        //3 In this script go to happinessmanagerscript(line 81) switch and add a case with a save name
+        //4 Now go into update in this script and make the new happiness countdown (line 159 to end of update)
         //5 Then in update add an else if with that companion name and countdown the time (Make sure HappinessCountdown is set to right array)
         //6 Make that companon array equal the happiness slidervalue(happienssmetre)
         //7 In "happinessmanager" script go to companion save switch (line 68) and add that companion save 
@@ -104,8 +104,13 @@ public class RealTimeCounter : MonoBehaviour
        HappinessCountDown[8] = PlayerPrefs.GetFloat("OkamiHappiness");
        // update timer when real time passes                             
        HappinessCountDown[8] -= TimeMasterScript.instance.CheckDate() / 25;
-       /////////////////////////////////////////////////////////////////////
-     
+
+        //Cronos Happiness Timer                                          
+        HappinessCountDown[9] = PlayerPrefs.GetFloat("IdaHappiness");
+        // update timer when real time passes                             
+        HappinessCountDown[9] -= TimeMasterScript.instance.CheckDate() / 25;
+        /////////////////////////////////////////////////////////////////////
+
 
     }
     public void LoadCompanionHappiness()
@@ -175,6 +180,14 @@ public class RealTimeCounter : MonoBehaviour
                 companionName = "OkamiHappiness";
 
                 break;
+
+
+            case "IdaHappiness":
+
+                HappinessManagerScript.HappinessSliderValue = HappinessCountDown[9];
+                companionName = "IdaHappiness";
+
+                break;
         }
       //  HappinessGameObj.GetComponent<HappyMultlpier>().CheckMultplier();
 
@@ -233,6 +246,11 @@ public class RealTimeCounter : MonoBehaviour
         // Update timer each frame by delay
         HappinessCountDown[8] -= Time.deltaTime / 15;
         PlayerPrefs.SetFloat("OkamiHappiness", HappinessCountDown[8]);
+
+        HappinessCountDown[9] = Mathf.Clamp(HappinessCountDown[9], 0, 100);
+        // Update timer each frame by delay
+        HappinessCountDown[9] -= Time.deltaTime / 15;
+        PlayerPrefs.SetFloat("IdaHappiness", HappinessCountDown[9]);
     }
     // Counts down the happiness of each moobling
     // Update is called once per frame
@@ -302,7 +320,10 @@ public class RealTimeCounter : MonoBehaviour
         {
             HappinessCountDown[8] = HappinessManagerScript.HappinessSliderValue;
         }
-        
+        else if (companionName == "IdaHappiness")
+        {
+            HappinessCountDown[9] = HappinessManagerScript.HappinessSliderValue;
+        }
     }
  
     // Resets clock based on current hunger and time instance

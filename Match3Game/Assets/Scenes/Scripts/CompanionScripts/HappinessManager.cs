@@ -47,7 +47,7 @@ public class HappinessManager : MonoBehaviour
         Scene CurrentScene = SceneManager.GetActiveScene();
         SceneName = CurrentScene.name;
         SleepAd = GameObject.FindGameObjectWithTag("SleepingAd");
-        if (SceneName == "Main Screen")
+        if (SceneName == "Main Screen" || SceneName == "Gobu Tutorial")
         {
             OnMainScene = true;
         }
@@ -124,6 +124,10 @@ public class HappinessManager : MonoBehaviour
                 CompanionSave = "OkamiHappiness";
                 SaveStrings = "OKAMISAVE";
                 break;
+            case "Idasaurous":
+                CompanionSave = "IdaHappiness";
+                SaveStrings = "IDASAVE";
+                break;
         }
      RealtTimeScript.LoadCompanionHappiness();
     }
@@ -191,7 +195,7 @@ public class HappinessManager : MonoBehaviour
             }
             // Adds multplier
             CanEarnGold = false;
-            this.gameObject.GetComponent<HappyMultlpier>().Multplier();
+         //   this.gameObject.GetComponent<HappyMultlpier>().Multplier();
 
             //sets bool to false and saves
             IsSleeping = false;

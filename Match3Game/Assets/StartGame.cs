@@ -9,6 +9,9 @@ public class StartGame : MonoBehaviour
     public Animator gameAnim;
     public Animator cameraAnim;
 
+    public GameObject skipMenu;
+
+
     public GameObject startText;
 
     public AudioClip pageFlip;
@@ -50,6 +53,7 @@ public class StartGame : MonoBehaviour
     {
         gameAnim.SetBool("AnimStart",true);
         startText.SetActive(false);
+        skipMenu.SetActive(false);
     }
 
 
@@ -71,6 +75,20 @@ public class StartGame : MonoBehaviour
             playBannerAdScript.HideBanner();
         }
     }
+
+    public void LoadSkip()
+    {
+        skipMenu.SetActive(true);
+    }
+
+    public void SkipYes()
+    {
+        PlayerPrefs.SetInt("TUTORIAL", 1);
+        SceneManager.LoadScene("Main Screen");
+
+    }
+
+
 
 
 }
