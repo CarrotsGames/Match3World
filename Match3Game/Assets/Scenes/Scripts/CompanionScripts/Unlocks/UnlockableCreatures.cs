@@ -56,12 +56,12 @@ public class UnlockableCreatures : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.T))
-        {
-            UnlockableMoobling[8] = "Ida Locked";
-            PlayerPrefs.SetString("Ida Locked", UnlockableMoobling[8]);
-            GetUnlocked();
-        }
+        //if(Input.GetKeyDown(KeyCode.T))
+        //{
+        //    UnlockableMoobling[8] = "Ida Locked";
+        //    PlayerPrefs.SetString("Ida Locked", UnlockableMoobling[8]);
+        //    GetUnlocked();
+        //}
     }
     public void UnlockAll()
     {

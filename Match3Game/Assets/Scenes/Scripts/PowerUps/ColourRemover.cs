@@ -126,64 +126,69 @@ public class ColourRemover : MonoBehaviour
                     }
 
                 }
+                RemoveColour();
 
                 // Do something with the object that was hit by the raycast.
             }
-            // if the desired colour is true destroy all nodes with that colour
-            if (Red)
-            {    
-                // Counts how many times player uses this powerup
-                TimesUsed++;
-                PlayerPrefs.SetInt("SCR", TimesUsed);
-                for (int i = 0; i < BoardGameObj.transform.childCount; i++)
-                {
-                    SCRAmount += 1;
-                    if (BoardGameObj.transform.GetChild(i).tag == Colour)
-                    {
-                        Destroy(BoardGameObj.transform.GetChild(i).gameObject);
-                    }
-                 }
-                Red = false;
-                PowerUpInUse = false;
-                DotManagerScript.ResetMaterial = true;
-                GoTimer = true;
-                DotManagerScript.TotalScore += SCRAmount * DotManagerScript.Multipier;
-                DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
-                HasUsedSCR = true;
-                PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
-
-            }
-            //Destroys rainbows nodes 
-            // NOTE: this has its own if statement because it is getting the child of a 
-            // diffrent gameobject
-            if (Rainbow)
-            {  
-                // Counts how many times player uses this powerup
-                TimesUsed++;
-                PlayerPrefs.SetInt("SCR", TimesUsed);
-                for (int i = 0; i < SpecialBoardGameObj.transform.childCount; i++)
-                {
-                    SCRAmount += 1;
-            
-                    if (SpecialBoardGameObj.transform.GetChild(i).tag == "Rainbow")
-                    {
-                        Destroy(SpecialBoardGameObj.transform.GetChild(i).gameObject);
-                    }
-                }
-                Rainbow = false;
-                PowerUpInUse = false;
-                DotManagerScript.ResetMaterial = true;
-                GoTimer = true;
-                DotManagerScript.TotalScore += SCRAmount * DotManagerScript.Multipier;
-                DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
-                HasUsedSCR = true;
-                PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
-
-            }
+         
 
 
         }
 
+    }
+    void RemoveColour()
+    {
+        // if the desired colour is true destroy all nodes with that colour
+        if (Red)
+        {
+            // Counts how many times player uses this powerup
+            TimesUsed++;
+            PlayerPrefs.SetInt("SCR", TimesUsed);
+            for (int i = 0; i < BoardGameObj.transform.childCount; i++)
+            {
+                SCRAmount += 1;
+                if (BoardGameObj.transform.GetChild(i).tag == Colour)
+                {
+                    Destroy(BoardGameObj.transform.GetChild(i).gameObject);
+                }
+            }
+            Red = false;
+            PowerUpInUse = false;
+            DotManagerScript.ResetMaterial = true;
+            GoTimer = true;
+            DotManagerScript.TotalScore += SCRAmount * DotManagerScript.Multipier;
+            DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
+            HasUsedSCR = true;
+            PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
+
+        }
+        //Destroys rainbows nodes 
+        // NOTE: this has its own if statement because it is getting the child of a 
+        // diffrent gameobject
+        if (Rainbow)
+        {
+            // Counts how many times player uses this powerup
+            TimesUsed++;
+            PlayerPrefs.SetInt("SCR", TimesUsed);
+            for (int i = 0; i < SpecialBoardGameObj.transform.childCount; i++)
+            {
+                SCRAmount += 1;
+
+                if (SpecialBoardGameObj.transform.GetChild(i).tag == "Rainbow")
+                {
+                    Destroy(SpecialBoardGameObj.transform.GetChild(i).gameObject);
+                }
+            }
+            Rainbow = false;
+            PowerUpInUse = false;
+            DotManagerScript.ResetMaterial = true;
+            GoTimer = true;
+            DotManagerScript.TotalScore += SCRAmount * DotManagerScript.Multipier;
+            DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
+            HasUsedSCR = true;
+            PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
+
+        }
     }
     public void SuperColourRemoverMenu()
     {

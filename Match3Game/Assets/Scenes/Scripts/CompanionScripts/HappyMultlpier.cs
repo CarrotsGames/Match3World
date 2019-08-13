@@ -47,10 +47,7 @@ public class HappyMultlpier : MonoBehaviour {
             CheckMultplier();
             Timer += 3;
         }
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            CheckMultplier();
-        }
+      
         if (ResetTheMultlpier)
         {
             MultlpierNum = 1;

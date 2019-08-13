@@ -21,6 +21,7 @@ public class FreezeMultiplier : MonoBehaviour
     private GameObject DotManagerObj;
     private DotManager DotManagerScript;
     private GameObject PowerUpManagerGameObj;
+    private GameObject DisablePowerUpGameObj;
     private PowerUpManager PowerUpManagerScript;
     int Multipliersave;
     public Text TimerText;
@@ -29,6 +30,7 @@ public class FreezeMultiplier : MonoBehaviour
     void Start()
     {
         Multipliersave = PlayerPrefs.GetInt("SavedMultlpier");
+        DisablePowerUpGameObj = GameObject.Find("PowerUps");
         CurrentTime = 1;
         SlowDownTime = false;
         SlowDownTime = PlayerPrefs.GetInt("FreezeMultlpier") != 0;
@@ -43,6 +45,10 @@ public class FreezeMultiplier : MonoBehaviour
     }
     private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            NowTime = TimeStamp + 100000000;
+        }
         if (SlowDownTime)
         {
             DisplayTime();
@@ -58,6 +64,14 @@ public class FreezeMultiplier : MonoBehaviour
             // if the current time is greater than target time end powerup
             if (NowTime > TimeStamp)
             {
+                DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableFreeze = false;
+                DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableSM = false;
+
+                PlayerPrefs.SetInt("DISABLEFREEZE", (DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableFreeze ? 1 : 0));
+                PlayerPrefs.SetInt("DISABLESM", (DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableSM ? 1 : 0));
+                DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableNodes();
+
+                TimerText.text = "";
                 Debug.Log("TIMES OVER");
                 SlowDownTime = false;
                 PlayerPrefs.SetInt("FreezeMultlpier", (SlowDownTime ? 1 : 0));
@@ -72,11 +86,11 @@ public class FreezeMultiplier : MonoBehaviour
         }
         else
         {
-            GetComponent<Button>().enabled = true;
-            GetComponent<Image>().color = Color.white;
+         //   GetComponent<Button>().enabled = true;
+         //   GetComponent<Image>().color = Color.white;
 
-            SlowDownTime = false;
-            PlayerPrefs.SetInt("FreezeMultlpier", (SlowDownTime ? 1 : 0));
+          //  SlowDownTime = false;
+          //  PlayerPrefs.SetInt("FreezeMultlpier", (SlowDownTime ? 1 : 0));
         }
     }
     public void DisplayTime()
@@ -94,16 +108,26 @@ public class FreezeMultiplier : MonoBehaviour
     // Update is called once per frame
    public void FreezeMultlpier()
     {
-        if (PowerUpManagerScript.HasFreezeMultlpliers)
+        if (!SlowDownTime)
         {
-            PowerUpManagerScript.NumOfFreezeMultilpiers -= 1;
-            SlowDownTime = true;
-            PlayerPrefs.SetInt("FreezeMultlpier", (SlowDownTime ? 1 : 0));
-            StartCountdownTimer();
-        }
-        else
-        {
-            Debug.Log("Got no FreezeMultplier");
+            if (PowerUpManagerScript.HasFreezeMultlpliers)
+            {
+                DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableFreeze = true;
+                DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableSM = true;
+
+                PlayerPrefs.SetInt("DISABLEFREEZE", (DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableFreeze ? 1 : 0));
+                PlayerPrefs.SetInt("DISABLESM", (DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableSM ? 1 : 0));
+                DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableNodes();
+
+                PowerUpManagerScript.NumOfFreezeMultilpiers -= 1;
+                SlowDownTime = true;
+                PlayerPrefs.SetInt("FreezeMultlpier", (SlowDownTime ? 1 : 0));
+                StartCountdownTimer();
+            }
+            else
+            {
+                Debug.Log("Got no FreezeMultplier");
+            }
         }
     }
     // checks the current time on server

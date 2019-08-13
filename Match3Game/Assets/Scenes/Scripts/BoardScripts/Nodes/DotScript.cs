@@ -67,7 +67,7 @@ public class DotScript : MonoBehaviour
     void Update()
     {
         // if more than one finger is on the screen stop connection
-        if (Input.touchCount > 1 || Input.GetKeyDown(KeyCode.F))
+        if (Input.touchCount > 1  )
         {
             Debug.Log("F");
             this.gameObject.GetComponent<Renderer>().material = Default;

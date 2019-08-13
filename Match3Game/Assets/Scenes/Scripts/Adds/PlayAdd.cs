@@ -14,10 +14,10 @@ public class PlayAdd : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.O))
-        {
-            PlayAdNow();
-        }
+        //if(Input.GetKeyDown(KeyCode.O))
+        //{
+        //    PlayAdNow();
+        //}
     }
     public void PlayDailySpinAd()
     {
