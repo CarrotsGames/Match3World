@@ -493,7 +493,7 @@ MonoBehaviour:
   - {fileID: 3577246280092538929, guid: 3bfce0534a2c5004bb3c50b4fbcd280e, type: 3}
   - {fileID: 3272884522313364103, guid: e307cdc8cf068b3499468cd86d00f639, type: 3}
   - {fileID: 2055377186244939969, guid: cb0ddb1a47b035c4fb1c53f03ee6aeeb, type: 3}
-  - {fileID: 1063094474349120, guid: bcf6c6e79b25cd9459703152c93c0b2e, type: 3}
+  - {fileID: 7267913285865024403, guid: 6c28c6d909af44b48910b34fc8eac10a, type: 3}
   Spawner: {fileID: 192660692}
 --- !u!4 &192660696
 Transform:
@@ -938,13 +938,19 @@ PrefabInstance:
     - target: {fileID: 4890702128253559426, guid: bdc8e0ed483057548818c8e6209c5a92,
         type: 3}
       propertyPath: NumberofNodes
-      value: 8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4890702128253559426, guid: bdc8e0ed483057548818c8e6209c5a92,
         type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4890702128253559426, guid: bdc8e0ed483057548818c8e6209c5a92,
+        type: 3}
+      propertyPath: SpecialNode.Array.data[0]
+      value: 
+      objectReference: {fileID: 3272884522313364103, guid: e307cdc8cf068b3499468cd86d00f639,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdc8e0ed483057548818c8e6209c5a92, type: 3}
 --- !u!1 &351200173
@@ -2651,16 +2657,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2555598863301241839, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2555598863301241839, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2335805763860882735, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: sceneAudio
@@ -2736,16 +2732,6 @@ PrefabInstance:
       propertyPath: SaucoUnlockImage
       value: 
       objectReference: {fileID: 1284930173}
-    - target: {fileID: 2335805762105582881, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 2c7943fa499caca44a612fcca57a0d02,
-        type: 3}
-    - target: {fileID: 1543697491, guid: d7fb396edf155de40895610ead7b8864, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2335805763254419890, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_SortingOrder
@@ -2901,6 +2887,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -119
       objectReference: {fileID: 0}
+    - target: {fileID: 2335805762105582881, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2c7943fa499caca44a612fcca57a0d02,
+        type: 3}
+    - target: {fileID: 1543697491, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2334539968821297527, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -2915,6 +2911,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -272.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555598863301241839, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555598863301241839, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2321959881743238727, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
