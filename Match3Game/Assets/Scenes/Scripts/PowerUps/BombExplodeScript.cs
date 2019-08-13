@@ -41,8 +41,8 @@ public class BombExplodeScript : MonoBehaviour
     void Update()
     {
         Timer -= Time.deltaTime;
-        
-        if(AddScore)
+      
+        if (AddScore)
         {
             DotManagerScript.TotalScore += CollidedNodes.Count * DotManagerScript.Multipier;
             DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;

@@ -7,6 +7,7 @@ public class ColourRemover : MonoBehaviour
 
     float Timer = 0.25f;
     public bool Red;  
+    private int Index;
     public bool Rainbow;
     [HideInInspector]
     public bool HasUsedSCR;
@@ -27,14 +28,16 @@ public class ColourRemover : MonoBehaviour
     private GameObject SpecialBoardGameObj;
     private PowerUpManager PowerUpManagerScript;
     private int SCRAmount;
-    private string Colour;
+    [HideInInspector]
+    public string Colour;
     private string SceneName;
     private GameObject PowerUpGameObj;
     int TimesUsed;
-
+    Vector3 LastPos;
     // Use this for initialization
     void Start()
     {
+        Index = 1;
         TimesUsed = PlayerPrefs.GetInt("SCR");
         PowerUpGameObj = GameObject.Find("PowerUps");
         Scene CurrentScene = SceneManager.GetActiveScene();
@@ -134,9 +137,13 @@ public class ColourRemover : MonoBehaviour
 
 
         }
+        else
+        {
+            DotManagerScript.CanPlay = true;
+        }
 
     }
-    void RemoveColour()
+    public void RemoveColour()
     {
         // if the desired colour is true destroy all nodes with that colour
         if (Red)
@@ -149,9 +156,13 @@ public class ColourRemover : MonoBehaviour
                 SCRAmount += 1;
                 if (BoardGameObj.transform.GetChild(i).tag == Colour)
                 {
+                    LastPos = BoardGameObj.transform.GetChild(i).transform.position;
+                    PlayParticle();
                     Destroy(BoardGameObj.transform.GetChild(i).gameObject);
+                    Index++;
                 }
             }
+            Index = 0;
             Red = false;
             PowerUpInUse = false;
             DotManagerScript.ResetMaterial = true;
@@ -231,6 +242,33 @@ public class ColourRemover : MonoBehaviour
             PowerUpManagerScript.PowerUpEmpty();
         }
     }
+    // plays particle effect for each node
+    void PlayParticle()
+    {
+        // plays particle effect at list index and position of current node
+        if (Colour == "Red")
+        {
+            Instantiate(DotManagerScript.ParticleEffectPink, LastPos, Quaternion.identity);
 
- 
+        }
+        else if (Colour == "Blue")
+        {
+            Instantiate(DotManagerScript.ParticleEffectBlue, LastPos, Quaternion.identity);
+
+        }
+        else if (Colour == "Yellow")
+        {
+            Instantiate(DotManagerScript.ParticleEffectPurple, LastPos, Quaternion.identity);
+
+        }
+        else if (Colour == "Green")
+        {
+            Instantiate(DotManagerScript.ParticleEffectYellow, LastPos, Quaternion.identity);
+
+        }
+
+
+    }
+
+
 }
