@@ -2843,13 +2843,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f391deae19a48ea40974586c19827ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ComboBomb: {fileID: 1914611662045384, guid: e23b4aecc40e08a4baa9adc758f8021f, type: 3}
+  SCR: {fileID: 1163745381}
   ComboSpeed: 0.15
   ComboVanishSpeed: 0.5
   StartDestroy: 0
   ComboGameObj: {fileID: 1618706541}
   ComboText: {fileID: 1021919427}
   ComboScore: {fileID: 759545612}
-  HappinessManagerScript: {fileID: 2104027503}
   DotManagerScript: {fileID: 1035794568}
   ComboList: []
   NormalCombo: 0
@@ -3379,11 +3380,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gobu Canvus
       objectReference: {fileID: 0}
-    - target: {fileID: 2336660659435952756, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2335640169551085877, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_IsActive
@@ -3534,57 +3530,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: HomeButton
       objectReference: {fileID: 0}
-    - target: {fileID: 2449818973851826393, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: ShuffleSpawn
-      value: 
-      objectReference: {fileID: 916780124}
-    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: Congratulations
-      value: 
-      objectReference: {fileID: 559045961}
-    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: CriusUnlockImage
-      value: 
-      objectReference: {fileID: 559045967}
-    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: OkamiUnlockImage
-      value: 
-      objectReference: {fileID: 559045966}
-    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: SaucoUnlockImage
-      value: 
-      objectReference: {fileID: 559045965}
-    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: ChickPeaUnlockImage
-      value: 
-      objectReference: {fileID: 559045964}
-    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: SquishyUnlockImage
-      value: 
-      objectReference: {fileID: 559045963}
-    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: MoneyUnlockImage
-      value: 
-      objectReference: {fileID: 559045962}
-    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: UnlockMoobling
-      value: 
-      objectReference: {fileID: 323793062}
-    - target: {fileID: 2335805762105582881, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 2c7943fa499caca44a612fcca57a0d02,
-        type: 3}
+    - target: {fileID: 1543697491, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2554878093451859364, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -3594,6 +3543,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 46
+      objectReference: {fileID: 0}
+    - target: {fileID: 2336660659435952756, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2555435300485704022, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
@@ -3715,15 +3669,17 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 42.09
       objectReference: {fileID: 0}
+    - target: {fileID: 2335805762105582881, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2c7943fa499caca44a612fcca57a0d02,
+        type: 3}
     - target: {fileID: 2449821724921795210, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: skipButton
       value: 
       objectReference: {fileID: 1163745379}
-    - target: {fileID: 1543697491, guid: d7fb396edf155de40895610ead7b8864, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2334539968821297527, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_LocalScale.y
@@ -3739,6 +3695,51 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -257
       objectReference: {fileID: 0}
+    - target: {fileID: 2449818973851826393, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: ShuffleSpawn
+      value: 
+      objectReference: {fileID: 916780124}
+    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: Congratulations
+      value: 
+      objectReference: {fileID: 559045961}
+    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: CriusUnlockImage
+      value: 
+      objectReference: {fileID: 559045967}
+    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: OkamiUnlockImage
+      value: 
+      objectReference: {fileID: 559045966}
+    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: SaucoUnlockImage
+      value: 
+      objectReference: {fileID: 559045965}
+    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: ChickPeaUnlockImage
+      value: 
+      objectReference: {fileID: 559045964}
+    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: SquishyUnlockImage
+      value: 
+      objectReference: {fileID: 559045963}
+    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: MoneyUnlockImage
+      value: 
+      objectReference: {fileID: 559045962}
+    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: UnlockMoobling
+      value: 
+      objectReference: {fileID: 323793062}
     - target: {fileID: 2321959881743238727, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_Enabled
@@ -3770,6 +3771,12 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1163745381 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2337297965143449521, guid: d7fb396edf155de40895610ead7b8864,
+    type: 3}
+  m_PrefabInstance: {fileID: 1163745378}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1171108489
 GameObject:
   m_ObjectHideFlags: 0

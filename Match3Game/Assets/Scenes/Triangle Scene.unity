@@ -2405,10 +2405,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 1281836179, guid: 14cf0c9f13a41b04893174ce8bb2b28b, type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2045027841968604319, guid: 14cf0c9f13a41b04893174ce8bb2b28b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2463,6 +2459,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281836179, guid: 14cf0c9f13a41b04893174ce8bb2b28b, type: 3}
+      propertyPath: Loop
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14cf0c9f13a41b04893174ce8bb2b28b, type: 3}
@@ -4562,6 +4562,12 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1037968080 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2337297965143449521, guid: d7fb396edf155de40895610ead7b8864,
+    type: 3}
+  m_PrefabInstance: {fileID: 1037968078}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1040352957
 GameObject:
   m_ObjectHideFlags: 0
@@ -5334,18 +5340,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1279690371 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114904152250435826, guid: 6e21ef18f925f614bb8952d2a3856f01,
-    type: 3}
-  m_PrefabInstance: {fileID: 1320120259}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21741c4e4bb78f94e86249b9076a3b9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1283933641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6065,6 +6059,7 @@ MonoBehaviour:
   BlueMat: {fileID: 2100000, guid: 098f6c24605a3dc4d850b7dc6c476ace, type: 2}
   YellowMat: {fileID: 2100000, guid: 96d47a597efbd184fa64ee0e53dce3a1, type: 2}
   PurpleMat: {fileID: 2100000, guid: 82654ed737ece9443b09e5d278fb5a3a, type: 2}
+  Colour: 
 --- !u!114 &1482920348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6869,6 +6864,7 @@ MonoBehaviour:
   MultlpierTimer: 80
   SMTimerUI: {fileID: 1907332376}
   MultlpierTimerText: {fileID: 775275624}
+  EndCountdown: 0
 --- !u!114 &1656633075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8648,22 +8644,17 @@ MonoBehaviour:
   GoldSelection: 0
   ResetLayer: 0
   ResetMaterial: 0
-  ChangeMaterial: 0
   CanPlay: 0
   RedScore: 0
-  BlueScore: 0
-  YellowScore: 0
-  GreenScore: 0
   GoldAmount: 0
   Multipier: 0
-  LineCount: 0
   Limit: 2
-  NumOfPeices: 0
   TotalScore: 0
   ComboScore: 0
   PeicesCountCombo: 0
   PeicesCount: 0
   SceneScore: 0
+  GoldScore: 0
   HighScore: {fileID: 2047450943}
   MultiplierText: {fileID: 298541345}
 --- !u!4 &2085261490
@@ -8692,13 +8683,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f391deae19a48ea40974586c19827ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ComboBomb: {fileID: 1914611662045384, guid: e23b4aecc40e08a4baa9adc758f8021f, type: 3}
+  SCR: {fileID: 1037968080}
   ComboSpeed: 0.1
   ComboVanishSpeed: 1
   StartDestroy: 0
   ComboGameObj: {fileID: 878289684}
   ComboText: {fileID: 1708635294}
   ComboScore: {fileID: 1466038476}
-  HappinessManagerScript: {fileID: 1279690371}
   DotManagerScript: {fileID: 2085261489}
   ComboList: []
   NormalCombo: 0
