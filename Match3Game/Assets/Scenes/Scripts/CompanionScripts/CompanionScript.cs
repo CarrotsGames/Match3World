@@ -65,16 +65,15 @@ public class CompanionScript : MonoBehaviour
              CurrencyChance = HungerMultiplier;
            // Destroy(EatingPeices[i].gameObject);
             HungerMultiplier = i / 2;
-            MainCamera.GetComponent<CameraShake>().ShakeCamera(HappinessGameObj.GetComponent<HappyMultlpier>().MultlpierNum / 1.5f, 0.25f);
+            MainCamera.GetComponent<CameraShake>().ShakeCamera(HappinessGameObj.GetComponent<HappinessManager>().Level / 1.5f, 0.25f);
             // displays total score to Text
 
         }
         int Total;
-        int mulpliernum = HappinessGameObj.GetComponent<HappyMultlpier>().MultlpierNum;
+        int mulpliernum = HappinessGameObj.GetComponent<HappinessManager>().Level;
  
-        int Multlpier = HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[HappinessGameObj.GetComponent<HappyMultlpier>().MultlpierNum];
         Total = EatingPeices.Count + DotManagerScriptRef.ComboScore ;
-        Total *= Multlpier;
+        Total *= mulpliernum;
         DotManagerScriptRef.TotalScore += Total;
         DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
 
@@ -100,7 +99,6 @@ public class CompanionScript : MonoBehaviour
             AudioManagerScript.MooblingSource.Play();    
         }
         DotManagerObj.GetComponent<DestroyNodes>().CreateComboList();
-
     }
 
 
@@ -112,6 +110,6 @@ public class CompanionScript : MonoBehaviour
     }
     private void OnApplicationQuit()
     {
-        RealTimeScript.ResetClock();
+       // RealTimeScript.ResetClock();
     }
 }

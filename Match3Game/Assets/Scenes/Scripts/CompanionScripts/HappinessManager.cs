@@ -29,6 +29,7 @@ public class HappinessManager : MonoBehaviour
     // Plays ad when sleeping
     private GameObject SleepAd;
     private PlayLevelAd PlayLevelAdScript;
+    public int Level;
     string SceneName;
     string CompanionName;
     private GameObject RealTimeGameObj;
@@ -39,14 +40,24 @@ public class HappinessManager : MonoBehaviour
     bool CanEarnGold;
     [HideInInspector]
     public string SaveStrings;
+    public Text LevelText;
+
     // Use this for initialization
     void Start()
     {
         //checks if players in main scene
         // if they are then the happinessStates void wont be called to avoid mixing saves
         Scene CurrentScene = SceneManager.GetActiveScene();
+        Level = PlayerPrefs.GetInt(Companion.name + "Multiplier", Level);
+        LevelText.text = "" + Level;
+        // Gets companions current level
+        CompanionSave = Companion.name + "Value";
+        HappinessSliderValue = PlayerPrefs.GetFloat(CompanionSave);
+     
+        // Gets current scene
         SceneName = CurrentScene.name;
         SleepAd = GameObject.FindGameObjectWithTag("SleepingAd");
+
         if (SceneName == "Main Screen" || SceneName == "Gobu Tutorial")
         {
             OnMainScene = true;
@@ -66,76 +77,19 @@ public class HappinessManager : MonoBehaviour
         // CompanionSounds = GetComponent<AudioClip[]>();
         RealTimeGameObj = GameObject.FindGameObjectWithTag("MainCamera");
         RealtTimeScript = RealTimeGameObj.GetComponent<RealTimeCounter>();
-        // Gets the last known bool for this companion
-        LoadCompanionSaves();
-        IsSleeping = (PlayerPrefs.GetInt(SaveStrings) != 0);
-        
-        // Gets the last known bool for this companion
-        IsSleeping = (PlayerPrefs.GetInt(SaveStrings) != 0);
-        // checks if bool puts companion to sleep
-        Sleeping();
+ 
         HappinessSlider.maxValue = 99;
         HappinessSlider.minValue = 0f;
        
     }
-    void LoadCompanionSaves()
-    {
-        // Checks which companion is loaded to gather save data 
-        switch (CompanionName)
-        {
-
-            case "Gobu":
-                CompanionSave = "GobuHappiness";
-                SaveStrings = "GOBUSAVE";
-                break;
-            case "NEWGOBU":
-                CompanionSave = "GobuHappiness";
-                SaveStrings = "GOBUSAVE";
-                break;
-            case "Binky":
-                CompanionSave = "BinkyHappiness";
-                SaveStrings = "BINKYSAVE";
-                break;
-            case "Koko":
-                CompanionSave = "KokoHappiness";
-                SaveStrings = "KOKOSAVE";
-                break;
-            case "Crius":
-                CompanionSave = "CriusHappiness";
-                SaveStrings = "CRIUSSAVE";
-                break;
-            case "Sauco":
-                CompanionSave = "SaucoHappiness";
-                SaveStrings = "SAUCOSAVE";
-                break;
-            case "Chick-Pee":
-                CompanionSave = "ChickPeaHappiness";
-                SaveStrings = "CHICKPEASAVE";
-                break;
-            case "Squishy":
-                CompanionSave = "SquishyHappiness";
-                SaveStrings = "SQUISHYSAVE";
-                break;
-            case "Cronus":
-                CompanionSave = "CronosHappiness";
-                SaveStrings = "CRONOSSAVE";
-                break;
-            case "Okami":
-                CompanionSave = "OkamiHappiness";
-                SaveStrings = "OKAMISAVE";
-                break;
-            case "Idasaurous":
-                CompanionSave = "IdaHappiness";
-                SaveStrings = "IDASAVE";
-                break;
-        }
-     RealtTimeScript.LoadCompanionHappiness();
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
-         if (!OnMainScene)
+        LevelText.text = "Level:" + Level;
+
+ 
+        if (!OnMainScene)
         {
             HappinessStates();
         }
@@ -145,7 +99,7 @@ public class HappinessManager : MonoBehaviour
         // clamps hunger of selected companion from 0 to 100
         HappinessSliderValue = Mathf.Clamp(HappinessSliderValue, 0, 100);
         // Slowly counts down Happiness value
-        HappinessSliderValue -= Time.deltaTime / 6;
+        //HappinessSliderValue -= Time.deltaTime / 6;
        
         //displays current slider information with currently used companion
         HappinessSlider.value = HappinessSliderValue;
@@ -183,23 +137,7 @@ public class HappinessManager : MonoBehaviour
             DayTime.SetActive(true);
             AwakeHead.SetActive(true);
           
-            //Changes the track in the SceneAudio script
-            if (IsSleeping)
-            {
-                //Sleeping();
-                 PlayerPrefs.SetInt("Multiplier", this.gameObject.GetComponent<HappyMultlpier>().MultlpierNum);
-                AudioGameObj.GetComponent<SceneAudio>().CompanionSound.PlayOneShot
-                (AudioGameObj.GetComponent<SceneAudio>().WakeUpSound[0]);
-                 AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
-
-            }
-            // Adds multplier
-            CanEarnGold = false;
-         //   this.gameObject.GetComponent<HappyMultlpier>().Multplier();
-
-            //sets bool to false and saves
-            IsSleeping = false;
-            PlayerPrefs.SetInt(SaveStrings, (IsSleeping ? 1 : 0));
+ 
         }
         // if this is reached while not sleeping, companion changes animation
         else if (HappinessSliderValue > 20 && HappinessSliderValue < 66 && !IsSleeping)
@@ -224,78 +162,20 @@ public class HappinessManager : MonoBehaviour
             FillColour.color = Color.green;
              // Animation 
             Anim.SetBool("is sleepy", true);
-            if (!IsSleeping)
-            {
-                //  Sleeping();
-             
-                AudioGameObj.GetComponent<SceneAudio>().Daymode = false;
-                AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
-                IsSleeping = true;
-                AudioGameObj.GetComponent<SceneAudio>().CompanionSound.PlayOneShot
-               (AudioGameObj.GetComponent<SceneAudio>().WakeUpSound[1]);
-                //sets bool to false and saves
-                PlayerPrefs.SetInt(SaveStrings, (IsSleeping ? 1 : 0));
-                PlayLevelAdScript.PlayAdNow();
+          //  PlayerPrefs.SetInt(SaveStrings, (IsSleeping ? 1 : 0));
+            PlayLevelAdScript.PlayAdNow();
+            Level = PlayerPrefs.GetInt(Companion.name + "Multiplier", Level);
+            Level++;
+            PlayerPrefs.SetInt(Companion.name +  "Multiplier", Level);
 
-            }
-            DayTime.SetActive(false);
-            AwakeHead.SetActive(false);
             // Music Change
             // Add multiplier    
             CanEarnGold = true;
-            NightTime.SetActive(true);
+            HappinessSliderValue = 0;
+          //  NightTime.SetActive(true);
        
          }
 
-    }
-    // Checks if companion is sleeping on startUp
-    void Sleeping()
-    {
-        // checks if Companion is sleeping
-        if(IsSleeping)
-        {
-            // Backdrop is set to night time
-            NightTime.SetActive(true);
-            // Changes happiness value to green
-            FillColour.color = Color.green;
-            // Sets default animation to false
-            Anim.SetBool("is>33", false);
-            //Plays sleep animation
-            Anim.SetBool("is sleepy", true);
-            // Turns off awake head
-            AwakeHead.SetActive(false);
-            // Gold will begin to drop
-            CanEarnGold = true;
-            // Mutlpier is set to current multlpier value
-            this.gameObject.GetComponent<HappyMultlpier>().MultlpierNum = PlayerPrefs.GetInt("Multiplier");
-            // Turns off day backdrop
-            DayTime.SetActive(false);
-            // Plays nightime music 
-            AudioGameObj.GetComponent<SceneAudio>().Daymode = false;
-            AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
-            // Saves current bool
-            PlayerPrefs.SetInt(AudioGameObj.GetComponent<SceneAudio>().MorningSave, (AudioGameObj.GetComponent<SceneAudio>().Daymode ? 1 : 0));
-         }
-        else
-        {
-            // Night backdrop is disabled
-            NightTime.SetActive(false);
-            // Happiness value is yellow
-            FillColour.color = Color.yellow;
-            // Player can no longer earn gold
-            CanEarnGold = false;
-            // Mutlpier is set to current multlpier value
-            GetComponent<HappyMultlpier>().MultlpierNum = PlayerPrefs.GetInt("Multiplier");
-            // Daytime backdrop is enabled
-            DayTime.SetActive(true);
-            // Plays starting animation
-            Anim.SetBool("<20", true);
-            // Plays daytime music
-            AudioGameObj.GetComponent<SceneAudio>().Daymode = true;
-             AudioGameObj.GetComponent<SceneAudio>().PlayMusic();
-            // Saves current bool
-            PlayerPrefs.SetInt(AudioGameObj.GetComponent<SceneAudio>().MorningSave, (AudioGameObj.GetComponent<SceneAudio>().Daymode ? 1 : 0));
-        }
     }
   
 }

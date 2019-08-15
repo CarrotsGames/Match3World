@@ -222,18 +222,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 284329551}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &107124199 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114904152250435826, guid: 6e21ef18f925f614bb8952d2a3856f01,
-    type: 3}
-  m_PrefabInstance: {fileID: 227157799}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21741c4e4bb78f94e86249b9076a3b9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &161715563
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,6 +722,11 @@ PrefabInstance:
       propertyPath: FillColour
       value: 
       objectReference: {fileID: 1609374481}
+    - target: {fileID: 114904152250435826, guid: 6e21ef18f925f614bb8952d2a3856f01,
+        type: 3}
+      propertyPath: LevelText
+      value: 
+      objectReference: {fileID: 88414879}
     - target: {fileID: 4874126141112344, guid: 6e21ef18f925f614bb8952d2a3856f01, type: 3}
       propertyPath: m_LocalPosition.x
       value: 86.8
@@ -766,7 +759,8 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114961988253304716, guid: 6e21ef18f925f614bb8952d2a3856f01, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6e21ef18f925f614bb8952d2a3856f01, type: 3}
 --- !u!1 &229606781 stripped
 GameObject:
@@ -1944,6 +1938,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &725336360 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2095555180, guid: d7fb396edf155de40895610ead7b8864,
+    type: 3}
+  m_PrefabInstance: {fileID: 1618293763}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &762659442
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5129,6 +5135,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
+        type: 3}
+      propertyPath: Analytics
+      value: 
+      objectReference: {fileID: 96816042}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
 --- !u!1 &1512219304
@@ -5630,13 +5641,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f391deae19a48ea40974586c19827ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ComboBomb: {fileID: 0}
+  SCR: {fileID: 0}
   ComboSpeed: 0.1
   ComboVanishSpeed: 1
   StartDestroy: 0
   ComboGameObj: {fileID: 1050811117}
   ComboText: {fileID: 1879526955}
   ComboScore: {fileID: 852995485}
-  HappinessManagerScript: {fileID: 107124199}
   DotManagerScript: {fileID: 1590831268}
   ComboList: []
   NormalCombo: 0
@@ -6194,6 +6206,11 @@ PrefabInstance:
       propertyPath: NumOfMultilpiers
       value: 99
       objectReference: {fileID: 0}
+    - target: {fileID: 114944472890173658, guid: 9a6df9f76c474724c973f6d01c92d34f,
+        type: 3}
+      propertyPath: NumOfFMText
+      value: 
+      objectReference: {fileID: 725336360}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a6df9f76c474724c973f6d01c92d34f, type: 3}
 --- !u!1 &1695478151
@@ -6410,8 +6427,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1781371924}
   - component: {fileID: 1781371923}
-  - component: {fileID: 1781371927}
-  - component: {fileID: 1781371926}
   - component: {fileID: 1781371922}
   - component: {fileID: 1781371925}
   - component: {fileID: 1781371928}
@@ -6582,42 +6597,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1781371926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1781371921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 008c7c6bf6957b34588ceae142fb352d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SaveLocation: 
---- !u!114 &1781371927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1781371921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43f38cf8eee56ff429756c54678129db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HappinessCountDown:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  SaveNum: 0
 --- !u!114 &1781371928
 MonoBehaviour:
   m_ObjectHideFlags: 0

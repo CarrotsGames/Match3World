@@ -743,6 +743,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
+        type: 3}
+      propertyPath: Analytics
+      value: 
+      objectReference: {fileID: 2113595073}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
 --- !u!1 &254502418
@@ -1674,6 +1679,11 @@ PrefabInstance:
       propertyPath: Board
       value: 
       objectReference: {fileID: 192660692}
+    - target: {fileID: 114904152250435826, guid: 6e21ef18f925f614bb8952d2a3856f01,
+        type: 3}
+      propertyPath: LevelText
+      value: 
+      objectReference: {fileID: 1686493730}
     - target: {fileID: 4874126141112344, guid: 6e21ef18f925f614bb8952d2a3856f01, type: 3}
       propertyPath: m_LocalPosition.x
       value: 86.8
@@ -1706,7 +1716,8 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114961988253304716, guid: 6e21ef18f925f614bb8952d2a3856f01, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6e21ef18f925f614bb8952d2a3856f01, type: 3}
 --- !u!114 &475148663 stripped
 MonoBehaviour:
@@ -6120,8 +6131,6 @@ GameObject:
   - component: {fileID: 1781371924}
   - component: {fileID: 1781371923}
   - component: {fileID: 1781371928}
-  - component: {fileID: 1781371927}
-  - component: {fileID: 1781371926}
   - component: {fileID: 1781371922}
   - component: {fileID: 1781371925}
   m_Layer: 0
@@ -6291,48 +6300,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1781371926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1781371921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 008c7c6bf6957b34588ceae142fb352d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SaveLocation: 
---- !u!114 &1781371927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1781371921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43f38cf8eee56ff429756c54678129db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HappinessCountDown:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  SaveNum: 0
 --- !u!114 &1781371928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6816,6 +6783,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gobu Canvus
       objectReference: {fileID: 0}
+    - target: {fileID: 2336660659435952756, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2335640169551085877, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_IsActive
@@ -6926,16 +6898,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2555598863301241839, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2555598863301241839, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2335805763860882735, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: sceneAudio
@@ -6966,10 +6928,51 @@ PrefabInstance:
       propertyPath: m_Transition
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1543697491, guid: d7fb396edf155de40895610ead7b8864, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 2449818973851826393, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: ShuffleSpawn
+      value: 
+      objectReference: {fileID: 852630870}
+    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: UnlockMoobling
+      value: 
+      objectReference: {fileID: 2044793713}
+    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: MoneyUnlockImage
+      value: 
+      objectReference: {fileID: 1797442134}
+    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: Congratulations
+      value: 
+      objectReference: {fileID: 1797442133}
+    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: CriusUnlockImage
+      value: 
+      objectReference: {fileID: 1797442139}
+    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: OkamiUnlockImage
+      value: 
+      objectReference: {fileID: 1797442138}
+    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: SaucoUnlockImage
+      value: 
+      objectReference: {fileID: 1797442137}
+    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: ChickPeaUnlockImage
+      value: 
+      objectReference: {fileID: 1797442136}
+    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: SquishyUnlockImage
+      value: 
+      objectReference: {fileID: 1797442135}
     - target: {fileID: 2554878093451859364, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -6989,11 +6992,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -268
-      objectReference: {fileID: 0}
-    - target: {fileID: 2336660659435952756, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2555435300485704022, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
@@ -7126,6 +7124,10 @@ PrefabInstance:
       propertyPath: skipButton
       value: 
       objectReference: {fileID: 1938823332}
+    - target: {fileID: 1543697491, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2334539968821297527, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -7151,56 +7153,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 17.858706
       objectReference: {fileID: 0}
+    - target: {fileID: 2555598863301241839, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555598863301241839, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2335545778989229855, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2449818973851826393, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: ShuffleSpawn
-      value: 
-      objectReference: {fileID: 852630870}
-    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: UnlockMoobling
-      value: 
-      objectReference: {fileID: 2044793713}
-    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: MoneyUnlockImage
-      value: 
-      objectReference: {fileID: 1797442134}
-    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: Congratulations
-      value: 
-      objectReference: {fileID: 1797442133}
-    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: CriusUnlockImage
-      value: 
-      objectReference: {fileID: 1797442139}
-    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: OkamiUnlockImage
-      value: 
-      objectReference: {fileID: 1797442138}
-    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: SaucoUnlockImage
-      value: 
-      objectReference: {fileID: 1797442137}
-    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: ChickPeaUnlockImage
-      value: 
-      objectReference: {fileID: 1797442136}
-    - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: SquishyUnlockImage
-      value: 
-      objectReference: {fileID: 1797442135}
     - target: {fileID: 2321959881743238727, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_Enabled
@@ -7679,7 +7646,6 @@ MonoBehaviour:
   SceneScore: 0
   GoldScore: 0
   HighScore: {fileID: 1571323315}
-  MultiplierText: {fileID: 1686493730}
 --- !u!4 &2085261490
 Transform:
   m_ObjectHideFlags: 0

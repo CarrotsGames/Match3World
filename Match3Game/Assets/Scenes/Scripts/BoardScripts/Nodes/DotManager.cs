@@ -64,7 +64,7 @@ public class DotManager : MonoBehaviour
     // Getting gold score here to write to analytics
     public int GoldScore;
     public Text HighScore;
-    public Text MultiplierText;
+    //public Text MultiplierText;
     private MouseFollowScript MouseFollow;
     private GameObject PowerUpManGameObj;
     private PowerUpManager PowerUpManagerScript;
@@ -87,7 +87,7 @@ public class DotManager : MonoBehaviour
         CanPlay = true;
         // UI
         Multipier = 1;
-        MultiplierText.text = "" + Multipier;
+       // MultiplierText.text = "" + Multipier;
         HighScore.text = "" + TotalScore;
  
         // Gameobject/script refrences
@@ -113,7 +113,7 @@ public class DotManager : MonoBehaviour
 
     private void Update()
     {
-         MultiplierText.text = "" + Multipier;
+        // MultiplierText.text = "" + Multipier;
 
         PlayerPrefs.SetInt("SCORE", TotalScore);
         // Checkas if colours are connecting

@@ -13,7 +13,7 @@ public class DisablePowerUps : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(DisableFreeze);
+ 
         if(Input.GetKeyDown(KeyCode.G))
         {
             OnButtonDisable();
