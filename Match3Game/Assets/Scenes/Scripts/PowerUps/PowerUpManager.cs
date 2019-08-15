@@ -37,6 +37,8 @@ public class PowerUpManager : MonoBehaviour
         NumOfSCR = 5;
         NumOfBombs = 5;
         NumOfMultilpiers = 5;
+        NumOfFreezeMultilpiers = 5;
+
         if (FirstTimeLogin > 0)
         {
             NumOfShuffles = PlayerPrefs.GetInt("NUMSHUFFLE");

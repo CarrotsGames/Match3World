@@ -7,6 +7,7 @@ public class ColourRemover : MonoBehaviour
 
     float Timer = 0.25f;
     public bool Red;  
+    private int Index;
     public bool Rainbow;
     [HideInInspector]
     public bool HasUsedSCR;
@@ -27,14 +28,16 @@ public class ColourRemover : MonoBehaviour
     private GameObject SpecialBoardGameObj;
     private PowerUpManager PowerUpManagerScript;
     private int SCRAmount;
-    private string Colour;
+    [HideInInspector]
+    public string Colour;
     private string SceneName;
     private GameObject PowerUpGameObj;
     int TimesUsed;
-
+    Vector3 LastPos;
     // Use this for initialization
     void Start()
     {
+        Index = 1;
         TimesUsed = PlayerPrefs.GetInt("SCR");
         PowerUpGameObj = GameObject.Find("PowerUps");
         Scene CurrentScene = SceneManager.GetActiveScene();
@@ -126,64 +129,77 @@ public class ColourRemover : MonoBehaviour
                     }
 
                 }
+                RemoveColour();
 
                 // Do something with the object that was hit by the raycast.
             }
-            // if the desired colour is true destroy all nodes with that colour
-            if (Red)
-            {    
-                // Counts how many times player uses this powerup
-                TimesUsed++;
-                PlayerPrefs.SetInt("SCR", TimesUsed);
-                for (int i = 0; i < BoardGameObj.transform.childCount; i++)
-                {
-                    SCRAmount += 1;
-                    if (BoardGameObj.transform.GetChild(i).tag == Colour)
-                    {
-                        Destroy(BoardGameObj.transform.GetChild(i).gameObject);
-                    }
-                 }
-                Red = false;
-                PowerUpInUse = false;
-                DotManagerScript.ResetMaterial = true;
-                GoTimer = true;
-                DotManagerScript.TotalScore += SCRAmount * DotManagerScript.Multipier;
-                DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
-                HasUsedSCR = true;
-                PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
-
-            }
-            //Destroys rainbows nodes 
-            // NOTE: this has its own if statement because it is getting the child of a 
-            // diffrent gameobject
-            if (Rainbow)
-            {  
-                // Counts how many times player uses this powerup
-                TimesUsed++;
-                PlayerPrefs.SetInt("SCR", TimesUsed);
-                for (int i = 0; i < SpecialBoardGameObj.transform.childCount; i++)
-                {
-                    SCRAmount += 1;
-            
-                    if (SpecialBoardGameObj.transform.GetChild(i).tag == "Rainbow")
-                    {
-                        Destroy(SpecialBoardGameObj.transform.GetChild(i).gameObject);
-                    }
-                }
-                Rainbow = false;
-                PowerUpInUse = false;
-                DotManagerScript.ResetMaterial = true;
-                GoTimer = true;
-                DotManagerScript.TotalScore += SCRAmount * DotManagerScript.Multipier;
-                DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
-                HasUsedSCR = true;
-                PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
-
-            }
+         
 
 
         }
+        else
+        {
+            DotManagerScript.CanPlay = true;
+        }
 
+    }
+    public void RemoveColour()
+    {
+        // if the desired colour is true destroy all nodes with that colour
+        if (Red)
+        {
+            // Counts how many times player uses this powerup
+            TimesUsed++;
+            PlayerPrefs.SetInt("SCR", TimesUsed);
+            for (int i = 0; i < BoardGameObj.transform.childCount; i++)
+            {
+                SCRAmount += 1;
+                if (BoardGameObj.transform.GetChild(i).tag == Colour)
+                {
+                    LastPos = BoardGameObj.transform.GetChild(i).transform.position;
+                    PlayParticle();
+                    Destroy(BoardGameObj.transform.GetChild(i).gameObject);
+                    Index++;
+                }
+            }
+            Index = 0;
+            Red = false;
+            PowerUpInUse = false;
+            DotManagerScript.ResetMaterial = true;
+            GoTimer = true;
+            DotManagerScript.TotalScore += SCRAmount * DotManagerScript.Multipier;
+            DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
+            HasUsedSCR = true;
+            PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
+
+        }
+        //Destroys rainbows nodes 
+        // NOTE: this has its own if statement because it is getting the child of a 
+        // diffrent gameobject
+        if (Rainbow)
+        {
+            // Counts how many times player uses this powerup
+            TimesUsed++;
+            PlayerPrefs.SetInt("SCR", TimesUsed);
+            for (int i = 0; i < SpecialBoardGameObj.transform.childCount; i++)
+            {
+                SCRAmount += 1;
+
+                if (SpecialBoardGameObj.transform.GetChild(i).tag == "Rainbow")
+                {
+                    Destroy(SpecialBoardGameObj.transform.GetChild(i).gameObject);
+                }
+            }
+            Rainbow = false;
+            PowerUpInUse = false;
+            DotManagerScript.ResetMaterial = true;
+            GoTimer = true;
+            DotManagerScript.TotalScore += SCRAmount * DotManagerScript.Multipier;
+            DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
+            HasUsedSCR = true;
+            PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
+
+        }
     }
     public void SuperColourRemoverMenu()
     {
@@ -226,6 +242,33 @@ public class ColourRemover : MonoBehaviour
             PowerUpManagerScript.PowerUpEmpty();
         }
     }
+    // plays particle effect for each node
+    void PlayParticle()
+    {
+        // plays particle effect at list index and position of current node
+        if (Colour == "Red")
+        {
+            Instantiate(DotManagerScript.ParticleEffectPink, LastPos, Quaternion.identity);
 
- 
+        }
+        else if (Colour == "Blue")
+        {
+            Instantiate(DotManagerScript.ParticleEffectBlue, LastPos, Quaternion.identity);
+
+        }
+        else if (Colour == "Yellow")
+        {
+            Instantiate(DotManagerScript.ParticleEffectPurple, LastPos, Quaternion.identity);
+
+        }
+        else if (Colour == "Green")
+        {
+            Instantiate(DotManagerScript.ParticleEffectYellow, LastPos, Quaternion.identity);
+
+        }
+
+
+    }
+
+
 }

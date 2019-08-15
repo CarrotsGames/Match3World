@@ -49,15 +49,15 @@ public class MonthlyChallenge : MonoBehaviour {
     {
         if (PlayFab.GetComponent<PlayFabLogin>().HasLoggedIn == true)
         {
-            //reset Unlock array
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                HasUnlockedGift = false;
-                PlayerPrefs.SetInt("HASUNLOCKEDGIFT", (HasUnlockedGift ? 1 : 0));
+            ////reset Unlock array
+            //if (Input.GetKeyDown(KeyCode.R))
+            //{
+                //HasUnlockedGift = false;
+                //PlayerPrefs.SetInt("HASUNLOCKEDGIFT", (HasUnlockedGift ? 1 : 0));
 
-                UnlockGift = 0;
-                PlayerPrefs.SetInt("MONTHLYPRIZE", UnlockGift);
-            }
+                //UnlockGift = 0;
+                //PlayerPrefs.SetInt("MONTHLYPRIZE", UnlockGift);
+            //}
             // checks if the tournament is still going
             DelayTimerCheck -= Time.deltaTime;
             // Cooldown for checking tournament status to avoid sending to much information 

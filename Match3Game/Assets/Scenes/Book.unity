@@ -1043,7 +1043,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1379310743}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5019062903179910444}
+        m_MethodName: SkipYes
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1379310743
@@ -1277,6 +1288,7 @@ GameObject:
   - component: {fileID: 1930604818}
   - component: {fileID: 1930604821}
   - component: {fileID: 1930604822}
+  - component: {fileID: 1930604823}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1382,12 +1394,27 @@ MonoBehaviour:
   fadeAnim: {fileID: 94163427}
   gameAnim: {fileID: 5019062903179910446}
   cameraAnim: {fileID: 1930604821}
-  skipMenu: {fileID: 0}
+  skipMenu: {fileID: 1303875738}
   startText: {fileID: 1087024833}
   pageFlip: {fileID: 8300000, guid: 01b05a7e48884a4458685615db0df061, type: 3}
   audioSource: {fileID: 5019062903179910448}
   stopAd: 0
   playBannerGameObject: {fileID: 37970916}
+--- !u!114 &1930604823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930604817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b5aed90a8515b4092b0f565c1b19d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CSVName: BookScene
+  CVSTexts:
+  - {fileID: 1087024836}
 --- !u!23 &5019062903177970433
 MeshRenderer:
   m_ObjectHideFlags: 0

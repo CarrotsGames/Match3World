@@ -5,13 +5,16 @@ using UnityEngine;
 
 public class DestroyNodes : MonoBehaviour {
     // Yeild return values
+    [SerializeField]
+    private GameObject ComboBomb;
+    [SerializeField]
+    private GameObject SCR;
     public float ComboSpeed;
     public float ComboVanishSpeed;
     public bool StartDestroy;
     public GameObject ComboGameObj;
     public Text ComboText;
     public Text ComboScore;
-    public HappinessManager HappinessManagerScript;
     public DotManager DotManagerScript;
     public List<GameObject> ComboList;
      
@@ -26,6 +29,7 @@ public class DestroyNodes : MonoBehaviour {
     private int Test;
     private bool Reset;
     private bool ComboPause;
+    
     private GameObject PowerUpGameObj;
     // Checks how many combos have been done all time
     private int ComboNum;
@@ -51,8 +55,7 @@ public class DestroyNodes : MonoBehaviour {
         ComboGameObj.SetActive(false);    
         Timer = 0;
         HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
-        HappinessManagerScript = HappinessGameObj.GetComponent<HappinessManager>();
-    }
+     }
 
     // Update is called once per frame
     private void Update()
@@ -61,8 +64,7 @@ public class DestroyNodes : MonoBehaviour {
         if (ComboList.Count < 1 && GetComponent<DestroyGold>().GoldList.Count < 1)
         {
 
-            DotManagerScript.CanPlay = true;
-            Index = 0;
+         
         }
         // pauses the combo display 
         if(ComboPause)
@@ -78,7 +80,9 @@ public class DestroyNodes : MonoBehaviour {
         // when the combo is over it resets all values
         if(Reset)
         {
-            if(NormalCombo)
+            DotManagerScript.CanPlay = true;
+            Index = 0;
+            if (NormalCombo)
             {
                 ComboNum = PlayerPrefs.GetInt(Analytics.GetComponent<PlayFabAnalytics>().SaveScoreName + "COMBONUM");
                 ComboNum++;
@@ -121,6 +125,7 @@ public class DestroyNodes : MonoBehaviour {
         DotManagerScript.CanPlay = false;
         for (int i = 0; i < CompanionScriptRef.EatingPeices.Count; i++)
         {
+            // if the combo list doesent contain this add it to combo
             if(!ComboList.Contains(CompanionScriptRef.EatingPeices[i]))
             {
                 ComboList.Add(CompanionScriptRef.EatingPeices[i]);
@@ -155,11 +160,12 @@ public class DestroyNodes : MonoBehaviour {
         if (Index < ComboList.Count)
         {  // plays particle at index
             PlayParticle();
+            Vector3 LastKnownPosition = ComboList[Index].transform.position;
             // Moves node at index out of sight
             ComboList[Index].transform.position += new Vector3(100, 0, 0);
             // sets the node to destroy itself
             ComboList[Index].GetComponent<DotScript>().SelfDestruct = true;
-           
+            SCR.GetComponent<ColourRemover>().Colour = ComboList[Index].transform.gameObject.tag;
             // if the combo is greater than 4 start the ui counting
             if (ComboList.Count > 4)
             {
@@ -167,7 +173,23 @@ public class DestroyNodes : MonoBehaviour {
                 Index++;
                 Combo = Index;
                 CountCombo();
-              //  Handheld.Vibrate();
+                if (Index == ComboList.Count && Index > 10)
+                {
+                    SCR.GetComponent<ColourRemover>().Red = true;
+
+                    SCR.GetComponent<ColourRemover>().RemoveColour();
+                    Debug.Log("SCRSPAWN");
+                    ComboTime += 0.50f;
+                }
+                else if(Index == ComboList.Count && Index > 6)
+                {
+                    Debug.Log("BOMBSPAWN");
+                    Instantiate(ComboBomb, LastKnownPosition, Quaternion.identity);
+                    ComboTime += 0.50f;
+
+
+                }
+                //  Handheld.Vibrate();
             }
             // if not than add anyway to avoid to play particles
             else

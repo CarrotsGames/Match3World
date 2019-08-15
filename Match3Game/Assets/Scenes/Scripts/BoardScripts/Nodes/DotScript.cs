@@ -66,9 +66,14 @@ public class DotScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.touchCount > 1)
+        // if more than one finger is on the screen stop connection
+        if (Input.touchCount > 1  )
         {
+            Debug.Log("F");
+            this.gameObject.GetComponent<Renderer>().material = Default;
+            this.gameObject.GetComponent<Renderer>().material.color = Color.white;
+            DotManagerScript.ResetLayer = true;
+            DotManagerScript.Peices.Clear();
             OnMouseUp();
         }
             if (transform.tag == "Gold" && !HappinessManagerScript.IsSleeping)

@@ -21,7 +21,6 @@ public class StartGame : MonoBehaviour
 
     public GameObject playBannerGameObject;
     private PlayBannerAd playBannerAdScript;
-    
 
 
     public void Start()
@@ -78,17 +77,22 @@ public class StartGame : MonoBehaviour
 
     public void LoadSkip()
     {
-        skipMenu.SetActive(true);
+        int A = PlayerPrefs.GetInt("TUTORIAL");
+        if (A < 1)
+        {
+            skipMenu.SetActive(true);
+        }
+        else
+        {
+            StartAnim();
+        }
     }
 
     public void SkipYes()
     {
         PlayerPrefs.SetInt("TUTORIAL", 1);
         SceneManager.LoadScene("Main Screen");
-
+        StartAnim();
     }
-
-
-
 
 }
