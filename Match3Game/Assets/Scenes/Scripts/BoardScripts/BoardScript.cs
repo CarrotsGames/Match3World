@@ -41,7 +41,7 @@ public class BoardScript : MonoBehaviour
                 BackGroundTile.transform.parent = this.transform;
                 BackGroundTile.name = "( " + i + "," + j + ")";
                 // Creates dots for positions
-                int DotToUse = Random.Range(0, Dots.Length - 1 + Gold);
+                int DotToUse = Random.Range(0, Dots.Length );
                 GameObject Dot = Instantiate(Dots[DotToUse], TempPosition, Quaternion.identity);
                 Dot.transform.parent = this.transform;
                 test.Add(Dot);
@@ -60,7 +60,7 @@ public class BoardScript : MonoBehaviour
        {
  
            // Creates dots for positions
-           int DotToUse = Random.Range(0, Dots.Length - Gold);
+           int DotToUse = Random.Range(0, Dots.Length );
            GameObject Dot = Instantiate(Dots[DotToUse], new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
            Dot.transform.parent = this.transform;
             SpecialSpawn.GetComponent<AddSpecialNodes>().SpawnNode();

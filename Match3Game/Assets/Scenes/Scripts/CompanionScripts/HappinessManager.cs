@@ -56,6 +56,10 @@ public class HappinessManager : MonoBehaviour
         {
             Level = 1;
         }
+        if(Level > 1)
+        {
+            CanGetCurrency = true;
+        }
         LevelText.text = "" + Level;
         // Gets companions current level
         CompanionSave = Companion.name + "Value";
@@ -80,7 +84,6 @@ public class HappinessManager : MonoBehaviour
             BoardScriptRef = Board.GetComponent<BoardScript>();
         }
         CompanionName = Companion.name;
-        CanGetCurrency = false;
         // CompanionSounds = GetComponent<AudioClip[]>();
         RealTimeGameObj = GameObject.FindGameObjectWithTag("MainCamera");
         RealtTimeScript = RealTimeGameObj.GetComponent<RealTimeCounter>();
@@ -112,18 +115,18 @@ public class HappinessManager : MonoBehaviour
         HappinessSlider.value = HappinessSliderValue;
         PlayerPrefs.SetFloat(CompanionSave, HappinessSliderValue);
 
-        // Saving Companions Happiness value
-        if (SceneName != "Gobu Tutorial")
-        {
-            if (CanEarnGold)
-            {
-                BoardScriptRef.Gold = 0;
-            }
-            else
-            {
-                BoardScriptRef.Gold = 1;
-            }
-        }
+        //// Saving Companions Happiness value
+        //if (SceneName != "Gobu Tutorial")
+        //{
+        //    if (CanEarnGold)
+        //    {
+        //        BoardScriptRef.Gold = 0;
+        //    }
+        //    else
+        //    {
+        //        BoardScriptRef.Gold = 1;
+        //    }
+        //}
          
     }
     // Plays animation at happiness states
@@ -174,11 +177,11 @@ public class HappinessManager : MonoBehaviour
             Level = PlayerPrefs.GetInt(Companion.name + "Multiplier", Level);
             Level++;
             PlayerPrefs.SetInt(Companion.name +  "Multiplier", Level);
+            CanGetCurrency = true;
 
             // Music Change
             // Add multiplier    
-            CanEarnGold = true;
-            HappinessSliderValue = 0;
+             HappinessSliderValue = 0;
           //  NightTime.SetActive(true);
        
          }

@@ -76,10 +76,7 @@ public class DotScript : MonoBehaviour
             DotManagerScript.Peices.Clear();
             OnMouseUp();
         }
-            if (transform.tag == "Gold" && !HappinessManagerScript.IsSleeping)
-        {
-            Destroy(gameObject);
-        }
+            
 
         if(SelfDestruct)
         {

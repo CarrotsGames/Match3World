@@ -9,7 +9,8 @@ public class CompanionScript : MonoBehaviour
     public List<GameObject> EatingPeices;
     // Use this for initialization
     public GameObject EatingPeiceSpawner;
-
+    public GameObject GoldSpawn;
+    public GameObject Gold;
     private GameObject DotManagerObj;
     private GameObject MainCamera;
     private GameObject PowerUpManGameObj;
@@ -62,7 +63,6 @@ public class CompanionScript : MonoBehaviour
  
             EatingPeices[i].transform.gameObject.layer = 2;
              
-             CurrencyChance = HungerMultiplier;
            // Destroy(EatingPeices[i].gameObject);
             HungerMultiplier = i / 2;
             MainCamera.GetComponent<CameraShake>().ShakeCamera(HappinessGameObj.GetComponent<HappinessManager>().Level / 1.5f, 0.25f);
@@ -79,10 +79,13 @@ public class CompanionScript : MonoBehaviour
 
         if (HappinessManagerScript.CanGetCurrency)
         {
+            CurrencyChance = HappinessGameObj.GetComponent<HappinessManager>().Level;
+
             int chance = Random.Range(CurrencyChance, 100);
-            if (chance >= 90)
+            if (chance == 42)
             {
-                PowerUpManagerScript.Currency += 1;
+                Instantiate(Gold, GoldSpawn.transform.position, Quaternion.identity);
+              //  PowerUpManagerScript.Currency += 1;
             }
              //  DotManagerScript.Currency 
         }
