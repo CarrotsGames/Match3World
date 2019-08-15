@@ -124,7 +124,6 @@ public class ColourRemover : MonoBehaviour
                     {
 
                         Colour = hit.collider.gameObject.tag;
-
                         Rainbow = true;
                     }
 
@@ -137,10 +136,7 @@ public class ColourRemover : MonoBehaviour
 
 
         }
-        else
-        {
-            DotManagerScript.CanPlay = true;
-        }
+   
 
     }
     public void RemoveColour()
@@ -162,6 +158,7 @@ public class ColourRemover : MonoBehaviour
                     Index++;
                 }
             }
+            DotManagerScript.CanPlay = true;
             Index = 0;
             Red = false;
             PowerUpInUse = false;
@@ -190,6 +187,8 @@ public class ColourRemover : MonoBehaviour
                     Destroy(SpecialBoardGameObj.transform.GetChild(i).gameObject);
                 }
             }
+            DotManagerScript.CanPlay = true;
+
             Rainbow = false;
             PowerUpInUse = false;
             DotManagerScript.ResetMaterial = true;

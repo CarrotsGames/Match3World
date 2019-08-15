@@ -49,6 +49,13 @@ public class HappinessManager : MonoBehaviour
         // if they are then the happinessStates void wont be called to avoid mixing saves
         Scene CurrentScene = SceneManager.GetActiveScene();
         Level = PlayerPrefs.GetInt(Companion.name + "Multiplier", Level);
+        // If for somereason level is 0 make it 1
+        // this is used as a safety net just incase for somereason its 0
+        // if level is 0 score will not go up because nodes * level value equal score
+        if(Level == 0)
+        {
+            Level = 1;
+        }
         LevelText.text = "" + Level;
         // Gets companions current level
         CompanionSave = Companion.name + "Value";

@@ -80,8 +80,7 @@ public class DestroyNodes : MonoBehaviour {
         // when the combo is over it resets all values
         if(Reset)
         {
-            DotManagerScript.CanPlay = true;
-            Index = 0;
+             Index = 0;
             if (NormalCombo)
             {
                 ComboNum = PlayerPrefs.GetInt(Analytics.GetComponent<PlayFabAnalytics>().SaveScoreName + "COMBONUM");
@@ -193,7 +192,7 @@ public class DestroyNodes : MonoBehaviour {
             }
             // if not than add anyway to avoid to play particles
             else
-            {
+            {     
                 Index++;
             }
           
