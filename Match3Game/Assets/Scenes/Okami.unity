@@ -574,7 +574,6 @@ MonoBehaviour:
   - {fileID: 1603641952661596, guid: e97e7bce11230e5499cae43a18a71b82, type: 3}
   - {fileID: 1558750524256226, guid: 78460dda9bc1cbf429d0682ac4a9613c, type: 3}
   - {fileID: 1772490982767552, guid: 6d0f6a561b011c746b452ec0e3e68e6c, type: 3}
-  - {fileID: 1063094474349120, guid: bcf6c6e79b25cd9459703152c93c0b2e, type: 3}
   Spawner: {fileID: 192660692}
 --- !u!4 &192660696
 Transform:
@@ -888,6 +887,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
+        type: 3}
+      propertyPath: Analytics
+      value: 
+      objectReference: {fileID: 1240452343}
     - target: {fileID: 224668712703305504, guid: bca90714ddbb8544796b1d79e4753570,
         type: 3}
       propertyPath: m_RootOrder
@@ -1037,11 +1041,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 35
       objectReference: {fileID: 0}
-    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
-        type: 3}
-      propertyPath: Analytics
-      value: 
-      objectReference: {fileID: 1240452343}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
 --- !u!1001 &300954877
@@ -5599,6 +5598,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EatingPeices: []
   EatingPeiceSpawner: {fileID: 1018790061}
+  GoldSpawn: {fileID: 192660692}
+  Gold: {fileID: 1063094474349120, guid: bcf6c6e79b25cd9459703152c93c0b2e, type: 3}
   HappinessManagerScript: {fileID: 2104027503}
 --- !u!82 &1694413310
 AudioSource:

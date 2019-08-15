@@ -48,7 +48,10 @@ public class CompanionScript : MonoBehaviour
         // HungerSlider min and max
 
     }
-
+    private void Update()
+    {
+        Debug.Log(this.gameObject);
+    }
 
 
     public void FeedMonster()

@@ -459,7 +459,6 @@ MonoBehaviour:
   - {fileID: 1766755826017016, guid: f8c836c7b200e5845bfbcc9d4961bf09, type: 3}
   - {fileID: 1310575611718344, guid: 0891c9facf339e347a2b175f36c0ddee, type: 3}
   - {fileID: 1844472985487344, guid: 93d5cba4c66d5be47a0540a7eac5a366, type: 3}
-  - {fileID: 1063094474349120, guid: bcf6c6e79b25cd9459703152c93c0b2e, type: 3}
   Spawner: {fileID: 192660692}
 --- !u!4 &192660696
 Transform:
@@ -2643,6 +2642,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EatingPeices: []
   EatingPeiceSpawner: {fileID: 1018790061}
+  GoldSpawn: {fileID: 192660692}
+  Gold: {fileID: 1063094474349120, guid: bcf6c6e79b25cd9459703152c93c0b2e, type: 3}
   HappinessManagerScript: {fileID: 0}
 --- !u!1 &1091448692
 GameObject:
@@ -3314,6 +3315,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
+        type: 3}
+      propertyPath: Analytics
+      value: 
+      objectReference: {fileID: 96816042}
     - target: {fileID: 224668712703305504, guid: bca90714ddbb8544796b1d79e4753570,
         type: 3}
       propertyPath: m_RootOrder
@@ -3463,11 +3469,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 35
       objectReference: {fileID: 0}
-    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
-        type: 3}
-      propertyPath: Analytics
-      value: 
-      objectReference: {fileID: 96816042}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
 --- !u!1 &1486593181
@@ -3738,6 +3739,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EatingPeices: []
   EatingPeiceSpawner: {fileID: 1018790061}
+  GoldSpawn: {fileID: 0}
+  Gold: {fileID: 0}
   HappinessManagerScript: {fileID: 0}
 --- !u!50 &1486593187
 Rigidbody2D:
