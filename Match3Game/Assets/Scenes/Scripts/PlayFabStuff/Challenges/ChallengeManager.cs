@@ -101,13 +101,16 @@ public class ChallengeManager : MonoBehaviour
     void ClearBoard()
     {
         ClearTime.text = "" + Timer;
-        Timer -= Time.deltaTime;
         if (Timer > 0)
         {
 
-            if (Board.transform.childCount == 0)
+            if (Board.transform.childCount == 1)
             {
                 Debug.Log("COMPLETE");
+            }
+            else
+            {
+                Timer -= Time.deltaTime;
             }
         }
         else

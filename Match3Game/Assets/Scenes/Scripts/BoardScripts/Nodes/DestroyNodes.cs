@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DestroyNodes : MonoBehaviour {
     // Yeild return values
@@ -41,9 +42,12 @@ public class DestroyNodes : MonoBehaviour {
     [HideInInspector]
     public bool BigCombo;
     private GameObject Analytics;
+    string SceneName;
     // Use this for initialization
     void Start ()
     {
+        Scene CurrentScene = SceneManager.GetActiveScene();
+        SceneName = CurrentScene.name;
         PowerUpGameObj = GameObject.Find("PowerUps");
         Analytics = GameObject.FindGameObjectWithTag("PlayFab");
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
@@ -80,7 +84,7 @@ public class DestroyNodes : MonoBehaviour {
         // when the combo is over it resets all values
         if(Reset)
         {
-             Index = 0;
+            Index = 0;
             if (NormalCombo)
             {
                 ComboNum = PlayerPrefs.GetInt(Analytics.GetComponent<PlayFabAnalytics>().SaveScoreName + "COMBONUM");
@@ -162,8 +166,11 @@ public class DestroyNodes : MonoBehaviour {
             Vector3 LastKnownPosition = ComboList[Index].transform.position;
             // Moves node at index out of sight
             ComboList[Index].transform.position += new Vector3(100, 0, 0);
-            // sets the node to destroy itself
+            // Removes node from parent to insta spawn nodes
+            ComboList[Index].transform.parent = null;
+            // sets the node to destroy itself        
             ComboList[Index].GetComponent<DotScript>().SelfDestruct = true;
+             
             SCR.GetComponent<ColourRemover>().Colour = ComboList[Index].transform.gameObject.tag;
             // if the combo is greater than 4 start the ui counting
             if (ComboList.Count > 4)
