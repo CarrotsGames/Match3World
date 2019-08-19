@@ -65,10 +65,10 @@ public class CompanionScript : MonoBehaviour
             }
  
             EatingPeices[i].transform.gameObject.layer = 2;
-             
-           // Destroy(EatingPeices[i].gameObject);
-            HungerMultiplier = i / 2;
-            MainCamera.GetComponent<CameraShake>().ShakeCamera(HappinessGameObj.GetComponent<HappinessManager>().Level / 1.5f, 0.25f);
+
+            // Destroy(EatingPeices[i].gameObject);
+            HungerMultiplier = HappinessManagerScript.Level / 2 + i;
+            MainCamera.GetComponent<CameraShake>().ShakeCamera(HappinessGameObj.GetComponent<HappinessManager>().Level / 10, 0.25f);
             // displays total score to Text
 
         }

@@ -31,8 +31,7 @@ public class HappinessManager : MonoBehaviour
     private PlayLevelAd PlayLevelAdScript;
     public int Level;
     string SceneName;
-    string CompanionName;
-    private GameObject RealTimeGameObj;
+     private GameObject RealTimeGameObj;
     [HideInInspector]
     public RealTimeCounter RealtTimeScript;
     [HideInInspector]
@@ -41,7 +40,11 @@ public class HappinessManager : MonoBehaviour
     [HideInInspector]
     public string SaveStrings;
     public Text LevelText;
-
+    [SerializeField]
+    private int HappinessClamp;
+    public GameObject SliderGameObj;
+    public Text CurrentHappiness;
+ 
     // Use this for initialization
     void Start()
     {
@@ -49,6 +52,7 @@ public class HappinessManager : MonoBehaviour
         // if they are then the happinessStates void wont be called to avoid mixing saves
         Scene CurrentScene = SceneManager.GetActiveScene();
         Level = PlayerPrefs.GetInt(Companion.name + "Multiplier", Level);
+        SleepAd = GameObject.FindGameObjectWithTag("SleepingAd");
         // If for somereason level is 0 make it 1
         // this is used as a safety net just incase for somereason its 0
         // if level is 0 score will not go up because nodes * level value equal score
@@ -60,15 +64,6 @@ public class HappinessManager : MonoBehaviour
         {
             CanGetCurrency = true;
         }
-        LevelText.text = "" + Level;
-        // Gets companions current level
-        CompanionSave = Companion.name + "Value";
-        HappinessSliderValue = PlayerPrefs.GetFloat(CompanionSave);
-     
-        // Gets current scene
-        SceneName = CurrentScene.name;
-        SleepAd = GameObject.FindGameObjectWithTag("SleepingAd");
-
         if (SceneName == "Main Screen New" || SceneName == "Gobu Tutorial")
         {
             OnMainScene = true;
@@ -77,28 +72,32 @@ public class HappinessManager : MonoBehaviour
         {
             PlayLevelAdScript = SleepAd.GetComponent<PlayLevelAd>();
         }
+        SliderGameObj = GameObject.Find("Slider");
+        HappinessClamp = 100;
+        HappinessClamp += Level * 50;
+        LevelText.text = "" + Level;
+        // Gets companions current level
+        CompanionSave = Companion.name + "Value";
+        HappinessSliderValue = PlayerPrefs.GetFloat(CompanionSave);
+     
+        // Gets current scene
+        SceneName = CurrentScene.name;
+      
         Board = GameObject.FindGameObjectWithTag("BoardSpawn");
 
         if (SceneName != "Gobu Tutorial")
         {
             BoardScriptRef = Board.GetComponent<BoardScript>();
         }
-        CompanionName = Companion.name;
-        // CompanionSounds = GetComponent<AudioClip[]>();
-        RealTimeGameObj = GameObject.FindGameObjectWithTag("MainCamera");
-        RealtTimeScript = RealTimeGameObj.GetComponent<RealTimeCounter>();
- 
-        HappinessSlider.maxValue = 99;
-        HappinessSlider.minValue = 0f;
+  
        
-    }
-    
+    }   
     // Update is called once per frame
     void Update()
     {
         LevelText.text = "Level:" + Level;
-
- 
+        CurrentHappiness.text = "Current EXP:" + HappinessSliderValue + "/" + HappinessClamp;
+      
         if (!OnMainScene)
         {
             HappinessStates();
@@ -107,7 +106,7 @@ public class HappinessManager : MonoBehaviour
         //HungerMetre.text = "" + Hunger;
 
         // clamps hunger of selected companion from 0 to 100
-        HappinessSliderValue = Mathf.Clamp(HappinessSliderValue, 0, 100);
+        HappinessSliderValue = Mathf.Clamp(HappinessSliderValue, 0, HappinessClamp);
         // Slowly counts down Happiness value
         //HappinessSliderValue -= Time.deltaTime / 6;
        
@@ -115,76 +114,117 @@ public class HappinessManager : MonoBehaviour
         HappinessSlider.value = HappinessSliderValue;
         PlayerPrefs.SetFloat(CompanionSave, HappinessSliderValue);
 
-        //// Saving Companions Happiness value
-        //if (SceneName != "Gobu Tutorial")
-        //{
-        //    if (CanEarnGold)
-        //    {
-        //        BoardScriptRef.Gold = 0;
-        //    }
-        //    else
-        //    {
-        //        BoardScriptRef.Gold = 1;
-        //    }
-        //}
-         
     }
     // Plays animation at happiness states
     void HappinessStates()
     {
         // Slider value stops at -0.01 for somereason so -5 is to make sure it resets 
-        if (HappinessSliderValue > -5 && HappinessSliderValue < 20)
+        if (HappinessSliderValue > -5 && HappinessSliderValue < HappinessClamp / 9 )
         {
-            FillColour.color = Color.yellow;
-
-            // Animation 
+            
             Anim.SetBool("<20", true);
             Anim.SetBool("is>33", false);
             Anim.SetBool("is>66", false);
             Anim.SetBool("is sleepy", false);
-          //  NightTime.SetActive(false);
+            SliderGameObj.GetComponent<SliderTest>().slider[9].SetActive(false);
+            SliderGameObj.GetComponent<SliderTest>().slider[0].SetActive(true);
 
-            DayTime.SetActive(true);
-            AwakeHead.SetActive(true);
-          
- 
         }
+        else if (HappinessSliderValue > HappinessClamp / 9 && HappinessSliderValue < HappinessClamp / 8)
+        {
+            SliderGameObj.GetComponent<SliderTest>().slider[0].SetActive(false);
+            SliderGameObj.GetComponent<SliderTest>().slider[1].SetActive(true);
+        }
+        // if this is between HappyClamp / 4 && happyclamp / 4
         // if this is reached while not sleeping, companion changes animation
-        else if (HappinessSliderValue > 20 && HappinessSliderValue < 66 && !IsSleeping)
+        else if (HappinessSliderValue > HappinessClamp / 8 && HappinessSliderValue < HappinessClamp / 7)
         {
             // Animation 
             Anim.SetBool("is>33", true);
             Anim.SetBool("<20", false);
             Anim.SetBool("is>66", false);
-
+            SliderGameObj.GetComponent<SliderTest>().slider[1].SetActive(false);
+            SliderGameObj.GetComponent<SliderTest>().slider[2].SetActive(true);
         }
-        else if (HappinessSliderValue > 66 && HappinessSliderValue < 95 && !IsSleeping) 
+        else if (HappinessSliderValue > HappinessClamp / 7 && HappinessSliderValue < HappinessClamp / 6)
         {
             // Animation 
             Anim.SetBool("is>33", false);
             Anim.SetBool("<20", false);
             Anim.SetBool("is>66", true);
-
+            SliderGameObj.GetComponent<SliderTest>().slider[2].SetActive(false);
+            SliderGameObj.GetComponent<SliderTest>().slider[3].SetActive(true);
+   
         }
-        // Goes to sleep
-        else if (HappinessSliderValue > 95 && HappinessSliderValue < 100)
+        else if (HappinessSliderValue > HappinessClamp / 6 && HappinessSliderValue < HappinessClamp / 5)
         {
+            // Animation 
+            Anim.SetBool("is>33", false);
+            Anim.SetBool("<20", false);
+            Anim.SetBool("is>66", true);
+            SliderGameObj.GetComponent<SliderTest>().slider[3].SetActive(false);
+            SliderGameObj.GetComponent<SliderTest>().slider[4].SetActive(true);
+ 
+        }
+        else if (HappinessSliderValue > HappinessClamp / 5 && HappinessSliderValue < HappinessClamp / 4)
+        {
+            // Animation 
+            Anim.SetBool("is>33", false);
+            Anim.SetBool("<20", false);
+            Anim.SetBool("is>66", true);
+            SliderGameObj.GetComponent<SliderTest>().slider[4].SetActive(false);
+            SliderGameObj.GetComponent<SliderTest>().slider[5].SetActive(true);
+   
+        }
+        else if (HappinessSliderValue > HappinessClamp / 4 && HappinessSliderValue < HappinessClamp / 3)
+        {
+            // Animation 
+            Anim.SetBool("is>33", false);
+            Anim.SetBool("<20", false);
+            Anim.SetBool("is>66", true);
+            SliderGameObj.GetComponent<SliderTest>().slider[5].SetActive(false);
+            SliderGameObj.GetComponent<SliderTest>().slider[6].SetActive(true);
+ 
+        }
+        else if (HappinessSliderValue > HappinessClamp / 3 && HappinessSliderValue < HappinessClamp / 2)
+        {
+            // Animation 
+            Anim.SetBool("is>33", false);
+            Anim.SetBool("<20", false);
+            Anim.SetBool("is>66", true);
+            SliderGameObj.GetComponent<SliderTest>().slider[6].SetActive(false);
+            SliderGameObj.GetComponent<SliderTest>().slider[7].SetActive(true);
+           
+       
+        }
+        else if (HappinessSliderValue > HappinessClamp / 2 && HappinessSliderValue < HappinessClamp)
+        {
+            SliderGameObj.GetComponent<SliderTest>().slider[7].SetActive(false);
+            SliderGameObj.GetComponent<SliderTest>().slider[8].SetActive(true);
+        }
+        else if (HappinessSliderValue > HappinessClamp)
+        {
+            SliderGameObj.GetComponent<SliderTest>().slider[8].SetActive(false);
+            SliderGameObj.GetComponent<SliderTest>().slider[9].SetActive(true);
+          
+
             FillColour.color = Color.green;
-             // Animation 
+            // Animation 
             Anim.SetBool("is sleepy", true);
-          //  PlayerPrefs.SetInt(SaveStrings, (IsSleeping ? 1 : 0));
+            //  PlayerPrefs.SetInt(SaveStrings, (IsSleeping ? 1 : 0));
             PlayLevelAdScript.PlayAdNow();
             Level = PlayerPrefs.GetInt(Companion.name + "Multiplier", Level);
             Level++;
-            PlayerPrefs.SetInt(Companion.name +  "Multiplier", Level);
+            PlayerPrefs.SetInt(Companion.name + "Multiplier", Level);
             CanGetCurrency = true;
 
             // Music Change
             // Add multiplier    
-             HappinessSliderValue = 0;
-          //  NightTime.SetActive(true);
-       
-         }
+            HappinessSliderValue = 0;
+            //  NightTime.SetActive(true);
+            HappinessClamp = 100;
+            HappinessClamp += Level * 50;
+        }
 
     }
   

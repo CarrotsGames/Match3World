@@ -18,11 +18,13 @@ public class ColourRemover : MonoBehaviour
     public Material BlueMat;
     public Material YellowMat;
     public Material PurpleMat;
-
+ 
     private bool PowerUpInUse;
     private DotManager DotManagerScript;
     private GameObject PowerUpManGameObj;
     private GameObject DotManagerObj;
+    private GameObject HappinessGameObj;
+    private HappinessManager HappinessManagerScript;
     private BoardScript Board;
     private GameObject BoardGameObj;
     private GameObject SpecialBoardGameObj;
@@ -38,6 +40,8 @@ public class ColourRemover : MonoBehaviour
     void Start()
     {
         Index = 1;
+        HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
+        HappinessManagerScript = HappinessGameObj.GetComponent<HappinessManager>();
         TimesUsed = PlayerPrefs.GetInt("SCR");
         PowerUpGameObj = GameObject.Find("PowerUps");
         Scene CurrentScene = SceneManager.GetActiveScene();
@@ -149,9 +153,10 @@ public class ColourRemover : MonoBehaviour
             PlayerPrefs.SetInt("SCR", TimesUsed);
             for (int i = 0; i < BoardGameObj.transform.childCount; i++)
             {
-                SCRAmount += 1;
                 if (BoardGameObj.transform.GetChild(i).tag == Colour)
                 {
+                    SCRAmount += 1;
+
                     LastPos = BoardGameObj.transform.GetChild(i).transform.position;
                     PlayParticle();
                     Destroy(BoardGameObj.transform.GetChild(i).gameObject);
@@ -164,7 +169,12 @@ public class ColourRemover : MonoBehaviour
             PowerUpInUse = false;
             DotManagerScript.ResetMaterial = true;
             GoTimer = true;
-            DotManagerScript.TotalScore += SCRAmount * DotManagerScript.Multipier;
+            int Total = SCRAmount * HappinessManagerScript.Level;
+            int EXPTotal = SCRAmount;
+            // TOTAL SCORE
+            DotManagerScript.TotalScore += Total;
+            //EXP BAR
+            HappinessManagerScript.HappinessSliderValue += EXPTotal;
             DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
             HasUsedSCR = true;
             PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
@@ -180,10 +190,11 @@ public class ColourRemover : MonoBehaviour
             PlayerPrefs.SetInt("SCR", TimesUsed);
             for (int i = 0; i < SpecialBoardGameObj.transform.childCount; i++)
             {
-                SCRAmount += 1;
 
                 if (SpecialBoardGameObj.transform.GetChild(i).tag == "Rainbow")
                 {
+                    SCRAmount += 1;
+
                     Destroy(SpecialBoardGameObj.transform.GetChild(i).gameObject);
                 }
             }
@@ -193,7 +204,12 @@ public class ColourRemover : MonoBehaviour
             PowerUpInUse = false;
             DotManagerScript.ResetMaterial = true;
             GoTimer = true;
-            DotManagerScript.TotalScore += SCRAmount * DotManagerScript.Multipier;
+            int Total = SCRAmount * HappinessManagerScript.Level;
+            int EXPTotal = SCRAmount;
+            //Total score
+            DotManagerScript.TotalScore += Total;
+            //EXP BAR
+            HappinessManagerScript.HappinessSliderValue += EXPTotal;
             DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
             HasUsedSCR = true;
             PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();

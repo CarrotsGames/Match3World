@@ -15,7 +15,8 @@ public class BombExplodeScript : MonoBehaviour
     private GameObject AudioManagerGameObj;
     private AudioManager AudioManagerScript;
     private GameObject PowerUpGameObj;
-
+    private GameObject HappinessGameObj;
+    public HappinessManager HappinessManagerScript;
     void Awake()
     {
         PowerUpGameObj = GameObject.Find("PowerUps");
@@ -23,6 +24,8 @@ public class BombExplodeScript : MonoBehaviour
         Timer = 1;
         AudioManagerGameObj = GameObject.FindGameObjectWithTag("AudioManager");
         AudioManagerScript = AudioManagerGameObj.GetComponent<AudioManager>();
+        HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
+        HappinessManagerScript = HappinessGameObj.GetComponent<HappinessManager>();
         // 12 = BOMB Layer
         // 11 = WALL layer
         // ignroe collisions Between this layer and this layer
@@ -44,8 +47,9 @@ public class BombExplodeScript : MonoBehaviour
       
         if (AddScore)
         {
-            DotManagerScript.TotalScore += CollidedNodes.Count * DotManagerScript.Multipier;
+            DotManagerScript.TotalScore += CollidedNodes.Count * HappinessManagerScript.Level;
             DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
+            HappinessManagerScript.HappinessSliderValue += CollidedNodes.Count;
             AddScore = false;
         }
       
