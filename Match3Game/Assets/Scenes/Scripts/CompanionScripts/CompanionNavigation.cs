@@ -52,91 +52,92 @@ public class CompanionNavigation : MonoBehaviour
             Companions.Add(CompanionStorage.transform.GetChild(i).gameObject);
         }
         // sets the first avaialble companion to appear on screen(GOBU)
-        Companions[0].SetActive(true);
-        CompanionName = Companions[0].name;
-        CompanionSwitch();
+      //  Companions[0].SetActive(true);
+      //  CompanionName = Companions[0].name;
+        //CompanionSwitch();
     }
     private void Update()
     {
-        // if mouse is down begin drag
-        if (Input.GetMouseButtonDown(0))
-        {
-            StartPos = Input.mousePosition;
-            IsDragging = true ;
-        }
-        // when released reset everything
-        else if(Input.GetMouseButtonUp(0))
-        {
-            IsDragging = false;
-            Reset();
-        }
-        // gets the first finger on the screen and follows that position 
-        if (Input.touches.Length > 0)
-        {
-                if (Input.touches[0].phase == TouchPhase.Began)
-                {
+        Debug.Log(this.gameObject);
+        //// if mouse is down begin drag
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    StartPos = Input.mousePosition;
+        //    IsDragging = true ;
+        //}
+        //// when released reset everything
+        //else if(Input.GetMouseButtonUp(0))
+        //{
+        //    IsDragging = false;
+        //    Reset();
+        //}
+        //// gets the first finger on the screen and follows that position 
+        //if (Input.touches.Length > 0)
+        //{
+        //        if (Input.touches[0].phase == TouchPhase.Began)
+        //        {
 
-                    IsDragging = true;
+        //            IsDragging = true;
 
-                    StartPos = Input.touches[0].position;
+        //            StartPos = Input.touches[0].position;
 
-                }
-                else if (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
-                {
-                    IsDragging = false;
+        //        }
+        //        else if (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
+        //        {
+        //            IsDragging = false;
 
-                    Reset();
+        //            Reset();
 
-                }
+        //        }
              
-        }
+        //}
         
-        SwipeDelta = Vector2.zero;
-        // if a drag is occuring
-        if (IsDragging)
-        {
-            if (Input.touches.Length > 0)
-            {
-                SwipeDelta = Input.touches[0].position - StartPos;
-            }
-            else if (Input.GetMouseButton(0))
-            {
-                SwipeDelta = (Vector2)Input.mousePosition - StartPos;
+        //SwipeDelta = Vector2.zero;
+        //// if a drag is occuring
+        //if (IsDragging)
+        //{
+        //    if (Input.touches.Length > 0)
+        //    {
+        //        SwipeDelta = Input.touches[0].position - StartPos;
+        //    }
+        //    else if (Input.GetMouseButton(0))
+        //    {
+        //        SwipeDelta = (Vector2)Input.mousePosition - StartPos;
  
-            }
-        }
-        // if the  swipe goes past its limit check if right or left swipe
-        if(SwipeDelta.magnitude > 100)
-        {
-            // Direction of swipe 
-            float x = SwipeDelta.x;
-            float y = SwipeDelta.y;
-            if(Mathf.Abs(x) > Mathf.Abs(y))
-            {
+        //    }
+        //}
+        //// if the  swipe goes past its limit check if right or left swipe
+        //if(SwipeDelta.magnitude > 100)
+        //{
+        //    // Direction of swipe 
+        //    float x = SwipeDelta.x;
+        //    float y = SwipeDelta.y;
+        //    if(Mathf.Abs(x) > Mathf.Abs(y))
+        //    {
 
-                if (!LeaderBoardManagerScript.leaderboardShowing)
-                {
-                    if (x < 0)
-                    {
+        //        if (!LeaderBoardManagerScript.leaderboardShowing)
+        //        {
+        //            if (x < 0)
+        //            {
 
-                        NavLeft();
-                        pageFlip.SetActive(true);
-                    }
-                    else
-                    {
-                        NavRight();
-                        backwardPageFlip.SetActive(true);
-                    }
-                }
-            }
-            Reset();
-        }
+        //                NavLeft();
+        //                pageFlip.SetActive(true);
+        //            }
+        //            else
+        //            {
+        //                NavRight();
+        //                backwardPageFlip.SetActive(true);
+        //            }
+        //        }
+        //    }
+        //    Reset();
+        //}
     }
-    private void Reset()
-    {
-        StartPos = SwipeDelta = Vector2.zero;
-        IsDragging = false;
-    }
+    //private void Reset()
+    //{
+    //    StartPos = SwipeDelta = Vector2.zero;
+    //    IsDragging = false;
+    //}
     // Assigns each Scene a button
     // Change that mooblings button number to the one assisgned eg 
     // Saucos button is 6 in script so it should be 6 in scene
@@ -182,149 +183,149 @@ public class CompanionNavigation : MonoBehaviour
         }
 
     }
-    public void NavLeft()
-    {
-        // disable current companion
-        Companions[Navigate].SetActive(false);
-        if (Navigate == Companions.Count - 1)
-        {
-            // go back to first companion in list
-            Navigate = 0;
-            //activate new companion
-            Companions[Navigate].SetActive(true);
-            CompanionName = Companions[Navigate].name;
-      
-        }
-        // go to next companion in list
-        else
-        {
-            Navigate += 1;
-            Companions[Navigate].SetActive(true);
-            CompanionName = Companions[Navigate].name;
-            //    Navigation();
-        }
-        Reset();
-        CompanionSwitch();
+    //public void NavLeft()
+    //{
+    //    disable current companion
+    //   Companions[Navigate].SetActive(false);
+    //    if (Navigate == Companions.Count - 1)
+    //    {
+    //        go back to first companion in list
+    //       Navigate = 0;
+    //        activate new companion
+    //        Companions[Navigate].SetActive(true);
+    //        CompanionName = Companions[Navigate].name;
 
-    }
-    public void NavRight()
-    {
+    //    }
+    //    go to next companion in list
+    //    else
+    //    {
+    //        Navigate += 1;
+    //        Companions[Navigate].SetActive(true);
+    //        CompanionName = Companions[Navigate].name;
+    //        Navigation();
+    //    }
+    //    Reset();
+    //    CompanionSwitch();
 
-        // if companions on right go right
-        if (Navigate == 0)
-        {
+    //}
+    //public void NavRight()
+    //{
 
-            Companions[Navigate].SetActive(false);
-            Navigate = Companions.Count - 1;
-            Companions[Navigate].SetActive(true);
-            CompanionName = Companions[Navigate].name;
-            //   Companions[Navigate].SetActive(true);
-            //     Navigation();
+    //    if companions on right go right
+    //    if (Navigate == 0)
+    //    {
 
-        }
-        else
-        {
-            Companions[Navigate].SetActive(false);
+    //        Companions[Navigate].SetActive(false);
+    //        Navigate = Companions.Count - 1;
+    //        Companions[Navigate].SetActive(true);
+    //        CompanionName = Companions[Navigate].name;
+    //        Companions[Navigate].SetActive(true);
+    //        Navigation();
 
-            Navigate -= 1;
-            Companions[Navigate].SetActive(true);
-            CompanionName = Companions[Navigate].name;
-            //   Companions[Navigate].SetActive(true);
-            //   Navigation();
+    //    }
+    //    else
+    //    {
+    //        Companions[Navigate].SetActive(false);
 
-        }
-        Reset();
-        CompanionSwitch();
+    //        Navigate -= 1;
+    //        Companions[Navigate].SetActive(true);
+    //        CompanionName = Companions[Navigate].name;
+    //        Companions[Navigate].SetActive(true);
+    //        Navigation();
 
-    }
+    //    }
+    //    Reset();
+    //    CompanionSwitch();
 
-    // Update is called once per frame
-    void CompanionSwitch()
-    {
-        //RealTimeScript.HappinessCountdowns();
+    //}
 
-        // checks name of companion and displays how much happiness 
-        // that specific companion has when highlited 
-        switch (CompanionName)
-        {
-            case "Gobu":
-                Happiness[0] = PlayerPrefs.GetFloat("GobuHappiness");
-                RealTimeScript.HappinessCountDown[0] = Happiness[0];
-                HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[0];
-                HappinessManagerScript.CompanionSave = "GobuHappiness";
-                break;
-            case "Binkie Locked":
-                Happiness[1] = PlayerPrefs.GetFloat("BinkyHappiness");
-                RealTimeScript.HappinessCountDown[1] = Happiness[1];
-                HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[1];
-                HappinessManagerScript.CompanionSave = "BinkyHappiness";
+    //Update is called once per frame
+    //void CompanionSwitch()
+    //{
+    //    RealTimeScript.HappinessCountdowns();
 
-                break;
-            case "Koko Locked":
-                Happiness[2] = PlayerPrefs.GetFloat("KokoHappiness");
-                //HappinessManagerScript.Happiness = RealTimeScript.TimerCountDown2;
-                RealTimeScript.HappinessCountDown[2] = Happiness[2];
-                HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[2];
-                HappinessManagerScript.CompanionSave = "KokoHappiness";
+    //    checks name of companion and displays how much happiness
+    //    that specific companion has when highlited
+    //    switch (CompanionName)
+    //    {
+    //        case "Gobu":
+    //            Happiness[0] = PlayerPrefs.GetFloat("GobuHappiness");
+    //            RealTimeScript.HappinessCountDown[0] = Happiness[0];
+    //            HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[0];
+    //            HappinessManagerScript.CompanionSave = "GobuHappiness";
+    //            break;
+    //        case "Binkie Locked":
+    //            Happiness[1] = PlayerPrefs.GetFloat("BinkyHappiness");
+    //            RealTimeScript.HappinessCountDown[1] = Happiness[1];
+    //            HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[1];
+    //            HappinessManagerScript.CompanionSave = "BinkyHappiness";
 
-                break;
-            //shares happiness with Gobu
-            case "Crius Locked":
-                Happiness[3] = PlayerPrefs.GetFloat("CriusHappiness");
-                RealTimeScript.HappinessCountDown[3] = Happiness[3];
-                HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[3];
-                HappinessManagerScript.CompanionSave = "CriusHappiness";
+    //            break;
+    //        case "Koko Locked":
+    //            Happiness[2] = PlayerPrefs.GetFloat("KokoHappiness");
+    //            HappinessManagerScript.Happiness = RealTimeScript.TimerCountDown2;
+    //            RealTimeScript.HappinessCountDown[2] = Happiness[2];
+    //            HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[2];
+    //            HappinessManagerScript.CompanionSave = "KokoHappiness";
 
-                break;
-          
-            case "Sauco Locked":
-                Happiness[4] = PlayerPrefs.GetFloat("SaucoHappiness");
-                RealTimeScript.HappinessCountDown[4] = Happiness[4];
-                HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[4];
-                HappinessManagerScript.CompanionSave = "SaucoHappiness";
+    //            break;
+    //            shares happiness with Gobu
+    //        case "Crius Locked":
+    //            Happiness[3] = PlayerPrefs.GetFloat("CriusHappiness");
+    //            RealTimeScript.HappinessCountDown[3] = Happiness[3];
+    //            HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[3];
+    //            HappinessManagerScript.CompanionSave = "CriusHappiness";
 
-                break;
+    //            break;
 
-            case "Chick-Pee Locked":
-                Happiness[5] = PlayerPrefs.GetFloat("ChickPeaHappiness");
-                RealTimeScript.HappinessCountDown[5] = Happiness[5];
-                HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[5];
-                HappinessManagerScript.CompanionSave = "ChickPeaHappiness";
+    //        case "Sauco Locked":
+    //            Happiness[4] = PlayerPrefs.GetFloat("SaucoHappiness");
+    //            RealTimeScript.HappinessCountDown[4] = Happiness[4];
+    //            HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[4];
+    //            HappinessManagerScript.CompanionSave = "SaucoHappiness";
 
-                break;
+    //            break;
 
-            case "Squishy Locked":
-                Happiness[6] = PlayerPrefs.GetFloat("SquishyHappiness");
-                RealTimeScript.HappinessCountDown[6] = Happiness[6];
-                HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[6];
-                HappinessManagerScript.CompanionSave = "SquishyHappiness";
+    //        case "Chick-Pee Locked":
+    //            Happiness[5] = PlayerPrefs.GetFloat("ChickPeaHappiness");
+    //            RealTimeScript.HappinessCountDown[5] = Happiness[5];
+    //            HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[5];
+    //            HappinessManagerScript.CompanionSave = "ChickPeaHappiness";
 
-                break;
-            case "Cronus Locked":
-                Happiness[7] = PlayerPrefs.GetFloat("CronosHappiness");
-                RealTimeScript.HappinessCountDown[7] = Happiness[7];
-                HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[7];
-                HappinessManagerScript.CompanionSave = "CronosHappiness";
+    //            break;
 
-                break;
-            case "Okami Locked":
-                Happiness[8] = PlayerPrefs.GetFloat("OkamiHappiness");
-                RealTimeScript.HappinessCountDown[8] = Happiness[8];
-                HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[8];
-                HappinessManagerScript.CompanionSave = "OkamiHappiness";
+    //        case "Squishy Locked":
+    //            Happiness[6] = PlayerPrefs.GetFloat("SquishyHappiness");
+    //            RealTimeScript.HappinessCountDown[6] = Happiness[6];
+    //            HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[6];
+    //            HappinessManagerScript.CompanionSave = "SquishyHappiness";
 
-                break;
-            case "Idasaurous":
-                Happiness[9] = PlayerPrefs.GetFloat("IdaHappiness");
-                RealTimeScript.HappinessCountDown[9] = Happiness[9];
-                HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[9];
-                HappinessManagerScript.CompanionSave = "IdaHappiness";
+    //            break;
+    //        case "Cronus Locked":
+    //            Happiness[7] = PlayerPrefs.GetFloat("CronosHappiness");
+    //            RealTimeScript.HappinessCountDown[7] = Happiness[7];
+    //            HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[7];
+    //            HappinessManagerScript.CompanionSave = "CronosHappiness";
 
-                break;
-        }
-        RealTimeScript.LoadCompanionHappiness();
+    //            break;
+    //        case "Okami Locked":
+    //            Happiness[8] = PlayerPrefs.GetFloat("OkamiHappiness");
+    //            RealTimeScript.HappinessCountDown[8] = Happiness[8];
+    //            HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[8];
+    //            HappinessManagerScript.CompanionSave = "OkamiHappiness";
 
-     }
+    //            break;
+    //        case "Idasaurous":
+    //            Happiness[9] = PlayerPrefs.GetFloat("IdaHappiness");
+    //            RealTimeScript.HappinessCountDown[9] = Happiness[9];
+    //            HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[9];
+    //            HappinessManagerScript.CompanionSave = "IdaHappiness";
+
+    //            break;
+    //    }
+    //    RealTimeScript.LoadCompanionHappiness();
+
+    //}
 
 
 

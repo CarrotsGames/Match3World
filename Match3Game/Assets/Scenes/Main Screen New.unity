@@ -2492,7 +2492,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1361079497}
+      - m_Target: {fileID: 395002230}
         m_MethodName: PlayLevel
         m_Mode: 3
         m_Arguments:
@@ -2769,7 +2769,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fec91fefe3175b5459ba189e9c4cf32d, type: 3}
   - {fileID: 21300000, guid: 25cd35e2405481f4c8a81383c959537c, type: 3}
   - {fileID: 21300000, guid: 16c897721901d09408638c218790722f, type: 3}
-  - {fileID: 21300000, guid: 2192404ade609c342aba230b67ef47fe, type: 3}
+  - {fileID: 21300000, guid: 1f60ca01b1696124b88e470303ba05c7, type: 3}
 --- !u!1 &339735279
 GameObject:
   m_ObjectHideFlags: 0
@@ -2861,7 +2861,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 345140901}
-  - component: {fileID: 345140900}
   - component: {fileID: 345140903}
   m_Layer: 0
   m_Name: Game Controller
@@ -2870,25 +2869,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &345140900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 345140899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09e4d740fa80e764992c65f41b072e5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gobu: {fileID: 1338668411}
-  koko: {fileID: 1490691592}
-  binky: {fileID: 1350424540}
-  transistion: {fileID: 1129741781}
-  middleCreature: 1
-  leftCreature: 0
-  rightCreature: 0
 --- !u!4 &345140901
 Transform:
   m_ObjectHideFlags: 0
@@ -3233,6 +3213,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1929677184829160893, guid: c48dae2b39178bc498df340966b5eef7,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 889335340df102246a2e6b3d6201ad9e, type: 3}
     - target: {fileID: 479337385744612785, guid: c48dae2b39178bc498df340966b5eef7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3288,11 +3273,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1929677184829160893, guid: c48dae2b39178bc498df340966b5eef7,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 889335340df102246a2e6b3d6201ad9e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c48dae2b39178bc498df340966b5eef7, type: 3}
 --- !u!1 &383139323
@@ -3387,7 +3367,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1361079497}
+      - m_Target: {fileID: 395002230}
         m_MethodName: PlayLevel
         m_Mode: 3
         m_Arguments:
@@ -3614,6 +3594,26 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2101017912}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &395002230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395002229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b01f90db3f01bfb46a7691c54a52c413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CompanionName: 
+  CompanionNumber: 0
+  Companions: []
+  Navigate: 0
+  Happiness: []
+  pageFlip: {fileID: 0}
+  backwardPageFlip: {fileID: 0}
+  HappySlider: {fileID: 0}
 --- !u!114 &395002231 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 395002231, guid: e8b0a68b4e9c87b439896e6ea9e14ad4,
@@ -3858,7 +3858,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1361079497}
+      - m_Target: {fileID: 395002230}
         m_MethodName: PlayLevel
         m_Mode: 3
         m_Arguments:
@@ -5512,7 +5512,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1361079497}
+      - m_Target: {fileID: 395002230}
         m_MethodName: PlayLevel
         m_Mode: 3
         m_Arguments:
@@ -6821,7 +6821,7 @@ PrefabInstance:
         type: 3}
       propertyPath: HappinessSlider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 358270395}
     - target: {fileID: 114985376010937422, guid: f8b235ecc99a122448d05892e14384e0,
         type: 3}
       propertyPath: Anim
@@ -6856,7 +6856,12 @@ PrefabInstance:
         type: 3}
       propertyPath: FillColour
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1801323351}
+    - target: {fileID: 114985376010937422, guid: f8b235ecc99a122448d05892e14384e0,
+        type: 3}
+      propertyPath: LevelText
+      value: 
+      objectReference: {fileID: 1658268837}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8b235ecc99a122448d05892e14384e0, type: 3}
 --- !u!1 &766122618
@@ -9243,10 +9248,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 24
       objectReference: {fileID: 0}
-    - target: {fileID: 1670561164997348, guid: 454f8424e61f4b94598935dfa480b552, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114908531856327124, guid: 454f8424e61f4b94598935dfa480b552,
         type: 3}
       propertyPath: UnlockScore.Array.data[2]
@@ -9261,6 +9262,10 @@ PrefabInstance:
         type: 3}
       propertyPath: ChallengeScore
       value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670561164997348, guid: 454f8424e61f4b94598935dfa480b552, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114872690170545272, guid: 454f8424e61f4b94598935dfa480b552, type: 3}
@@ -10080,7 +10085,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1361079497}
+      - m_Target: {fileID: 0}
         m_MethodName: NavigationControls
         m_Mode: 3
         m_Arguments:
@@ -12714,7 +12719,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1361079497}
+      - m_Target: {fileID: 395002230}
         m_MethodName: PlayLevel
         m_Mode: 3
         m_Arguments:
@@ -12832,7 +12837,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1361079497}
+      - m_Target: {fileID: 395002230}
         m_MethodName: PlayLevel
         m_Mode: 3
         m_Arguments:
@@ -12882,18 +12887,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1350424540}
   m_CullTransparentMesh: 0
---- !u!114 &1361079497 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114676179854917964, guid: e8b0a68b4e9c87b439896e6ea9e14ad4,
-    type: 3}
-  m_PrefabInstance: {fileID: 2101017912}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 395002229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b01f90db3f01bfb46a7691c54a52c413, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1361145905
 GameObject:
   m_ObjectHideFlags: 0
@@ -13052,7 +13045,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1361079497}
+      - m_Target: {fileID: 395002230}
         m_MethodName: PlayLevel
         m_Mode: 3
         m_Arguments:
@@ -13967,7 +13960,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1361079497}
+      - m_Target: {fileID: 395002230}
         m_MethodName: PlayLevel
         m_Mode: 3
         m_Arguments:
@@ -15678,7 +15671,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1361079497}
+      - m_Target: {fileID: 395002230}
         m_MethodName: PlayLevel
         m_Mode: 3
         m_Arguments:
@@ -15839,7 +15832,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1361079497}
+      - m_Target: {fileID: 395002230}
         m_MethodName: PlayLevel
         m_Mode: 3
         m_Arguments:
@@ -20246,7 +20239,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114676179854917964, guid: e8b0a68b4e9c87b439896e6ea9e14ad4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e8b0a68b4e9c87b439896e6ea9e14ad4, type: 3}
 --- !u!1 &2115270622
 GameObject:

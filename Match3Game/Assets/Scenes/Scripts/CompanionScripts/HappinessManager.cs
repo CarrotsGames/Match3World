@@ -69,7 +69,7 @@ public class HappinessManager : MonoBehaviour
         SceneName = CurrentScene.name;
         SleepAd = GameObject.FindGameObjectWithTag("SleepingAd");
 
-        if (SceneName == "Main Screen" || SceneName == "Gobu Tutorial")
+        if (SceneName == "Main Screen New" || SceneName == "Gobu Tutorial")
         {
             OnMainScene = true;
         }
