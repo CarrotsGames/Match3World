@@ -20,17 +20,18 @@ public class ChallengeManager : MonoBehaviour
     public int TotalMoves;
     //Moves done
     private int NumberOfMoves;
+    [Header("CLEAR BOARD IN TIME CHALLENGE")]
+    public float Timer;
+    public Text ClearTime;
 
     //BEAT SCORE CHALLENGE
     [Header("BEAT SCORE CHALLENGE")]
     // Limit of moves
     public int TargetScore;
     private int ChallengeScore;
-   
     //CLEAR BOARD CHALLENGE 
     private GameObject Board;
     private BoardScript BoardScriptRef;
-
     private GameObject Companion;
     private CompanionScript CompanionScriptRef;
       // Start is called before the first frame update
@@ -99,9 +100,19 @@ public class ChallengeManager : MonoBehaviour
 
     void ClearBoard()
     {
-        if (Board.transform.childCount == 0)
+        ClearTime.text = "" + Timer;
+        Timer -= Time.deltaTime;
+        if (Timer > 0)
         {
-            Debug.Log("COMPLETE");
+
+            if (Board.transform.childCount == 0)
+            {
+                Debug.Log("COMPLETE");
+            }
+        }
+        else
+        {
+            Debug.Log("FAILED");
         }
     }
     void BeatScore()
