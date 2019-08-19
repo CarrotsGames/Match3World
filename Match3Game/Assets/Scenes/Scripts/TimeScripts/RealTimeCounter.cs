@@ -257,7 +257,7 @@ public class RealTimeCounter : MonoBehaviour
     void Update()
     {
         HappinessSliderValues();
-        // IF MULTIPLIER THING BREAKS RE ENABLE THIS AND REMOVE LINE ABOVE
+       // IF MULTIPLIER THING BREAKS RE ENABLE THIS AND REMOVE LINE ABOVE
        // if (HappinessManagerScript.OnMainScene)
        // {
        //     // Grabs the happiness countdowns in scene once

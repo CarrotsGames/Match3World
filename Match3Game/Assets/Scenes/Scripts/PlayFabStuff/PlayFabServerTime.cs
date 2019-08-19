@@ -52,6 +52,10 @@ public class PlayFabServerTime : MonoBehaviour {
         {
             GetCurrentTime();
         }
+        if(Input.GetKeyDown(KeyCode.S))
+        {
+            NowTime = TimeStamp + 100000000000000;
+        }
 
         if(NowTime > TimeStamp)
         {

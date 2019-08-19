@@ -40,7 +40,7 @@ public class ConnectNodes : MonoBehaviour
 
         if (hitInfo.collider != null)
         {
-
+           //  hitInfo.transform.GetComponent<Node>().DefaultScale();
             if (hitInfo.transform.gameObject.layer == 17)
             {
                 if (TestThis)
@@ -51,10 +51,11 @@ public class ConnectNodes : MonoBehaviour
                 }
                 if (hitInfo.collider.gameObject.tag == Colour && !DotManagerScript.Peices.Contains(hitInfo.collider.gameObject))
                 {
+                  //  hitInfo.transform.GetComponent<Node>().JuiceScale();
                     hitInfo.collider.gameObject.GetComponent<Renderer>().material.color = Color.black;
 
                     DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
-                    Debug.Log("START COMBO");
+                     Debug.Log("START COMBO");
                 }
                 else
                 {

@@ -99,12 +99,13 @@ public class DailySpinArrow : MonoBehaviour
                     break;
 
             }
-            DailySpinScript.TimeToStopWheel = DailySpinScript.TimeToStopWheelStore;
+           // DailySpinScript.TimeToStopWheel = DailySpinScript.TimeToStopWheelStore;
             DailySpinScript.DailyEvent.CanDoDaily = false;
             PlayerPrefs.SetInt(DailySpinScript.Events.GetComponent<PlayFabServerTime>().SaveBool, (DailySpinScript.DailyEvent.CanDoDaily ? 1 : 0));
 
             DailySpinScript.DailyEvent.DailySpinner.SetActive(false);
 
+            DailySpinScript.RandomiseWheelProperties();
             DailySpinScript.IsDailyOver = false;
             DailySpinScript.StopSpinning = false;
         }

@@ -2195,6 +2195,7 @@ MonoBehaviour:
   MultlpierTimer: 80
   SMTimerUI: {fileID: 203946524}
   MultlpierTimerText: {fileID: 1703730368}
+  EndCountdown: 0
 --- !u!114 &236537946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2474,17 +2475,17 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NoSounds
       objectReference: {fileID: 0}
+    - target: {fileID: 114796706721209236, guid: e4066718ae92203429c2f18e97d90c1e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114125664599346396, guid: e4066718ae92203429c2f18e97d90c1e,
         type: 3}
       propertyPath: m_FontData.m_Font
       value: 
       objectReference: {fileID: 12800000, guid: 9681a365a6594fc4eb06a5be04d8a31b,
         type: 3}
-    - target: {fileID: 114796706721209236, guid: e4066718ae92203429c2f18e97d90c1e,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4066718ae92203429c2f18e97d90c1e, type: 3}
 --- !u!114 &261681311
@@ -5284,6 +5285,7 @@ MonoBehaviour:
   BlueMat: {fileID: 2100000, guid: 098f6c24605a3dc4d850b7dc6c476ace, type: 2}
   YellowMat: {fileID: 2100000, guid: 96d47a597efbd184fa64ee0e53dce3a1, type: 2}
   PurpleMat: {fileID: 2100000, guid: 82654ed737ece9443b09e5d278fb5a3a, type: 2}
+  Colour: 
 --- !u!114 &451096900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7259,6 +7261,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1560744639066648, guid: b185bdf05ea873040a8a15922e46da61, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4582645188815774, guid: b185bdf05ea873040a8a15922e46da61, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.1000013
@@ -8244,6 +8250,11 @@ PrefabInstance:
       propertyPath: FillColour
       value: 
       objectReference: {fileID: 370105556}
+    - target: {fileID: 114985376010937422, guid: f8b235ecc99a122448d05892e14384e0,
+        type: 3}
+      propertyPath: LevelText
+      value: 
+      objectReference: {fileID: 1658268837}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8b235ecc99a122448d05892e14384e0, type: 3}
 --- !u!1 &766122618
@@ -10439,6 +10450,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114262443509563098, guid: 1ffc143ed5592fd47a5a4743fc9d6136,
+        type: 3}
+      propertyPath: skipButton
+      value: 
+      objectReference: {fileID: 525865715}
     - target: {fileID: 114089813701204056, guid: 1ffc143ed5592fd47a5a4743fc9d6136,
         type: 3}
       propertyPath: UnlockMoobling
@@ -10479,11 +10495,6 @@ PrefabInstance:
       propertyPath: SquishyUnlockImage
       value: 
       objectReference: {fileID: 1516752335}
-    - target: {fileID: 114262443509563098, guid: 1ffc143ed5592fd47a5a4743fc9d6136,
-        type: 3}
-      propertyPath: skipButton
-      value: 
-      objectReference: {fileID: 525865715}
     - target: {fileID: 343082384, guid: 1ffc143ed5592fd47a5a4743fc9d6136, type: 3}
       propertyPath: m_Text
       value: Half
@@ -10705,10 +10716,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 24
       objectReference: {fileID: 0}
-    - target: {fileID: 1670561164997348, guid: 454f8424e61f4b94598935dfa480b552, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114908531856327124, guid: 454f8424e61f4b94598935dfa480b552,
         type: 3}
       propertyPath: UnlockScore.Array.data[2]
@@ -10723,6 +10730,10 @@ PrefabInstance:
         type: 3}
       propertyPath: ChallengeScore
       value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670561164997348, guid: 454f8424e61f4b94598935dfa480b552, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114872690170545272, guid: 454f8424e61f4b94598935dfa480b552, type: 3}
@@ -17386,7 +17397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1635073773}
   m_Layer: 5
-  m_Name: DailySpinner
+  m_Name: ActualDailySpinWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23687,6 +23698,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.34977007
       objectReference: {fileID: 0}
+    - target: {fileID: 3940020237039309272, guid: 7c9ea069f080aca4580502adecb8ce14,
+        type: 3}
+      propertyPath: m_Text
+      value: Score
+      objectReference: {fileID: 0}
     - target: {fileID: 3940020235782499618, guid: 7c9ea069f080aca4580502adecb8ce14,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -24441,11 +24457,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_MaxSize
       value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 3940020237039309272, guid: 7c9ea069f080aca4580502adecb8ce14,
-        type: 3}
-      propertyPath: m_Text
-      value: Score
       objectReference: {fileID: 0}
     - target: {fileID: 3940020237043524415, guid: 7c9ea069f080aca4580502adecb8ce14,
         type: 3}
