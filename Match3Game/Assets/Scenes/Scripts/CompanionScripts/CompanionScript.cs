@@ -19,6 +19,8 @@ public class CompanionScript : MonoBehaviour
     private RealTimeCounter RealTimeScript;
     private PowerUpManager PowerUpManagerScript;
     public HappinessManager HappinessManagerScript;
+    [HideInInspector]
+    public int Total;
     // Update is called once per frame
     private int posX;
     private int posY;
@@ -72,7 +74,7 @@ public class CompanionScript : MonoBehaviour
             // displays total score to Text
 
         }
-        int Total;
+        Total = 0;
         int mulpliernum = HappinessGameObj.GetComponent<HappinessManager>().Level;
  
         Total = EatingPeices.Count + DotManagerScriptRef.ComboScore ;
@@ -87,11 +89,10 @@ public class CompanionScript : MonoBehaviour
             int chance = Random.Range(CurrencyChance, 100);
             if (chance == 42)
             {
-                Instantiate(Gold, GoldSpawn.transform.position, Quaternion.identity);
-              //  PowerUpManagerScript.Currency += 1;
+                PowerUpManagerScript.Currency += Random.Range(1,3);
+          
             }
-             //  DotManagerScript.Currency 
-        }
+         }
         if (!HappinessManagerScript.IsSleeping)
         {
             // adds happyness to the companion
