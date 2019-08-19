@@ -13,12 +13,15 @@ public class PlayFabAnalytics : MonoBehaviour {
     public GameObject CompanionScore;
     private string CompanionTime;
     private string GoldFoundLevel;
+    private string CompanionLevel;
+    private GameObject HappinessManagerGameObj;
+    private HappinessManager HappinessManagerScript;
     int GoldFound;
 
     public float Score;
     [HideInInspector]
     public string SaveScoreName;
-    public float DelayTime;
+    public static float DelayTime;
     int SCR;
     int Shuffle;
     int SuperBomb;
@@ -29,10 +32,13 @@ public class PlayFabAnalytics : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        HappinessManagerGameObj = GameObject.FindGameObjectWithTag("HM");
+        HappinessManagerScript = HappinessManagerGameObj.GetComponent<HappinessManager>();
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
         Test = false;
         // Tracks companion Level Time
+        CompanionLevel = CompanionScore.name + "Level";
         CompanionTime = CompanionScore.name + "TIME";
         // Tracks how much gold is found in level
         GoldFoundLevel = CompanionScore.name + "GoldTrack";
@@ -65,7 +71,7 @@ public class PlayFabAnalytics : MonoBehaviour {
        PlayerPrefs.SetFloat(CompanionTime, TimeOnScene);
        PlayerPrefs.SetInt(GoldFoundLevel, GoldFound);
 
-        SCR = PlayerPrefs.GetInt("SCR");
+       SCR = PlayerPrefs.GetInt("SCR");
        Shuffle = PlayerPrefs.GetInt("SHUFFLE");
        SuperBomb = PlayerPrefs.GetInt("SUPERBOMB");
        SuperMultlpier = PlayerPrefs.GetInt("SUPERMULTLPIER");
@@ -87,20 +93,21 @@ public class PlayFabAnalytics : MonoBehaviour {
              {CompanionTime,"" + TimeOnScene },
              {GoldFoundLevel,"" + GoldFound },
 
-             {"(0)TOTALGOLD","" + Currency  },
-             {"(1)POWERUP: SCR","" + SCR  },
-             {"(2)POWERUP: SHUFFLE","" + Shuffle  },
-             {"(3)POWERUP: BOMB","" + SuperBomb  },
-             {"(4)POWERUP: SM","" + SuperMultlpier  },
+           // {"(0)TOTALGOLD","" + Currency  },
+           // {"(1)POWERUP: SCR","" + SCR  },
+           // {"(2)POWERUP: SHUFFLE","" + Shuffle  },
+           // {"(3)POWERUP: BOMB","" + SuperBomb  },
+           // {"(4)POWERUP: SM","" + SuperMultlpier  },
              {CompanionScore.name +  "COMBONUM", "" + ComboNum },
-             {CompanionScore.name + "BIGCOMBONUM", "" + BigComboNum }
+             {CompanionScore.name + "BIGCOMBONUM", "" + BigComboNum },
+             { CompanionLevel , "" + HappinessManagerScript.Level }
 
          }
             },
             result => Debug.Log("AnalyticsSent"),
             error =>
             {
-                Debug.Log("Got error setting user data Ancestory to Jacob");
+                Debug.Log("Analytics not sent");
                 Debug.Log(error.GenerateErrorReport());
 
             });

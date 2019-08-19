@@ -24,7 +24,7 @@ public class HappinessManager : MonoBehaviour
     public bool IsSleeping;   
     public Animator Anim;
     public GameObject DayTime;
-    public GameObject NightTime;
+   // public GameObject NightTime;
     public GameObject AwakeHead;
     // Plays ad when sleeping
     private GameObject SleepAd;
@@ -142,7 +142,7 @@ public class HappinessManager : MonoBehaviour
             Anim.SetBool("is>33", false);
             Anim.SetBool("is>66", false);
             Anim.SetBool("is sleepy", false);
-            NightTime.SetActive(false);
+          //  NightTime.SetActive(false);
 
             DayTime.SetActive(true);
             AwakeHead.SetActive(true);

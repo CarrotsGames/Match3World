@@ -32,7 +32,6 @@ public class MobileExitScript : MonoBehaviour {
     }
     private void OnApplicationQuit()
     {
-        RealTimeScript.ResetClock();
-    }
+     }
 
 }
