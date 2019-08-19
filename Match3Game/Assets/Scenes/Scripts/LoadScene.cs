@@ -5,9 +5,6 @@ using UnityEngine.UI;
 public class LoadScene : MonoBehaviour {
     public GameObject scoreboard;
     float FirstTimeStartUp;
-
-    public GameObject hungerBar;
-
     public void Awake()
     {
         FirstTimeStartUp = PlayerPrefs.GetFloat("FTS");
@@ -15,7 +12,6 @@ public class LoadScene : MonoBehaviour {
         {
             scoreboard.SetActive(false);
         }
-        hungerBar.SetActive(false);
 
     }
   

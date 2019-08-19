@@ -10,13 +10,13 @@ public class FPSDebug : MonoBehaviour
     bool DebugOn;
     private void Awake()
     {
-        DebugOn = false;
+        DebugOn = true;
         Application.targetFrameRate = GameFPS;
     }
 
     void Update()
     {
-        //deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
+            deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
     }
     void OnGUI()
     {

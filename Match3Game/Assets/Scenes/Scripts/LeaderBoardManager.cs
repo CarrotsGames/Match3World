@@ -11,7 +11,6 @@ public class LeaderBoardManager : MonoBehaviour {
     public GameObject leaderboardButton;
     public GameObject leaderboardButton2;
 
-    public GameObject hungerBar;
     public GameObject scoreboard;
 
     public GameObject inputName;
@@ -44,7 +43,6 @@ public class LeaderBoardManager : MonoBehaviour {
     {
         leaderboardShowing = true;
         scoreboard.SetActive(true);
-        hungerBar.SetActive(false);
         inputName.SetActive(true);
         leaderboardNoShow = false;
     }
@@ -53,7 +51,6 @@ public class LeaderBoardManager : MonoBehaviour {
     {
         leaderboardNoShow = true;
         scoreboard.SetActive(false);
-        hungerBar.SetActive(true);
         inputName.SetActive(false);
         leaderboardShowing = false;
     }

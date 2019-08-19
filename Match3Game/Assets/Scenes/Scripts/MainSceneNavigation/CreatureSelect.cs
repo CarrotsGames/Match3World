@@ -30,6 +30,10 @@ public class CreatureSelect : MonoBehaviour {
 
         anim = transistion.GetComponent<Animator>();
     }
+    private void Update()
+    {
+        Debug.Log(this.gameObject);
+    }
     public void RightArrowClicked()
     {
         // GOBU
