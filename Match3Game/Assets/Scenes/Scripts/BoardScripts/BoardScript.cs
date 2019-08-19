@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class BoardScript : MonoBehaviour
 {
-
+    public bool DisableNodeDrop;
     public int Width;
     public int Height;
     public int Gold;
@@ -13,7 +14,8 @@ public class BoardScript : MonoBehaviour
     public GameObject[,] AllDots;
     public GameObject Spawner;
     private List<GameObject> test = new List<GameObject>();
-     
+    string SceneName;
+
     int Total;
     private GameObject SpecialSpawn;
     // List of all nodes in their order
@@ -22,11 +24,16 @@ public class BoardScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpecialSpawn = GameObject.Find("SpecialNodeSpawn");
-           AllTiles = new BackgroundTileScript[Width, Height];
-        AllDots = new GameObject[Width, Height];
-        SetUpBoard();
-        Gold = 0;
+        Scene CurrentScene = SceneManager.GetActiveScene();
+        SceneName = CurrentScene.name;
+        if (SceneName != "GobuChallenge")
+        {
+            SpecialSpawn = GameObject.Find("SpecialNodeSpawn");
+            AllTiles = new BackgroundTileScript[Width, Height];
+            AllDots = new GameObject[Width, Height];
+            SetUpBoard();
+            Gold = 0;
+        }
     }
 
     private void SetUpBoard()
@@ -58,12 +65,16 @@ public class BoardScript : MonoBehaviour
  
         if(transform.childCount < Total)
        {
- 
-           // Creates dots for positions
-           int DotToUse = Random.Range(0, Dots.Length );
-           GameObject Dot = Instantiate(Dots[DotToUse], new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-           Dot.transform.parent = this.transform;
-            SpecialSpawn.GetComponent<AddSpecialNodes>().SpawnNode();
+
+
+            // Creates dots for positions
+            if (!DisableNodeDrop)
+            {
+                int DotToUse = Random.Range(0, Dots.Length);
+                GameObject Dot = Instantiate(Dots[DotToUse], new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                Dot.transform.parent = this.transform;
+                SpecialSpawn.GetComponent<AddSpecialNodes>().SpawnNode();
+            }
          }
     }
   
