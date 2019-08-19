@@ -58,8 +58,7 @@ public class CompanionNavigation : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(this.gameObject);
-        //// if mouse is down begin drag
+         //// if mouse is down begin drag
         //if (Input.GetMouseButtonDown(0))
         //{
         //    StartPos = Input.mousePosition;

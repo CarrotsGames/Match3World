@@ -21,14 +21,17 @@ public class LoadLanguage : MonoBehaviour
         {
             string[] Row = Data[i].Split(new char[]{','});
             // ignored empty stuff
-            if (Row[1] != "") 
+            if (i == 1)
             {
-                MooblingData Md = new MooblingData();
-                // if no data here dont throw exception just leave default value
-                int.TryParse(Row[0], out Md.ID);                     
-                Md.Text = Row[1];
-                Md.Scene = Row[2];
-                MooblingDataList.Add(Md);
+                if (Row[1] != "")
+                {
+                    MooblingData Md = new MooblingData();
+                    // if no data here dont throw exception just leave default value
+                    int.TryParse(Row[0], out Md.ID);
+                    Md.Text = Row[1];
+                    Md.Scene = Row[2];
+                    MooblingDataList.Add(Md);
+                }
             }
         }
         foreach(MooblingData Md in MooblingDataList)
