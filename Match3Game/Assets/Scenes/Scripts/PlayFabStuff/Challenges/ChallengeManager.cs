@@ -25,7 +25,6 @@ public class ChallengeManager : MonoBehaviour
     [Header("BEAT SCORE CHALLENGE")]
     // Limit of moves
     public int TargetScore;
-    [SerializeField]
     private int ChallengeScore;
    
     //CLEAR BOARD CHALLENGE 
