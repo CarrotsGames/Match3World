@@ -111,7 +111,7 @@ public class DotManager : MonoBehaviour
     }
 
 
-    private void Update()
+    private void FixedUpdate()
     {
         // MultiplierText.text = "" + Multipier;
 

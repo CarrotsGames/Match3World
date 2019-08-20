@@ -109,7 +109,7 @@ public class HappinessManager : MonoBehaviour
         HappinessSliderValue = Mathf.Clamp(HappinessSliderValue, 0, HappinessClamp);
         // Slowly counts down Happiness value
         //HappinessSliderValue -= Time.deltaTime / 6;
-       
+        HappinessSlider.maxValue = HappinessClamp;
         //displays current slider information with currently used companion
         HappinessSlider.value = HappinessSliderValue;
         PlayerPrefs.SetFloat(CompanionSave, HappinessSliderValue);
@@ -126,14 +126,14 @@ public class HappinessManager : MonoBehaviour
             Anim.SetBool("is>33", false);
             Anim.SetBool("is>66", false);
             Anim.SetBool("is sleepy", false);
-            SliderGameObj.GetComponent<SliderTest>().slider[9].SetActive(false);
-            SliderGameObj.GetComponent<SliderTest>().slider[0].SetActive(true);
+           // SliderGameObj.GetComponent<SliderTest>().slider[9].SetActive(false);
+           // SliderGameObj.GetComponent<SliderTest>().slider[0].SetActive(true);
 
         }
         else if (HappinessSliderValue > HappinessClamp / 9 && HappinessSliderValue < HappinessClamp / 8)
         {
-            SliderGameObj.GetComponent<SliderTest>().slider[0].SetActive(false);
-            SliderGameObj.GetComponent<SliderTest>().slider[1].SetActive(true);
+          //  SliderGameObj.GetComponent<SliderTest>().slider[0].SetActive(false);
+          //  SliderGameObj.GetComponent<SliderTest>().slider[1].SetActive(true);
         }
         // if this is between HappyClamp / 4 && happyclamp / 4
         // if this is reached while not sleeping, companion changes animation
@@ -143,8 +143,8 @@ public class HappinessManager : MonoBehaviour
             Anim.SetBool("is>33", true);
             Anim.SetBool("<20", false);
             Anim.SetBool("is>66", false);
-            SliderGameObj.GetComponent<SliderTest>().slider[1].SetActive(false);
-            SliderGameObj.GetComponent<SliderTest>().slider[2].SetActive(true);
+          //  SliderGameObj.GetComponent<SliderTest>().slider[1].SetActive(false);
+          //  SliderGameObj.GetComponent<SliderTest>().slider[2].SetActive(true);
         }
         else if (HappinessSliderValue > HappinessClamp / 7 && HappinessSliderValue < HappinessClamp / 6)
         {
@@ -152,8 +152,8 @@ public class HappinessManager : MonoBehaviour
             Anim.SetBool("is>33", false);
             Anim.SetBool("<20", false);
             Anim.SetBool("is>66", true);
-            SliderGameObj.GetComponent<SliderTest>().slider[2].SetActive(false);
-            SliderGameObj.GetComponent<SliderTest>().slider[3].SetActive(true);
+         //   SliderGameObj.GetComponent<SliderTest>().slider[2].SetActive(false);
+         //   SliderGameObj.GetComponent<SliderTest>().slider[3].SetActive(true);
    
         }
         else if (HappinessSliderValue > HappinessClamp / 6 && HappinessSliderValue < HappinessClamp / 5)
@@ -162,8 +162,8 @@ public class HappinessManager : MonoBehaviour
             Anim.SetBool("is>33", false);
             Anim.SetBool("<20", false);
             Anim.SetBool("is>66", true);
-            SliderGameObj.GetComponent<SliderTest>().slider[3].SetActive(false);
-            SliderGameObj.GetComponent<SliderTest>().slider[4].SetActive(true);
+           // SliderGameObj.GetComponent<SliderTest>().slider[3].SetActive(false);
+           // SliderGameObj.GetComponent<SliderTest>().slider[4].SetActive(true);
  
         }
         else if (HappinessSliderValue > HappinessClamp / 5 && HappinessSliderValue < HappinessClamp / 4)
@@ -172,8 +172,8 @@ public class HappinessManager : MonoBehaviour
             Anim.SetBool("is>33", false);
             Anim.SetBool("<20", false);
             Anim.SetBool("is>66", true);
-            SliderGameObj.GetComponent<SliderTest>().slider[4].SetActive(false);
-            SliderGameObj.GetComponent<SliderTest>().slider[5].SetActive(true);
+          //  SliderGameObj.GetComponent<SliderTest>().slider[4].SetActive(false);
+          //  SliderGameObj.GetComponent<SliderTest>().slider[5].SetActive(true);
    
         }
         else if (HappinessSliderValue > HappinessClamp / 4 && HappinessSliderValue < HappinessClamp / 3)
@@ -182,8 +182,8 @@ public class HappinessManager : MonoBehaviour
             Anim.SetBool("is>33", false);
             Anim.SetBool("<20", false);
             Anim.SetBool("is>66", true);
-            SliderGameObj.GetComponent<SliderTest>().slider[5].SetActive(false);
-            SliderGameObj.GetComponent<SliderTest>().slider[6].SetActive(true);
+          //  SliderGameObj.GetComponent<SliderTest>().slider[5].SetActive(false);
+          //  SliderGameObj.GetComponent<SliderTest>().slider[6].SetActive(true);
  
         }
         else if (HappinessSliderValue > HappinessClamp / 3 && HappinessSliderValue < HappinessClamp / 2)
@@ -192,20 +192,20 @@ public class HappinessManager : MonoBehaviour
             Anim.SetBool("is>33", false);
             Anim.SetBool("<20", false);
             Anim.SetBool("is>66", true);
-            SliderGameObj.GetComponent<SliderTest>().slider[6].SetActive(false);
-            SliderGameObj.GetComponent<SliderTest>().slider[7].SetActive(true);
+           // SliderGameObj.GetComponent<SliderTest>().slider[6].SetActive(false);
+           // SliderGameObj.GetComponent<SliderTest>().slider[7].SetActive(true);
            
        
         }
         else if (HappinessSliderValue > HappinessClamp / 2 && HappinessSliderValue < HappinessClamp)
         {
-            SliderGameObj.GetComponent<SliderTest>().slider[7].SetActive(false);
-            SliderGameObj.GetComponent<SliderTest>().slider[8].SetActive(true);
+          // SliderGameObj.GetComponent<SliderTest>().slider[7].SetActive(false);
+          //  SliderGameObj.GetComponent<SliderTest>().slider[8].SetActive(true);
         }
         else if (HappinessSliderValue > HappinessClamp)
         {
-            SliderGameObj.GetComponent<SliderTest>().slider[8].SetActive(false);
-            SliderGameObj.GetComponent<SliderTest>().slider[9].SetActive(true);
+          //  SliderGameObj.GetComponent<SliderTest>().slider[8].SetActive(false);
+          //  SliderGameObj.GetComponent<SliderTest>().slider[9].SetActive(true);
           
 
             FillColour.color = Color.green;
