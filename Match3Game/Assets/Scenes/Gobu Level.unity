@@ -350,6 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 676a119dca6cf4e4cb9299267ca18693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DisableNodeDrop: 0
   Width: 6
   Height: 5
   Gold: 0
@@ -465,18 +466,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &218729730 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2446049184734777771, guid: d7fb396edf155de40895610ead7b8864,
-    type: 3}
-  m_PrefabInstance: {fileID: 2335805762085885306}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &227157799
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -503,7 +492,7 @@ PrefabInstance:
         type: 3}
       propertyPath: HappinessSlider
       value: 
-      objectReference: {fileID: 218729730}
+      objectReference: {fileID: 1017524041}
     - target: {fileID: 114904152250435826, guid: 6e21ef18f925f614bb8952d2a3856f01,
         type: 3}
       propertyPath: multiplier.Array.data[4]
@@ -1303,7 +1292,7 @@ PrefabInstance:
     - target: {fileID: 224414256328325872, guid: a92bfc308006e5446b08477ac4b1c845,
         type: 3}
       propertyPath: m_RootOrder
-      value: 34
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 224414256328325872, guid: a92bfc308006e5446b08477ac4b1c845,
         type: 3}
@@ -2042,6 +2031,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1017524041 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3825076247238957002, guid: d7fb396edf155de40895610ead7b8864,
+    type: 3}
+  m_PrefabInstance: {fileID: 2335805762085885306}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1018790061
 GameObject:
   m_ObjectHideFlags: 0
@@ -2493,7 +2494,7 @@ PrefabInstance:
     - target: {fileID: 224232149412884792, guid: f20b3c8caa1820542962c7d7f229c725,
         type: 3}
       propertyPath: m_RootOrder
-      value: 35
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 224232149412884792, guid: f20b3c8caa1820542962c7d7f229c725,
         type: 3}
@@ -3628,6 +3629,7 @@ MonoBehaviour:
   GoldSpawn: {fileID: 192660692}
   Gold: {fileID: 1063094474349120, guid: bcf6c6e79b25cd9459703152c93c0b2e, type: 3}
   HappinessManagerScript: {fileID: 0}
+  Total: 0
 --- !u!82 &1694413310
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4340,7 +4342,7 @@ Transform:
   - {fileID: 561391293}
   - {fileID: 1572655119}
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1896910351
 GameObject:
@@ -4618,7 +4620,7 @@ PrefabInstance:
     - target: {fileID: 5417023198510313171, guid: 256a7a897b484f341b8817f6a62295f2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 36
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 5417023198510313171, guid: 256a7a897b484f341b8817f6a62295f2,
         type: 3}
@@ -5239,6 +5241,11 @@ PrefabInstance:
       propertyPath: MouseCursorObj
       value: 
       objectReference: {fileID: 1842875222}
+    - target: {fileID: 8848662033642868986, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7fb396edf155de40895610ead7b8864, type: 3}
 --- !u!1001 &4250320173778584650

@@ -50,10 +50,7 @@ public class CompanionScript : MonoBehaviour
         // HungerSlider min and max
 
     }
-    private void Update()
-    {
-        Debug.Log(this.gameObject);
-    }
+ 
 
 
     public void FeedMonster()
@@ -75,18 +72,23 @@ public class CompanionScript : MonoBehaviour
 
         }
         Total = 0;
+        // Mutlplier is equal to player level
         int mulpliernum = HappinessGameObj.GetComponent<HappinessManager>().Level;
  
+        // Total amount from the combo is equal to the number of nodes plus combo score
         Total = EatingPeices.Count + DotManagerScriptRef.ComboScore ;
+        // Total multlpied by multiplier 
         Total *= mulpliernum;
+        // Adds total to score
         DotManagerScriptRef.TotalScore += Total;
         DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
 
+        // If the player can earch currency they will have a Levelvalue out of 70 chance getting a coin
         if (HappinessManagerScript.CanGetCurrency)
         {
             CurrencyChance = HappinessGameObj.GetComponent<HappinessManager>().Level;
 
-            int chance = Random.Range(CurrencyChance, 100);
+            int chance = Random.Range(CurrencyChance, 70);
             if (chance == 42)
             {
                 PowerUpManagerScript.Currency += Random.Range(1,3);
