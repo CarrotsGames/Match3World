@@ -357,6 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 676a119dca6cf4e4cb9299267ca18693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DisableNodeDrop: 0
   Width: 6
   Height: 6
   Gold: 0
@@ -609,7 +610,7 @@ PrefabInstance:
         type: 3}
       propertyPath: HappinessSlider
       value: 
-      objectReference: {fileID: 2078725915}
+      objectReference: {fileID: 721159909}
     - target: {fileID: 114904152250435826, guid: 6e21ef18f925f614bb8952d2a3856f01,
         type: 3}
       propertyPath: Anim
@@ -645,6 +646,11 @@ PrefabInstance:
       propertyPath: CurrentHappiness
       value: 
       objectReference: {fileID: 1045391934}
+    - target: {fileID: 114904152250435826, guid: 6e21ef18f925f614bb8952d2a3856f01,
+        type: 3}
+      propertyPath: SliderGameObj
+      value: 
+      objectReference: {fileID: 721159908}
     - target: {fileID: 4874126141112344, guid: 6e21ef18f925f614bb8952d2a3856f01, type: 3}
       propertyPath: m_LocalPosition.x
       value: 86.8
@@ -2134,6 +2140,11 @@ PrefabInstance:
       propertyPath: MoneyUnlockImage
       value: 
       objectReference: {fileID: 873597606}
+    - target: {fileID: 8848662033642868986, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2335640169551085877, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_IsActive
@@ -2305,11 +2316,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 2c7943fa499caca44a612fcca57a0d02,
         type: 3}
-    - target: {fileID: 2394172821840322240, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 712ea1636cbda86469c28d81bc68be86, type: 2}
     - target: {fileID: 2449821724921795210, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: skipButton
@@ -2334,6 +2340,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2394172821840322240, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 712ea1636cbda86469c28d81bc68be86, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7fb396edf155de40895610ead7b8864, type: 3}
 --- !u!114 &721159906 stripped
@@ -2358,6 +2369,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &721159908 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5481593579499973286, guid: d7fb396edf155de40895610ead7b8864,
+    type: 3}
+  m_PrefabInstance: {fileID: 721159905}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &721159909 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3825076247238957002, guid: d7fb396edf155de40895610ead7b8864,
+    type: 3}
+  m_PrefabInstance: {fileID: 721159905}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721159908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &721898473
@@ -5458,6 +5487,7 @@ MonoBehaviour:
   GoldSpawn: {fileID: 0}
   Gold: {fileID: 0}
   HappinessManagerScript: {fileID: 0}
+  Total: 0
 --- !u!82 &1694413310
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7017,18 +7047,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ea10712bd73981428cecc28524a3a8f, type: 3}
---- !u!114 &2078725915 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2446049184734777771, guid: d7fb396edf155de40895610ead7b8864,
-    type: 3}
-  m_PrefabInstance: {fileID: 721159905}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2094486897
 GameObject:
   m_ObjectHideFlags: 0

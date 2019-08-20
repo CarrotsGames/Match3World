@@ -72,7 +72,7 @@ public class HappinessManager : MonoBehaviour
         {
             PlayLevelAdScript = SleepAd.GetComponent<PlayLevelAd>();
         }
-        SliderGameObj = GameObject.Find("Slider");
+        
         HappinessClamp = 100;
         HappinessClamp += Level * 50;
         LevelText.text = "" + Level;
