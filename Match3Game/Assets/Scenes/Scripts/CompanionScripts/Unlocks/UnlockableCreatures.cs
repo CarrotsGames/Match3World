@@ -12,6 +12,8 @@ public class UnlockableCreatures : MonoBehaviour
     private string NewGobuUnlocked;
     // Put all locked companions in here 
     public GameObject[] LockedCompanions;
+    // Put all locked companions in here 
+    public GameObject[] BuyCompanions;
     // holds all the Available companions in gameobject
     private GameObject CompanionStorage;
     // Has all available companions in list
@@ -84,54 +86,63 @@ public class UnlockableCreatures : MonoBehaviour
         {
             if (UnlockableMoobling[0] == "BINKY")
             {
-                LockedCompanions[0].GetComponent<Image>().sprite = CompanionImages[0];
-                LockedCompanions[0].GetComponent<Button>().enabled = true;
+                BuyCompanions[0].SetActive(false);
+                LockedCompanions[0].SetActive(true);
+               
             }
+          
             if (UnlockableMoobling[1] == "KOKO")
             {
-                LockedCompanions[1].GetComponent<Image>().sprite = CompanionImages[1];
-                LockedCompanions[1].GetComponent<Button>().enabled = true;
+                BuyCompanions[1].SetActive(false);
+                LockedCompanions[1].SetActive(true);
+
             }
+          
+
             if (CriusUnlocked == "CRIUS")
             {
-                LockedCompanions[2].GetComponent<Image>().sprite = CompanionImages[2];
-                LockedCompanions[2].GetComponent<Button>().enabled = true;
+                BuyCompanions[2].SetActive(false);
+                LockedCompanions[2].SetActive(true);
             }
+       
             if (UnlockableMoobling[3] == "SAUCO")
             {
-                LockedCompanions[3].GetComponent<Image>().sprite = CompanionImages[3];
-                LockedCompanions[3].GetComponent<Button>().enabled = true;
+                BuyCompanions[3].SetActive(false);
+                LockedCompanions[3].SetActive(true);
             }
+           
             if (UnlockableMoobling[4] == "CHICKPEA")
             {
-                LockedCompanions[4].GetComponent<Image>().sprite = CompanionImages[4];
-                LockedCompanions[4].GetComponent<Button>().enabled = true;
+                BuyCompanions[4].SetActive(false);
+                LockedCompanions[4].SetActive(true);
             }
+         
             if (UnlockableMoobling[5] == "SQUISHY")
             {
-                LockedCompanions[5].GetComponent<Image>().sprite = CompanionImages[5];
-                LockedCompanions[5].GetComponent<Button>().enabled = true;
+                BuyCompanions[5].SetActive(false);
+                LockedCompanions[5].SetActive(true);
             }
+          
             //MONTHLY
             if (UnlockableMoobling[6] == "Cronus Locked")
             {
- 
-                LockedCompanions[6].GetComponent<Image>().sprite = CompanionImages[6];
-                LockedCompanions[6].GetComponent<Button>().enabled = true;
+                BuyCompanions[6].SetActive(false);
+                LockedCompanions[6].SetActive(true);
             }
+       
             if (UnlockableMoobling[7] == "OKAMI")
             {
-
-                LockedCompanions[7].GetComponent<Image>().sprite = CompanionImages[7];
-                LockedCompanions[7].GetComponent<Button>().enabled = true;
+                BuyCompanions[7].SetActive(false);
+                LockedCompanions[7].SetActive(true);
             }
+      
             //MONTHLY
             if (UnlockableMoobling[8] == "Ida Locked")
             {
-                Debug.Log("IDA");
-                LockedCompanions[8].GetComponent<Image>().sprite = CompanionImages[8];
-                LockedCompanions[8].GetComponent<Button>().enabled = true;
+                BuyCompanions[8].SetActive(false);
+                LockedCompanions[8].SetActive(true);
             }
+       
         }
     }
     // Checks the companionName strings name and unlocks that character

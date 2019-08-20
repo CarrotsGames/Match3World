@@ -51,6 +51,8 @@ public class HappinessManager : MonoBehaviour
         //checks if players in main scene
         // if they are then the happinessStates void wont be called to avoid mixing saves
         Scene CurrentScene = SceneManager.GetActiveScene();
+        // Gets current scene
+        SceneName = CurrentScene.name;
         Level = PlayerPrefs.GetInt(Companion.name + "Multiplier", Level);
         SleepAd = GameObject.FindGameObjectWithTag("SleepingAd");
         // If for somereason level is 0 make it 1
@@ -64,7 +66,7 @@ public class HappinessManager : MonoBehaviour
         {
             CanGetCurrency = true;
         }
-        if (SceneName == "Main Screen New" || SceneName == "Gobu Tutorial")
+        if (SceneName == "Main Screen" || SceneName == "Gobu Tutorial")
         {
             OnMainScene = true;
         }
@@ -80,8 +82,7 @@ public class HappinessManager : MonoBehaviour
         CompanionSave = Companion.name + "Value";
         HappinessSliderValue = PlayerPrefs.GetFloat(CompanionSave);
      
-        // Gets current scene
-        SceneName = CurrentScene.name;
+   
       
         Board = GameObject.FindGameObjectWithTag("BoardSpawn");
 
