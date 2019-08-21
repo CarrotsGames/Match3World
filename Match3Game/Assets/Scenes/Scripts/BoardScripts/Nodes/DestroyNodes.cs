@@ -179,7 +179,7 @@ public class DestroyNodes : MonoBehaviour {
                 Index++;
                 Combo = Index;
                 CountCombo();
-                if (Index == ComboList.Count && Index > 10)
+                if (Index == ComboList.Count && Index > 8)
                 {
                     SCR.GetComponent<ColourRemover>().Red = true;
 
@@ -187,7 +187,7 @@ public class DestroyNodes : MonoBehaviour {
                     Debug.Log("SCRSPAWN");
                     ComboTime += 0.50f;
                 }
-                else if(Index == ComboList.Count && Index > 6)
+                else if(Index == ComboList.Count && Index > 5)
                 {
                     Debug.Log("BOMBSPAWN");
                     Instantiate(ComboBomb, LastKnownPosition, Quaternion.identity);
@@ -195,6 +195,9 @@ public class DestroyNodes : MonoBehaviour {
 
 
                 }
+                // ELSE IF GREATER THAN HALF REMOVE REST OF NODES
+                //                  OR 
+                // ELSE IF MORE THAN 10 GET RID OF END NUMBER * 2
                 //  Handheld.Vibrate();
             }
             // if not than add anyway to avoid to play particles
