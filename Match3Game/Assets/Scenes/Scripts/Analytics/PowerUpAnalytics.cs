@@ -14,14 +14,8 @@ public class PowerUpAnalytics : MonoBehaviour
  
 
     // Update is called once per frame
-    void Update()
-    {
-       if(PlayFabAnalytics.DelayTime > 14)
-        {
-            SendAnalytics();
-        }
-    }
-    void SendAnalytics()
+   
+    public void SendAnalytics()
     {
         Currency = PlayerPrefs.GetInt("CURRENCY");
 

@@ -62,6 +62,8 @@ public class GameTransitions : MonoBehaviour {
         anim.SetBool("Transition", true);
         settingsMenu.SetActive(false);
         Analytics.GetComponent<PlayFabAnalytics>().GraphedData();
+        Analytics.GetComponent<PowerUpAnalytics>().SendAnalytics();
+
     }
 
 

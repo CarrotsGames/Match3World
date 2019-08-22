@@ -30,7 +30,7 @@ public class DestroyNodes : MonoBehaviour {
     private int Test;
     private bool Reset;
     private bool ComboPause;
-    
+    private GameObject Board;
     private GameObject PowerUpGameObj;
     // Checks how many combos have been done all time
     private int ComboNum;
@@ -46,6 +46,7 @@ public class DestroyNodes : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+
         Scene CurrentScene = SceneManager.GetActiveScene();
         SceneName = CurrentScene.name;
         PowerUpGameObj = GameObject.Find("PowerUps");
@@ -59,6 +60,7 @@ public class DestroyNodes : MonoBehaviour {
         ComboGameObj.SetActive(false);    
         Timer = 0;
         HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
+        Board = GameObject.FindGameObjectWithTag("BoardSpawn");
      }
 
     // Update is called once per frame
@@ -159,7 +161,6 @@ public class DestroyNodes : MonoBehaviour {
     }
     void DestoryNodes()
     {
-
         if (Index < ComboList.Count)
         {  // plays particle at index
             PlayParticle();
@@ -173,13 +174,46 @@ public class DestroyNodes : MonoBehaviour {
              
             SCR.GetComponent<ColourRemover>().Colour = ComboList[Index].transform.gameObject.tag;
             // if the combo is greater than 4 start the ui counting
+
             if (ComboList.Count > 4)
             {
-                // the current index is equal to the combo
                 Index++;
+
+                // the current index is equal to the combo
                 Combo = Index;
                 CountCombo();
-                if (Index == ComboList.Count && Index > 8)
+                // if the combo is half the board destory rest of board
+                if (Index == ComboList.Count && Index >= Board.transform.childCount / 2)
+                {
+                    Debug.Log("BOMBSPAWN");
+                    // Activates colour remover for all colours 
+                    // RED
+                    SCR.GetComponent<ColourRemover>().Colour = "Red";
+                    SCR.GetComponent<ColourRemover>().Red = true;
+                    SCR.GetComponent<ColourRemover>().RemoveColour();
+                    // BLUE
+                    SCR.GetComponent<ColourRemover>().Colour = "Blue";
+                    SCR.GetComponent<ColourRemover>().Red = true;
+                    SCR.GetComponent<ColourRemover>().RemoveColour();
+                    // GREEN
+                    SCR.GetComponent<ColourRemover>().Colour = "Green";
+                    SCR.GetComponent<ColourRemover>().Red = true;
+                    SCR.GetComponent<ColourRemover>().RemoveColour();
+                    // YELLOW (NOTE YELLOW IS NOW PINK)
+                    SCR.GetComponent<ColourRemover>().Colour = "Yellow";
+                    SCR.GetComponent<ColourRemover>().Red = true;
+                    SCR.GetComponent<ColourRemover>().RemoveColour();
+                    ComboTime += 0.50f;
+                }
+                else if (Index == ComboList.Count && Index > 11)
+                {
+                    Debug.Log("SuperCombo");
+                    SCR.GetComponent<ColourRemover>().Red = true;
+                    SCR.GetComponent<ColourRemover>().RemoveColour();
+                    Instantiate(ComboBomb, LastKnownPosition, Quaternion.identity);
+                    ComboTime += 0.50f;
+                }
+                else if (Index == ComboList.Count && Index > 8)
                 {
                     SCR.GetComponent<ColourRemover>().Red = true;
 
@@ -195,6 +229,7 @@ public class DestroyNodes : MonoBehaviour {
 
 
                 }
+ 
                 // ELSE IF GREATER THAN HALF REMOVE REST OF NODES
                 //                  OR 
                 // ELSE IF MORE THAN 10 GET RID OF END NUMBER * 2
