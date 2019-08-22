@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class settings : MonoBehaviour {
 
-    public GameObject settingsMenu;
+    public Animator uiSliderAnim;
 
     public GameObject audioManager;
 
@@ -23,13 +24,17 @@ public class settings : MonoBehaviour {
 
     private GameObject AudioManagerGameObj;
     private AudioManager AudioManagerScript;
- 
+
+    public bool open;
+
+
     private void Start()
     {
         AudioManagerGameObj = GameObject.FindGameObjectWithTag("AudioManager");
         AudioManagerScript = AudioManagerGameObj.GetComponent<AudioManager>();
         musicOff = PlayerPrefs.GetInt("MusicSave") != 0;
         soundOff = PlayerPrefs.GetInt("SoundSave") != 0;
+
 
         if (musicOff)
         {
@@ -50,17 +55,30 @@ public class settings : MonoBehaviour {
         }
 
     }
-    public void TurnOffTab()
+
+    public void OpenSlider()
     {
-        settingsMenu.SetActive(false);
+
+        if (open == true)
+        {
+            uiSliderAnim.SetBool("Close", true);
+            uiSliderAnim.SetBool("Open", false);
+            open = false;
+        }else if (open == false)
+        {
+            uiSliderAnim.SetBool("Open", true);
+            uiSliderAnim.SetBool("Close", false);
+            open = true;
+        }
+
+
+
     }
 
-    public void OpenMenu()
-    {
-        settingsMenu.SetActive(true);
-    }
+
 
    
+
    public void MusicOn()
     {
 
@@ -103,5 +121,12 @@ public class settings : MonoBehaviour {
 
 
     }
+
+    public void LoadMain()
+    {
+        SceneManager.LoadScene("Main Screen");
+    }
+
+
   
 }
