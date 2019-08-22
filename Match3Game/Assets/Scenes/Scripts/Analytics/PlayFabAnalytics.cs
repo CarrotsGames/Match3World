@@ -57,7 +57,7 @@ public class PlayFabAnalytics : MonoBehaviour {
 
         TimeOnScene += Time.deltaTime;
         DelayTime += Time.deltaTime;
-        if (DelayTime > 15)
+        if (DelayTime > 20)
         {
             SetUserData();
             TrackedGold();
@@ -65,24 +65,25 @@ public class PlayFabAnalytics : MonoBehaviour {
         }
         // Test = false;
          
-       Score = DotManagerScript.SceneScore;
-       GoldFound = DotManagerScript.GoldScore;
-       PlayerPrefs.SetFloat(SaveScoreName, Score);
-       PlayerPrefs.SetFloat(CompanionTime, TimeOnScene);
-       PlayerPrefs.SetInt(GoldFoundLevel, GoldFound);
-
-       SCR = PlayerPrefs.GetInt("SCR");
-       Shuffle = PlayerPrefs.GetInt("SHUFFLE");
-       SuperBomb = PlayerPrefs.GetInt("SUPERBOMB");
-       SuperMultlpier = PlayerPrefs.GetInt("SUPERMULTLPIER");
-       Currency = PlayerPrefs.GetInt("CURRENCY");
-       ComboNum = PlayerPrefs.GetInt(SaveScoreName + "COMBONUM");
-       BigComboNum = PlayerPrefs.GetInt(SaveScoreName + "BIGCOMBONUM");
+     
         
     }
 
     void SetUserData()
     {
+        Score = DotManagerScript.SceneScore;
+        GoldFound = DotManagerScript.GoldScore;
+        PlayerPrefs.SetFloat(SaveScoreName, Score);
+        PlayerPrefs.SetFloat(CompanionTime, TimeOnScene);
+        PlayerPrefs.SetInt(GoldFoundLevel, GoldFound);
+
+        SCR = PlayerPrefs.GetInt("SCR");
+        Shuffle = PlayerPrefs.GetInt("SHUFFLE");
+        SuperBomb = PlayerPrefs.GetInt("SUPERBOMB");
+        SuperMultlpier = PlayerPrefs.GetInt("SUPERMULTLPIER");
+        Currency = PlayerPrefs.GetInt("CURRENCY");
+        ComboNum = PlayerPrefs.GetInt(SaveScoreName + "COMBONUM");
+        BigComboNum = PlayerPrefs.GetInt(SaveScoreName + "BIGCOMBONUM");
         if (GetComponent<PlayFabLogin>().HasLoggedIn == true)
         {
             PlayFabClientAPI.UpdateUserData(new UpdateUserDataRequest()
@@ -131,20 +132,20 @@ public class PlayFabAnalytics : MonoBehaviour {
   }
     public void GraphedData()
     {
-        PlayFabClientAPI.WritePlayerEvent(new WriteClientPlayerEventRequest()
-        {
-            Body = new Dictionary<string, object>() {
-        { CompanionScore.name, Score },
-        { CompanionTime, "" + TimeOnScene },
+    //    PlayFabClientAPI.WritePlayerEvent(new WriteClientPlayerEventRequest()
+    //    {
+    //        Body = new Dictionary<string, object>() {
+    //    { CompanionScore.name, Score },
+    //    { CompanionTime, "" + TimeOnScene },
 
 
-    },
-            EventName = "TestPlayer_Progression"
-        },
-        result => SentOutAnalytics(), //ANALYTICS RESULTS,
+    //},
+    //        EventName = "TestPlayer_Progression"
+    //    },
+    //    result => SentOutAnalytics(), //ANALYTICS RESULTS,
 
 
-        error => Debug.LogError(error.GenerateErrorReport()));
+    //    error => Debug.LogError(error.GenerateErrorReport()));
     }
 
     void SentOutAnalytics( )
