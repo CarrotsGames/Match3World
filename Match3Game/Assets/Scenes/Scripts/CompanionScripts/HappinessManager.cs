@@ -75,8 +75,8 @@ public class HappinessManager : MonoBehaviour
             PlayLevelAdScript = SleepAd.GetComponent<PlayLevelAd>();
         }
         
-        HappinessClamp = 100;
-        HappinessClamp += Level * 50;
+        //HappinessClamp = 100;
+        HappinessClamp += Level * 250;
         LevelText.text = "" + Level;
         // Gets companions current level
         CompanionSave = Companion.name + "Value";
@@ -101,6 +101,11 @@ public class HappinessManager : MonoBehaviour
         if (!OnMainScene)
         {
             HappinessStates();
+        }if(Input.GetKey(KeyCode.Alpha3))
+        {
+            Level = 1;
+            PlayerPrefs.SetInt(Companion.name + "Multiplier", Level);
+
         }
         // Displays hunger value (used in debug)
         //HungerMetre.text = "" + Hunger;
@@ -226,8 +231,8 @@ public class HappinessManager : MonoBehaviour
                 // Add multiplier    
                 HappinessSliderValue = 0;
                 //  NightTime.SetActive(true);
-                HappinessClamp = 100;
-                HappinessClamp += Level * 50;
+                HappinessClamp = 0;
+                HappinessClamp += Level * 250;
             }
         }
         else
