@@ -31,8 +31,7 @@ public class ChallengeManager : MonoBehaviour
     private int ChallengeScore;
     //CLEAR BOARD CHALLENGE 
     private GameObject Board;
-    private BoardScript BoardScriptRef;
-    private GameObject Companion;
+     private GameObject Companion;
     private CompanionScript CompanionScriptRef;
       // Start is called before the first frame update
     void Start()
@@ -44,8 +43,7 @@ public class ChallengeManager : MonoBehaviour
         // Grabs dotmanager script on that gameobject to get info
         DotManagerScript = DotManagerGameObj.GetComponent<DotManager>();
         Board = GameObject.FindGameObjectWithTag("BoardSpawn");
-        BoardScriptRef = Board.GetComponent<BoardScript>();
-    }
+     }
     private void Update()
     {
         
