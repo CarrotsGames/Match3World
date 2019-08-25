@@ -350,6 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 676a119dca6cf4e4cb9299267ca18693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Limit: 0
   DisableNodeDrop: 0
   Width: 6
   Height: 5
@@ -1241,12 +1242,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4547847551672286, guid: 4e6ef3740c972984e99b2437585cc990,
     type: 3}
   m_PrefabInstance: {fileID: 1587989245}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &842981958 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2335640169551085877, guid: d7fb396edf155de40895610ead7b8864,
-    type: 3}
-  m_PrefabInstance: {fileID: 2335805762085885306}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &849221126
 PrefabInstance:
@@ -2604,6 +2599,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1327803590}
   - component: {fileID: 1327803589}
+  - component: {fileID: 1327803591}
   m_Layer: 10
   m_Name: CHALLENGE
   m_TagString: Untagged
@@ -2623,7 +2619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28e2a33066283b6408d12d0dab0e3172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChallengeType: Clear
+  ChallengeType: BeatScore
   ChallengeDescription: A REEEEEEE
   ChallengeText: {fileID: 352334866}
   TotalMoves: 5
@@ -2644,6 +2640,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1327803591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327803588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32a00640e6d82044a905ed15938341ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DailyAdPlays: {fileID: 0}
+  PowerUpManagerScript: {fileID: 0}
+  gameId: 3222685
+  placementId: 
+  testMode: 0
+  AddPlayCount: 0
 --- !u!1 &1374271145 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1266555554428142, guid: 4e6ef3740c972984e99b2437585cc990,
@@ -5258,7 +5272,7 @@ PrefabInstance:
         type: 3}
       propertyPath: settingsMenu
       value: 
-      objectReference: {fileID: 842981958}
+      objectReference: {fileID: 0}
     - target: {fileID: 114898036899560986, guid: bca90714ddbb8544796b1d79e4753570,
         type: 3}
       propertyPath: Analytics
@@ -5499,10 +5513,25 @@ PrefabInstance:
       propertyPath: MoneyUnlockImage
       value: 
       objectReference: {fileID: 2063797687}
+    - target: {fileID: 8848662033642868986, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2335805762401495742, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -149
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335805763860882730, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -10.300049
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335805761952868969, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 125.88989
       objectReference: {fileID: 0}
     - target: {fileID: 2555732428335856599, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}

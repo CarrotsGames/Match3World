@@ -23,7 +23,7 @@ public class ChallengeManager : MonoBehaviour
     [Header("CLEAR BOARD IN TIME CHALLENGE")]
     public float Timer;
     public Text ClearTime;
-
+    private bool ChallengeFinished;
     //BEAT SCORE CHALLENGE
     [Header("BEAT SCORE CHALLENGE")]
     // Limit of moves
@@ -48,52 +48,66 @@ public class ChallengeManager : MonoBehaviour
     }
     private void Update()
     {
+        
         ChallengeText.text = ChallengeDescription;
-        switch (ChallengeType)
+        if (Lives.LiveCount > 0)
         {
-            case "Clear":
-                {
-                    ClearBoard();
-                }
-                break;
-            case "ClearX":
-                {
-                    ClearInXMoves();
-                }
-                break;
-            case "BeatScore":
-                {
-                    BeatScore();
-                }
-                break;
-            case "":
-                {
-                    Debug.LogError("No challenge Set");
-                }
+            switch (ChallengeType)
+            {
+                case "Clear":
+                    {
+                        ClearBoard();
+                    }
+                    break;
+                case "ClearX":
+                    {
+                        ClearInXMoves();
+                    }
+                    break;
+                case "BeatScore":
+                    {
+                        BeatScore();
+                    }
+                    break;
+                case "":
+                    {
+                        Debug.LogError("No challenge Set");
+                    }
 
-                break;
+                    break;
+            }
+        }
+        else
+        {
+            //DISPLAY LIFE COUNT?
+            Debug.Log("Out of lives soz");
         }
     }
     void ClearInXMoves()
     {
-        if(DotManagerScript.ConnectionMade)
+        if (!ChallengeFinished)
         {
-            NumberOfMoves++;
-            DotManagerScript.ConnectionMade = false;
-        }
-        if(NumberOfMoves <= TotalMoves)
-        {
-            // Canvas included in children so when no nodes 
-            // child count is 1
-            if(Board.transform.childCount == 1)
+            if (DotManagerScript.ConnectionMade)
             {
-                Debug.Log("COMPLETE");
+                NumberOfMoves++;
+                DotManagerScript.ConnectionMade = false;
             }
-            
-        }
-        else if (NumberOfMoves > TotalMoves)
-        {
-            Debug.Log("FAILED");
+            if (NumberOfMoves <= TotalMoves)
+            {
+                // Canvas included in children so when no nodes 
+                // child count is 1
+                if (Board.transform.childCount == 1)
+                {
+                    Debug.Log("COMPLETE");
+                }
+
+            }
+            else if (NumberOfMoves > TotalMoves)
+            {
+                Lives.LiveCount -= 1;
+                ChallengeFinished = true;
+                Debug.Log("FAILED");
+            }
         }
          
     }
@@ -101,21 +115,27 @@ public class ChallengeManager : MonoBehaviour
     void ClearBoard()
     {
         ClearTime.text = "" + Timer;
-        if (Timer > 0)
+        if (!ChallengeFinished)
         {
-
-            if (Board.transform.childCount == 1)
+            if (Timer > 0)
             {
-                Debug.Log("COMPLETE");
+
+                if (Board.transform.childCount == 1)
+                {
+                    Debug.Log("COMPLETE");
+                }
+                else
+                {
+                    Timer -= Time.deltaTime;
+                }
             }
             else
             {
-                Timer -= Time.deltaTime;
+                Lives.LiveCount -= 1;
+                ChallengeFinished = true;
+
+                Debug.Log("FAILED");
             }
-        }
-        else
-        {
-            Debug.Log("FAILED");
         }
     }
     void BeatScore()
@@ -123,9 +143,12 @@ public class ChallengeManager : MonoBehaviour
         ChallengeScore += CompanionScriptRef.Total;
         CompanionScriptRef.Total = 0;
         // Timer?
-        if (ChallengeScore > TargetScore)
+        if (!ChallengeFinished)
         {
-            Debug.Log("CHALLENGE COMPLETE");
+            if (ChallengeScore > TargetScore)
+            {
+                Debug.Log("CHALLENGE COMPLETE");
+            }
         }
     }
 }
