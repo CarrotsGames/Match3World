@@ -6,11 +6,17 @@ public class ZenScript : MonoBehaviour
 {
     public GameObject zenButton;
     public GameObject challengeButton;
-
+    public GameObject challengeGameObject;
 
     public GameObject challengeCanvus;
     public GameObject[] mooblingChallengePanels;
 
+    private void Start()
+    {
+        // make sure that this is disabled at beggining of game
+        challengeGameObject.SetActive(false);
+
+    }
     public void OpenGobu()
     {
         mooblingChallengePanels[0].SetActive(true);
@@ -78,6 +84,7 @@ public class ZenScript : MonoBehaviour
 
     public void ChallengeMode()
     {
+        challengeGameObject.SetActive(false);
         zenButton.SetActive(true);
         challengeButton.SetActive(false);
     }
@@ -85,6 +92,7 @@ public class ZenScript : MonoBehaviour
 
     public void ZenMode()
     {
+        challengeGameObject.SetActive(true);
         challengeButton.SetActive(true);
         zenButton.SetActive(false);
     }

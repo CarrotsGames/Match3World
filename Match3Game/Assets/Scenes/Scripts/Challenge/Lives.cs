@@ -9,14 +9,11 @@ using UnityEngine.UI;
 public class Lives : MonoBehaviour
 {
     public static int LiveCount;
-    public Text DailyAdPlays;
-    public PowerUpManager PowerUpManagerScript;
-    public string gameId = "3222685";
-    public string placementId;
+    public Text NumberOfLives;
+
     long TimeStamp;
     long FullHeart;
     long HalfHeart;
-    public bool testMode = false;
     private float CurrentTime;
     double MinutesFromTs;
     public int AddPlayCount;
@@ -24,8 +21,7 @@ public class Lives : MonoBehaviour
     //Located in Canvas
     private void Start()
     {
-        IsCountingDown = false;
-        Advertisement.Initialize(gameId, testMode);
+        IsCountingDown = false;   
         CurrentTime = 3;
         TimeStamp = System.Convert.ToInt64(PlayerPrefs.GetString("TimeUntilLives"));
         LiveCount = PlayerPrefs.GetInt("LIVECOUNT");
@@ -35,16 +31,12 @@ public class Lives : MonoBehaviour
             IsCountingDown = false;
             LiveCount = 3;
         }
+        NumberOfLives.text = "" + LiveCount;
     }
-    private void Update()
+    private void FixedUpdate()
     {
-        PlayerPrefs.SetInt("LIVECOUNT", LiveCount);
-        Debug.Log(LiveCount);
-        //// Diplsays a temp text until it gets the current time
-        //if (DailyAdPlays.text == "New Text")
-        //{
-        //    DailyAdPlays.text = "Getting \n time....";
-        //}
+     
+ 
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             TimeStamp = 0;
@@ -65,35 +57,43 @@ public class Lives : MonoBehaviour
         }
         if (IsCountingDown)
         {
-            CurrentTime -= Time.deltaTime;
-            if (CurrentTime < 0)
-            {
-                Countdown();
-            }
-            // if the time has passed the target time
-            if (FullHeart > TimeStamp && LiveCount < 1)
-            {
-                LiveCount++;
-                PlayerPrefs.SetInt("LiveCount", AddPlayCount);
-            }
-            //                              plus 20 minutes
-            else if (FullHeart > TimeStamp + 1199100000 && LiveCount < 2)
-            {
-              //  SetFullCounter();
-                LiveCount++;
-                PlayerPrefs.SetInt("LiveCount", AddPlayCount);
-            }
-            //                               plus 40 minutes
-            else if (FullHeart > TimeStamp + 2398200000 && LiveCount < 3)
-            {
-              //  SetFullCounter();
-                LiveCount++;
-                IsCountingDown = false;
-
-                PlayerPrefs.SetInt("LiveCount", AddPlayCount);
-            }
+            CheckHearts();
         }
     }
+    // checks if the hearts have regened
+    void CheckHearts()
+    {
+        PlayerPrefs.SetInt("LIVECOUNT", LiveCount);
+
+        CurrentTime -= Time.deltaTime;
+        if (CurrentTime < 0)
+        {
+            Countdown();
+        }
+        // if the time has passed the target time
+        if (FullHeart > TimeStamp && LiveCount < 1)
+        {
+            LiveCount++;
+            PlayerPrefs.SetInt("LiveCount", AddPlayCount);
+        }
+        //                              plus 20 minutes
+        else if (FullHeart > TimeStamp + 1199100000 && LiveCount < 2)
+        {
+            //  SetFullCounter();
+            LiveCount++;
+            PlayerPrefs.SetInt("LiveCount", AddPlayCount);
+        }
+        //                               plus 40 minutes
+        else if (FullHeart > TimeStamp + 2398200000 && LiveCount < 3)
+        {
+            //  SetFullCounter();
+            LiveCount++;
+            IsCountingDown = false;
+
+            PlayerPrefs.SetInt("LiveCount", AddPlayCount);
+        }
+    }
+    // Countsdown the time until heart is ready
     void Countdown()
     {
         int TimeTillResetAd = unchecked((int)MinutesFromTs);
@@ -108,8 +108,7 @@ public class Lives : MonoBehaviour
         {
             int Minutes = (int)(TimeTillResetAd % 60);
             int Hours = (int)((TimeTillResetAd / 60));
-         //   DailyAdPlays.text = Hours + ":" + Minutes;
-        }
+         }
     }
   
     void GetCurrentTime()
