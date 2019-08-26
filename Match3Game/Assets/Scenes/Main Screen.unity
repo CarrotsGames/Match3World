@@ -5136,7 +5136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &177129729
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5264,6 +5264,8 @@ MonoBehaviour:
   youBoughtCanvus: {fileID: 1176109709}
   eggUnlock: {fileID: 1666778779}
   eggIncubation: 0
+  CreatureEggs: {fileID: 1606121076}
+  EggButtons: []
 --- !u!1 &177254712
 GameObject:
   m_ObjectHideFlags: 0
@@ -9796,15 +9798,16 @@ GameObject:
   - component: {fileID: 334743713}
   - component: {fileID: 334743716}
   - component: {fileID: 334743715}
-  - component: {fileID: 334743714}
   - component: {fileID: 334743717}
+  - component: {fileID: 334743718}
+  - component: {fileID: 334743714}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &334743713
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9834,50 +9837,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 334743712}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 40d79a36547126948a485b1c75b2e302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 334743715}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 177129733}
-        m_MethodName: PurchaseEgg
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+  Amount: 0
+  EggHatchScript: {fileID: 933629118}
+  youBoughtCanvus: {fileID: 1176109709}
+  eggUnlock: {fileID: 1666778779}
+  eggIncubation: 0
+  CreatureEggs: {fileID: 1606121076}
+  EggButtons: []
 --- !u!114 &334743715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9932,6 +9901,61 @@ MonoBehaviour:
   youBoughtCanvus: {fileID: 1176109709}
   eggUnlock: {fileID: 1666778779}
   eggIncubation: 0
+  CreatureEggs: {fileID: 1606121076}
+  EggButtons: []
+--- !u!114 &334743718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334743712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 334743715}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 334743717}
+        m_MethodName: PurchaseEgg
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &337345071
 GameObject:
   m_ObjectHideFlags: 0
@@ -26751,7 +26775,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &899503521
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26879,6 +26903,8 @@ MonoBehaviour:
   youBoughtCanvus: {fileID: 1176109709}
   eggUnlock: {fileID: 1666778779}
   eggIncubation: 0
+  CreatureEggs: {fileID: 1606121076}
+  EggButtons: []
 --- !u!1 &910868784
 GameObject:
   m_ObjectHideFlags: 0
@@ -50559,7 +50585,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1758641461
 RectTransform:
   m_ObjectHideFlags: 0
@@ -50687,6 +50713,8 @@ MonoBehaviour:
   youBoughtCanvus: {fileID: 1176109709}
   eggUnlock: {fileID: 1666778779}
   eggIncubation: 0
+  CreatureEggs: {fileID: 1606121076}
+  EggButtons: []
 --- !u!1001 &1767463933
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51284,7 +51312,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1794392452
 RectTransform:
   m_ObjectHideFlags: 0
@@ -51412,6 +51440,8 @@ MonoBehaviour:
   youBoughtCanvus: {fileID: 1176109709}
   eggUnlock: {fileID: 1666778779}
   eggIncubation: 0
+  CreatureEggs: {fileID: 1606121076}
+  EggButtons: []
 --- !u!1 &1801323349
 GameObject:
   m_ObjectHideFlags: 0
@@ -55295,7 +55325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1909227856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59832,7 +59862,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2075700850
 RectTransform:
   m_ObjectHideFlags: 0
@@ -59960,6 +59990,8 @@ MonoBehaviour:
   youBoughtCanvus: {fileID: 1176109709}
   eggUnlock: {fileID: 1666778779}
   eggIncubation: 0
+  CreatureEggs: {fileID: 1606121076}
+  EggButtons: []
 --- !u!1 &2078025326
 GameObject:
   m_ObjectHideFlags: 0

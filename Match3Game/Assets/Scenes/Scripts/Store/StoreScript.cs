@@ -61,7 +61,7 @@ public class StoreScript : MonoBehaviour
     }
     private void Update()
     {
-        if(!EggHatchScript.GetComponent<EggHatch>().StartCountDown)
+        if(!EggHatch.StartCountDown)
         {
             DisableEggButton();
 
@@ -217,7 +217,7 @@ public class StoreScript : MonoBehaviour
                 break;
             // EGG 
             case 5:
-                if (!EggHatchScript.GetComponent<EggHatch>().StartCountDown)
+                if (!EggHatch.StartCountDown)
                 {
                     if (PowerUpManagerScript.Currency >= CompanionPrice[0])
                     {
@@ -276,7 +276,7 @@ public class StoreScript : MonoBehaviour
     void DisableEggButton()
     {
         // disables the egg button and changes picture
-        if (EggHatchScript.GetComponent<EggHatch>().StartCountDown)
+        if (EggHatch.StartCountDown)
         {
             //   EggHatchButton.transform.GetChild(0).GetComponent<Button>().enabled = false;
             EggHatchButton.GetComponent<Image>().sprite = EggImages[1];

@@ -30,7 +30,7 @@ public class EggTimerPanel : MonoBehaviour {
     public void Update()
     {
         // If the countdown has begun 
-        if (EggHatchObj.GetComponent<EggHatch>().StartCountDown)
+        if (EggHatch.StartCountDown)
         {
             // Egg panel is active
             eggPanel.SetActive(true);

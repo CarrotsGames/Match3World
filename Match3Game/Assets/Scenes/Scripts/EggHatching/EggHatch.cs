@@ -12,7 +12,7 @@ public class EggHatch : MonoBehaviour
 
     DateTime Target;
     [HideInInspector]
-    public bool StartCountDown;
+    public static bool StartCountDown;
     public Text TimerText;
     public GameObject UnlockMoobling;
     [HideInInspector]
@@ -39,6 +39,7 @@ public class EggHatch : MonoBehaviour
     private string UnlockedCompanion;
     TimeSpan TimeTillEggHatch;
     public List<string> EggCreatures;
+
      // Use this for initialization
     void Start()
     {
@@ -55,9 +56,7 @@ public class EggHatch : MonoBehaviour
 
     private void Update()
     {
-        // Changes timer text until the server grabs current time
-     
-        StartCountDown = (PlayerPrefs.GetInt("EGGCOUNTDOWN") != 0);
+       
      
         // begins countdown
         if (StartCountDown)
@@ -76,6 +75,11 @@ public class EggHatch : MonoBehaviour
             // if the time is greater than time stamp hatch egg
             if (NowTime > TimeStamp)
             {
+                NowTime = 0;
+                TimeStamp = 0;
+                PlayerPrefs.SetString("EggHatch", "" + TimeStamp);
+
+                Debug.Log("OVER");
                 StartCountDown = false;
                 PlayerPrefs.SetInt("EGGCOUNTDOWN", (StartCountDown ? 1 : 0));
 
