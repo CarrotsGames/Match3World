@@ -11,8 +11,6 @@ public class StoreScript : MonoBehaviour
     public GameObject ItemStorage;
     public GameObject eggUnlocked;
     public GameObject UnlockMoobling;
-
-
 // Max "You Unlocked SplashScreen"
     public GameObject youBoughtCanvus;
 
@@ -25,10 +23,6 @@ public class StoreScript : MonoBehaviour
 
     //eggIncubation true = Egg in panel falses = egg needs to be bought
     public bool eggIncubation;
-
-
-
-
 
     public Sprite[] EggImages;
     // Link the egg hatch button in scene to this
