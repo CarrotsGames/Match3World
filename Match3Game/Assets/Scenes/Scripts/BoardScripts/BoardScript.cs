@@ -18,7 +18,7 @@ public class BoardScript : MonoBehaviour
     public GameObject Spawner;
     private List<GameObject> test = new List<GameObject>();
     string SceneName;
-
+    public float DelaySpawn;
     int Total;
     private GameObject SpecialSpawn;
     // List of all nodes in their order
@@ -29,16 +29,42 @@ public class BoardScript : MonoBehaviour
     string[] Colours = {"Red" ,"Blue","Green","Pink" };
     private void Start()
     {
-        ObjectPoolerScript = ObjectPooler.Instance;
+        // if no delay time is set automatically set it to 1 
+        if(DelaySpawn == 0)
+        {
+            DelaySpawn = 1;
+        }
+    
+        ObjectPoolerScript = ObjectPooler.Instance;          
     }
     private void FixedUpdate()
     {
+        if (DelaySpawn < 0)
+        {
+            ChildCount();
+        }
+        else 
+        {
+            DelaySpawn -= Time.deltaTime;
+        }
+    }
+    void InitialSpawn()
+    {
+        for (int i = 0; i < Limit; i++)
+        {
+            Randomise();
+            Spawn();
+        }
+    }
+    public void ChildCount()
+    {
+
         if (transform.childCount < Limit)
         {
             Randomise();
             // Rand = Random.Range(0, 3);
             Spawn();
-            
+
         }
     }
     void Randomise()
@@ -59,60 +85,5 @@ public class BoardScript : MonoBehaviour
     {
         ObjectPooler.Instance.SpawnFromPool(Colours[Rand], transform.position, Quaternion.identity);
     }
-    //  void Start()
-    //  {
-    //      Scene CurrentScene = SceneManager.GetActiveScene();
-    //      SceneName = CurrentScene.name;
-    //      if (SceneName != "GobuChallenge")
-    //      {
-    //          SpecialSpawn = GameObject.Find("SpecialNodeSpawn");
-    //          AllTiles = new BackgroundTileScript[Width, Height];
-    //          AllDots = new GameObject[Width, Height];
-    //          SetUpBoard();
-    //          Gold = 0;
-    //      }
-    //  }
-    //
-    //  private void SetUpBoard()
-    //  {
-    //      for (int i = 0; i < Width; i++)
-    //      {
-    //          for (int j = 0; j < Height; j++)
-    //          {
-    //              // Creates position for dots
-    //              Vector2 TempPosition = new Vector2(transform.position.x, transform.position.y);
-    //              GameObject BackGroundTile = Instantiate(TilePrefab, TempPosition, Quaternion.identity) as GameObject;
-    //              BackGroundTile.transform.parent = this.transform;
-    //              BackGroundTile.name = "( " + i + "," + j + ")";
-    //              // Creates dots for positions
-    //              int DotToUse = Random.Range(0, Dots.Length );
-    //              GameObject Dot = Instantiate(Dots[DotToUse], TempPosition, Quaternion.identity);
-    //              Dot.transform.parent = this.transform;
-    //              test.Add(Dot);
-    //           
-    //              Dot.name = "( " + i + "," + j + ")";
-    //              AllDots[i, j] = Dot;
-    //          }
-    //      }
-    //      Total = transform.childCount;
-    //
-    //  }
-    //  private void Update()
-    //  {
-    //
-    //      if(transform.childCount < Total)
-    //     {
-    //
-    //
-    //          // Creates dots for positions
-    //          if (!DisableNodeDrop)
-    //          {
-    //              int DotToUse = Random.Range(0, Dots.Length);
-    //              GameObject Dot = Instantiate(Dots[DotToUse], new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-    //              Dot.transform.parent = this.transform;
-    //              SpecialSpawn.GetComponent<AddSpecialNodes>().SpawnNode();
-    //          }
-    //       }
-    //  }
-
+  
 }
