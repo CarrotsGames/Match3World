@@ -28,7 +28,7 @@ public class DestroyNodes : MonoBehaviour {
     private int Combo;
     private float ComboTime;
     private int Test;
-    private bool Reset;
+   // private bool Reset;
     private bool ComboPause;
     private GameObject Board;
     private GameObject PowerUpGameObj;
@@ -65,13 +65,7 @@ public class DestroyNodes : MonoBehaviour {
 
     // Update is called once per frame
     private void Update()
-    {
-      
-        if (ComboList.Count < 1 && GetComponent<DestroyGold>().GoldList.Count < 1)
-        {
-
-         
-        }
+    {       
         // pauses the combo display 
         if(ComboPause)
         {
@@ -79,39 +73,11 @@ public class DestroyNodes : MonoBehaviour {
             if(ComboTime < 0)
             {
                 ComboPause = false;
-                Reset = true;
+                ResetNodes();
                 ComboTime = ComboVanishSpeed ;
             }
         }
-        // when the combo is over it resets all values
-        if(Reset)
-        {
-            Index = 0;
-            if (NormalCombo)
-            {
-                ComboNum = PlayerPrefs.GetInt(Analytics.GetComponent<PlayFabAnalytics>().SaveScoreName + "COMBONUM");
-                ComboNum++;
-                PlayerPrefs.SetInt(Analytics.GetComponent<PlayFabAnalytics>().SaveScoreName + "COMBONUM", ComboNum);
-            }
-            else if(BigCombo)
-            {
-                BigComboNum = PlayerPrefs.GetInt(Analytics.GetComponent<PlayFabAnalytics>().SaveScoreName + "BIGCOMBONUM");
-                BigComboNum++;
-                PlayerPrefs.SetInt(Analytics.GetComponent<PlayFabAnalytics>().SaveScoreName + "BIGCOMBONUM", BigComboNum);
-            }
-            PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
-            DotManagerScript.CanPlay = true;
-             //resets combo text 
-            ComboText.text = "";
-            //disables combo gameobject 
-            ComboGameObj.SetActive(false);
-            Combo = 0;
-            GetComponent<DotManager>().ComboScore = 0;
-            GetComponent<DotManager>().PeicesCount = 0;
-            Reset = false;
-            BigCombo = false;
-            NormalCombo = false;
-        }
+      
         // begins coutning the combo and addind particles
         if (StartDestroy)
         {
@@ -123,6 +89,35 @@ public class DestroyNodes : MonoBehaviour {
 
     }
  
+    void ResetNodes()
+    {
+       
+        Index = 0;
+        if (NormalCombo)
+        {
+            ComboNum = PlayerPrefs.GetInt(Analytics.GetComponent<PlayFabAnalytics>().SaveScoreName + "COMBONUM");
+            ComboNum++;
+            PlayerPrefs.SetInt(Analytics.GetComponent<PlayFabAnalytics>().SaveScoreName + "COMBONUM", ComboNum);
+        }
+        else if (BigCombo)
+        {
+            BigComboNum = PlayerPrefs.GetInt(Analytics.GetComponent<PlayFabAnalytics>().SaveScoreName + "BIGCOMBONUM");
+            BigComboNum++;
+            PlayerPrefs.SetInt(Analytics.GetComponent<PlayFabAnalytics>().SaveScoreName + "BIGCOMBONUM", BigComboNum);
+        }
+        PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
+        DotManagerScript.CanPlay = true;
+        //resets combo text 
+        ComboText.text = "";
+        //disables combo gameobject 
+        ComboGameObj.SetActive(false);
+        Combo = 0;
+        GetComponent<DotManager>().ComboScore = 0;
+        GetComponent<DotManager>().PeicesCount = 0;
+        BigCombo = false;
+        NormalCombo = false;
+       
+    }
     public void CreateComboList()
     {
         ComboList.Clear();
@@ -252,7 +247,7 @@ public class DestroyNodes : MonoBehaviour {
             // if there was no combo reset all properties
             else
             {
-                Reset = true;
+                ResetNodes();
             }
             // clear combo list
             ComboList.Clear();
