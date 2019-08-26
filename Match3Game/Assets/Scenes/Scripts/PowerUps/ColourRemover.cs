@@ -254,7 +254,7 @@ public class ColourRemover : MonoBehaviour
         else
         {
             Debug.Log("PowerUpEmpty");
-            PowerUpManagerScript.PowerUpEmpty();
+            PowerUpManagerScript.PowerUpEmpty("SCR");
         }
     }
     // plays particle effect for each node

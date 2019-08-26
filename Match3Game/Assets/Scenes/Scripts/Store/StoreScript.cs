@@ -30,6 +30,11 @@ public class StoreScript : MonoBehaviour
     // Refrences the EggHatchScript
     public GameObject EggHatchScript;
     // Item Quantities
+    //SCR 85
+    // SUPER SHUFFLE 85
+    // DOUBLE UP 150
+    // BOMB 85
+   
     public int SuperColourRemoverQuantity;
     public int SuperShuffleQuantity;
     public int SuperBombQuantity;
@@ -38,9 +43,9 @@ public class StoreScript : MonoBehaviour
 
     public int Navigate;
     // item Cost
-    public int SuperColourRemoverAmount;
-    public int SuperShuffleAmount;
-    public int SuperBombAmount;
+    public static int SuperColourRemoverAmount = 85;
+    public static int SuperShuffleAmount = 85;
+    public static int SuperBombAmount = 85;
     public int SuperMultiplierAmount;
     public int FreezeMultiplierAmount;
 

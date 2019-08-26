@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-
+using UnityEditor.SceneManagement;
 public class PowerUpManager : MonoBehaviour
 {
     public int NumOfShuffles;
@@ -118,8 +118,52 @@ public class PowerUpManager : MonoBehaviour
         }
     }
 
-    public void PowerUpEmpty()
+    public void PowerUpEmpty(string PowerUpName)
     {
+        switch(PowerUpName)
+        {
+            case "SCR":
+                {
+                    if (Currency > StoreScript.SuperColourRemoverAmount)
+                    {
+                        Debug.Log("Out of SCR Buy more??");
+
+                        // YOU ARE OUT OF ME 
+                        // BUY MORE OF ME?
+                    }
+                    else
+                    {
+                        Debug.Log("You got no cash boy and im owed 7k");
+                        // IF NO CLOSE UI
+                    }
+                }
+                break;
+            case "Shuffle":
+                {
+                    if (Currency > StoreScript.SuperShuffleAmount)
+                    {
+                        Debug.Log("Out of SHUFFLE");
+                    }
+                    else
+                    {
+                        Debug.Log("NEED MORE CASHHHHH");
+                    }
+                }
+                break;
+            case "BOMB":
+                {
+                    if (Currency > StoreScript.SuperBombAmount)
+                    {
+                        Debug.Log("Out of BOMB");
+                    }
+                    else
+                    {
+                        Debug.Log("Sorry sir or madam but it appears you are low on funds. Would you care to aquire more?.");
+
+                    }
+                }
+                break;
+        }
         // TELL PLAYER POWER UP IS EMPTY
 
         // ASK PLAYER TO GO TO STORE

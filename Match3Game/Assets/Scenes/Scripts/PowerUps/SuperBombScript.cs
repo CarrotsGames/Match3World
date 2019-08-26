@@ -59,10 +59,10 @@ public class SuperBombScript : MonoBehaviour
     {
         if (!CanPlaceBomb)
         {
-            PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonDisable();
 
             if (PowerUpManagerScript.HasBombs)
             {
+                PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonDisable();
                 // Counts how many times player uses this powerup
                 TimesUsed++;
                 PlayerPrefs.SetInt("SUPERBOMB", TimesUsed);
@@ -72,6 +72,11 @@ public class SuperBombScript : MonoBehaviour
                 PowerUpManagerScript.NumOfBombs -= 1;
                 CanPlaceBomb = true;
             }
+            else
+            {
+                PowerUpManagerScript.PowerUpEmpty("BOMB");
+            }
         }
+        
     }
 }

@@ -77,7 +77,7 @@ public class ShuffleScript : MonoBehaviour
         else
         {
             Debug.Log("PowerUpEmpty");
-            PowerUpManagerScript.PowerUpEmpty();
+            PowerUpManagerScript.PowerUpEmpty("Shuffle");
         }
     }
 
