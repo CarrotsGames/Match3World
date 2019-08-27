@@ -66,6 +66,7 @@ public class DotScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // TEST: PUT THIS IN MOUSEDOWN VOID TO TEST IF WORKS NEXT BUILD   
         // if more than one finger is on the screen stop connection
         if (Input.touchCount > 1  )
         {
@@ -74,6 +75,8 @@ public class DotScript : MonoBehaviour
             this.gameObject.GetComponent<Renderer>().material.color = Color.white;
             DotManagerScript.ResetLayer = true;
             DotManagerScript.Peices.Clear();
+            gameObject.layer = 0;
+            DotManagerScript.ResetLayer = false;
             OnMouseUp();
         }
             
@@ -121,12 +124,7 @@ public class DotScript : MonoBehaviour
 
             // DotManagerScript.StopInteracting = false;
         }
-        // restes dot layer
-        if (DotManagerScript.ResetLayer)
-        {
-            gameObject.layer = 0;
-            DotManagerScript.ResetLayer = false;
-        }
+      
         // resets dot material 
         if (DotManagerScript.ResetMaterial && !ReleaseNodeColour)
         {
@@ -151,10 +149,9 @@ public class DotScript : MonoBehaviour
        
     }
 
-    private void OnMouseOver()
+    private void OnMouseEnter()
     {
-
-        if (DotManagerScript.StartHighliting == true)
+         if (DotManagerScript.StartHighliting == true)
         {
             // Increases size of peice when selected
             Vector3 newScale = new Vector3();
@@ -239,7 +236,6 @@ public class DotScript : MonoBehaviour
                 this.gameObject.GetComponent<Renderer>().material.color = Color.black;
                 // changes peice layer
                 this.gameObject.layer = LayerType;
-
                 ToggleHighlite += 1;
                 // plays the node highlite sound
                 AudioManagerScript.NodeSource.clip = AudioManagerScript.NodeAudio[0];

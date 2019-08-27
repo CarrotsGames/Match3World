@@ -52,8 +52,7 @@ public class GameTransitions : MonoBehaviour {
         //RealTimeScript.ResetClock();
 
         SceneManager.LoadScene("Main Screen");
-        Analytics.GetComponent<PlayFabAnalytics>().GraphedData();
-    }
+     }
 
     public void HomeButton()
     {
@@ -61,9 +60,7 @@ public class GameTransitions : MonoBehaviour {
 
         anim.SetBool("Transition", true);
         settingsMenu.SetActive(false);
-        Analytics.GetComponent<PlayFabAnalytics>().GraphedData();
-        Analytics.GetComponent<PowerUpAnalytics>().SendAnalytics();
-
+        Analytics.GetComponent<PlayFabAnalytics>().PushAnalytics();
     }
 
 
