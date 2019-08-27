@@ -58,6 +58,7 @@ public class Lives : MonoBehaviour
         if (IsCountingDown)
         {
             CheckHearts();
+      
         }
     }
     // checks if the hearts have regened
@@ -71,27 +72,29 @@ public class Lives : MonoBehaviour
             Countdown();
         }
         // if the time has passed the target time
-        if (FullHeart > TimeStamp && LiveCount < 1)
+        if (FullHeart > TimeStamp)
         {
-            LiveCount++;
-            PlayerPrefs.SetInt("LiveCount", AddPlayCount);
-        }
-        //                              plus 20 minutes
-        else if (FullHeart > TimeStamp + 1199100000 && LiveCount < 2)
-        {
-            //  SetFullCounter();
-            LiveCount++;
-            PlayerPrefs.SetInt("LiveCount", AddPlayCount);
-        }
-        //                               plus 40 minutes
-        else if (FullHeart > TimeStamp + 2398200000 && LiveCount < 3)
-        {
-            //  SetFullCounter();
-            LiveCount++;
-            IsCountingDown = false;
-
-            PlayerPrefs.SetInt("LiveCount", AddPlayCount);
-        }
+            if (LiveCount < 3)
+            {
+                if (FullHeart > TimeStamp + 2398200000)
+                {
+                    LiveCount = 3;
+                }
+                else if (FullHeart > TimeStamp + 1199100000)
+                {
+                    LiveCount = 2;
+                }               
+                else if (FullHeart > TimeStamp)
+                {
+                    //  SetFullCounter();
+                   // TimeStamp += 1199100000;
+                    LiveCount = 1;
+                }
+                PlayerPrefs.SetInt("LiveCount", AddPlayCount);
+            }
+           
+         }
+        
     }
     // Countsdown the time until heart is ready
     void Countdown()
