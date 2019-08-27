@@ -353,7 +353,7 @@ public class DotScript : MonoBehaviour
         newScale.y = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
         transform.localScale = newScale;
         DotManagerScript.StartHighliting = false;
- 
+        DotManagerScript.CheckPieces();
 
     }
 

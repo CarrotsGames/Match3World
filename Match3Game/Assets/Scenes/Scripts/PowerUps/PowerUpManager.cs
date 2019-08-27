@@ -55,10 +55,12 @@ public class PowerUpManager : MonoBehaviour
         HasShuffles = false;
         HasSCR = false;
         HasBombs = false;
+        PowerUpChecker();
+        PowerUpSaves();
     }
 
-    // Update is called once per frame
-    void Update()
+ 
+    public void PowerUpSaves()
     {
         PlayerPrefs.SetInt("NUMSHUFFLE", NumOfShuffles);
         PlayerPrefs.SetInt("NUMSRC", NumOfSCR);
@@ -66,14 +68,17 @@ public class PowerUpManager : MonoBehaviour
         PlayerPrefs.SetInt("NUMSM", NumOfMultilpiers);
         PlayerPrefs.SetInt("NUMFREEZE", NumOfFreezeMultilpiers);
         PlayerPrefs.SetInt("CURRENCY", Currency);
-
         CurrencyText.text = " " + Currency;
         NumOfShufflesText.text = "" + NumOfShuffles;
         NumOfSCRText.text = "" + NumOfSCR;
         NumOfBombsText.text = "" + NumOfBombs;
         NumOfSMText.text = "" + NumOfMultilpiers;
         NumOfFMText.text = "" + NumOfFreezeMultilpiers;
-
+    }
+    public void PowerUpChecker()
+    {
+     
+      
         if (NumOfShuffles > 0)
         {
             HasShuffles = true;
@@ -117,7 +122,6 @@ public class PowerUpManager : MonoBehaviour
             HasFreezeMultlpliers = false;
         }
     }
-
     public void PowerUpEmpty(string PowerUpName)
     {
         switch(PowerUpName)

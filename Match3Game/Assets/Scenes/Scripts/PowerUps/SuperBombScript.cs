@@ -57,6 +57,7 @@ public class SuperBombScript : MonoBehaviour
 
     public void SuperBomb()
     {
+        PowerUpManagerScript.PowerUpChecker();
         if (!CanPlaceBomb)
         {
 
@@ -70,6 +71,7 @@ public class SuperBombScript : MonoBehaviour
                 BombPlayArea.SetActive(true);
 
                 PowerUpManagerScript.NumOfBombs -= 1;
+                PowerUpManagerScript.PowerUpSaves();
                 CanPlaceBomb = true;
             }
             else

@@ -35,7 +35,10 @@ public class BoardScript : MonoBehaviour
             DelaySpawn = 1;
         }
     
-        ObjectPoolerScript = ObjectPooler.Instance;          
+        ObjectPoolerScript = ObjectPooler.Instance;
+
+   
+        
     }
     private void FixedUpdate()
     {

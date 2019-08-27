@@ -84,6 +84,8 @@ public class ShuffleScript : MonoBehaviour
     }
    public void ShuffleButton()
     {
+        PowerUpManagerScript.PowerUpChecker();
+
         if (PowerUpManagerScript.HasShuffles)
         {
             if (CanShuffle)
@@ -97,6 +99,7 @@ public class ShuffleScript : MonoBehaviour
                 PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonDisable();
 
                 PowerUpManagerScript.NumOfShuffles -= 1;
+                PowerUpManagerScript.PowerUpSaves();
                 ShuffleGameObj.transform.localScale = new Vector3(CircleScale, CircleScale, CircleScale);
                 Vector3 test = new Vector3(4.5f, -24, -15);
 

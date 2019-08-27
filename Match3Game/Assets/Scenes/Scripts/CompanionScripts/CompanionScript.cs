@@ -107,6 +107,7 @@ public class CompanionScript : MonoBehaviour
             AudioManagerScript.MooblingSource.clip = AudioManagerScript.MooblingAudio[RandomSound];
             AudioManagerScript.MooblingSource.Play();    
         }
+        HappinessManagerScript.HappinessBar();
         DotManagerObj.GetComponent<DestroyNodes>().CreateComboList();
     }
 

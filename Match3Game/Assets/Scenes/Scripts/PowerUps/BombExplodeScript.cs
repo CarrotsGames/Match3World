@@ -50,6 +50,7 @@ public class BombExplodeScript : MonoBehaviour
             DotManagerScript.TotalScore += CollidedNodes.Count * HappinessManagerScript.Level;
             DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
             HappinessManagerScript.HappinessSliderValue += CollidedNodes.Count;
+            HappinessManagerScript.HappinessBar();
             AddScore = false;
         }
       
