@@ -105,10 +105,12 @@ public class settings : MonoBehaviour {
     public void SoundOn()
     {
         soundOff = false;
-
         AudioManagerScript.soundOn = true;
+
         noSound.SetActive(false);
         sound.SetActive(true);
+        AudioManagerScript.AudioToggle();
+
         PlayerPrefs.SetInt("SoundSave", (soundOff ? 1 : 0));
     }
     public void SoundOff()
@@ -117,6 +119,8 @@ public class settings : MonoBehaviour {
         soundOff = true;
         noSound.SetActive(true);
         sound.SetActive(false);
+        AudioManagerScript.AudioToggle();
+
         PlayerPrefs.SetInt("SoundSave", (soundOff ? 1 : 0));
 
 

@@ -90,22 +90,18 @@ public class HappinessManager : MonoBehaviour
         {
             BoardScriptRef = Board.GetComponent<BoardScript>();
         }
+        HappinessBar();
+        HappinessSlider.value = HappinessSliderValue;
 
-    }   
-    // Update is called once per frame
-    void Update()
+    }
+
+    public void HappinessBar()
     {
         LevelText.text = "Level:" + Level;
         CurrentHappiness.text = "Current EXP:" + HappinessSliderValue + "/" + HappinessClamp;
-      
         if (!OnMainScene)
         {
             HappinessStates();
-        }if(Input.GetKey(KeyCode.Alpha3))
-        {
-            Level = 1;
-            PlayerPrefs.SetInt(Companion.name + "Multiplier", Level);
-
         }
         // Displays hunger value (used in debug)
         //HungerMetre.text = "" + Hunger;
@@ -116,9 +112,8 @@ public class HappinessManager : MonoBehaviour
         // Slowly counts down Happiness value
         //HappinessSliderValue -= Time.deltaTime / 6;
         HappinessSlider.maxValue = HappinessClamp;
-       
-        PlayerPrefs.SetFloat(CompanionSave, HappinessSliderValue);
 
+        PlayerPrefs.SetFloat(CompanionSave, HappinessSliderValue);
     }
     // Plays animation at happiness states
     void HappinessStates()

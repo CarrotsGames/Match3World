@@ -20,23 +20,8 @@ public class AudioManager : MonoBehaviour {
         soundOn = (PlayerPrefs.GetInt(SaveBool) != 0);
     }
     // Update is called once per frame
-    void Update ()
-    {
-         if(Input.GetKey(KeyCode.W))
-        {
-            soundOn = false;
-            // saves bool as false
-            PlayerPrefs.SetInt(SaveBool, (soundOn ? 1 : 0));
-
-         }
-        if (Input.GetKey(KeyCode.S))
-        {
-            soundOn = true;
- 
-            // saves bool as true
-            PlayerPrefs.SetInt(SaveBool, (soundOn ? 1 : 0));
-
-        }
+    public void AudioToggle ()
+    { 
         if (!soundOn)
         {
             //Disable audioSource

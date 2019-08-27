@@ -171,6 +171,7 @@ public class ColourRemover : MonoBehaviour
             GoTimer = true;
             int Total = SCRAmount * HappinessManagerScript.Level;
             int EXPTotal = SCRAmount / 2;
+
             // TOTAL SCORE
             DotManagerScript.TotalScore += Total;
             //EXP BAR
@@ -178,7 +179,7 @@ public class ColourRemover : MonoBehaviour
             DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
             HasUsedSCR = true;
             PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
-
+            HappinessManagerScript.HappinessBar();
         }
         //Destroys rainbows nodes 
         // NOTE: this has its own if statement because it is getting the child of a 
@@ -218,13 +219,15 @@ public class ColourRemover : MonoBehaviour
     }
     public void SuperColourRemoverMenu()
     {
-        if(PowerUpManagerScript.HasSCR)
+        PowerUpManagerScript.PowerUpChecker();
+        if (PowerUpManagerScript.HasSCR)
         {
             PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonDisable();
             PowerUpInUse = true;
             DotManagerScript.ResetMaterial = false;
             PowerUpManagerScript.NumOfSCR -= 1;
-    
+            PowerUpManagerScript.PowerUpSaves();
+
             // Highlights Colours nodes with their desired colour eg red has red outline
             for (int i = 0; i < BoardGameObj.transform.childCount; i++)
             {
