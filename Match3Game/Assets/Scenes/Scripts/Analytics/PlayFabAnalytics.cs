@@ -53,24 +53,25 @@ public class PlayFabAnalytics : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	//void Update () {
+    //
+    //    TimeOnScene += Time.deltaTime;
+    //  // DelayTime += Time.deltaTime;
+    //  // if (DelayTime > 20)
+    //  // {
+    //  //     SetUserData();
+    //  //     TrackedGold();
+    //  //      DelayTime = 0;
+    //  // }
+    //    // Test = false;
+    //     
+    // 
+    //    
+    //}
 
-        TimeOnScene += Time.deltaTime;
-        DelayTime += Time.deltaTime;
-        if (DelayTime > 20)
-        {
-            SetUserData();
-            TrackedGold();
-             DelayTime = 0;
-        }
-        // Test = false;
-         
-     
-        
-    }
-
-    void SetUserData()
+    public void SetUserData()
     {
+        
         Score = DotManagerScript.SceneScore;
         GoldFound = DotManagerScript.GoldScore;
         PlayerPrefs.SetFloat(SaveScoreName, Score);
@@ -94,11 +95,7 @@ public class PlayFabAnalytics : MonoBehaviour {
              {CompanionTime,"" + TimeOnScene },
              {GoldFoundLevel,"" + GoldFound },
 
-           // {"(0)TOTALGOLD","" + Currency  },
-           // {"(1)POWERUP: SCR","" + SCR  },
-           // {"(2)POWERUP: SHUFFLE","" + Shuffle  },
-           // {"(3)POWERUP: BOMB","" + SuperBomb  },
-           // {"(4)POWERUP: SM","" + SuperMultlpier  },
+         
              {CompanionScore.name +  "COMBONUM", "" + ComboNum },
              {CompanionScore.name + "BIGCOMBONUM", "" + BigComboNum },
              { CompanionLevel , "" + HappinessManagerScript.Level }
@@ -115,59 +112,18 @@ public class PlayFabAnalytics : MonoBehaviour {
         }
     }
 //
-  public void TrackedGold()
+  public void PushAnalytics()
   {
-      PlayFabClientAPI.WritePlayerEvent(new WriteClientPlayerEventRequest()
-      {
-          Body = new Dictionary<string, object>() {
-           {"(0)TOTALGOLD","" + Currency  },
-        
-     },
-          EventName = "CHECKGOLD"
-      },
-      result => SentOutAnalytics(), //ANALYTICS RESULTS,
-  
-  
-      error => Debug.LogError(error.GenerateErrorReport()));
-  }
-    public void GraphedData()
-    {
-    //    PlayFabClientAPI.WritePlayerEvent(new WriteClientPlayerEventRequest()
-    //    {
-    //        Body = new Dictionary<string, object>() {
-    //    { CompanionScore.name, Score },
-    //    { CompanionTime, "" + TimeOnScene },
-
-
-    //},
-    //        EventName = "TestPlayer_Progression"
-    //    },
-    //    result => SentOutAnalytics(), //ANALYTICS RESULTS,
-
-
-    //    error => Debug.LogError(error.GenerateErrorReport()));
+        // Gets moobling data
+        GetComponent<PlayFabAnalytics>().SetUserData();
+        //Sends gold amount and powerups used
+        GetComponent<PowerUpAnalytics>().SendAnalytics();
+        //Sends gold amount and powerups used
+        GetComponent<PlayFabLogin>().TournamentScore();
+        //Checks if theyres any money coming in
+        GetComponent<PlayFabCurrency>().GetCurrency();
     }
-
-    void SentOutAnalytics( )
-    {
-        // Anayltics sent out
-    }
-    // void GetUserData()
-    // {
-    //     PlayFabClientAPI.GetUserData(new GetUserDataRequest()
-    //     {
-    //         PlayFabId = "This is an ID?",
-    //         Keys = null
-    //     }, result => {
-    //         Debug.Log("Got user data:");
-    //         if (result.Data == null || !result.Data.ContainsKey("Ancestor")) Debug.Log("No Ancestor");
-    //         else Debug.Log("Ancestor: " + result.Data["Ancestor"].Value);
-    //     }, (error) => {
-    //         Debug.Log("Got error retrieving user data:");
-    //         Debug.Log(error.GenerateErrorReport());
-    //     });
-    // }
-
+    
 }
 
  

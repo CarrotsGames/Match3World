@@ -25,13 +25,22 @@ public class MobileExitScript : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             GT.HomeButton();
-            Analytics.GetComponent<PlayFabAnalytics>().GraphedData();
-        }
+         }
          
          
     }
     private void OnApplicationQuit()
     {
-     }
-
+        // Gets moobling data
+        Analytics.GetComponent<PlayFabAnalytics>().SetUserData();
+        //Sends gold amount and powerups used
+        Analytics.GetComponent<PowerUpAnalytics>().SendAnalytics();
+        //Sends gold amount and powerups used
+        Analytics.GetComponent<PlayFabLogin>().TournamentScore();
+       
+    }
+    private void OnApplicationPause(bool pause)
+    {
+        
+    }
 }

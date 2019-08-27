@@ -2,6 +2,7 @@
 using System.Collections;
 using PlayFab;
 using PlayFab.ClientModels;
+using UnityEngine.SceneManagement;
 public class PlayFabCurrency : MonoBehaviour
 {
     private GameObject PowerUpManGameObj;
@@ -12,9 +13,14 @@ public class PlayFabCurrency : MonoBehaviour
     int amount;
     int Versions;
     float Timer;
+    string SceneName;
     // Use this for initialization
     void Start()
     {
+        // if they are then the happinessStates void wont be called to avoid mixing saves
+        Scene CurrentScene = SceneManager.GetActiveScene();
+        // Gets current scene
+        SceneName = CurrentScene.name;
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
@@ -24,7 +30,6 @@ public class PlayFabCurrency : MonoBehaviour
 
     public void Update()
     {
-        Timer -= Time.deltaTime;
 
         if (Timer <= 0)
         {
@@ -38,11 +43,19 @@ public class PlayFabCurrency : MonoBehaviour
             {
               //  Debug.Log("Not logged into servers");
             }
-            Timer += 10;
 
+            Timer = 10;
+        }
+        else
+        {
+            // if on the main screen keep checking if moneys coming in
+            if (SceneName == "Main Screen")
+            {
+                Timer -= Time.deltaTime;
+            }
         }
     }
-    void GetCurrency()
+    public void GetCurrency()
     {
         if (string.IsNullOrEmpty(PlayFabSettings.TitleId))
       {

@@ -20,7 +20,7 @@ public class PlayFabLogin : MonoBehaviour
         SceneName = CurrentScene.name;
         if (SceneName != "Money Store" && SceneName != "StoreScene")
         {
-            UpdateScoreTimer = 3;
+            UpdateScoreTimer = 240;
             DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
             DotManagerScript = DotManagerObj.GetComponent<DotManager>();
         }
@@ -63,22 +63,26 @@ public class PlayFabLogin : MonoBehaviour
             // Updates player Score to server every x Seconds
             if (UpdateScoreTimer < 0)
             {
-
-                PlayFabClientAPI.UpdatePlayerStatistics(new UpdatePlayerStatisticsRequest
-                {
-                    Statistics = new List<StatisticUpdate>
+                TournamentScore();
+            }
+        }
+    
+    }
+   // Tournament score push (I know, a weird place to have this but blame playfab tutorials)
+    public void TournamentScore()
+    {
+            PlayFabClientAPI.UpdatePlayerStatistics(new UpdatePlayerStatisticsRequest
+            {
+                Statistics = new List<StatisticUpdate>
             {
 
                 new StatisticUpdate {StatisticName = "TournamentScore", Value = DotManagerScript.TotalScore,},
              }
 
-                },
-                  result => { Debug.Log("User statistics updated"); },
-                  error => { Debug.LogError(error.GenerateErrorReport()); });
-                UpdateScoreTimer = 10;
-            }
-        }
-    
+            },
+                result => { Debug.Log("User statistics updated"); },
+                error => { Debug.LogError(error.GenerateErrorReport()); });
+            UpdateScoreTimer = 240;
+         
     }
- 
-}
+ }
