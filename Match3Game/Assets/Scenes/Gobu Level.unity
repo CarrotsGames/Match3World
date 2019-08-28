@@ -1080,23 +1080,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114445274775491486, guid: a92bfc308006e5446b08477ac4b1c845,
-        type: 3}
-      propertyPath: m_Text
-      value: Congratulations you've Unlocked Binkie
-      objectReference: {fileID: 0}
-    - target: {fileID: 114445274775491486, guid: a92bfc308006e5446b08477ac4b1c845,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: c926c717c7c89fe499345c425fecd792,
-        type: 3}
-    - target: {fileID: 7027464820769831420, guid: a92bfc308006e5446b08477ac4b1c845,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: c926c717c7c89fe499345c425fecd792,
-        type: 3}
     - target: {fileID: 224242730791636616, guid: a92bfc308006e5446b08477ac4b1c845,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1133,6 +1116,23 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 2cce7acb9f5588b43b1e34b151877163,
+        type: 3}
+    - target: {fileID: 114445274775491486, guid: a92bfc308006e5446b08477ac4b1c845,
+        type: 3}
+      propertyPath: m_Text
+      value: Congratulations you've Unlocked Binkie
+      objectReference: {fileID: 0}
+    - target: {fileID: 114445274775491486, guid: a92bfc308006e5446b08477ac4b1c845,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: c926c717c7c89fe499345c425fecd792,
+        type: 3}
+    - target: {fileID: 7027464820769831420, guid: a92bfc308006e5446b08477ac4b1c845,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: c926c717c7c89fe499345c425fecd792,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a92bfc308006e5446b08477ac4b1c845, type: 3}
@@ -3980,6 +3980,8 @@ GameObject:
   - component: {fileID: 1781371922}
   - component: {fileID: 1781371925}
   - component: {fileID: 1781371929}
+  - component: {fileID: 1781371927}
+  - component: {fileID: 1781371926}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4147,6 +4149,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1781371926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781371921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008c7c6bf6957b34588ceae142fb352d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SaveLocation: 
+--- !u!114 &1781371927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781371921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f38cf8eee56ff429756c54678129db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SaveNum: 0
 --- !u!114 &1781371928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5109,6 +5137,11 @@ PrefabInstance:
       propertyPath: MoneyUnlockImage
       value: 
       objectReference: {fileID: 2063797687}
+    - target: {fileID: 8848662033642868986, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2335805763232095239, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: HappinessManagerScript
@@ -5119,11 +5152,6 @@ PrefabInstance:
       propertyPath: MouseCursorObj
       value: 
       objectReference: {fileID: 1842875222}
-    - target: {fileID: 8848662033642868986, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7fb396edf155de40895610ead7b8864, type: 3}
 --- !u!1001 &2436516372427604212

@@ -56,7 +56,7 @@ public class GameTransitions : MonoBehaviour {
 
     public void HomeButton()
     {
-        //RealTimeScript.ResetClock();
+        RealTimeScript.ResetClock();
 
         anim.SetBool("Transition", true);
         settingsMenu.SetActive(false);

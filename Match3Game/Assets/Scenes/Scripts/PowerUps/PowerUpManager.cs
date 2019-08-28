@@ -10,6 +10,13 @@ public class PowerUpManager : MonoBehaviour
     public int NumOfMultilpiers;
     public int NumOfFreezeMultilpiers;
 
+    public GameObject OutOfItemCanvas;
+    public GameObject OutOfSCR;
+    public GameObject OutOfBombs;
+    public GameObject OutOfShuffle;
+    public GameObject OutOfMultlpier;
+
+
     public int Currency;
     private int FirstTimeLogin;
 
@@ -76,9 +83,7 @@ public class PowerUpManager : MonoBehaviour
         NumOfFMText.text = "" + NumOfFreezeMultilpiers;
     }
     public void PowerUpChecker()
-    {
-     
-      
+    {        
         if (NumOfShuffles > 0)
         {
             HasShuffles = true;
@@ -124,14 +129,15 @@ public class PowerUpManager : MonoBehaviour
     }
     public void PowerUpEmpty(string PowerUpName)
     {
-        switch(PowerUpName)
+        OutOfItemCanvas.SetActive(true);
+        switch (PowerUpName)
         {
             case "SCR":
                 {
                     if (Currency > StoreScript.SuperColourRemoverAmount)
                     {
                         Debug.Log("Out of SCR Buy more??");
-
+                        OutOfSCR.SetActive(true);
                         // YOU ARE OUT OF ME 
                         // BUY MORE OF ME?
                     }
@@ -146,7 +152,7 @@ public class PowerUpManager : MonoBehaviour
                 {
                     if (Currency > StoreScript.SuperShuffleAmount)
                     {
-                        Debug.Log("Out of SHUFFLE");
+                        OutOfShuffle.SetActive(true);
                     }
                     else
                     {
@@ -158,7 +164,7 @@ public class PowerUpManager : MonoBehaviour
                 {
                     if (Currency > StoreScript.SuperBombAmount)
                     {
-                        Debug.Log("Out of BOMB");
+                        OutOfBombs.SetActive(true);
                     }
                     else
                     {

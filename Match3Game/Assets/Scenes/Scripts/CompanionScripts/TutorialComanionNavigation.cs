@@ -238,74 +238,64 @@ public class TutorialComanionNavigation : MonoBehaviour
         {
             case "Gobu":
                 Happiness[0] = PlayerPrefs.GetFloat("GobuHappiness");
-                RealTimeScript.HappinessCountDown[0] = Happiness[0];
-                HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[0];
+     
                 HappinessManagerScript.CompanionSave = "GobuHappiness";
                 break;
             case "Binkie Locked":
                 Happiness[1] = PlayerPrefs.GetFloat("BinkyHappiness");
-                RealTimeScript.HappinessCountDown[1] = Happiness[1];
-                HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[1];
+   
                 HappinessManagerScript.CompanionSave = "BinkyHappiness";
 
                 break;
             case "Koko Locked":
                 Happiness[2] = PlayerPrefs.GetFloat("KokoHappiness");
                 //HappinessManagerScript.Happiness = RealTimeScript.TimerCountDown2;
-                RealTimeScript.HappinessCountDown[2] = Happiness[2];
-                HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[2];
+
                 HappinessManagerScript.CompanionSave = "KokoHappiness";
 
                 break;
             //shares happiness with Gobu
             case "Crius Locked":
                 Happiness[3] = PlayerPrefs.GetFloat("CriusHappiness");
-                RealTimeScript.HappinessCountDown[3] = Happiness[3];
-                HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[3];
+         
                 HappinessManagerScript.CompanionSave = "CriusHappiness";
 
                 break;
           
             case "Sauco Locked":
                 Happiness[4] = PlayerPrefs.GetFloat("SaucoHappiness");
-                RealTimeScript.HappinessCountDown[4] = Happiness[4];
-                HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[4];
+      
                 HappinessManagerScript.CompanionSave = "SaucoHappiness";
 
                 break;
 
             case "Chick-Pee Locked":
                 Happiness[5] = PlayerPrefs.GetFloat("ChickPeaHappiness");
-                RealTimeScript.HappinessCountDown[5] = Happiness[5];
-                HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[5];
+        
                 HappinessManagerScript.CompanionSave = "ChickPeaHappiness";
 
                 break;
 
             case "Squishy Locked":
                 Happiness[6] = PlayerPrefs.GetFloat("SquishyHappiness");
-                RealTimeScript.HappinessCountDown[6] = Happiness[6];
-                HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[6];
+      
                 HappinessManagerScript.CompanionSave = "SquishyHappiness";
 
                 break;
             case "Cronus Locked":
                 Happiness[7] = PlayerPrefs.GetFloat("CronosHappiness");
-                RealTimeScript.HappinessCountDown[7] = Happiness[7];
-                HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[7];
+
                 HappinessManagerScript.CompanionSave = "CronosHappiness";
 
                 break;
             case "Okami Locked":
                 Happiness[8] = PlayerPrefs.GetFloat("OkamiHappiness");
-                RealTimeScript.HappinessCountDown[8] = Happiness[8];
-                HappinessManagerScript.HappinessSliderValue = RealTimeScript.HappinessCountDown[8];
+       
                 HappinessManagerScript.CompanionSave = "OkamiHappiness";
 
                 break;
         }
-        RealTimeScript.LoadCompanionHappiness();
-
+ 
      }
 
 

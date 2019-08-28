@@ -31,6 +31,8 @@ public class MobileExitScript : MonoBehaviour {
     }
     private void OnApplicationQuit()
     {
+        RealTimeScript.ResetClock();
+
         // Gets moobling data
         Analytics.GetComponent<PlayFabAnalytics>().SetUserData();
         //Sends gold amount and powerups used
@@ -41,6 +43,7 @@ public class MobileExitScript : MonoBehaviour {
     }
     private void OnApplicationPause(bool pause)
     {
-        
+      
+
     }
 }
