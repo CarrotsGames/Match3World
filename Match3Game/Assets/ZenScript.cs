@@ -8,6 +8,10 @@ public class ZenScript : MonoBehaviour
     public GameObject challengeButton;
     public GameObject challengeGameObject;
 
+    public GameObject zenText;
+    public GameObject challengeText;
+
+
     public GameObject challengeCanvus;
     public GameObject[] mooblingChallengePanels;
 
@@ -87,6 +91,8 @@ public class ZenScript : MonoBehaviour
         challengeGameObject.SetActive(false);
         zenButton.SetActive(true);
         challengeButton.SetActive(false);
+        zenText.SetActive(true);
+        challengeText.SetActive(false);
     }
 
 
@@ -95,6 +101,8 @@ public class ZenScript : MonoBehaviour
         challengeGameObject.SetActive(true);
         challengeButton.SetActive(true);
         zenButton.SetActive(false);
+        challengeText.SetActive(true);
+        zenText.SetActive(false);
     }
 
 
