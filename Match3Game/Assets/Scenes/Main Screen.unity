@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 973929}
   - component: {fileID: 973928}
   - component: {fileID: 973927}
+  - component: {fileID: 973930}
   m_Layer: 5
   m_Name: CB4
   m_TagString: Untagged
@@ -189,7 +190,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 973928}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 973930}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &973928
@@ -229,6 +241,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 973925}
   m_CullTransparentMesh: 0
+--- !u!114 &973930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Gobu Challenges
+  ChallengeType: ClearX
+  ChallengeDescription: This is a test4
+  ChallengeTimer: 0
+  TotalMoves: 10
 --- !u!1 &1645992 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 481117058851374971, guid: c48dae2b39178bc498df340966b5eef7,
@@ -24269,6 +24298,7 @@ GameObject:
   - component: {fileID: 818039683}
   - component: {fileID: 818039682}
   - component: {fileID: 818039681}
+  - component: {fileID: 818039684}
   m_Layer: 5
   m_Name: CB3
   m_TagString: Untagged
@@ -24334,7 +24364,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 818039682}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 818039684}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &818039682
@@ -24374,6 +24415,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 818039679}
   m_CullTransparentMesh: 0
+--- !u!114 &818039684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818039679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Gobu Challenges
+  ChallengeType: ClearX
+  ChallengeDescription: This is a test3
+  ChallengeTimer: 0
+  TotalMoves: 10
 --- !u!1 &818267113
 GameObject:
   m_ObjectHideFlags: 0
@@ -57423,6 +57481,7 @@ GameObject:
   - component: {fileID: 1928050839}
   - component: {fileID: 1928050838}
   - component: {fileID: 1928050837}
+  - component: {fileID: 1928050840}
   m_Layer: 5
   m_Name: CB1
   m_TagString: Untagged
@@ -57488,7 +57547,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1928050838}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1928050840}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1928050838
@@ -57528,6 +57598,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1928050835}
   m_CullTransparentMesh: 0
+--- !u!114 &1928050840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928050835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Gobu Challenges
+  ChallengeType: ClearX
+  ChallengeDescription: 'This is a test '
+  ChallengeTimer: 0
+  TotalMoves: 10
 --- !u!1 &1934761367
 GameObject:
   m_ObjectHideFlags: 0
@@ -60305,6 +60392,7 @@ GameObject:
   - component: {fileID: 2036154808}
   - component: {fileID: 2036154807}
   - component: {fileID: 2036154806}
+  - component: {fileID: 2036154809}
   m_Layer: 5
   m_Name: CB5
   m_TagString: Untagged
@@ -60370,7 +60458,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2036154807}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2036154809}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2036154807
@@ -60410,6 +60509,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2036154804}
   m_CullTransparentMesh: 0
+--- !u!114 &2036154809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036154804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Gobu Challenges
+  ChallengeType: BeatScore
+  ChallengeDescription: This is a test5
+  ChallengeTimer: 120
+  TotalMoves: 10
 --- !u!1001 &2039248223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61644,6 +61760,7 @@ GameObject:
   - component: {fileID: 2081409700}
   - component: {fileID: 2081409699}
   - component: {fileID: 2081409698}
+  - component: {fileID: 2081409701}
   m_Layer: 5
   m_Name: CB2
   m_TagString: Untagged
@@ -61709,7 +61826,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2081409699}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2081409701}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2081409699
@@ -61749,6 +61877,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2081409696}
   m_CullTransparentMesh: 0
+--- !u!114 &2081409701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081409696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Gobu Challenges
+  ChallengeType: Clear
+  ChallengeDescription: This is a test2
+  ChallengeTimer: 60
+  TotalMoves: 10
 --- !u!1001 &2081770368
 PrefabInstance:
   m_ObjectHideFlags: 0
