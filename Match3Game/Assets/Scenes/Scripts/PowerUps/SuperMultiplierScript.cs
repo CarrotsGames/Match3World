@@ -43,7 +43,9 @@ public class SuperMultiplierScript : MonoBehaviour
         RealTimeScript = MainCamera.GetComponent<RealTimeCounter>();
        // RealTimeScript.SuperMultiplierCountDown();
         SMTimerUI.SetActive(false);
-        if(MultlpierTimer < 0)
+        MultlpierTimer = PlayerPrefs.GetInt("SMTIMER");
+        RealTimeScript.SuperMultiplierCountDown();
+        if (MultlpierTimer < 0)
         {
             MultlpierTimer = 80;
             CanUseSuperMultiplier = false;

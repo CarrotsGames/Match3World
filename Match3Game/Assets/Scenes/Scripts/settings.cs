@@ -26,15 +26,20 @@ public class settings : MonoBehaviour {
     private AudioManager AudioManagerScript;
 
     public bool open;
+    private RealTimeCounter RealTimeScript;
+    private GameObject MainCamera;
 
 
     private void Start()
-    {
+    {     
+        // References the Realtimescript which is located on camera (TEMP)
+        MainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        RealTimeScript = MainCamera.GetComponent<RealTimeCounter>();
+
         AudioManagerGameObj = GameObject.FindGameObjectWithTag("AudioManager");
         AudioManagerScript = AudioManagerGameObj.GetComponent<AudioManager>();
         musicOff = PlayerPrefs.GetInt("MusicSave") != 0;
         soundOff = PlayerPrefs.GetInt("SoundSave") != 0;
-
 
         if (musicOff)
         {
@@ -128,6 +133,7 @@ public class settings : MonoBehaviour {
 
     public void LoadMain()
     {
+        RealTimeScript.ResetClock();
         SceneManager.LoadScene("Main Screen");
     }
 

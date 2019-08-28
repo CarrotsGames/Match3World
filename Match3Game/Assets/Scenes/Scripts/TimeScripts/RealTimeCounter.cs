@@ -25,9 +25,7 @@ public class RealTimeCounter : MonoBehaviour
         // Update timer with real time passed
         //TODO [Find a better way of doing this]
         this.gameObject.GetComponent<TimeMasterScript>().CheckInstance();
- 
-        SuperMultiplierCountDown();
-    }
+     }
  
 
     public void SuperMultiplierCountDown()
@@ -39,6 +37,7 @@ public class RealTimeCounter : MonoBehaviour
         if (SuperMultiplier.MultlpierTimer > -1)
         {
             SuperMultiplier.MultlpierTimer = PlayerPrefs.GetFloat("SMTIMER");
+ 
             SuperMultiplier.MultlpierTimer -= TimeMasterScript.instance.CheckDate();
             PlayerPrefs.SetFloat("SMTIMER", SuperMultiplier.MultlpierTimer);
             SuperMultiplier.CanUseSuperMultiplier = true;

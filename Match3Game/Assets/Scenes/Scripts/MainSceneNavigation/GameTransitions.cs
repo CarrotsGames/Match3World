@@ -49,7 +49,7 @@ public class GameTransitions : MonoBehaviour {
 
     public void BackToMain()
     {
-        //RealTimeScript.ResetClock();
+        RealTimeScript.ResetClock();
 
         SceneManager.LoadScene("Main Screen");
      }
