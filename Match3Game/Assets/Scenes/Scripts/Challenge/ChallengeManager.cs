@@ -33,6 +33,8 @@ public class ChallengeManager : MonoBehaviour
     private GameObject Board;
     private GameObject Companion;
     private CompanionScript CompanionScriptRef;
+    GameObject Go;
+    int ChallengeNumber;
       // Start is called before the first frame update
     void Start()
     {
@@ -44,8 +46,10 @@ public class ChallengeManager : MonoBehaviour
         DotManagerScript = DotManagerGameObj.GetComponent<DotManager>();
         Board = GameObject.FindGameObjectWithTag("BoardSpawn");
         ChallengeType = PlayerPrefs.GetString("ChallengeType");
-        int ChallengeNumber = PlayerPrefs.GetInt("ChallengeIndex");
-        Instantiate(ChallengePrefabs[ChallengeNumber], transform.position, Quaternion.identity);
+        ChallengeNumber = PlayerPrefs.GetInt("ChallengeIndex");
+         
+        Go = Instantiate(ChallengePrefabs[ChallengeNumber], transform.position, Quaternion.identity);
+        
         ChallengeDescription = PlayerPrefs.GetString("ChallengeDescription");
         Timer = PlayerPrefs.GetFloat("ChallengeTime");
         TotalMoves = PlayerPrefs.GetInt("TotalMoves");
@@ -106,7 +110,7 @@ public class ChallengeManager : MonoBehaviour
             {
                 // Canvas included in children so when no nodes 
                 // child count is 1
-                if (Board.transform.childCount == 1)
+                if (Go.transform.childCount == 1)
                 {
                     Debug.Log("COMPLETE");
                 }
@@ -130,7 +134,7 @@ public class ChallengeManager : MonoBehaviour
             if (Timer > 0)
             {
 
-                if (Board.transform.childCount == 1)
+                if (Go.transform.childCount == 1)
                 {
                     Debug.Log("COMPLETE");
                 }
