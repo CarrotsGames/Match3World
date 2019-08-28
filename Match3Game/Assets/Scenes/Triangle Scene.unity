@@ -4114,11 +4114,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
-        type: 3}
-      propertyPath: Analytics
-      value: 
-      objectReference: {fileID: 860184246}
     - target: {fileID: 224668712703305504, guid: bca90714ddbb8544796b1d79e4753570,
         type: 3}
       propertyPath: m_RootOrder
@@ -4268,6 +4263,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
+        type: 3}
+      propertyPath: Analytics
+      value: 
+      objectReference: {fileID: 860184246}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
 --- !u!1 &940138576
@@ -4644,6 +4644,11 @@ PrefabInstance:
       propertyPath: soundEffects
       value: 
       objectReference: {fileID: 1661259077}
+    - target: {fileID: 2449254646268538357, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 490035808}
     - target: {fileID: 2449818973851826393, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: ShuffleSpawn
@@ -4694,11 +4699,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2449254646268538357, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 490035808}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7fb396edf155de40895610ead7b8864, type: 3}
 --- !u!114 &1037968079 stripped
@@ -7137,10 +7137,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MultplierBar: {fileID: 0}
-  SuperMultiplier: 2
   MultlpierTimer: 80
   SMTimerUI: {fileID: 1907332376}
   MultlpierTimerText: {fileID: 775275624}
+  CanUseSuperMultiplier: 0
   EndCountdown: 0
 --- !u!114 &1656633075
 MonoBehaviour:
@@ -7773,6 +7773,8 @@ GameObject:
   - component: {fileID: 1781371928}
   - component: {fileID: 1781371922}
   - component: {fileID: 1781371925}
+  - component: {fileID: 1781371927}
+  - component: {fileID: 1781371926}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7940,6 +7942,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1781371926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781371921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f38cf8eee56ff429756c54678129db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SaveNum: 0
+--- !u!114 &1781371927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781371921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008c7c6bf6957b34588ceae142fb352d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SaveLocation: 
 --- !u!114 &1781371928
 MonoBehaviour:
   m_ObjectHideFlags: 0
