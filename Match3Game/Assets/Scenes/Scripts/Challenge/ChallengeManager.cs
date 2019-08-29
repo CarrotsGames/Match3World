@@ -118,6 +118,8 @@ public class ChallengeManager : MonoBehaviour
             }
             else if (NumberOfMoves > TotalMoves)
             {
+                Lives.CurrentTime = 0;
+
                 Lives.LiveCount -= 1;
                 ChallengeFinished = true;
                 Debug.Log("FAILED");
@@ -147,7 +149,7 @@ public class ChallengeManager : MonoBehaviour
             {
                 Lives.LiveCount -= 1;
                 ChallengeFinished = true;
-
+                Lives.CurrentTime = 0;
                 Debug.Log("FAILED");
             }
         }
@@ -169,6 +171,7 @@ public class ChallengeManager : MonoBehaviour
                 Debug.Log("CHALLENGE FAILED");
                 Lives.LiveCount -= 1;
                 ChallengeFinished = true;
+                Lives.CurrentTime = 0;
 
             }
         }

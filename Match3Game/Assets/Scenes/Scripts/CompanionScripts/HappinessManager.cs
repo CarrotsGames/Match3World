@@ -200,7 +200,7 @@ public class HappinessManager : MonoBehaviour
 
                 FillColour.color = Color.green;
                 // Animation 
-                Anim.SetBool("is sleepy", true);
+ 
                 //  PlayerPrefs.SetInt(SaveStrings, (IsSleeping ? 1 : 0));
                 PlayLevelAdScript.PlayAdNow();
                 Level = PlayerPrefs.GetInt(Companion.name + "Multiplier", Level);

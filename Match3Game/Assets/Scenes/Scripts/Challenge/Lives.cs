@@ -16,7 +16,8 @@ public class Lives : MonoBehaviour
     long CountdownTimerLong;
     long FullHeart;
     long HalfHeart;
-    private float CurrentTime;
+    [HideInInspector]
+    public static float CurrentTime;
     double MinutesFromTs;
     public int AddPlayCount;
     private bool IsCountingDown;
@@ -63,6 +64,9 @@ public class Lives : MonoBehaviour
         }
         else if (LiveCount >= 3)
         {
+            NumberOfLives.text = "" + LiveCount;
+
+            LiveCount = 3;
             LifeTimerText.text = "Fullhearts";
 
         }
@@ -85,6 +89,7 @@ public class Lives : MonoBehaviour
         // if the time has passed the target time
         if (FullHeart > TimeStamp)
         {
+ 
             if (LiveCount < 3)
             {
                 if (FullHeart > TimeStamp + 2398200000)
@@ -104,7 +109,9 @@ public class Lives : MonoBehaviour
                    // TimeStamp += 1199100000;
                     LiveCount = 1;
                 }
-             }
+                NumberOfLives.text = "" + LiveCount;
+
+            }
             else if(LiveCount >= 3)
             {
                 IsCountingDown = false;
@@ -117,12 +124,9 @@ public class Lives : MonoBehaviour
     void Countdown()
     {
         int TimeTillResetAd = unchecked((int)MinutesFromTs);
-        CurrentTime -= Time.deltaTime;
-        // Checks the time every  5 seconds to avoid sending to much info to the server
-        if (CurrentTime < 0)
-        {
-            GetCurrentTime();
-        }
+               
+        GetCurrentTime();
+         
         // Displays the current tick time into minutes and hours
         if (TimeTillResetAd != 0)
         {
@@ -150,6 +154,7 @@ public class Lives : MonoBehaviour
      
     public void SetFullCounter()
     {
+        TimeStamp = 0;
 
         PlayFabClientAPI.GetTime(new GetTimeRequest(), (GetTimeResult result) =>
         {
