@@ -49,14 +49,14 @@ public class GameTransitions : MonoBehaviour {
 
     public void BackToMain()
     {
-        //RealTimeScript.ResetClock();
+        RealTimeScript.ResetClock();
 
         SceneManager.LoadScene("Main Screen");
      }
 
     public void HomeButton()
     {
-        //RealTimeScript.ResetClock();
+        RealTimeScript.ResetClock();
 
         anim.SetBool("Transition", true);
         settingsMenu.SetActive(false);

@@ -126,10 +126,8 @@ public class HappinessManager : MonoBehaviour
             if (HappinessSliderValue > -5 && HappinessSliderValue < HappinessClamp / 9)
             {
 
-                Anim.SetBool("<20", true);
-                Anim.SetBool("is>33", false);
-                Anim.SetBool("is>66", false);
-                Anim.SetBool("is sleepy", false);
+    
+   
                 // SliderGameObj.GetComponent<SliderTest>().slider[9].SetActive(false);
                 // SliderGameObj.GetComponent<SliderTest>().slider[0].SetActive(true);
 
@@ -144,18 +142,14 @@ public class HappinessManager : MonoBehaviour
             else if (HappinessSliderValue > HappinessClamp / 8 && HappinessSliderValue < HappinessClamp / 7)
             {
                 // Animation 
-                Anim.SetBool("is>33", true);
-                Anim.SetBool("<20", false);
-                Anim.SetBool("is>66", false);
+    
                 //  SliderGameObj.GetComponent<SliderTest>().slider[1].SetActive(false);
                 //  SliderGameObj.GetComponent<SliderTest>().slider[2].SetActive(true);
             }
             else if (HappinessSliderValue > HappinessClamp / 7 && HappinessSliderValue < HappinessClamp / 6)
             {
                 // Animation 
-                Anim.SetBool("is>33", false);
-                Anim.SetBool("<20", false);
-                Anim.SetBool("is>66", true);
+             
                 //   SliderGameObj.GetComponent<SliderTest>().slider[2].SetActive(false);
                 //   SliderGameObj.GetComponent<SliderTest>().slider[3].SetActive(true);
 
@@ -163,9 +157,7 @@ public class HappinessManager : MonoBehaviour
             else if (HappinessSliderValue > HappinessClamp / 6 && HappinessSliderValue < HappinessClamp / 5)
             {
                 // Animation 
-                Anim.SetBool("is>33", false);
-                Anim.SetBool("<20", false);
-                Anim.SetBool("is>66", true);
+              
                 // SliderGameObj.GetComponent<SliderTest>().slider[3].SetActive(false);
                 // SliderGameObj.GetComponent<SliderTest>().slider[4].SetActive(true);
 
@@ -173,9 +165,7 @@ public class HappinessManager : MonoBehaviour
             else if (HappinessSliderValue > HappinessClamp / 5 && HappinessSliderValue < HappinessClamp / 4)
             {
                 // Animation 
-                Anim.SetBool("is>33", false);
-                Anim.SetBool("<20", false);
-                Anim.SetBool("is>66", true);
+   
                 //  SliderGameObj.GetComponent<SliderTest>().slider[4].SetActive(false);
                 //  SliderGameObj.GetComponent<SliderTest>().slider[5].SetActive(true);
 
@@ -183,9 +173,7 @@ public class HappinessManager : MonoBehaviour
             else if (HappinessSliderValue > HappinessClamp / 4 && HappinessSliderValue < HappinessClamp / 3)
             {
                 // Animation 
-                Anim.SetBool("is>33", false);
-                Anim.SetBool("<20", false);
-                Anim.SetBool("is>66", true);
+           
                 //  SliderGameObj.GetComponent<SliderTest>().slider[5].SetActive(false);
                 //  SliderGameObj.GetComponent<SliderTest>().slider[6].SetActive(true);
 
@@ -193,9 +181,7 @@ public class HappinessManager : MonoBehaviour
             else if (HappinessSliderValue > HappinessClamp / 3 && HappinessSliderValue < HappinessClamp / 2)
             {
                 // Animation 
-                Anim.SetBool("is>33", false);
-                Anim.SetBool("<20", false);
-                Anim.SetBool("is>66", true);
+        
                 // SliderGameObj.GetComponent<SliderTest>().slider[6].SetActive(false);
                 // SliderGameObj.GetComponent<SliderTest>().slider[7].SetActive(true);
 

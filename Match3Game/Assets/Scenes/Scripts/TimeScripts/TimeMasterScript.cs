@@ -38,7 +38,7 @@ public class TimeMasterScript : MonoBehaviour
         // stores current time when app starts
         CurrentDate = System.DateTime.Now;
 
-        string TempString = PlayerPrefs.GetString(SaveLocation, "1");
+        string TempString = PlayerPrefs.GetString(SaveLocation);
         //Grabs the old time from playerprefs 
         long TempLong = Convert.ToInt64(TempString);
 

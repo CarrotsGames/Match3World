@@ -278,7 +278,7 @@ public class DestroyNodes : MonoBehaviour {
 
        
         Combo = GetComponent<DotManager>().ComboScore;
-        Multplier = HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[HappinessGameObj.GetComponent<HappyMultlpier>().MultlpierNum];
+        Multplier = SuperMultiplierScript.SuperMultiplier;
         Total = GetComponent<DotManager>().PeicesCount + Combo;
         Total *= Multplier;
 

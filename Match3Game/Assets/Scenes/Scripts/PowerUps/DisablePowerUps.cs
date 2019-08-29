@@ -30,21 +30,11 @@ public class DisablePowerUps : MonoBehaviour
     }
     public void DisableNodes()
     {
-        DisableFreeze = (PlayerPrefs.GetInt("DISABLEFREEZE") != 0);
+       // DisableSM = false;
+       // PlayerPrefs.SetInt("DISABLESM", (DisableSM ? 1 : 0));
+       //
         DisableSM = (PlayerPrefs.GetInt("DISABLESM") != 0);
 
-        if (DisableFreeze)
-        {
-            transform.Find("FreezeMultiplier").gameObject.layer = 2;
-            transform.Find("FreezeMultiplier").GetComponent<Button>().enabled = false;
-            transform.Find("FreezeMultiplier").GetComponent<Image>().color = Color.gray;
-        }
-        else
-        {
-            transform.Find("FreezeMultiplier").gameObject.layer = 5;
-            transform.Find("FreezeMultiplier").GetComponent<Button>().enabled = true;
-            transform.Find("FreezeMultiplier").GetComponent<Image>().color = Color.white;
-        }
         if(DisableSM)
         {
             transform.Find("SuperMutliplier").gameObject.layer = 2;
@@ -62,7 +52,7 @@ public class DisablePowerUps : MonoBehaviour
     {
         for (int i = 0; i < transform.childCount; i++)
         {
-            if (transform.GetChild(i).name == "FreezeMultiplier" || transform.GetChild(i).name == "SuperMutliplier")
+            if ( transform.GetChild(i).name == "SuperMutliplier")
             {
                 DisableNodes();
             }

@@ -129,12 +129,12 @@ public class PlayFabCurrency : MonoBehaviour
 
          amount = result.Balance;
         PowerUpManagerScript.Currency += result.Balance;
-       
+        PowerUpManagerScript.PowerUpSaves();
+
         SubtractUserVirtualCurrencyRequest SubRequest = new SubtractUserVirtualCurrencyRequest();
         SubRequest.VirtualCurrency = "GC";
         SubRequest.Amount = amount;
         PlayFabClientAPI.SubtractUserVirtualCurrency(SubRequest, SubtractPremiumCurrencySuccess, SubtractPremiumCurrencyFailure);
-
     }
     void AddPremiumCurrencyFailure(PlayFabError error)
     {

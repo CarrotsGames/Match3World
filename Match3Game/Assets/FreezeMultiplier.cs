@@ -150,8 +150,7 @@ public class FreezeMultiplier : MonoBehaviour
          
         PlayFabClientAPI.GetTime(new GetTimeRequest(), (GetTimeResult result) =>
         {
-          HappinessManagerScript.Multplier();
-
+ 
           // now is equal to current time
           DateTime now = result.Time.AddHours(0);
           // Target Time (3 hours)

@@ -76,8 +76,7 @@ public class BoardScript : MonoBehaviour
         // if the colour is the same as previous spawned colour re randomise
         if (Colour == Colours[Rand])
         {
-            Debug.Log("RANDOMISE");
-            Randomise();
+             Randomise();
         }
         else
         {

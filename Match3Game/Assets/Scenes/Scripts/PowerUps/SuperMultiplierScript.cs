@@ -5,8 +5,10 @@ using UnityEngine.UI;
 public class SuperMultiplierScript : MonoBehaviour
 {
     public Transform MultplierBar;
-    
-    public int SuperMultiplier;
+    private RealTimeCounter RealTimeScript;
+    private GameObject MainCamera;
+
+    public static int SuperMultiplier;
     public float MultlpierTimer;
     public GameObject SMTimerUI;
     public Text MultlpierTimerText;
@@ -15,7 +17,7 @@ public class SuperMultiplierScript : MonoBehaviour
     private GameObject HappinessGameObj;
     private HappinessManager HappinessManagerScript;
     private PowerUpManager PowerUpManagerScript;
-    bool CanUseSuperMultiplier;
+    public bool CanUseSuperMultiplier;
     public bool EndCountdown;
     int TimesUsed;
     private GameObject DisablePowerUpGameObj;
@@ -36,19 +38,25 @@ public class SuperMultiplierScript : MonoBehaviour
         // if its greater than zero continue countdown
         // NOTE: Realtimecounter is always coutning down Multiplier timer 
         // It counts down past 0 to avoid this always being true
-        
-        MultlpierTimer = PlayerPrefs.GetFloat("SMTIMER");
-       
-        SMTimerUI.SetActive(false);
 
-        if (MultlpierTimer > 0)
+        MainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        RealTimeScript = MainCamera.GetComponent<RealTimeCounter>();
+       // RealTimeScript.SuperMultiplierCountDown();
+        SMTimerUI.SetActive(false);
+        MultlpierTimer = PlayerPrefs.GetInt("SMTIMER");
+        RealTimeScript.SuperMultiplierCountDown();
+        if (MultlpierTimer < 0)
         {
-            CanUseSuperMultiplier = true;
+            MultlpierTimer = 80;
+            CanUseSuperMultiplier = false;
+            DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableSM = false;
+            PlayerPrefs.SetInt("DISABLESM", (DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableSM ? 1 : 0));
+            DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableNodes();
+
         }
-        else
-        {
-            MultlpierTimer = TimerStore;
-        }
+     //  DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableSM = false;
+     //  PlayerPrefs.SetInt("DISABLESM", (DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableSM ? 1 : 0));
+     //  DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableNodes();
     }
     
 
@@ -58,58 +66,35 @@ public class SuperMultiplierScript : MonoBehaviour
         // if the multlpiler powerup is in use start countdown until its over
         if (CanUseSuperMultiplier)
         {
-            // goes through multiplier list and times each one by super multlplier
-            for (int i = 0; i < HappinessGameObj.GetComponent<HappyMultlpier>().multiplier.Length; i++)
-            {
-                if (i > 0)
-                {
-                   // test = HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[i];
-                   // test *= test;
-                    HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[i] = HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[i] * 2;
-                    EndCountdown = true;
-                 }
-                else
-                {
-                    HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[i] *= SuperMultiplier;
-                }
-            }
-            CanUseSuperMultiplier = false;
-
-        }
-        if (EndCountdown)
-        {
-            PlayerPrefs.SetFloat("SMTIMER", MultlpierTimer);
-            MultlpierTimer -= Time.deltaTime;
-            // Disables button so user cannot stack multplier
             SMTimerUI.SetActive(true);
-            MultlpierTimerText.text = "" + MultlpierTimer;
+
+            DisablePowerUpGameObj = GameObject.Find("PowerUps");
+
+            // test *= test;
+            HappinessManagerScript.HappinessBar();
+            SuperMultiplier = HappinessGameObj.GetComponent<HappinessManager>().Level * 2;
+            // Multiplier = Text.multiplier
             MultplierBar.GetComponent<Image>().fillAmount = MultlpierTimer / 80;
+
+
+            MultlpierTimer -= Time.deltaTime;
+            PlayerPrefs.SetFloat("SMTIMER", MultlpierTimer);
 
             if (MultlpierTimer < 0)
             {
 
-                int test;
-              
-                 // Goes through multiplier list and returns variables to defual
-                for (int i = 0; i < HappinessGameObj.GetComponent<HappyMultlpier>().multiplier.Length; i++)
-                {
-                    if (i > 0)
-                    {
-                        test = HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[i - 1];
-                        test += 1;
-                        HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[i] = test;
-                    }
-                    else
-                    {
-                        HappinessGameObj.GetComponent<HappyMultlpier>().multiplier[i] /= SuperMultiplier;
-                    }
-                }
+                PlayerPrefs.SetFloat("SMTIMER", MultlpierTimer);
+                MultlpierTimer -= Time.deltaTime;
+                // Disables button so user cannot stack multplier
+                SMTimerUI.SetActive(true);
+                MultlpierTimerText.text = "" + MultlpierTimer;
+                MultplierBar.GetComponent<Image>().fillAmount = MultlpierTimer / 80;
+
                 DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableSM = false;
                 PlayerPrefs.SetInt("DISABLESM", (DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableSM ? 1 : 0));
-                DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableFreeze = false;
-                PlayerPrefs.SetInt("DISABLEFREEZE", (DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableFreeze ? 1 : 0));
-                DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableNodes();
 
+                DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableNodes();
+                SuperMultiplier = 0;
                 EndCountdown = false;
                 CanUseSuperMultiplier = false;
                 PowerUpManagerScript.HasMultlpliers = true;
@@ -117,16 +102,20 @@ public class SuperMultiplierScript : MonoBehaviour
 
             }
         }
+      
     }
 
     public void SuperMultplierButton()
     {
+        PowerUpManGameObj.GetComponent<PowerUpManager>().PowerUpChecker();
+
         //Debug.Log("BUTTON PRESSED");
         if (PowerUpManagerScript.HasMultlpliers && !EndCountdown)
         {
-            DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableFreeze = true;
+            PowerUpManagerScript.NumOfMultilpiers -= 1;
+            PowerUpManGameObj.GetComponent<PowerUpManager>().PowerUpSaves();
+
             DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableSM = true;
-            PlayerPrefs.SetInt("DISABLEFREEZE", (DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableFreeze ? 1 : 0));
             PlayerPrefs.SetInt("DISABLESM", (DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableSM ? 1 : 0));
             DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableNodes();
             MultlpierTimer = TimerStore;
@@ -136,7 +125,7 @@ public class SuperMultiplierScript : MonoBehaviour
             PlayerPrefs.SetInt("SUPERMULTLPIER", TimesUsed);
 
             MultlpierTimer = 80;
-            PowerUpManagerScript.NumOfMultilpiers -= 1;
+ 
             CanUseSuperMultiplier = true;
           //  Debug.Log(CanUseSuperMultiplier);
         }

@@ -7,9 +7,9 @@ using UnityEngine;
 public class ChallengeManager : MonoBehaviour
 {
     [Header("Types : Clear, ClearX , BeatScore")]
-
     public string ChallengeType;
-    //Speak Bubbles
+    [Header("Order the level challenges IN ORDER")]
+    public GameObject[] ChallengePrefabs;
     private GameObject DotManagerGameObj;
     private DotManager DotManagerScript;
     public string ChallengeDescription;
@@ -31,8 +31,10 @@ public class ChallengeManager : MonoBehaviour
     private int ChallengeScore;
     //CLEAR BOARD CHALLENGE 
     private GameObject Board;
-     private GameObject Companion;
+    private GameObject Companion;
     private CompanionScript CompanionScriptRef;
+    GameObject Go;
+    int ChallengeNumber;
       // Start is called before the first frame update
     void Start()
     {
@@ -43,32 +45,46 @@ public class ChallengeManager : MonoBehaviour
         // Grabs dotmanager script on that gameobject to get info
         DotManagerScript = DotManagerGameObj.GetComponent<DotManager>();
         Board = GameObject.FindGameObjectWithTag("BoardSpawn");
-     }
+        ChallengeType = PlayerPrefs.GetString("ChallengeType");
+        ChallengeNumber = PlayerPrefs.GetInt("ChallengeIndex");
+         
+        Go = Instantiate(ChallengePrefabs[ChallengeNumber], transform.position, Quaternion.identity);
+        
+        ChallengeDescription = PlayerPrefs.GetString("ChallengeDescription");
+        Timer = PlayerPrefs.GetFloat("ChallengeTime");
+        TotalMoves = PlayerPrefs.GetInt("TotalMoves");
+
+    }
     private void Update()
     {
         
-        ChallengeText.text = ChallengeDescription;
         if (Lives.LiveCount > 0)
         {
             switch (ChallengeType)
             {
                 case "Clear":
                     {
+                        ClearTime.text = "Clear the board in " + Timer;
                         ClearBoard();
                     }
                     break;
                 case "ClearX":
                     {
+                        ClearTime.text = "Clear in " + TotalMoves + " moves";
+
                         ClearInXMoves();
                     }
                     break;
                 case "BeatScore":
                     {
+                        ClearTime.text = "Beat this score in " + Timer;
+
                         BeatScore();
                     }
                     break;
                 case "":
                     {
+
                         Debug.LogError("No challenge Set");
                     }
 
@@ -94,7 +110,7 @@ public class ChallengeManager : MonoBehaviour
             {
                 // Canvas included in children so when no nodes 
                 // child count is 1
-                if (Board.transform.childCount == 1)
+                if (Go.transform.childCount == 1)
                 {
                     Debug.Log("COMPLETE");
                 }
@@ -112,13 +128,13 @@ public class ChallengeManager : MonoBehaviour
 
     void ClearBoard()
     {
-        ClearTime.text = "" + Timer;
+      //  ClearTime.text = "" + Timer;
         if (!ChallengeFinished)
         {
             if (Timer > 0)
             {
 
-                if (Board.transform.childCount == 1)
+                if (Go.transform.childCount == 1)
                 {
                     Debug.Log("COMPLETE");
                 }
@@ -140,12 +156,20 @@ public class ChallengeManager : MonoBehaviour
     {
         ChallengeScore += CompanionScriptRef.Total;
         CompanionScriptRef.Total = 0;
-        // Timer?
-        if (!ChallengeFinished)
+         if (!ChallengeFinished)
         {
+            Timer -= Time.deltaTime;
+
             if (ChallengeScore > TargetScore)
             {
                 Debug.Log("CHALLENGE COMPLETE");
+            }
+            else if(Timer < 0)
+            {
+                Debug.Log("CHALLENGE FAILED");
+                Lives.LiveCount -= 1;
+                ChallengeFinished = true;
+
             }
         }
     }
