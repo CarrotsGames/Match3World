@@ -40,7 +40,7 @@ public class RealTimeCounter : MonoBehaviour
  
             SuperMultiplier.MultlpierTimer -= TimeMasterScript.instance.CheckDate();
             PlayerPrefs.SetFloat("SMTIMER", SuperMultiplier.MultlpierTimer);
-            SuperMultiplier.CanUseSuperMultiplier = true;
+            SuperMultiplierScript.CanUseSuperMultiplier = true;
 
         }
     }

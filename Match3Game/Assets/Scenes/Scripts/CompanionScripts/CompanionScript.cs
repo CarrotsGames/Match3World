@@ -78,16 +78,16 @@ public class CompanionScript : MonoBehaviour
         }
         Total = 0;
         // Mutlplier is equal to player level
-        int mulpliernum = HappinessGameObj.GetComponent<HappinessManager>().Level;
- 
+        int LevelMultiplier = HappinessGameObj.GetComponent<HappinessManager>().Level;
+        
         // Total amount from the combo is equal to the number of nodes plus combo score
         Total = EatingPeices.Count + DotManagerScriptRef.ComboScore ;
         // Total multlpied by multiplier 
-        Total *= mulpliernum;
+        Total *= LevelMultiplier;
         // Adds total to score
         DotManagerScriptRef.TotalScore += Total;
         DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
-
+        
         // If the player can earch currency they will have a Levelvalue out of 70 chance getting a coin
         if (HappinessManagerScript.CanGetCurrency)
         {
@@ -100,18 +100,20 @@ public class CompanionScript : MonoBehaviour
                 PowerUpManagerScript.PowerUpSaves();
             }
          }
-        if (!HappinessManagerScript.IsSleeping)
+        if(SuperMultiplierScript.CanUseSuperMultiplier)
         {
-            // adds happyness to the companion
-            // Hunger multlplier = i(Num of peices) / 2 
-            HappinessManagerScript.HappinessSliderValue += HungerMultiplier;
-
-           
-            int RandomSound = Random.Range(0, AudioManagerScript.MooblingAudio.Length);
-            // When fed the companion will play a random sound in list
-            AudioManagerScript.MooblingSource.clip = AudioManagerScript.MooblingAudio[RandomSound];
-            AudioManagerScript.MooblingSource.Play();    
+            int SuperMultiplier = SuperMultiplierScript.SuperMultiplier;
+            HappinessManagerScript.HappinessSliderValue += SuperMultiplier;
         }
+        else
+        {
+            HappinessManagerScript.HappinessSliderValue += EatingPeices.Count + LevelMultiplier;
+        }
+           
+        int RandomSound = Random.Range(0, AudioManagerScript.MooblingAudio.Length);
+        // When fed the companion will play a random sound in list
+        AudioManagerScript.MooblingSource.clip = AudioManagerScript.MooblingAudio[RandomSound];
+        AudioManagerScript.MooblingSource.Play();    
         HappinessManagerScript.HappinessBar();
         DotManagerObj.GetComponent<DestroyNodes>().CreateComboList();
     }
