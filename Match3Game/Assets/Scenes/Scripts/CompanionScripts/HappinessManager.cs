@@ -40,11 +40,12 @@ public class HappinessManager : MonoBehaviour
     [HideInInspector]
     public string SaveStrings;
     public Text LevelText;
+    public Text NextLevel;
     [SerializeField]
     private int HappinessClamp;
-    public GameObject SliderGameObj;
+    //public GameObject SliderGameObj;
     public Text CurrentHappiness;
- 
+
     // Use this for initialization
     void Start()
     {
@@ -92,12 +93,17 @@ public class HappinessManager : MonoBehaviour
         }
         HappinessBar();
         HappinessSlider.value = HappinessSliderValue;
+        int NextLevelNum = Level + 1;
+        NextLevel.text = " " + NextLevelNum;
 
     }
 
     public void HappinessBar()
     {
-        LevelText.text = "Level:" + Level;
+        LevelText.text = " " + Level;
+        int NextLevelNum = Level + 1;
+        NextLevel.text = " " + NextLevelNum;
+
         CurrentHappiness.text = "Current EXP:" + HappinessSliderValue + "/" + HappinessClamp;
         if (!OnMainScene)
         {

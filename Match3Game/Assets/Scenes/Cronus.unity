@@ -680,6 +680,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ea10712bd73981428cecc28524a3a8f, type: 3}
+--- !u!114 &426476773 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2340198256616849608, guid: d7fb396edf155de40895610ead7b8864,
+    type: 3}
+  m_PrefabInstance: {fileID: 1140501860}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &441685401
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,7 +873,7 @@ PrefabInstance:
         type: 3}
       propertyPath: LevelText
       value: 
-      objectReference: {fileID: 1892072337}
+      objectReference: {fileID: 1837135547}
     - target: {fileID: 114904152250435826, guid: 6e21ef18f925f614bb8952d2a3856f01,
         type: 3}
       propertyPath: SliderGameObj
@@ -872,6 +884,11 @@ PrefabInstance:
       propertyPath: CurrentHappiness
       value: 
       objectReference: {fileID: 1140501865}
+    - target: {fileID: 114904152250435826, guid: 6e21ef18f925f614bb8952d2a3856f01,
+        type: 3}
+      propertyPath: NextLevel
+      value: 
+      objectReference: {fileID: 426476773}
     - target: {fileID: 4874126141112344, guid: 6e21ef18f925f614bb8952d2a3856f01, type: 3}
       propertyPath: m_LocalPosition.x
       value: 86.8
@@ -3348,9 +3365,9 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.767784, y: 0.68433934}
   m_EdgeRadius: 0
---- !u!114 &1892072337 stripped
+--- !u!114 &1837135547 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2335805763909869948, guid: d7fb396edf155de40895610ead7b8864,
+  m_CorrespondingSourceObject: {fileID: 8677090933816355684, guid: d7fb396edf155de40895610ead7b8864,
     type: 3}
   m_PrefabInstance: {fileID: 1140501860}
   m_PrefabAsset: {fileID: 0}

@@ -12,12 +12,12 @@ public class SuperMultiplierScript : MonoBehaviour
     public float MultlpierTimer;
     public GameObject SMTimerUI;
     public Text MultlpierTimerText;
+    public static bool CanUseSuperMultiplier;
     private float TimerStore;
     private GameObject PowerUpManGameObj;
     private GameObject HappinessGameObj;
     private HappinessManager HappinessManagerScript;
     private PowerUpManager PowerUpManagerScript;
-    public bool CanUseSuperMultiplier;
     public bool EndCountdown;
     int TimesUsed;
     private GameObject DisablePowerUpGameObj;
