@@ -10,8 +10,10 @@ public class Lives : MonoBehaviour
 {
     public static int LiveCount;
     public Text NumberOfLives;
+    public Text LifeTimerText;
 
     long TimeStamp;
+    long CountdownTimerLong;
     long FullHeart;
     long HalfHeart;
     private float CurrentTime;
@@ -24,6 +26,7 @@ public class Lives : MonoBehaviour
         IsCountingDown = false;   
         CurrentTime = 3;
         TimeStamp = System.Convert.ToInt64(PlayerPrefs.GetString("TimeUntilLives"));
+        CountdownTimerLong = TimeStamp;
         LiveCount = PlayerPrefs.GetInt("LIVECOUNT");
         IsCountingDown = PlayerPrefs.GetInt("LIVECOUNTDOWN") != 0;
         if (TimeStamp == 0)
@@ -32,6 +35,8 @@ public class Lives : MonoBehaviour
             LiveCount = 3;
         }
         NumberOfLives.text = "" + LiveCount;
+        LifeTimerText.text = "Getting time...";
+
     }
     private void FixedUpdate()
     {
@@ -39,10 +44,11 @@ public class Lives : MonoBehaviour
  
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            TimeStamp = 0;
-            PlayerPrefs.SetString("TimeUntilLives", "" + TimeStamp);
+            IsCountingDown = false;
+            //   TimeStamp = 0;
+            //PlayerPrefs.SetString("TimeUntilLives", "" + TimeStamp);
 
-            FullHeart += 10L * 1199100000;
+            //FullHeart += 10L * 1199100000;
         }
     
         if(LiveCount < 3 && !IsCountingDown)
@@ -54,6 +60,11 @@ public class Lives : MonoBehaviour
                 IsCountingDown = true;
                 PlayerPrefs.SetInt("LIVECOUNTDOWN", (IsCountingDown ? 1 : 0));
             }
+        }
+        else if (LiveCount >= 3)
+        {
+            LifeTimerText.text = "Fullhearts";
+
         }
         if (IsCountingDown)
         {
@@ -70,7 +81,7 @@ public class Lives : MonoBehaviour
         if (CurrentTime < 0)
         {
             Countdown();
-        }
+        } 
         // if the time has passed the target time
         if (FullHeart > TimeStamp)
         {
@@ -78,10 +89,13 @@ public class Lives : MonoBehaviour
             {
                 if (FullHeart > TimeStamp + 2398200000)
                 {
+                    CountdownTimerLong += 2398200000;
+
                     LiveCount = 3;
                 }
                 else if (FullHeart > TimeStamp + 1199100000)
                 {
+                    CountdownTimerLong += 1199100000;
                     LiveCount = 2;
                 }               
                 else if (FullHeart > TimeStamp)
@@ -90,11 +104,14 @@ public class Lives : MonoBehaviour
                    // TimeStamp += 1199100000;
                     LiveCount = 1;
                 }
-                PlayerPrefs.SetInt("LiveCount", AddPlayCount);
+             }
+            else if(LiveCount >= 3)
+            {
+                IsCountingDown = false;
             }
-           
-         }
-        
+
+        }
+
     }
     // Countsdown the time until heart is ready
     void Countdown()
@@ -110,8 +127,8 @@ public class Lives : MonoBehaviour
         if (TimeTillResetAd != 0)
         {
             int Minutes = (int)(TimeTillResetAd % 60);
-            int Hours = (int)((TimeTillResetAd / 60));
-         }
+             LifeTimerText.text =  Minutes + "Minutes";
+        }
     }
   
     void GetCurrentTime()
@@ -123,7 +140,7 @@ public class Lives : MonoBehaviour
             // Converts current time into ticks
             FullHeart = now.Ticks;
             // Deducts now time from target time
-            TimeSpan TimeTillRegen = TimeSpan.FromTicks(TimeStamp - FullHeart);
+            TimeSpan TimeTillRegen = TimeSpan.FromTicks(CountdownTimerLong - FullHeart);
             // Gets how long until the time is up
             MinutesFromTs = TimeTillRegen.TotalMinutes;
             // Resets cool down timer to avoid sending too much infomation to the server
@@ -142,6 +159,7 @@ public class Lives : MonoBehaviour
             long Period = 10L * 1199100000;
             // Timestamp is equal current time plus target time
             TimeStamp = now.Ticks + Period;
+            CountdownTimerLong = TimeStamp;
             // converts the time in ticks to actual time
             TimeSpan Ts = TimeSpan.FromTicks(Period);
             // Shows how many minutes 

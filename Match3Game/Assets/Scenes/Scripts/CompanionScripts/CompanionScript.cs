@@ -97,7 +97,7 @@ public class CompanionScript : MonoBehaviour
             if (chance == 42)
             {
                 PowerUpManagerScript.Currency += Random.Range(1,3);
-          
+                PowerUpManagerScript.PowerUpSaves();
             }
          }
         if (!HappinessManagerScript.IsSleeping)
