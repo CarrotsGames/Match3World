@@ -97,7 +97,15 @@ public class HappinessManager : MonoBehaviour
         NextLevel.text = " " + NextLevelNum;
 
     }
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            Level = 0;
+            PlayerPrefs.SetInt(Companion.name + "Multiplier", Level);
 
+        }
+    }
     public void HappinessBar()
     {
         LevelText.text = " " + Level;
@@ -108,6 +116,8 @@ public class HappinessManager : MonoBehaviour
         if (!OnMainScene)
         {
             HappinessStates();
+            PlayerPrefs.SetInt(Companion.name + "Multiplier", Level);
+
         }
         // Displays hunger value (used in debug)
         //HungerMetre.text = "" + Hunger;
@@ -125,80 +135,8 @@ public class HappinessManager : MonoBehaviour
     void HappinessStates()
     {
         if (Level < 25)
-        { 
-            //displays current slider information with currently used companion
-            HappinessSlider.value = HappinessSliderValue;
-            // Slider value stops at -0.01 for somereason so -5 is to make sure it resets 
-            if (HappinessSliderValue > -5 && HappinessSliderValue < HappinessClamp / 9)
-            {
-
-    
-   
-                // SliderGameObj.GetComponent<SliderTest>().slider[9].SetActive(false);
-                // SliderGameObj.GetComponent<SliderTest>().slider[0].SetActive(true);
-
-            }
-            else if (HappinessSliderValue > HappinessClamp / 9 && HappinessSliderValue < HappinessClamp / 8)
-            {
-                //  SliderGameObj.GetComponent<SliderTest>().slider[0].SetActive(false);
-                //  SliderGameObj.GetComponent<SliderTest>().slider[1].SetActive(true);
-            }
-            // if this is between HappyClamp / 4 && happyclamp / 4
-            // if this is reached while not sleeping, companion changes animation
-            else if (HappinessSliderValue > HappinessClamp / 8 && HappinessSliderValue < HappinessClamp / 7)
-            {
-                // Animation 
-    
-                //  SliderGameObj.GetComponent<SliderTest>().slider[1].SetActive(false);
-                //  SliderGameObj.GetComponent<SliderTest>().slider[2].SetActive(true);
-            }
-            else if (HappinessSliderValue > HappinessClamp / 7 && HappinessSliderValue < HappinessClamp / 6)
-            {
-                // Animation 
-             
-                //   SliderGameObj.GetComponent<SliderTest>().slider[2].SetActive(false);
-                //   SliderGameObj.GetComponent<SliderTest>().slider[3].SetActive(true);
-
-            }
-            else if (HappinessSliderValue > HappinessClamp / 6 && HappinessSliderValue < HappinessClamp / 5)
-            {
-                // Animation 
-              
-                // SliderGameObj.GetComponent<SliderTest>().slider[3].SetActive(false);
-                // SliderGameObj.GetComponent<SliderTest>().slider[4].SetActive(true);
-
-            }
-            else if (HappinessSliderValue > HappinessClamp / 5 && HappinessSliderValue < HappinessClamp / 4)
-            {
-                // Animation 
-   
-                //  SliderGameObj.GetComponent<SliderTest>().slider[4].SetActive(false);
-                //  SliderGameObj.GetComponent<SliderTest>().slider[5].SetActive(true);
-
-            }
-            else if (HappinessSliderValue > HappinessClamp / 4 && HappinessSliderValue < HappinessClamp / 3)
-            {
-                // Animation 
-           
-                //  SliderGameObj.GetComponent<SliderTest>().slider[5].SetActive(false);
-                //  SliderGameObj.GetComponent<SliderTest>().slider[6].SetActive(true);
-
-            }
-            else if (HappinessSliderValue > HappinessClamp / 3 && HappinessSliderValue < HappinessClamp / 2)
-            {
-                // Animation 
-        
-                // SliderGameObj.GetComponent<SliderTest>().slider[6].SetActive(false);
-                // SliderGameObj.GetComponent<SliderTest>().slider[7].SetActive(true);
-
-
-            }
-            else if (HappinessSliderValue > HappinessClamp / 2 && HappinessSliderValue < HappinessClamp)
-            {
-                // SliderGameObj.GetComponent<SliderTest>().slider[7].SetActive(false);
-                //  SliderGameObj.GetComponent<SliderTest>().slider[8].SetActive(true);
-            }
-            else if (HappinessSliderValue > HappinessClamp)
+        {
+            if (HappinessSliderValue > HappinessClamp)
             {
                 //  SliderGameObj.GetComponent<SliderTest>().slider[8].SetActive(false);
                 //  SliderGameObj.GetComponent<SliderTest>().slider[9].SetActive(true);

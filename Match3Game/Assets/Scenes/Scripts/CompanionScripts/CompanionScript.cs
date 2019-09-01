@@ -79,15 +79,33 @@ public class CompanionScript : MonoBehaviour
         Total = 0;
         // Mutlplier is equal to player level
         int LevelMultiplier = HappinessGameObj.GetComponent<HappinessManager>().Level;
-        
+        int EXPTotal = 3;
+        EXPTotal += EatingPeices.Count * HappinessGameObj.GetComponent<HappinessManager>().Level;
+
         // Total amount from the combo is equal to the number of nodes plus combo score
-        Total = EatingPeices.Count + DotManagerScriptRef.ComboScore ;
-        // Total multlpied by multiplier 
-        Total *= LevelMultiplier;
-        // Adds total to score
-        DotManagerScriptRef.TotalScore += Total;
-        DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
-        
+        Total = EatingPeices.Count + DotManagerScriptRef.ComboScore;
+        // MUTLPIER VALUES WITH EXP
+        if (SuperMultiplierScript.CanUseSuperMultiplier)
+        {  
+           
+            // Total multlpied by multiplier 
+            int SuperMultiplier = SuperMultiplierScript.SuperMultiplier;
+            Total *= SuperMultiplier;
+            DotManagerScriptRef.TotalScore += Total;
+            DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
+            HappinessManagerScript.HappinessSliderValue += EXPTotal * SuperMultiplier / 2;
+        }
+        else
+        {
+            Total *= LevelMultiplier;
+            
+            // Adds total to score
+            DotManagerScriptRef.TotalScore += Total;
+            DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
+            // HappinessManagerScript.HappinessSliderValue += EatingPeices.Count + LevelMultiplier;
+            HappinessManagerScript.HappinessSliderValue += EXPTotal;
+        }
+
         // If the player can earch currency they will have a Levelvalue out of 70 chance getting a coin
         if (HappinessManagerScript.CanGetCurrency)
         {
@@ -100,15 +118,7 @@ public class CompanionScript : MonoBehaviour
                 PowerUpManagerScript.PowerUpSaves();
             }
          }
-        if(SuperMultiplierScript.CanUseSuperMultiplier)
-        {
-            int SuperMultiplier = SuperMultiplierScript.SuperMultiplier;
-            HappinessManagerScript.HappinessSliderValue += SuperMultiplier;
-        }
-        else
-        {
-            HappinessManagerScript.HappinessSliderValue += EatingPeices.Count + LevelMultiplier;
-        }
+       
            
         int RandomSound = Random.Range(0, AudioManagerScript.MooblingAudio.Length);
         // When fed the companion will play a random sound in list

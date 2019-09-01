@@ -172,7 +172,7 @@ public class ColourRemover : MonoBehaviour
             int Total = SCRAmount * HappinessManagerScript.Level;
             // GOES TO EXP
             int EXPTotal = SCRAmount + HappinessManagerScript.Level;
-
+           
             // TOTAL SCORE
             DotManagerScript.TotalScore += Total;
             //EXP BAR
