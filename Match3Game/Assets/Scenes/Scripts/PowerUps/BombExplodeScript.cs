@@ -47,10 +47,31 @@ public class BombExplodeScript : MonoBehaviour
       
         if (AddScore)
         {
-            DotManagerScript.TotalScore += CollidedNodes.Count * HappinessManagerScript.Level;
-            DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
-            HappinessManagerScript.HappinessSliderValue += CollidedNodes.Count;
-            HappinessManagerScript.HappinessBar();
+            int Total = CollidedNodes.Count * HappinessManagerScript.Level;
+            int BombEXP = CollidedNodes.Count + HappinessManagerScript.Level + 10;
+            Total *= HappinessManagerScript.Level;
+
+            if (SuperMultiplierScript.CanUseSuperMultiplier)
+            {
+                int SuperMultiplier = 2;
+                Total *= SuperMultiplier;
+                DotManagerScript.TotalScore += Total;
+                DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
+                // bombs do a defualt 10 Exp
+                BombEXP *= SuperMultiplier;
+                HappinessManagerScript.HappinessSliderValue += BombEXP;
+                HappinessManagerScript.HappinessBar();
+            }
+            else
+            {
+                Total *= HappinessManagerScript.Level;
+                DotManagerScript.TotalScore += Total;
+                DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
+                // bombs do a defualt 10 Exp
+                
+                HappinessManagerScript.HappinessSliderValue += BombEXP;
+                HappinessManagerScript.HappinessBar();
+            }
             AddScore = false;
         }
       

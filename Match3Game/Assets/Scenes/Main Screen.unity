@@ -254,10 +254,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChallengeScene: Gobu Challenges
-  ChallengeType: ClearX
-  ChallengeDescription: This is a test4
+  ChallengeType: Clear
+  ChallengeDescription: Clear the board
   ChallengeTimer: 0
-  TotalMoves: 10
+  TotalMoves: 0
 --- !u!1 &1645992 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 481117058851374971, guid: c48dae2b39178bc498df340966b5eef7,
@@ -3506,6 +3506,7 @@ GameObject:
   - component: {fileID: 133228974}
   - component: {fileID: 133228973}
   - component: {fileID: 133228972}
+  - component: {fileID: 133228975}
   m_Layer: 5
   m_Name: CB2
   m_TagString: Untagged
@@ -3571,7 +3572,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 133228973}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 133228975}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &133228973
@@ -3611,6 +3623,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133228970}
   m_CullTransparentMesh: 0
+--- !u!114 &133228975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133228970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Sauco Challenge
+  ChallengeType: BeatScore
+  ChallengeDescription: Score 200 points
+  ChallengeTimer: 0
+  TotalMoves: 0
 --- !u!1 &145034698
 GameObject:
   m_ObjectHideFlags: 0
@@ -4968,6 +4997,7 @@ GameObject:
   - component: {fileID: 186481724}
   - component: {fileID: 186481723}
   - component: {fileID: 186481722}
+  - component: {fileID: 186481725}
   m_Layer: 5
   m_Name: CB4
   m_TagString: Untagged
@@ -5033,7 +5063,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 186481723}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 186481725}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &186481723
@@ -5073,6 +5114,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 186481720}
   m_CullTransparentMesh: 0
+--- !u!114 &186481725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186481720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Crius Challenge
+  ChallengeType: BeatScore
+  ChallengeDescription: Score 500 points
+  ChallengeTimer: 0
+  TotalMoves: 0
 --- !u!1 &187286865
 GameObject:
   m_ObjectHideFlags: 0
@@ -5241,6 +5299,7 @@ GameObject:
   - component: {fileID: 200893722}
   - component: {fileID: 200893721}
   - component: {fileID: 200893720}
+  - component: {fileID: 200893723}
   m_Layer: 5
   m_Name: CB5
   m_TagString: Untagged
@@ -5306,7 +5365,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 200893721}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 200893723}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &200893721
@@ -5346,6 +5416,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 200893718}
   m_CullTransparentMesh: 0
+--- !u!114 &200893723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200893718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Sauco Challenge
+  ChallengeType: BeatScore
+  ChallengeDescription: Score 300 points
+  ChallengeTimer: 0
+  TotalMoves: 0
 --- !u!1 &200942742
 GameObject:
   m_ObjectHideFlags: 0
@@ -5358,6 +5445,7 @@ GameObject:
   - component: {fileID: 200942746}
   - component: {fileID: 200942745}
   - component: {fileID: 200942744}
+  - component: {fileID: 200942747}
   m_Layer: 5
   m_Name: CB4
   m_TagString: Untagged
@@ -5423,7 +5511,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 200942745}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 200942747}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &200942745
@@ -5463,6 +5562,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 200942742}
   m_CullTransparentMesh: 0
+--- !u!114 &200942747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200942742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Chick-Pee Challenge
+  ChallengeType: BeatScore
+  ChallengeDescription: Score 300
+  ChallengeTimer: 0
+  TotalMoves: 0
 --- !u!1 &203946524
 GameObject:
   m_ObjectHideFlags: 0
@@ -5553,6 +5669,7 @@ GameObject:
   - component: {fileID: 205737124}
   - component: {fileID: 205737123}
   - component: {fileID: 205737122}
+  - component: {fileID: 205737125}
   m_Layer: 5
   m_Name: CB4
   m_TagString: Untagged
@@ -5618,7 +5735,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 205737123}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 205737125}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &205737123
@@ -5658,6 +5786,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205737120}
   m_CullTransparentMesh: 0
+--- !u!114 &205737125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205737120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Triangle Challenge
+  ChallengeType: Clear
+  ChallengeDescription: Clear the board
+  ChallengeTimer: 0
+  TotalMoves: 0
 --- !u!1 &206200253
 GameObject:
   m_ObjectHideFlags: 0
@@ -6684,6 +6829,7 @@ GameObject:
   - component: {fileID: 238716187}
   - component: {fileID: 238716186}
   - component: {fileID: 238716185}
+  - component: {fileID: 238716188}
   m_Layer: 5
   m_Name: CB4
   m_TagString: Untagged
@@ -6749,7 +6895,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 238716186}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 238716188}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &238716186
@@ -6789,6 +6946,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 238716183}
   m_CullTransparentMesh: 0
+--- !u!114 &238716188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238716183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Sauco Challenge
+  ChallengeType: ClearX
+  ChallengeDescription: Clear the board in 5 moves
+  ChallengeTimer: 0
+  TotalMoves: 5
 --- !u!1 &245865145
 GameObject:
   m_ObjectHideFlags: 0
@@ -8705,6 +8879,7 @@ GameObject:
   - component: {fileID: 329246603}
   - component: {fileID: 329246602}
   - component: {fileID: 329246601}
+  - component: {fileID: 329246604}
   m_Layer: 5
   m_Name: CB1
   m_TagString: Untagged
@@ -8770,7 +8945,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 329246602}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 329246604}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &329246602
@@ -8810,6 +8996,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 329246599}
   m_CullTransparentMesh: 0
+--- !u!114 &329246604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329246599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Crius Challenge
+  ChallengeType: Clear
+  ChallengeDescription: Clear the board
+  ChallengeTimer: 0
+  TotalMoves: 0
 --- !u!1 &330460604
 GameObject:
   m_ObjectHideFlags: 0
@@ -9721,6 +9924,7 @@ GameObject:
   - component: {fileID: 351420797}
   - component: {fileID: 351420796}
   - component: {fileID: 351420795}
+  - component: {fileID: 351420798}
   m_Layer: 5
   m_Name: CB3
   m_TagString: Untagged
@@ -9786,7 +9990,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 351420796}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 351420798}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &351420796
@@ -9826,6 +10041,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 351420793}
   m_CullTransparentMesh: 0
+--- !u!114 &351420798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351420793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Okami Challenge
+  ChallengeType: BeatScore
+  ChallengeDescription: Score 300 points
+  ChallengeTimer: 0
+  TotalMoves: 0
 --- !u!1 &351983745
 GameObject:
   m_ObjectHideFlags: 0
@@ -12393,6 +12625,7 @@ GameObject:
   - component: {fileID: 440563422}
   - component: {fileID: 440563421}
   - component: {fileID: 440563420}
+  - component: {fileID: 440563423}
   m_Layer: 5
   m_Name: CB1
   m_TagString: Untagged
@@ -12458,7 +12691,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 440563421}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 440563423}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &440563421
@@ -12498,6 +12742,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 440563418}
   m_CullTransparentMesh: 0
+--- !u!114 &440563423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440563418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Triangle Challenge
+  ChallengeType: Clear
+  ChallengeDescription: Clear the board
+  ChallengeTimer: 0
+  TotalMoves: 0
 --- !u!1 &443219922
 GameObject:
   m_ObjectHideFlags: 0
@@ -13766,6 +14027,7 @@ GameObject:
   - component: {fileID: 484570588}
   - component: {fileID: 484570587}
   - component: {fileID: 484570586}
+  - component: {fileID: 484570589}
   m_Layer: 5
   m_Name: CB4
   m_TagString: Untagged
@@ -13831,7 +14093,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 484570587}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 351420798}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &484570587
@@ -13871,6 +14144,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 484570584}
   m_CullTransparentMesh: 0
+--- !u!114 &484570589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484570584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Okami Challenge
+  ChallengeType: ClearX
+  ChallengeDescription: Clear the board in 7 moves
+  ChallengeTimer: 0
+  TotalMoves: 7
 --- !u!1 &498696192
 GameObject:
   m_ObjectHideFlags: 0
@@ -15156,6 +15446,7 @@ GameObject:
   - component: {fileID: 525581857}
   - component: {fileID: 525581856}
   - component: {fileID: 525581855}
+  - component: {fileID: 525581858}
   m_Layer: 5
   m_Name: CB3
   m_TagString: Untagged
@@ -15221,7 +15512,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 525581856}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 525581858}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &525581856
@@ -15261,6 +15563,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 525581853}
   m_CullTransparentMesh: 0
+--- !u!114 &525581858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525581853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Idasaurous Challenge
+  ChallengeType: BeatScore
+  ChallengeDescription: Score 200 points
+  ChallengeTimer: 0
+  TotalMoves: 0
 --- !u!1 &527578031
 GameObject:
   m_ObjectHideFlags: 0
@@ -16588,6 +16907,7 @@ GameObject:
   - component: {fileID: 595266337}
   - component: {fileID: 595266336}
   - component: {fileID: 595266335}
+  - component: {fileID: 595266338}
   m_Layer: 5
   m_Name: CB5
   m_TagString: Untagged
@@ -16653,7 +16973,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 595266336}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 595266338}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &595266336
@@ -16693,6 +17024,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 595266333}
   m_CullTransparentMesh: 0
+--- !u!114 &595266338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595266333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Chick-Pee Challenge
+  ChallengeType: Clear
+  ChallengeDescription: Clear the board in 2 minutes
+  ChallengeTimer: 120
+  TotalMoves: 0
 --- !u!1 &599118019
 GameObject:
   m_ObjectHideFlags: 0
@@ -17081,6 +17429,7 @@ GameObject:
   - component: {fileID: 606891501}
   - component: {fileID: 606891500}
   - component: {fileID: 606891499}
+  - component: {fileID: 606891502}
   m_Layer: 5
   m_Name: CB5
   m_TagString: Untagged
@@ -17146,7 +17495,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 606891500}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 525581858}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &606891500
@@ -17186,6 +17546,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 606891497}
   m_CullTransparentMesh: 0
+--- !u!114 &606891502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606891497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Idasaurous Challenge
+  ChallengeType: BeatScore
+  ChallengeDescription: Score 300
+  ChallengeTimer: 0
+  TotalMoves: 0
 --- !u!1 &615887278
 GameObject:
   m_ObjectHideFlags: 0
@@ -17629,6 +18006,7 @@ GameObject:
   - component: {fileID: 628453066}
   - component: {fileID: 628453065}
   - component: {fileID: 628453064}
+  - component: {fileID: 628453067}
   m_Layer: 5
   m_Name: CB2
   m_TagString: Untagged
@@ -17694,7 +18072,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 628453065}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 351420798}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &628453065
@@ -17734,6 +18123,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628453062}
   m_CullTransparentMesh: 0
+--- !u!114 &628453067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628453062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Okami Challenge
+  ChallengeType: BeatScore
+  ChallengeDescription: Score 100 points
+  ChallengeTimer: 0
+  TotalMoves: 0
 --- !u!1 &634713389
 GameObject:
   m_ObjectHideFlags: 0
@@ -18507,6 +18913,7 @@ GameObject:
   - component: {fileID: 664506787}
   - component: {fileID: 664506786}
   - component: {fileID: 664506785}
+  - component: {fileID: 664506788}
   m_Layer: 5
   m_Name: CB2
   m_TagString: Untagged
@@ -18572,7 +18979,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 664506786}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 664506788}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &664506786
@@ -18612,6 +19030,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 664506783}
   m_CullTransparentMesh: 0
+--- !u!114 &664506788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664506783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Squishy Challenge
+  ChallengeType: Clear
+  ChallengeDescription: Clear the board in 1 minute
+  ChallengeTimer: 60
+  TotalMoves: 0
 --- !u!1 &668688954
 GameObject:
   m_ObjectHideFlags: 0
@@ -18624,6 +19059,7 @@ GameObject:
   - component: {fileID: 668688958}
   - component: {fileID: 668688957}
   - component: {fileID: 668688956}
+  - component: {fileID: 668688959}
   m_Layer: 5
   m_Name: CB4
   m_TagString: Untagged
@@ -18689,7 +19125,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 668688957}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 664506788}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &668688957
@@ -18729,6 +19176,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 668688954}
   m_CullTransparentMesh: 0
+--- !u!114 &668688959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668688954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Squishy Challenge
+  ChallengeType: BeatScore
+  ChallengeDescription: Score 200 points
+  ChallengeTimer: 0
+  TotalMoves: 0
 --- !u!1 &677178676
 GameObject:
   m_ObjectHideFlags: 0
@@ -19495,6 +19959,7 @@ GameObject:
   - component: {fileID: 712256595}
   - component: {fileID: 712256594}
   - component: {fileID: 712256593}
+  - component: {fileID: 712256596}
   m_Layer: 5
   m_Name: CB5
   m_TagString: Untagged
@@ -19560,7 +20025,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 712256594}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 712256596}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &712256594
@@ -19600,6 +20076,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 712256591}
   m_CullTransparentMesh: 0
+--- !u!114 &712256596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712256591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Triangle Challenge
+  ChallengeType: Clear
+  ChallengeDescription: Clear the board in 3 minutes
+  ChallengeTimer: 180
+  TotalMoves: 0
 --- !u!1 &712821196
 GameObject:
   m_ObjectHideFlags: 0
@@ -20845,6 +21338,7 @@ GameObject:
   - component: {fileID: 779229763}
   - component: {fileID: 779229762}
   - component: {fileID: 779229761}
+  - component: {fileID: 779229764}
   m_Layer: 5
   m_Name: CB2
   m_TagString: Untagged
@@ -20910,7 +21404,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 779229762}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 779229764}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &779229762
@@ -20950,6 +21455,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 779229759}
   m_CullTransparentMesh: 0
+--- !u!114 &779229764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779229759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Cronus Challenge
+  ChallengeType: Clear
+  ChallengeDescription: Clear the board in 1 minute
+  ChallengeTimer: 60
+  TotalMoves: 0
 --- !u!1 &782714062
 GameObject:
   m_ObjectHideFlags: 0
@@ -21734,6 +22256,7 @@ GameObject:
   - component: {fileID: 806621901}
   - component: {fileID: 806621900}
   - component: {fileID: 806621899}
+  - component: {fileID: 806621902}
   m_Layer: 5
   m_Name: CB4
   m_TagString: Untagged
@@ -21799,7 +22322,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 806621900}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 525581858}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &806621900
@@ -21839,6 +22373,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806621897}
   m_CullTransparentMesh: 0
+--- !u!114 &806621902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806621897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Idasaurous Challenge
+  ChallengeType: Clear
+  ChallengeDescription: Clear the board
+  ChallengeTimer: 0
+  TotalMoves: 0
 --- !u!1 &807379708
 GameObject:
   m_ObjectHideFlags: 0
@@ -22197,8 +22748,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChallengeScene: Gobu Challenges
-  ChallengeType: ClearX
-  ChallengeDescription: This is a test3
+  ChallengeType: BeatScore
+  ChallengeDescription: Score 500 points
   ChallengeTimer: 0
   TotalMoves: 10
 --- !u!1 &818267113
@@ -22831,6 +23382,7 @@ GameObject:
   - component: {fileID: 848699551}
   - component: {fileID: 848699550}
   - component: {fileID: 848699549}
+  - component: {fileID: 848699552}
   m_Layer: 5
   m_Name: CB3
   m_TagString: Untagged
@@ -22896,7 +23448,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 848699550}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 848699552}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &848699550
@@ -22936,6 +23499,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 848699547}
   m_CullTransparentMesh: 0
+--- !u!114 &848699552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848699547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Crius Challenge
+  ChallengeType: BeatScore
+  ChallengeDescription: Score 200 points
+  ChallengeTimer: 0
+  TotalMoves: 0
 --- !u!1 &851858378
 GameObject:
   m_ObjectHideFlags: 0
@@ -23793,6 +24373,7 @@ GameObject:
   - component: {fileID: 878102379}
   - component: {fileID: 878102378}
   - component: {fileID: 878102377}
+  - component: {fileID: 878102380}
   m_Layer: 5
   m_Name: CB1
   m_TagString: Untagged
@@ -23858,7 +24439,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 878102378}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 525581858}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &878102378
@@ -23898,6 +24490,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 878102375}
   m_CullTransparentMesh: 0
+--- !u!114 &878102380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878102375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Idasaurous Challenge
+  ChallengeType: ClearX
+  ChallengeDescription: Clear the board in 5 moves
+  ChallengeTimer: 0
+  TotalMoves: 5
 --- !u!1 &878922887
 GameObject:
   m_ObjectHideFlags: 0
@@ -29922,6 +30531,7 @@ GameObject:
   - component: {fileID: 1137973351}
   - component: {fileID: 1137973350}
   - component: {fileID: 1137973349}
+  - component: {fileID: 1137973352}
   m_Layer: 5
   m_Name: CB4
   m_TagString: Untagged
@@ -29987,7 +30597,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1137973350}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 779229764}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1137973350
@@ -30027,6 +30648,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137973347}
   m_CullTransparentMesh: 0
+--- !u!114 &1137973352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137973347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Cronus Challenge
+  ChallengeType: Clear
+  ChallengeDescription: Clear the board
+  ChallengeTimer: 0
+  TotalMoves: 0
 --- !u!1 &1140452851
 GameObject:
   m_ObjectHideFlags: 0
@@ -32424,6 +33062,7 @@ GameObject:
   - component: {fileID: 1249347765}
   - component: {fileID: 1249347764}
   - component: {fileID: 1249347763}
+  - component: {fileID: 1249347766}
   m_Layer: 5
   m_Name: CB1
   m_TagString: Untagged
@@ -32489,7 +33128,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1249347764}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1249347766}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1249347764
@@ -32529,6 +33179,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1249347761}
   m_CullTransparentMesh: 0
+--- !u!114 &1249347766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249347761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Chick-Pee Challenge
+  ChallengeType: ClearX
+  ChallengeDescription: Clear the board in 6 moves
+  ChallengeTimer: 0
+  TotalMoves: 6
 --- !u!4 &1250053557 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4144176880081426, guid: e4066718ae92203429c2f18e97d90c1e,
@@ -34599,6 +35266,7 @@ GameObject:
   - component: {fileID: 1331021533}
   - component: {fileID: 1331021532}
   - component: {fileID: 1331021531}
+  - component: {fileID: 1331021534}
   m_Layer: 5
   m_Name: CB5
   m_TagString: Untagged
@@ -34664,7 +35332,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1331021532}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1331021534}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1331021532
@@ -34704,6 +35383,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1331021529}
   m_CullTransparentMesh: 0
+--- !u!114 &1331021534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331021529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Crius Challenge
+  ChallengeType: Clear
+  ChallengeDescription: Clear the board in 1 minute
+  ChallengeTimer: 60
+  TotalMoves: 0
 --- !u!1 &1333799959
 GameObject:
   m_ObjectHideFlags: 0
@@ -34716,6 +35412,7 @@ GameObject:
   - component: {fileID: 1333799963}
   - component: {fileID: 1333799962}
   - component: {fileID: 1333799961}
+  - component: {fileID: 1333799964}
   m_Layer: 5
   m_Name: CB1
   m_TagString: Untagged
@@ -34781,7 +35478,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1333799962}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1333799964}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1333799962
@@ -34821,6 +35529,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1333799959}
   m_CullTransparentMesh: 0
+--- !u!114 &1333799964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333799959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Sauco Challenge
+  ChallengeType: ClearX
+  ChallengeDescription: Clear the board in 5 turns
+  ChallengeTimer: 0
+  TotalMoves: 5
 --- !u!1 &1338668411
 GameObject:
   m_ObjectHideFlags: 0
@@ -34995,6 +35720,7 @@ GameObject:
   - component: {fileID: 1340606066}
   - component: {fileID: 1340606065}
   - component: {fileID: 1340606064}
+  - component: {fileID: 1340606067}
   m_Layer: 5
   m_Name: CB3
   m_TagString: Untagged
@@ -35060,7 +35786,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1340606065}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1340606067}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1340606065
@@ -35100,6 +35837,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1340606062}
   m_CullTransparentMesh: 0
+--- !u!114 &1340606067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340606062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Sauco Challenge
+  ChallengeType: Clear
+  ChallengeDescription: Clear the board in 2 minutes
+  ChallengeTimer: 120
+  TotalMoves: 0
 --- !u!1 &1348005049
 GameObject:
   m_ObjectHideFlags: 0
@@ -35112,6 +35866,7 @@ GameObject:
   - component: {fileID: 1348005053}
   - component: {fileID: 1348005052}
   - component: {fileID: 1348005051}
+  - component: {fileID: 1348005054}
   m_Layer: 5
   m_Name: CB2
   m_TagString: Untagged
@@ -35177,7 +35932,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1348005052}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 525581858}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1348005052
@@ -35217,6 +35983,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1348005049}
   m_CullTransparentMesh: 0
+--- !u!114 &1348005054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348005049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Idasaurous Challenge
+  ChallengeType: ClearX
+  ChallengeDescription: Clear the board in 3 moves
+  ChallengeTimer: 0
+  TotalMoves: 3
 --- !u!1 &1350424540
 GameObject:
   m_ObjectHideFlags: 0
@@ -35619,6 +36402,7 @@ GameObject:
   - component: {fileID: 1366088414}
   - component: {fileID: 1366088413}
   - component: {fileID: 1366088412}
+  - component: {fileID: 1366088415}
   m_Layer: 5
   m_Name: CB3
   m_TagString: Untagged
@@ -35684,7 +36468,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1366088413}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 664506788}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1366088413
@@ -35724,6 +36519,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366088410}
   m_CullTransparentMesh: 0
+--- !u!114 &1366088415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366088410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Squishy Challenge
+  ChallengeType: ClearX
+  ChallengeDescription: Clear the board in 5 moves
+  ChallengeTimer: 0
+  TotalMoves: 5
 --- !u!1 &1367553961
 GameObject:
   m_ObjectHideFlags: 0
@@ -36243,6 +37055,7 @@ GameObject:
   - component: {fileID: 1389944460}
   - component: {fileID: 1389944459}
   - component: {fileID: 1389944458}
+  - component: {fileID: 1389944461}
   m_Layer: 5
   m_Name: CB3
   m_TagString: Untagged
@@ -36308,7 +37121,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1389944459}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1389944461}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1389944459
@@ -36348,6 +37172,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1389944456}
   m_CullTransparentMesh: 0
+--- !u!114 &1389944461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389944456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Triangle Challenge
+  ChallengeType: BeatScore
+  ChallengeDescription: Score 500 points
+  ChallengeTimer: 0
+  TotalMoves: 0
 --- !u!1 &1393788862
 GameObject:
   m_ObjectHideFlags: 0
@@ -36518,6 +37359,7 @@ GameObject:
   - component: {fileID: 1397673092}
   - component: {fileID: 1397673091}
   - component: {fileID: 1397673090}
+  - component: {fileID: 1397673093}
   m_Layer: 5
   m_Name: CB3
   m_TagString: Untagged
@@ -36583,7 +37425,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1397673091}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 779229764}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1397673091
@@ -36623,6 +37476,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1397673088}
   m_CullTransparentMesh: 0
+--- !u!114 &1397673093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397673088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Cronus Challenge
+  ChallengeType: BeatScore
+  ChallengeDescription: Score 300
+  ChallengeTimer: 0
+  TotalMoves: 0
 --- !u!1 &1409170617
 GameObject:
   m_ObjectHideFlags: 0
@@ -37870,6 +38740,7 @@ GameObject:
   - component: {fileID: 1453618800}
   - component: {fileID: 1453618799}
   - component: {fileID: 1453618798}
+  - component: {fileID: 1453618801}
   m_Layer: 5
   m_Name: CB2
   m_TagString: Untagged
@@ -37935,7 +38806,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1453618799}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1453618801}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1453618799
@@ -37975,6 +38857,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453618796}
   m_CullTransparentMesh: 0
+--- !u!114 &1453618801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453618796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Circle Challege
+  ChallengeType: Clear
+  ChallengeDescription: Clear the board
+  ChallengeTimer: 0
+  TotalMoves: 0
 --- !u!1 &1459854883
 GameObject:
   m_ObjectHideFlags: 0
@@ -39041,6 +39940,7 @@ GameObject:
   - component: {fileID: 1502977339}
   - component: {fileID: 1502977338}
   - component: {fileID: 1502977337}
+  - component: {fileID: 1502977340}
   m_Layer: 5
   m_Name: CB5
   m_TagString: Untagged
@@ -39106,7 +40006,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1502977338}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1502977340}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1502977338
@@ -39146,6 +40057,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1502977335}
   m_CullTransparentMesh: 0
+--- !u!114 &1502977340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502977335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Circle Challege
+  ChallengeType: Clear
+  ChallengeDescription: Clear the board in 1 minute
+  ChallengeTimer: 60
+  TotalMoves: 0
 --- !u!1 &1503154377
 GameObject:
   m_ObjectHideFlags: 0
@@ -40822,6 +41750,7 @@ GameObject:
   - component: {fileID: 1555731599}
   - component: {fileID: 1555731598}
   - component: {fileID: 1555731597}
+  - component: {fileID: 1555731600}
   m_Layer: 5
   m_Name: CB1
   m_TagString: Untagged
@@ -40887,7 +41816,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1555731598}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1555731600}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1555731598
@@ -40927,6 +41867,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555731595}
   m_CullTransparentMesh: 0
+--- !u!114 &1555731600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555731595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Squishy Challenge
+  ChallengeType: ClearX
+  ChallengeDescription: Clear the board in 6 moves
+  ChallengeTimer: 0
+  TotalMoves: 6
 --- !u!1 &1559082378
 GameObject:
   m_ObjectHideFlags: 0
@@ -42942,6 +43899,7 @@ GameObject:
   - component: {fileID: 1641187658}
   - component: {fileID: 1641187657}
   - component: {fileID: 1641187656}
+  - component: {fileID: 1641187659}
   m_Layer: 5
   m_Name: CB2
   m_TagString: Untagged
@@ -43007,7 +43965,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1641187657}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1641187659}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1641187657
@@ -43047,6 +44016,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1641187654}
   m_CullTransparentMesh: 0
+--- !u!114 &1641187659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641187654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Crius Challenge
+  ChallengeType: Clear
+  ChallengeDescription: Clear the board in 2 minutes
+  ChallengeTimer: 0
+  TotalMoves: 0
 --- !u!1 &1643574802
 GameObject:
   m_ObjectHideFlags: 0
@@ -44870,6 +45856,7 @@ GameObject:
   - component: {fileID: 1712273145}
   - component: {fileID: 1712273144}
   - component: {fileID: 1712273143}
+  - component: {fileID: 1712273146}
   m_Layer: 5
   m_Name: CB4
   m_TagString: Untagged
@@ -44935,7 +45922,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1712273144}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1712273146}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1712273144
@@ -44975,6 +45973,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1712273141}
   m_CullTransparentMesh: 0
+--- !u!114 &1712273146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712273141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Circle Challege
+  ChallengeType: BeatScore
+  ChallengeDescription: Score 300 points
+  ChallengeTimer: 0
+  TotalMoves: 0
 --- !u!1 &1717363863
 GameObject:
   m_ObjectHideFlags: 0
@@ -46921,6 +47936,7 @@ GameObject:
   - component: {fileID: 1774576628}
   - component: {fileID: 1774576627}
   - component: {fileID: 1774576626}
+  - component: {fileID: 1774576629}
   m_Layer: 5
   m_Name: CB1
   m_TagString: Untagged
@@ -46986,7 +48002,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1774576627}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1774576629}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1774576627
@@ -47026,6 +48053,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1774576624}
   m_CullTransparentMesh: 0
+--- !u!114 &1774576629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774576624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Circle Challege
+  ChallengeType: ClearX
+  ChallengeDescription: Clear the board in 3 moves
+  ChallengeTimer: 0
+  TotalMoves: 3
 --- !u!1 &1778973935
 GameObject:
   m_ObjectHideFlags: 0
@@ -47083,6 +48127,7 @@ GameObject:
   - component: {fileID: 1779142455}
   - component: {fileID: 1779142454}
   - component: {fileID: 1779142453}
+  - component: {fileID: 1779142456}
   m_Layer: 5
   m_Name: CB3
   m_TagString: Untagged
@@ -47148,7 +48193,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1779142454}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1779142456}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1779142454
@@ -47188,6 +48244,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1779142451}
   m_CullTransparentMesh: 0
+--- !u!114 &1779142456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779142451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Circle Challege
+  ChallengeType: BeatScore
+  ChallengeDescription: Score 100 points
+  ChallengeTimer: 0
+  TotalMoves: 0
 --- !u!1 &1781325382
 GameObject:
   m_ObjectHideFlags: 0
@@ -48814,6 +49887,7 @@ GameObject:
   - component: {fileID: 1819342044}
   - component: {fileID: 1819342043}
   - component: {fileID: 1819342042}
+  - component: {fileID: 1819342045}
   m_Layer: 5
   m_Name: CB1
   m_TagString: Untagged
@@ -48879,7 +49953,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1819342043}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 351420798}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1819342043
@@ -48919,6 +50004,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1819342040}
   m_CullTransparentMesh: 0
+--- !u!114 &1819342045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819342040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Okami Challenge
+  ChallengeType: Clear
+  ChallengeDescription: Clear the board in 2 minutes
+  ChallengeTimer: 120
+  TotalMoves: 0
 --- !u!1 &1820128359
 GameObject:
   m_ObjectHideFlags: 0
@@ -50761,6 +51863,7 @@ GameObject:
   - component: {fileID: 1886172276}
   - component: {fileID: 1886172275}
   - component: {fileID: 1886172274}
+  - component: {fileID: 1886172277}
   m_Layer: 5
   m_Name: CB3
   m_TagString: Untagged
@@ -50826,7 +51929,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1886172275}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1886172277}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1886172275
@@ -50866,6 +51980,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1886172272}
   m_CullTransparentMesh: 0
+--- !u!114 &1886172277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886172272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Chick-Pee Challenge
+  ChallengeType: Clear
+  ChallengeDescription: Clear the board in 1 minute
+  ChallengeTimer: 60
+  TotalMoves: 0
 --- !u!1 &1887218864
 GameObject:
   m_ObjectHideFlags: 0
@@ -51959,6 +53090,7 @@ GameObject:
   - component: {fileID: 1926644982}
   - component: {fileID: 1926644981}
   - component: {fileID: 1926644980}
+  - component: {fileID: 1926644983}
   m_Layer: 5
   m_Name: CB5
   m_TagString: Untagged
@@ -52024,7 +53156,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1926644981}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 351420798}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1926644981
@@ -52064,6 +53207,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1926644978}
   m_CullTransparentMesh: 0
+--- !u!114 &1926644983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926644978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Okami Challenge
+  ChallengeType: Clear
+  ChallengeDescription: Clear the board in 2 minutes
+  ChallengeTimer: 120
+  TotalMoves: 0
 --- !u!1 &1926915944
 GameObject:
   m_ObjectHideFlags: 0
@@ -52324,9 +53484,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChallengeScene: Gobu Challenges
   ChallengeType: ClearX
-  ChallengeDescription: 'This is a test '
+  ChallengeDescription: Clear the board in 5 turns
   ChallengeTimer: 0
-  TotalMoves: 3
+  TotalMoves: 5
 --- !u!1 &1934761367
 GameObject:
   m_ObjectHideFlags: 0
@@ -54046,6 +55206,7 @@ GameObject:
   - component: {fileID: 1998473410}
   - component: {fileID: 1998473409}
   - component: {fileID: 1998473408}
+  - component: {fileID: 1998473411}
   m_Layer: 5
   m_Name: CB2
   m_TagString: Untagged
@@ -54111,7 +55272,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1998473409}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1998473411}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1998473409
@@ -54151,6 +55323,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1998473406}
   m_CullTransparentMesh: 0
+--- !u!114 &1998473411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998473406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Chick-Pee Challenge
+  ChallengeType: BeatScore
+  ChallengeDescription: Score 200 points
+  ChallengeTimer: 0
+  TotalMoves: 0
 --- !u!1 &2002041611
 GameObject:
   m_ObjectHideFlags: 0
@@ -54352,6 +55541,7 @@ GameObject:
   - component: {fileID: 2007928475}
   - component: {fileID: 2007928474}
   - component: {fileID: 2007928473}
+  - component: {fileID: 2007928476}
   m_Layer: 5
   m_Name: CB1
   m_TagString: Untagged
@@ -54417,7 +55607,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2007928474}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 779229764}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2007928474
@@ -54457,6 +55658,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2007928471}
   m_CullTransparentMesh: 0
+--- !u!114 &2007928476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007928471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Cronus Challenge
+  ChallengeType: ClearX
+  ChallengeDescription: Clear the board in 5 moves
+  ChallengeTimer: 0
+  TotalMoves: 5
 --- !u!1 &2012601959
 GameObject:
   m_ObjectHideFlags: 0
@@ -54755,6 +55973,7 @@ GameObject:
   - component: {fileID: 2032711580}
   - component: {fileID: 2032711579}
   - component: {fileID: 2032711578}
+  - component: {fileID: 2032711581}
   m_Layer: 5
   m_Name: CB5
   m_TagString: Untagged
@@ -54820,7 +56039,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2032711579}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 664506788}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2032711579
@@ -54860,6 +56090,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2032711576}
   m_CullTransparentMesh: 0
+--- !u!114 &2032711581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032711576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Squishy Challenge
+  ChallengeType: Clear
+  ChallengeDescription: Clear the board in 1 minute
+  ChallengeTimer: 60
+  TotalMoves: 0
 --- !u!1 &2036154804
 GameObject:
   m_ObjectHideFlags: 0
@@ -55003,9 +56250,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChallengeScene: Gobu Challenges
   ChallengeType: BeatScore
-  ChallengeDescription: This is a test5
-  ChallengeTimer: 120
-  TotalMoves: 10
+  ChallengeDescription: Score 500 points
+  ChallengeTimer: 0
+  TotalMoves: 0
 --- !u!1001 &2039248223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56044,6 +57291,7 @@ GameObject:
   - component: {fileID: 2079817101}
   - component: {fileID: 2079817100}
   - component: {fileID: 2079817099}
+  - component: {fileID: 2079817102}
   m_Layer: 5
   m_Name: CB2
   m_TagString: Untagged
@@ -56109,7 +57357,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2079817100}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2079817102}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2079817100
@@ -56149,6 +57408,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079817097}
   m_CullTransparentMesh: 0
+--- !u!114 &2079817102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079817097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Triangle Challenge
+  ChallengeType: Clear
+  ChallengeDescription: Clear the board in 1 minute
+  ChallengeTimer: 60
+  TotalMoves: 0
 --- !u!1 &2080746579
 GameObject:
   m_ObjectHideFlags: 0
@@ -56371,9 +57647,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChallengeScene: Gobu Challenges
   ChallengeType: Clear
-  ChallengeDescription: This is a test2
+  ChallengeDescription: Clear the board in 1 minute
   ChallengeTimer: 60
-  TotalMoves: 10
+  TotalMoves: 0
 --- !u!1001 &2081770368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57896,6 +59172,7 @@ GameObject:
   - component: {fileID: 2139403746}
   - component: {fileID: 2139403745}
   - component: {fileID: 2139403744}
+  - component: {fileID: 2139403747}
   m_Layer: 5
   m_Name: CB5
   m_TagString: Untagged
@@ -57961,7 +59238,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2139403745}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 779229764}
+        m_MethodName: SelectChallenge
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2139403745
@@ -58001,6 +59289,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2139403742}
   m_CullTransparentMesh: 0
+--- !u!114 &2139403747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139403742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c52dcc2020c94689afdd257f51211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: Cronus Challenge
+  ChallengeType: BeatScore
+  ChallengeDescription: Score 250
+  ChallengeTimer: 0
+  TotalMoves: 0
 --- !u!1 &2139920986
 GameObject:
   m_ObjectHideFlags: 0
