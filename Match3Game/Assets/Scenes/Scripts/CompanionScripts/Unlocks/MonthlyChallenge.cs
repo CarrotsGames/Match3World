@@ -59,9 +59,9 @@ public class MonthlyChallenge : MonoBehaviour {
                 //PlayerPrefs.SetInt("MONTHLYPRIZE", UnlockGift);
             //}
             // checks if the tournament is still going
-            DelayTimerCheck -= Time.deltaTime;
+            //DelayTimerCheck -= Time.deltaTime;
             // Cooldown for checking tournament status to avoid sending to much information 
-            if (DelayTimerCheck < 0)
+            if (DotManagerScript.TotalScore > 1000000 && !HasUnlockedGift)
             {
                 DelayTimerCheck += 4;
                 MonthlyChallengeStatus();
