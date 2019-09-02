@@ -5,12 +5,13 @@ using System.Collections.Generic;
 public class BombExplodeScript : MonoBehaviour
 {
     float Timer;
+    int Index;
     public GameObject ExplosionEffect;
     public List<GameObject> CollidedNodes;
   
     private DotManager DotManagerScript;
     private GameObject DotManagerObj;
-      bool Detonate;
+    bool Detonate;
     bool AddScore;
     private GameObject AudioManagerGameObj;
     private AudioManager AudioManagerScript;
@@ -44,7 +45,14 @@ public class BombExplodeScript : MonoBehaviour
     void Update()
     {
         Timer -= Time.deltaTime;
-      
+        // if the bomb is just sitting there not colliding with nodes it will destroy in 3 seconds
+        if (Timer <= -3)
+        {
+            Instantiate(ExplosionEffect, transform.position, Quaternion.identity);
+            PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
+
+            DestoryMe();
+        }
         if (AddScore)
         {
             int Total = CollidedNodes.Count * HappinessManagerScript.Level;
@@ -85,7 +93,7 @@ public class BombExplodeScript : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-         if (!CollidedNodes.Contains(collision.gameObject))
+        if (!CollidedNodes.Contains(collision.gameObject))
         {
             CollidedNodes.Add(collision.gameObject);
 
@@ -94,8 +102,15 @@ public class BombExplodeScript : MonoBehaviour
 
         if (Timer < 0 )
         {
+        
             if (Detonate)
             {
+                Index = 0;
+
+                for (int i = 0; i < CollidedNodes.Count; i++)
+                {
+                    PlayParticle();
+                }
                 AddScore = true;
                 AudioManagerScript.ParticleSource.PlayOneShot(AudioManagerScript.ParticleAudio[0]);
                 Instantiate(ExplosionEffect, transform.position, Quaternion.identity);
@@ -131,5 +146,28 @@ public class BombExplodeScript : MonoBehaviour
         }
         
 
+    }
+    void PlayParticle()
+    {
+       
+        // plays particle effect at list index and position of current node
+        if (CollidedNodes[Index].tag == "Red")
+        {
+            Instantiate(DotManagerScript.ParticleEffectPink, CollidedNodes[Index].transform.position, Quaternion.identity);
+
+        }
+        else if (CollidedNodes[Index].tag == "Blue")
+        {
+            Instantiate(DotManagerScript.ParticleEffectBlue, CollidedNodes[Index].transform.position, Quaternion.identity);
+        }
+        else if (CollidedNodes[Index].tag == "Yellow")
+        {
+            Instantiate(DotManagerScript.ParticleEffectPurple, CollidedNodes[Index].transform.position, Quaternion.identity);
+        }
+        else if (CollidedNodes[Index].tag == "Green")
+        {
+            Instantiate(DotManagerScript.ParticleEffectYellow, CollidedNodes[Index].transform.position, Quaternion.identity);
+        }
+        Index++;
     }
 }
