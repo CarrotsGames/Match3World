@@ -8,7 +8,7 @@ public class SuperMultiplierScript : MonoBehaviour
     private RealTimeCounter RealTimeScript;
     private GameObject MainCamera;
 
-    public static int SuperMultiplier;
+    //public static int SuperMultiplier;
     public float MultlpierTimer;
     public GameObject SMTimerUI;
     public Text MultlpierTimerText;
@@ -72,7 +72,7 @@ public class SuperMultiplierScript : MonoBehaviour
 
             // test *= test;
             HappinessManagerScript.HappinessBar();
-            SuperMultiplier = HappinessGameObj.GetComponent<HappinessManager>().Level * 2;
+          //  SuperMultiplier = HappinessGameObj.GetComponent<HappinessManager>().Level * 2;
             // Multiplier = Text.multiplier
             MultplierBar.GetComponent<Image>().fillAmount = MultlpierTimer / 80;
 
@@ -94,7 +94,7 @@ public class SuperMultiplierScript : MonoBehaviour
                 PlayerPrefs.SetInt("DISABLESM", (DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableSM ? 1 : 0));
 
                 DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableNodes();
-                SuperMultiplier = 0;
+              //  SuperMultiplier = 0;
                 EndCountdown = false;
                 CanUseSuperMultiplier = false;
                 PowerUpManagerScript.HasMultlpliers = true;

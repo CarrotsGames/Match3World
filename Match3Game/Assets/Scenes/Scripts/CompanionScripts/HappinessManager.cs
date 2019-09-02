@@ -158,6 +158,13 @@ public class HappinessManager : MonoBehaviour
                 //  NightTime.SetActive(true);
                 HappinessClamp = 0;
                 HappinessClamp += Level * 250;
+                // sets the level to new level
+                LevelText.text = " " + Level;
+                int NextLevelNum = Level + 1;
+                NextLevel.text = " " + NextLevelNum;
+                // sets current exp
+                CurrentHappiness.text = "Current EXP:" + HappinessSliderValue + "/" + HappinessClamp;
+
             }
         }
         else

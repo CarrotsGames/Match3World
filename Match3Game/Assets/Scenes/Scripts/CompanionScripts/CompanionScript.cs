@@ -80,7 +80,7 @@ public class CompanionScript : MonoBehaviour
         // Mutlplier is equal to player level
         int LevelMultiplier = HappinessGameObj.GetComponent<HappinessManager>().Level;
         int EXPTotal = 3;
-        EXPTotal += EatingPeices.Count * HappinessGameObj.GetComponent<HappinessManager>().Level;
+        EXPTotal += EatingPeices.Count + HappinessGameObj.GetComponent<HappinessManager>().Level;
 
         // Total amount from the combo is equal to the number of nodes plus combo score
         Total = EatingPeices.Count + DotManagerScriptRef.ComboScore;
@@ -89,11 +89,11 @@ public class CompanionScript : MonoBehaviour
         {  
            
             // Total multlpied by multiplier 
-            int SuperMultiplier = SuperMultiplierScript.SuperMultiplier;
+            int SuperMultiplier = 2;
             Total *= SuperMultiplier;
             DotManagerScriptRef.TotalScore += Total;
             DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
-            HappinessManagerScript.HappinessSliderValue += EXPTotal * SuperMultiplier / 2;
+            HappinessManagerScript.HappinessSliderValue += EXPTotal * 2;
         }
         else
         {
