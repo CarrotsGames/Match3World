@@ -47,7 +47,7 @@ public class ChallengeManager : MonoBehaviour
         Board = GameObject.FindGameObjectWithTag("BoardSpawn");
         ChallengeType = PlayerPrefs.GetString("ChallengeType");
         ChallengeNumber = PlayerPrefs.GetInt("ChallengeIndex");
-         
+        TargetScore = PlayerPrefs.GetInt("ChallengeScore");
         Go = Instantiate(ChallengePrefabs[ChallengeNumber], transform.position, Quaternion.identity);
         
         ChallengeDescription = PlayerPrefs.GetString("ChallengeDescription");
