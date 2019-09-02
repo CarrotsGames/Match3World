@@ -166,7 +166,6 @@ public class DestroyNodes : MonoBehaviour {
             ComboList[Index].transform.parent = null;
             // sets the node to destroy itself        
             ComboList[Index].GetComponent<DotScript>().SelfDestruct = true;
-             
             SCR.GetComponent<ColourRemover>().Colour = ComboList[Index].transform.gameObject.tag;
             // if the combo is greater than 4 start the ui counting
 
