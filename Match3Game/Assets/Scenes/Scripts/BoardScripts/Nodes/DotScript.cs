@@ -83,11 +83,12 @@ public class DotScript : MonoBehaviour
 
         if(SelfDestruct)
         {
+            transform.parent = null;
+
             Timer -= Time.deltaTime;
             if(Timer <= 0)
             {
                 Timer = 2;
-
                 Destroy(this.gameObject);
                 SelfDestruct = false;
             }

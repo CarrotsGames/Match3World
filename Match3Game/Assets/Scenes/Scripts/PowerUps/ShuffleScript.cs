@@ -76,7 +76,7 @@ public class ShuffleScript : MonoBehaviour
     {
         for (int i = 1; i < Board.transform.childCount; i++)
         {
-            int Rand = Random.Range(0, Board.transform.childCount);
+            int Rand = Random.Range(0, Board.transform.childCount - 1);
             Board.transform.GetChild(i).transform.position = NodePositions[Rand];
         }
 

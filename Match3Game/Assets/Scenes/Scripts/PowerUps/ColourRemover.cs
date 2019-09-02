@@ -172,7 +172,7 @@ public class ColourRemover : MonoBehaviour
             int Total = SCRAmount * HappinessManagerScript.Level;
             // GOES TO EXP
             int EXPTotal = SCRAmount + HappinessManagerScript.Level;
-
+           
             // TOTAL SCORE
             DotManagerScript.TotalScore += Total;
             //EXP BAR
@@ -183,8 +183,6 @@ public class ColourRemover : MonoBehaviour
             HappinessManagerScript.HappinessBar();
         }
         //Destroys rainbows nodes 
-        // NOTE: this has its own if statement because it is getting the child of a 
-        // diffrent gameobject
         if (Rainbow)
         {
             // Counts how many times player uses this powerup

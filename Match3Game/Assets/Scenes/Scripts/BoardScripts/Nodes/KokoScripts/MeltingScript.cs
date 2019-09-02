@@ -49,7 +49,7 @@ public class MeltingScript : MonoBehaviour {
                 {
                     gameObject.transform.position = new Vector3(100, 0, 0);
                     gameObject.GetComponent<DotScript>().Timer = 3;
-                   gameObject.GetComponent<DotScript>().SelfDestruct = true;
+                    gameObject.GetComponent<DotScript>().SelfDestruct = true;
                 }
                 else
                 {
@@ -71,23 +71,25 @@ public class MeltingScript : MonoBehaviour {
         rend.gameObject.GetComponent<Renderer>().sharedMaterial.SetFloat("_Progress", Test);
 
         Child = transform.GetChild(0).gameObject;
+        // removes child from parent
+       // transform.GetChild(0).transform.parent = null;
+        // Loads melting shader onto node
         Child.GetComponent<Renderer>().material = ShaderMat;
- 
+        // begins melting shader
         Child.GetComponent<Renderer>().material.SetFloat("_Progress", Test);
+        // if the fire hits a deadnode melt it differently
         if (this.gameObject.tag == "DeadNode")
         {
             Disolve = true;
         }
         else if(DotScriptRef.DotManagerScript.Peices.Contains(this.gameObject))    
          {
-           //  if (CollidedNode.layer == DotScriptRef.LayerType)
-          //  {
-                GetComponent<DotScript>().DotManagerScript.CheckConnection = true;
-                IsConnecting = false;
-                DotScriptRef.DotManagerScript.MouseCursorObj.SetActive(false);
-                DotScriptRef.OnMouseUp();
-           // }
-        }
+         
+            GetComponent<DotScript>().DotManagerScript.CheckConnection = true;
+            IsConnecting = false;
+            DotScriptRef.DotManagerScript.MouseCursorObj.SetActive(false);
+            DotScriptRef.OnMouseUp();
+         }
         else if (!DotScriptRef.DotManagerScript.Peices.Contains(this.gameObject) || !DotScriptRef.DotManagerScript.Companion.EatingPeices.Contains(this.gameObject))
         {
             Disolve = true;
