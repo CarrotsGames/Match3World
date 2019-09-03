@@ -759,6 +759,18 @@ Transform:
   m_Father: {fileID: 1062951965}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &264663153 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 725072269, guid: d7fb396edf155de40895610ead7b8864,
+    type: 3}
+  m_PrefabInstance: {fileID: 721159905}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &270662270
 GameObject:
   m_ObjectHideFlags: 0
@@ -1962,6 +1974,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gobu Canvus
       objectReference: {fileID: 0}
+    - target: {fileID: 2336660659435952756, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2335805763254419903, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2082,21 +2099,6 @@ PrefabInstance:
       propertyPath: audioManager
       value: 
       objectReference: {fileID: 1766346107}
-    - target: {fileID: 2449254646268538357, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_Transition
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2449254646268538357, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1647165519}
-    - target: {fileID: 2449254646268538357, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: HomeButton
-      objectReference: {fileID: 0}
     - target: {fileID: 2449818973851826393, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: ShuffleSpawn
@@ -2156,11 +2158,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -335
-      objectReference: {fileID: 0}
-    - target: {fileID: 2336660659435952756, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2555435300485704022, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
@@ -2342,6 +2339,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449254646268538357, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_Transition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449254646268538357, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1647165519}
+    - target: {fileID: 2449254646268538357, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HomeButton
       objectReference: {fileID: 0}
     - target: {fileID: 2335640169551085877, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
@@ -3774,6 +3786,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ComboBomb: {fileID: 1914611662045384, guid: e23b4aecc40e08a4baa9adc758f8021f, type: 3}
   SCR: {fileID: 1346463738}
+  LastKnownPosition: {x: 0, y: 0, z: 0}
   ComboSpeed: 0.1
   ComboVanishSpeed: 0.5
   StartDestroy: 0
@@ -5831,12 +5844,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c525e70265637148b658ab596e3d0cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EatingPeices: []
+  TotalConnection: 0
   EatingPeiceSpawner: {fileID: 1018790061}
   GoldSpawn: {fileID: 0}
   Gold: {fileID: 0}
   HappinessManagerScript: {fileID: 0}
   Total: 0
+  TotalScore: {fileID: 264663153}
 --- !u!82 &1694413310
 AudioSource:
   m_ObjectHideFlags: 0

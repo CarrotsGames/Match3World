@@ -27,7 +27,7 @@ public class CompanionScript : MonoBehaviour
     private int CurrencyChance;
     private GameObject AudioManagerGameObj;
     private AudioManager AudioManagerScript;
-    public GameObject TotalScoreGameObj;
+   // public GameObject TotalScoreGameObj;
 
     public Text TotalScore;
     float RemoveTotalTimer;
@@ -46,8 +46,10 @@ public class CompanionScript : MonoBehaviour
         DotManagerScriptRef = DotManagerObj.GetComponent<DotManager>();
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
+        TotalScore.enabled = false;
+
         // HungerSlider min and max
-        TotalScoreGameObj.transform.position = new Vector3(500, 0, 0);
+        // TotalScoreGameObj.transform.position = new Vector3(500, 0, 0);
     }
 
     private void Update()
@@ -55,10 +57,12 @@ public class CompanionScript : MonoBehaviour
         Debug.Log(this.gameObject);
         if(RemoveTotalTimer < 0)
         {
-            TotalScoreGameObj.transform.position = new Vector3(500, 0, 0);
+            TotalScore.enabled = false;
+            //TotalScoreGameObj.transform.position = new Vector3(500, 0, 0);
         }
         else
         {
+           
             RemoveTotalTimer -= Time.deltaTime;
         }
     }
@@ -118,8 +122,9 @@ public class CompanionScript : MonoBehaviour
             }
         }
         HappinessManagerScript.HappinessBar();
+        TotalScore.enabled = true;
 
-        TotalScoreGameObj.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
+     //   TotalScoreGameObj.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
         TotalScore.text = "" + Total;
         RemoveTotalTimer += 2;
     }
