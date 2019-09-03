@@ -430,6 +430,7 @@ GameObject:
   - component: {fileID: 7412810079380384379}
   - component: {fileID: 1106134713125441256}
   - component: {fileID: 2588455718641289271}
+  - component: {fileID: 1914299081}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -534,9 +535,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1106134713125441256}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2094505974}
+        m_MethodName: SuperMultiplierPurchase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1914299081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3998402271300020145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f92fea81d7e5b24fafd75e2fdcc7b38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4548949415232055716
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,6 +768,7 @@ GameObject:
   - component: {fileID: 8988069556893851237}
   - component: {fileID: 1211308515685273993}
   - component: {fileID: 4773326177006757578}
+  - component: {fileID: 128188277}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -848,9 +873,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1211308515685273993}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2094505974}
+        m_MethodName: SCRPurchase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &128188277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4904692823554187796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f92fea81d7e5b24fafd75e2fdcc7b38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5300539461722984810
 GameObject:
   m_ObjectHideFlags: 0
@@ -1458,6 +1506,7 @@ GameObject:
   - component: {fileID: 440383331873166713}
   - component: {fileID: 629776946126698482}
   - component: {fileID: 6597826716700741671}
+  - component: {fileID: 1990637536}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1562,9 +1611,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 629776946126698482}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2094505974}
+        m_MethodName: SuperBombPurchase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1990637536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7541468165810153909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f92fea81d7e5b24fafd75e2fdcc7b38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7775774493486678789
 GameObject:
   m_ObjectHideFlags: 0
@@ -2033,6 +2105,7 @@ GameObject:
   - component: {fileID: 479093934907378005}
   - component: {fileID: 7218119687607224452}
   - component: {fileID: 6966543189230237503}
+  - component: {fileID: 2094505974}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -2137,9 +2210,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7218119687607224452}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2094505974}
+        m_MethodName: ShufflePurchase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &2094505974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8975257296485405190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f92fea81d7e5b24fafd75e2fdcc7b38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9055461972486730970
 GameObject:
   m_ObjectHideFlags: 0

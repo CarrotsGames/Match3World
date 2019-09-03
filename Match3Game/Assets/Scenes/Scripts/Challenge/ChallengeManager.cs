@@ -48,7 +48,7 @@ public class ChallengeManager : MonoBehaviour
         ChallengeType = PlayerPrefs.GetString("ChallengeType");
         ChallengeNumber = PlayerPrefs.GetInt("ChallengeIndex");
         TargetScore = PlayerPrefs.GetInt("ChallengeScore");
-        Go = Instantiate(ChallengePrefabs[ChallengeNumber], transform.position, Quaternion.identity);
+        Go = Instantiate(ChallengePrefabs[ChallengeNumber], ChallengePrefabs[ChallengeNumber].transform.position, Quaternion.identity);
         
         ChallengeDescription = PlayerPrefs.GetString("ChallengeDescription");
         Timer = PlayerPrefs.GetFloat("ChallengeTime");

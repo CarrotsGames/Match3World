@@ -54,6 +54,7 @@ public class StoreScript : MonoBehaviour
     public GameObject PurchaseAnalytics;
     private void Start()
     {
+        
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
         // Adds all the items to the store
@@ -150,6 +151,7 @@ public class StoreScript : MonoBehaviour
  
                     PowerUpManagerScript.NumOfSCR += SuperColourRemoverQuantity;
                     PowerUpManagerScript.Currency -= SuperColourRemoverAmount;
+                    PowerUpManagerScript.PowerUpSaves();
                     youBoughtCanvus.SetActive(true);
                     scrUnlock.SetActive(true);
                 }
@@ -170,6 +172,8 @@ public class StoreScript : MonoBehaviour
  
                     PowerUpManagerScript.NumOfShuffles += SuperShuffleQuantity;
                     PowerUpManagerScript.Currency -= SuperShuffleAmount;
+                    PowerUpManagerScript.PowerUpSaves();
+
                     youBoughtCanvus.SetActive(true);
                     shuffleUnlock.SetActive(true);
                 }
@@ -189,6 +193,8 @@ public class StoreScript : MonoBehaviour
  
                     PowerUpManagerScript.NumOfMultilpiers += SuperMultiplierQuantity;
                     PowerUpManagerScript.Currency -= SuperMultiplierAmount;
+                    PowerUpManagerScript.PowerUpSaves();
+
                     youBoughtCanvus.SetActive(true);
                     multiUnlock.SetActive(true);
                 }
@@ -208,6 +214,7 @@ public class StoreScript : MonoBehaviour
  
                     PowerUpManagerScript.NumOfBombs += SuperBombQuantity;
                     //   PowerUpManagerScript.NumOfSCR += 5;
+                    PowerUpManagerScript.PowerUpSaves();
 
                     PowerUpManagerScript.Currency -= SuperBombAmount;
                     youBoughtCanvus.SetActive(true);
@@ -232,6 +239,7 @@ public class StoreScript : MonoBehaviour
 
                         EggHatchScript.GetComponent<EggHatch>().CountDownTimer();
                         PowerUpManagerScript.Currency -= CompanionPrice[0];
+                        PowerUpManagerScript.PowerUpSaves();
 
                         // YOU HAVE PURCHASED AN EGG UI
 
@@ -265,6 +273,8 @@ public class StoreScript : MonoBehaviour
                     //   PowerUpManagerScript.NumOfSCR += 5;
 
                     PowerUpManagerScript.Currency -= FreezeMultiplierAmount;
+                    PowerUpManagerScript.PowerUpSaves();
+
                     youBoughtCanvus.SetActive(true);
                     multiFreezeUnlock.SetActive(true);
  
