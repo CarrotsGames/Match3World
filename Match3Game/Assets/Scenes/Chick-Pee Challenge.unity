@@ -2350,6 +2350,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 238
       objectReference: {fileID: 0}
+    - target: {fileID: 725072271, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2555435300485704022, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2500,6 +2504,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 38.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2321959881743238727, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2335805762105582881, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_Sprite
@@ -2525,11 +2534,6 @@ PrefabInstance:
     - target: {fileID: 2555598863301241839, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2321959881743238727, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2449254646268538357, guid: d7fb396edf155de40895610ead7b8864,
@@ -2608,6 +2612,18 @@ MonoBehaviour:
 --- !u!114 &721159910 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8677090933816355684, guid: d7fb396edf155de40895610ead7b8864,
+    type: 3}
+  m_PrefabInstance: {fileID: 721159905}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &721159911 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 725072269, guid: d7fb396edf155de40895610ead7b8864,
     type: 3}
   m_PrefabInstance: {fileID: 721159905}
   m_PrefabAsset: {fileID: 0}
@@ -4084,6 +4100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ComboBomb: {fileID: 1914611662045384, guid: e23b4aecc40e08a4baa9adc758f8021f, type: 3}
   SCR: {fileID: 1346463738}
+  LastKnownPosition: {x: 0, y: 0, z: 0}
   ComboSpeed: 0.1
   ComboVanishSpeed: 1
   StartDestroy: 0
@@ -6044,12 +6061,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c525e70265637148b658ab596e3d0cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EatingPeices: []
+  TotalConnection: 0
   EatingPeiceSpawner: {fileID: 1018790061}
   GoldSpawn: {fileID: 0}
   Gold: {fileID: 0}
   HappinessManagerScript: {fileID: 0}
   Total: 0
+  TotalScore: {fileID: 721159911}
 --- !u!82 &1694413310
 AudioSource:
   m_ObjectHideFlags: 0
