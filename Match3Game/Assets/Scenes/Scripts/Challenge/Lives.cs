@@ -42,26 +42,25 @@ public class Lives : MonoBehaviour
     private void FixedUpdate()
     {
      
- 
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            IsCountingDown = false;
-            //   TimeStamp = 0;
-            //PlayerPrefs.SetString("TimeUntilLives", "" + TimeStamp);
+        //DEBUG ONLY Resets time
+        //if (Input.GetKeyDown(KeyCode.Alpha4))
+        //{
+        //    IsCountingDown = false;
+        //    TimeStamp = 0;
+        //    PlayerPrefs.SetString("TimeUntilLives", "" + TimeStamp);
 
-            //FullHeart += 10L * 1199100000;
-        }
-    
+        //    FullHeart = 0 ;
+        //}
+        // if lives are less than 3 start countdown
         if(LiveCount < 3 && !IsCountingDown)
         {
             CurrentTime -= Time.deltaTime;
             if (CurrentTime < 0)
             {
-                SetFullCounter();
-                IsCountingDown = true;
-                PlayerPrefs.SetInt("LIVECOUNTDOWN", (IsCountingDown ? 1 : 0));
+                BeginTheCountdown();
             }
         }
+        // reset lives and countdown
         else if (LiveCount >= 3)
         {
             NumberOfLives.text = "" + LiveCount;
@@ -70,11 +69,20 @@ public class Lives : MonoBehaviour
             LifeTimerText.text = "Fullhearts";
 
         }
+        // Checks if hearts are regened
         if (IsCountingDown)
         {
             CheckHearts();
       
         }
+    }
+    void BeginTheCountdown()
+    {
+        TimeStamp = 0;
+        NumberOfLives.text = "" + LiveCount;
+        SetFullCounter();
+        IsCountingDown = true;
+        PlayerPrefs.SetInt("LIVECOUNTDOWN", (IsCountingDown ? 1 : 0));
     }
     // checks if the hearts have regened
     void CheckHearts()
@@ -94,8 +102,7 @@ public class Lives : MonoBehaviour
             {
                 if (FullHeart > TimeStamp + 2398200000)
                 {
-                    CountdownTimerLong += 2398200000;
-
+ 
                     LiveCount = 3;
                 }
                 else if (FullHeart > TimeStamp + 1199100000)
@@ -106,10 +113,13 @@ public class Lives : MonoBehaviour
                 else if (FullHeart > TimeStamp)
                 {
                     //  SetFullCounter();
-                   // TimeStamp += 1199100000;
+                    // TimeStamp += 1199100000;
+                    CountdownTimerLong += 1199100000;
+
                     LiveCount = 1;
                 }
                 NumberOfLives.text = "" + LiveCount;
+                Countdown();
 
             }
             else if(LiveCount >= 3)

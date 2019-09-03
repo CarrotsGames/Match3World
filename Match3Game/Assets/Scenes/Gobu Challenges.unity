@@ -1130,9 +1130,21 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &745609851 stripped
+--- !u!114 &750152053 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2600843702661808800, guid: d009cb47e607a2e438d6dee0c645a038,
+  m_CorrespondingSourceObject: {fileID: 3772774730944245547, guid: d009cb47e607a2e438d6dee0c645a038,
+    type: 3}
+  m_PrefabInstance: {fileID: 2600843703258519771}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &803176952 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3772774729371508348, guid: d009cb47e607a2e438d6dee0c645a038,
     type: 3}
   m_PrefabInstance: {fileID: 2600843703258519771}
   m_PrefabAsset: {fileID: 0}
@@ -1425,6 +1437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ComboBomb: {fileID: 1428387427784819}
   SCR: {fileID: 1604095860198091}
+  LastKnownPosition: {x: 0, y: 0, z: 0}
   ComboSpeed: 0.1
   ComboVanishSpeed: 0.5
   StartDestroy: 0
@@ -2224,18 +2237,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1257520458 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1257520458, guid: d009cb47e607a2e438d6dee0c645a038,
-    type: 3}
-  m_PrefabInstance: {fileID: 2600843703258519771}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1301725593
 GameObject:
   m_ObjectHideFlags: 0
@@ -3603,12 +3604,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c525e70265637148b658ab596e3d0cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EatingPeices: []
+  TotalConnection: 0
   EatingPeiceSpawner: {fileID: 1018790061}
   GoldSpawn: {fileID: 0}
   Gold: {fileID: 0}
   HappinessManagerScript: {fileID: 0}
   Total: 0
+  TotalScore: {fileID: 849221129}
 --- !u!82 &1694413310
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5383,12 +5385,12 @@ PrefabInstance:
         type: 3}
       propertyPath: NumberOfLives
       value: 
-      objectReference: {fileID: 745609851}
+      objectReference: {fileID: 803176952}
     - target: {fileID: 2658884934281731779, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: LifeTimerText
       value: 
-      objectReference: {fileID: 1257520458}
+      objectReference: {fileID: 750152053}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da5e3e0644271594283bbf1f310a227d, type: 3}
 --- !u!1001 &4250320173778584650
