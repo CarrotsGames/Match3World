@@ -99,7 +99,7 @@ public class CompanionScript : MonoBehaviour
             DotManagerScriptRef.TotalScore += Total;
             DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
             HappinessManagerScript.HappinessSliderValue += EXPTotal * 2;
-            TotalScore.enabled = true;
+            TotalScore.enabled = false;
 
             TotalScore.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
             TotalScore.text = "" + Total;
@@ -113,7 +113,7 @@ public class CompanionScript : MonoBehaviour
             DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
             // HappinessManagerScript.HappinessSliderValue += EatingPeices.Count + LevelMultiplier;
             HappinessManagerScript.HappinessSliderValue += EXPTotal;
-            TotalScore.enabled = true;
+            TotalScore.enabled = false;
 
             TotalScore.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
             TotalScore.text = "" + Total;
