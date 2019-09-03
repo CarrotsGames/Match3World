@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 using PlayFab;
 using PlayFab.ClientModels;
 public class MonthlyChallenge : MonoBehaviour {
@@ -15,12 +17,17 @@ public class MonthlyChallenge : MonoBehaviour {
     bool HasUnlockedGift;
     int MonthlyVersions;
     float DelayTimerCheck;
+    string SceneName;
        // UNLOCK SCORE COMPANIONS
     // 0 BINKY
     // 1 KOKO
     // Use this for initialization
     void Start()
     {
+        Scene CurrentScene = SceneManager.GetActiveScene();
+
+        SceneName = CurrentScene.name;
+
         PlayFab = GameObject.FindGameObjectWithTag("PlayFab");
            DotManagerGameObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerGameObj.GetComponent<DotManager>();
@@ -47,8 +54,20 @@ public class MonthlyChallenge : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (PlayFab.GetComponent<PlayFabLogin>().HasLoggedIn == true)
-        {
+         if (PlayFab.GetComponent<PlayFabLogin>().HasLoggedIn == true)
+         {
+            if(SceneName == "Main Screen" && !HasUnlockedGift)
+            {
+                if (DelayTimerCheck > 0)
+                {
+                    DelayTimerCheck -= Time.deltaTime;
+                }
+                else
+                {
+                    DelayTimerCheck += 4;
+                    MonthlyChallengeStatus();
+                }
+            }
             ////reset Unlock array
             //if (Input.GetKeyDown(KeyCode.R))
             //{
@@ -61,21 +80,20 @@ public class MonthlyChallenge : MonoBehaviour {
             // checks if the tournament is still going
             //DelayTimerCheck -= Time.deltaTime;
             // Cooldown for checking tournament status to avoid sending to much information 
-            if (DotManagerScript.TotalScore > 1000000 && !HasUnlockedGift)
+            if (DotManagerScript.TotalScore > ChallengeScore && !HasUnlockedGift)
             {
-                DelayTimerCheck += 4;
                 MonthlyChallengeStatus();
+                CheckMonthlyUnlock();
             }
            
-        }
+         }
     }
    public void CheckMonthlyUnlock()
     {
         // checks if the player unlocked the monthly gift
         if (!HasUnlockedGift)
         {
-            if (DotManagerScript.TotalScore > ChallengeScore)
-            {
+            
 
                 string UnlockName = PrizeCompanion[UnlockGift].name;
                 PlayerPrefs.SetString("UNLOCKED", UnlockName);
@@ -87,12 +105,7 @@ public class MonthlyChallenge : MonoBehaviour {
                 HasUnlockedGift = true;
                 PlayerPrefs.SetInt("HASUNLOCKEDGIFT", (HasUnlockedGift ? 1 : 0));
                 UnlockableCreatures.GetComponent<UnlockableCreatures>().Unlock();
-            }
-            else
-            {
-                Debug.Log("Need more credits");
-            }
-
+      
         }
     }
     // UNLOCK THE MONTHLY COMPANION
@@ -140,7 +153,7 @@ public class MonthlyChallenge : MonoBehaviour {
     //inform player how long until tournament is over
     void MonthlyChallengeGoing(PlayFabError Error)
     {
-        Debug.Log("MONTHLYCHALLENGE  still going");
+      //  Debug.Log("MONTHLYCHALLENGE  still going");
     }
     // UNLOCK NORMAL COMPANIONS
   

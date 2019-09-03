@@ -54,8 +54,7 @@ public class CompanionScript : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(this.gameObject);
-        if(RemoveTotalTimer < 0)
+         if(RemoveTotalTimer < 0)
         {
             TotalScore.enabled = false;
             //TotalScoreGameObj.transform.position = new Vector3(500, 0, 0);
