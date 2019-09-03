@@ -88,6 +88,8 @@ public class CompanionScript : MonoBehaviour
         EXPTotal += TotalConnection + HappinessGameObj.GetComponent<HappinessManager>().Level;
         // Total amount from the combo is equal to the number of nodes plus combo score
         Total = TotalConnection + DotManagerScriptRef.ComboScore;
+        RemoveTotalTimer += 1;
+
         // MUTLPIER VALUES WITH EXP
         if (SuperMultiplierScript.CanUseSuperMultiplier)
         {
@@ -97,6 +99,10 @@ public class CompanionScript : MonoBehaviour
             DotManagerScriptRef.TotalScore += Total;
             DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
             HappinessManagerScript.HappinessSliderValue += EXPTotal * 2;
+            TotalScore.enabled = true;
+
+            TotalScore.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
+            TotalScore.text = "" + Total;
         }
         else
         {
@@ -107,8 +113,12 @@ public class CompanionScript : MonoBehaviour
             DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
             // HappinessManagerScript.HappinessSliderValue += EatingPeices.Count + LevelMultiplier;
             HappinessManagerScript.HappinessSliderValue += EXPTotal;
+            TotalScore.enabled = true;
+
+            TotalScore.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
+            TotalScore.text = "" + Total;
         }
-        
+       
         // If the player can earch currency they will have a Levelvalue out of 70 chance getting a coin
         if (HappinessManagerScript.CanGetCurrency)
         {
@@ -122,11 +132,7 @@ public class CompanionScript : MonoBehaviour
             }
         }
         HappinessManagerScript.HappinessBar();
-        TotalScore.enabled = true;
-
-     //   TotalScoreGameObj.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
-        TotalScore.text = "" + Total;
-        RemoveTotalTimer += 2;
+       
     }
 
 }
