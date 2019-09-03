@@ -38,13 +38,11 @@ public class DotScript : MonoBehaviour
     bool ReleaseNodeColour;
     float ResetMatTime;
     float FlashColour;
-    float VibrateSeconds;
-    // Use this for initialization
+     // Use this for initialization
     void Start()
     {
         Timer = 1.6f;
         MainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-        VibrateSeconds = 0;
         HappinessManagerGameobj = GameObject.FindGameObjectWithTag("HM");
         HappinessManagerScript = HappinessManagerGameobj.GetComponent<HappinessManager>();
         Physics2D.IgnoreLayerCollision(0, 14);
@@ -119,8 +117,7 @@ public class DotScript : MonoBehaviour
 
                 ResetMatTime = 0;
                 ReleaseNodeColour = false;
-                VibrateSeconds = 0;
-            }
+             }
  
 
             // DotManagerScript.StopInteracting = false;
@@ -192,11 +189,11 @@ public class DotScript : MonoBehaviour
     {
         if (DotManagerScript.CanPlay && !Frozen)
         {
-                if (!DotManagerScript.StartHighliting)
-                {
 
-                    DotManagerScript.Companion.EatingPeices.Clear();
-                }
+            if (!DotManagerScript.StartHighliting)
+            {
+               DotManagerObj.GetComponent<DestroyNodes>().ComboList.Clear();
+            }
                 DotManagerScript.StartHighliting = true;
                 DotManagerScript.NodeSelection = true;
                 // Checks which colout tag the mouse is interacting with to know which colour to focus on
@@ -251,111 +248,114 @@ public class DotScript : MonoBehaviour
     {
         DotScript[] Dots = FindObjectsOfType<DotScript>();
         bool CircleOverlap = Physics2D.OverlapCircle(transform.position, 1);
-     
-        // Chenges nodes layer and adds it into list to not be added again
-        foreach (DotScript dot in Dots)
+        if (DotManagerScript.CanPlay && !Frozen)
         {
-            
-            // if the Node is not the current node
-            if (dot.gameObject.GetInstanceID() != gameObject.GetInstanceID())
-             {
-           
-               if (!neighbours.Contains(dot.gameObject) && dot.gameObject.tag == Colour)
-                 {
-                    // change node layer to the layertype needed to connect nodes
-                     dot.gameObject.layer = LayerType;
-                    // add to list
-                     neighbours.Add(dot.gameObject);
-                    // Grow selected node 
-                     dot.gameObject.GetComponent<DotScript>().GrowSize = true;                                   
-                 }                       
-           
+            // Chenges nodes layer and adds it into list to not be added again
+            foreach (DotScript dot in Dots)
+            {
+
+                // if the Node is not the current node
+                if (dot.gameObject.GetInstanceID() != gameObject.GetInstanceID())
+                {
+
+                    if (!neighbours.Contains(dot.gameObject) && dot.gameObject.tag == Colour)
+                    {
+                        // change node layer to the layertype needed to connect nodes
+                        dot.gameObject.layer = LayerType;
+                        // add to list
+                        neighbours.Add(dot.gameObject);
+                        // Grow selected node 
+                        dot.gameObject.GetComponent<DotScript>().GrowSize = true;
+                    }
+
+                }
+
+
             }
 
-        }
-    
-     
-        // Changes colour of the nodes outline
-        RaycastHit2D hitInfo = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-        if (hitInfo.collider != null)
-        {
-            if(DotManagerScript.StartHighliting)
-            {
-                if (hitInfo.collider.gameObject.layer == 10)
-                {
-                    // Checks for that specific colour pieces
-                    if (DotManagerScript.NodeSelection)
-                    {
-                        if (!DotManagerScript.Peices.Contains(hitInfo.collider.gameObject) && hitInfo.collider.gameObject.tag == Colour)
-                        {
-                            hitInfo.collider.gameObject.GetComponent<Renderer>().material.color = Color.black;
-                            // adds hit.collider to Peices list
-                            DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
-                        }
-                        // if the colour is different from the current colour being connected stop chain
-                        if (hitInfo.collider.gameObject.tag != Colour && hitInfo.collider.gameObject.layer == LayerType)
-                        {
-                            //hitInfo.collider.gameObject.GetComponent<Renderer>().material.color = Color.red;
-                            FlashingGameObj = hitInfo.collider.gameObject;
-                            FlashingGameObj.gameObject.GetComponent<Renderer>().material.color = Color.red;
 
-                            ReleaseNodeColour = true;
- 
-                            OnMouseUp();
+            // Changes colour of the nodes outline
+            RaycastHit2D hitInfo = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            if (hitInfo.collider != null)
+            {
+                if (DotManagerScript.StartHighliting)
+                {
+                    if (hitInfo.collider.gameObject.layer == 10)
+                    {
+                        // Checks for that specific colour pieces
+                        if (DotManagerScript.NodeSelection)
+                        {
+                            if (!DotManagerScript.Peices.Contains(hitInfo.collider.gameObject) && hitInfo.collider.gameObject.tag == Colour)
+                            {
+                                hitInfo.collider.gameObject.GetComponent<Renderer>().material.color = Color.black;
+                                // adds hit.collider to Peices list
+                                DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
+                            }
+                            // if the colour is different from the current colour being connected stop chain
+                            if (hitInfo.collider.gameObject.tag != Colour && hitInfo.collider.gameObject.layer == LayerType)
+                            {
+                                //hitInfo.collider.gameObject.GetComponent<Renderer>().material.color = Color.red;
+                                FlashingGameObj = hitInfo.collider.gameObject;
+                                FlashingGameObj.gameObject.GetComponent<Renderer>().material.color = Color.red;
+
+                                ReleaseNodeColour = true;
+
+                                OnMouseUp();
+                            }
                         }
                     }
+                    else if (hitInfo.collider.gameObject.layer == 0)
+                    {
+                        FlashingGameObj = hitInfo.collider.gameObject;
+                        ReleaseNodeColour = true;
+                        FlashingGameObj.gameObject.GetComponent<Renderer>().material.color = Color.red;
+                        OnMouseUp();
+                    }
                 }
-                else if (hitInfo.collider.gameObject.layer == 0)
+
+                // if player interacts with wall reset all current chains
+                if (hitInfo.collider.gameObject.layer == 11)
                 {
-                    FlashingGameObj = hitInfo.collider.gameObject;
-                    ReleaseNodeColour = true;
-                    FlashingGameObj.gameObject.GetComponent<Renderer>().material.color = Color.red;
+                    Debug.Log("WALL");
+                    DotManagerScript.ResetMaterial = true;
                     OnMouseUp();
                 }
-            }
-            
-            // if player interacts with wall reset all current chains
-             if(hitInfo.collider.gameObject.layer == 11)
-            {
-                Debug.Log("WALL");
-                DotManagerScript.ResetMaterial = true;
-                OnMouseUp();
-            }
-           
-        }
 
-   
+            }
+
+        }
     }
  
  
     public void OnMouseUp()
     {
+        if (DotManagerScript.CanPlay && !Frozen)
+        {
+            neighbours.Clear();
+            this.transform.gameObject.layer = 0;
+            // Resets Linerenderer
 
-        neighbours.Clear();
-        this.transform.gameObject.layer = 0;
-        // Resets Linerenderer
+            // turns off highlite
+            ToggleHighlite = 0;
+            DotManagerScript.ResetMaterial = false;
+            // Resets peices material and layer
+            //this.gameObject.layer = LayerMask.GetMask("Default");
+            // makes peices unable to grow
+            GrowSize = false;
+            // Resets neighbour list
+            // Goes into DotManagerScript to check if there was a connection
+            DotManagerScript.CheckConnection = true;
+            DotManagerScript.MouseCursorObj.SetActive(false);
 
-        // turns off highlite
-        ToggleHighlite = 0;
-        DotManagerScript.ResetMaterial = false;
-        // Resets peices material and layer
-        //this.gameObject.layer = LayerMask.GetMask("Default");
-         // makes peices unable to grow
-        GrowSize = false;
-        // Resets neighbour list
-        // Goes into DotManagerScript to check if there was a connection
-        DotManagerScript.CheckConnection = true;
-        DotManagerScript.MouseCursorObj.SetActive(false);
-
-        // Resets size of peices  
-        Vector3 newScale = new Vector3();
-        newScale.x = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
-        newScale.z = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
-        newScale.y = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
-        transform.localScale = newScale;
-        DotManagerScript.StartHighliting = false;
-        DotManagerScript.CheckPieces();
-
+            // Resets size of peices  
+            Vector3 newScale = new Vector3();
+            newScale.x = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
+            newScale.z = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
+            newScale.y = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
+            transform.localScale = newScale;
+            DotManagerScript.StartHighliting = false;
+            DotManagerScript.CheckPieces();
+        }
     }
 
 }

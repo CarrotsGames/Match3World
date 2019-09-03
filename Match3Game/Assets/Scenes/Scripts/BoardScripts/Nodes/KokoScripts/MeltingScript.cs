@@ -90,7 +90,7 @@ public class MeltingScript : MonoBehaviour {
             DotScriptRef.DotManagerScript.MouseCursorObj.SetActive(false);
             DotScriptRef.OnMouseUp();
          }
-        else if (!DotScriptRef.DotManagerScript.Peices.Contains(this.gameObject) || !DotScriptRef.DotManagerScript.Companion.EatingPeices.Contains(this.gameObject))
+        else if (!DotScriptRef.DotManagerScript.Peices.Contains(this.gameObject) || DotManagerGameObj.GetComponent<DestroyNodes>().ComboList.Contains(this.gameObject))
         {
             Disolve = true;
 

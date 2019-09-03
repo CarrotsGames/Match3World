@@ -6,7 +6,8 @@ using PlayFab;
 using PlayFab.ClientModels;
 public class CompanionScript : MonoBehaviour
 {
-    public List<GameObject> EatingPeices;
+    public int TotalConnection;
+   // public List<GameObject> NodeCount;
     // Use this for initialization
     public GameObject EatingPeiceSpawner;
     public GameObject GoldSpawn;
@@ -16,29 +17,27 @@ public class CompanionScript : MonoBehaviour
     private GameObject PowerUpManGameObj;
     private GameObject HappinessGameObj;
     private DotManager DotManagerScriptRef;
-    private RealTimeCounter RealTimeScript;
-    private PowerUpManager PowerUpManagerScript;
+     private PowerUpManager PowerUpManagerScript;
     public HappinessManager HappinessManagerScript;
     [HideInInspector]
     public int Total;
     // Update is called once per frame
     private int posX;
     private int posY;
-    // Chain multiplier depending on how big your chain is
-    private int HungerMultiplier = 1;
     private int CurrencyChance;
     private GameObject AudioManagerGameObj;
     private AudioManager AudioManagerScript;
+    public GameObject TotalScoreGameObj;
 
-
+    public Text TotalScore;
+    float RemoveTotalTimer;
     void Start()
     {
         AudioManagerGameObj = GameObject.FindGameObjectWithTag("AudioManager");
         AudioManagerScript = AudioManagerGameObj.GetComponent<AudioManager>();
          // References the Realtimescript which is located on camera (TEMP)
         MainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-        RealTimeScript = MainCamera.GetComponent<RealTimeCounter>();
-
+ 
         HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
         HappinessManagerScript = HappinessGameObj.GetComponent<HappinessManager>();
       
@@ -48,46 +47,46 @@ public class CompanionScript : MonoBehaviour
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
         // HungerSlider min and max
-
+        TotalScoreGameObj.transform.position = new Vector3(500, 0, 0);
     }
- 
 
-
-    public void FeedMonster()
+    private void Update()
     {
-        // transforms the peices to the eatingspawner position
-        for (int i = 0; i < EatingPeices.Count; i++)
+        Debug.Log(this.gameObject);
+        if(RemoveTotalTimer < 0)
         {
-            if(EatingPeices[i] == null)
-            {
-                EatingPeices.RemoveAt(i);
-            }
- 
-            EatingPeices[i].transform.gameObject.layer = 2;
-
-            // Destroy(EatingPeices[i].gameObject);
-             HungerMultiplier = HappinessManagerScript.Level / 2 + i;
-            // if(SuperMultiplier.CanUseSuperMultiplier)
-            //{
-            //    HungerMultiplier *= SuperMultiplierScript.SuperMultiplier;
-            //}
-
-            MainCamera.GetComponent<CameraShake>().ShakeCamera(HappinessGameObj.GetComponent<HappinessManager>().Level / 10, 0.25f);
-            // displays total score to Text
-
+            TotalScoreGameObj.transform.position = new Vector3(500, 0, 0);
         }
+        else
+        {
+            RemoveTotalTimer -= Time.deltaTime;
+        }
+    }
+
+    public void PlaySound()
+    {
+      
+        int RandomSound = Random.Range(0, AudioManagerScript.MooblingAudio.Length);
+        // When fed the companion will play a random sound in list
+        AudioManagerScript.MooblingSource.clip = AudioManagerScript.MooblingAudio[RandomSound];
+        AudioManagerScript.MooblingSource.Play();    
+    }
+
+   public void ScoreMultiplier()
+    {
+        PlaySound();
         Total = 0;
         // Mutlplier is equal to player level
         int LevelMultiplier = HappinessGameObj.GetComponent<HappinessManager>().Level;
+        //EXP is defualt 3
         int EXPTotal = 3;
-        EXPTotal += EatingPeices.Count + HappinessGameObj.GetComponent<HappinessManager>().Level;
-
+        // EXP is equal to total connection + level
+        EXPTotal += TotalConnection + HappinessGameObj.GetComponent<HappinessManager>().Level;
         // Total amount from the combo is equal to the number of nodes plus combo score
-        Total = EatingPeices.Count + DotManagerScriptRef.ComboScore;
+        Total = TotalConnection + DotManagerScriptRef.ComboScore;
         // MUTLPIER VALUES WITH EXP
         if (SuperMultiplierScript.CanUseSuperMultiplier)
-        {  
-           
+        {
             // Total multlpied by multiplier 
             int SuperMultiplier = 2;
             Total *= SuperMultiplier;
@@ -98,14 +97,14 @@ public class CompanionScript : MonoBehaviour
         else
         {
             Total *= LevelMultiplier;
-            
+
             // Adds total to score
             DotManagerScriptRef.TotalScore += Total;
             DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
             // HappinessManagerScript.HappinessSliderValue += EatingPeices.Count + LevelMultiplier;
             HappinessManagerScript.HappinessSliderValue += EXPTotal;
         }
-
+        
         // If the player can earch currency they will have a Levelvalue out of 70 chance getting a coin
         if (HappinessManagerScript.CanGetCurrency)
         {
@@ -114,29 +113,15 @@ public class CompanionScript : MonoBehaviour
             int chance = Random.Range(CurrencyChance, 70);
             if (chance == 42)
             {
-                PowerUpManagerScript.Currency += Random.Range(1,3);
+                PowerUpManagerScript.Currency += Random.Range(1, 3);
                 PowerUpManagerScript.PowerUpSaves();
             }
-         }
-       
-           
-        int RandomSound = Random.Range(0, AudioManagerScript.MooblingAudio.Length);
-        // When fed the companion will play a random sound in list
-        AudioManagerScript.MooblingSource.clip = AudioManagerScript.MooblingAudio[RandomSound];
-        AudioManagerScript.MooblingSource.Play();    
+        }
         HappinessManagerScript.HappinessBar();
-        DotManagerObj.GetComponent<DestroyNodes>().CreateComboList();
+
+        TotalScoreGameObj.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
+        TotalScore.text = "" + Total;
+        RemoveTotalTimer += 2;
     }
 
-
-    //when game closes save the current hugner and start counting down outside of the app
-    private void OnApplicationPause(bool pause)
-    {
-      // RealTimeScript.ResetClock();
-      // pause = true;
-    }
-    private void OnApplicationQuit()
-    {
-       // RealTimeScript.ResetClock();
-    }
 }

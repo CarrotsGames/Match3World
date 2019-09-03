@@ -10,6 +10,9 @@ public class DestroyNodes : MonoBehaviour {
     private GameObject ComboBomb;
     [SerializeField]
     private GameObject SCR;
+    [HideInInspector]
+    public Vector3 LastKnownPosition;
+
     public float ComboSpeed;
     public float ComboVanishSpeed;
     public bool StartDestroy;
@@ -18,7 +21,7 @@ public class DestroyNodes : MonoBehaviour {
     public Text ComboScore;
     public DotManager DotManagerScript;
     public List<GameObject> ComboList;
-     
+
     private GameObject CompanionGameObj;
     private CompanionScript CompanionScriptRef;
     private GameObject HappinessGameObj;
@@ -67,7 +70,7 @@ public class DestroyNodes : MonoBehaviour {
     private void Update()
     {       
         // pauses the combo display 
-        if(ComboPause)
+        if (ComboPause)
         {
             ComboTime -= Time.deltaTime;
             if(ComboTime < 0)
@@ -81,6 +84,8 @@ public class DestroyNodes : MonoBehaviour {
         // begins coutning the combo and addind particles
         if (StartDestroy)
         {
+            DotManagerScript.CanPlay = false;
+
             PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonDisable();
             StartNodeDestroy();
             ComboGameObj.SetActive(true);
@@ -91,7 +96,8 @@ public class DestroyNodes : MonoBehaviour {
  
     void ResetNodes()
     {
-       
+        CompanionScriptRef.ScoreMultiplier();
+
         Index = 0;
         if (NormalCombo)
         {
@@ -118,48 +124,25 @@ public class DestroyNodes : MonoBehaviour {
         NormalCombo = false;
        
     }
-    public void CreateComboList()
-    {
-        ComboList.Clear();
-        Test = CompanionScriptRef.EatingPeices.Count;
-        DotManagerScript.CanPlay = false;
-        for (int i = 0; i < CompanionScriptRef.EatingPeices.Count; i++)
-        {
-            // if the combo list doesent contain this add it to combo
-            if(!ComboList.Contains(CompanionScriptRef.EatingPeices[i]))
-            {
-                ComboList.Add(CompanionScriptRef.EatingPeices[i]);
-                ComboList[i].gameObject.layer = 2;
-            }
-            else
-            {
-                Debug.Log("Duplicate");
-            }
-        }
-        CompanionScriptRef.EatingPeices.Clear();
-        StartDestroy = true;
-    }
+ 
     // Destorys nodes in the eatingPeices list
     void StartNodeDestroy()
     {
        //// Set time for delay
-       //WaitForSeconds wait = new WaitForSeconds(ComboSpeed);
-       //WaitForSeconds SlowMotion = new WaitForSeconds(0.5f);
        Timer -= Time.deltaTime;
         if (Timer < 0)
         {
             DestoryNodes();
             Timer = ComboSpeed;
         }
-
-
     }
+
     void DestoryNodes()
     {
         if (Index < ComboList.Count)
         {  // plays particle at index
             PlayParticle();
-            Vector3 LastKnownPosition = ComboList[Index].transform.position;
+            LastKnownPosition = ComboList[Index].transform.position;
             // Moves node at index out of sight
             ComboList[Index].transform.position += new Vector3(100, 0, 0);
             // Removes node from parent to insta spawn nodes
@@ -172,62 +155,7 @@ public class DestroyNodes : MonoBehaviour {
             if (ComboList.Count > 4)
             {
                 Index++;
-
-                // the current index is equal to the combo
-                Combo = Index;
-                CountCombo();
-                // if the combo is half the board destory rest of board
-                if (Index == ComboList.Count && Index >= Board.transform.childCount / 2)
-                {
-                    Debug.Log("BOMBSPAWN");
-                    // Activates colour remover for all colours 
-                    // RED
-                    SCR.GetComponent<ColourRemover>().Colour = "Red";
-                    SCR.GetComponent<ColourRemover>().Red = true;
-                    SCR.GetComponent<ColourRemover>().RemoveColour();
-                    // BLUE
-                    SCR.GetComponent<ColourRemover>().Colour = "Blue";
-                    SCR.GetComponent<ColourRemover>().Red = true;
-                    SCR.GetComponent<ColourRemover>().RemoveColour();
-                    // GREEN
-                    SCR.GetComponent<ColourRemover>().Colour = "Green";
-                    SCR.GetComponent<ColourRemover>().Red = true;
-                    SCR.GetComponent<ColourRemover>().RemoveColour();
-                    // YELLOW (NOTE YELLOW IS NOW PINK)
-                    SCR.GetComponent<ColourRemover>().Colour = "Yellow";
-                    SCR.GetComponent<ColourRemover>().Red = true;
-                    SCR.GetComponent<ColourRemover>().RemoveColour();
-                    ComboTime += 0.50f;
-                }
-                else if (Index == ComboList.Count && Index > 11)
-                {
-                    Debug.Log("SuperCombo");
-                    SCR.GetComponent<ColourRemover>().Red = true;
-                    SCR.GetComponent<ColourRemover>().RemoveColour();
-                    Instantiate(ComboBomb, LastKnownPosition, Quaternion.identity);
-                    ComboTime += 0.50f;
-                }
-                else if (Index == ComboList.Count && Index > 8)
-                {
-                    SCR.GetComponent<ColourRemover>().Red = true;
-
-                    SCR.GetComponent<ColourRemover>().RemoveColour();
-                    Debug.Log("SCRSPAWN");
-                    ComboTime += 0.50f;
-                }
-                else if(Index == ComboList.Count && Index > 5)
-                {
-                    Debug.Log("BOMBSPAWN");
-                    Instantiate(ComboBomb, LastKnownPosition, Quaternion.identity);
-                    ComboTime += 0.50f;
-
-
-                }
- 
-                // ELSE IF GREATER THAN HALF REMOVE REST OF NODES
-                //                  OR 
-                // ELSE IF MORE THAN 10 GET RID OF END NUMBER * 2
-                //  Handheld.Vibrate();
+                SpawnPowerUp();
             }
             // if not than add anyway to avoid to play particles
             else
@@ -255,6 +183,65 @@ public class DestroyNodes : MonoBehaviour {
 
 
     }
+
+    void SpawnPowerUp()
+    {
+        // the current index is equal to the combo
+        Combo = Index;
+        CountCombo();
+        // if the combo is half the board destory rest of board
+        if (Index == ComboList.Count && Index >= Board.transform.childCount / 2)
+        {
+            Debug.Log("BOMBSPAWN");
+            // Activates colour remover for all colours 
+            // RED
+            SCR.GetComponent<ColourRemover>().Colour = "Red";
+            SCR.GetComponent<ColourRemover>().Red = true;
+            SCR.GetComponent<ColourRemover>().RemoveColour();
+            // BLUE
+            SCR.GetComponent<ColourRemover>().Colour = "Blue";
+            SCR.GetComponent<ColourRemover>().Red = true;
+            SCR.GetComponent<ColourRemover>().RemoveColour();
+            // GREEN
+            SCR.GetComponent<ColourRemover>().Colour = "Green";
+            SCR.GetComponent<ColourRemover>().Red = true;
+            SCR.GetComponent<ColourRemover>().RemoveColour();
+            // YELLOW (NOTE YELLOW IS NOW PINK)
+            SCR.GetComponent<ColourRemover>().Colour = "Yellow";
+            SCR.GetComponent<ColourRemover>().Red = true;
+            SCR.GetComponent<ColourRemover>().RemoveColour();
+            ComboTime += 0.50f;
+        }
+        // if combo is more than 11 activate scr and bomb
+        else if (Index == ComboList.Count && Index > 11)
+        {
+            Debug.Log("SuperCombo");
+            SCR.GetComponent<ColourRemover>().Red = true;
+            SCR.GetComponent<ColourRemover>().RemoveColour();
+            Instantiate(ComboBomb, LastKnownPosition, Quaternion.identity);
+            ComboTime += 0.50f;
+        }
+        // if more than 8 activate scr
+        else if (Index == ComboList.Count && Index > 8)
+        {
+            SCR.GetComponent<ColourRemover>().Red = true;
+
+            SCR.GetComponent<ColourRemover>().RemoveColour();
+            Debug.Log("SCRSPAWN");
+            ComboTime += 0.50f;
+        }
+        // if more than 5 activate bomb
+        else if (Index == ComboList.Count && Index > 5)
+        {
+            Debug.Log("BOMBSPAWN");
+            Instantiate(ComboBomb, LastKnownPosition, Quaternion.identity);
+            ComboTime += 0.50f;
+
+
+        }
+
+    }
+
     void CountCombo()
     {
         if (ComboList.Count < 6)
@@ -268,6 +255,7 @@ public class DestroyNodes : MonoBehaviour {
             ComboText.text = "BIG \n COMBO : " + Combo;
         }
     }
+
     // Displays the ComboScore Text
     void DisplayComboScore()
     {
@@ -285,6 +273,7 @@ public class DestroyNodes : MonoBehaviour {
         ComboText.text = "Score:" +  Total;
  
     }
+
     // plays particle effect for each node
     void PlayParticle()
     {

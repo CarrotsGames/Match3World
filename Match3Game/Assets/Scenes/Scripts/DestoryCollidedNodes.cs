@@ -45,7 +45,7 @@ public class DestoryCollidedNodes : MonoBehaviour
         {
             Destroy(collision.gameObject);
         }
-        else if(!CompanionScriptRef.EatingPeices.Contains(CollidedNode) || !DotScriptGameObj.GetComponent<DotManager>().Peices.Contains(CollidedNode))
+        else if(!DotScriptGameObj.GetComponent<DestroyNodes>().ComboList.Contains(CollidedNode) || !DotScriptGameObj.GetComponent<DotManager>().Peices.Contains(CollidedNode))
         {
              collision.gameObject.transform.position += new Vector3(100, 0, 0);
              collision.gameObject.GetComponent<DotScript>().SelfDestruct = true;

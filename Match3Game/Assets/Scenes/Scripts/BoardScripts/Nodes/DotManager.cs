@@ -5,8 +5,7 @@ using UnityEngine.UI;
 using System.Linq;
 public class DotManager : MonoBehaviour
 {
-    [HideInInspector]
-    public CompanionScript Companion;
+     public CompanionScript Companion;
     [HideInInspector]
     public GameObject CampanionGameObj;
     // GamePiece lists
@@ -196,7 +195,7 @@ public class DotManager : MonoBehaviour
             else
             {
                 GoldAmount = 0;
-                Companion.EatingPeices.Clear();
+                GetComponent<DestroyNodes>().ComboList.Clear();
                 Peices.Clear();
                 PeicesList.Clear();
                 ResetLayer = true;
@@ -249,10 +248,12 @@ public class DotManager : MonoBehaviour
             for (Num = 0; Num < PeicesCount; Num++)
             {
                 PeicesList[Num].layer = LayerMask.GetMask("Default");
-                Companion.EatingPeices.Add(PeicesList[Num]);
+                // adds to the list to be destroyed
+                GetComponent<DestroyNodes>().ComboList.Add(PeicesList[Num]);
                 
-
             }
+            // gets how many nodes are in connection
+            Companion.TotalConnection = PeicesList.Count;
             PeicesList.Clear();
             PeicesCount = 0;
 
@@ -275,12 +276,13 @@ public class DotManager : MonoBehaviour
             NodeSelection = false;
  
             GoldSelection = false;
-            Companion.FeedMonster();
+            GetComponent<DestroyNodes>().StartDestroy = true;
+          //GetComponent<DestroyNodes>().CreateComboList();
           //  AddBoardParticles();
-            // ResetDotLayers = true;
-            // Adds board particles
-          
- 
+          // ResetDotLayers = true;
+          // Adds board particles
+
+
     }
  
 }
