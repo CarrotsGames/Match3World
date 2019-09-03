@@ -627,6 +627,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
+        type: 3}
+      propertyPath: Analytics
+      value: 
+      objectReference: {fileID: 1645929676}
     - target: {fileID: 224668712703305504, guid: bca90714ddbb8544796b1d79e4753570,
         type: 3}
       propertyPath: m_RootOrder
@@ -776,11 +781,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 35
       objectReference: {fileID: 0}
-    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
-        type: 3}
-      propertyPath: Analytics
-      value: 
-      objectReference: {fileID: 1645929676}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
 --- !u!1001 &183767507
@@ -2958,6 +2958,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ComboBomb: {fileID: 1914611662045384, guid: e23b4aecc40e08a4baa9adc758f8021f, type: 3}
   SCR: {fileID: 2337297966449444418}
+  LastKnownPosition: {x: 0, y: 0, z: 0}
   ComboSpeed: 0.1
   ComboVanishSpeed: 0.5
   StartDestroy: 0
@@ -4098,6 +4099,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gobu Canvus
       objectReference: {fileID: 0}
+    - target: {fileID: 2336660659435952756, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2335805763254419903, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4213,11 +4219,6 @@ PrefabInstance:
       propertyPath: soundEffects
       value: 
       objectReference: {fileID: 12009151}
-    - target: {fileID: 2449254646268538357, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1647165519}
     - target: {fileID: 2449818973851826393, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: ShuffleSpawn
@@ -4273,16 +4274,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -10.299988
       objectReference: {fileID: 0}
-    - target: {fileID: 2336660659435952756, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2449762617587901165, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: BombPlayArea
       value: 
       objectReference: {fileID: 866068392}
+    - target: {fileID: 2449254646268538357, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1647165519}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7fb396edf155de40895610ead7b8864, type: 3}
 --- !u!1 &1390942708 stripped
@@ -4291,6 +4292,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1390942707}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1390942709 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 725072269, guid: d7fb396edf155de40895610ead7b8864,
+    type: 3}
+  m_PrefabInstance: {fileID: 1390942707}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1390942710 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3825076247238957002, guid: d7fb396edf155de40895610ead7b8864,
@@ -5058,12 +5071,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c525e70265637148b658ab596e3d0cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EatingPeices: []
+  TotalConnection: 0
   EatingPeiceSpawner: {fileID: 1018790061}
   GoldSpawn: {fileID: 0}
   Gold: {fileID: 1063094474349120, guid: bcf6c6e79b25cd9459703152c93c0b2e, type: 3}
   HappinessManagerScript: {fileID: 0}
   Total: 0
+  TotalScore: {fileID: 1390942709}
 --- !u!82 &1694413310
 AudioSource:
   m_ObjectHideFlags: 0
