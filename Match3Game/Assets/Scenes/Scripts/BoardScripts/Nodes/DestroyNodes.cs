@@ -227,13 +227,13 @@ public class DestroyNodes : MonoBehaviour {
             SCR.GetComponent<ColourRemover>().Red = true;
 
             SCR.GetComponent<ColourRemover>().RemoveColour();
-            Debug.Log("SCRSPAWN");
+          //  Debug.Log("SCRSPAWN");
             ComboTime += 0.50f;
         }
         // if more than 5 activate bomb
         else if (Index == ComboList.Count && Index > 5)
         {
-            Debug.Log("BOMBSPAWN");
+            //Debug.Log("BOMBSPAWN");
             Instantiate(ComboBomb, LastKnownPosition, Quaternion.identity);
             ComboTime += 0.50f;
 

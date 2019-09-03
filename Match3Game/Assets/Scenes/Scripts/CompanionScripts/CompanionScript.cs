@@ -7,7 +7,7 @@ using PlayFab.ClientModels;
 public class CompanionScript : MonoBehaviour
 {
     public int TotalConnection;
-   // public List<GameObject> NodeCount;
+    // public List<GameObject> NodeCount;
     // Use this for initialization
     public GameObject EatingPeiceSpawner;
     public GameObject GoldSpawn;
@@ -98,7 +98,7 @@ public class CompanionScript : MonoBehaviour
             DotManagerScriptRef.TotalScore += Total;
             DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
             HappinessManagerScript.HappinessSliderValue += EXPTotal * 2;
-            TotalScore.enabled = false;
+            TotalScore.enabled = true;
 
             TotalScore.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
             TotalScore.text = "" + Total;
@@ -112,7 +112,7 @@ public class CompanionScript : MonoBehaviour
             DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
             // HappinessManagerScript.HappinessSliderValue += EatingPeices.Count + LevelMultiplier;
             HappinessManagerScript.HappinessSliderValue += EXPTotal;
-            TotalScore.enabled = false;
+            TotalScore.enabled = true;
 
             TotalScore.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
             TotalScore.text = "" + Total;
