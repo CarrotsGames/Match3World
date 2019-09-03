@@ -88,7 +88,7 @@ public class CompanionScript : MonoBehaviour
         EXPTotal += TotalConnection + HappinessGameObj.GetComponent<HappinessManager>().Level;
         // Total amount from the combo is equal to the number of nodes plus combo score
         Total = TotalConnection + DotManagerScriptRef.ComboScore;
-        RemoveTotalTimer += 1;
+        RemoveTotalTimer += 0.5f;
 
         // MUTLPIER VALUES WITH EXP
         if (SuperMultiplierScript.CanUseSuperMultiplier)
