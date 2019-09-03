@@ -16,7 +16,6 @@ public class PowerUpManager : MonoBehaviour
     public GameObject OutOfShuffle;
     public GameObject OutOfMultlpier;
 
-
     public int Currency;
     private int FirstTimeLogin;
 
