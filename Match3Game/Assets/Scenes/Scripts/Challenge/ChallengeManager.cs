@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class ChallengeManager : MonoBehaviour
 {
+    public GameObject WinGameObject;
+    public GameObject LoseGameObject;
     [Header("Types : Clear, ClearX , BeatScore")]
     public string ChallengeType;
     [Header("Order the level challenges IN ORDER")]
@@ -112,6 +114,8 @@ public class ChallengeManager : MonoBehaviour
                 // child count is 1
                 if (Go.transform.childCount == 1)
                 {
+                    WinGameObject.SetActive(true);
+
                     Debug.Log("COMPLETE");
                 }
 
@@ -122,6 +126,8 @@ public class ChallengeManager : MonoBehaviour
 
                 Lives.LiveCount -= 1;
                 ChallengeFinished = true;
+                LoseGameObject.SetActive(true);
+
                 Debug.Log("FAILED");
             }
         }
@@ -139,6 +145,8 @@ public class ChallengeManager : MonoBehaviour
                 if (Go.transform.childCount == 1)
                 {
                     Debug.Log("COMPLETE");
+                    WinGameObject.SetActive(true);
+
                 }
                 else
                 {
@@ -151,6 +159,8 @@ public class ChallengeManager : MonoBehaviour
                 ChallengeFinished = true;
                 Lives.CurrentTime = 0;
                 Debug.Log("FAILED");
+                LoseGameObject.SetActive(true);
+
             }
         }
     }
@@ -165,6 +175,7 @@ public class ChallengeManager : MonoBehaviour
             if (ChallengeScore > TargetScore)
             {
                 Debug.Log("CHALLENGE COMPLETE");
+                WinGameObject.SetActive(true);
             }
             else if(Timer < 0)
             {
@@ -172,6 +183,7 @@ public class ChallengeManager : MonoBehaviour
                 Lives.LiveCount -= 1;
                 ChallengeFinished = true;
                 Lives.CurrentTime = 0;
+                LoseGameObject.SetActive(true);
 
             }
         }
