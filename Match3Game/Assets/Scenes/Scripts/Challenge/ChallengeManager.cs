@@ -79,7 +79,7 @@ public class ChallengeManager : MonoBehaviour
                     break;
                 case "BeatScore":
                     {
-                        ClearTime.text = "Beat this score :  " + TargetScore;
+                        ClearTime.text = "Beat this score :  " + TargetScore + "\n Total score : " + ChallengeScore;
 
                         BeatScore();
                     }
