@@ -90,8 +90,6 @@ public class DestroyNodes : MonoBehaviour {
             StartNodeDestroy();
             ComboGameObj.SetActive(true);
         }
- 
-
     }
  
     void ResetNodes()

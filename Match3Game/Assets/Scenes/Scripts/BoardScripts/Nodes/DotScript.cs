@@ -6,38 +6,39 @@ using System.Collections.Generic;
 public class DotScript : MonoBehaviour
 {
 
-    public float defultSize = 2.5f;
-    public float jucSize = 3;
-    public LayerMask layerMask;
-    public List<GameObject> neighbours = new List<GameObject>();
-    public int ToggleHighlite; 
+    [HideInInspector]
+    public float Timer;
+    [HideInInspector]
+    public bool Frozen;
+    GameObject FlashingGameObj;
     [HideInInspector]
     public bool DefaultColour;
     [HideInInspector]
     public bool GrowSize;
     [HideInInspector]
     public int LayerType = 10;
-    private bool HasPlayedSound;
+    public float defultSize = 2.5f;
+    public float jucSize = 3;
+    public LayerMask layerMask;
+    public List<GameObject> neighbours = new List<GameObject>();
+    public int ToggleHighlite; 
+    public bool SelfDestruct;
     public GameObject HighlitedParticle;
+    public HappinessManager HappinessManagerScript;
+    public DotManager DotManagerScript;
+
+    private GameObject DotManagerObj;
+    private Material Default;
     private GameObject MainCamera;
     private BoardScript Board;
     private GameObject HappinessManagerGameobj;
-    public HappinessManager HappinessManagerScript;
-    public DotManager DotManagerScript;
-    private GameObject DotManagerObj;
-    private Material Default;
     private GameObject AudioManagerGameObj;
     private AudioManager AudioManagerScript;
-    string Colour;
-    public bool SelfDestruct;
-    [HideInInspector]
-    public float Timer;
-    [HideInInspector]
-    public bool Frozen;
-    GameObject FlashingGameObj;
-    bool ReleaseNodeColour;
-    float ResetMatTime;
-    float FlashColour;
+    private string Colour;
+    private bool HasPlayedSound;
+    private bool ReleaseNodeColour;
+    private float ResetMatTime;
+    private float FlashColour;
      // Use this for initialization
     void Start()
     {

@@ -77,7 +77,7 @@ public class ChallengeManager : MonoBehaviour
                     break;
                 case "BeatScore":
                     {
-                        ClearTime.text = "Beat this score in " + Timer;
+                        ClearTime.text = "Beat this score :  " + TargetScore;
 
                         BeatScore();
                     }
@@ -160,7 +160,7 @@ public class ChallengeManager : MonoBehaviour
         CompanionScriptRef.Total = 0;
          if (!ChallengeFinished)
         {
-            Timer -= Time.deltaTime;
+           // Timer -= Time.deltaTime;
 
             if (ChallengeScore > TargetScore)
             {

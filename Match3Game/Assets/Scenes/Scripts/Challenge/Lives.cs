@@ -11,6 +11,7 @@ public class Lives : MonoBehaviour
     public static int LiveCount;
     public Text NumberOfLives;
     public Text LifeTimerText;
+    private GameObject PlayFab;
 
     long TimeStamp;
     long CountdownTimerLong;
@@ -24,6 +25,8 @@ public class Lives : MonoBehaviour
     //Located in Canvas
     private void Start()
     {
+        PlayFab = GameObject.FindGameObjectWithTag("PlayFab");
+
         IsCountingDown = false;   
         CurrentTime = 3;
         TimeStamp = System.Convert.ToInt64(PlayerPrefs.GetString("TimeUntilLives"));
@@ -41,7 +44,7 @@ public class Lives : MonoBehaviour
     }
     private void FixedUpdate()
     {
-     
+
         //DEBUG ONLY Resets time
         //if (Input.GetKeyDown(KeyCode.Alpha4))
         //{
@@ -52,28 +55,31 @@ public class Lives : MonoBehaviour
         //    FullHeart = 0 ;
         //}
         // if lives are less than 3 start countdown
-        if(LiveCount < 3 && !IsCountingDown)
+        if (PlayFab.GetComponent<PlayFabLogin>().HasLoggedIn == true)
         {
-            CurrentTime -= Time.deltaTime;
-            if (CurrentTime < 0)
+            if (LiveCount < 3 && !IsCountingDown)
             {
-                BeginTheCountdown();
+                CurrentTime -= Time.deltaTime;
+                if (CurrentTime < 0)
+                {
+                    BeginTheCountdown();
+                }
             }
-        }
-        // reset lives and countdown
-        else if (LiveCount >= 3)
-        {
-            NumberOfLives.text = "" + LiveCount;
+            // reset lives and countdown
+            else if (LiveCount >= 3)
+            {
+                NumberOfLives.text = "" + LiveCount;
 
-            LiveCount = 3;
-            LifeTimerText.text = "Fullhearts";
+                LiveCount = 3;
+                LifeTimerText.text = "Fullhearts";
 
-        }
-        // Checks if hearts are regened
-        if (IsCountingDown)
-        {
-            CheckHearts();
-      
+            }
+            // Checks if hearts are regened
+            if (IsCountingDown)
+            {
+                CheckHearts();
+
+            }
         }
     }
     void BeginTheCountdown()
