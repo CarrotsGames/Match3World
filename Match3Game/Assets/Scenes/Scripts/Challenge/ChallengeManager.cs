@@ -66,13 +66,13 @@ public class ChallengeManager : MonoBehaviour
             {
                 case "Clear":
                     {
-                        ClearTime.text = "Clear the board in " + Timer;
+                        ClearTime.text = "Clear the board in \n " + Timer;
                         ClearBoard();
                     }
                     break;
                 case "ClearX":
                     {
-                        ClearTime.text = "Clear in " + TotalMoves + " moves";
+                        ClearTime.text = "Clear in " + TotalMoves + " moves \n Moves :" + NumberOfMoves;
 
                         ClearInXMoves();
                     }
