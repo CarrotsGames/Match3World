@@ -112,7 +112,7 @@ public class ChallengeManager : MonoBehaviour
             {
                 // Canvas included in children so when no nodes 
                 // child count is 1
-                if (Go.transform.childCount == 1)
+                if (Go.transform.childCount < 1)
                 {
                     WinGameObject.SetActive(true);
 
@@ -142,7 +142,7 @@ public class ChallengeManager : MonoBehaviour
             if (Timer > 0)
             {
 
-                if (Go.transform.childCount == 1)
+                if (Go.transform.childCount < 1)
                 {
                     Debug.Log("COMPLETE");
                     WinGameObject.SetActive(true);
