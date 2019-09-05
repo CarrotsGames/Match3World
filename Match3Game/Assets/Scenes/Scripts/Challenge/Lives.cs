@@ -92,6 +92,8 @@ public class Lives : MonoBehaviour
     void BeginTheCountdown()
     {
         TimeStamp = 0;
+        FullHeart = 0;
+        MinutesFromTs = 0;
         NumberOfLives.text = "" + LiveCount;
         SetFullCounter();
         IsCountingDown = true;
@@ -108,7 +110,7 @@ public class Lives : MonoBehaviour
             Countdown();
         } 
         // if the time has passed the target time
-        if (FullHeart > TimeStamp)
+        if (FullHeart > CountdownTimerLong)
         {
  
             if (LiveCount < 3)
