@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
-
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ChallengeManager : MonoBehaviour
 {
@@ -182,6 +182,7 @@ public class ChallengeManager : MonoBehaviour
         {
             //DISPLAY LIFE COUNT?
             Debug.Log("Out of lives soz");
+            SceneManager.LoadScene("Main Screen");
         }
     }
     void CompleteChallenge()
