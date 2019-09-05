@@ -210,29 +210,7 @@ public class DotManager : MonoBehaviour
 
 
     }
-    // adds particle effect to the map
-    //void AddBoardParticles()
-    //{
-    //    if (Gold.Count >= 5)
-    //    {
-    //        Instantiate(GoldEffect, PartySpawner.transform.position, Quaternion.identity);
-    //    }
-    //    else if (Peices.Count >= 7)
-    //    {
-    //        Instantiate(PartyEffect[0], PartySpawner.transform.position, Quaternion.identity);
-    //        Instantiate(PartyEffect[1], PartySpawner.transform.position, Quaternion.identity); 
-
-    //    }
-    //    else if (Peices.Count >= 5)
-    //    {
-    //         Instantiate(PartyEffect[0], PartySpawner.transform.position, Quaternion.identity);
-    //    }
-     
-    //    Gold.Clear();
-    //    Peices.Clear();    
-    //}
-
-
+ 
     //// Checks which colour made a match
     void AddColourToScore()
     {

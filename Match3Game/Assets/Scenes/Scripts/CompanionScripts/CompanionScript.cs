@@ -12,12 +12,13 @@ public class CompanionScript : MonoBehaviour
     public GameObject EatingPeiceSpawner;
     public GameObject GoldSpawn;
     public GameObject Gold;
+
     private GameObject DotManagerObj;
     private GameObject MainCamera;
     private GameObject PowerUpManGameObj;
     private GameObject HappinessGameObj;
     private DotManager DotManagerScriptRef;
-     private PowerUpManager PowerUpManagerScript;
+    private PowerUpManager PowerUpManagerScript;
     public HappinessManager HappinessManagerScript;
     [HideInInspector]
     public int Total;
@@ -31,6 +32,7 @@ public class CompanionScript : MonoBehaviour
     private GameObject Challenge;
     public Text TotalScore;
     float RemoveTotalTimer;
+
     void Start()
     {
         AudioManagerGameObj = GameObject.FindGameObjectWithTag("AudioManager");
@@ -146,10 +148,12 @@ public class CompanionScript : MonoBehaviour
         }
         else
         {
+            GameObject Go = GameObject.Find("CHALLENGE");
             Total = 0;
             LevelMultiplier = 2;
             Total = TotalConnection + DotManagerScriptRef.ComboScore;
             Total *= LevelMultiplier;
+            Go.GetComponent<ChallengeManager>().CheckForNodes();
             // MULTLPIER 1
             // TIMES TOTAL
         }

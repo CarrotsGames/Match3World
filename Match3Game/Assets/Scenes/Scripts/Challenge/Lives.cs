@@ -38,22 +38,26 @@ public class Lives : MonoBehaviour
             IsCountingDown = false;
             LiveCount = 3;
         }
+        if(LiveCount < 0)
+        {
+            LiveCount = 3;
+        }
         NumberOfLives.text = "" + LiveCount;
         LifeTimerText.text = "Getting time...";
 
     }
     private void FixedUpdate()
     {
-
-        //DEBUG ONLY Resets time
-        //if (Input.GetKeyDown(KeyCode.Alpha4))
-        //{
-        //    IsCountingDown = false;
-        //    TimeStamp = 0;
-        //    PlayerPrefs.SetString("TimeUntilLives", "" + TimeStamp);
-
-        //    FullHeart = 0 ;
-        //}
+       
+       //DEBUG ONLY Resets time
+       if (Input.GetKeyDown(KeyCode.Alpha4))
+       {
+           IsCountingDown = false;
+           TimeStamp = 0;
+           PlayerPrefs.SetString("TimeUntilLives", "" + TimeStamp);
+       
+           FullHeart = 0 ;
+       }
         // if lives are less than 3 start countdown
         if (PlayFab.GetComponent<PlayFabLogin>().HasLoggedIn == true)
         {
@@ -111,7 +115,7 @@ public class Lives : MonoBehaviour
             {
                 if (FullHeart > TimeStamp + 2398200000)
                 {
- 
+                    TimeStamp = 0;
                     LiveCount = 3;
                 }
                 else if (FullHeart > TimeStamp + 1199100000)
