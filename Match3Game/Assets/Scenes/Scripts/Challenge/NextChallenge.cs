@@ -7,13 +7,15 @@ public class NextChallenge : MonoBehaviour
     public string ChallengeScene;
     public void NextChallengeButton()
     {
-         
-        Scene CurrentScene = SceneManager.GetActiveScene();
-        ChallengeScene = CurrentScene.name;
         int Index = PlayerPrefs.GetInt("ChallengeIndex");
-        Index += 1;
-        PlayerPrefs.SetInt("ChallengeIndex", Index);
-        SceneManager.LoadScene(ChallengeScene);
 
+        if (Index != 4)
+        {
+            Scene CurrentScene = SceneManager.GetActiveScene();
+            ChallengeScene = CurrentScene.name;
+            Index += 1;
+            PlayerPrefs.SetInt("ChallengeIndex", Index);
+            SceneManager.LoadScene(ChallengeScene);
+        }
     }
 }

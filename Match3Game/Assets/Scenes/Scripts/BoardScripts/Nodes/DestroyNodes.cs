@@ -220,7 +220,7 @@ public class DestroyNodes : MonoBehaviour {
             ComboTime += 0.50f;
         }
         // if more than 8 activate scr
-        else if (Index == ComboList.Count && Index > 8)
+        else if (Index == ComboList.Count && Index > 7)
         {
             SCR.GetComponent<ColourRemover>().Red = true;
 
@@ -229,7 +229,7 @@ public class DestroyNodes : MonoBehaviour {
             ComboTime += 0.50f;
         }
         // if more than 5 activate bomb
-        else if (Index == ComboList.Count && Index > 5)
+        else if (Index == ComboList.Count && Index > 4)
         {
             //Debug.Log("BOMBSPAWN");
             Instantiate(ComboBomb, LastKnownPosition, Quaternion.identity);
@@ -242,15 +242,17 @@ public class DestroyNodes : MonoBehaviour {
 
     void CountCombo()
     {
-        if (ComboList.Count < 6)
-        {         
-            NormalCombo = true;
-            ComboText.text = "COMBO : " + Combo;
-        }
-        else
-        {     
+        if (ComboList.Count > 8)
+        {
             BigCombo = true;
-            ComboText.text = "BIG \n COMBO : " + Combo;
+
+            ComboText.text = "BIG \n COMBO : : " + Combo;
+        }
+        else if (ComboList.Count > 4)
+        {
+            NormalCombo = true;
+
+            ComboText.text = "COMBO : " + Combo;
         }
     }
 

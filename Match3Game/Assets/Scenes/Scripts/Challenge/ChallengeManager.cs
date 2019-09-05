@@ -6,38 +6,37 @@ using UnityEngine;
 
 public class ChallengeManager : MonoBehaviour
 {
-    public GameObject WinGameObject;
-    public GameObject LoseGameObject;
-    [Header("Types : Clear, ClearX , BeatScore")]
-    public string ChallengeType;
+    [Header("WHAT DO YOU DO IN CHALLENGE")]
+    public List<string> ChallengeObjectives;
+    [Header("OBJECTIVE NUMBER GOAL")]
+    public List<float> ChallengeObjectiveScore;
+    [Header("Types : Clear, ClearX ,BeatScore")]
+    public string[] ChallengeType;
     [Header("Order the level challenges IN ORDER")]
     public GameObject[] ChallengePrefabs;
-    private GameObject DotManagerGameObj;
-    private DotManager DotManagerScript;
-    public string ChallengeDescription;
-    public Text ChallengeText;
-    //FINISH IN MOVES
-    [Header("CLEAR IN X MOVES CHALLENGE")]
+    public GameObject WinGameObject;
+    public GameObject LoseGameObject;
+    public Text ClearTime;
+   
     // Limit of moves
-    public int TotalMoves;
+    private float TotalMoves;
     //Moves done
     private int NumberOfMoves;
-    [Header("CLEAR BOARD IN TIME CHALLENGE")]
-    public float Timer;
-    public Text ClearTime;
+    private float Timer;
     private bool ChallengeFinished;
     //BEAT SCORE CHALLENGE
-    [Header("BEAT SCORE CHALLENGE")]
     // Limit of moves
-    public int TargetScore;
     private int ChallengeScore;
     //CLEAR BOARD CHALLENGE 
     private GameObject Board;
     private GameObject Companion;
     private CompanionScript CompanionScriptRef;
-    GameObject Go;
-    int ChallengeNumber;
-      // Start is called before the first frame update
+    private GameObject Go;
+    private int ChallengeNumber;
+    private GameObject DotManagerGameObj;
+    private DotManager DotManagerScript;
+    private int TargetScore;
+    // Start is called before the first frame update
     void Start()
     {
         Companion = GameObject.FindGameObjectWithTag("Companion");
@@ -47,39 +46,38 @@ public class ChallengeManager : MonoBehaviour
         // Grabs dotmanager script on that gameobject to get info
         DotManagerScript = DotManagerGameObj.GetComponent<DotManager>();
         Board = GameObject.FindGameObjectWithTag("BoardSpawn");
-        ChallengeType = PlayerPrefs.GetString("ChallengeType");
         ChallengeNumber = PlayerPrefs.GetInt("ChallengeIndex");
         TargetScore = PlayerPrefs.GetInt("ChallengeScore");
         Go = Instantiate(ChallengePrefabs[ChallengeNumber], ChallengePrefabs[ChallengeNumber].transform.position, Quaternion.identity);
-        
-        ChallengeDescription = PlayerPrefs.GetString("ChallengeDescription");
-        Timer = PlayerPrefs.GetFloat("ChallengeTime");
-        TotalMoves = PlayerPrefs.GetInt("TotalMoves");
 
-    }
+        // ChallengeDescription = PlayerPrefs.GetString("ChallengeDescription");
+        Timer = ChallengeObjectiveScore[ChallengeNumber];
+        TotalMoves = ChallengeObjectiveScore[ChallengeNumber];
+        TargetScore = (int)ChallengeObjectiveScore[ChallengeNumber];
+     }
     private void Update()
     {
         
         if (Lives.LiveCount > 0)
         {
-            switch (ChallengeType)
+            switch (ChallengeType[ChallengeNumber])
             {
                 case "Clear":
                     {
-                        ClearTime.text = "Clear the board in \n " + Timer;
+                        ClearTime.text = ChallengeObjectives[ChallengeNumber]  + "\n" + Timer;
                         ClearBoard();
                     }
                     break;
                 case "ClearX":
                     {
-                        ClearTime.text = "Clear in " + TotalMoves + " moves \n Moves :" + NumberOfMoves;
+                        ClearTime.text = ChallengeObjectives[ChallengeNumber] + TotalMoves + " moves \n Moves :" + NumberOfMoves;
 
                         ClearInXMoves();
                     }
                     break;
                 case "BeatScore":
                     {
-                        ClearTime.text = "Beat this score :  " + TargetScore + "\n Total score : " + ChallengeScore;
+                        ClearTime.text = ChallengeObjectives[ChallengeNumber] + TargetScore + "\n Total score : " + ChallengeScore;
 
                         BeatScore();
                     }
@@ -108,7 +106,7 @@ public class ChallengeManager : MonoBehaviour
                 NumberOfMoves++;
                 DotManagerScript.ConnectionMade = false;
             }
-            if (NumberOfMoves <= TotalMoves)
+            if (NumberOfMoves < TotalMoves)
             {
                 // Canvas included in children so when no nodes 
                 // child count is 1
@@ -120,7 +118,7 @@ public class ChallengeManager : MonoBehaviour
                 }
 
             }
-            else if (NumberOfMoves > TotalMoves)
+            else if (NumberOfMoves >= TotalMoves)
             {
                 Lives.CurrentTime = 0;
 
