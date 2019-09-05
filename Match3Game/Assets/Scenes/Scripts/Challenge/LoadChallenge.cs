@@ -18,13 +18,13 @@ public class LoadChallenge : MonoBehaviour
   
     public void SelectChallenge(int Index)
     {
-        PlayerPrefs.SetString("ChallengeType", ChallengeType);
+     //   PlayerPrefs.SetString("ChallengeType", ChallengeType);
         SceneManager.LoadScene(ChallengeScene);
         PlayerPrefs.SetInt("ChallengeIndex", Index);
-        PlayerPrefs.SetString("ChallengeDescription", ChallengeDescription);
-        PlayerPrefs.SetFloat("ChallengeTime", ChallengeTimer);
-        PlayerPrefs.SetInt("TotalMoves", TotalMoves);
-        PlayerPrefs.SetInt("ChallengeScore", ChallengeScore);
+      // PlayerPrefs.SetString("ChallengeDescription", ChallengeDescription);
+      // PlayerPrefs.SetFloat("ChallengeTime", ChallengeTimer);
+      // PlayerPrefs.SetInt("TotalMoves", TotalMoves);
+      // PlayerPrefs.SetInt("ChallengeScore", ChallengeScore);
 
     }
 
