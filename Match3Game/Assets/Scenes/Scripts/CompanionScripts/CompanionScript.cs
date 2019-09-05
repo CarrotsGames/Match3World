@@ -27,8 +27,8 @@ public class CompanionScript : MonoBehaviour
     private int CurrencyChance;
     private GameObject AudioManagerGameObj;
     private AudioManager AudioManagerScript;
-   // public GameObject TotalScoreGameObj;
-
+    // public GameObject TotalScoreGameObj;
+    private GameObject Challenge;
     public Text TotalScore;
     float RemoveTotalTimer;
     void Start()
@@ -47,7 +47,7 @@ public class CompanionScript : MonoBehaviour
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
         TotalScore.enabled = false;
-
+        
         // HungerSlider min and max
         // TotalScoreGameObj.transform.position = new Vector3(500, 0, 0);
     }
@@ -130,8 +130,12 @@ public class CompanionScript : MonoBehaviour
                 PowerUpManagerScript.PowerUpSaves();
             }
         }
-        HappinessManagerScript.HappinessBar();
-       
+        if (GameObject.Find("CHALLENGE") == null)
+        {
+            //it exists
+
+            HappinessManagerScript.HappinessBar();
+        }
     }
 
 }
