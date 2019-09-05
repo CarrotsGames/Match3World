@@ -511,6 +511,7 @@ GameObject:
   - component: {fileID: 1781036811362685213}
   - component: {fileID: 1781036811362685212}
   - component: {fileID: 1781036811362685215}
+  - component: {fileID: 684845621}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -614,9 +615,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1781036811362685212}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 684845621}
+        m_MethodName: Menu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &684845621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781036811362685185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91662677a67d9844b21ec0684259403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1781036811421847467
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,6 +1144,7 @@ GameObject:
   - component: {fileID: 1781036812124173840}
   - component: {fileID: 1781036812124173843}
   - component: {fileID: 1781036812124173842}
+  - component: {fileID: 3452798793992859148}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1223,9 +1248,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1781036812124173843}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3452798793992859148}
+        m_MethodName: Retry
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &3452798793992859148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781036812124173844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0345031c35a7e4ba879560aed800e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeScene: 
 --- !u!1 &1781036812536433077
 GameObject:
   m_ObjectHideFlags: 0
@@ -1352,6 +1401,7 @@ GameObject:
   - component: {fileID: 1781036812563301793}
   - component: {fileID: 1781036812563301792}
   - component: {fileID: 1781036812563301795}
+  - component: {fileID: 5061234613930526733}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -1455,9 +1505,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1781036812563301792}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5061234613930526733}
+        m_MethodName: Menu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &5061234613930526733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781036812563301797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91662677a67d9844b21ec0684259403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1781036812678794302
 GameObject:
   m_ObjectHideFlags: 0
