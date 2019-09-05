@@ -62,6 +62,7 @@ public class Lives : MonoBehaviour
                 CurrentTime -= Time.deltaTime;
                 if (CurrentTime < 0)
                 {
+                    IsCountingDown = false;
                     BeginTheCountdown();
                 }
             }
