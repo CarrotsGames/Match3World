@@ -12,12 +12,13 @@ public class CompanionScript : MonoBehaviour
     public GameObject EatingPeiceSpawner;
     public GameObject GoldSpawn;
     public GameObject Gold;
+
     private GameObject DotManagerObj;
     private GameObject MainCamera;
     private GameObject PowerUpManGameObj;
     private GameObject HappinessGameObj;
     private DotManager DotManagerScriptRef;
-     private PowerUpManager PowerUpManagerScript;
+    private PowerUpManager PowerUpManagerScript;
     public HappinessManager HappinessManagerScript;
     [HideInInspector]
     public int Total;
@@ -27,10 +28,11 @@ public class CompanionScript : MonoBehaviour
     private int CurrencyChance;
     private GameObject AudioManagerGameObj;
     private AudioManager AudioManagerScript;
-   // public GameObject TotalScoreGameObj;
-
+    // public GameObject TotalScoreGameObj;
+    private GameObject Challenge;
     public Text TotalScore;
     float RemoveTotalTimer;
+
     void Start()
     {
         AudioManagerGameObj = GameObject.FindGameObjectWithTag("AudioManager");
@@ -47,7 +49,7 @@ public class CompanionScript : MonoBehaviour
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
         TotalScore.enabled = false;
-
+        
         // HungerSlider min and max
         // TotalScoreGameObj.transform.position = new Vector3(500, 0, 0);
     }
@@ -78,60 +80,83 @@ public class CompanionScript : MonoBehaviour
    public void ScoreMultiplier()
     {
         PlaySound();
-        Total = 0;
-        // Mutlplier is equal to player level
         int LevelMultiplier = HappinessGameObj.GetComponent<HappinessManager>().Level;
-        //EXP is defualt 3
         int EXPTotal = 3;
-        // EXP is equal to total connection + level
-        EXPTotal += TotalConnection + HappinessGameObj.GetComponent<HappinessManager>().Level;
-        // Total amount from the combo is equal to the number of nodes plus combo score
-        Total = TotalConnection + DotManagerScriptRef.ComboScore;
-        RemoveTotalTimer += 0.5f;
-
-        // MUTLPIER VALUES WITH EXP
-        if (SuperMultiplierScript.CanUseSuperMultiplier)
+        if (GameObject.Find("CHALLENGE") == null)
         {
-            // Total multlpied by multiplier 
-            int SuperMultiplier = 2;
-            Total *= SuperMultiplier;
-            DotManagerScriptRef.TotalScore += Total;
-            DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
-            HappinessManagerScript.HappinessSliderValue += EXPTotal * 2;
-            TotalScore.enabled = true;
+            Total = 0;
+            // Mutlplier is equal to player level
+            //EXP is defualt 3
+            // EXP is equal to total connection + level
+            EXPTotal += TotalConnection + HappinessGameObj.GetComponent<HappinessManager>().Level;
+            // Total amount from the combo is equal to the number of nodes plus combo score
+            Total = TotalConnection + DotManagerScriptRef.ComboScore;
+            RemoveTotalTimer += 0.5f;
 
-            TotalScore.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
-            TotalScore.text = "" + Total;
+            // MUTLPIER VALUES WITH EXP
+
+            if (SuperMultiplierScript.CanUseSuperMultiplier)
+
+            {
+          
+                // Total multlpied by multiplier 
+                int SuperMultiplier = 2;
+                Total *= SuperMultiplier;
+                DotManagerScriptRef.TotalScore += Total;
+                DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
+                HappinessManagerScript.HappinessSliderValue += EXPTotal * 2;
+                TotalScore.enabled = true;
+                TotalScore.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
+                TotalScore.text = "" + Total;
+
+            }
+
+            else
+
+            {
+
+                Total *= LevelMultiplier;
+                // Adds total to score
+                DotManagerScriptRef.TotalScore += Total;
+                DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
+                // HappinessManagerScript.HappinessSliderValue += EatingPeices.Count + LevelMultiplier;
+                HappinessManagerScript.HappinessSliderValue += EXPTotal;
+                TotalScore.enabled = true;
+                TotalScore.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
+                TotalScore.text = "" + Total;
+
+            }
+
+            // If the player can earch currency they will have a Levelvalue out of 70 chance getting a coin
+            if (HappinessManagerScript.CanGetCurrency)
+
+            {
+                CurrencyChance = HappinessGameObj.GetComponent<HappinessManager>().Level;
+                int chance = Random.Range(CurrencyChance, 70);
+                if (chance == 42)
+
+                {
+                    PowerUpManagerScript.Currency += Random.Range(1, 3);
+                    PowerUpManagerScript.PowerUpSaves();
+                }
+
+            }
+      
+            //it exists
+
+            HappinessManagerScript.HappinessBar();
         }
         else
         {
+            GameObject Go = GameObject.Find("CHALLENGE");
+            Total = 0;
+            LevelMultiplier = 2;
+            Total = TotalConnection + DotManagerScriptRef.ComboScore;
             Total *= LevelMultiplier;
-
-            // Adds total to score
-            DotManagerScriptRef.TotalScore += Total;
-            DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
-            // HappinessManagerScript.HappinessSliderValue += EatingPeices.Count + LevelMultiplier;
-            HappinessManagerScript.HappinessSliderValue += EXPTotal;
-            TotalScore.enabled = true;
-
-            TotalScore.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
-            TotalScore.text = "" + Total;
+            Go.GetComponent<ChallengeManager>().CheckForNodes();
+            // MULTLPIER 1
+            // TIMES TOTAL
         }
-       
-        // If the player can earch currency they will have a Levelvalue out of 70 chance getting a coin
-        if (HappinessManagerScript.CanGetCurrency)
-        {
-            CurrencyChance = HappinessGameObj.GetComponent<HappinessManager>().Level;
-
-            int chance = Random.Range(CurrencyChance, 70);
-            if (chance == 42)
-            {
-                PowerUpManagerScript.Currency += Random.Range(1, 3);
-                PowerUpManagerScript.PowerUpSaves();
-            }
-        }
-        HappinessManagerScript.HappinessBar();
-       
     }
 
 }

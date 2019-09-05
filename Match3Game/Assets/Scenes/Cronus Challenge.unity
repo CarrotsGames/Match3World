@@ -1894,6 +1894,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1095555169}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1095555172 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1781036811229609157, guid: 0a092d20b9e427d4e8f8b7b344ba5761,
+    type: 3}
+  m_PrefabInstance: {fileID: 1095555169}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1140501860
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2096,6 +2108,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2449762617587901165, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: BombPlayArea
+      value: 
+      objectReference: {fileID: 1140501870}
     - target: {fileID: 2335805763254419890, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_SortingOrder
@@ -2455,6 +2472,12 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1140501870 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 941069854, guid: d7fb396edf155de40895610ead7b8864,
+    type: 3}
+  m_PrefabInstance: {fileID: 1140501860}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1155653315
 GameObject:
   m_ObjectHideFlags: 0
@@ -3318,6 +3341,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
+      propertyPath: ChallengeObjectives.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectiveScore.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeType.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
       propertyPath: ChallengePrefabs.Array.data[0]
       value: 
       objectReference: {fileID: 6358766425163951599, guid: 7f628ef876c18b94fbb23acd2221afc6,
@@ -3366,6 +3404,86 @@ PrefabInstance:
       propertyPath: LoseGameObject
       value: 
       objectReference: {fileID: 1095555171}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectives.Array.data[0]
+      value: 'Clear in '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectives.Array.data[1]
+      value: Clear board within time
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectives.Array.data[2]
+      value: 'Beat score : '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectives.Array.data[3]
+      value: Clear board within time
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectives.Array.data[4]
+      value: 'Beat score : '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectiveScore.Array.data[0]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectiveScore.Array.data[1]
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectiveScore.Array.data[2]
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectiveScore.Array.data[3]
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectiveScore.Array.data[4]
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeType.Array.data[0]
+      value: ClearX
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeType.Array.data[1]
+      value: Clear
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeType.Array.data[2]
+      value: BeatScore
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeType.Array.data[3]
+      value: Clear
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeType.Array.data[4]
+      value: BeatScore
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: FailText
+      value: 
+      objectReference: {fileID: 1095555172}
     - target: {fileID: 2658884934281731779, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: NumberOfLives
@@ -3576,6 +3694,8 @@ GameObject:
   - component: {fileID: 1781371928}
   - component: {fileID: 1781371922}
   - component: {fileID: 1781371925}
+  - component: {fileID: 1781371927}
+  - component: {fileID: 1781371926}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3743,6 +3863,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1781371926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781371921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008c7c6bf6957b34588ceae142fb352d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SaveLocation: 
+--- !u!114 &1781371927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781371921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f38cf8eee56ff429756c54678129db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SaveNum: 0
 --- !u!114 &1781371928
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1077,6 +1077,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1587989245}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &627952857 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1781036811229609157, guid: 0a092d20b9e427d4e8f8b7b344ba5761,
+    type: 3}
+  m_PrefabInstance: {fileID: 1781036811703775822}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &669741312 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1942679203655104, guid: 80586b738396c424683623654a216aad,
@@ -4380,6 +4392,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1891201868 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2600843701282760846, guid: d009cb47e607a2e438d6dee0c645a038,
+    type: 3}
+  m_PrefabInstance: {fileID: 2600843703258519771}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d2ed865293dfa74aa53305267d4c775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1896910351
 GameObject:
   m_ObjectHideFlags: 0
@@ -5103,6 +5127,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: YouWin/Loss
       objectReference: {fileID: 0}
+    - target: {fileID: 1781036812536433077, guid: 0a092d20b9e427d4e8f8b7b344ba5761,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1781036810683050598, guid: 0a092d20b9e427d4e8f8b7b344ba5761,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5208,6 +5237,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1781036811362685215, guid: 0a092d20b9e427d4e8f8b7b344ba5761,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1891201868}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a092d20b9e427d4e8f8b7b344ba5761, type: 3}
 --- !u!82 &2048748828235517329 stripped
@@ -5433,45 +5467,15 @@ PrefabInstance:
       propertyPath: soundEffects
       value: 
       objectReference: {fileID: 1166059875400705}
-    - target: {fileID: 2600843702975640489, guid: d009cb47e607a2e438d6dee0c645a038,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 193
-      objectReference: {fileID: 0}
-    - target: {fileID: 2600843703289686146, guid: d009cb47e607a2e438d6dee0c645a038,
+    - target: {fileID: 3772774729371508351, guid: d009cb47e607a2e438d6dee0c645a038,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 406.7
+      value: -336
       objectReference: {fileID: 0}
-    - target: {fileID: 2600843703140181960, guid: d009cb47e607a2e438d6dee0c645a038,
+    - target: {fileID: 3772774730944245546, guid: d009cb47e607a2e438d6dee0c645a038,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -101
-      objectReference: {fileID: 0}
-    - target: {fileID: 2600843701305500926, guid: d009cb47e607a2e438d6dee0c645a038,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 354
-      objectReference: {fileID: 0}
-    - target: {fileID: 2600843701305500926, guid: d009cb47e607a2e438d6dee0c645a038,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 60.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2600843701305500926, guid: d009cb47e607a2e438d6dee0c645a038,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2600843701305500926, guid: d009cb47e607a2e438d6dee0c645a038,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 402.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2600843702228753567, guid: d009cb47e607a2e438d6dee0c645a038,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 506.7
+      value: -333.00006
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d009cb47e607a2e438d6dee0c645a038, type: 3}
@@ -5652,6 +5656,11 @@ PrefabInstance:
       propertyPath: ChallengeObjectiveScore.Array.data[3]
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: FailText
+      value: 
+      objectReference: {fileID: 627952857}
     - target: {fileID: 2658884934281731779, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: NumberOfLives

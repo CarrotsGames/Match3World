@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
-
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ChallengeManager : MonoBehaviour
 {
@@ -17,7 +17,9 @@ public class ChallengeManager : MonoBehaviour
     public GameObject WinGameObject;
     public GameObject LoseGameObject;
     public Text ClearTime;
-   
+    public Text FailText;
+
+    private GameObject PowerUpManagerObj;
     // Limit of moves
     private float TotalMoves;
     //Moves done
@@ -36,6 +38,12 @@ public class ChallengeManager : MonoBehaviour
     private GameObject DotManagerGameObj;
     private DotManager DotManagerScript;
     private int TargetScore;
+    // Used to check how many of each colour nodes are in scene
+    private int Red;
+    private int Blue;
+    private int Green;
+    private int Pink;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,17 +62,96 @@ public class ChallengeManager : MonoBehaviour
         Timer = ChallengeObjectiveScore[ChallengeNumber];
         TotalMoves = ChallengeObjectiveScore[ChallengeNumber];
         TargetScore = (int)ChallengeObjectiveScore[ChallengeNumber];
-     }
+    }
+
+    public void CheckForNodes()
+    {
+        Red = 0;
+        Blue = 0;
+        Green = 0;
+        Pink = 0;
+        for (int i = 0; i < Go.gameObject.transform.childCount; i++)
+        {
+            if (Go.gameObject.transform.GetChild(i).tag == "Red")
+            {
+                Red++;
+            }
+            else if (Go.gameObject.transform.GetChild(i).tag == "Blue")
+            {
+                Blue++;
+            }
+            else if (Go.gameObject.transform.GetChild(i).tag == "Green")
+            {
+                Green++;
+            }
+            else if (Go.gameObject.transform.GetChild(i).tag == "Yellow")
+            {
+                Pink++;
+            }
+
+        }
+
+        if (Red > 0 && Red < 3)
+
+        {
+            Debug.Log("CHALLENGE FAILED");
+            Lives.LiveCount -= 1;
+            ChallengeFinished = true;
+            Lives.CurrentTime = 0;
+            LoseGameObject.SetActive(true);
+            FailText.text = "Not enough red nodes";
+        }
+        else if (Blue > 0 && Blue < 3)
+        {
+            Debug.Log("CHALLENGE FAILED");
+            Lives.LiveCount -= 1;
+            ChallengeFinished = true;
+            Lives.CurrentTime = 0;
+            LoseGameObject.SetActive(true);
+            FailText.text = "Not enough blue nodes";
+
+        }
+        else if (Green > 0 && Green < 3)
+        {
+            Debug.Log("CHALLENGE FAILED");
+            Lives.LiveCount -= 1;
+            ChallengeFinished = true;
+            Lives.CurrentTime = 0;
+            LoseGameObject.SetActive(true);
+            FailText.text = "Not enough green nodes";
+
+        }
+        else if (Pink > 0 && Pink < 3)
+        {
+            Debug.Log("CHALLENGE FAILED");
+            Lives.LiveCount -= 1;
+            ChallengeFinished = true;
+            Lives.CurrentTime = 0;
+            LoseGameObject.SetActive(true);
+            FailText.text = "Not enough pink nodes";
+
+        }
+        // if the beat score challenge is out of nodes
+        else if (Red == 0 && Blue == 0 & Green == 0 && Pink == 0 && ChallengeType[ChallengeNumber] == "BeatScore" && ChallengeScore < TargetScore)
+        {
+            Debug.Log("CHALLENGE FAILED");
+            Lives.LiveCount -= 1;
+            ChallengeFinished = true;
+            Lives.CurrentTime = 0;
+            LoseGameObject.SetActive(true);
+            FailText.text = " out of nodes ";
+        }
+    }
     private void Update()
     {
-        
+
         if (Lives.LiveCount > 0)
         {
             switch (ChallengeType[ChallengeNumber])
             {
                 case "Clear":
                     {
-                        ClearTime.text = ChallengeObjectives[ChallengeNumber]  + "\n" + Timer;
+                        ClearTime.text = ChallengeObjectives[ChallengeNumber] + "\n" + Timer;
                         ClearBoard();
                     }
                     break;
@@ -95,7 +182,16 @@ public class ChallengeManager : MonoBehaviour
         {
             //DISPLAY LIFE COUNT?
             Debug.Log("Out of lives soz");
+            SceneManager.LoadScene("Main Screen");
         }
+    }
+    void CompleteChallenge()
+    {
+        PowerUpManagerObj = GameObject.FindGameObjectWithTag("PUM");
+        PowerUpManagerObj.GetComponent<PowerUpManager>().Currency += 10;
+        WinGameObject.SetActive(true);
+        ChallengeFinished = true;
+
     }
     void ClearInXMoves()
     {
@@ -112,9 +208,7 @@ public class ChallengeManager : MonoBehaviour
                 // child count is 1
                 if (Go.transform.childCount < 1)
                 {
-                    WinGameObject.SetActive(true);
-
-                    Debug.Log("COMPLETE");
+                    CompleteChallenge();
                 }
 
             }
@@ -142,9 +236,7 @@ public class ChallengeManager : MonoBehaviour
 
                 if (Go.transform.childCount < 1)
                 {
-                    Debug.Log("COMPLETE");
-                    WinGameObject.SetActive(true);
-
+                    CompleteChallenge();
                 }
                 else
                 {
@@ -172,8 +264,8 @@ public class ChallengeManager : MonoBehaviour
 
             if (ChallengeScore > TargetScore)
             {
-                Debug.Log("CHALLENGE COMPLETE");
-                WinGameObject.SetActive(true);
+                CompleteChallenge();
+
             }
             else if(Timer < 0)
             {

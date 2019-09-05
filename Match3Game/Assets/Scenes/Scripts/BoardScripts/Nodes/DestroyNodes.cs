@@ -246,7 +246,7 @@ public class DestroyNodes : MonoBehaviour {
         {
             BigCombo = true;
 
-            ComboText.text = "BIG \n COMBO : : " + Combo;
+            ComboText.text = "BIG \n COMBO : " + Combo;
         }
         else if (ComboList.Count > 4)
         {
