@@ -78,6 +78,8 @@ public class Lives : MonoBehaviour
             // Checks if hearts are regened
             if (IsCountingDown)
             {
+                NumberOfLives.text = "" + LiveCount;
+
                 CheckHearts();
 
             }
