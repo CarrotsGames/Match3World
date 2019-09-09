@@ -33,17 +33,18 @@ public class Lives : MonoBehaviour
         CountdownTimerLong = TimeStamp;
         LiveCount = PlayerPrefs.GetInt("LIVECOUNT");
         IsCountingDown = PlayerPrefs.GetInt("LIVECOUNTDOWN") != 0;
-        if (TimeStamp == 0)
+  
+        NumberOfLives.text = "" + LiveCount;
+        LifeTimerText.text = "Getting time...";
+        int FirstTimeLogin = PlayerPrefs.GetInt("FirstTimeLogin");
+        if(FirstTimeLogin < 1 || LiveCount < 0 || TimeStamp == 0)
         {
             IsCountingDown = false;
             LiveCount = 3;
         }
-        if(LiveCount < 0)
-        {
-            LiveCount = 3;
-        }
-        NumberOfLives.text = "" + LiveCount;
-        LifeTimerText.text = "Getting time...";
+        FirstTimeLogin++;
+        PlayerPrefs.SetInt("FirstTimeLogin", FirstTimeLogin);
+
 
     }
     private void FixedUpdate()
@@ -93,7 +94,7 @@ public class Lives : MonoBehaviour
     {
         TimeStamp = 0;
         FullHeart = 0;
-        MinutesFromTs = 0;
+
         NumberOfLives.text = "" + LiveCount;
         SetFullCounter();
         IsCountingDown = true;
@@ -110,7 +111,7 @@ public class Lives : MonoBehaviour
             Countdown();
         } 
         // if the time has passed the target time
-        if (FullHeart > CountdownTimerLong)
+        if (FullHeart > TimeStamp)
         {
  
             if (LiveCount < 3)

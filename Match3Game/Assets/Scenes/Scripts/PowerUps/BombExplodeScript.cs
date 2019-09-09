@@ -55,24 +55,31 @@ public class BombExplodeScript : MonoBehaviour
         }
         if (AddScore)
         {
+            // total is equal to amound of collided nodes times current level
             int Total = CollidedNodes.Count * HappinessManagerScript.Level;
+            // total is equal to amound of collided nodes times current level + 10(10 being bomb default value)
             int BombEXP = CollidedNodes.Count + HappinessManagerScript.Level + 10;
+            // total is multipied by total level
             Total *= HappinessManagerScript.Level;
-
+            // when SM it active total is multiplied by 2 and by 5 (5 being the defualt total to score)
             if (SuperMultiplierScript.CanUseSuperMultiplier)
             {
                 int SuperMultiplier = 2;
                 Total *= SuperMultiplier;
+                Total *= 5;
+                // adds total to score and score ui
                 DotManagerScript.TotalScore += Total;
                 DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
                 // bombs do a defualt 10 Exp
                 BombEXP *= SuperMultiplier;
+                // bomb exp is added to the EXP bar 
                 HappinessManagerScript.HappinessSliderValue += BombEXP;
+                // tells the function to update the EXP bar
                 HappinessManagerScript.HappinessBar();
             }
             else
             {
-                Total *= HappinessManagerScript.Level;
+                Total *= 5;
                 DotManagerScript.TotalScore += Total;
                 DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
                 // bombs do a defualt 10 Exp
@@ -87,18 +94,18 @@ public class BombExplodeScript : MonoBehaviour
     }
      void DestoryMe()
     {
-
+        //destroys gameobject and clears list
         Destroy(this.gameObject);
         CollidedNodes.Clear();
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
+        // adds collided nodes to list to be used for particles
         if (!CollidedNodes.Contains(collision.gameObject))
         {
             CollidedNodes.Add(collision.gameObject);
 
         }
-
 
         if (Timer < 0 )
         {
@@ -109,35 +116,34 @@ public class BombExplodeScript : MonoBehaviour
 
                 for (int i = 0; i < CollidedNodes.Count; i++)
                 {
+                    // removes node from board to spawn nodes faster
+                    CollidedNodes[i].transform.parent = null;
                     PlayParticle();
                 }
+                // begins adding score
                 AddScore = true;
+                // plays particles sound 
                 AudioManagerScript.ParticleSource.PlayOneShot(AudioManagerScript.ParticleAudio[0]);
+                // spawns in explosion
                 Instantiate(ExplosionEffect, transform.position, Quaternion.identity);
+                // disables bomb sprite and collider
                 GetComponent<SpriteRenderer>().enabled = false;
-                GetComponent<CircleCollider2D>().enabled = false;
+                GetComponent<CircleCollider2D>().enabled = false;              
                 Detonate = false;
+                // re enables power up buttons
                 PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
 
             }
             if (Timer >= -0.25f)
             {
-            
-
-                if (collision.gameObject.tag == "DeadNode" || collision.transform.gameObject.layer == 16)
-                {
-                    Destroy(collision.gameObject);
-                }
-                else if (collision.gameObject.tag == "Rainbow" )
-                {
-                    // do nothing
-                }
-                else
+                // moves collided nodes out of view and destroys them over time
+                if (collision.gameObject.tag != "Wall")               
                 {
                     collision.gameObject.transform.position = new Vector3(100, 0, 0);
                     collision.gameObject.GetComponent<DotScript>().SelfDestruct = true;
                 }
             }
+            // destroys this gameobject after 1 second
             else if (Timer <= -1)
             {
                 DestoryMe();

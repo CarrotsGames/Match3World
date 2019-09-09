@@ -163,6 +163,7 @@ public class ColourRemover : MonoBehaviour
                     Index++;
                 }
             }
+
             DotManagerScript.CanPlay = true;
             Index = 0;
             Red = false;
@@ -178,6 +179,7 @@ public class ColourRemover : MonoBehaviour
             {
                 int SuperMultiplier = 2;
                 Total *= SuperMultiplier;
+                Total *= 3;
                 //Total score
                 DotManagerScript.TotalScore += Total;
                 // adds multiplier
@@ -188,6 +190,7 @@ public class ColourRemover : MonoBehaviour
             }
             else
             {
+                Total *= 3;
                 //Total score
                 DotManagerScript.TotalScore += Total;
                 //EXP BAR
@@ -198,56 +201,7 @@ public class ColourRemover : MonoBehaviour
             PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
             HappinessManagerScript.HappinessBar();
         }
-        //Destroys rainbows nodes 
-        if (Rainbow)
-        {
-            // Counts how many times player uses this powerup
-            TimesUsed++;
-            PlayerPrefs.SetInt("SCR", TimesUsed);
-            for (int i = 0; i < SpecialBoardGameObj.transform.childCount; i++)
-            {
-
-                if (SpecialBoardGameObj.transform.GetChild(i).tag == "Rainbow")
-                {
-                    SCRAmount += 1;
-
-                    Destroy(SpecialBoardGameObj.transform.GetChild(i).gameObject);
-                }
-            }
-            DotManagerScript.CanPlay = true;
-
-            Rainbow = false;
-            PowerUpInUse = false;
-            DotManagerScript.ResetMaterial = true;
-            GoTimer = true;
-
-            int Total = SCRAmount * HappinessManagerScript.Level;
-            int SCREXP = 15;
-
-            // super colour remover will give 15 exp by default 
-            int EXPTotal = SCRAmount + HappinessManagerScript.Level + SCREXP;
-            if (SuperMultiplierScript.CanUseSuperMultiplier)
-            {
-                int SuperMultiplier = 2;
-                Total *= SuperMultiplier;
-                //Total score
-                DotManagerScript.TotalScore += Total;
-                //EXP BAR
-                HappinessManagerScript.HappinessSliderValue += EXPTotal * SuperMultiplier;
-                DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
-            }
-            else
-            {
-                //Total score
-                DotManagerScript.TotalScore += Total;
-                //EXP BAR
-                HappinessManagerScript.HappinessSliderValue += EXPTotal;
-                DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
-            }
-            PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
-            HasUsedSCR = true;
-
-        }
+        
     }
     public void SuperColourRemoverMenu()
     {
