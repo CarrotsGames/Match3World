@@ -94,7 +94,9 @@ public class DestroyNodes : MonoBehaviour {
  
     void ResetNodes()
     {
-        CompanionScriptRef.ScoreMultiplier();
+        int Total = ComboList.Count;
+        int EXPTotal = Total + HappinessGameObj.GetComponent<HappinessManager>().Level;
+        CompanionScriptRef.ScoreMultiplier(EXPTotal, Total, "Normal");
 
         Index = 0;
         if (NormalCombo)

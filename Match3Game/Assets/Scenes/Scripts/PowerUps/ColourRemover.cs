@@ -25,6 +25,8 @@ public class ColourRemover : MonoBehaviour
     private GameObject DotManagerObj;
     private GameObject HappinessGameObj;
     private HappinessManager HappinessManagerScript;
+    private GameObject Companion;
+
     private BoardScript Board;
     private GameObject BoardGameObj;
     private GameObject SpecialBoardGameObj;
@@ -52,7 +54,7 @@ public class ColourRemover : MonoBehaviour
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
         BoardGameObj = GameObject.FindGameObjectWithTag("BoardSpawn");
         SpecialBoardGameObj = GameObject.Find("SpecialNodeSpawn");
-
+        Companion = GameObject.FindGameObjectWithTag("Companion");
         // Disables if tutorial is on
         if (SceneName != "Gobu Tutorial")
         {
@@ -175,29 +177,8 @@ public class ColourRemover : MonoBehaviour
             // GOES TO EXP
             int SCREXP = 15;
             int EXPTotal = SCRAmount + HappinessManagerScript.Level + SCREXP;
-
-            if (SuperMultiplierScript.CanUseSuperMultiplier)
-            {
-                int SuperMultiplier = 2;
-                Total *= SuperMultiplier;
-                Total *= 3;
-                //Total score
-                DotManagerScript.TotalScore += Total;
-                // adds multiplier
-                EXPTotal *= SuperMultiplier;
-                //EXP BAR
-                HappinessManagerScript.HappinessSliderValue += EXPTotal;
-                DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
-            }
-            else
-            {
-                Total *= 3;
-                //Total score
-                DotManagerScript.TotalScore += Total;
-                //EXP BAR
-                HappinessManagerScript.HappinessSliderValue += EXPTotal;
-                DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
-            }
+            Companion.GetComponent<CompanionScript>().ScoreMultiplier(EXPTotal, Total,"SCR");
+        
             HasUsedSCR = true;
             PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
             HappinessManagerScript.HappinessBar();
