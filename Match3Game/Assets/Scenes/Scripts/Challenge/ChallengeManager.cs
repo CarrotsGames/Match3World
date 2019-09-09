@@ -95,51 +95,31 @@ public class ChallengeManager : MonoBehaviour
         if (Red > 0 && Red < 3)
 
         {
-            Debug.Log("CHALLENGE FAILED");
-            Lives.LiveCount -= 1;
-            ChallengeFinished = true;
-            Lives.CurrentTime = 0;
-            LoseGameObject.SetActive(true);
+            FailChallenge();
             FailText.text = "Not enough red nodes";
         }
         else if (Blue > 0 && Blue < 3)
         {
-            Debug.Log("CHALLENGE FAILED");
-            Lives.LiveCount -= 1;
-            ChallengeFinished = true;
-            Lives.CurrentTime = 0;
-            LoseGameObject.SetActive(true);
+            FailChallenge();
             FailText.text = "Not enough blue nodes";
 
         }
         else if (Green > 0 && Green < 3)
         {
-            Debug.Log("CHALLENGE FAILED");
-            Lives.LiveCount -= 1;
-            ChallengeFinished = true;
-            Lives.CurrentTime = 0;
-            LoseGameObject.SetActive(true);
+            FailChallenge();
             FailText.text = "Not enough green nodes";
 
         }
         else if (Pink > 0 && Pink < 3)
         {
-            Debug.Log("CHALLENGE FAILED");
-            Lives.LiveCount -= 1;
-            ChallengeFinished = true;
-            Lives.CurrentTime = 0;
-            LoseGameObject.SetActive(true);
+            FailChallenge();
             FailText.text = "Not enough pink nodes";
 
         }
         // if the beat score challenge is out of nodes
         else if (Red == 0 && Blue == 0 & Green == 0 && Pink == 0 && ChallengeType[ChallengeNumber] == "BeatScore" && ChallengeScore < TargetScore)
         {
-            Debug.Log("CHALLENGE FAILED");
-            Lives.LiveCount -= 1;
-            ChallengeFinished = true;
-            Lives.CurrentTime = 0;
-            LoseGameObject.SetActive(true);
+            FailChallenge();
             FailText.text = " out of nodes ";
         }
     }
@@ -192,7 +172,6 @@ public class ChallengeManager : MonoBehaviour
         PowerUpManagerObj.GetComponent<PowerUpManager>().Currency += 10;
         WinGameObject.SetActive(true);
         ChallengeFinished = true;
-
     }
     void ClearInXMoves()
     {
@@ -215,13 +194,7 @@ public class ChallengeManager : MonoBehaviour
             }
             else if (NumberOfMoves >= TotalMoves)
             {
-                Lives.CurrentTime = 0;
-
-                Lives.LiveCount -= 1;
-                ChallengeFinished = true;
-                LoseGameObject.SetActive(true);
-
-                Debug.Log("FAILED");
+                FailChallenge();
             }
         }
          
@@ -246,12 +219,7 @@ public class ChallengeManager : MonoBehaviour
             }
             else
             {
-                Lives.LiveCount -= 1;
-                ChallengeFinished = true;
-                Lives.CurrentTime = 0;
-                Debug.Log("FAILED");
-                LoseGameObject.SetActive(true);
-
+                FailChallenge();
             }
         }
     }
@@ -269,13 +237,20 @@ public class ChallengeManager : MonoBehaviour
             }
             else if(Timer < 0)
             {
-                Debug.Log("CHALLENGE FAILED");
-                Lives.LiveCount -= 1;
-                ChallengeFinished = true;
-                Lives.CurrentTime = 0;
-                LoseGameObject.SetActive(true);
-
+                FailChallenge();
             }
+        }
+    }
+
+    void FailChallenge()
+    {
+        if (!ChallengeFinished)
+        {
+            Debug.Log("CHALLENGE FAILED");
+            Lives.LiveCount -= 1;
+            ChallengeFinished = true;
+            Lives.CurrentTime = 0;
+            LoseGameObject.SetActive(true);
         }
     }
 }
