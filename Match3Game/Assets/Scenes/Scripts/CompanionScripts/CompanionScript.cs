@@ -96,10 +96,8 @@ public class CompanionScript : MonoBehaviour
             // MUTLPIER VALUES WITH EXP
 
             if (SuperMultiplierScript.CanUseSuperMultiplier)
-
-            {
-          
-                // Total multlpied by multiplier 
+            {       
+              // Total multlpied by multiplier 
                 int SuperMultiplier = 2;
                 Total *= SuperMultiplier;
                 Total *= LevelMultiplier;
@@ -127,6 +125,7 @@ public class CompanionScript : MonoBehaviour
                 TotalScore.text = "" + Total;
 
             }
+            PlayerPrefs.SetInt("SCORE", DotManagerScriptRef.TotalScore);
 
             // If the player can earch currency they will have a Levelvalue out of 70 chance getting a coin
             if (HappinessManagerScript.CanGetCurrency)
@@ -142,7 +141,7 @@ public class CompanionScript : MonoBehaviour
                 }
 
             }
-      
+
             //it exists
 
             HappinessManagerScript.HappinessBar();
