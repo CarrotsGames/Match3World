@@ -28,7 +28,8 @@ public class ChallengeManager : MonoBehaviour
     private bool ChallengeFinished;
     //BEAT SCORE CHALLENGE
     // Limit of moves
-    private int ChallengeScore;
+    [HideInInspector]
+    public int ChallengeScore;
     //CLEAR BOARD CHALLENGE 
     private GameObject Board;
     private GameObject Companion;
@@ -254,10 +255,9 @@ public class ChallengeManager : MonoBehaviour
             }
         }
     }
-    void BeatScore()
+   public void BeatScore()
     {
         ChallengeScore += CompanionScriptRef.Total;
-        CompanionScriptRef.Total = 0;
          if (!ChallengeFinished)
         {
            // Timer -= Time.deltaTime;
