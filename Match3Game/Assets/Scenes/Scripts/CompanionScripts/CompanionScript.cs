@@ -102,6 +102,7 @@ public class CompanionScript : MonoBehaviour
                 // Total multlpied by multiplier 
                 int SuperMultiplier = 2;
                 Total *= SuperMultiplier;
+                Total *= LevelMultiplier;
                 DotManagerScriptRef.TotalScore += Total;
                 DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
                 HappinessManagerScript.HappinessSliderValue += EXPTotal * 2;

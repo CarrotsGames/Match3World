@@ -47,7 +47,7 @@ public class SuperMultiplierScript : MonoBehaviour
         RealTimeScript.SuperMultiplierCountDown();
         if (MultlpierTimer < 0)
         {
-            MultlpierTimer = 80;
+            MultlpierTimer = 30;
             CanUseSuperMultiplier = false;
             DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableSM = false;
             PlayerPrefs.SetInt("DISABLESM", (DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableSM ? 1 : 0));
@@ -74,7 +74,7 @@ public class SuperMultiplierScript : MonoBehaviour
             HappinessManagerScript.HappinessBar();
           //  SuperMultiplier = HappinessGameObj.GetComponent<HappinessManager>().Level * 2;
             // Multiplier = Text.multiplier
-            MultplierBar.GetComponent<Image>().fillAmount = MultlpierTimer / 80;
+            MultplierBar.GetComponent<Image>().fillAmount = MultlpierTimer / 30;
 
 
             MultlpierTimer -= Time.deltaTime;
@@ -124,7 +124,7 @@ public class SuperMultiplierScript : MonoBehaviour
             TimesUsed++;
             PlayerPrefs.SetInt("SUPERMULTLPIER", TimesUsed);
 
-            MultlpierTimer = 80;
+            MultlpierTimer = 30;
  
             CanUseSuperMultiplier = true;
           //  Debug.Log(CanUseSuperMultiplier);
