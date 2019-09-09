@@ -178,7 +178,7 @@ public class ColourRemover : MonoBehaviour
             int SCREXP = 15;
             int EXPTotal = SCRAmount + HappinessManagerScript.Level + SCREXP;
             Companion.GetComponent<CompanionScript>().ScoreMultiplier(EXPTotal, Total,"SCR");
-        
+            SCRAmount = 0;
             HasUsedSCR = true;
             PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
             HappinessManagerScript.HappinessBar();
