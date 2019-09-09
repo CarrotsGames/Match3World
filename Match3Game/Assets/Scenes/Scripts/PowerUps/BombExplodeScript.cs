@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class BombExplodeScript : MonoBehaviour
 {
-    float Timer;
+    public float Timer;
     int Index;
     public GameObject ExplosionEffect;
     public List<GameObject> CollidedNodes;
@@ -23,7 +23,6 @@ public class BombExplodeScript : MonoBehaviour
     {
         PowerUpGameObj = GameObject.Find("PowerUps");
         Companion = GameObject.FindGameObjectWithTag("Companion");
-        Timer = 1;
         AudioManagerGameObj = GameObject.FindGameObjectWithTag("AudioManager");
         AudioManagerScript = AudioManagerGameObj.GetComponent<AudioManager>();
         HappinessGameObj = GameObject.FindGameObjectWithTag("HM");

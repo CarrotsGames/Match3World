@@ -109,7 +109,8 @@ public class CompanionScript : MonoBehaviour
                         TotalScore.enabled = true;
                         TotalScore.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
                         TotalScore.text = "" + Total;
-
+                        Total = 0;
+                        EXPTotal = 0;
                     }
                     break;
                 case "SCR":
@@ -120,7 +121,7 @@ public class CompanionScript : MonoBehaviour
                         }
 
                         Total *= LevelMultiplier;
-                        Total *= 5;
+                       
                         if (Total > 30000)
                         {
                             Total = 30000;
@@ -133,7 +134,8 @@ public class CompanionScript : MonoBehaviour
                         TotalScore.enabled = true;
                         TotalScore.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
                         TotalScore.text = "" + Total;
-                        
+                        Total = 0;
+                        EXPTotal = 0;
                     }
                     break;
                 case "SuperBomb":
@@ -157,7 +159,8 @@ public class CompanionScript : MonoBehaviour
                         TotalScore.enabled = true;
                         TotalScore.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
                         TotalScore.text = "" + Total;
-
+                        Total = 0;
+                        EXPTotal = 0;
                     }
                     break;
             }
@@ -191,6 +194,7 @@ public class CompanionScript : MonoBehaviour
             //it exists
 
             HappinessManagerScript.HappinessBar();
+          
         }
         else
         {
