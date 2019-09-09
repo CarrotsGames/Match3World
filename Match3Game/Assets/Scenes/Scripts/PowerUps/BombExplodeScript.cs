@@ -100,7 +100,7 @@ public class BombExplodeScript : MonoBehaviour
                 // spawns in explosion
                 Instantiate(ExplosionEffect, transform.position, Quaternion.identity);
                 // disables bomb sprite and collider
-                GetComponent<SpriteRenderer>().enabled = false;
+               // GetComponent<SpriteRenderer>().enabled = false;
                 GetComponent<CircleCollider2D>().enabled = false;              
                 Detonate = false;
                 // re enables power up buttons
