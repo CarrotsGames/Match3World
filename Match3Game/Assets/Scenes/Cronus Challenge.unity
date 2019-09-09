@@ -2190,7 +2190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 725072271, guid: d7fb396edf155de40895610ead7b8864, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2335805763199537470, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
@@ -2475,6 +2475,12 @@ MonoBehaviour:
 --- !u!1 &1140501870 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 941069854, guid: d7fb396edf155de40895610ead7b8864,
+    type: 3}
+  m_PrefabInstance: {fileID: 1140501860}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1140501871 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2335805762756565109, guid: d7fb396edf155de40895610ead7b8864,
     type: 3}
   m_PrefabInstance: {fileID: 1140501860}
   m_PrefabAsset: {fileID: 0}
@@ -4625,17 +4631,28 @@ PrefabInstance:
       propertyPath: TotalScore
       value: 
       objectReference: {fileID: 1140501869}
-    - target: {fileID: 5470641936414663140, guid: 0434df8888dfbee4686aebecec5ea623,
+    - target: {fileID: 5415419684072651588, guid: 0434df8888dfbee4686aebecec5ea623,
         type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: GoldSpawn
+      value: 
+      objectReference: {fileID: 1140501871}
+    - target: {fileID: 5415419684072651588, guid: 0434df8888dfbee4686aebecec5ea623,
+        type: 3}
+      propertyPath: GoldParticle
+      value: 
+      objectReference: {fileID: 6088053314336034171, guid: 8e30db1da5eb1ca4f9eafbc98c037402,
+        type: 3}
     - target: {fileID: 5386081080085430393, guid: 0434df8888dfbee4686aebecec5ea623,
         type: 3}
       propertyPath: BottomCollider
       value: 
       objectReference: {fileID: 607198230}
     - target: {fileID: 5386081080085430393, guid: 0434df8888dfbee4686aebecec5ea623,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5470641936414663140, guid: 0434df8888dfbee4686aebecec5ea623,
         type: 3}
       propertyPath: m_Enabled
       value: 0

@@ -2367,7 +2367,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 725072271, guid: d7fb396edf155de40895610ead7b8864, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2555435300485704022, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
@@ -2648,6 +2648,12 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &721159912 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2335805762756565109, guid: d7fb396edf155de40895610ead7b8864,
+    type: 3}
+  m_PrefabInstance: {fileID: 721159905}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &721898473
 GameObject:
   m_ObjectHideFlags: 0
@@ -6326,8 +6332,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TotalConnection: 0
   EatingPeiceSpawner: {fileID: 1018790061}
-  GoldSpawn: {fileID: 0}
-  Gold: {fileID: 0}
+  GoldSpawn: {fileID: 721159912}
+  GoldParticle: {fileID: 6088053314336034171, guid: 8e30db1da5eb1ca4f9eafbc98c037402,
+    type: 3}
   HappinessManagerScript: {fileID: 0}
   Total: 0
   TotalScore: {fileID: 721159911}

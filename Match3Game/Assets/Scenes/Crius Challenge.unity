@@ -627,6 +627,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
+        type: 3}
+      propertyPath: Analytics
+      value: 
+      objectReference: {fileID: 1645929676}
     - target: {fileID: 224668712703305504, guid: bca90714ddbb8544796b1d79e4753570,
         type: 3}
       propertyPath: m_RootOrder
@@ -776,11 +781,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 35
       objectReference: {fileID: 0}
-    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
-        type: 3}
-      propertyPath: Analytics
-      value: 
-      objectReference: {fileID: 1645929676}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
 --- !u!1001 &183767507
@@ -4526,7 +4526,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 725072271, guid: d7fb396edf155de40895610ead7b8864, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2335805763199537470, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
@@ -4573,6 +4573,12 @@ MonoBehaviour:
 --- !u!1 &1390942711 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 941069854, guid: d7fb396edf155de40895610ead7b8864,
+    type: 3}
+  m_PrefabInstance: {fileID: 1390942707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1390942712 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2335805762756565109, guid: d7fb396edf155de40895610ead7b8864,
     type: 3}
   m_PrefabInstance: {fileID: 1390942707}
   m_PrefabAsset: {fileID: 0}
@@ -5238,8 +5244,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TotalConnection: 0
   EatingPeiceSpawner: {fileID: 1018790061}
-  GoldSpawn: {fileID: 0}
-  Gold: {fileID: 1063094474349120, guid: bcf6c6e79b25cd9459703152c93c0b2e, type: 3}
+  GoldSpawn: {fileID: 1390942712}
+  GoldParticle: {fileID: 6088053314336034171, guid: 8e30db1da5eb1ca4f9eafbc98c037402,
+    type: 3}
   HappinessManagerScript: {fileID: 0}
   Total: 0
   TotalScore: {fileID: 1669848078}

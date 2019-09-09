@@ -113,7 +113,6 @@ public class DotManager : MonoBehaviour
     public void CheckPieces()
     {
         // MultiplierText.text = "" + Multipier;
-        PlayerPrefs.SetInt("SCORE", TotalScore);
 
         // Checkas if colours are connecting
         if (CheckConnection)

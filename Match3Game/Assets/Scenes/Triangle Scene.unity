@@ -1066,6 +1066,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 276194551}
   m_CullTransparentMesh: 0
+--- !u!1 &281513228 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2335805762756565109, guid: d7fb396edf155de40895610ead7b8864,
+    type: 3}
+  m_PrefabInstance: {fileID: 1037968078}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &304160265 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8677090933816355684, guid: d7fb396edf155de40895610ead7b8864,
@@ -4753,15 +4759,15 @@ PrefabInstance:
       propertyPath: BombPlayArea
       value: 
       objectReference: {fileID: 1881415163}
+    - target: {fileID: 725072268, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2449254646268538357, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 490035808}
-    - target: {fileID: 725072268, guid: d7fb396edf155de40895610ead7b8864, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7fb396edf155de40895610ead7b8864, type: 3}
 --- !u!114 &1037968079 stripped
@@ -5192,8 +5198,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TotalConnection: 0
   EatingPeiceSpawner: {fileID: 0}
-  GoldSpawn: {fileID: 0}
-  Gold: {fileID: 1063094474349120, guid: bcf6c6e79b25cd9459703152c93c0b2e, type: 3}
+  GoldSpawn: {fileID: 281513228}
+  GoldParticle: {fileID: 6088053314336034171, guid: 8e30db1da5eb1ca4f9eafbc98c037402,
+    type: 3}
   HappinessManagerScript: {fileID: 0}
   Total: 0
   TotalScore: {fileID: 173456561}

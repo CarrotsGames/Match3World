@@ -9,9 +9,8 @@ public class CompanionScript : MonoBehaviour
     public int TotalConnection;
     // public List<GameObject> NodeCount;
     // Use this for initialization
-    public GameObject EatingPeiceSpawner;
     public GameObject GoldSpawn;
-    public GameObject Gold;
+    public GameObject GoldParticle;
 
     private GameObject DotManagerObj;
     private GameObject MainCamera;
@@ -32,7 +31,7 @@ public class CompanionScript : MonoBehaviour
     private GameObject Challenge;
     public Text TotalScore;
     float RemoveTotalTimer;
-
+    int Chance;
     void Start()
     {
         AudioManagerGameObj = GameObject.FindGameObjectWithTag("AudioManager");
@@ -56,6 +55,13 @@ public class CompanionScript : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(this.gameObject);
+        if(Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            PowerUpManagerScript.Currency += Random.Range(1, 3);
+            PowerUpManagerScript.PowerUpSaves();
+            Instantiate(GoldParticle, GoldSpawn.transform.position, Quaternion.identity);
+        }
          if(RemoveTotalTimer < 0)
         {
             TotalScore.enabled = false;
@@ -77,67 +83,107 @@ public class CompanionScript : MonoBehaviour
         AudioManagerScript.MooblingSource.Play();    
     }
 
-   public void ScoreMultiplier()
+   public void ScoreMultiplier(int EXPTotal, int Total, string ConnectionType)
     {
         PlaySound();
         int LevelMultiplier = HappinessGameObj.GetComponent<HappinessManager>().Level;
-        int EXPTotal = 3;
+        EXPTotal += 3;
         if (GameObject.Find("CHALLENGE") == null)
         {
-            Total = 0;
-            // Mutlplier is equal to player level
-            //EXP is defualt 3
-            // EXP is equal to total connection + level
-            EXPTotal += TotalConnection + HappinessGameObj.GetComponent<HappinessManager>().Level;
-            // Total amount from the combo is equal to the number of nodes plus combo score
-            Total = TotalConnection + DotManagerScriptRef.ComboScore;
+            switch(ConnectionType)
+            {
+                case "Normal":
+                    {
+                        if (SuperMultiplierScript.CanUseSuperMultiplier)
+                        {
+                            Total *= 2;
+                        }
+
+                        Total *= LevelMultiplier;
+                        Total *= 5;
+                        // Adds total to score
+                        DotManagerScriptRef.TotalScore += Total;
+                        DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
+                        // HappinessManagerScript.HappinessSliderValue += EatingPeices.Count + LevelMultiplier;
+                        HappinessManagerScript.HappinessSliderValue += EXPTotal;
+                        TotalScore.enabled = true;
+                        TotalScore.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
+                        TotalScore.text = "" + Total;
+
+                    }
+                    break;
+                case "SCR":
+                    {
+                        if (SuperMultiplierScript.CanUseSuperMultiplier)
+                        {
+                            Total *= 2;
+                        }
+
+                        Total *= LevelMultiplier;
+                        Total *= 5;
+                        if (Total > 30000)
+                        {
+                            Total = 30000;
+                        }
+                        // Adds total to score
+                        DotManagerScriptRef.TotalScore += Total;
+                        DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
+                        // HappinessManagerScript.HappinessSliderValue += EatingPeices.Count + LevelMultiplier;
+                        HappinessManagerScript.HappinessSliderValue += EXPTotal;
+                        TotalScore.enabled = true;
+                        TotalScore.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
+                        TotalScore.text = "" + Total;
+                        
+                    }
+                    break;
+                case "SuperBomb":
+                    {
+
+                        if (SuperMultiplierScript.CanUseSuperMultiplier)
+                        {
+                            Total *= 2;
+                        }
+
+                        Total *= LevelMultiplier;
+                        if (Total > 25000)
+                        {
+                            Total = 25000;
+                        }
+                        // Adds total to score
+                        DotManagerScriptRef.TotalScore += Total;
+                        DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
+                        // HappinessManagerScript.HappinessSliderValue += EatingPeices.Count + LevelMultiplier;
+                        HappinessManagerScript.HappinessSliderValue += EXPTotal;
+                        TotalScore.enabled = true;
+                        TotalScore.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
+                        TotalScore.text = "" + Total;
+
+                    }
+                    break;
+            }
+            //// Mutlplier is equal to player level
+            ////EXP is defualt 3
+            //// EXP is equal to total connection + level
+            //EXPTotal += TotalConnection + HappinessGameObj.GetComponent<HappinessManager>().Level;
+            //// Total amount from the combo is equal to the number of nodes plus combo score
+            //Total += TotalConnection + DotManagerScriptRef.ComboScore;
             RemoveTotalTimer += 0.5f;
 
             // MUTLPIER VALUES WITH EXP
-
-            if (SuperMultiplierScript.CanUseSuperMultiplier)
-            {       
-              // Total multlpied by multiplier 
-                int SuperMultiplier = 2;
-                Total *= SuperMultiplier;
-                Total *= LevelMultiplier;
-                DotManagerScriptRef.TotalScore += Total;
-                DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
-                HappinessManagerScript.HappinessSliderValue += EXPTotal * 2;
-                TotalScore.enabled = true;
-                TotalScore.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
-                TotalScore.text = "" + Total;
-
-            }
-
-            else
-
-            {
-
-                Total *= LevelMultiplier;
-                // Adds total to score
-                DotManagerScriptRef.TotalScore += Total;
-                DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
-                // HappinessManagerScript.HappinessSliderValue += EatingPeices.Count + LevelMultiplier;
-                HappinessManagerScript.HappinessSliderValue += EXPTotal;
-                TotalScore.enabled = true;
-                TotalScore.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
-                TotalScore.text = "" + Total;
-
-            }
             PlayerPrefs.SetInt("SCORE", DotManagerScriptRef.TotalScore);
-
             // If the player can earch currency they will have a Levelvalue out of 70 chance getting a coin
             if (HappinessManagerScript.CanGetCurrency)
 
             {
                 CurrencyChance = HappinessGameObj.GetComponent<HappinessManager>().Level;
-                int chance = Random.Range(CurrencyChance, 70);
-                if (chance == 42)
+                Chance = Random.Range(CurrencyChance, 70);
+                if (Chance == 42)
 
                 {
+
                     PowerUpManagerScript.Currency += Random.Range(1, 3);
                     PowerUpManagerScript.PowerUpSaves();
+                    Instantiate(GoldParticle, GoldSpawn.transform.position, Quaternion.identity);
                 }
 
             }

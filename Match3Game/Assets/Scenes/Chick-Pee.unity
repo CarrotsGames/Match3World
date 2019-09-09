@@ -2258,18 +2258,24 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7965578928341864931, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 24.330017
-      objectReference: {fileID: 0}
     - target: {fileID: 2449762617587901165, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: BombPlayArea
       value: 
       objectReference: {fileID: 505144305}
+    - target: {fileID: 7965578928341864931, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 24.330017
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+--- !u!1 &721159906 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2335805762756565109, guid: d7fb396edf155de40895610ead7b8864,
+    type: 3}
+  m_PrefabInstance: {fileID: 721159905}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &721159907 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2095555180, guid: d7fb396edf155de40895610ead7b8864,
@@ -5721,8 +5727,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TotalConnection: 0
   EatingPeiceSpawner: {fileID: 1018790061}
-  GoldSpawn: {fileID: 0}
-  Gold: {fileID: 0}
+  GoldSpawn: {fileID: 721159906}
+  GoldParticle: {fileID: 6088053314336034171, guid: 8e30db1da5eb1ca4f9eafbc98c037402,
+    type: 3}
   HappinessManagerScript: {fileID: 0}
   Total: 0
   TotalScore: {fileID: 646885452}

@@ -18,10 +18,11 @@ public class BombExplodeScript : MonoBehaviour
     private GameObject PowerUpGameObj;
     private GameObject HappinessGameObj;
     public HappinessManager HappinessManagerScript;
+    private GameObject Companion;
     void Awake()
     {
         PowerUpGameObj = GameObject.Find("PowerUps");
-
+        Companion = GameObject.FindGameObjectWithTag("Companion");
         Timer = 1;
         AudioManagerGameObj = GameObject.FindGameObjectWithTag("AudioManager");
         AudioManagerScript = AudioManagerGameObj.GetComponent<AudioManager>();
@@ -59,35 +60,8 @@ public class BombExplodeScript : MonoBehaviour
             int Total = CollidedNodes.Count * HappinessManagerScript.Level;
             // total is equal to amound of collided nodes times current level + 10(10 being bomb default value)
             int BombEXP = CollidedNodes.Count + HappinessManagerScript.Level + 10;
-            // total is multipied by total level
-            Total *= HappinessManagerScript.Level;
-            // when SM it active total is multiplied by 2 and by 5 (5 being the defualt total to score)
-            if (SuperMultiplierScript.CanUseSuperMultiplier)
-            {
-                int SuperMultiplier = 2;
-                Total *= SuperMultiplier;
-                Total *= 5;
-                // adds total to score and score ui
-                DotManagerScript.TotalScore += Total;
-                DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
-                // bombs do a defualt 10 Exp
-                BombEXP *= SuperMultiplier;
-                // bomb exp is added to the EXP bar 
-                HappinessManagerScript.HappinessSliderValue += BombEXP;
-                // tells the function to update the EXP bar
-                HappinessManagerScript.HappinessBar();
-            }
-            else
-            {
-                Total *= 5;
-                DotManagerScript.TotalScore += Total;
-                DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
-                // bombs do a defualt 10 Exp
-                
-                HappinessManagerScript.HappinessSliderValue += BombEXP;
-                HappinessManagerScript.HappinessBar();
-            }
-            AddScore = false;
+            Companion.GetComponent<CompanionScript>().ScoreMultiplier(BombEXP, Total, "SuperBomb");
+              AddScore = false;
         }
       
 
