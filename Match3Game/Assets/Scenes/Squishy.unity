@@ -5327,6 +5327,26 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2449762617587901165, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: BombPlayArea
+      value: 
+      objectReference: {fileID: 465574322}
+    - target: {fileID: 2334539968821297527, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -217.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2334539968821297527, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 141.74213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2334539968821297527, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -272.8
+      objectReference: {fileID: 0}
     - target: {fileID: 2335805763860882730, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -5341,6 +5361,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 15.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 725072271, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -382.5
       objectReference: {fileID: 0}
     - target: {fileID: 2555435300485704022, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
@@ -5462,6 +5486,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 55.3
       objectReference: {fileID: 0}
+    - target: {fileID: 2321959881743238727, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2335805762105582881, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_Sprite
@@ -5481,31 +5510,6 @@ PrefabInstance:
     - target: {fileID: 2555598863301241839, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2334539968821297527, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -217.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2334539968821297527, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 141.74213
-      objectReference: {fileID: 0}
-    - target: {fileID: 2334539968821297527, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -272.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2449762617587901165, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: BombPlayArea
-      value: 
-      objectReference: {fileID: 465574322}
-    - target: {fileID: 2321959881743238727, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2449254646268538357, guid: d7fb396edf155de40895610ead7b8864,
@@ -5531,10 +5535,6 @@ PrefabInstance:
     - target: {fileID: 1543697491, guid: d7fb396edf155de40895610ead7b8864, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 725072271, guid: d7fb396edf155de40895610ead7b8864, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -382.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7fb396edf155de40895610ead7b8864, type: 3}
@@ -5586,6 +5586,12 @@ MonoBehaviour:
   m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1637471749 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2335805762756565109, guid: d7fb396edf155de40895610ead7b8864,
+    type: 3}
+  m_PrefabInstance: {fileID: 1637471743}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1647165519 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114898036899560986, guid: bca90714ddbb8544796b1d79e4753570,
@@ -5990,8 +5996,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TotalConnection: 0
   EatingPeiceSpawner: {fileID: 1018790061}
-  GoldSpawn: {fileID: 0}
-  Gold: {fileID: 5781712825884796205, guid: a900fa3e41988a14f82a05b824684579, type: 3}
+  GoldSpawn: {fileID: 1637471749}
+  GoldParticle: {fileID: 6088053314336034171, guid: 8e30db1da5eb1ca4f9eafbc98c037402,
+    type: 3}
   HappinessManagerScript: {fileID: 0}
   Total: 0
   TotalScore: {fileID: 1867178555}

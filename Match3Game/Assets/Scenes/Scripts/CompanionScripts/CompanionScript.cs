@@ -9,9 +9,8 @@ public class CompanionScript : MonoBehaviour
     public int TotalConnection;
     // public List<GameObject> NodeCount;
     // Use this for initialization
-    public GameObject EatingPeiceSpawner;
     public GameObject GoldSpawn;
-    public GameObject Gold;
+    public GameObject GoldParticle;
 
     private GameObject DotManagerObj;
     private GameObject MainCamera;
@@ -32,7 +31,7 @@ public class CompanionScript : MonoBehaviour
     private GameObject Challenge;
     public Text TotalScore;
     float RemoveTotalTimer;
-
+    int Chance;
     void Start()
     {
         AudioManagerGameObj = GameObject.FindGameObjectWithTag("AudioManager");
@@ -56,6 +55,13 @@ public class CompanionScript : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(this.gameObject);
+        if(Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            PowerUpManagerScript.Currency += Random.Range(1, 3);
+            PowerUpManagerScript.PowerUpSaves();
+            Instantiate(GoldParticle, GoldSpawn.transform.position, Quaternion.identity);
+        }
          if(RemoveTotalTimer < 0)
         {
             TotalScore.enabled = false;
@@ -132,12 +138,14 @@ public class CompanionScript : MonoBehaviour
 
             {
                 CurrencyChance = HappinessGameObj.GetComponent<HappinessManager>().Level;
-                int chance = Random.Range(CurrencyChance, 70);
-                if (chance == 42)
+                Chance = Random.Range(CurrencyChance, 70);
+                if (Chance == 42)
 
                 {
+
                     PowerUpManagerScript.Currency += Random.Range(1, 3);
                     PowerUpManagerScript.PowerUpSaves();
+                    Instantiate(GoldParticle, GoldSpawn.transform.position, Quaternion.identity);
                 }
 
             }
