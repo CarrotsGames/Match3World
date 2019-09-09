@@ -21,21 +21,20 @@ public class settings : MonoBehaviour {
 
     public bool soundOff;
 
-
     private GameObject AudioManagerGameObj;
     private AudioManager AudioManagerScript;
 
     public bool open;
     private RealTimeCounter RealTimeScript;
     private GameObject MainCamera;
-
+    public GameObject Analytics;
 
     private void Start()
     {     
         // References the Realtimescript which is located on camera (TEMP)
         MainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         RealTimeScript = MainCamera.GetComponent<RealTimeCounter>();
-
+        Analytics = GameObject.FindGameObjectWithTag("PlayFab");
         AudioManagerGameObj = GameObject.FindGameObjectWithTag("AudioManager");
         AudioManagerScript = AudioManagerGameObj.GetComponent<AudioManager>();
         musicOff = PlayerPrefs.GetInt("MusicSave") != 0;
@@ -58,12 +57,10 @@ public class settings : MonoBehaviour {
         {
             SoundOn();
         }
-
     }
 
     public void OpenSlider()
     {
-
         if (open == true)
         {
             uiSliderAnim.SetBool("Close", true);
@@ -75,15 +72,8 @@ public class settings : MonoBehaviour {
             uiSliderAnim.SetBool("Close", false);
             open = true;
         }
-
-
-
     }
-
-
-
-   
-
+  
    public void MusicOn()
     {
 
@@ -96,6 +86,7 @@ public class settings : MonoBehaviour {
         NoMusicImage.SetActive(false);
         MusicImage.SetActive(true);
     }
+
     public void MusicOff()
     {
         //  sceneAudio.SetActive(false);
@@ -107,6 +98,7 @@ public class settings : MonoBehaviour {
         NoMusicImage.SetActive(true);
         MusicImage.SetActive(false);
     }
+
     public void SoundOn()
     {
         soundOff = false;
@@ -118,6 +110,7 @@ public class settings : MonoBehaviour {
 
         PlayerPrefs.SetInt("SoundSave", (soundOff ? 1 : 0));
     }
+
     public void SoundOff()
     {
         AudioManagerScript.soundOn = false;
@@ -127,16 +120,19 @@ public class settings : MonoBehaviour {
         AudioManagerScript.AudioToggle();
 
         PlayerPrefs.SetInt("SoundSave", (soundOff ? 1 : 0));
-
-
     }
 
     public void LoadMain()
-    {
+    {  
         RealTimeScript.ResetClock();
+       
+        // Gets moobling data
+        Analytics.GetComponent<PlayFabAnalytics>().SetUserData();
+        //Sends gold amount and powerups used
+        Analytics.GetComponent<PowerUpAnalytics>().SendAnalytics();
+        //Sends gold amount and powerups used
+        Analytics.GetComponent<PlayFabLogin>().TournamentScore();
         SceneManager.LoadScene("Main Screen");
     }
-
-
-  
+ 
 }
