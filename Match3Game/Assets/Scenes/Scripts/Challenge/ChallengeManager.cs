@@ -92,39 +92,43 @@ public class ChallengeManager : MonoBehaviour
             }
 
         }
-        if (ChallengeType[ChallengeNumber] == "BeatScore")
+        if (ChallengeType[ChallengeNumber] != "BeatScore")
+        {
+           
+         if (Red > 0 && Red < 3)
+
+            {
+                FailChallenge();
+                FailText.text = "Not enough red nodes";
+            }
+            else if (Blue > 0 && Blue < 3)
+            {
+                FailChallenge();
+                FailText.text = "Not enough blue nodes";
+
+            }
+            else if (Green > 0 && Green < 3)
+            {
+                FailChallenge();
+                FailText.text = "Not enough green nodes";
+
+            }
+            else if (Pink > 0 && Pink < 3)
+            {
+                FailChallenge();
+                FailText.text = "Not enough pink nodes";
+
+            }
+            // if the beat score challenge is out of nodes
+            else if (Red == 0 && Blue == 0 & Green == 0 && Pink == 0 && ChallengeType[ChallengeNumber] == "BeatScore" && ChallengeScore < TargetScore)
+            {
+                FailChallenge();
+                FailText.text = " out of nodes ";
+            }
+        }
+        else
         {
             BeatScore();
-        }
-        else if (Red > 0 && Red < 3)
-
-        {
-            FailChallenge();
-            FailText.text = "Not enough red nodes";
-        }
-        else if (Blue > 0 && Blue < 3)
-        {
-            FailChallenge();
-            FailText.text = "Not enough blue nodes";
-
-        }
-        else if (Green > 0 && Green < 3)
-        {
-            FailChallenge();
-            FailText.text = "Not enough green nodes";
-
-        }
-        else if (Pink > 0 && Pink < 3)
-        {
-            FailChallenge();
-            FailText.text = "Not enough pink nodes";
-
-        }
-        // if the beat score challenge is out of nodes
-        else if (Red == 0 && Blue == 0 & Green == 0 && Pink == 0 && ChallengeType[ChallengeNumber] == "BeatScore" && ChallengeScore < TargetScore)
-        {
-            FailChallenge();
-            FailText.text = " out of nodes ";
         }
         
     }
