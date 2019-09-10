@@ -93,9 +93,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.0000019073486}
+  m_Offset: {x: 0.018994179, y: -0.0000019118115}
   serializedVersion: 2
-  m_Radius: 2.61
+  m_Radius: 2.3440802
 --- !u!1 &7679696772013289123
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,6 +248,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd904dbe5444d2e47b03949b18736b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Timer: 0
+  Frozen: 0
+  DefaultColour: 0
+  GrowSize: 0
+  LayerType: 10
   defultSize: 2
   jucSize: 2.4
   layerMask:
@@ -255,16 +260,11 @@ MonoBehaviour:
     m_Bits: 0
   neighbours: []
   ToggleHighlite: 0
-  DefaultColour: 0
-  GrowSize: 0
-  LayerType: 10
+  SelfDestruct: 0
   HighlitedParticle: {fileID: 3264635568377834927, guid: 6fe9f9acee2afc340a39a5250571aedb,
     type: 3}
   HappinessManagerScript: {fileID: 0}
   DotManagerScript: {fileID: 0}
-  SelfDestruct: 0
-  Timer: 0
-  Frozen: 0
 --- !u!120 &7726844797850632627
 LineRenderer:
   m_ObjectHideFlags: 0
