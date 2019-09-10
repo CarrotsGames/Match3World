@@ -16,6 +16,7 @@ public class ChallengeManager : MonoBehaviour
     public GameObject[] ChallengePrefabs;
     public GameObject WinGameObject;
     public GameObject LoseGameObject;
+    public GameObject winLoseCanvus;
     public Text ClearTime;
     public Text FailText;
 
@@ -170,6 +171,7 @@ public class ChallengeManager : MonoBehaviour
     {
         PowerUpManagerObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerObj.GetComponent<PowerUpManager>().Currency += 10;
+        winLoseCanvus.SetActive(true);
         WinGameObject.SetActive(true);
         ChallengeFinished = true;
     }
@@ -250,6 +252,7 @@ public class ChallengeManager : MonoBehaviour
             Lives.LiveCount -= 1;
             ChallengeFinished = true;
             Lives.CurrentTime = 0;
+            winLoseCanvus.SetActive(true);
             LoseGameObject.SetActive(true);
         }
     }
