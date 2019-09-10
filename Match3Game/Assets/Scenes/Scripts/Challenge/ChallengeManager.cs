@@ -92,8 +92,11 @@ public class ChallengeManager : MonoBehaviour
             }
 
         }
-
-        if (Red > 0 && Red < 3)
+        if (ChallengeType[ChallengeNumber] == "BeatScore")
+        {
+            BeatScore();
+        }
+        else if (Red > 0 && Red < 3)
 
         {
             FailChallenge();
@@ -123,6 +126,7 @@ public class ChallengeManager : MonoBehaviour
             FailChallenge();
             FailText.text = " out of nodes ";
         }
+        
     }
     private void Update()
     {
@@ -148,7 +152,7 @@ public class ChallengeManager : MonoBehaviour
                     {
                         ClearTime.text = ChallengeObjectives[ChallengeNumber] + TargetScore + "\n Total score : " + ChallengeScore;
 
-                        BeatScore();
+                       // BeatScore();
                     }
                     break;
                 case "":
@@ -184,7 +188,7 @@ public class ChallengeManager : MonoBehaviour
                 NumberOfMoves++;
                 DotManagerScript.ConnectionMade = false;
             }
-            if (NumberOfMoves < TotalMoves)
+            if (NumberOfMoves <= TotalMoves)
             {
                 // Canvas included in children so when no nodes 
                 // child count is 1
@@ -194,7 +198,7 @@ public class ChallengeManager : MonoBehaviour
                 }
 
             }
-            else if (NumberOfMoves >= TotalMoves)
+            else if (NumberOfMoves > TotalMoves)
             {
                 FailChallenge();
             }
