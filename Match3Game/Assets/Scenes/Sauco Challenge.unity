@@ -231,20 +231,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4034208655845566, guid: 3dcfb00e4b02533448213287bf82e717, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 212902145261524940, guid: 3dcfb00e4b02533448213287bf82e717,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: -535242383
-      objectReference: {fileID: 0}
-    - target: {fileID: 212902145261524940, guid: 3dcfb00e4b02533448213287bf82e717,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 4012293594280972, guid: 3dcfb00e4b02533448213287bf82e717, type: 3}
       propertyPath: m_LocalPosition.x
       value: 98.04997
@@ -276,6 +262,20 @@ PrefabInstance:
     - target: {fileID: 4012293594280972, guid: 3dcfb00e4b02533448213287bf82e717, type: 3}
       propertyPath: m_RootOrder
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034208655845566, guid: 3dcfb00e4b02533448213287bf82e717, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 212902145261524940, guid: 3dcfb00e4b02533448213287bf82e717,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -535242383
+      objectReference: {fileID: 0}
+    - target: {fileID: 212902145261524940, guid: 3dcfb00e4b02533448213287bf82e717,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3dcfb00e4b02533448213287bf82e717, type: 3}
@@ -3705,11 +3705,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
-        type: 3}
-      propertyPath: Analytics
-      value: 
-      objectReference: {fileID: 96816042}
     - target: {fileID: 224668712703305504, guid: bca90714ddbb8544796b1d79e4753570,
         type: 3}
       propertyPath: m_RootOrder
@@ -3859,6 +3854,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
+        type: 3}
+      propertyPath: Analytics
+      value: 
+      objectReference: {fileID: 96816042}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
 --- !u!1001 &1513818766
@@ -4178,8 +4178,8 @@ MonoBehaviour:
   ComboBomb: {fileID: 1914611662045384, guid: e23b4aecc40e08a4baa9adc758f8021f, type: 3}
   SCR: {fileID: 1447529824}
   LastKnownPosition: {x: 0, y: 0, z: 0}
-  ComboSpeed: 0.1
-  ComboVanishSpeed: 1
+  ComboSpeed: 0.05
+  ComboVanishSpeed: 0.5
   StartDestroy: 0
   ComboGameObj: {fileID: 976571900}
   ComboText: {fileID: 1920151902}
