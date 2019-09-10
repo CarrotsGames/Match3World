@@ -103,7 +103,6 @@ public class HappinessManager : MonoBehaviour
         {
             Level = 0;
             PlayerPrefs.SetInt(Companion.name + "Multiplier", Level);
-
         }
     }
     public void HappinessBar()
@@ -146,12 +145,15 @@ public class HappinessManager : MonoBehaviour
                 // Animation 
  
                 //  PlayerPrefs.SetInt(SaveStrings, (IsSleeping ? 1 : 0));
-                PlayLevelAdScript.PlayAdNow();
                 Level = PlayerPrefs.GetInt(Companion.name + "Multiplier", Level);
                 Level++;
                 PlayerPrefs.SetInt(Companion.name + "Multiplier", Level);
                 CanGetCurrency = true;
+                if (Level == 5 || Level == 10 || Level == 15 || Level == 20 || Level == 25)
+                {
+                    PlayLevelAdScript.PlayAdNow();
 
+                }
                 // Music Change
                 // Add multiplier    
                 HappinessSliderValue = 0;
