@@ -9,10 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3876821057376328697}
-  - component: {fileID: 3767311669056113775}
   - component: {fileID: 3976597593153099979}
-  - component: {fileID: 3820345550940770525}
-  - component: {fileID: 3945798507622614129}
   - component: {fileID: 5741752706017939119}
   m_Layer: 2
   m_Name: Binky Yellow
@@ -35,23 +32,6 @@ Transform:
   m_Father: {fileID: 3876839226350688367}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3767311669056113775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3880174500910112159}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8299356e28712984d9fd3adcdb138187, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Test: 1
-  Disolve: 0
-  ShaderMat: {fileID: 0}
-  DisolveSpeed: 0
-  DisolveCountDown: 0
 --- !u!212 &3976597593153099979
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -100,44 +80,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &3820345550940770525
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3880174500910112159}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.12, y: 5.12}
-    newSize: {x: 5.12, y: 5.12}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 5.12, y: 5.12}
-  m_EdgeRadius: 0
---- !u!225 &3945798507622614129
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3880174500910112159}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!58 &5741752706017939119
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -151,9 +93,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.0000019073486}
+  m_Offset: {x: 0.014136332, y: -0.0000019196248}
   serializedVersion: 2
-  m_Radius: 2.61
+  m_Radius: 2.3131375
 --- !u!1 &3880829369744926865
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,6 +248,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd904dbe5444d2e47b03949b18736b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Timer: 0
+  Frozen: 0
+  DefaultColour: 0
+  GrowSize: 0
+  LayerType: 10
   defultSize: 2
   jucSize: 2.4
   layerMask:
@@ -313,16 +260,11 @@ MonoBehaviour:
     m_Bits: 0
   neighbours: []
   ToggleHighlite: 0
-  DefaultColour: 0
-  GrowSize: 0
-  LayerType: 10
+  SelfDestruct: 0
   HighlitedParticle: {fileID: 3264635568377834927, guid: 6fe9f9acee2afc340a39a5250571aedb,
     type: 3}
   HappinessManagerScript: {fileID: 0}
   DotManagerScript: {fileID: 0}
-  SelfDestruct: 0
-  Timer: 0
-  Frozen: 0
 --- !u!120 &3778849499933650625
 LineRenderer:
   m_ObjectHideFlags: 0
