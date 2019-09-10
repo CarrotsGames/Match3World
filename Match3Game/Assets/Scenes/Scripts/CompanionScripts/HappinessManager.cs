@@ -116,7 +116,6 @@ public class HappinessManager : MonoBehaviour
         {
             HappinessStates();
             PlayerPrefs.SetInt(Companion.name + "Multiplier", Level);
-
         }
         // Displays hunger value (used in debug)
         //HungerMetre.text = "" + Hunger;
@@ -137,10 +136,7 @@ public class HappinessManager : MonoBehaviour
         {
             if (HappinessSliderValue > HappinessClamp)
             {
-                //  SliderGameObj.GetComponent<SliderTest>().slider[8].SetActive(false);
-                //  SliderGameObj.GetComponent<SliderTest>().slider[9].SetActive(true);
-
-
+    
                 FillColour.color = Color.green;
                 // Animation 
  
