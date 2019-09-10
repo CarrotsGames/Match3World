@@ -103,7 +103,6 @@ public class HappinessManager : MonoBehaviour
         {
             Level = 0;
             PlayerPrefs.SetInt(Companion.name + "Multiplier", Level);
-
         }
     }
     public void HappinessBar()
@@ -117,7 +116,6 @@ public class HappinessManager : MonoBehaviour
         {
             HappinessStates();
             PlayerPrefs.SetInt(Companion.name + "Multiplier", Level);
-
         }
         // Displays hunger value (used in debug)
         //HungerMetre.text = "" + Hunger;
@@ -138,20 +136,20 @@ public class HappinessManager : MonoBehaviour
         {
             if (HappinessSliderValue > HappinessClamp)
             {
-                //  SliderGameObj.GetComponent<SliderTest>().slider[8].SetActive(false);
-                //  SliderGameObj.GetComponent<SliderTest>().slider[9].SetActive(true);
-
-
+    
                 FillColour.color = Color.green;
                 // Animation 
  
                 //  PlayerPrefs.SetInt(SaveStrings, (IsSleeping ? 1 : 0));
-                PlayLevelAdScript.PlayAdNow();
                 Level = PlayerPrefs.GetInt(Companion.name + "Multiplier", Level);
                 Level++;
                 PlayerPrefs.SetInt(Companion.name + "Multiplier", Level);
                 CanGetCurrency = true;
+                if (Level == 5 || Level == 10 || Level == 15 || Level == 20 || Level == 25)
+                {
+                    PlayLevelAdScript.PlayAdNow();
 
+                }
                 // Music Change
                 // Add multiplier    
                 HappinessSliderValue = 0;

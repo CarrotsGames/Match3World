@@ -2473,30 +2473,23 @@ PrefabInstance:
       propertyPath: FailText
       value: 
       objectReference: {fileID: 1676514734}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: winLoseCanvus
+      value: 
+      objectReference: {fileID: 1676514737}
     - target: {fileID: 2658884934281731779, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: NumberOfLives
       value: 
-      objectReference: {fileID: 1336710276}
+      objectReference: {fileID: 1676514735}
     - target: {fileID: 2658884934281731779, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: LifeTimerText
       value: 
-      objectReference: {fileID: 755914862}
+      objectReference: {fileID: 1676514736}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da5e3e0644271594283bbf1f310a227d, type: 3}
---- !u!114 &755914862 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3772774730944245547, guid: d009cb47e607a2e438d6dee0c645a038,
-    type: 3}
-  m_PrefabInstance: {fileID: 166439344}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &768756837 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3559842561307695723, guid: d009cb47e607a2e438d6dee0c645a038,
@@ -4797,18 +4790,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1336710276 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3772774729371508348, guid: d009cb47e607a2e438d6dee0c645a038,
-    type: 3}
-  m_PrefabInstance: {fileID: 166439344}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1353811891
 GameObject:
   m_ObjectHideFlags: 0
@@ -5333,6 +5314,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: YouWin_Loss
       objectReference: {fileID: 0}
+    - target: {fileID: 1781036810683050602, guid: 0a092d20b9e427d4e8f8b7b344ba5761,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1781036810683050598, guid: 0a092d20b9e427d4e8f8b7b344ba5761,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5474,6 +5460,36 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1676514735 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1951647649, guid: 0a092d20b9e427d4e8f8b7b344ba5761,
+    type: 3}
+  m_PrefabInstance: {fileID: 1676514731}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1676514736 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 741722445, guid: 0a092d20b9e427d4e8f8b7b344ba5761,
+    type: 3}
+  m_PrefabInstance: {fileID: 1676514731}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1676514737 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1781036810683050602, guid: 0a092d20b9e427d4e8f8b7b344ba5761,
+    type: 3}
+  m_PrefabInstance: {fileID: 1676514731}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1681968622
 PrefabInstance:
   m_ObjectHideFlags: 0
