@@ -8,14 +8,7 @@ public class LoadChallenge : MonoBehaviour
 {
     [Header("Challenge scene name")]
     public string ChallengeScene;
-    [Header("Types : Clear, ClearX , BeatScore")]
-    public string ChallengeType;
-    [Header("What should the challenge say?")]
-    public string ChallengeDescription;
-    public float ChallengeTimer;
-    public int TotalMoves;
-    public int ChallengeScore;
-  
+ 
     public void SelectChallenge(int Index)
     {
         if (Lives.LiveCount > 0)
