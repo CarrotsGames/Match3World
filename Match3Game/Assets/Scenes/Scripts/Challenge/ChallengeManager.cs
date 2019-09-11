@@ -32,12 +32,13 @@ public class ChallengeManager : MonoBehaviour
     [HideInInspector]
     public int ChallengeScore;
     //CLEAR BOARD CHALLENGE 
+    private CompanionScript CompanionScriptRef;
+    private int ChallengeNumber;
     private GameObject Board;
     private GameObject Companion;
-    private CompanionScript CompanionScriptRef;
-    private GameObject Go;
-    private int ChallengeNumber;
     private GameObject DotManagerGameObj;
+    private GameObject Go;
+    private GameObject OutOflifeCanvas;
     private DotManager DotManagerScript;
     private int TargetScore;
     // Used to check how many of each colour nodes are in scene
@@ -45,7 +46,6 @@ public class ChallengeManager : MonoBehaviour
     private int Blue;
     private int Green;
     private int Pink;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -59,11 +59,14 @@ public class ChallengeManager : MonoBehaviour
         ChallengeNumber = PlayerPrefs.GetInt("ChallengeIndex");
         TargetScore = PlayerPrefs.GetInt("ChallengeScore");
         Go = Instantiate(ChallengePrefabs[ChallengeNumber], ChallengePrefabs[ChallengeNumber].transform.position, Quaternion.identity);
-
+        OutOflifeCanvas = GameObject.Find("OutOfLifeCanvus");
+        OutOflifeCanvas.SetActive(false);
         // ChallengeDescription = PlayerPrefs.GetString("ChallengeDescription");
         Timer = ChallengeObjectiveScore[ChallengeNumber];
         TotalMoves = ChallengeObjectiveScore[ChallengeNumber];
         TargetScore = (int)ChallengeObjectiveScore[ChallengeNumber];
+        Lives.LiveCount = PlayerPrefs.GetInt("LIVECOUNT");
+
     }
 
     public void CheckForNodes()
@@ -172,7 +175,9 @@ public class ChallengeManager : MonoBehaviour
         {
             //DISPLAY LIFE COUNT?
             Debug.Log("Out of lives soz");
-            SceneManager.LoadScene("Main Screen");
+            LoseGameObject.SetActive(false);
+            OutOflifeCanvas.SetActive(true);
+           // SceneManager.LoadScene("Main Screen");
         }
     }
     void CompleteChallenge()

@@ -49,35 +49,28 @@ public class Lives : MonoBehaviour
     }
     private void FixedUpdate()
     {
-       
-       //DEBUG ONLY Resets time
-       if (Input.GetKeyDown(KeyCode.Alpha4))
+        NumberOfLives.text = "" + LiveCount;
+
+        //DEBUG ONLY Resets time
+        if (Input.GetKeyDown(KeyCode.Alpha4))
        {
-           IsCountingDown = false;
-           TimeStamp = 0;
-           PlayerPrefs.SetString("TimeUntilLives", "" + TimeStamp);
-       
-           FullHeart = 0 ;
-       }
+            //RestoreOneLife();
+        }
         // if lives are less than 3 start countdown
         if (PlayFab.GetComponent<PlayFabLogin>().HasLoggedIn == true)
         {
             if (LiveCount < 3 && !IsCountingDown)
-            {
-                CurrentTime -= Time.deltaTime;
-                if (CurrentTime < 0)
-                {
-                    IsCountingDown = false;
-                    BeginTheCountdown();
-                }
+            {            
+                BeginTheCountdown();               
             }
             // reset lives and countdown
-            else if (LiveCount >= 3)
+            else if (LiveCount >= 3 && IsCountingDown)
             {
                 NumberOfLives.text = "" + LiveCount;
-
+                IsCountingDown = false;
                 LiveCount = 3;
                 LifeTimerText.text = "Fullhearts";
+                PlayerPrefs.SetInt("LIVECOUNT", LiveCount);
 
             }
             // Checks if hearts are regened
@@ -89,6 +82,15 @@ public class Lives : MonoBehaviour
 
             }
         }
+    }
+    public void RestoreOneLife()
+    {
+
+        IsCountingDown = false;
+        TimeStamp = 0;
+        PlayerPrefs.SetString("TimeUntilLives", "" + TimeStamp);
+        LiveCount = 1;
+        FullHeart = 0;
     }
     void BeginTheCountdown()
     {
