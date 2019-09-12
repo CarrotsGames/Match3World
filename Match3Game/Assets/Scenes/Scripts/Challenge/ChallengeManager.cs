@@ -184,6 +184,7 @@ public class ChallengeManager : MonoBehaviour
     {
         PowerUpManagerObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerObj.GetComponent<PowerUpManager>().Currency += 10;
+        PowerUpManagerObj.GetComponent<PowerUpManager>().PowerUpSaves();
         winLoseCanvus.SetActive(true);
         WinGameObject.SetActive(true);
         ChallengeFinished = true;
