@@ -8,6 +8,7 @@ public class MobileExitScript : MonoBehaviour {
     private RealTimeCounter RealTimeScript;
     GameTransitions GT;
     public GameObject Analytics;
+    private GameObject HappinessManagerGameObj;
     // Update is called once per frame
     // Exits the game using Android Back Button 
 
@@ -17,17 +18,18 @@ public class MobileExitScript : MonoBehaviour {
         GT = GameTransitionsGameObj.GetComponent<GameTransitions>();
         RealTimerGameObj = GameObject.FindGameObjectWithTag("MainCamera");
         RealTimeScript = RealTimerGameObj.GetComponent<RealTimeCounter>();
-
+        HappinessManagerGameObj = GameObject.FindGameObjectWithTag("HM");
     }
 
     void Update ()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            HappinessManagerGameObj.GetComponent<HappinessManager>().SaveMe();
+
             GT.HomeButton();
-         }
-         
-         
+        }
+              
     }
     private void OnApplicationQuit()
     {
@@ -43,7 +45,6 @@ public class MobileExitScript : MonoBehaviour {
     }
     private void OnApplicationPause(bool pause)
     {
-      
 
     }
 }

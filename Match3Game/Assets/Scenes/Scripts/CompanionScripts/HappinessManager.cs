@@ -45,6 +45,7 @@ public class HappinessManager : MonoBehaviour
     public int HappinessClamp;
     //public GameObject SliderGameObj;
     public Text CurrentHappiness;
+    private int TimeTillSave;
 
     // Use this for initialization
     void Start()
@@ -109,28 +110,10 @@ public class HappinessManager : MonoBehaviour
         NextLevel.text = " " + NextLevelNum;
 
     }
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.F))
-        {
-            Level = 1;
-         //   PlayerPrefs.SetInt(Companion.name + "Multiplier", Level);
-          
-           
-        }
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-          //  Level = 0;
-          //  PlayerPrefs.SetInt(Companion.name + "Multiplier", Level);
-            SaveSystem.LoadMoobling();
-            Level = SaveSystem.LoadMoobling().Level;
-            HappinessSliderValue = SaveSystem.LoadMoobling().EXP;
-            HappinessBar();
-         }
-    }
+ 
     public void HappinessBar()
     {
+        
         LevelText.text = " " + Level;
         int NextLevelNum = Level + 1;
         NextLevel.text = " " + NextLevelNum;
@@ -152,8 +135,8 @@ public class HappinessManager : MonoBehaviour
         HappinessSlider.maxValue = HappinessClamp;
 
         PlayerPrefs.SetFloat(CompanionSave, HappinessSliderValue);
-        SaveSystem.SaveMoobling(this);
-
+         
+     
     }
     // Plays animation at happiness states
     void HappinessStates()
@@ -198,5 +181,12 @@ public class HappinessManager : MonoBehaviour
     }
 
  
- 
+    public void SaveMe()
+    {
+        SaveSystem.SaveMoobling(this);
+    }
+    private void OnApplicationPause(bool pause)
+    {
+        SaveMe();
+    }
 }

@@ -258,23 +258,7 @@ public class DestroyNodes : MonoBehaviour {
         }
     }
 
-    // Displays the ComboScore Text
-    void DisplayComboScore()
-    {
-        int Total;
-        int Combo;
-        int Multplier;
-
-       
-        Combo = GetComponent<DotManager>().ComboScore;
-        // Score multiplier is total amount * level
-        Multplier = HappinessGameObj.GetComponent<HappinessManager>().Level;
-        Total = GetComponent<DotManager>().PeicesCount + Combo;
-        Total *= Multplier;
-
-        ComboText.text = "Score:" +  Total;
  
-    }
 
     // plays particle effect for each node
     void PlayParticle()

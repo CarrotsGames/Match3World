@@ -28,7 +28,7 @@ public class settings : MonoBehaviour {
     private RealTimeCounter RealTimeScript;
     private GameObject MainCamera;
     public GameObject Analytics;
-
+    private GameObject HappinessManagerGameObj;
     private void Start()
     {     
         // References the Realtimescript which is located on camera (TEMP)
@@ -39,6 +39,7 @@ public class settings : MonoBehaviour {
         AudioManagerScript = AudioManagerGameObj.GetComponent<AudioManager>();
         musicOff = PlayerPrefs.GetInt("MusicSave") != 0;
         soundOff = PlayerPrefs.GetInt("SoundSave") != 0;
+        HappinessManagerGameObj = GameObject.FindGameObjectWithTag("HM");
 
         if (musicOff)
         {
@@ -125,7 +126,7 @@ public class settings : MonoBehaviour {
     public void LoadMain()
     {  
         RealTimeScript.ResetClock();
-       
+        HappinessManagerGameObj.GetComponent<HappinessManager>().SaveMe();
         // Gets moobling data
         Analytics.GetComponent<PlayFabAnalytics>().SetUserData();
         //Sends gold amount and powerups used
@@ -134,5 +135,5 @@ public class settings : MonoBehaviour {
         Analytics.GetComponent<PlayFabLogin>().TournamentScore();
         SceneManager.LoadScene("Main Screen");
     }
- 
+    
 }
