@@ -29,8 +29,9 @@ public class CompanionScript : MonoBehaviour
     private AudioManager AudioManagerScript;
     // public GameObject TotalScoreGameObj;
     private GameObject Challenge;
+    public GameObject TotalScoreGameObj;
+
     public Text TotalScore;
-    float RemoveTotalTimer;
     int Chance;
     void Start()
     {
@@ -47,33 +48,13 @@ public class CompanionScript : MonoBehaviour
         DotManagerScriptRef = DotManagerObj.GetComponent<DotManager>();
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
-        TotalScore.enabled = false;
-        
+        //TotalScore.enabled = false;
+        TotalScoreGameObj = GameObject.Find("TotalText (1)");
         // HungerSlider min and max
         // TotalScoreGameObj.transform.position = new Vector3(500, 0, 0);
     }
 
-    private void Update()
-    {
-        Debug.Log(this.gameObject);
-        if(Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            PowerUpManagerScript.Currency += Random.Range(1, 3);
-            PowerUpManagerScript.PowerUpSaves();
-            Instantiate(GoldParticle, GoldSpawn.transform.position, Quaternion.identity);
-        }
-         if(RemoveTotalTimer < 0)
-        {
-            TotalScore.enabled = false;
-            //TotalScoreGameObj.transform.position = new Vector3(500, 0, 0);
-        }
-        else
-        {
-           
-            RemoveTotalTimer -= Time.deltaTime;
-        }
-    }
-
+ 
     public void PlaySound()
     {
       
@@ -106,7 +87,7 @@ public class CompanionScript : MonoBehaviour
                         DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
                         // HappinessManagerScript.HappinessSliderValue += EatingPeices.Count + LevelMultiplier;
                         HappinessManagerScript.HappinessSliderValue += EXPTotal;
-                        TotalScore.enabled = true;
+                        TotalScoreGameObj.SetActive(true);
                         TotalScore.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
                         TotalScore.text = "" + Total;
                         Total = 0;
@@ -131,7 +112,7 @@ public class CompanionScript : MonoBehaviour
                         DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
                         // HappinessManagerScript.HappinessSliderValue += EatingPeices.Count + LevelMultiplier;
                         HappinessManagerScript.HappinessSliderValue += EXPTotal;
-                        TotalScore.enabled = true;
+                        TotalScoreGameObj.SetActive(true);
                         TotalScore.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
                         TotalScore.text = "" + Total;
                         Total = 0;
@@ -156,7 +137,7 @@ public class CompanionScript : MonoBehaviour
                         DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
                         // HappinessManagerScript.HappinessSliderValue += EatingPeices.Count + LevelMultiplier;
                         HappinessManagerScript.HappinessSliderValue += EXPTotal;
-                        TotalScore.enabled = true;
+                        TotalScoreGameObj.SetActive(true);
                         TotalScore.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
                         TotalScore.text = "" + Total;
                         Total = 0;
@@ -170,8 +151,7 @@ public class CompanionScript : MonoBehaviour
             //EXPTotal += TotalConnection + HappinessGameObj.GetComponent<HappinessManager>().Level;
             //// Total amount from the combo is equal to the number of nodes plus combo score
             //Total += TotalConnection + DotManagerScriptRef.ComboScore;
-            RemoveTotalTimer += 0.5f;
-
+ 
             // MUTLPIER VALUES WITH EXP
             PlayerPrefs.SetInt("SCORE", DotManagerScriptRef.TotalScore);
             // If the player can earch currency they will have a Levelvalue out of 70 chance getting a coin

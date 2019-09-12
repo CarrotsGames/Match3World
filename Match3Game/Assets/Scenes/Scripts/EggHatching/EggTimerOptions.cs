@@ -38,7 +38,6 @@ public class EggTimerOptions : MonoBehaviour
                     PowerUpManagerScript.Currency -= Prices[4];
                     CutCurrentTime();
                     HasHalfedTime = true;
-
                 }
             }
             // if the timer is between 0 and 1.4 hours
@@ -51,6 +50,8 @@ public class EggTimerOptions : MonoBehaviour
                     HasHalfedTime = true;
                 }
             }
+            PowerUpManagerScript.PowerUpSaves();
+
             PlayerPrefs.SetInt("HalfTime", (HasHalfedTime ? 1 : 0));
         }
     }
@@ -88,6 +89,7 @@ public class EggTimerOptions : MonoBehaviour
                 Debug.Log("Under60");
                 // Makes current time greater than time stamp, hatching the egg
                 GetComponent<EggHatch>().TimeStamp = GetComponent<EggHatch>().NowTime - 10000000;
+ 
             }
             else
             {
@@ -105,7 +107,7 @@ public class EggTimerOptions : MonoBehaviour
                 Debug.Log("Under60");
                 // Makes current time greater than time stamp, hatching the egg
                 GetComponent<EggHatch>().TimeStamp = GetComponent<EggHatch>().NowTime - 10000000;
-            }
+             }
             else
             {
                 Debug.Log("Insufficient Funds");
@@ -122,6 +124,7 @@ public class EggTimerOptions : MonoBehaviour
                 PowerUpManagerScript.Currency -= Prices[2];
                 Debug.Log("Under60");
                 GetComponent<EggHatch>().TimeStamp = GetComponent<EggHatch>().NowTime - 10000000;
+
             }
             else
             {
@@ -131,6 +134,8 @@ public class EggTimerOptions : MonoBehaviour
             }
 
         }
-     }
-  
+        PowerUpManagerScript.PowerUpSaves();
+
+    }
+
 }

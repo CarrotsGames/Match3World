@@ -253,7 +253,7 @@ public class DotManager : MonoBehaviour
             NodeSelection = false;
  
             GoldSelection = false;
-            GetComponent<DestroyNodes>().StartDestroy = true;
+           GetComponent<DestroyNodes>().StartDestroy = true;
           //GetComponent<DestroyNodes>().CreateComboList();
           //  AddBoardParticles();
           // ResetDotLayers = true;

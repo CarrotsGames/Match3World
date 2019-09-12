@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class DailySpinArrow : MonoBehaviour
 {
-     public GameObject DailySpinWheel;
-     private DailySpin DailySpinScript;
-    public GameObject PowerUpManagerGameObj;
+    public GameObject DailySpinWheel;
+    private DailySpin DailySpinScript;
+    private GameObject PowerUpManagerGameObj;
     private PowerUpManager PowerUpManagerScript;
     private string Colour;
 
@@ -99,6 +99,7 @@ public class DailySpinArrow : MonoBehaviour
                     break;
 
             }
+            PowerUpManagerScript.PowerUpSaves();
            // DailySpinScript.TimeToStopWheel = DailySpinScript.TimeToStopWheelStore;
             DailySpinScript.DailyEvent.CanDoDaily = false;
             PlayerPrefs.SetInt(DailySpinScript.Events.GetComponent<PlayFabServerTime>().SaveBool, (DailySpinScript.DailyEvent.CanDoDaily ? 1 : 0));

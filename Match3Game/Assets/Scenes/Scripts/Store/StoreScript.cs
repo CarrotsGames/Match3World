@@ -285,7 +285,10 @@ public class StoreScript : MonoBehaviour
                     Debug.Log("Insufficient funds");
                 }
                 break;
+                
         }
+        PowerUpManagerScript.PowerUpSaves();
+
     }
 
     void DisableEggButton()

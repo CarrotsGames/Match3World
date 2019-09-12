@@ -41,8 +41,8 @@ public class HappinessManager : MonoBehaviour
     public string SaveStrings;
     public Text LevelText;
     public Text NextLevel;
-    [SerializeField]
-    private int HappinessClamp;
+    [HideInInspector]
+    public int HappinessClamp;
     //public GameObject SliderGameObj;
     public Text CurrentHappiness;
 
@@ -54,7 +54,7 @@ public class HappinessManager : MonoBehaviour
         Scene CurrentScene = SceneManager.GetActiveScene();
         // Gets current scene
         SceneName = CurrentScene.name;
-        Level = PlayerPrefs.GetInt(Companion.name + "Multiplier", Level);
+      //  Level = PlayerPrefs.GetInt(Companion.name + "Multiplier", Level);
         SleepAd = GameObject.FindGameObjectWithTag("SleepingAd");
         // If for somereason level is 0 make it 1
         // this is used as a safety net just incase for somereason its 0
@@ -81,7 +81,7 @@ public class HappinessManager : MonoBehaviour
         LevelText.text = "" + Level;
         // Gets companions current level
         CompanionSave = Companion.name + "Value";
-        HappinessSliderValue = PlayerPrefs.GetFloat(CompanionSave);
+      //  HappinessSliderValue = PlayerPrefs.GetFloat(CompanionSave);
      
    
       
@@ -90,9 +90,21 @@ public class HappinessManager : MonoBehaviour
         if (SceneName != "Gobu Tutorial")
         {
             BoardScriptRef = Board.GetComponent<BoardScript>();
+        }   // clamps hunger of selected companion from 0 to 100
+        HappinessSliderValue = Mathf.Clamp(HappinessSliderValue, 0, HappinessClamp);
+        // Slowly counts down Happiness value
+        //HappinessSliderValue -= Time.deltaTime / 6;
+        HappinessSlider.maxValue = HappinessClamp;
+        if (GameObject.Find("CHALLENGE") == null )
+        {
+            SaveSystem.LoadMoobling();
+            Level = SaveSystem.LoadMoobling().Level;
+            HappinessSliderValue = SaveSystem.LoadMoobling().EXP;
+            HappinessSlider.value = HappinessSliderValue;
+            HappinessClamp = SaveSystem.LoadMoobling().TotalEXP;
+            HappinessBar();
         }
-        HappinessBar();
-        HappinessSlider.value = HappinessSliderValue;
+        //HappinessSlider.value = HappinessSliderValue;
         int NextLevelNum = Level + 1;
         NextLevel.text = " " + NextLevelNum;
 
@@ -101,9 +113,21 @@ public class HappinessManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.F))
         {
-            Level = 0;
-            PlayerPrefs.SetInt(Companion.name + "Multiplier", Level);
+            Level = 1;
+         //   PlayerPrefs.SetInt(Companion.name + "Multiplier", Level);
+          
+           
         }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+          //  Level = 0;
+          //  PlayerPrefs.SetInt(Companion.name + "Multiplier", Level);
+            SaveSystem.LoadMoobling();
+            Level = SaveSystem.LoadMoobling().Level;
+            HappinessSliderValue = SaveSystem.LoadMoobling().EXP;
+            HappinessBar();
+         }
     }
     public void HappinessBar()
     {
@@ -128,6 +152,8 @@ public class HappinessManager : MonoBehaviour
         HappinessSlider.maxValue = HappinessClamp;
 
         PlayerPrefs.SetFloat(CompanionSave, HappinessSliderValue);
+        SaveSystem.SaveMoobling(this);
+
     }
     // Plays animation at happiness states
     void HappinessStates()
@@ -170,5 +196,7 @@ public class HappinessManager : MonoBehaviour
             Debug.Log("MAXLEVEL REACHED");
         }
     }
-  
+
+ 
+ 
 }
