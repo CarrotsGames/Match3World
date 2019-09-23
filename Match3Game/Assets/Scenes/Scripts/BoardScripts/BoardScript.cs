@@ -25,7 +25,8 @@ public class BoardScript : MonoBehaviour
     //  List<GameObject> ReachableNodes = new List<GameObject>();
     private BackgroundTileScript[,] AllTiles;
     // Start is called before the first frame update
-    ObjectPooler ObjectPoolerScript;
+    [HideInInspector]
+    public ObjectPooler ObjectPoolerScript;
     string[] Colours = {"Red" ,"Blue","Green","Pink" };
     private void Start()
     {

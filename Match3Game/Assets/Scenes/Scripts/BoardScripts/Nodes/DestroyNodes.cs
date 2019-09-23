@@ -125,10 +125,16 @@ public class DestroyNodes : MonoBehaviour {
         NormalCombo = false;
        
     }
- 
+
     // Destorys nodes in the eatingPeices list
     void StartNodeDestroy()
     {
+        if (Index < 1)
+        {
+            // gets nodes final position to spawn bomb on 
+            int LastPos = ComboList.Count - 1;
+            LastKnownPosition = ComboList[LastPos].transform.position;
+        }
        //// Set time for delay
        Timer -= Time.deltaTime;
         if (Timer < 0)
@@ -143,7 +149,7 @@ public class DestroyNodes : MonoBehaviour {
         if (Index < ComboList.Count)
         {  // plays particle at index
             PlayParticle();
-            LastKnownPosition = ComboList[Index].transform.position;
+           // LastKnownPosition = ComboList[Index].transform.position;
             // Moves node at index out of sight
             ComboList[Index].transform.position += new Vector3(100, 0, 0);
             // Removes node from parent to insta spawn nodes

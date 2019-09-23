@@ -82,8 +82,7 @@ public class DotScript : MonoBehaviour
 
         if(SelfDestruct)
         {
-           
-
+          
             Timer -= Time.deltaTime;
             if(Timer <= 0)
             {
