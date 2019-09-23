@@ -80,7 +80,7 @@ public class MonthlyChallenge : MonoBehaviour {
             // checks if the tournament is still going
             //DelayTimerCheck -= Time.deltaTime;
             // Cooldown for checking tournament status to avoid sending to much information 
-            if (DotManagerScript.TotalScore > ChallengeScore && !HasUnlockedGift)
+            if (DotManager.TotalScore > ChallengeScore && !HasUnlockedGift)
             {
                 MonthlyChallengeStatus();
                 CheckMonthlyUnlock();
@@ -128,11 +128,11 @@ public class MonthlyChallenge : MonoBehaviour {
                 MonthlyVersions = result.Version;
                 Debug.Log("NEW VERSION");
                 // Changes MonthlyCompanion array to next companion
-                
-                DotManagerScript.TotalScore = 0;
+
+                DotManager.TotalScore = 0;
                 // gives players currency
-                DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
-                PlayerPrefs.SetFloat("SCORE", DotManagerScript.TotalScore);
+                DotManagerScript.HighScore.text = "" + DotManager.TotalScore;
+                PlayerPrefs.SetFloat("SCORE", DotManager.TotalScore);
                 PlayerPrefs.SetInt("MONTHLYVERSIONVALUE", MonthlyVersions);
                 MonthlyChallengeEnded();
             }

@@ -30,8 +30,9 @@ public class BoardScript : MonoBehaviour
     string[] Colours = {"Red" ,"Blue","Green","Pink" };
     private void Start()
     {
+        Colour = "Red";
         // if no delay time is set automatically set it to 1 
-        if(DelaySpawn == 0)
+        if (DelaySpawn == 0)
         {
             DelaySpawn = 1;
         }
@@ -72,14 +73,19 @@ public class BoardScript : MonoBehaviour
     {
         Rand = Random.Range(0, 4);
         // if the colour is the same as previous spawned colour re randomise
-        if (Colour == Colours[Rand])
-        {
-             Randomise();
-        }
-        else
-        {
-            Colour = Colours[Rand];
-        }
+        //if(Colour == null)
+        //{
+        //    Colour = Colours.rand
+        //}
+        //if (Colour == Colours[Rand])
+        //{
+        //    Randomise();
+        //}
+        //else
+        //{
+        //    Colour = Colours[Rand];
+        //}
+        
     }
     void Spawn()
     {

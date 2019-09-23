@@ -112,10 +112,10 @@ public class PlayFabCurrency : MonoBehaviour
                 Versions = result.Version;
 
                 Debug.Log("NEW VERSION");
-                DotManagerScript.TotalScore = 0;
+                DotManager.TotalScore = 0;
                 // gives players currency
-                DotManagerScript.HighScore.text = "" + DotManagerScript.TotalScore;
-                PlayerPrefs.SetFloat("SCORE", DotManagerScript.TotalScore);
+                DotManagerScript.HighScore.text = "" + DotManager.TotalScore;
+                PlayerPrefs.SetFloat("SCORE", DotManager.TotalScore);
                 PlayerPrefs.SetInt("VERSIONVALUE", Versions);
             }
 

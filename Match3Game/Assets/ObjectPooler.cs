@@ -71,7 +71,7 @@ public class ObjectPooler : MonoBehaviour
         SpawnObject.transform.rotation = Rotation;
         SpawnObject.transform.parent = BoardGameObj.transform;
 
-        PoolDictionary[tag].Enqueue(SpawnObject);
+       // PoolDictionary[tag].Enqueue(SpawnObject);
         return SpawnObject;
     }
 }

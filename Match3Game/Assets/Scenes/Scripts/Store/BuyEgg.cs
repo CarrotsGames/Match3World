@@ -43,7 +43,7 @@ public class BuyEgg : MonoBehaviour
 
             EggHatchScript.GetComponent<EggHatch>().CountDownTimer();
             PowerUpManagerScript.Currency -= Amount;
-
+            PowerUpManagerScript.PowerUpSaves();
             // YOU HAVE PURCHASED AN EGG UI
 
             // SHOW EGG ON SCREEN 

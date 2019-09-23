@@ -9,6 +9,7 @@ public class MooblingSave
     public int Level;
     public int EXP;
     public int TotalEXP = 250;
+   // public int TotalScore;
 
 
     public MooblingSave(HappinessManager Moobling)
@@ -16,6 +17,7 @@ public class MooblingSave
         Level = Moobling.Level;
         EXP = (int)Moobling.HappinessSliderValue;
         TotalEXP = Moobling.HappinessClamp;
+        //TotalScore = DotManager.TotalScore;
     }
     
 }
