@@ -105,6 +105,7 @@ public class DailyAd : MonoBehaviour
         if (AddPlayCount < 1)
         {
             PowerUpManagerScript.GetComponent<PowerUpManager>().Currency += 5;
+            PowerUpManagerScript.PowerUpSaves();
             // Adds to how many adds can be played 
             AddPlayCount++;
             // Sets a target time 24 hours from now

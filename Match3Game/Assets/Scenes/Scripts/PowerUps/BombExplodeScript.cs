@@ -91,7 +91,7 @@ public class BombExplodeScript : MonoBehaviour
                 {
                     // removes node from board to spawn nodes faster
                     CollidedNodes[i].transform.parent = null;
-                    PlayParticle();
+                   // PlayParticle();
                 }
                 // begins adding score
                 AddScore = true;
