@@ -84,8 +84,7 @@ public class BoardScript : MonoBehaviour
         //else
         //{
         //    Colour = Colours[Rand];
-        //}
-        
+        //}       
     }
     void Spawn()
     {

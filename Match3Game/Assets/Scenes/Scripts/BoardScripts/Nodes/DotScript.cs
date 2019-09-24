@@ -69,7 +69,6 @@ public class DotScript : MonoBehaviour
         // if more than one finger is on the screen stop connection
         if (Input.touchCount > 1  )
         {
-            Debug.Log("F");
             this.gameObject.GetComponent<Renderer>().material = Default;
             this.gameObject.GetComponent<Renderer>().material.color = Color.white;
             DotManagerScript.ResetLayer = true;
@@ -316,7 +315,7 @@ public class DotScript : MonoBehaviour
                 // if player interacts with wall reset all current chains
                 if (hitInfo.collider.gameObject.layer == 11)
                 {
-                    Debug.Log("WALL");
+
                     DotManagerScript.ResetMaterial = true;
                     OnMouseUp();
                 }

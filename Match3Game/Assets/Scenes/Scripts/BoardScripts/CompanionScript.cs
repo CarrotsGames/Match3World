@@ -142,14 +142,9 @@ public class CompanionScript : MonoBehaviour
                     }
                     break;
             }
-            //// Mutlplier is equal to player level
-            ////EXP is defualt 3
-            //// EXP is equal to total connection + level
-            //EXPTotal += TotalConnection + HappinessGameObj.GetComponent<HappinessManager>().Level;
-            //// Total amount from the combo is equal to the number of nodes plus combo score
-            //Total += TotalConnection + DotManagerScriptRef.ComboScore;
- 
-            // MUTLPIER VALUES WITH EXP
+
+            TotalScoreGameObj.SetActive(true);
+            
             PlayerPrefs.SetInt("SCORE", DotManager.TotalScore);
             // If the player can earch currency they will have a Levelvalue out of 70 chance getting a coin
             if (HappinessManagerScript.CanGetCurrency)

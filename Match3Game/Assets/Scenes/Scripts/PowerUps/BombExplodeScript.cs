@@ -82,13 +82,13 @@ public class BombExplodeScript : MonoBehaviour
         }
         //destroys gameobject and clears list
         Destroy(this.gameObject);
-        CollidedNodes.Clear();
         // total is equal to amound of collided nodes times current level
         int Total = CollidedNodes.Count * HappinessManagerScript.Level;
         // total is equal to amound of collided nodes times current level + 10(10 being bomb default value)
         int BombEXP = CollidedNodes.Count + HappinessManagerScript.Level + 10;
         Companion.GetComponent<CompanionScript>().ScoreMultiplier(BombEXP, Total, "SuperBomb");
         AddScore = false;
+        CollidedNodes.Clear();
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
