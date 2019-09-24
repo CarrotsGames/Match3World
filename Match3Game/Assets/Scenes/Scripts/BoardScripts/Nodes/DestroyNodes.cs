@@ -69,17 +69,17 @@ public class DestroyNodes : MonoBehaviour {
     // Update is called once per frame
     private void Update()
     {       
-        // pauses the combo display 
-        if (ComboPause)
-        {
-            ComboTime -= Time.deltaTime;
-            if(ComboTime < 0)
-            {
-                ComboPause = false;
-                ResetNodes();
-                ComboTime = ComboVanishSpeed ;
-            }
-        }
+    //    // pauses the combo display 
+    //    if (ComboPause)
+    //    {
+    //        ComboTime -= Time.deltaTime;
+    //        if(ComboTime < 0)
+    //        {
+    //            ComboPause = false;
+    //            ResetNodes();
+    //            ComboTime = ComboVanishSpeed ;
+    //        }
+    //    }
       
         // begins coutning the combo and addind particles
         if (StartDestroy)
@@ -176,14 +176,14 @@ public class DestroyNodes : MonoBehaviour {
             // if the combo is higher than 4 pause the combo 
             if (Index > 4)
             {
-                ComboPause = true;
+                ResetNodes();
             }
             // if there was no combo reset all properties
             else
             {
                 ResetNodes();
             }
-         
+
             StartDestroy = false;
         }
 
@@ -194,7 +194,6 @@ public class DestroyNodes : MonoBehaviour {
     {
         // the current index is equal to the combo
         Combo = Index;
-        CountCombo();
         // if the combo is half the board destory rest of board
         if (Index == ComboList.Count && Index >= Board.transform.childCount / 2)
         {
@@ -248,21 +247,7 @@ public class DestroyNodes : MonoBehaviour {
 
     }
 
-    void CountCombo()
-    {
-        if (ComboList.Count > 8)
-        {
-            BigCombo = true;
-
-            ComboText.text = "BIG \n COMBO : " + Combo;
-        }
-        else if (ComboList.Count > 4)
-        {
-            NormalCombo = true;
-
-            ComboText.text = "COMBO : " + Combo;
-        }
-    }
+ 
 
  
 
