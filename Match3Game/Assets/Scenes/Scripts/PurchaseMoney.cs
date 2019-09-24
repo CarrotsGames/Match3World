@@ -10,6 +10,7 @@ public class PurchaseMoney : MonoBehaviour {
     {
         PowerUpManagerGameObj.GetComponent<PowerUpManager>().Currency += Gold;
         Debug.Log("You have recieved" + Gold + "Gold!!!");
+        SavePowerUp();
     }
     public void GrantBundle(int Gold)
     {
@@ -24,7 +25,7 @@ public class PurchaseMoney : MonoBehaviour {
         PowerUpManagerGameObj.GetComponent<PowerUpManager>().NumOfMultilpiers += 1;
         Debug.Log("You have recieved" + Gold + "Gold!!! " +
             "\n You have receiced PowerUps ");
-
+        SavePowerUp();
     }
     public void GrantSuperBundle(int Gold)
     {
@@ -39,6 +40,10 @@ public class PurchaseMoney : MonoBehaviour {
         PowerUpManagerGameObj.GetComponent<PowerUpManager>().NumOfMultilpiers += 10;
         Debug.Log("You have recieved" + Gold + "Gold!!! " +
             "\n You have receiced PowerUps ");
-
+        SavePowerUp();
+    }
+    void SavePowerUp()
+    {
+        PowerUpManagerGameObj.GetComponent<PowerUpManager>().PowerUpSaves();
     }
 }

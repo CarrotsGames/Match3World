@@ -76,7 +76,7 @@ public class PlayFabLogin : MonoBehaviour
                 Statistics = new List<StatisticUpdate>
             {
 
-                new StatisticUpdate {StatisticName = "TournamentScore", Value = DotManagerScript.TotalScore,},
+                new StatisticUpdate {StatisticName = "TournamentScore", Value =   DotManager.TotalScore,},
              }
 
             },

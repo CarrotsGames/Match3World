@@ -28,11 +28,12 @@ public class DestoryCollidedNodes : MonoBehaviour
         DotScriptGameObj = GameObject.FindGameObjectWithTag("DotManager");
         DotScriptRef = DotScriptGameObj.GetComponent<DotScript>();
         Disolve = false;
+       // Physics2D.IgnoreLayerCollision(18, 12);
 
     }
 
     // Update is called once per frame
- 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         CollidedNode = collision.gameObject;

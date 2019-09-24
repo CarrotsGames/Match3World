@@ -83,11 +83,10 @@ public class CompanionScript : MonoBehaviour
                         Total *= LevelMultiplier;
                         Total *= 5;
                         // Adds total to score
-                        DotManagerScriptRef.TotalScore += Total;
-                        DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
+                        DotManager.TotalScore += Total;
+                        DotManagerScriptRef.HighScore.text = "" + DotManager.TotalScore;
                         // HappinessManagerScript.HappinessSliderValue += EatingPeices.Count + LevelMultiplier;
                         HappinessManagerScript.HappinessSliderValue += EXPTotal;
-                        TotalScoreGameObj.SetActive(true);
                         TotalScore.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
                         TotalScore.text = "" + Total;
                         Total = 0;
@@ -108,12 +107,11 @@ public class CompanionScript : MonoBehaviour
                             Total = 30000;
                         }
                         // Adds total to score
-                        DotManagerScriptRef.TotalScore += Total;
-                        DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
+                        DotManager.TotalScore += Total;
+                        DotManagerScriptRef.HighScore.text = "" + DotManager.TotalScore;
                         // HappinessManagerScript.HappinessSliderValue += EatingPeices.Count + LevelMultiplier;
                         HappinessManagerScript.HappinessSliderValue += EXPTotal;
-                        TotalScoreGameObj.SetActive(true);
-                        TotalScore.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
+                         TotalScore.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
                         TotalScore.text = "" + Total;
                         Total = 0;
                         EXPTotal = 0;
@@ -133,27 +131,21 @@ public class CompanionScript : MonoBehaviour
                             Total = 25000;
                         }
                         // Adds total to score
-                        DotManagerScriptRef.TotalScore += Total;
-                        DotManagerScriptRef.HighScore.text = "" + DotManagerScriptRef.TotalScore;
+                        DotManager.TotalScore += Total;
+                        DotManagerScriptRef.HighScore.text = "" + DotManager.TotalScore;
                         // HappinessManagerScript.HappinessSliderValue += EatingPeices.Count + LevelMultiplier;
                         HappinessManagerScript.HappinessSliderValue += EXPTotal;
-                        TotalScoreGameObj.SetActive(true);
-                        TotalScore.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
+                         TotalScore.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
                         TotalScore.text = "" + Total;
                         Total = 0;
                         EXPTotal = 0;
                     }
                     break;
             }
-            //// Mutlplier is equal to player level
-            ////EXP is defualt 3
-            //// EXP is equal to total connection + level
-            //EXPTotal += TotalConnection + HappinessGameObj.GetComponent<HappinessManager>().Level;
-            //// Total amount from the combo is equal to the number of nodes plus combo score
-            //Total += TotalConnection + DotManagerScriptRef.ComboScore;
- 
-            // MUTLPIER VALUES WITH EXP
-            PlayerPrefs.SetInt("SCORE", DotManagerScriptRef.TotalScore);
+
+            TotalScoreGameObj.SetActive(true);
+            
+            PlayerPrefs.SetInt("SCORE", DotManager.TotalScore);
             // If the player can earch currency they will have a Levelvalue out of 70 chance getting a coin
             if (HappinessManagerScript.CanGetCurrency)
 
@@ -174,7 +166,7 @@ public class CompanionScript : MonoBehaviour
             //it exists
 
             HappinessManagerScript.HappinessBar();
-          
+
         }
         else
         {
@@ -184,7 +176,7 @@ public class CompanionScript : MonoBehaviour
             Total *= LevelMultiplier;
             Go.GetComponent<ChallengeManager>().ChallengeScore += Total;
             Go.GetComponent<ChallengeManager>().CheckForNodes();
-             // MULTLPIER 1
+            // MULTLPIER 1
             // TIMES TOTAL
         }
     }

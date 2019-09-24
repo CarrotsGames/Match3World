@@ -31,7 +31,8 @@ public class HappinessManager : MonoBehaviour
     private PlayLevelAd PlayLevelAdScript;
     public int Level;
     string SceneName;
-     private GameObject RealTimeGameObj;
+
+    private GameObject RealTimeGameObj;
     [HideInInspector]
     public RealTimeCounter RealtTimeScript;
     [HideInInspector]
@@ -46,7 +47,7 @@ public class HappinessManager : MonoBehaviour
     //public GameObject SliderGameObj;
     public Text CurrentHappiness;
     private int TimeTillSave;
-
+ 
     // Use this for initialization
     void Start()
     {
@@ -82,10 +83,7 @@ public class HappinessManager : MonoBehaviour
         LevelText.text = "" + Level;
         // Gets companions current level
         CompanionSave = Companion.name + "Value";
-      //  HappinessSliderValue = PlayerPrefs.GetFloat(CompanionSave);
-     
-   
-      
+          
         Board = GameObject.FindGameObjectWithTag("BoardSpawn");
 
         if (SceneName != "Gobu Tutorial")
@@ -103,26 +101,23 @@ public class HappinessManager : MonoBehaviour
             HappinessSliderValue = SaveSystem.LoadMoobling().EXP;
             HappinessSlider.value = HappinessSliderValue;
             HappinessClamp = SaveSystem.LoadMoobling().TotalEXP;
+           // DotManager.TotalScore = SaveSystem.LoadMoobling().TotalScore;
             HappinessBar();
         }
         //HappinessSlider.value = HappinessSliderValue;
         int NextLevelNum = Level + 1;
         NextLevel.text = " " + NextLevelNum;
-
+   
     }
  
     public void HappinessBar()
     {
-        
-        LevelText.text = " " + Level;
-        int NextLevelNum = Level + 1;
-        NextLevel.text = " " + NextLevelNum;
-
+             
         CurrentHappiness.text = "Current EXP:" + HappinessSliderValue + "/" + HappinessClamp;
         if (!OnMainScene)
         {
             HappinessStates();
-            PlayerPrefs.SetInt(Companion.name + "Multiplier", Level);
+          //  PlayerPrefs.SetInt(Companion.name + "Multiplier", Level);
         }
         // Displays hunger value (used in debug)
         //HungerMetre.text = "" + Hunger;
@@ -134,7 +129,7 @@ public class HappinessManager : MonoBehaviour
         //HappinessSliderValue -= Time.deltaTime / 6;
         HappinessSlider.maxValue = HappinessClamp;
 
-        PlayerPrefs.SetFloat(CompanionSave, HappinessSliderValue);
+      //  PlayerPrefs.SetFloat(CompanionSave, HappinessSliderValue);
          
      
     }
@@ -145,12 +140,13 @@ public class HappinessManager : MonoBehaviour
         {
             if (HappinessSliderValue > HappinessClamp)
             {
-    
+                
+
                 FillColour.color = Color.green;
                 // Animation 
  
                 //  PlayerPrefs.SetInt(SaveStrings, (IsSleeping ? 1 : 0));
-                Level = PlayerPrefs.GetInt(Companion.name + "Multiplier", Level);
+               // Level = PlayerPrefs.GetInt(Companion.name + "Multiplier", Level);
                 Level++;
                 PlayerPrefs.SetInt(Companion.name + "Multiplier", Level);
                 CanGetCurrency = true;

@@ -48,7 +48,7 @@ public class DotManager : MonoBehaviour
     public int GoldAmount;
     public int Multipier;
     public int Limit;
-    public int TotalScore;
+    public static int TotalScore;
 
     [HideInInspector]
     public int ComboScore;   
@@ -94,7 +94,7 @@ public class DotManager : MonoBehaviour
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
         CampanionGameObj = GameObject.FindGameObjectWithTag("Companion");
         Companion = CampanionGameObj.GetComponent<CompanionScript>();
-        TotalScore = PlayerPrefs.GetInt("SCORE");
+     //   TotalScore = PlayerPrefs.GetInt("SCORE");
         MouseCursorObj = GameObject.FindGameObjectWithTag("Mouse");
         MouseFollow = MouseCursorObj.GetComponent<MouseFollowScript>();
         CreatureSelectScript = GetComponent<CreatureSelect>();

@@ -36,7 +36,7 @@ public class CreatureScoreUnlock : MonoBehaviour {
         if (UnlockableCreaturesGameObj.GetComponent<UnlockableCreatures>() != null)
         {
             //Binkies unlock
-            if (DotManagerScript.TotalScore > UnlockScore[0] && UnlockableCreaturesGameObj.GetComponent<UnlockableCreatures>().UnlockableMoobling[0] != "BINKY")
+            if (DotManager.TotalScore > UnlockScore[0] && UnlockableCreaturesGameObj.GetComponent<UnlockableCreatures>().UnlockableMoobling[0] != "BINKY")
             {
                 binkieCanvus.SetActive(true);
                 UnlockableString = "BINKY";
@@ -45,7 +45,7 @@ public class CreatureScoreUnlock : MonoBehaviour {
 
             }
             //kokos unlock
-            if (DotManagerScript.TotalScore > UnlockScore[1] && UnlockableCreaturesGameObj.GetComponent<UnlockableCreatures>().UnlockableMoobling[1] != "KOKO")
+            if (DotManager.TotalScore > UnlockScore[1] && UnlockableCreaturesGameObj.GetComponent<UnlockableCreatures>().UnlockableMoobling[1] != "KOKO")
             {
                 kokoCanvus.SetActive(true);
                 UnlockableString = "KOKO";

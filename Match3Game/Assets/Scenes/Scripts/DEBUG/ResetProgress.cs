@@ -22,7 +22,7 @@ public class ResetProgress : MonoBehaviour {
             Debug.Log("RESET");
          
             // resets score
-            NodeManager.GetComponent<DotManager>().TotalScore = 0;
+           // NodeManager.GetComponent<DotManager>().TotalScore = 0;
        
             // Resets analytics 
             PlayerPrefs.SetString("BINKY", "Nothing");
