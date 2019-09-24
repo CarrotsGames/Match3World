@@ -39,6 +39,8 @@ public class BombExplodeScript : MonoBehaviour
         AddScore = false;
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
+        DotManagerScript.CanPlay = false;
+
         Invoke("CreateBomb", Timer);
      }
 
@@ -89,9 +91,13 @@ public class BombExplodeScript : MonoBehaviour
         Companion.GetComponent<CompanionScript>().ScoreMultiplier(BombEXP, Total, "SuperBomb");
         AddScore = false;
         CollidedNodes.Clear();
+        DotManagerScript.CanPlay = true;
+
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
+        DotManagerScript.CanPlay = false;
+
         // adds collided nodes to list to be used for particles
         if (!CollidedNodes.Contains(collision.gameObject))
         {
