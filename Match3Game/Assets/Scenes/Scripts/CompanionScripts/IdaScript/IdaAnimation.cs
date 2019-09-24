@@ -20,17 +20,17 @@ public class IdaAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(DestoryNodeScript.NormalCombo)
-        { 
-            Debug.Log("NormalComboAnim");
-            idaAnimator.SetBool("Normal Combo", true);
-        }
-        else if (DestoryNodeScript.BigCombo)
-        {
-            Debug.Log("BigComboAnim");
-            idaAnimator.SetBool("Big Combo", true);
-
-        }
+      //  if(DestoryNodeScript.NormalCombo)
+      //  { 
+      //      Debug.Log("NormalComboAnim");
+      //      idaAnimator.SetBool("Normal Combo", true);
+      //  }
+      //  else if (DestoryNodeScript.BigCombo)
+      //  {
+      //      Debug.Log("BigComboAnim");
+      //      idaAnimator.SetBool("Big Combo", true);
+      //
+      //  }
     }
 
 

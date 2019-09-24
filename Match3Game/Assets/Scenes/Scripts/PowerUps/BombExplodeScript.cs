@@ -19,6 +19,7 @@ public class BombExplodeScript : MonoBehaviour
     private GameObject HappinessGameObj;
     public HappinessManager HappinessManagerScript;
     private GameObject Companion;
+    private DestroyNodes DestroyNodeScript;
     void Awake()
     {
         PowerUpGameObj = GameObject.Find("PowerUps");
@@ -39,7 +40,8 @@ public class BombExplodeScript : MonoBehaviour
         AddScore = false;
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
-        DotManagerScript.CanPlay = false;
+        DestroyNodeScript = DotManagerObj.GetComponent<DestroyNodes>();
+        //  DotManagerScript.CanPlay = false;
 
         Invoke("CreateBomb", Timer);
      }
@@ -92,11 +94,11 @@ public class BombExplodeScript : MonoBehaviour
         AddScore = false;
         CollidedNodes.Clear();
         DotManagerScript.CanPlay = true;
+        DestroyNodeScript.UsingBomb = false;
 
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        DotManagerScript.CanPlay = false;
 
         // adds collided nodes to list to be used for particles
         if (!CollidedNodes.Contains(collision.gameObject))

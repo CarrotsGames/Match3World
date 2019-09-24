@@ -41,7 +41,7 @@ public class DestroyNodes : MonoBehaviour {
     private int BigComboNum;
     // These are used in the Idasauros Script to know when the animation should play
     [HideInInspector]
-    public bool NormalCombo;
+    public bool UsingBomb;
     [HideInInspector]
     public bool BigCombo;
     private GameObject Analytics;
@@ -64,6 +64,7 @@ public class DestroyNodes : MonoBehaviour {
         Timer = 0;
         HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
         Board = GameObject.FindGameObjectWithTag("BoardSpawn");
+        UsingBomb = false;
      }
 
     // Update is called once per frame
@@ -100,20 +101,23 @@ public class DestroyNodes : MonoBehaviour {
         // clear combo list
         ComboList.Clear();
         Index = 0;
-        if (NormalCombo)
-        {
-            ComboNum = PlayerPrefs.GetInt(Analytics.GetComponent<PlayFabAnalytics>().SaveScoreName + "COMBONUM");
-            ComboNum++;
-            PlayerPrefs.SetInt(Analytics.GetComponent<PlayFabAnalytics>().SaveScoreName + "COMBONUM", ComboNum);
-        }
-        else if (BigCombo)
-        {
-            BigComboNum = PlayerPrefs.GetInt(Analytics.GetComponent<PlayFabAnalytics>().SaveScoreName + "BIGCOMBONUM");
-            BigComboNum++;
-            PlayerPrefs.SetInt(Analytics.GetComponent<PlayFabAnalytics>().SaveScoreName + "BIGCOMBONUM", BigComboNum);
-        }
+        //if (NormalCombo)
+        //{
+        //    ComboNum = PlayerPrefs.GetInt(Analytics.GetComponent<PlayFabAnalytics>().SaveScoreName + "COMBONUM");
+        //    ComboNum++;
+        //    PlayerPrefs.SetInt(Analytics.GetComponent<PlayFabAnalytics>().SaveScoreName + "COMBONUM", ComboNum);
+        //}
+        //else if (BigCombo)
+        //{
+        //    BigComboNum = PlayerPrefs.GetInt(Analytics.GetComponent<PlayFabAnalytics>().SaveScoreName + "BIGCOMBONUM");
+        //    BigComboNum++;
+        //    PlayerPrefs.SetInt(Analytics.GetComponent<PlayFabAnalytics>().SaveScoreName + "BIGCOMBONUM", BigComboNum);
+        //}
         PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
-        DotManagerScript.CanPlay = true;
+        if (!UsingBomb)
+        {
+            DotManagerScript.CanPlay = true;
+        }
         //resets combo text 
         ComboText.text = "";
         //disables combo gameobject 
@@ -122,7 +126,7 @@ public class DestroyNodes : MonoBehaviour {
         GetComponent<DotManager>().ComboScore = 0;
         GetComponent<DotManager>().PeicesCount = 0;
         BigCombo = false;
-        NormalCombo = false;
+       // NormalCombo = false;
        
     }
 
@@ -197,8 +201,7 @@ public class DestroyNodes : MonoBehaviour {
         // if the combo is half the board destory rest of board
         if (Index == ComboList.Count && Index >= Board.transform.childCount / 2)
         {
-            Debug.Log("BOMBSPAWN");
-            // Activates colour remover for all colours 
+             // Activates colour remover for all colours 
             // RED
             SCR.GetComponent<ColourRemover>().Colour = "Red";
             SCR.GetComponent<ColourRemover>().Red = true;
@@ -225,6 +228,8 @@ public class DestroyNodes : MonoBehaviour {
             SCR.GetComponent<ColourRemover>().RemoveColour();
             Instantiate(ComboBomb, LastKnownPosition, Quaternion.identity);
             ComboTime += 0.50f;
+            UsingBomb = true;
+
         }
         // if more than 8 activate scr
         else if (Index == ComboList.Count && Index > 7)
@@ -241,7 +246,7 @@ public class DestroyNodes : MonoBehaviour {
             //Debug.Log("BOMBSPAWN");
             Instantiate(ComboBomb, LastKnownPosition, Quaternion.identity);
             ComboTime += 0.50f;
-
+            UsingBomb = true;
 
         }
 
