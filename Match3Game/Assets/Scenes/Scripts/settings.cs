@@ -119,7 +119,6 @@ public class settings : MonoBehaviour {
         noSound.SetActive(true);
         sound.SetActive(false);
         AudioManagerScript.AudioToggle();
-
         PlayerPrefs.SetInt("SoundSave", (soundOff ? 1 : 0));
     }
 

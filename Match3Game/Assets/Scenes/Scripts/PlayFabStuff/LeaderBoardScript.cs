@@ -69,7 +69,7 @@ using System.Collections.Generic;
         }, failure =>
         {
             Debug.Log(failure.ErrorMessage); //this is line 106
-
+            Debug.Log("NameTakenUI or text");
         });
 
     }

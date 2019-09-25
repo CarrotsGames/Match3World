@@ -78,9 +78,7 @@ public class HappinessManager : MonoBehaviour
             PlayLevelAdScript = SleepAd.GetComponent<PlayLevelAd>();
         }
         
-        //HappinessClamp = 100;
-        HappinessClamp += Level * 250;
-        LevelText.text = "" + Level;
+   
         // Gets companions current level
         CompanionSave = Companion.name + "Value";
           
@@ -107,7 +105,9 @@ public class HappinessManager : MonoBehaviour
         //HappinessSlider.value = HappinessSliderValue;
         int NextLevelNum = Level + 1;
         NextLevel.text = " " + NextLevelNum;
-   
+        //HappinessClamp = 100;
+        HappinessClamp += Level * 250;
+        LevelText.text = "" + Level;
     }
  
     public void HappinessBar()
