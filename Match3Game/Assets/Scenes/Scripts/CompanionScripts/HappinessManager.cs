@@ -6,19 +6,27 @@ using UnityEngine.SceneManagement;
 public class HappinessManager : MonoBehaviour
 {    //TODO
     // CHANGE NAME BOARDSCRIPT TO BOARD//
+    [HideInInspector]
+    public RealTimeCounter RealtTimeScript;
+    [HideInInspector]
+    public bool OnMainScene;
+    [HideInInspector]
+    public int HappinessClamp;
+    [HideInInspector]
+    public string SaveStrings;
 
-    private BoardScript BoardScriptRef;
     public GameObject Board;
     public GameObject Companion;
     public GameObject AudioGameObj;
     public Image FillColour;
-
+    public Text LevelText;
+    public Text NextLevel;
+    //public GameObject SliderGameObj;
+    public Text CurrentHappiness;
     public Slider HappinessSlider;
-
     public float HappinessSliderValue;
     // gets a companions name which loads their save
     public string CompanionSave;
-
     public bool CanGetCurrency;
     // Reset multplier for DEBUG purposes 
     public bool IsSleeping;   
@@ -26,28 +34,18 @@ public class HappinessManager : MonoBehaviour
     public GameObject DayTime;
    // public GameObject NightTime;
     public GameObject AwakeHead;
+    public int Level;
+
     // Plays ad when sleeping
     private GameObject SleepAd;
     private PlayLevelAd PlayLevelAdScript;
-    public int Level;
-    string SceneName;
-
+    
+    private BoardScript BoardScriptRef;
+    private string SceneName;
     private GameObject RealTimeGameObj;
-    [HideInInspector]
-    public RealTimeCounter RealtTimeScript;
-    [HideInInspector]
-    public bool OnMainScene;
-    bool CanEarnGold;
-    [HideInInspector]
-    public string SaveStrings;
-    public Text LevelText;
-    public Text NextLevel;
-    [HideInInspector]
-    public int HappinessClamp;
-    //public GameObject SliderGameObj;
-    public Text CurrentHappiness;
+    private bool CanEarnGold;
     private int TimeTillSave;
- 
+
     // Use this for initialization
     void Start()
     {
@@ -88,25 +86,25 @@ public class HappinessManager : MonoBehaviour
         {
             BoardScriptRef = Board.GetComponent<BoardScript>();
         }   // clamps hunger of selected companion from 0 to 100
-        HappinessSliderValue = Mathf.Clamp(HappinessSliderValue, 0, HappinessClamp);
         // Slowly counts down Happiness value
         //HappinessSliderValue -= Time.deltaTime / 6;
-        HappinessSlider.maxValue = HappinessClamp;
         if (GameObject.Find("CHALLENGE") == null )
         {
             SaveSystem.LoadMoobling();
             Level = SaveSystem.LoadMoobling().Level;
             HappinessSliderValue = SaveSystem.LoadMoobling().EXP;
-            HappinessSlider.value = HappinessSliderValue;
+            HappinessClamp += Level * 250;
             HappinessClamp = SaveSystem.LoadMoobling().TotalEXP;
            // DotManager.TotalScore = SaveSystem.LoadMoobling().TotalScore;
             HappinessBar();
         }
+        HappinessSlider.maxValue = HappinessClamp;
+        HappinessSliderValue = Mathf.Clamp(HappinessSliderValue, 0, HappinessClamp);
+        HappinessSlider.value = HappinessSliderValue;
         //HappinessSlider.value = HappinessSliderValue;
         int NextLevelNum = Level + 1;
         NextLevel.text = " " + NextLevelNum;
         //HappinessClamp = 100;
-        HappinessClamp += Level * 250;
         LevelText.text = "" + Level;
     }
  
