@@ -103,8 +103,11 @@ public class BombExplodeScript : MonoBehaviour
         // adds collided nodes to list to be used for particles
         if (!CollidedNodes.Contains(collision.gameObject))
         {
-            CollidedNodes.Add(collision.gameObject);
-
+            if (collision.tag == "Red" || collision.tag == "Blue" ||
+                collision.tag == "Yellow" || collision.tag == "Green")
+            {
+                CollidedNodes.Add(collision.gameObject);
+            }
         }      
 
     }
