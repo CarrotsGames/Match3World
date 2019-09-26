@@ -35,6 +35,7 @@ public class BombExplodeScript : MonoBehaviour
         Physics2D.IgnoreLayerCollision(12, 14);
         Physics2D.IgnoreLayerCollision(12, 15);
         Physics2D.IgnoreLayerCollision(12, 2);
+        Physics2D.IgnoreLayerCollision(12, 18);
 
         Detonate = true;
         AddScore = false;
