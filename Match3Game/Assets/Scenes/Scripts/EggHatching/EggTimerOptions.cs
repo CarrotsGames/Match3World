@@ -76,6 +76,7 @@ public class EggTimerOptions : MonoBehaviour
     }
     public void SkipTime()
     {
+        Debug.Log("Skip");
         // Gets the time until egghatches
         long Result = GetComponent<EggHatch>().TimeStamp - GetComponent<EggHatch>().NowTime;
         TimeSpan ts = TimeSpan.FromTicks(Result);

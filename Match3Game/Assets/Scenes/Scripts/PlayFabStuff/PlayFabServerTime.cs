@@ -59,7 +59,7 @@ public class PlayFabServerTime : MonoBehaviour {
 
         if(NowTime > TimeStamp)
         {
-            Debug.Log("CAN DO DAILY SPIN");
+ 
             DailyEvent.CanDoDaily = true;
             DailySpinTimer.text ="Spin \n ready!!";
 
