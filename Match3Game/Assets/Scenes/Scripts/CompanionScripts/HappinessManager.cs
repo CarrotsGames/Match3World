@@ -21,6 +21,7 @@ public class HappinessManager : MonoBehaviour
     public Image FillColour;
     public Text LevelText;
     public Text NextLevel;
+    public Text CurrentMultiplier;
     //public GameObject SliderGameObj;
     public Text CurrentHappiness;
     public Slider HappinessSlider;
@@ -58,11 +59,7 @@ public class HappinessManager : MonoBehaviour
         SleepAd = GameObject.FindGameObjectWithTag("SleepingAd");
         // If for somereason level is 0 make it 1
         // this is used as a safety net just incase for somereason its 0
-        // if level is 0 score will not go up because nodes * level value equal score
-        if(Level == 0)
-        {
-            Level = 1;
-        }
+    
         if(Level > 1)
         {
             CanGetCurrency = true;
@@ -102,11 +99,18 @@ public class HappinessManager : MonoBehaviour
         HappinessSliderValue = Mathf.Clamp(HappinessSliderValue, 0, HappinessClamp);
         HappinessSlider.value = HappinessSliderValue;
         //HappinessSlider.value = HappinessSliderValue;
+        // if level is 0 score will not go up because nodes * level value equal score
+        if (Level == 0)
+        {
+            Level = 1;
+        }
         int NextLevelNum = Level + 1;
         NextLevel.text = " " + NextLevelNum;
         //HappinessClamp = 100;
         LevelText.text = "" + Level;
-    }
+        CurrentMultiplier.text = "" + Level;
+
+     }
  
     public void HappinessBar()
     {
@@ -163,6 +167,7 @@ public class HappinessManager : MonoBehaviour
                 LevelText.text = " " + Level;
                 int NextLevelNum = Level + 1;
                 NextLevel.text = " " + NextLevelNum;
+                CurrentMultiplier.text = "" + Level;
                 // sets current exp
                 CurrentHappiness.text = "Current EXP:" + HappinessSliderValue + "/" + HappinessClamp;
 

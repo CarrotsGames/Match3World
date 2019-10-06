@@ -850,6 +850,11 @@ PrefabInstance:
       propertyPath: NextLevel
       value: 
       objectReference: {fileID: 426476773}
+    - target: {fileID: 114904152250435826, guid: 6e21ef18f925f614bb8952d2a3856f01,
+        type: 3}
+      propertyPath: CurrentMultiplier
+      value: 
+      objectReference: {fileID: 1140501869}
     - target: {fileID: 4874126141112344, guid: 6e21ef18f925f614bb8952d2a3856f01, type: 3}
       propertyPath: m_LocalPosition.x
       value: 86.8
@@ -1854,6 +1859,31 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3934109140315948420, guid: 1dbfa478ea5589844a4d59b15196c2f3,
         type: 3}
+    - target: {fileID: 2336660659435952756, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335805763860882730, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -10.299988
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449254646268538357, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_Transition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449254646268538357, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 109115503}
+    - target: {fileID: 2449254646268538357, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HomeButton
+      objectReference: {fileID: 0}
     - target: {fileID: 3825076247238957002, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_Colors.m_HighlightedColor.r
@@ -1867,11 +1897,6 @@ PrefabInstance:
     - target: {fileID: 3825076247238957002, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_Colors.m_HighlightedColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2336660659435952756, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2335805763254419890, guid: d7fb396edf155de40895610ead7b8864,
@@ -1893,11 +1918,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -272.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2335805763860882730, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -10.299988
       objectReference: {fileID: 0}
     - target: {fileID: 2554878093451859364, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
@@ -2074,21 +2094,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2449254646268538357, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_Transition
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2449254646268538357, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 109115503}
-    - target: {fileID: 2449254646268538357, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: HomeButton
-      objectReference: {fileID: 0}
     - target: {fileID: 2335640169551085877, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_IsActive
@@ -2180,6 +2185,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1140501860}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1140501869 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2335805763909869948, guid: d7fb396edf155de40895610ead7b8864,
+    type: 3}
+  m_PrefabInstance: {fileID: 1140501860}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1155653315
 GameObject:
   m_ObjectHideFlags: 0
@@ -3944,7 +3961,6 @@ MonoBehaviour:
   GoldAmount: 0
   Multipier: 0
   Limit: 2
-  TotalScore: 0
   ComboScore: 0
   PeicesCountCombo: 0
   PeicesCount: 0
@@ -3989,7 +4005,7 @@ MonoBehaviour:
   ComboScore: {fileID: 1712137311}
   DotManagerScript: {fileID: 2085261489}
   ComboList: []
-  NormalCombo: 0
+  UsingBomb: 0
   BigCombo: 0
 --- !u!114 &2085261492
 MonoBehaviour:

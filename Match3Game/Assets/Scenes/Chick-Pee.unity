@@ -645,6 +645,11 @@ PrefabInstance:
       propertyPath: NextLevel
       value: 
       objectReference: {fileID: 1789750422}
+    - target: {fileID: 114904152250435826, guid: 6e21ef18f925f614bb8952d2a3856f01,
+        type: 3}
+      propertyPath: CurrentMultiplier
+      value: 
+      objectReference: {fileID: 1089692306}
     - target: {fileID: 4874126141112344, guid: 6e21ef18f925f614bb8952d2a3856f01, type: 3}
       propertyPath: m_LocalPosition.x
       value: 86.8
@@ -3695,7 +3700,7 @@ MonoBehaviour:
   ComboScore: {fileID: 1187419476}
   DotManagerScript: {fileID: 995296469}
   ComboList: []
-  NormalCombo: 0
+  UsingBomb: 0
   BigCombo: 0
 --- !u!114 &995296469 stripped
 MonoBehaviour:
@@ -5729,6 +5734,7 @@ MonoBehaviour:
     type: 3}
   HappinessManagerScript: {fileID: 0}
   Total: 0
+  TotalScoreGameObj: {fileID: 0}
   TotalScore: {fileID: 646885452}
 --- !u!82 &1694413310
 AudioSource:
