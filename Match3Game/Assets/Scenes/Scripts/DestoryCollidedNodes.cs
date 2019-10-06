@@ -48,8 +48,12 @@ public class DestoryCollidedNodes : MonoBehaviour
         }
         else if(!DotScriptGameObj.GetComponent<DestroyNodes>().ComboList.Contains(CollidedNode) || !DotScriptGameObj.GetComponent<DotManager>().Peices.Contains(CollidedNode))
         {
-             collision.gameObject.transform.position += new Vector3(100, 0, 0);
-             collision.gameObject.GetComponent<DotScript>().SelfDestruct = true;
+            if (!ShuffleScript.Shuffling)
+            {
+                collision.gameObject.transform.parent = null;
+                collision.gameObject.transform.position += new Vector3(100, 0, 0);
+                collision.gameObject.GetComponent<DotScript>().SelfDestruct = true;
+            }
         }
     }
 }

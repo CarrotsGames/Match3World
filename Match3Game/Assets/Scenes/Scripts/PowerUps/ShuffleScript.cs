@@ -10,7 +10,6 @@ public class ShuffleScript : MonoBehaviour
     public float CircleScale;
     GameObject Go;
     bool Shuffle;
-    bool CanShuffle;
     private GameObject PowerUpManGameObj;
     Rigidbody2D rb2d;
     private PowerUpManager PowerUpManagerScript;
@@ -18,6 +17,7 @@ public class ShuffleScript : MonoBehaviour
     private GameObject Board;
     int TimesUsed;
     float Timer;
+    public static bool Shuffling;
     private bool Scale;
     private List<Vector3> NodePositions;
     // Use this for initialization
@@ -30,8 +30,7 @@ public class ShuffleScript : MonoBehaviour
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
         Shuffle = false;
-        CanShuffle = true;
-    }
+     }
 
     // Update is called once per frame
     void Update()
@@ -66,7 +65,8 @@ public class ShuffleScript : MonoBehaviour
             {
                 Shuffle = false;
                 Destroy(Go);
-                CanShuffle = true;
+                // Tells destroyGameobject scripts that the shuffling is over so it can continue destroying nodes
+                Shuffling = false;
                 PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
                 NodePositions.Clear();
             }
@@ -88,26 +88,20 @@ public class ShuffleScript : MonoBehaviour
 
         if (PowerUpManagerScript.HasShuffles)
         {
-            if (CanShuffle)
-            {
+          
                 Timer = 1;
-
                 // Counts how many times player uses this powerup
                 TimesUsed++;
                 PlayerPrefs.SetInt("SHUFFLE", TimesUsed);
-
                 PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonDisable();
-
                 PowerUpManagerScript.NumOfShuffles -= 1;
                 PowerUpManagerScript.PowerUpSaves();
                 ShuffleGameObj.transform.localScale = new Vector3(CircleScale, CircleScale, CircleScale);
                 Vector3 test = new Vector3(4.5f, -24, -15);
-
                 Go = Instantiate(ShuffleGameObj, ShuffleSpawn.transform.position, Quaternion.identity);
-
                 Scale = true;
-                CanShuffle = false;
-            }
+            // Tells destroyGameobject scripts that the shuffling is starting so it doesent destroy nodes
+               Shuffling = true;
         }
         else
         {
