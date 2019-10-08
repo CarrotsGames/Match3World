@@ -21,6 +21,7 @@ public class DestroyNodes : MonoBehaviour {
     public Text ComboScore;
     public DotManager DotManagerScript;
     public List<GameObject> ComboList;
+    private List<int> NodeScore;
 
     private GameObject CompanionGameObj;
     private CompanionScript CompanionScriptRef;
@@ -49,7 +50,7 @@ public class DestroyNodes : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-
+        NodeScore = new List<int>();
         Scene CurrentScene = SceneManager.GetActiveScene();
         SceneName = CurrentScene.name;
         PowerUpGameObj = GameObject.Find("PowerUps");
@@ -70,29 +71,37 @@ public class DestroyNodes : MonoBehaviour {
     // Update is called once per frame
     private void Update()
     {       
-    //    // pauses the combo display 
-    //    if (ComboPause)
-    //    {
-    //        ComboTime -= Time.deltaTime;
-    //        if(ComboTime < 0)
-    //        {
-    //            ComboPause = false;
-    //            ResetNodes();
-    //            ComboTime = ComboVanishSpeed ;
-    //        }
-    //    }
-      
+ 
         // begins coutning the combo and addind particles
         if (StartDestroy)
         {
+            //CalculateScore();
             DotManagerScript.CanPlay = false;
-
             PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonDisable();
             StartNodeDestroy();
             ComboGameObj.SetActive(true);
         }
     }
- 
+
+    //void CalculateScore()
+    //{
+    //    int Total = ComboList.Count;
+    //    int LevelMultiplier = HappinessGameObj.GetComponent<HappinessManager>().Level;
+    //    if (SuperMultiplierScript.CanUseSuperMultiplier)
+    //    {
+    //        Total *= 2;
+    //    }
+
+    //    Total *= LevelMultiplier;
+    //    Total *= 5;
+    //    int NumOfNodes = ComboList.Count;
+    //    int EXPTotal = Total + HappinessGameObj.GetComponent<HappinessManager>().Level;
+    //    for (int i = 0; i < ComboList.Count; i++)
+    //    {
+    //        NodeScore[i] =  Total /= NumOfNodes;
+    //        NumOfNodes--;
+    //    }
+    //}
     void ResetNodes()
     {
         int Total = ComboList.Count;
@@ -101,18 +110,7 @@ public class DestroyNodes : MonoBehaviour {
         // clear combo list
         ComboList.Clear();
         Index = 0;
-        //if (NormalCombo)
-        //{
-        //    ComboNum = PlayerPrefs.GetInt(Analytics.GetComponent<PlayFabAnalytics>().SaveScoreName + "COMBONUM");
-        //    ComboNum++;
-        //    PlayerPrefs.SetInt(Analytics.GetComponent<PlayFabAnalytics>().SaveScoreName + "COMBONUM", ComboNum);
-        //}
-        //else if (BigCombo)
-        //{
-        //    BigComboNum = PlayerPrefs.GetInt(Analytics.GetComponent<PlayFabAnalytics>().SaveScoreName + "BIGCOMBONUM");
-        //    BigComboNum++;
-        //    PlayerPrefs.SetInt(Analytics.GetComponent<PlayFabAnalytics>().SaveScoreName + "BIGCOMBONUM", BigComboNum);
-        //}
+ 
         PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
         if (!UsingBomb)
         {
