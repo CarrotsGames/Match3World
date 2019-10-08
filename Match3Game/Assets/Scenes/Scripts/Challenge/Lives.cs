@@ -46,13 +46,12 @@ public class Lives : MonoBehaviour
         }
         FirstTimeLogin++;
         PlayerPrefs.SetInt("FirstTimeLogin", FirstTimeLogin);
-
+        Countdown();
 
     }
     private void FixedUpdate()
     {
         NumberOfLives.text = "" + LiveCount;
-
         //DEBUG ONLY Resets time
         if (Input.GetKeyDown(KeyCode.Alpha4))
        {
@@ -69,7 +68,7 @@ public class Lives : MonoBehaviour
             else if (LiveCount >= 3 && IsCountingDown)
             {
                 NumberOfLives.text = "" + LiveCount;
-                IsCountingDown = false;
+                ResetStats();            
                 LiveCount = 3;
                 LifeTimerText.text = "Fullhearts";
                 PlayerPrefs.SetInt("LIVECOUNT", LiveCount);
@@ -86,15 +85,7 @@ public class Lives : MonoBehaviour
             }
         }
     }
-    public void RestoreOneLife()
-    {
-
-        IsCountingDown = false;
-        TimeStamp = 0;
-        PlayerPrefs.SetString("TimeUntilLives", "" + TimeStamp);
-        LiveCount = 1;
-        CurrentTime = 0;
-    }
+ 
     void BeginTheCountdown()
     {
         TimeStamp = 0;
@@ -185,16 +176,15 @@ public class Lives : MonoBehaviour
     {
         GetCurrentTime();
         int TimeTillLifeRegen = unchecked((int)MinutesFromTs);
-               
-        
+              
+     
         // Displays the current tick time into minutes and hours
-        if (TimeTillLifeRegen != 0)
+        if (TimeTillLifeRegen > -1)
         {
             TimeLeft = (int)(TimeTillLifeRegen % 60);
             LifeTimerText.text = TimeLeft + "Minutes";
         }
     }
-  
     void GetCurrentTime()
     {
         PlayFabClientAPI.GetTime(new GetTimeRequest(), (GetTimeResult result) =>
