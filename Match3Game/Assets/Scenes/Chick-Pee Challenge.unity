@@ -3869,7 +3869,7 @@ MonoBehaviour:
   ComboScore: {fileID: 98498724}
   DotManagerScript: {fileID: 995296469}
   ComboList: []
-  NormalCombo: 0
+  UsingBomb: 0
   BigCombo: 0
 --- !u!114 &995296469 stripped
 MonoBehaviour:
@@ -5961,6 +5961,7 @@ MonoBehaviour:
     type: 3}
   HappinessManagerScript: {fileID: 0}
   Total: 0
+  TotalScoreGameObj: {fileID: 0}
   TotalScore: {fileID: 541610270}
 --- !u!82 &1694413310
 AudioSource:
@@ -6151,6 +6152,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1929677184829160893, guid: c48dae2b39178bc498df340966b5eef7,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2f11817bc439fe145a162755682d729a, type: 3}
     - target: {fileID: 479337385744612785, guid: c48dae2b39178bc498df340966b5eef7,
         type: 3}
       propertyPath: m_LocalPosition.x

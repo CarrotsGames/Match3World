@@ -2711,10 +2711,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 1281836179, guid: 14cf0c9f13a41b04893174ce8bb2b28b, type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2045027841968604319, guid: 14cf0c9f13a41b04893174ce8bb2b28b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2770,6 +2766,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1281836179, guid: 14cf0c9f13a41b04893174ce8bb2b28b, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281836179, guid: 14cf0c9f13a41b04893174ce8bb2b28b, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a73512d63d3e5c447bb466e8c2042f14, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14cf0c9f13a41b04893174ce8bb2b28b, type: 3}
 --- !u!114 &583962603
@@ -4385,11 +4389,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 36
       objectReference: {fileID: 0}
-    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
-        type: 3}
-      propertyPath: Analytics
-      value: 
-      objectReference: {fileID: 860184246}
     - target: {fileID: 4647965552598238, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -4534,6 +4533,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
+        type: 3}
+      propertyPath: Analytics
+      value: 
+      objectReference: {fileID: 860184246}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
 --- !u!1 &940138576
@@ -5172,6 +5176,7 @@ MonoBehaviour:
   GoldParticle: {fileID: 0}
   HappinessManagerScript: {fileID: 0}
   Total: 0
+  TotalScoreGameObj: {fileID: 0}
   TotalScore: {fileID: 583962603}
 --- !u!82 &1180074815
 AudioSource:
@@ -9125,7 +9130,6 @@ MonoBehaviour:
   GoldAmount: 0
   Multipier: 0
   Limit: 2
-  TotalScore: 0
   ComboScore: 0
   PeicesCountCombo: 0
   PeicesCount: 0
@@ -9169,7 +9173,7 @@ MonoBehaviour:
   ComboScore: {fileID: 2102727976}
   DotManagerScript: {fileID: 2085261489}
   ComboList: []
-  NormalCombo: 0
+  UsingBomb: 0
   BigCombo: 0
 --- !u!114 &2085261492
 MonoBehaviour:
