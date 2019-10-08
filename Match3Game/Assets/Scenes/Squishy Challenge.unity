@@ -680,6 +680,18 @@ PrefabInstance:
       objectReference: {fileID: 1973636844}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d009cb47e607a2e438d6dee0c645a038, type: 3}
+--- !u!114 &189570851 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2600843701333912797, guid: d009cb47e607a2e438d6dee0c645a038,
+    type: 3}
+  m_PrefabInstance: {fileID: 189570850}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &193871236
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,6 +996,11 @@ PrefabInstance:
       propertyPath: NextLevel
       value: 
       objectReference: {fileID: 385911216}
+    - target: {fileID: 114904152250435826, guid: 6e21ef18f925f614bb8952d2a3856f01,
+        type: 3}
+      propertyPath: CurrentMultiplier
+      value: 
+      objectReference: {fileID: 189570851}
     - target: {fileID: 4874126141112344, guid: 6e21ef18f925f614bb8952d2a3856f01, type: 3}
       propertyPath: m_LocalPosition.x
       value: 86.8
@@ -1456,7 +1473,7 @@ Transform:
   - {fileID: 582739779}
   - {fileID: 997868670}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &545243787
 GameObject:
@@ -3209,7 +3226,7 @@ Transform:
   m_LocalScale: {x: 2.7312, y: -2.8754075, z: 2.7312}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.490005}
 --- !u!1001 &995296466
 PrefabInstance:
@@ -3385,7 +3402,7 @@ Transform:
   m_LocalScale: {x: 2.7312, y: 2.7312, z: 2.7312}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &997868669
 GameObject:
@@ -4143,11 +4160,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
-        type: 3}
-      propertyPath: Analytics
-      value: 
-      objectReference: {fileID: 1973636844}
     - target: {fileID: 224668712703305504, guid: bca90714ddbb8544796b1d79e4753570,
         type: 3}
       propertyPath: m_RootOrder
@@ -4297,6 +4309,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
+        type: 3}
+      propertyPath: Analytics
+      value: 
+      objectReference: {fileID: 1973636844}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
 --- !u!1 &1219589547 stripped
@@ -4780,7 +4797,7 @@ Transform:
   m_LocalScale: {x: 2.7312, y: 2.7312, z: 2.7312}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.231}
 --- !u!114 &1390380515 stripped
 MonoBehaviour:
@@ -5044,7 +5061,7 @@ MonoBehaviour:
   ComboScore: {fileID: 224679346}
   DotManagerScript: {fileID: 1470221023}
   ComboList: []
-  NormalCombo: 0
+  UsingBomb: 0
   BigCombo: 0
 --- !u!114 &1470221023 stripped
 MonoBehaviour:
@@ -6039,6 +6056,7 @@ MonoBehaviour:
   GoldParticle: {fileID: 0}
   HappinessManagerScript: {fileID: 0}
   Total: 0
+  TotalScoreGameObj: {fileID: 0}
   TotalScore: {fileID: 2084413931}
 --- !u!82 &1694413310
 AudioSource:
@@ -6426,7 +6444,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1781371925
 MonoBehaviour:
@@ -7618,7 +7636,7 @@ Transform:
   m_LocalScale: {x: 2.7312, y: 2.7312, z: 2.7312}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2094486900
 BoxCollider2D:

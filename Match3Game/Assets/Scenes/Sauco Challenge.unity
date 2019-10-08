@@ -770,6 +770,11 @@ PrefabInstance:
       propertyPath: NextLevel
       value: 
       objectReference: {fileID: 1729473766}
+    - target: {fileID: 114904152250435826, guid: 6e21ef18f925f614bb8952d2a3856f01,
+        type: 3}
+      propertyPath: CurrentMultiplier
+      value: 
+      objectReference: {fileID: 1532002299}
     - target: {fileID: 4874126141112344, guid: 6e21ef18f925f614bb8952d2a3856f01, type: 3}
       propertyPath: m_LocalPosition.x
       value: 86.8
@@ -2775,6 +2780,7 @@ MonoBehaviour:
   GoldParticle: {fileID: 0}
   HappinessManagerScript: {fileID: 0}
   Total: 0
+  TotalScoreGameObj: {fileID: 0}
   TotalScore: {fileID: 1436653048}
 --- !u!1 &1091448692
 GameObject:
@@ -3824,11 +3830,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
-        type: 3}
-      propertyPath: Analytics
-      value: 
-      objectReference: {fileID: 96816042}
     - target: {fileID: 224668712703305504, guid: bca90714ddbb8544796b1d79e4753570,
         type: 3}
       propertyPath: m_RootOrder
@@ -3978,6 +3979,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
+        type: 3}
+      propertyPath: Analytics
+      value: 
+      objectReference: {fileID: 96816042}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
 --- !u!1001 &1513818766
@@ -3995,15 +4001,15 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 9042858535072527687, guid: a06bd7acc6439e94d91e244ce97252f1,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2433320575670427173, guid: a06bd7acc6439e94d91e244ce97252f1,
         type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9042858535072527687, guid: a06bd7acc6439e94d91e244ce97252f1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4782059039623826, guid: a06bd7acc6439e94d91e244ce97252f1, type: 3}
       propertyPath: m_RootOrder
@@ -4197,6 +4203,18 @@ PrefabInstance:
       objectReference: {fileID: 777072135}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d009cb47e607a2e438d6dee0c645a038, type: 3}
+--- !u!114 &1532002299 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2600843701333912797, guid: d009cb47e607a2e438d6dee0c645a038,
+    type: 3}
+  m_PrefabInstance: {fileID: 1532002298}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1584595893
 GameObject:
   m_ObjectHideFlags: 0
@@ -4305,7 +4323,7 @@ MonoBehaviour:
   ComboScore: {fileID: 1253529023}
   DotManagerScript: {fileID: 1590831268}
   ComboList: []
-  NormalCombo: 0
+  UsingBomb: 0
   BigCombo: 0
 --- !u!114 &1590831268 stripped
 MonoBehaviour:

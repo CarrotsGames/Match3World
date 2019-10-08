@@ -51,7 +51,6 @@ public class EggTimerOptions : MonoBehaviour
                 }
             }
             PowerUpManagerScript.PowerUpSaves();
-
             PlayerPrefs.SetInt("HalfTime", (HasHalfedTime ? 1 : 0));
         }
     }

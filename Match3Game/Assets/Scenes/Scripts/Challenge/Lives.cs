@@ -12,13 +12,13 @@ public class Lives : MonoBehaviour
     public Text NumberOfLives;
     public Text LifeTimerText;
     private GameObject PlayFab;
-
+    int TimeLeft;
     long TimeStamp;
     long CountdownTimerLong;
-    long FullHeart;
-    long HalfHeart;
+    long CurrentTime;
+    long TimerLong;
     [HideInInspector]
-    public static float CurrentTime;
+    public static float CheckTime;
     double MinutesFromTs;
     public int AddPlayCount;
     private bool IsCountingDown;
@@ -27,13 +27,15 @@ public class Lives : MonoBehaviour
     {
         PlayFab = GameObject.FindGameObjectWithTag("PlayFab");
 
-        IsCountingDown = false;   
-        CurrentTime = 3;
+        IsCountingDown = false;
+        CheckTime = 3;
         TimeStamp = System.Convert.ToInt64(PlayerPrefs.GetString("TimeUntilLives"));
+       // PlayerPrefs.SetString("TimerLong", "" + TimerLong);
+       // TimerLong = System.Convert.ToInt64(PlayerPrefs.GetString("TimerLong"));
         CountdownTimerLong = TimeStamp;
         LiveCount = PlayerPrefs.GetInt("LIVECOUNT");
         IsCountingDown = PlayerPrefs.GetInt("LIVECOUNTDOWN") != 0;
-  
+
         NumberOfLives.text = "" + LiveCount;
         LifeTimerText.text = "Getting time...";
         int FirstTimeLogin = PlayerPrefs.GetInt("FirstTimeLogin");
@@ -44,17 +46,16 @@ public class Lives : MonoBehaviour
         }
         FirstTimeLogin++;
         PlayerPrefs.SetInt("FirstTimeLogin", FirstTimeLogin);
-
+        Countdown();
 
     }
     private void FixedUpdate()
     {
         NumberOfLives.text = "" + LiveCount;
-
         //DEBUG ONLY Resets time
         if (Input.GetKeyDown(KeyCode.Alpha4))
        {
-            //RestoreOneLife();
+            ResetStats();
         }
         // if lives are less than 3 start countdown
         if (PlayFab.GetComponent<PlayFabLogin>().HasLoggedIn == true)
@@ -67,10 +68,11 @@ public class Lives : MonoBehaviour
             else if (LiveCount >= 3 && IsCountingDown)
             {
                 NumberOfLives.text = "" + LiveCount;
-                IsCountingDown = false;
+                ResetStats();            
                 LiveCount = 3;
                 LifeTimerText.text = "Fullhearts";
                 PlayerPrefs.SetInt("LIVECOUNT", LiveCount);
+                PlayerPrefs.SetInt("LIVECOUNTDOWN", (IsCountingDown ? 1 : 0));
 
             }
             // Checks if hearts are regened
@@ -83,23 +85,28 @@ public class Lives : MonoBehaviour
             }
         }
     }
-    public void RestoreOneLife()
-    {
-
-        IsCountingDown = false;
-        TimeStamp = 0;
-        PlayerPrefs.SetString("TimeUntilLives", "" + TimeStamp);
-        LiveCount = 1;
-        FullHeart = 0;
-    }
+ 
     void BeginTheCountdown()
     {
         TimeStamp = 0;
-        FullHeart = 0;
+        CurrentTime = 0;
+        // temporarily makes it 2 to not give lives right away
+        TimeLeft = 2;
 
         NumberOfLives.text = "" + LiveCount;
         SetFullCounter();
         IsCountingDown = true;
+        PlayerPrefs.SetInt("LIVECOUNTDOWN", (IsCountingDown ? 1 : 0));
+    }
+    public void ResetStats()
+    {
+        TimeStamp = 0;
+        CurrentTime = 0;
+        TimerLong = 0;
+        IsCountingDown = true;
+        LiveCount = 3;
+        PlayerPrefs.SetString("TimeUntilLives", "" + TimeStamp);
+        PlayerPrefs.SetString("TwentyMinutes", "" + TimerLong);
         PlayerPrefs.SetInt("LIVECOUNTDOWN", (IsCountingDown ? 1 : 0));
     }
     // checks if the hearts have regened
@@ -107,38 +114,56 @@ public class Lives : MonoBehaviour
     {
         PlayerPrefs.SetInt("LIVECOUNT", LiveCount);
 
-        CurrentTime -= Time.deltaTime;
-        if (CurrentTime < 0)
+        CheckTime -= Time.deltaTime;
+        if (CheckTime < 0)
         {
             Countdown();
         } 
         // if the time has passed the target time
-        if (FullHeart > TimeStamp)
+        if (CurrentTime > TimeStamp)
         {
  
             if (LiveCount < 3)
             {
-                if (FullHeart > TimeStamp + 2398200000)
+                if (CurrentTime > TimeStamp + 23982000000)
                 {
-                    TimeStamp = 0;
-                    LiveCount = 3;
+                    ResetStats();
+                    LifeTimerText.text = "FullHearts";
                 }
-                else if (FullHeart > TimeStamp + 1199100000)
+                else if (CurrentTime > TimeStamp + 11991000000)
                 {
-                    CountdownTimerLong += 1199100000;
+                    // gets amount of time already done 
+                    TimerLong -= CurrentTime - TimeStamp;
+                    // deducts timestamp from time done
+                    TimerLong = TimeStamp - TimerLong;
+                    // adds time done to countdown string
+                    CountdownTimerLong = TimerLong;
+                    TimeStamp += TimerLong;
                     LiveCount = 2;
                 }               
-                else if (FullHeart > TimeStamp)
+                else if (CurrentTime > TimeStamp)
                 {
-                    //  SetFullCounter();
-                    // TimeStamp += 1199100000;
-                    CountdownTimerLong += 1199100000;
+                    // gets amount of time already done 
+                    TimerLong -= TimeStamp - CurrentTime;
+                    TimeSpan Ts = TimeSpan.FromTicks(TimerLong);
+                    MinutesFromTs = Ts.TotalMinutes;
+                    // gets 20 minutes back
+                    TimerLong = System.Convert.ToInt64(PlayerPrefs.GetString("TimerLong"));
+                    // deduct time done by time stamp
+                    double test = TimerLong - MinutesFromTs;
+                    // Add that to timestamp
+                    // adds time done to countdown string
+                    TimeStamp += (long)test;
+                    MinutesFromTs = test;
+                    int TimeTillLifeRegen = unchecked((int)MinutesFromTs);
+                    TimeLeft = (int)(TimeTillLifeRegen % 60);
+                    LifeTimerText.text = TimeLeft + 1 + "Minutes";
 
-                    LiveCount = 1;
+                    LiveCount++;
                 }
-                NumberOfLives.text = "" + LiveCount;
                 Countdown();
-
+                NumberOfLives.text = "" + LiveCount;
+                PlayerPrefs.SetString("TimeUntilLives", "" + TimeStamp);
             }
             else if(LiveCount >= 3)
             {
@@ -151,18 +176,17 @@ public class Lives : MonoBehaviour
     // Countsdown the time until heart is ready
     void Countdown()
     {
-        int TimeTillResetAd = unchecked((int)MinutesFromTs);
-               
         GetCurrentTime();
-         
+        int TimeTillLifeRegen = unchecked((int)MinutesFromTs);
+              
+     
         // Displays the current tick time into minutes and hours
-        if (TimeTillResetAd != 0)
+        if (TimeTillLifeRegen > -1)
         {
-            int Minutes = (int)(TimeTillResetAd % 60);
-             LifeTimerText.text =  Minutes + "Minutes";
+            TimeLeft = (int)(TimeTillLifeRegen % 60);
+            LifeTimerText.text = TimeLeft + 1 + "Minutes";
         }
     }
-  
     void GetCurrentTime()
     {
         PlayFabClientAPI.GetTime(new GetTimeRequest(), (GetTimeResult result) =>
@@ -170,13 +194,13 @@ public class Lives : MonoBehaviour
             // current time 
             DateTime now = result.Time.AddHours(0);
             // Converts current time into ticks
-            FullHeart = now.Ticks;
+            CurrentTime = now.Ticks;
             // Deducts now time from target time
-            TimeSpan TimeTillRegen = TimeSpan.FromTicks(CountdownTimerLong - FullHeart);
+            TimeSpan TimeTillRegen = TimeSpan.FromTicks(TimeStamp - CurrentTime);
             // Gets how long until the time is up
             MinutesFromTs = TimeTillRegen.TotalMinutes;
             // Resets cool down timer to avoid sending too much infomation to the server
-            CurrentTime = 5;
+            CheckTime = 5;
         }, null);
     }
      
@@ -189,16 +213,18 @@ public class Lives : MonoBehaviour
             // Current time
             DateTime now = result.Time.AddHours(0);
             // 20 minutes is set 
-            long Period = 10L * 1199100000;
+            long Period = 2L * 1199100000;
             // Timestamp is equal current time plus target time
             TimeStamp = now.Ticks + Period;
-            CountdownTimerLong = TimeStamp;
+            // Timer long will save 20 minutes in ticks
+            TimerLong = Period;
             // converts the time in ticks to actual time
             TimeSpan Ts = TimeSpan.FromTicks(Period);
             // Shows how many minutes 
             MinutesFromTs = Ts.TotalMinutes;
             //Saves Timestamp
             PlayerPrefs.SetString("TimeUntilLives", "" + TimeStamp);
+            PlayerPrefs.SetString("TimerLong", "" + TimerLong);
 
         }, null);
 
