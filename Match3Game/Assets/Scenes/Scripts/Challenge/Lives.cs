@@ -120,7 +120,7 @@ public class Lives : MonoBehaviour
             Countdown();
         } 
         // if the time has passed the target time
-        if (TimeLeft < 1)
+        if (CurrentTime > TimeStamp)
         {
  
             if (LiveCount < 3)
@@ -155,7 +155,9 @@ public class Lives : MonoBehaviour
                     // adds time done to countdown string
                     TimeStamp += (long)test;
                     MinutesFromTs = test;
-                    LifeTimerText.text = TimerLong + "Minutes";
+                    int TimeTillLifeRegen = unchecked((int)MinutesFromTs);
+                    TimeLeft = (int)(TimeTillLifeRegen % 60);
+                    LifeTimerText.text = TimeLeft + 1 + "Minutes";
 
                     LiveCount++;
                 }
@@ -182,7 +184,7 @@ public class Lives : MonoBehaviour
         if (TimeTillLifeRegen > -1)
         {
             TimeLeft = (int)(TimeTillLifeRegen % 60);
-            LifeTimerText.text = TimeLeft + "Minutes";
+            LifeTimerText.text = TimeLeft + 1 + "Minutes";
         }
     }
     void GetCurrentTime()
