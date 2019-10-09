@@ -91,7 +91,7 @@ public class Lives : MonoBehaviour
         TimeStamp = 0;
         CurrentTime = 0;
         // temporarily makes it 2 to not give lives right away
-        TimeLeft = 2;
+        TimeLeft = 19;
 
         NumberOfLives.text = "" + LiveCount;
         SetFullCounter();
@@ -103,7 +103,7 @@ public class Lives : MonoBehaviour
         TimeStamp = 0;
         CurrentTime = 0;
         TimerLong = 0;
-        IsCountingDown = true;
+        IsCountingDown = false;
         LiveCount = 3;
         PlayerPrefs.SetString("TimeUntilLives", "" + TimeStamp);
         PlayerPrefs.SetString("TwentyMinutes", "" + TimerLong);
@@ -115,7 +115,7 @@ public class Lives : MonoBehaviour
         PlayerPrefs.SetInt("LIVECOUNT", LiveCount);
 
         CheckTime -= Time.deltaTime;
-        if (CheckTime < 0)
+        if (CheckTime < 0 && TimeStamp > 0)
         {
             Countdown();
         } 
@@ -213,7 +213,7 @@ public class Lives : MonoBehaviour
             // Current time
             DateTime now = result.Time.AddHours(0);
             // 20 minutes is set 
-            long Period = 2L * 1199100000;
+            long Period = 9L * 1199100000;
             // Timestamp is equal current time plus target time
             TimeStamp = now.Ticks + Period;
             // Timer long will save 20 minutes in ticks
