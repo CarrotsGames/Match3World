@@ -75,7 +75,6 @@ public class DestroyNodes : MonoBehaviour {
         // begins coutning the combo and addind particles
         if (StartDestroy)
         {
-            //CalculateScore();
             DotManagerScript.CanPlay = false;
             PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonDisable();
             StartNodeDestroy();
@@ -83,25 +82,28 @@ public class DestroyNodes : MonoBehaviour {
         }
     }
 
-    //void CalculateScore()
-    //{
-    //    int Total = ComboList.Count;
-    //    int LevelMultiplier = HappinessGameObj.GetComponent<HappinessManager>().Level;
-    //    if (SuperMultiplierScript.CanUseSuperMultiplier)
-    //    {
-    //        Total *= 2;
-    //    }
+    void CalculateScore()
+    {
+        int Total = ComboList.Count;
+        int LevelMultiplier = HappinessGameObj.GetComponent<HappinessManager>().Level;
+        if (SuperMultiplierScript.CanUseSuperMultiplier)
+        {
+            Total *= 2;
+        }
+    
+        Total *= LevelMultiplier;
+        Total *= 5;
+        int NumOfNodes = ComboList.Count;
+        int EXPTotal = Total + HappinessGameObj.GetComponent<HappinessManager>().Level;
+        for (int i = 0; i < ComboList.Count ; i++)
+        {
+            int DivideNum = Total;
+            int DividedScore = DivideNum /= NumOfNodes;
+            NodeScore.Add(DividedScore);
+            NumOfNodes--;
 
-    //    Total *= LevelMultiplier;
-    //    Total *= 5;
-    //    int NumOfNodes = ComboList.Count;
-    //    int EXPTotal = Total + HappinessGameObj.GetComponent<HappinessManager>().Level;
-    //    for (int i = 0; i < ComboList.Count; i++)
-    //    {
-    //        NodeScore[i] =  Total /= NumOfNodes;
-    //        NumOfNodes--;
-    //    }
-    //}
+        }
+    }
     void ResetNodes()
     {
         int Total = ComboList.Count;
@@ -109,6 +111,7 @@ public class DestroyNodes : MonoBehaviour {
         CompanionScriptRef.ScoreMultiplier(EXPTotal, Total, "Normal");
         // clear combo list
         ComboList.Clear();
+        NodeScore.Clear();
         Index = 0;
  
         PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
@@ -133,12 +136,15 @@ public class DestroyNodes : MonoBehaviour {
     {
         if (Index < 1)
         {
+            
             // gets nodes final position to spawn bomb on 
+            CalculateScore();
             int LastPos = ComboList.Count - 1;
-            LastKnownPosition = ComboList[LastPos].transform.position;
+           
         }
-       //// Set time for delay
-       Timer -= Time.deltaTime;
+      
+        //// Set time for delay
+        Timer -= Time.deltaTime;
         if (Timer < 0)
         {
             DestoryNodes();
@@ -149,7 +155,12 @@ public class DestroyNodes : MonoBehaviour {
     void DestoryNodes()
     {
         if (Index < ComboList.Count)
-        {  // plays particle at index
+        {
+            CompanionScriptRef.TotalScoreGameObj.SetActive(true);
+            LastKnownPosition = ComboList[Index].transform.position;
+            CompanionScriptRef.TotalScore.text = "" + NodeScore[Index];
+            CompanionScriptRef.TotalScore.transform.position = LastKnownPosition;
+            // plays particle at index
             PlayParticle();
            // LastKnownPosition = ComboList[Index].transform.position;
             // Moves node at index out of sight
