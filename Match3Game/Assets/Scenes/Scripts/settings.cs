@@ -126,13 +126,18 @@ public class settings : MonoBehaviour {
     {  
         RealTimeScript.ResetClock();
         HappinessManagerGameObj.GetComponent<HappinessManager>().SaveMe();
-        // Gets moobling data
-        Analytics.GetComponent<PlayFabAnalytics>().SetUserData();
-        //Sends gold amount and powerups used
-        Analytics.GetComponent<PowerUpAnalytics>().SendAnalytics();
-        //Sends gold amount and powerups used
-        Analytics.GetComponent<PlayFabLogin>().TournamentScore();
+        if (PlayFabLogin.HasLoggedIn == true)
+        {
+            // Gets moobling data
+            Analytics.GetComponent<PlayFabAnalytics>().SetUserData();
+            //Sends gold amount and powerups used
+            Analytics.GetComponent<PowerUpAnalytics>().SendAnalytics();
+            //Sends gold amount and powerups used
+            Analytics.GetComponent<PlayFabLogin>().TournamentScore();
+        }
         SceneManager.LoadScene("Main Screen");
+        GameObject SaveTime = GameObject.Find("AdCountdown");
+        SaveTime.GetComponent<AdCountdown>().SaveTimer();
     }
     
 }

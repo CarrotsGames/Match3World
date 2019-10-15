@@ -13,7 +13,7 @@ public class PlayFabLogin : MonoBehaviour
     float UpdateScoreTimer;
     string SceneName;
 
-    public bool HasLoggedIn;
+    public static bool HasLoggedIn;
     public void Start()
     {
         Scene CurrentScene = SceneManager.GetActiveScene();
@@ -25,8 +25,8 @@ public class PlayFabLogin : MonoBehaviour
             DotManagerScript = DotManagerObj.GetComponent<DotManager>();
         }
         
-        Login();
         HasLoggedIn = false;
+        Login();
     }
     public void Login()
     {      

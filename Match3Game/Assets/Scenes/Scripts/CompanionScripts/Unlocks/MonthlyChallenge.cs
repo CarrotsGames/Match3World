@@ -54,7 +54,7 @@ public class MonthlyChallenge : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-         if (PlayFab.GetComponent<PlayFabLogin>().HasLoggedIn == true)
+         if (PlayFabLogin.HasLoggedIn == true)
          {
             if(SceneName == "Main Screen" && !HasUnlockedGift)
             {

@@ -56,11 +56,11 @@ public class GameTransitions : MonoBehaviour {
 
     public void HomeButton()
     {
-        RealTimeScript.ResetClock();
 
         anim.SetBool("Transition", true);
         settingsMenu.SetActive(false);
         Analytics.GetComponent<PlayFabAnalytics>().PushAnalytics();
+        RealTimeScript.ResetClock();
     }
 
 

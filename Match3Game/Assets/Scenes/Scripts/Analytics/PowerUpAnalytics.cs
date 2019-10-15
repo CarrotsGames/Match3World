@@ -23,7 +23,7 @@ public class PowerUpAnalytics : MonoBehaviour
         Shuffle = PlayerPrefs.GetInt("SHUFFLE");
         SuperBomb = PlayerPrefs.GetInt("SUPERBOMB");
         SuperMultlpier = PlayerPrefs.GetInt("SUPERMULTLPIER");
-        if (GetComponent<PlayFabLogin>().HasLoggedIn == true)
+        if (PlayFabLogin.HasLoggedIn == true)
         {
             PlayFabClientAPI.UpdateUserData(new UpdateUserDataRequest()
             {

@@ -35,7 +35,7 @@ public class PlayFabCurrency : MonoBehaviour
         {
             Versions = PlayerPrefs.GetInt("VERSIONVALUE");
 
-            if (GetComponent<PlayFabLogin>().HasLoggedIn)
+            if (PlayFabLogin.HasLoggedIn == true)
             {
                 GetCurrency();
             }

@@ -85,7 +85,7 @@ public class PlayFabAnalytics : MonoBehaviour {
         Currency = PlayerPrefs.GetInt("CURRENCY");
         ComboNum = PlayerPrefs.GetInt(SaveScoreName + "COMBONUM");
         BigComboNum = PlayerPrefs.GetInt(SaveScoreName + "BIGCOMBONUM");
-        if (GetComponent<PlayFabLogin>().HasLoggedIn == true)
+        if (PlayFabLogin.HasLoggedIn == true)
         {
             PlayFabClientAPI.UpdateUserData(new UpdateUserDataRequest()
             {

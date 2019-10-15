@@ -58,7 +58,7 @@ public class Lives : MonoBehaviour
             ResetStats();
         }
         // if lives are less than 3 start countdown
-        if (PlayFab.GetComponent<PlayFabLogin>().HasLoggedIn == true)
+        if (PlayFabLogin.HasLoggedIn == true)
         {
             if (LiveCount < 3 && !IsCountingDown)
             {            

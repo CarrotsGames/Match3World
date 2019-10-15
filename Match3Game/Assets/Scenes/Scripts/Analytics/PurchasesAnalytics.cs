@@ -42,7 +42,7 @@ public class PurchasesAnalytics : MonoBehaviour
  
     public void PurchaseStats()
     {
-        if (GetComponent<PlayFabLogin>().HasLoggedIn == true)
+        if (PlayFabLogin.HasLoggedIn == true)
         {
             
             PlayFabClientAPI.UpdateUserData(new UpdateUserDataRequest()
