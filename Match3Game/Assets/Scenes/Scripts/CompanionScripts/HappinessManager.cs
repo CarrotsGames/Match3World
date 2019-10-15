@@ -186,6 +186,12 @@ public class HappinessManager : MonoBehaviour
     }
     private void OnApplicationPause(bool pause)
     {
-        SaveMe();
+        PlayerPrefs.SetFloat("AdTimer", 600);
+        SaveMe();        
+    }
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.SetFloat("AdTimer", 600);
+       // SaveMe();
     }
 }

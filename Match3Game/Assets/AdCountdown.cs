@@ -30,7 +30,7 @@ public class AdCountdown : MonoBehaviour
     void PlayAd()
     {
         // Reset timer 
-        Countdown = ValueStore;
+        Countdown = 900;
         PlayLevelAdScript.PlayAdNow();
     }
     public void SaveTimer()
