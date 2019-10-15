@@ -21,7 +21,6 @@ public class DotScript : MonoBehaviour
     public float jucSize = 3;
     public LayerMask layerMask;
     public List<GameObject> neighbours = new List<GameObject>();
-    public int ToggleHighlite; 
     public bool SelfDestruct;
     public GameObject HighlitedParticle;
     public HappinessManager HappinessManagerScript;
@@ -78,6 +77,7 @@ public class DotScript : MonoBehaviour
                // SelfDestruct = false;
             }
         }
+        // when finger is released over a differnt colour node it will flash
         if (ReleaseNodeColour)
         {
             ResetMatTime += Time.deltaTime;
@@ -118,11 +118,9 @@ public class DotScript : MonoBehaviour
         }
 
     }
-  
+    // if more than one finger is on the screen stop connection
     void FingerCount()
-    {
-        // TEST: PUT THIS IN MOUSEDOWN VOID TO TEST IF WORKS NEXT BUILD   
-        // if more than one finger is on the screen stop connection
+    {           
         if (Input.touchCount > 1)
         {
             this.gameObject.GetComponent<Renderer>().material = Default;
@@ -151,6 +149,7 @@ public class DotScript : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        // when player begins connection 
          if (DotManagerScript.StartHighliting == true)
         {
             // Increases size of peice when selected
@@ -159,14 +158,18 @@ public class DotScript : MonoBehaviour
             newScale.z = Mathf.Clamp(transform.localScale.y, jucSize, jucSize);
             newScale.y = Mathf.Clamp(transform.localScale.y, jucSize, jucSize);
             transform.localScale = newScale;
+            // Allows node to play sound and shake camera
             if (HasPlayedSound)
             {
+                // when connection is greater than 4 it will begin shaking the camera
+                // depending on how many nodes are connecting
                 if (DotManagerScript.Peices.Count > 4)
                 {
                     float clamp = Mathf.Clamp(DotManagerScript.Peices.Count / 5,0 , 1.25f);
 
                     MainCamera.GetComponent<CameraShake>().ShakeCamera(clamp / 4, 0.25f);
-                }                // Plays the Node Highlite Sound
+                }                
+                // Plays the Node Highlite Sound
                 AudioManagerScript.NodeSource.clip = AudioManagerScript.NodeAudio[0];
                 AudioManagerScript.NodeSource.Play();
                 HasPlayedSound = false;
@@ -175,7 +178,7 @@ public class DotScript : MonoBehaviour
         }
         else
         {
-            //  DotManagerScript.StartHighliting = false;
+          // returns node to defualt size when no longer highlited
             Vector3 newScale = new Vector3();
             newScale.x = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
             newScale.z = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
@@ -183,15 +186,16 @@ public class DotScript : MonoBehaviour
             transform.localScale = newScale;
              DotManagerScript.NodeSelection = false;
          
-          //  DotManagerScript.ResetLayer = true;
+          
 
         }
     }
     private void OnMouseDown()
     {
+        // when player can play and nodes arnt frozen
         if (DotManagerScript.CanPlay && !Frozen)
         {
-
+            // cleans list just in case
             if (!DotManagerScript.StartHighliting)
             {
                DotManagerObj.GetComponent<DestroyNodes>().ComboList.Clear();
@@ -223,9 +227,9 @@ public class DotScript : MonoBehaviour
                         OnMouseUp();
                         break;
                 }
-
+               // clears Peices list just in case
                 DotManagerScript.Peices.Clear();
-                // DrawLine.SetPosition(0, transform.position);
+    
                 // Increases size of peice when selected
                 Vector3 newScale = new Vector3();
                 newScale.x = Mathf.Clamp(transform.localScale.x, jucSize, jucSize);
@@ -236,13 +240,10 @@ public class DotScript : MonoBehaviour
                 this.gameObject.GetComponent<Renderer>().material.color = Color.black;
                 // changes peice layer
                 this.gameObject.layer = LayerType;
-                ToggleHighlite += 1;
                 // plays the node highlite sound
                 AudioManagerScript.NodeSource.clip = AudioManagerScript.NodeAudio[0];
                 AudioManagerScript.NodeSource.PlayOneShot(AudioManagerScript.NodeSource.clip);
                 Instantiate(HighlitedParticle, transform.position, Quaternion.identity);
-
-                DotManagerScript.MouseCursorObj.SetActive(true);
             
         }
     }
@@ -337,11 +338,9 @@ public class DotScript : MonoBehaviour
             this.transform.gameObject.layer = 0;
             // Resets Linerenderer
 
-            // turns off highlite
-            ToggleHighlite = 0;
+       
             DotManagerScript.ResetMaterial = false;
-            // Resets peices material and layer
-            //this.gameObject.layer = LayerMask.GetMask("Default");
+
             // makes peices unable to grow
             GrowSize = false;
             // Resets neighbour list

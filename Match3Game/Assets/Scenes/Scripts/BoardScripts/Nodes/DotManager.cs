@@ -107,14 +107,16 @@ public class DotManager : MonoBehaviour
 
     }
 
-
+    // checks for connection
     public void CheckPieces()
     {
         // MultiplierText.text = "" + Multipier;
         if (Peices.Count <= 2)
         {
-            Peices[0].GetComponent<Renderer>().material = DefaultMaterial;
-            Peices[1].GetComponent<Renderer>().material = DefaultMaterial;
+            for (int i = 0; i < Peices.Count; i++)
+            {
+                Peices[i].GetComponent<Renderer>().material = DefaultMaterial;
+            }                  
         }
         // Checkas if colours are connecting
         if (CheckConnection)
@@ -123,7 +125,7 @@ public class DotManager : MonoBehaviour
             NodeSelection = false;
 
             StartHighliting = false;
-            // sorts each colour found in the peices list 
+            // Sets node outline to default 
             for (int i = 0; i < Peices.Count; i++)
             {
 
@@ -184,7 +186,7 @@ public class DotManager : MonoBehaviour
     void AddColourToScore()
     {
 
-        // If the times red was counted is equal to the amount of the peices list Red was connected
+        // If the times red was counted is equal to the amount of the peices list was connected
         if (PeicesCount == Peices.Count && PeicesCount > Limit)
         {
             ConnectionMade = true;
@@ -214,20 +216,17 @@ public class DotManager : MonoBehaviour
         }
         // if the colour wasnt matched reset lists, scores, counts and selections
         // Counts the current combo going on 
-            ComboScore = NodeScore; 
+        ComboScore = NodeScore;
         // Counts the total score within scene
-            SceneScore += NodeScore;
-        
-            GoldAmount = 0;
-            NodeScore = 0;            
-            NodeSelection = false;
+        SceneScore += NodeScore;
+        GoldAmount = 0;
+        NodeScore = 0;
+        // Disables checking for node colour
+        NodeSelection = false;
+        GoldSelection = false;
+        // begins the destroy node process
+        GetComponent<DestroyNodes>().StartDestroy = true;
  
-            GoldSelection = false;
-           GetComponent<DestroyNodes>().StartDestroy = true;
-          //GetComponent<DestroyNodes>().CreateComboList();
-          //  AddBoardParticles();
-          // ResetDotLayers = true;
-          // Adds board particles
 
 
     }

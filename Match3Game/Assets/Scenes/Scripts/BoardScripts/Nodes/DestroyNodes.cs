@@ -34,7 +34,9 @@ public class DestroyNodes : MonoBehaviour {
    // private bool Reset;
     private bool ComboPause;
     private GameObject Board;
+    [SerializeField]
     private GameObject PowerUpGameObj;
+    private GameObject PowerUpManager;
     // Checks how many combos have been done all time
     private int ComboNum;
     // Checks how many Big Combos have been done all time
@@ -64,6 +66,7 @@ public class DestroyNodes : MonoBehaviour {
         Timer = 0;
         HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
         Board = GameObject.FindGameObjectWithTag("BoardSpawn");
+        PowerUpManager = GameObject.FindGameObjectWithTag("PUM");
         UsingBomb = false;
      }
 
@@ -120,7 +123,7 @@ public class DestroyNodes : MonoBehaviour {
         //resets combo text 
         ComboText.text = "";
          
-         Combo = 0;
+        Combo = 0;
         GetComponent<DotManager>().ComboScore = 0;
         GetComponent<DotManager>().PeicesCount = 0;
         BigCombo = false;
@@ -207,7 +210,9 @@ public class DestroyNodes : MonoBehaviour {
         // if the combo is half the board destory rest of board
         if (Index == ComboList.Count && Index >= Board.transform.childCount / 2)
         {
-             // Activates colour remover for all colours 
+            PowerUpManager.GetComponent<PowerUpManager>().Currency += 5;
+            PowerUpManager.GetComponent<PowerUpManager>().PowerUpSaves();
+            // Activates colour remover for all colours 
             // RED
             SCR.GetComponent<ColourRemover>().Colour = "Red";
             SCR.GetComponent<ColourRemover>().Red = true;
