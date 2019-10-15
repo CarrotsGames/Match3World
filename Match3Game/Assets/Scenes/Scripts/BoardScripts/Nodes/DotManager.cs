@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using System.Linq;
 public class DotManager : MonoBehaviour
 {
-     public CompanionScript Companion;
+    public CompanionScript Companion;
     [HideInInspector]
     public GameObject CampanionGameObj;
     // GamePiece lists
@@ -26,10 +26,8 @@ public class DotManager : MonoBehaviour
     public GameObject GoldEffect;
     public GameObject MouseCursorObj;
     // Reset material colours (Green = Purple)
-    public Material Red;
-    public Material Blue;
-    public Material Green;
-    public Material Yellow;
+    public Material DefaultMaterial;
+ 
     // checks for node connection
     public bool CheckConnection;
     public bool ResetDotLayers;
@@ -44,19 +42,19 @@ public class DotManager : MonoBehaviour
     public bool ResetLayer;
     public bool ResetMaterial;
     public bool CanPlay;
-    public int RedScore;
+    public int NodeScore;
     public int GoldAmount;
     public int Multipier;
     public int Limit;
     public static int TotalScore;
 
     [HideInInspector]
-    public int ComboScore;   
+    public int ComboScore;
     // public int Currency;
     public int PeicesCountCombo;
 
     public int PeicesCount;
- 
+
     private int Num;
 
     public float SceneScore;
@@ -69,11 +67,11 @@ public class DotManager : MonoBehaviour
     private PowerUpManager PowerUpManagerScript;
     private CreatureSelect CreatureSelectScript;
     private string Colour;
-     private void Awake()
-     {
-         TotalScore = PlayerPrefs.GetInt("SCORE");
-         HighScore.text = "" + TotalScore;
-     }
+    private void Awake()
+    {
+        TotalScore = PlayerPrefs.GetInt("SCORE");
+        HighScore.text = "" + TotalScore;
+    }
     private void Start()
     {
         // Bools start false to be activated later
@@ -86,15 +84,15 @@ public class DotManager : MonoBehaviour
         CanPlay = true;
         // UI
         Multipier = 1;
-       // MultiplierText.text = "" + Multipier;
+        // MultiplierText.text = "" + Multipier;
         HighScore.text = "" + TotalScore;
- 
+
         // Gameobject/script refrences
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
         CampanionGameObj = GameObject.FindGameObjectWithTag("Companion");
         Companion = CampanionGameObj.GetComponent<CompanionScript>();
-     //   TotalScore = PlayerPrefs.GetInt("SCORE");
+        //   TotalScore = PlayerPrefs.GetInt("SCORE");
         MouseCursorObj = GameObject.FindGameObjectWithTag("Mouse");
         MouseFollow = MouseCursorObj.GetComponent<MouseFollowScript>();
         CreatureSelectScript = GetComponent<CreatureSelect>();
@@ -113,7 +111,11 @@ public class DotManager : MonoBehaviour
     public void CheckPieces()
     {
         // MultiplierText.text = "" + Multipier;
-
+        if (Peices.Count <= 2)
+        {
+            Peices[0].GetComponent<Renderer>().material = DefaultMaterial;
+            Peices[1].GetComponent<Renderer>().material = DefaultMaterial;
+        }
         // Checkas if colours are connecting
         if (CheckConnection)
         {
@@ -125,90 +127,58 @@ public class DotManager : MonoBehaviour
             for (int i = 0; i < Peices.Count; i++)
             {
 
-                if (Peices[i].tag == "Red")
-                {
-                    PeicesCount += 1;
-                    Peices[i].GetComponent<Renderer>().material = Red;
-                    Peices[i].gameObject.layer = 0;
-                    PeicesList.Add(Peices[i]);
-                }
-                else if (Peices[i].tag == "Blue")
-                {
-                    PeicesCount += 1;
-                    Peices[i].GetComponent<Renderer>().material = Blue;
-                    Peices[i].gameObject.layer = 0;
-
-                    PeicesList.Add(Peices[i]);
-
-                }
-                else if (Peices[i].tag == "Yellow")
-                {
-                    PeicesCount += 1;
-                    Peices[i].GetComponent<Renderer>().material = Yellow;
-                    Peices[i].gameObject.layer = 0;
-
-                    PeicesList.Add(Peices[i]);
-
-                }
-                else if (Peices[i].tag == "Green")
-                {
-                    PeicesCount += 1;
-                    Peices[i].GetComponent<Renderer>().material = Green;
-                    Peices[i].gameObject.layer = 0;
-
-                    PeicesList.Add(Peices[i]);
-                }
-                else if (Peices[i].tag == "Gold")
-                {
-                    Debug.Log("GOLDCONNECTION");
-                    GoldAmount += 1;
-                    Peices[i].GetComponent<Renderer>().material = Green;
-                    Peices[i].gameObject.layer = 0;
-
-                    Gold.Add(Peices[i]);
-                }
-            }
-            if (Limit < Gold.Count)
-            {
-                // Adds to goldscore analytic
-                GoldScore += Gold.Count;
-                // Adds specific color node to score(Now just adds nodes to score)
-                AddColourToScore();
-                // clears list to avoid null refs
-                Peices.Clear();
-                // adds the board particles
-               // AddBoardParticles();
-            }
-            else
-            {
-                Gold.Clear();
-            }
-            // Checks which colour made a match  
-            if (Limit < Peices.Count)
-            {
-
-                AddColourToScore();
-                Peices.Clear();
-                PeicesList.Clear();
-            }
-            else
-            {
-                GoldAmount = 0;
-                GetComponent<DestroyNodes>().ComboList.Clear();
-                Peices.Clear();
-                PeicesList.Clear();
-                ResetLayer = true;
+                //if (Peices[i].tag == "Red")
+                //{
+                PeicesCount += 1;
+                Peices[i].GetComponent<Renderer>().material = DefaultMaterial;
+                Peices[i].gameObject.layer = 0;
+                PeicesList.Add(Peices[i]);
 
             }
-          
-            PeicesCountCombo = PeicesCount;
-            CheckConnection = false;
-            // clears EatingPeice List
-         
+       
+        }
+       
+        if (Limit < Gold.Count)
+        {
+            // Adds to goldscore analytic
+            GoldScore += Gold.Count;
+            // Adds specific color node to score(Now just adds nodes to score)
+            AddColourToScore();
+            // clears list to avoid null refs
+            Peices.Clear();
+            // adds the board particles
+            // AddBoardParticles();
+        }
+        else
+        {
+            Gold.Clear();
+        }
+        // Checks which colour made a match  
+        if (Limit < Peices.Count)
+        {
+
+            AddColourToScore();
+            Peices.Clear();
+            PeicesList.Clear();
+        }
+        else
+        {
+            GoldAmount = 0;
+            GetComponent<DestroyNodes>().ComboList.Clear();
+            Peices.Clear();
+            PeicesList.Clear();
+            ResetLayer = true;
+
         }
 
+        PeicesCountCombo = PeicesCount;
+        CheckConnection = false;
+        // clears EatingPeice List
 
     }
+
+
+
  
     //// Checks which colour made a match
     void AddColourToScore()
@@ -218,9 +188,9 @@ public class DotManager : MonoBehaviour
         if (PeicesCount == Peices.Count && PeicesCount > Limit)
         {
             ConnectionMade = true;
-            RedScore += PeicesCount;
-            RedScore *= Peices.Count;
-            RedScore *= Multipier;
+            NodeScore += PeicesCount;
+            NodeScore *= Peices.Count;
+            NodeScore *= Multipier;
 
             for (Num = 0; Num < PeicesCount; Num++)
             {
@@ -244,12 +214,12 @@ public class DotManager : MonoBehaviour
         }
         // if the colour wasnt matched reset lists, scores, counts and selections
         // Counts the current combo going on 
-            ComboScore = RedScore; 
+            ComboScore = NodeScore; 
         // Counts the total score within scene
-            SceneScore += RedScore;
+            SceneScore += NodeScore;
         
             GoldAmount = 0;
-            RedScore = 0;            
+            NodeScore = 0;            
             NodeSelection = false;
  
             GoldSelection = false;

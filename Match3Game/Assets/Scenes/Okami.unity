@@ -2114,7 +2114,7 @@ SpriteRenderer:
   m_Size: {x: 10, y: 17.55}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &914335962
@@ -2840,6 +2840,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3581877317542592088, guid: 91a6a9763507c6248b5a513ebf9de683,
         type: 3}
+    - target: {fileID: 114116024551390298, guid: 1fbc98c3587098445a60d05f5aa8d987,
+        type: 3}
+      propertyPath: DefaultMaterial
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fbc98c3587098445a60d05f5aa8d987, type: 3}
 --- !u!1 &1012828921
@@ -3015,7 +3020,6 @@ MonoBehaviour:
   ComboSpeed: 0.05
   ComboVanishSpeed: 0.5
   StartDestroy: 0
-  ComboGameObj: {fileID: 1618706541}
   ComboText: {fileID: 1021919427}
   ComboScore: {fileID: 759545612}
   DotManagerScript: {fileID: 1035794568}
@@ -5319,12 +5323,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1618706541 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2336923222735636094, guid: d7fb396edf155de40895610ead7b8864,
-    type: 3}
-  m_PrefabInstance: {fileID: 1163745378}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1622098017
 GameObject:
   m_ObjectHideFlags: 0

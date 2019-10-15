@@ -65,21 +65,9 @@ public class DotScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // TEST: PUT THIS IN MOUSEDOWN VOID TO TEST IF WORKS NEXT BUILD   
-        // if more than one finger is on the screen stop connection
-        if (Input.touchCount > 1  )
-        {
-            this.gameObject.GetComponent<Renderer>().material = Default;
-            this.gameObject.GetComponent<Renderer>().material.color = Color.white;
-            DotManagerScript.ResetLayer = true;
-            DotManagerScript.Peices.Clear();
-            gameObject.layer = 0;
-            DotManagerScript.ResetLayer = false;
-            OnMouseUp();
-        }
-            
+        FingerCount();
 
-        if(SelfDestruct)
+        if (SelfDestruct)
         {
           
             Timer -= Time.deltaTime;
@@ -131,6 +119,21 @@ public class DotScript : MonoBehaviour
 
     }
   
+    void FingerCount()
+    {
+        // TEST: PUT THIS IN MOUSEDOWN VOID TO TEST IF WORKS NEXT BUILD   
+        // if more than one finger is on the screen stop connection
+        if (Input.touchCount > 1)
+        {
+            this.gameObject.GetComponent<Renderer>().material = Default;
+            this.gameObject.GetComponent<Renderer>().material.color = Color.white;
+            DotManagerScript.ResetLayer = true;
+            DotManagerScript.Peices.Clear();
+            gameObject.layer = 0;
+            DotManagerScript.ResetLayer = false;
+            OnMouseUp();
+        }
+    }
      private void OnMouseExit()
     {
         // Decreases size of peice when selected

@@ -16,7 +16,6 @@ public class DestroyNodes : MonoBehaviour {
     public float ComboSpeed;
     public float ComboVanishSpeed;
     public bool StartDestroy;
-    public GameObject ComboGameObj;
     public Text ComboText;
     public Text ComboScore;
     public DotManager DotManagerScript;
@@ -61,7 +60,7 @@ public class DestroyNodes : MonoBehaviour {
         ComboTime = ComboVanishSpeed ;
         CompanionGameObj = GameObject.FindGameObjectWithTag("Companion");
         CompanionScriptRef = CompanionGameObj.GetComponent<CompanionScript>();
-        ComboGameObj.SetActive(false);    
+        //ComboGameObj.SetActive(false);    
         Timer = 0;
         HappinessGameObj = GameObject.FindGameObjectWithTag("HM");
         Board = GameObject.FindGameObjectWithTag("BoardSpawn");
@@ -78,8 +77,7 @@ public class DestroyNodes : MonoBehaviour {
             DotManagerScript.CanPlay = false;
             PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonDisable();
             StartNodeDestroy();
-            ComboGameObj.SetActive(true);
-        }
+         }
     }
 
     void CalculateScore()
@@ -121,9 +119,8 @@ public class DestroyNodes : MonoBehaviour {
         }
         //resets combo text 
         ComboText.text = "";
-        //disables combo gameobject 
-        ComboGameObj.SetActive(false);
-        Combo = 0;
+         
+         Combo = 0;
         GetComponent<DotManager>().ComboScore = 0;
         GetComponent<DotManager>().PeicesCount = 0;
         BigCombo = false;

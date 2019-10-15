@@ -266,6 +266,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 35762012}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &44568318 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 280929782853057486, guid: b2a676cb2b5923746820512a36f75e7e,
+    type: 3}
+  m_PrefabInstance: {fileID: 9124376901720830554}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &94998026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1450,12 +1456,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &500452479 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2336923222735636094, guid: d7fb396edf155de40895610ead7b8864,
-    type: 3}
-  m_PrefabInstance: {fileID: 1637471743}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &545243787
 GameObject:
   m_ObjectHideFlags: 0
@@ -2314,7 +2314,7 @@ SpriteRenderer:
   m_Size: {x: 5.7, y: 10}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &849716449
@@ -3096,8 +3096,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ParticleEffectYellow
       value: 
-      objectReference: {fileID: 7513442687641988329, guid: 52842de72f888f24bb82a59b3a8f4ace,
-        type: 3}
+      objectReference: {fileID: 44568318}
     - target: {fileID: 114116024551390298, guid: 1fbc98c3587098445a60d05f5aa8d987,
         type: 3}
       propertyPath: ParticleEffectGold
@@ -3109,6 +3108,11 @@ PrefabInstance:
       propertyPath: GoldSelection
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114116024551390298, guid: 1fbc98c3587098445a60d05f5aa8d987,
+        type: 3}
+      propertyPath: DefaultMaterial
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fbc98c3587098445a60d05f5aa8d987, type: 3}
 --- !u!1 &997868669
@@ -4755,7 +4759,6 @@ MonoBehaviour:
   ComboSpeed: 0.05
   ComboVanishSpeed: 0.5
   StartDestroy: 0
-  ComboGameObj: {fileID: 500452479}
   ComboText: {fileID: 1078348076}
   ComboScore: {fileID: 2009408808}
   DotManagerScript: {fileID: 1470221023}
