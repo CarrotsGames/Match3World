@@ -116,6 +116,34 @@ public class DotScript : MonoBehaviour
           this.gameObject.GetComponent<Renderer>().material = Default;
           this.gameObject.GetComponent<Renderer>().material.color = Color.white;
         }
+        if (DotManagerScript.StartHighliting == false)
+        {
+            ResetNodeScale();
+        }
+
+    }
+    
+    // increases node scale
+    void ChangeNodeScale()
+    {
+
+        // Increases size of peice when selected
+        Vector3 newScale = new Vector3();
+        newScale.x = Mathf.Clamp(transform.localScale.y, jucSize, jucSize);
+        newScale.z = Mathf.Clamp(transform.localScale.y, jucSize, jucSize);
+        newScale.y = Mathf.Clamp(transform.localScale.y, jucSize, jucSize);
+        transform.localScale = newScale;
+    }
+    // decreases node scale
+    void ResetNodeScale()
+    {
+        // returns node to defualt size when no longer highlited
+        Vector3 newScale = new Vector3();
+        newScale.x = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
+        newScale.z = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
+        newScale.y = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
+        transform.localScale = newScale;
+        DotManagerScript.NodeSelection = false;
 
     }
     // if more than one finger is on the screen stop connection
@@ -146,21 +174,16 @@ public class DotScript : MonoBehaviour
         }
        
     }
-
+   
     private void OnMouseEnter()
     {
         // when player begins connection 
          if (DotManagerScript.StartHighliting == true)
         {
-            // Increases size of peice when selected
-            Vector3 newScale = new Vector3();
-            newScale.x = Mathf.Clamp(transform.localScale.y, jucSize, jucSize);
-            newScale.z = Mathf.Clamp(transform.localScale.y, jucSize, jucSize);
-            newScale.y = Mathf.Clamp(transform.localScale.y, jucSize, jucSize);
-            transform.localScale = newScale;
+            ChangeNodeScale();
             // Allows node to play sound and shake camera
             if (HasPlayedSound)
-            {
+            {            
                 // when connection is greater than 4 it will begin shaking the camera
                 // depending on how many nodes are connecting
                 if (DotManagerScript.Peices.Count > 4)
@@ -178,16 +201,14 @@ public class DotScript : MonoBehaviour
         }
         else
         {
+            ResetNodeScale();
           // returns node to defualt size when no longer highlited
             Vector3 newScale = new Vector3();
             newScale.x = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
             newScale.z = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
             newScale.y = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
             transform.localScale = newScale;
-             DotManagerScript.NodeSelection = false;
-         
-          
-
+            DotManagerScript.NodeSelection = false;                
         }
     }
     private void OnMouseDown()
@@ -332,13 +353,14 @@ public class DotScript : MonoBehaviour
  
     public void OnMouseUp()
     {
+        
+
         if (DotManagerScript.CanPlay && !Frozen)
         {
             neighbours.Clear();
             this.transform.gameObject.layer = 0;
-            // Resets Linerenderer
+            // Resets node scale
 
-       
             DotManagerScript.ResetMaterial = false;
 
             // makes peices unable to grow
