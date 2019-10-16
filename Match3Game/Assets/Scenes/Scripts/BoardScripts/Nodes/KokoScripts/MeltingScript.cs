@@ -87,7 +87,6 @@ public class MeltingScript : MonoBehaviour {
          
             GetComponent<DotScript>().DotManagerScript.CheckConnection = true;
             IsConnecting = false;
-            DotScriptRef.DotManagerScript.MouseCursorObj.SetActive(false);
             DotScriptRef.OnMouseUp();
          }
         else if (!DotScriptRef.DotManagerScript.Peices.Contains(this.gameObject) || DotManagerGameObj.GetComponent<DestroyNodes>().ComboList.Contains(this.gameObject))

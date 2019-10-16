@@ -24,7 +24,7 @@ public class DotManager : MonoBehaviour
     public GameObject[] PartyEffect;
     //Will play the Gold particle effect 
     public GameObject GoldEffect;
-    public GameObject MouseCursorObj;
+  
     // Reset material colours (Green = Purple)
     public Material DefaultMaterial;
  
@@ -92,19 +92,9 @@ public class DotManager : MonoBehaviour
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
         CampanionGameObj = GameObject.FindGameObjectWithTag("Companion");
         Companion = CampanionGameObj.GetComponent<CompanionScript>();
-        //   TotalScore = PlayerPrefs.GetInt("SCORE");
-        MouseCursorObj = GameObject.FindGameObjectWithTag("Mouse");
-        MouseFollow = MouseCursorObj.GetComponent<MouseFollowScript>();
+        
         CreatureSelectScript = GetComponent<CreatureSelect>();
-        if (CreatureSelectScript == null)
-        {
-            MouseCursorObj.SetActive(false);
-        }
-        else
-        {
-            MouseCursorObj.SetActive(false);
-        }
-
+ 
     }
 
     // checks for connection

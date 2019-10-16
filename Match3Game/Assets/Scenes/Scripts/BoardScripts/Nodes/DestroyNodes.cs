@@ -5,51 +5,51 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class DestroyNodes : MonoBehaviour {
+
+    public float ComboSpeed;
+    public float ComboVanishSpeed;
+    [HideInInspector]
+    public bool UsingBomb;
+    [HideInInspector]
+    public bool BigCombo;
+    public bool StartDestroy;
+    public Text ComboText;
+    public Text ComboScore;
+    public DotManager DotManagerScript;
     // Yeild return values
     [SerializeField]
     private GameObject ComboBomb;
     [SerializeField]
     private GameObject SCR;
+    public List<GameObject> ComboList;
     [HideInInspector]
     public Vector3 LastKnownPosition;
-
-    public float ComboSpeed;
-    public float ComboVanishSpeed;
-    public bool StartDestroy;
-    public Text ComboText;
-    public Text ComboScore;
-    public DotManager DotManagerScript;
-    public List<GameObject> ComboList;
-    private List<int> NodeScore;
-
-    private GameObject CompanionGameObj;
-    private CompanionScript CompanionScriptRef;
-    private GameObject HappinessGameObj;
-    private int Index;
-    private GameObject DotManagerObj;
-    private float Timer;
-    private int Combo;
-    private float ComboTime;
-    private int Test;
-   // private bool Reset;
-    private bool ComboPause;
-    private GameObject Board;
-    [SerializeField]
-    private GameObject PowerUpGameObj;
-    private GameObject PowerUpManager;
+  
     // Checks how many combos have been done all time
     private int ComboNum;
     // Checks how many Big Combos have been done all time
     private int BigComboNum;
+    private int Index;
+    private int Combo;
+    private int Test;
+    private float Timer;
+    private float ComboTime;
+    private bool InChallengeScene;
+    private GameObject CompanionGameObj;
+    private GameObject HappinessGameObj;
+    private GameObject DotManagerObj;
+    private GameObject Board;
+    [SerializeField]
+    private GameObject PowerUpGameObj;
+    private GameObject PowerUpManager;
     // These are used in the Idasauros Script to know when the animation should play
-    [HideInInspector]
-    public bool UsingBomb;
-    [HideInInspector]
-    public bool BigCombo;
     private GameObject Analytics;
-    string SceneName;
+    private string SceneName;
+    // private bool Reset;
+    private List<int> NodeScore;
+    private CompanionScript CompanionScriptRef;
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         NodeScore = new List<int>();
         Scene CurrentScene = SceneManager.GetActiveScene();
@@ -58,8 +58,8 @@ public class DestroyNodes : MonoBehaviour {
         Analytics = GameObject.FindGameObjectWithTag("PlayFab");
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
-         // Referneces DotManagerScript
-        ComboTime = ComboVanishSpeed ;
+        // Referneces DotManagerScript
+        ComboTime = ComboVanishSpeed;
         CompanionGameObj = GameObject.FindGameObjectWithTag("Companion");
         CompanionScriptRef = CompanionGameObj.GetComponent<CompanionScript>();
         //ComboGameObj.SetActive(false);    
@@ -68,6 +68,12 @@ public class DestroyNodes : MonoBehaviour {
         Board = GameObject.FindGameObjectWithTag("BoardSpawn");
         PowerUpManager = GameObject.FindGameObjectWithTag("PUM");
         UsingBomb = false;
+        InChallengeScene = false;
+        if (GameObject.Find("CHALLENGE"))
+        {
+            InChallengeScene = true;
+        }
+
      }
 
     // Update is called once per frame
@@ -82,7 +88,7 @@ public class DestroyNodes : MonoBehaviour {
             StartNodeDestroy();
          }
     }
-
+    // calculates total score to show on each node
     void CalculateScore()
     {
         int Total = ComboList.Count;
@@ -136,9 +142,11 @@ public class DestroyNodes : MonoBehaviour {
     {
         if (Index < 1)
         {
-            
-            // gets nodes final position to spawn bomb on 
-            CalculateScore();
+            if (!InChallengeScene)
+            {
+                // gets nodes final position to spawn bomb on 
+                CalculateScore();
+            }
             int LastPos = ComboList.Count - 1;
            
         }
@@ -156,10 +164,13 @@ public class DestroyNodes : MonoBehaviour {
     {
         if (Index < ComboList.Count)
         {
-            CompanionScriptRef.TotalScoreGameObj.SetActive(true);
-            LastKnownPosition = ComboList[Index].transform.position;
-            CompanionScriptRef.TotalScore.text = "" + NodeScore[Index];
-            CompanionScriptRef.TotalScore.transform.position = LastKnownPosition;
+            if (!InChallengeScene)
+            {
+                CompanionScriptRef.TotalScoreGameObj.SetActive(true);
+                LastKnownPosition = ComboList[Index].transform.position;
+                CompanionScriptRef.TotalScore.text = "" + NodeScore[Index];
+                CompanionScriptRef.TotalScore.transform.position = LastKnownPosition;
+            }
             // plays particle at index
             PlayParticle();
            // LastKnownPosition = ComboList[Index].transform.position;

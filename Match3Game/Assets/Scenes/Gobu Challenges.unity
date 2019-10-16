@@ -1477,19 +1477,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f391deae19a48ea40974586c19827ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ComboBomb: {fileID: 1428387427784819}
-  SCR: {fileID: 1604095860198091}
-  LastKnownPosition: {x: 0, y: 0, z: 0}
   ComboSpeed: 0.1
   ComboVanishSpeed: 0.5
+  UsingBomb: 0
+  BigCombo: 0
   StartDestroy: 0
   ComboText: {fileID: 522633429}
   ComboScore: {fileID: 690574437}
   DotManagerScript: {fileID: 0}
+  ComboBomb: {fileID: 1428387427784819}
+  SCR: {fileID: 1604095860198091}
   ComboList: []
+  LastKnownPosition: {x: 0, y: 0, z: 0}
   PowerUpGameObj: {fileID: 0}
-  UsingBomb: 0
-  BigCombo: 0
 --- !u!114 &856235944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1987,6 +1987,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8398994343445602696, guid: e60040b78db29634a8391bcfbe5e8930,
         type: 3}
+    - target: {fileID: 114116024551390298, guid: 1fbc98c3587098445a60d05f5aa8d987,
+        type: 3}
+      propertyPath: DefaultMaterial
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fbc98c3587098445a60d05f5aa8d987, type: 3}
 --- !u!1 &1012828921

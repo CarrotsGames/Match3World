@@ -368,7 +368,7 @@ public class DotScript : MonoBehaviour
             // Resets neighbour list
             // Goes into DotManagerScript to check if there was a connection
             DotManagerScript.CheckConnection = true;
-            DotManagerScript.MouseCursorObj.SetActive(false);
+           
 
             // Resets size of peices  
             Vector3 newScale = new Vector3();
