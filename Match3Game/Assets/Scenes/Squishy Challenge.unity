@@ -1220,21 +1220,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3348218472603497739, guid: 31b98617661b58b4598387dfb89ecfee,
-        type: 3}
-      propertyPath: Limit
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3348218472603497739, guid: 31b98617661b58b4598387dfb89ecfee,
-        type: 3}
-      propertyPath: Width
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3348218472603497739, guid: 31b98617661b58b4598387dfb89ecfee,
-        type: 3}
-      propertyPath: Height
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 3348218474093963988, guid: 31b98617661b58b4598387dfb89ecfee,
         type: 3}
       propertyPath: Pools.Array.data[0].Prefab
@@ -1278,6 +1263,21 @@ PrefabInstance:
         type: 3}
       propertyPath: Pools.Array.data[3].Size
       value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3348218472603497739, guid: 31b98617661b58b4598387dfb89ecfee,
+        type: 3}
+      propertyPath: Limit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3348218472603497739, guid: 31b98617661b58b4598387dfb89ecfee,
+        type: 3}
+      propertyPath: Width
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3348218472603497739, guid: 31b98617661b58b4598387dfb89ecfee,
+        type: 3}
+      propertyPath: Height
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3348218474093963989, guid: 31b98617661b58b4598387dfb89ecfee,
         type: 3}
@@ -1473,7 +1473,7 @@ Transform:
   - {fileID: 582739779}
   - {fileID: 997868670}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &545243787
 GameObject:
@@ -2511,7 +2511,7 @@ SpriteRenderer:
   m_Size: {x: 5.7, y: 10}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &849716449
@@ -3332,7 +3332,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ParticleEffectYellow
       value: 
-      objectReference: {fileID: 7513442687641988329, guid: 52842de72f888f24bb82a59b3a8f4ace,
+      objectReference: {fileID: 3632714298137711126, guid: 52842de72f888f24bb82a59b3a8f4ace,
         type: 3}
     - target: {fileID: 114116024551390298, guid: 1fbc98c3587098445a60d05f5aa8d987,
         type: 3}
@@ -3345,6 +3345,11 @@ PrefabInstance:
       propertyPath: GoldSelection
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114116024551390298, guid: 1fbc98c3587098445a60d05f5aa8d987,
+        type: 3}
+      propertyPath: DefaultMaterial
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fbc98c3587098445a60d05f5aa8d987, type: 3}
 --- !u!1 &997692550
@@ -4316,12 +4321,6 @@ PrefabInstance:
       objectReference: {fileID: 1973636844}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
---- !u!1 &1219589547 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2601976865786514399, guid: d009cb47e607a2e438d6dee0c645a038,
-    type: 3}
-  m_PrefabInstance: {fileID: 189570850}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1277210816
 GameObject:
   m_ObjectHideFlags: 0
@@ -5050,19 +5049,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f391deae19a48ea40974586c19827ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ComboBomb: {fileID: 1914611662045384, guid: e23b4aecc40e08a4baa9adc758f8021f, type: 3}
-  SCR: {fileID: 1995216195}
-  LastKnownPosition: {x: 0, y: 0, z: 0}
   ComboSpeed: 0.05
   ComboVanishSpeed: 1
+  UsingBomb: 0
+  BigCombo: 0
   StartDestroy: 0
-  ComboGameObj: {fileID: 1219589547}
   ComboText: {fileID: 608354429}
   ComboScore: {fileID: 224679346}
   DotManagerScript: {fileID: 1470221023}
+  ComboBomb: {fileID: 1914611662045384, guid: e23b4aecc40e08a4baa9adc758f8021f, type: 3}
+  SCR: {fileID: 1995216195}
   ComboList: []
-  UsingBomb: 0
-  BigCombo: 0
+  LastKnownPosition: {x: 0, y: 0, z: 0}
+  PowerUpGameObj: {fileID: 0}
 --- !u!114 &1470221023 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114116024551390298, guid: 1fbc98c3587098445a60d05f5aa8d987,

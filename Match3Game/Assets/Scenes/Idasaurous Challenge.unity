@@ -7528,12 +7528,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &865200981 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2601976865786514399, guid: d009cb47e607a2e438d6dee0c645a038,
-    type: 3}
-  m_PrefabInstance: {fileID: 734863724}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &887796992
 GameObject:
   m_ObjectHideFlags: 0
@@ -12869,6 +12863,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3581877317542592088, guid: 91a6a9763507c6248b5a513ebf9de683,
         type: 3}
+    - target: {fileID: 114116024551390298, guid: 1fbc98c3587098445a60d05f5aa8d987,
+        type: 3}
+      propertyPath: DefaultMaterial
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fbc98c3587098445a60d05f5aa8d987, type: 3}
 --- !u!1 &995296467 stripped
@@ -12889,19 +12888,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f391deae19a48ea40974586c19827ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ComboBomb: {fileID: 1914611662045384, guid: e23b4aecc40e08a4baa9adc758f8021f, type: 3}
-  SCR: {fileID: 2120276667}
-  LastKnownPosition: {x: 0, y: 0, z: 0}
   ComboSpeed: 0.05
   ComboVanishSpeed: 0.5
+  UsingBomb: 0
+  BigCombo: 0
   StartDestroy: 0
-  ComboGameObj: {fileID: 865200981}
   ComboText: {fileID: 2013819597}
   ComboScore: {fileID: 933925426}
   DotManagerScript: {fileID: 995296469}
+  ComboBomb: {fileID: 1914611662045384, guid: e23b4aecc40e08a4baa9adc758f8021f, type: 3}
+  SCR: {fileID: 2120276667}
   ComboList: []
-  UsingBomb: 0
-  BigCombo: 0
+  LastKnownPosition: {x: 0, y: 0, z: 0}
+  PowerUpGameObj: {fileID: 0}
 --- !u!114 &995296469 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114116024551390298, guid: 1fbc98c3587098445a60d05f5aa8d987,
@@ -16089,11 +16088,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3348218472603497739, guid: 31b98617661b58b4598387dfb89ecfee,
-        type: 3}
-      propertyPath: Limit
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3348218474093963988, guid: 31b98617661b58b4598387dfb89ecfee,
         type: 3}
       propertyPath: Pools.Array.data[3].Prefab
@@ -16118,6 +16112,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5634572643173106411, guid: dcd8ef42b7e8f844ea4c38158d2e5df4,
         type: 3}
+    - target: {fileID: 3348218472603497739, guid: 31b98617661b58b4598387dfb89ecfee,
+        type: 3}
+      propertyPath: Limit
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31b98617661b58b4598387dfb89ecfee, type: 3}
 --- !u!1 &1993961532
@@ -16872,7 +16871,7 @@ Transform:
   m_LocalScale: {x: 2.7312, y: 2.7312, z: 2.7312}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2094486900
 BoxCollider2D:

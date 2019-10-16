@@ -246,7 +246,7 @@ SpriteRenderer:
   m_Size: {x: 9.59, y: 2.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &116162800 stripped
@@ -929,12 +929,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21741c4e4bb78f94e86249b9076a3b9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &493837227 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1368240487831232, guid: 2cbab53c05a3611478805d7346c899d4,
-    type: 3}
-  m_PrefabInstance: {fileID: 633538862}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &529634019 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2706401493238021084, guid: d009cb47e607a2e438d6dee0c645a038,
@@ -2575,11 +2569,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3348218472603497739, guid: 31b98617661b58b4598387dfb89ecfee,
-        type: 3}
-      propertyPath: Limit
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3348218474093963988, guid: 31b98617661b58b4598387dfb89ecfee,
         type: 3}
       propertyPath: Pools.Array.size
@@ -2609,6 +2598,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3577246280092538929, guid: 3bfce0534a2c5004bb3c50b4fbcd280e,
         type: 3}
+    - target: {fileID: 3348218472603497739, guid: 31b98617661b58b4598387dfb89ecfee,
+        type: 3}
+      propertyPath: Limit
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31b98617661b58b4598387dfb89ecfee, type: 3}
 --- !u!1 &1431336243
@@ -2924,12 +2918,6 @@ PrefabInstance:
       objectReference: {fileID: 1095555174}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da5e3e0644271594283bbf1f310a227d, type: 3}
---- !u!1 &1436203493 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2601976865786514399, guid: d009cb47e607a2e438d6dee0c645a038,
-    type: 3}
-  m_PrefabInstance: {fileID: 1606482587}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1453253603 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2600843701340910197, guid: d009cb47e607a2e438d6dee0c645a038,
@@ -3861,11 +3849,7 @@ MonoBehaviour:
   - {fileID: 7814732012330249549, guid: 529aa711efcbe874fa65bb3edc21241e, type: 3}
   GoldEffect: {fileID: 3127394436162725588, guid: fbd427e3cc401474380ba17009089cbf,
     type: 3}
-  MouseCursorObj: {fileID: 493837227}
-  Red: {fileID: 2100000, guid: 42944a42ec16d2b47a640b6313923061, type: 2}
-  Blue: {fileID: 2100000, guid: 42f09c1d07f6bec4aabf45eec21cfc2f, type: 2}
-  Green: {fileID: 2100000, guid: 5e4b73e8166369b46b402cd33e366c12, type: 2}
-  Yellow: {fileID: 2100000, guid: e60b819b42336324a9a4b0006f6ef5d6, type: 2}
+  DefaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   CheckConnection: 0
   ResetDotLayers: 0
   StartHighliting: 0
@@ -3875,7 +3859,7 @@ MonoBehaviour:
   ResetLayer: 0
   ResetMaterial: 0
   CanPlay: 0
-  RedScore: 0
+  NodeScore: 0
   GoldAmount: 0
   Multipier: 0
   Limit: 2
@@ -3911,19 +3895,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f391deae19a48ea40974586c19827ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ComboBomb: {fileID: 1914611662045384, guid: e23b4aecc40e08a4baa9adc758f8021f, type: 3}
-  SCR: {fileID: 656038105}
-  LastKnownPosition: {x: 0, y: 0, z: 0}
   ComboSpeed: 0.05
   ComboVanishSpeed: 0.5
+  UsingBomb: 0
+  BigCombo: 0
   StartDestroy: 0
-  ComboGameObj: {fileID: 1436203493}
   ComboText: {fileID: 307647759}
   ComboScore: {fileID: 2063669521}
   DotManagerScript: {fileID: 2085261489}
+  ComboBomb: {fileID: 1914611662045384, guid: e23b4aecc40e08a4baa9adc758f8021f, type: 3}
+  SCR: {fileID: 656038105}
   ComboList: []
-  UsingBomb: 0
-  BigCombo: 0
+  LastKnownPosition: {x: 0, y: 0, z: 0}
+  PowerUpGameObj: {fileID: 0}
 --- !u!114 &2085261492
 MonoBehaviour:
   m_ObjectHideFlags: 0

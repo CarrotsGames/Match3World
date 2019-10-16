@@ -12,7 +12,7 @@ public class ColourRemover : MonoBehaviour
     [HideInInspector]
     public bool HasUsedSCR;
     bool GoTimer;
-    public GameObject MouseCursorObj;
+    
     public Component[] Renderer;
     public Material RedMat;
     public Material BlueMat;
@@ -62,7 +62,7 @@ public class ColourRemover : MonoBehaviour
 
             BoardGameObj.SetActive(true);
 
-            MouseCursorObj = GameObject.FindGameObjectWithTag("Mouse");
+          
         }
         else
         {
