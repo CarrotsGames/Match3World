@@ -15,11 +15,17 @@ public class BuyEgg : MonoBehaviour
     public bool eggIncubation;
     public GameObject CreatureEggs;
     public GameObject[] EggButtons;
+
  
     private void FixedUpdate()
     {
        if(EggHatch.StartCountDown)
         {
+            if (this.gameObject.name == "BuyEggButton")
+            {
+                GetComponent<Button>().enabled = false;
+                gameObject.SetActive(false);
+            }
             GetComponent<Image>().color = new Color(1, 0, 0);
             GetComponent<Button>().enabled = false;
         }
@@ -27,6 +33,7 @@ public class BuyEgg : MonoBehaviour
         {
             GetComponent<Image>().color = new Color(1, 1, 1);
             GetComponent<Button>().enabled = true;
+            gameObject.SetActive(true);
         }
     }
     public void PurchaseEgg()
@@ -52,5 +59,5 @@ public class BuyEgg : MonoBehaviour
             eggIncubation = true;
         }
     }
-    
+ 
 }

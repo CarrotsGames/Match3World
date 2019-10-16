@@ -24,9 +24,8 @@ public class EggHatch : MonoBehaviour
     public GameObject SaucoUnlockImage;
     public GameObject ChickPeaUnlockImage;
     public GameObject SquishyUnlockImage;
-
     public GameObject MoneyUnlockImage;
-
+    private GameObject BuyButton;
     private float CurrentTime;
     private int EggNumber;
     double MinutesFromTs;
@@ -50,10 +49,16 @@ public class EggHatch : MonoBehaviour
         StartCountDown = (PlayerPrefs.GetInt("EGGCOUNTDOWN") != 0);
         if (GameObject.Find("StoreEgg") == null)
         {
+            BuyButton = GameObject.Find("BuyEggButton");
+
             if (TimerText.text == "New Text")
             {
                 TimerText.text = "loading...";
             }
+        }
+        if(!StartCountDown)
+        {
+            TimerText.text = "Buy an egg?";
         }
     }
 
@@ -96,6 +101,13 @@ public class EggHatch : MonoBehaviour
                     GetCurrentTime();
                 }
                 // MinutesFromTs = TimeTillEggHatch.TotalMinutes;
+            }
+            else
+            {
+                 
+                BuyButton.GetComponent<Button>().enabled = true;
+                BuyButton.gameObject.SetActive(true);
+                TimerText.text = "Buy an egg?";
             }
         }
     }
