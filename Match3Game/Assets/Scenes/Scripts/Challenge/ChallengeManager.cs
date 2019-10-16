@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class ChallengeManager : MonoBehaviour
 {
+    [Header("Enable bool and assign number to debug challenges")]
+    public bool DebugChallenges;
+    public int DebugChallengeNum;
+
     [Header("WHAT DO YOU DO IN CHALLENGE")]
     public List<string> ChallengeObjectives;
     [Header("OBJECTIVE NUMBER GOAL")]
@@ -19,7 +23,6 @@ public class ChallengeManager : MonoBehaviour
     public GameObject winLoseCanvus;
     public Text ClearTime;
     public Text FailText;
-
     private GameObject PowerUpManagerObj;
     // Limit of moves
     private float TotalMoves;
@@ -58,15 +61,20 @@ public class ChallengeManager : MonoBehaviour
         Board = GameObject.FindGameObjectWithTag("BoardSpawn");
         ChallengeNumber = PlayerPrefs.GetInt("ChallengeIndex");
         TargetScore = PlayerPrefs.GetInt("ChallengeScore");
-        Go = Instantiate(ChallengePrefabs[ChallengeNumber], ChallengePrefabs[ChallengeNumber].transform.position, Quaternion.identity);
         OutOflifeCanvas = GameObject.Find("OutOfLifeCanvus");
         OutOflifeCanvas.SetActive(false);
+        // used to debug challenges
+        if (DebugChallenges)
+        {
+            ChallengeNumber = DebugChallengeNum;
+        }
+        Go = Instantiate(ChallengePrefabs[ChallengeNumber], ChallengePrefabs[ChallengeNumber].transform.position, Quaternion.identity);
         // ChallengeDescription = PlayerPrefs.GetString("ChallengeDescription");
         Timer = ChallengeObjectiveScore[ChallengeNumber];
         TotalMoves = ChallengeObjectiveScore[ChallengeNumber];
         TargetScore = (int)ChallengeObjectiveScore[ChallengeNumber];
         Lives.LiveCount = PlayerPrefs.GetInt("LIVECOUNT");
-
+        
     }
 
     public void CheckForNodes()

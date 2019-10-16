@@ -39,61 +39,65 @@ public class EggHatch : MonoBehaviour
     private string UnlockedCompanion;
     TimeSpan TimeTillEggHatch;
     public List<string> EggCreatures;
-
+   
      // Use this for initialization
     void Start()
     {
-        
+         
         CurrentTime = 1;
         PowerUpManager = GameObject.FindGameObjectWithTag("PUM");
         TimeStamp = System.Convert.ToInt64(PlayerPrefs.GetString("EggHatch"));
         StartCountDown = (PlayerPrefs.GetInt("EGGCOUNTDOWN") != 0);
-        if (TimerText.text == "New Text")
+        if (GameObject.Find("StoreEgg") == null)
         {
-            TimerText.text = "loading...";
+            if (TimerText.text == "New Text")
+            {
+                TimerText.text = "loading...";
+            }
         }
     }
 
     private void Update()
     {
-       
-     
-        // begins countdown
-        if (StartCountDown)
+
+        if (GameObject.Find("StoreEgg") == null)
         {
-
-            CurrentTime -= Time.deltaTime;
- 
-            int TimeTillHatch = unchecked((int)MinutesFromTs);
-            if (TimeTillHatch != 0)
+            // begins countdown
+            if (StartCountDown)
             {
-                // test -= (int)Time.deltaTime;
-                int Minutes = (int)(TimeTillHatch % 60);
-                int Hours = (int)((TimeTillHatch / 60));
-                TimerText.text = Hours + ":" + Minutes;
-            }
-            // if the time is greater than time stamp hatch egg
-            if (NowTime > TimeStamp)
-            {
-             
-                PlayerPrefs.SetString("EggHatch", "" + TimeStamp);
 
-                Debug.Log("OVER");
-                StartCountDown = false;
-                PlayerPrefs.SetInt("EGGCOUNTDOWN", (StartCountDown ? 1 : 0));
+                CurrentTime -= Time.deltaTime;
 
-                HatchCreature();
+                int TimeTillHatch = unchecked((int)MinutesFromTs);
+                if (TimeTillHatch != 0)
+                {
+                    // test -= (int)Time.deltaTime;
+                    int Minutes = (int)(TimeTillHatch % 60);
+                    int Hours = (int)((TimeTillHatch / 60));
+                    TimerText.text = Hours + ":" + Minutes;
+                }
+                // if the time is greater than time stamp hatch egg
+                if (NowTime > TimeStamp)
+                {
 
+                    PlayerPrefs.SetString("EggHatch", "" + TimeStamp);
+
+                    Debug.Log("OVER");
+                    StartCountDown = false;
+                    PlayerPrefs.SetInt("EGGCOUNTDOWN", (StartCountDown ? 1 : 0));
+
+                    HatchCreature();
+
+                }
+
+                // Gets time every second
+                if (CurrentTime < 0)
+                {
+                    GetCurrentTime();
+                }
+                // MinutesFromTs = TimeTillEggHatch.TotalMinutes;
             }
-         
-            // Gets time every second
-            if (CurrentTime < 0)
-            {
-                GetCurrentTime();
-            }
-            // MinutesFromTs = TimeTillEggHatch.TotalMinutes;
         }
-
     }
     public void CountDownTimer()
     {
