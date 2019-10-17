@@ -119,7 +119,7 @@ public class FreezeMultiplier : MonoBehaviour
                 PlayerPrefs.SetInt("DISABLESM", (DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableSM ? 1 : 0));
                 DisablePowerUpGameObj.GetComponent<DisablePowerUps>().DisableNodes();
 
-                PowerUpManagerScript.NumOfFreezeMultilpiers -= 1;
+              
                 SlowDownTime = true;
                 PlayerPrefs.SetInt("FreezeMultlpier", (SlowDownTime ? 1 : 0));
                 StartCountdownTimer();

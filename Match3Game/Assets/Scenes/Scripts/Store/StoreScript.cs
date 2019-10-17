@@ -261,30 +261,24 @@ public class StoreScript : MonoBehaviour
 
                 }
                 break;
-            case 6:
-                if (PowerUpManagerScript.Currency >= FreezeMultiplierAmount)
-                {
-                    //ANALYTICS
-                   // int FreezeMultilpier = PlayerPrefs.GetInt("FREEZEMULTIPURCHASE");
-                   // FreezeMultilpier++;
-                  //  PlayerPrefs.SetInt("FREEZEMULTIPURCHASE", FreezeMultilpier);
+            //case 6:
+            //    if (PowerUpManagerScript.Currency >= FreezeMultiplierAmount)
+            //    {
+            //        //ANALYTICS
+              
+            //        PowerUpManagerScript.Currency -= FreezeMultiplierAmount;
+            //        PowerUpManagerScript.PowerUpSaves();
 
-                    PowerUpManagerScript.NumOfFreezeMultilpiers += FreezeMultplierQuantity;
-                    //   PowerUpManagerScript.NumOfSCR += 5;
-
-                    PowerUpManagerScript.Currency -= FreezeMultiplierAmount;
-                    PowerUpManagerScript.PowerUpSaves();
-
-                    youBoughtCanvus.SetActive(true);
-                    multiFreezeUnlock.SetActive(true);
+            //        youBoughtCanvus.SetActive(true);
+            //        multiFreezeUnlock.SetActive(true);
  
-                }
-                else
-                {
+            //    }
+            //    else
+            //    {
 
-                    Debug.Log("Insufficient funds");
-                }
-                break;
+            //        Debug.Log("Insufficient funds");
+            //    }
+            //    break;
                 
         }
         PowerUpManagerScript.PowerUpSaves();
