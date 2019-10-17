@@ -103,45 +103,59 @@ public class ChallengeManager : MonoBehaviour
             }
 
         }
-        if (ChallengeType[ChallengeNumber] != "BeatScore")
+        if (!DebugChallenges)
         {
-           
-         if (Red > 0 && Red < 3)
-
+            if (ChallengeType[ChallengeNumber] != "BeatScore")
             {
-                FailChallenge();
-                FailText.text = "Not enough red nodes";
+                ClearRules();
             }
-            else if (Blue > 0 && Blue < 3)
+            else
             {
-                FailChallenge();
-                FailText.text = "Not enough blue nodes";
-
-            }
-            else if (Green > 0 && Green < 3)
-            {
-                FailChallenge();
-                FailText.text = "Not enough green nodes";
-
-            }
-            else if (Pink > 0 && Pink < 3)
-            {
-                FailChallenge();
-                FailText.text = "Not enough pink nodes";
-
-            }
-            // if the beat score challenge is out of nodes
-            else if (Red == 0 && Blue == 0 & Green == 0 && Pink == 0 && ChallengeType[ChallengeNumber] == "BeatScore" && ChallengeScore < TargetScore)
-            {
-                FailChallenge();
-                FailText.text = " out of nodes ";
+                BeatScoreRules();
             }
         }
-        else
+    }
+    void ClearRules()
+    {
+         
+        if (Red > 0 && Red < 3)
+
         {
-            BeatScore();
+            FailChallenge();
+            FailText.text = "Not enough red nodes";
         }
-        
+        else if (Blue > 0 && Blue < 3)
+        {
+            FailChallenge();
+            FailText.text = "Not enough blue nodes";
+
+        }
+        else if (Green > 0 && Green < 3)
+        {
+            FailChallenge();
+            FailText.text = "Not enough green nodes";
+
+        }
+        else if (Pink > 0 && Pink < 3)
+        {
+            FailChallenge();
+            FailText.text = "Not enough pink nodes";
+
+        }
+         
+    }
+   void BeatScoreRules()
+    {
+        BeatScore();
+        if (!ChallengeFinished)
+        {
+            if (Red <= 2 && Green <= 2 && Pink <= 2 && Blue <= 2)
+            {
+                FailChallenge();
+                FailText.text = " No more possible \n moves ";
+
+            }
+        }
     }
     private void Update()
     {
