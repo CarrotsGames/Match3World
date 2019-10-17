@@ -8,8 +8,7 @@ public class PowerUpManager : MonoBehaviour
     public int NumOfSCR;
     public int NumOfBombs;
     public int NumOfMultilpiers;
-    public int NumOfFreezeMultilpiers;
-
+ 
     public GameObject OutOfItemCanvas;
     public GameObject OutOfSCR;
     public GameObject OutOfBombs;
@@ -43,16 +42,14 @@ public class PowerUpManager : MonoBehaviour
         NumOfSCR = 5;
         NumOfBombs = 5;
         NumOfMultilpiers = 5;
-        NumOfFreezeMultilpiers = 5;
-
+ 
         if (FirstTimeLogin > 0)
         {
             NumOfShuffles = PlayerPrefs.GetInt("NUMSHUFFLE");
             NumOfSCR = PlayerPrefs.GetInt("NUMSRC");
             NumOfBombs = PlayerPrefs.GetInt("NUMBOMB");
             NumOfMultilpiers = PlayerPrefs.GetInt("NUMSM");
-            NumOfFreezeMultilpiers = PlayerPrefs.GetInt("NUMFREEZE");
-
+ 
         }
         FirstTimeLogin += 1;
         PlayerPrefs.SetInt("FirstTime", FirstTimeLogin);
@@ -72,15 +69,13 @@ public class PowerUpManager : MonoBehaviour
         PlayerPrefs.SetInt("NUMSRC", NumOfSCR);
         PlayerPrefs.SetInt("NUMBOMB", NumOfBombs);
         PlayerPrefs.SetInt("NUMSM", NumOfMultilpiers);
-        PlayerPrefs.SetInt("NUMFREEZE", NumOfFreezeMultilpiers);
-        PlayerPrefs.SetInt("CURRENCY", Currency);
+         PlayerPrefs.SetInt("CURRENCY", Currency);
         CurrencyText.text = " " + Currency;
         NumOfShufflesText.text = "" + NumOfShuffles;
         NumOfSCRText.text = "" + NumOfSCR;
         NumOfBombsText.text = "" + NumOfBombs;
         NumOfSMText.text = "" + NumOfMultilpiers;
-        NumOfFMText.text = "" + NumOfFreezeMultilpiers;
-    }
+     }
     public void PowerUpChecker()
     {        
         if (NumOfShuffles > 0)
@@ -117,14 +112,7 @@ public class PowerUpManager : MonoBehaviour
         {
             HasMultlpliers = false;
         }
-        if (NumOfFreezeMultilpiers > 0)
-        {
-            HasFreezeMultlpliers = true;
-        }
-        else
-        {
-            HasFreezeMultlpliers = false;
-        }
+    
     }
     public void PowerUpEmpty(string PowerUpName)
     {

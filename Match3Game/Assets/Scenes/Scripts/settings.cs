@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class settings : MonoBehaviour {
 
-    public Animator uiSliderAnim;
+    public GameObject settingMenu;
 
     public GameObject audioManager;
 
@@ -60,20 +60,19 @@ public class settings : MonoBehaviour {
         }
     }
 
-    public void OpenSlider()
+    public void OpenSettings()
     {
-        if (open == true)
-        {
-            uiSliderAnim.SetBool("Close", true);
-            uiSliderAnim.SetBool("Open", false);
-            open = false;
-        }else if (open == false)
-        {
-            uiSliderAnim.SetBool("Open", true);
-            uiSliderAnim.SetBool("Close", false);
-            open = true;
-        }
+        settingMenu.SetActive(true);
     }
+    public void CloseSettings()
+    {
+        settingMenu.SetActive(false);
+    }
+
+
+
+
+
   
    public void MusicOn()
     {

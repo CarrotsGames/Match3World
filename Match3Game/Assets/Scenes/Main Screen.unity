@@ -10917,6 +10917,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1929677184829160893, guid: c48dae2b39178bc498df340966b5eef7,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 889335340df102246a2e6b3d6201ad9e, type: 3}
     - target: {fileID: 479337385744612785, guid: c48dae2b39178bc498df340966b5eef7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10972,11 +10977,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1929677184829160893, guid: c48dae2b39178bc498df340966b5eef7,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 889335340df102246a2e6b3d6201ad9e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c48dae2b39178bc498df340966b5eef7, type: 3}
 --- !u!1 &383139323
@@ -12941,7 +12941,6 @@ MonoBehaviour:
   Red: 0
   Rainbow: 0
   HasUsedSCR: 0
-  MouseCursorObj: {fileID: 1330711879}
   Renderer: []
   RedMat: {fileID: 2100000, guid: 2aa747bd3d7e62e47a942c9e94cbb17f, type: 2}
   BlueMat: {fileID: 2100000, guid: 098f6c24605a3dc4d850b7dc6c476ace, type: 2}
@@ -15033,7 +15032,7 @@ GameObject:
   - component: {fileID: 518086265}
   - component: {fileID: 518086264}
   m_Layer: 5
-  m_Name: Buy Button
+  m_Name: BuyEggButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15056,8 +15055,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 95.33, y: -87.01}
-  m_SizeDelta: {x: 133.17, y: 40.17}
+  m_AnchoredPosition: {x: 94.06, y: -88.9}
+  m_SizeDelta: {x: 149.6, y: 43.96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &518086264
 MonoBehaviour:
@@ -21066,6 +21065,11 @@ PrefabInstance:
       propertyPath: NextLevel
       value: 
       objectReference: {fileID: 1331546432}
+    - target: {fileID: 114985376010937422, guid: f8b235ecc99a122448d05892e14384e0,
+        type: 3}
+      propertyPath: CurrentMultiplier
+      value: 
+      objectReference: {fileID: 593271874}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8b235ecc99a122448d05892e14384e0, type: 3}
 --- !u!114 &766959914 stripped
@@ -27400,10 +27404,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
-    - target: {fileID: 1670561164997348, guid: 454f8424e61f4b94598935dfa480b552, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114908531856327124, guid: 454f8424e61f4b94598935dfa480b552,
         type: 3}
       propertyPath: UnlockScore.Array.data[2]
@@ -27418,6 +27418,10 @@ PrefabInstance:
         type: 3}
       propertyPath: ChallengeScore
       value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670561164997348, guid: 454f8424e61f4b94598935dfa480b552, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114872690170545272, guid: 454f8424e61f4b94598935dfa480b552, type: 3}
@@ -32253,7 +32257,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EggHatchGameObj: {fileID: 1986311360831501}
-  HasLoggedIn: 0
 --- !u!1 &1247398983
 GameObject:
   m_ObjectHideFlags: 0
@@ -34778,12 +34781,6 @@ PolygonCollider2D:
       - {x: -3.09, y: -7.0499997}
       - {x: -3.07, y: -7.04}
       - {x: -2.97, y: -6.7999997}
---- !u!1 &1330711879 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1897268388609014, guid: 4cc5d7985d21bd44a82e2b17064fa4fb,
-    type: 3}
-  m_PrefabInstance: {fileID: 1447376988}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1331021529
 GameObject:
   m_ObjectHideFlags: 0
@@ -36482,7 +36479,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -13.5, y: -5.68}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1382031804
@@ -40351,7 +40348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2ed865293dfa74aa53305267d4c775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiSliderAnim: {fileID: 0}
+  settingMenu: {fileID: 0}
   audioManager: {fileID: 1645992}
   NoMusicImage: {fileID: 427289643}
   MusicImage: {fileID: 1327616094}
@@ -58178,8 +58175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32a00640e6d82044a905ed15938341ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberOfLives: {fileID: 1957605674}
-  LifeTimerText: {fileID: 721882254}
+  NumberOfLives: {fileID: 1937103651}
+  LifeTimerText: {fileID: 1884265664}
   AddPlayCount: 0
 --- !u!4 &2117171845
 Transform:

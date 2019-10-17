@@ -994,7 +994,7 @@ PrefabInstance:
     - target: {fileID: 2658884934281731776, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2658884934281731778, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
@@ -1250,7 +1250,7 @@ PrefabInstance:
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: DebugChallenges
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2658884934281731779, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
@@ -1269,12 +1269,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1128223317818842, guid: cdada8574ce01ac42b5f660acca6d26b,
     type: 3}
   m_PrefabInstance: {fileID: 852630869}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &493837227 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1368240487831232, guid: 2cbab53c05a3611478805d7346c899d4,
-    type: 3}
-  m_PrefabInstance: {fileID: 633538862}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &525679942 stripped
 MonoBehaviour:
@@ -3155,7 +3149,6 @@ MonoBehaviour:
   - {fileID: 2044793714}
   GoldEffect: {fileID: 5781712825884796205, guid: a900fa3e41988a14f82a05b824684579,
     type: 3}
-  MouseCursorObj: {fileID: 493837227}
   DefaultMaterial: {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   CheckConnection: 0
   ResetDotLayers: 0
@@ -3202,19 +3195,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f391deae19a48ea40974586c19827ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ComboBomb: {fileID: 1914611662045384, guid: e23b4aecc40e08a4baa9adc758f8021f, type: 3}
-  SCR: {fileID: 1505257689}
-  LastKnownPosition: {x: 0, y: 0, z: 0}
   ComboSpeed: 0.05
   ComboVanishSpeed: 0.5
+  UsingBomb: 0
+  BigCombo: 0
   StartDestroy: 0
   ComboText: {fileID: 1505257691}
   ComboScore: {fileID: 1505257690}
   DotManagerScript: {fileID: 2085261489}
+  ComboBomb: {fileID: 1914611662045384, guid: e23b4aecc40e08a4baa9adc758f8021f, type: 3}
+  SCR: {fileID: 1505257689}
   ComboList: []
+  LastKnownPosition: {x: 0, y: 0, z: 0}
   PowerUpGameObj: {fileID: 0}
-  UsingBomb: 0
-  BigCombo: 0
 --- !u!114 &2085261492
 MonoBehaviour:
   m_ObjectHideFlags: 0
