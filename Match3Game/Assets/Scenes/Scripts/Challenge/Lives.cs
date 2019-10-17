@@ -181,9 +181,9 @@ public class Lives : MonoBehaviour
               
      
         // Displays the current tick time into minutes and hours
-        if (TimeTillLifeRegen > -1)
+        TimeLeft = (int)(TimeTillLifeRegen % 60);
+        if (TimeTillLifeRegen > -1 && TimeLeft > 0)
         {
-            TimeLeft = (int)(TimeTillLifeRegen % 60);
             LifeTimerText.text = TimeLeft + 1 + "Minutes";
         }
     }
