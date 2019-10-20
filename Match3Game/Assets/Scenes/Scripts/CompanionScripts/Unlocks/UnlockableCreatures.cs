@@ -218,6 +218,12 @@ public class UnlockableCreatures : MonoBehaviour
                     PlayerPrefs.SetString("OKAMI", UnlockableMoobling[7]);
                 }
                 break;
+            case "Ida Locked":
+                {
+                    UnlockableMoobling[8] = CompanionName;
+                    PlayerPrefs.SetString("Ida Locked", UnlockableMoobling[8]);
+                }
+                break;
         }
         GetUnlocked();
     }

@@ -16,5 +16,6 @@ public class PurchaseMoobling : MonoBehaviour
 
         Unlockables.GetComponent<UnlockableCreatures>().CompanionName = Moobling;
         Unlockables.GetComponent<UnlockableCreatures>().Unlock();
+        Debug.Log("Purchased moobling");
     }
 }
