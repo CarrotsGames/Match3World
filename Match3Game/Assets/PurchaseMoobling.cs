@@ -11,9 +11,11 @@ public class PurchaseMoobling : MonoBehaviour
     }
    public void BuyMoobling (string Moobling)
     {
+       
         Unlockables = GameObject.Find("UNLOCKABLESMain");
 
         Unlockables.GetComponent<UnlockableCreatures>().CompanionName = Moobling;
         Unlockables.GetComponent<UnlockableCreatures>().Unlock();
+        Debug.Log("Purchased moobling");
     }
 }

@@ -9,8 +9,10 @@ namespace UnityEngine.Purchasing
     [RequireComponent(typeof(Button))]
     [AddComponentMenu("Unity IAP/IAP Button")]
     [HelpURL("https://docs.unity3d.com/Manual/UnityIAP.html")]
+  
     public class IAPButton : MonoBehaviour
     {
+        public static string ItemName;
         public enum ButtonType
         {
             Purchase,
@@ -20,6 +22,7 @@ namespace UnityEngine.Purchasing
         [System.Serializable]
         public class OnPurchaseCompletedEvent : UnityEvent<Product>
         {
+            
         };
 
         [System.Serializable]
@@ -99,7 +102,7 @@ namespace UnityEngine.Purchasing
                 CodelessIAPStoreListener.Instance.RemoveButton(this);
             }
         }
-
+ 
         void PurchaseProduct()
         {
             if (buttonType == ButtonType.Purchase)

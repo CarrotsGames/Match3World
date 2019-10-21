@@ -22,11 +22,14 @@ public class SceneAudio : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-      
+
         // Daymode = true;
-        HappinessManagerGameObj = GameObject.FindGameObjectWithTag("HM");
-        HappinessManagerScript = HappinessManagerGameObj.GetComponent<HappinessManager>();
-      // if(Daymode)
+        if (!GameObject.Find("Store"))
+        {
+            HappinessManagerGameObj = GameObject.FindGameObjectWithTag("HM");
+            HappinessManagerScript = HappinessManagerGameObj.GetComponent<HappinessManager>();
+
+        }// if(Daymode)
       // {
       //     NightMusic();
       // }
