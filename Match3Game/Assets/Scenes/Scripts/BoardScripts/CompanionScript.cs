@@ -170,10 +170,9 @@ public class CompanionScript : MonoBehaviour
         }
         else
         {
-            GameObject Go = GameObject.Find("CHALLENGE");
-            LevelMultiplier = 2;
+            GameObject Go = GameObject.Find("CHALLENGE");           
             Total = TotalConnection + DotManagerScriptRef.ComboScore;
-            Total *= LevelMultiplier;
+            Total *= 2;
             Go.GetComponent<ChallengeManager>().ChallengeScore += Total;
             Go.GetComponent<ChallengeManager>().CheckForNodes();
             // MULTLPIER 1

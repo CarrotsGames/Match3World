@@ -45,12 +45,17 @@ public class Lives : MonoBehaviour
             LiveCount = 3;
         }
         FirstTimeLogin++;
+        if(LiveCount >= 3)
+        {
+            LifeTimerText.text = "FULL";
+        }
         PlayerPrefs.SetInt("FirstTimeLogin", FirstTimeLogin);
         Countdown();
 
     }
     private void FixedUpdate()
     {
+        Debug.Log(LiveCount);
         NumberOfLives.text = "" + LiveCount;
         //DEBUG ONLY Resets time
         if (Input.GetKeyDown(KeyCode.Alpha4))
@@ -88,14 +93,15 @@ public class Lives : MonoBehaviour
  
     void BeginTheCountdown()
     {
+
         TimeStamp = 0;
         CurrentTime = 0;
         // temporarily makes it 2 to not give lives right away
         TimeLeft = 19;
-
         NumberOfLives.text = "" + LiveCount;
         SetFullCounter();
         IsCountingDown = true;
+        PlayerPrefs.SetInt("LIVECOUNT", LiveCount);
         PlayerPrefs.SetInt("LIVECOUNTDOWN", (IsCountingDown ? 1 : 0));
     }
     public void ResetStats()
@@ -105,6 +111,8 @@ public class Lives : MonoBehaviour
         TimerLong = 0;
         IsCountingDown = false;
         LiveCount = 3;
+        PlayerPrefs.SetInt("LIVECOUNT", LiveCount);
+
         PlayerPrefs.SetString("TimeUntilLives", "" + TimeStamp);
         PlayerPrefs.SetString("TwentyMinutes", "" + TimerLong);
         PlayerPrefs.SetInt("LIVECOUNTDOWN", (IsCountingDown ? 1 : 0));
@@ -142,6 +150,8 @@ public class Lives : MonoBehaviour
                 }               
                 else if (CurrentTime > TimeStamp)
                 {
+                    LiveCount++;
+                    PlayerPrefs.SetInt("LIVECOUNT", LiveCount);
                     // gets amount of time already done 
                     TimerLong -= TimeStamp - CurrentTime;
                     TimeSpan Ts = TimeSpan.FromTicks(TimerLong);
@@ -157,10 +167,7 @@ public class Lives : MonoBehaviour
                     int TimeTillLifeRegen = unchecked((int)MinutesFromTs);
                     TimeLeft = (int)(TimeTillLifeRegen % 60);
                     LifeTimerText.text = TimeLeft + 1 + "Minutes";
-
-                    LiveCount++;
-                    PlayerPrefs.SetInt("LIVECOUNT", LiveCount);
-
+                                      
                 }
                 Countdown();
                 NumberOfLives.text = "" + LiveCount;

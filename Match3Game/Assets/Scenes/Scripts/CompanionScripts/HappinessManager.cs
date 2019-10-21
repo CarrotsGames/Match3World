@@ -4,48 +4,47 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class HappinessManager : MonoBehaviour
-{    //TODO
-    // CHANGE NAME BOARDSCRIPT TO BOARD//
+{   
+  
+    public float HappinessSliderValue;
     [HideInInspector]
     public RealTimeCounter RealtTimeScript;
     [HideInInspector]
     public bool OnMainScene;
+    public bool CanGetCurrency;
+    public bool IsSleeping;   
     [HideInInspector]
     public int HappinessClamp;
+    public int Level;
     [HideInInspector]
     public string SaveStrings;
-
+    // gets a companions name which loads their save
+    public string CompanionSave;
+    
+    private int TimeTillSave;
+    private bool CanEarnGold;
+    private string SceneName;
+  
+    //Unity releated stuff
     public GameObject Board;
     public GameObject Companion;
     public GameObject AudioGameObj;
-    public Image FillColour;
+    public GameObject DayTime;
+    public GameObject LevelUpCanvas;
     public Text LevelText;
     public Text NextLevel;
     public Text CurrentMultiplier;
-    //public GameObject SliderGameObj;
     public Text CurrentHappiness;
-    public Slider HappinessSlider;
-    public float HappinessSliderValue;
-    // gets a companions name which loads their save
-    public string CompanionSave;
-    public bool CanGetCurrency;
-    // Reset multplier for DEBUG purposes 
-    public bool IsSleeping;   
+    public Image FillColour;
+    public Slider HappinessSlider;    
     public Animator Anim;
-    public GameObject DayTime;
-   // public GameObject NightTime;
-    public GameObject AwakeHead;
-    public int Level;
-
+   
     // Plays ad when sleeping
     private GameObject SleepAd;
-    private PlayLevelAd PlayLevelAdScript;
-    
-    private BoardScript BoardScriptRef;
-    private string SceneName;
     private GameObject RealTimeGameObj;
-    private bool CanEarnGold;
-    private int TimeTillSave;
+    private PlayLevelAd PlayLevelAdScript; 
+    private BoardScript BoardScriptRef;
+
 
     // Use this for initialization
     void Start()
@@ -55,7 +54,7 @@ public class HappinessManager : MonoBehaviour
         Scene CurrentScene = SceneManager.GetActiveScene();
         // Gets current scene
         SceneName = CurrentScene.name;
-      //  Level = PlayerPrefs.GetInt(Companion.name + "Multiplier", Level);
+      
         SleepAd = GameObject.FindGameObjectWithTag("SleepingAd");
         // If for somereason level is 0 make it 1
         // this is used as a safety net just incase for somereason its 0
@@ -93,7 +92,8 @@ public class HappinessManager : MonoBehaviour
             HappinessClamp += Level * 250;
             HappinessClamp = SaveSystem.LoadMoobling().TotalEXP;
            // DotManager.TotalScore = SaveSystem.LoadMoobling().TotalScore;
-            HappinessBar();
+            HappinessBar();     
+            LevelUpCanvas.SetActive(false);
         }
         HappinessSlider.maxValue = HappinessClamp;
         HappinessSliderValue = Mathf.Clamp(HappinessSliderValue, 0, HappinessClamp);
@@ -109,9 +109,16 @@ public class HappinessManager : MonoBehaviour
         //HappinessClamp = 100;
         LevelText.text = "" + Level;
         CurrentMultiplier.text = "" + Level;
-
+     
      }
- 
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            Level = 1;
+        }
+    }
     public void HappinessBar()
     {
              
@@ -142,8 +149,8 @@ public class HappinessManager : MonoBehaviour
         {
             if (HappinessSliderValue > HappinessClamp)
             {
-                
 
+                LevelUpCanvas.SetActive(true);
                 FillColour.color = Color.green;
                 // Animation 
  

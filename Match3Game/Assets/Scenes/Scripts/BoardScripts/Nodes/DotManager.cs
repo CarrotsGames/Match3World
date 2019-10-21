@@ -44,7 +44,6 @@ public class DotManager : MonoBehaviour
     public bool CanPlay;
     public int NodeScore;
     public int GoldAmount;
-    public int Multipier;
     public int Limit;
     public static int TotalScore;
 
@@ -83,7 +82,7 @@ public class DotManager : MonoBehaviour
         ResetDotLayers = false;
         CanPlay = true;
         // UI
-        Multipier = 1;
+        
         // MultiplierText.text = "" + Multipier;
         HighScore.text = "" + TotalScore;
 
@@ -182,7 +181,7 @@ public class DotManager : MonoBehaviour
             ConnectionMade = true;
             NodeScore += PeicesCount;
             NodeScore *= Peices.Count;
-            NodeScore *= Multipier;
+ 
 
             for (Num = 0; Num < PeicesCount; Num++)
             {

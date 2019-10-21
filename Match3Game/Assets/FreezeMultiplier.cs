@@ -59,7 +59,7 @@ public class FreezeMultiplier : MonoBehaviour
             // Loads the saved mutlpier value
             Multipliersave = PlayerPrefs.GetInt("SavedMultlpier");
             // assigns the Multipier that value
-            DotManagerScript.Multipier = Multipliersave;
+ 
         
             // if the current time is greater than target time end powerup
             if (NowTime > TimeStamp)
