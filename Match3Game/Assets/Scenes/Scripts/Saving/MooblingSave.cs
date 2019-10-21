@@ -10,7 +10,7 @@ public class MooblingSave
     public int EXP;
     public int TotalEXP = 250;
    // public int TotalScore;
-
+   
 
     public MooblingSave(HappinessManager Moobling)
     {
@@ -19,5 +19,8 @@ public class MooblingSave
         TotalEXP = Moobling.HappinessClamp;
         //TotalScore = DotManager.TotalScore;
     }
-    
+  //  public ChallengeSave(ChallengeComplete Challenge)
+  //  {
+  //
+  //  }
 }

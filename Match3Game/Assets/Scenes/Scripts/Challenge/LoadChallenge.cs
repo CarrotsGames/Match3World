@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 using UnityEngine;
 
@@ -8,7 +9,17 @@ public class LoadChallenge : MonoBehaviour
 {
     [Header("Challenge scene name")]
     public string ChallengeScene;
- 
+
+    public Button button; // Drag & Drop the button in the inspector
+
+    
+
+    private void Update()
+    {
+        button = GetComponent<Button>();
+        button.image.color = Color.yellow;
+    
+    }
     public void SelectChallenge(int Index)
     {
         if (Lives.LiveCount > 0)

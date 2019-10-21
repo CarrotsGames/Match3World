@@ -112,7 +112,6 @@ public class Lives : MonoBehaviour
     // checks if the hearts have regened
     void CheckHearts()
     {
-        PlayerPrefs.SetInt("LIVECOUNT", LiveCount);
 
         CheckTime -= Time.deltaTime;
         if (CheckTime < 0 && TimeStamp > 0)
@@ -160,6 +159,8 @@ public class Lives : MonoBehaviour
                     LifeTimerText.text = TimeLeft + 1 + "Minutes";
 
                     LiveCount++;
+                    PlayerPrefs.SetInt("LIVECOUNT", LiveCount);
+
                 }
                 Countdown();
                 NumberOfLives.text = "" + LiveCount;

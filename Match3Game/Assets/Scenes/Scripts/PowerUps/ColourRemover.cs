@@ -147,41 +147,44 @@ public class ColourRemover : MonoBehaviour
     }
     public void RemoveColour()
     {
-        // if the desired colour is true destroy all nodes with that colour
-        if (Red)
+        if (!GameObject.Find("CHALLENGE"))
         {
-            // Counts how many times player uses this powerup
-            TimesUsed++;
-            PlayerPrefs.SetInt("SCR", TimesUsed);
-            for (int i = 0; i < BoardGameObj.transform.childCount; i++)
+            // if the desired colour is true destroy all nodes with that colour
+            if (Red)
             {
-                if (BoardGameObj.transform.GetChild(i).tag == Colour)
+                // Counts how many times player uses this powerup
+                TimesUsed++;
+                PlayerPrefs.SetInt("SCR", TimesUsed);
+                for (int i = 0; i < BoardGameObj.transform.childCount; i++)
                 {
-                    SCRAmount += 1;
+                    if (BoardGameObj.transform.GetChild(i).tag == Colour)
+                    {
+                        SCRAmount += 1;
 
-                    LastPos = BoardGameObj.transform.GetChild(i).transform.position;
-                    PlayParticle();
-                    Destroy(BoardGameObj.transform.GetChild(i).gameObject);
-                    Index++;
+                        LastPos = BoardGameObj.transform.GetChild(i).transform.position;
+                        PlayParticle();
+                        Destroy(BoardGameObj.transform.GetChild(i).gameObject);
+                        Index++;
+                    }
                 }
-            }
 
-            DotManagerScript.CanPlay = true;
-            Index = 0;
-            Red = false;
-            PowerUpInUse = false;
-            DotManagerScript.ResetMaterial = true;
-            GoTimer = true;
-            int Total = SCRAmount * HappinessManagerScript.Level;
-            Total *= HappinessManagerScript.Level;
-            // GOES TO EXP
-            int SCREXP = 15;
-            int EXPTotal = SCRAmount + HappinessManagerScript.Level + SCREXP;
-            Companion.GetComponent<CompanionScript>().ScoreMultiplier(EXPTotal, Total,"SCR");
-            SCRAmount = 0;
-            HasUsedSCR = true;
-            PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
-            HappinessManagerScript.HappinessBar();
+                DotManagerScript.CanPlay = true;
+                Index = 0;
+                Red = false;
+                PowerUpInUse = false;
+                DotManagerScript.ResetMaterial = true;
+                GoTimer = true;
+                int Total = SCRAmount * HappinessManagerScript.Level;
+                Total *= HappinessManagerScript.Level;
+                // GOES TO EXP
+                int SCREXP = 15;
+                int EXPTotal = SCRAmount + HappinessManagerScript.Level + SCREXP;
+                Companion.GetComponent<CompanionScript>().ScoreMultiplier(EXPTotal, Total, "SCR");
+                SCRAmount = 0;
+                HasUsedSCR = true;
+                PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
+                HappinessManagerScript.HappinessBar();
+            }
         }
         
     }

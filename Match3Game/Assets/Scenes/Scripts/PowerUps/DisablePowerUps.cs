@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class DisablePowerUps : MonoBehaviour
 {
    public bool DisableFreeze;
    public bool DisableSM;
+    public GameObject[] PowerUps;
     private void Start()
     {
         DisableNodes();
@@ -21,46 +22,51 @@ public class DisablePowerUps : MonoBehaviour
     }
     public void OnButtonDisable()
     {
-        for (int i = 0; i < transform.childCount; i++)
+        if (!GameObject.Find("CHALLENGE"))
         {
-            transform.GetChild(i).gameObject.layer = 2;
-            transform.GetChild(i).GetComponent<Button>().enabled = false;
-            transform.GetChild(i).GetComponent<Image>().color = Color.gray;
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                PowerUps[i].gameObject.layer = 2;
+                PowerUps[i].GetComponent<Button>().enabled = false;
+                PowerUps[i].GetComponent<Image>().color = Color.gray;
+            }
         }
     }
     public void DisableNodes()
     {
-       // DisableSM = false;
-       // PlayerPrefs.SetInt("DISABLESM", (DisableSM ? 1 : 0));
-       //
+     
+        // DisableSM = false;
+        // PlayerPrefs.SetInt("DISABLESM", (DisableSM ? 1 : 0));
+        //
         DisableSM = (PlayerPrefs.GetInt("DISABLESM") != 0);
 
-        if(DisableSM)
+        if (DisableSM)
         {
-            transform.Find("SuperMutliplier").gameObject.layer = 2;
-            transform.Find("SuperMutliplier").GetComponent<Button>().enabled = false;
-            transform.Find("SuperMutliplier").GetComponent<Image>().color = Color.gray;
+            PowerUps[3].gameObject.layer = 2;
+            PowerUps[3].GetComponent<Button>().enabled = false;
+            PowerUps[3].GetComponent<Image>().color = Color.gray;
         }
         else
         {
-            transform.Find("SuperMutliplier").gameObject.layer = 5;
-            transform.Find("SuperMutliplier").GetComponent<Button>().enabled = true;
-            transform.Find("SuperMutliplier").GetComponent<Image>().color = Color.white;
+            PowerUps[3].gameObject.layer = 5;
+            PowerUps[3].GetComponent<Button>().enabled = true;
+            PowerUps[3].GetComponent<Image>().color = Color.white;
         }
+        
     }
     public void OnButtonEnable()
     {
-        for (int i = 0; i < transform.childCount; i++)
+        for (int i = 0; i < PowerUps.Length; i++)
         {
-            if ( transform.GetChild(i).name == "SuperMutliplier")
+            if (i == 3)
             {
                 DisableNodes();
             }
             else
             {
-                transform.GetChild(i).gameObject.layer = 5;
-                transform.GetChild(i).GetComponent<Button>().enabled = true;
-                transform.GetChild(i).GetComponent<Image>().color = Color.white;
+                PowerUps[i].gameObject.layer = 5;
+                PowerUps[i].GetComponent<Button>().enabled = true;
+                PowerUps[i].GetComponent<Image>().color = Color.white;
             }   
             
         }
