@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class ChallengeComplete : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   public float AS;
 
     // Update is called once per frame
     void Update()
     {
-//SaveSystem.SaveChallenges()   
+        //SaveSystem.SaveChallenges()   
     }
 }

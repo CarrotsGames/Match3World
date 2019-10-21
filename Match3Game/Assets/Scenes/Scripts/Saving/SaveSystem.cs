@@ -5,22 +5,21 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveSystem 
 {
-   // public static void SaveChallenges(ChallengeComplete Challenge)
-   // {
-   //     string scene = SceneManager.GetActiveScene().name;
-   //     BinaryFormatter formatter = new BinaryFormatter();
-   //     string path = Application.persistentDataPath + "/" + scene + ".Data";
-   //     if (!File.Exists(path))
-   //     {
-   //         File.WriteAllText(path, "");
-   //     }
-   //     FileStream stream = new FileStream(path, FileMode.Create);
-   //
-   //     MooblingSave data = new MooblingSave(Challenge);
-   //
-   //     formatter.Serialize(stream, data);
-   //     stream.Close();
-   // }
+    public static void SaveChallenge(ChallengeComplete Ch)
+    {
+        string scene = SceneManager.GetActiveScene().name;
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/" + scene + ".Data";
+        if (!File.Exists(path))
+        {
+            File.WriteAllText(path, "");
+        }
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        ChallengeSave data = new ChallengeSave(Ch);
+        formatter.Serialize(stream, data);
+        stream.Close();
+    }
 
 
     public static void SaveMoobling(HappinessManager Moobling)
@@ -60,10 +59,6 @@ public static class SaveSystem
             Debug.Log("Save file created" + path);
             return LoadMoobling();
         }
-
-
-
-
 
     }
 
