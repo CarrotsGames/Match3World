@@ -29,6 +29,10 @@ public class JunkLater : MonoBehaviour {
     {
         SceneManager.LoadScene("Money Store");
     }
+    public void LoadTut()
+    {
+        SceneManager.LoadScene("Main Scene Tut");
+    }
 
 
 
