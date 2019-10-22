@@ -8,6 +8,12 @@ public class Tutorial : MonoBehaviour
     public GameObject tutorialCanvus;
 
 
+    public void Start()
+    {
+        tutParts[0].SetActive(true);
+    }
+
+
     public void LoadPart2()
     {
         tutParts[0].SetActive(false);
