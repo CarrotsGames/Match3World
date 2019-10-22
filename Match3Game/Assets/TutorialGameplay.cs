@@ -33,6 +33,12 @@ public class TutorialGameplay : MonoBehaviour
                 connectionStep[1].SetActive(true);
             }
         }
+
+        // IF DONE WITH TUTORIAL
+        // if()
+        // {
+        // PlayerPrefs.SetInt("FTS", 1);
+        // }
        
     }
     public void CloseTut()
