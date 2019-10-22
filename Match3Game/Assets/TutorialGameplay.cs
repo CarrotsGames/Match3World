@@ -27,7 +27,7 @@ public class TutorialGameplay : MonoBehaviour
         {
             movesDone++;
             dotManagerScript.ConnectionMade = false;
-            if (movesDone >= 5)
+            if (movesDone == 5)
             {
                 tutCanvus.SetActive(true);
                 connectionStep[1].SetActive(true);

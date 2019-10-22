@@ -110,7 +110,15 @@ public class HappinessManager : MonoBehaviour
         LevelText.text = "" + Level;
         CurrentMultiplier.text = "" + Level;
      
-     }
+        if(CompanionSave == "TutorialGobuValue")
+        {
+            Level = 2;
+            HappinessSliderValue = 0;
+            HappinessClamp += 250;
+            HappinessBar();
+
+        }
+    }
 
   
     public void HappinessBar()
