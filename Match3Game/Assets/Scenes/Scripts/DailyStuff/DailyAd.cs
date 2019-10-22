@@ -10,7 +10,7 @@ public class DailyAd : MonoBehaviour
 {
     public Text DailyAdPlays;
     public PowerUpManager PowerUpManagerScript;
-    public string gameId = "3222685";
+    public string gameId = "3192812";
     public string placementId;
     long TimeStamp;
     long NowTime;

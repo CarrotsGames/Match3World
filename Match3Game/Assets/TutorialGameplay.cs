@@ -51,8 +51,15 @@ public class TutorialGameplay : MonoBehaviour
     {
         connectionStep[0].SetActive(false);
         connectionStep[1].SetActive(false);
+        connectionStep[2].SetActive(false);
         tutCanvus.SetActive(false);
         powerUpAnim.SetBool("StartAnim", true);
+    }
+
+    public void LoadNext()
+    {
+        connectionStep[1].SetActive(false);
+        connectionStep[2].SetActive(true);
     }
     
 
