@@ -55,7 +55,6 @@ public class Lives : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Debug.Log(LiveCount);
         NumberOfLives.text = "" + LiveCount;
         //DEBUG ONLY Resets time
         if (Input.GetKeyDown(KeyCode.Alpha4))

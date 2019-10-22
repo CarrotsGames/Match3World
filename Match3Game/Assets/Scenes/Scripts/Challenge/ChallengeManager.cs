@@ -9,6 +9,8 @@ public class ChallengeManager : MonoBehaviour
     [Header("Enable bool and assign number to debug challenges")]
     public bool DebugChallenges;
     public int DebugChallengeNum;
+    [HideInInspector]
+    public int ChallengeNumber;
 
     [Header("WHAT DO YOU DO IN CHALLENGE")]
     public List<string> ChallengeObjectives;
@@ -36,7 +38,6 @@ public class ChallengeManager : MonoBehaviour
     public int ChallengeScore;
     //CLEAR BOARD CHALLENGE 
     private CompanionScript CompanionScriptRef;
-    private int ChallengeNumber;
     private GameObject Board;
     private GameObject Companion;
     private GameObject DotManagerGameObj;
@@ -203,13 +204,18 @@ public class ChallengeManager : MonoBehaviour
         }
     }
     void CompleteChallenge()
-    {
+    {   
         PowerUpManagerObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerObj.GetComponent<PowerUpManager>().Currency += 10;
         PowerUpManagerObj.GetComponent<PowerUpManager>().PowerUpSaves();
         winLoseCanvus.SetActive(true);
         WinGameObject.SetActive(true);
-        ChallengeFinished = true;
+
+        if (!ChallengeFinished)
+        {
+            ChallengeFinished = true;
+            GetComponent<ChallengeComplete>().Save();     
+        }
     }
     void ClearInXMoves()
     {

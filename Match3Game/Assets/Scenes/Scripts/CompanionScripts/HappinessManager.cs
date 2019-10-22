@@ -112,13 +112,7 @@ public class HappinessManager : MonoBehaviour
      
      }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            Level = 1;
-        }
-    }
+  
     public void HappinessBar()
     {
              

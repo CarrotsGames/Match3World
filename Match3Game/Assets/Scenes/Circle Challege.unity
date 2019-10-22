@@ -216,6 +216,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1929677184829160893, guid: c48dae2b39178bc498df340966b5eef7,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7198b9a354e692d4a8a8e3e2b83e1e5f, type: 3}
     - target: {fileID: 479337385744612785, guid: c48dae2b39178bc498df340966b5eef7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -271,11 +276,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1929677184829160893, guid: c48dae2b39178bc498df340966b5eef7,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 7198b9a354e692d4a8a8e3e2b83e1e5f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c48dae2b39178bc498df340966b5eef7, type: 3}
 --- !u!1001 &119593019
@@ -1264,6 +1264,26 @@ PrefabInstance:
       objectReference: {fileID: 684845622}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da5e3e0644271594283bbf1f310a227d, type: 3}
+--- !u!1 &478024899 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2658884934281731776, guid: da5e3e0644271594283bbf1f310a227d,
+    type: 3}
+  m_PrefabInstance: {fileID: 478024898}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &478024900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478024899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2732ae83f53f9494cbb1d389b442edbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChallengeName: BinkyChallenge
+  CurrentChallenge: 0
 --- !u!1 &488132743 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1128223317818842, guid: cdada8574ce01ac42b5f660acca6d26b,
@@ -2963,16 +2983,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 114471865495284412, guid: 454f8424e61f4b94598935dfa480b552,
-        type: 3}
-      propertyPath: kokoCanvus
-      value: 
-      objectReference: {fileID: 1559705096}
     - target: {fileID: 114908531856327124, guid: 454f8424e61f4b94598935dfa480b552,
         type: 3}
       propertyPath: UnlockableCreatures
       value: 
       objectReference: {fileID: 2044793713}
+    - target: {fileID: 114471865495284412, guid: 454f8424e61f4b94598935dfa480b552,
+        type: 3}
+      propertyPath: kokoCanvus
+      value: 
+      objectReference: {fileID: 1559705096}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 454f8424e61f4b94598935dfa480b552, type: 3}
 --- !u!1 &2044793713 stripped
@@ -3120,7 +3140,6 @@ MonoBehaviour:
   CanPlay: 0
   NodeScore: 0
   GoldAmount: 0
-  Multipier: 0
   Limit: 2
   ComboScore: 0
   PeicesCountCombo: 0

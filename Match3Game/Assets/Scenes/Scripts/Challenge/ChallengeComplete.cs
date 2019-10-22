@@ -4,11 +4,22 @@ using UnityEngine;
 
 public class ChallengeComplete : MonoBehaviour
 {
-   public float AS;
+    [HideInInspector]
+    public static int[] ChallengeList;
+    // Savefile name
+    public string ChallengeName;
+    // Which challenge completed
+    public int CurrentChallenge;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        //SaveSystem.SaveChallenges()   
+        ChallengeList = new int[25];
+        SaveSystem.LoadChallenge(ChallengeName);
+        
+    }
+    public void Save()
+    {
+        CurrentChallenge = GetComponent<ChallengeManager>().ChallengeNumber;
+        SaveSystem.SaveChallenge(this);
     }
 }
