@@ -6,6 +6,8 @@ public class PlayAdd : MonoBehaviour
 {
     public string gameId = "3192812";
     public bool testMode = false;
+    public string placementId;
+
     //Located in Canvas
     public GameObject EventsGameObj;
     private void Start()
@@ -23,7 +25,7 @@ public class PlayAdd : MonoBehaviour
     {
         if (EventsGameObj.GetComponent<EventScript>().CanDoDaily == true)
         {
-            Advertisement.Show();
+            Advertisement.Show(placementId);
             Debug.Log("PLAYED SPIN AD");
         }
     }
