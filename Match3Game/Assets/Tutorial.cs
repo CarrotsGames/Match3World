@@ -51,6 +51,8 @@ public class Tutorial : MonoBehaviour
     }
     public void Close()
     {
+        // Disables tutorial on startup
+        PlayerPrefs.SetInt("FTS", 1);
         tutorialCanvus.SetActive(false);
     }
 
