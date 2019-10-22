@@ -31,7 +31,7 @@ public class JunkLater : MonoBehaviour {
     }
     public void LoadTut()
     {
-        SceneManager.LoadScene("Main Scene Tut");
+        SceneManager.LoadScene("Main Screen Tut");
     }
 
 

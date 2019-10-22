@@ -11,6 +11,7 @@ public class Tutorial : MonoBehaviour
     public void Start()
     {
         tutParts[0].SetActive(true);
+        tutorialCanvus.SetActive(true);
     }
 
 
