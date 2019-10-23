@@ -67,47 +67,55 @@ public class EggHatch : MonoBehaviour
 
         if (GameObject.Find("StoreEgg") == null)
         {
-            // begins countdown
-            if (StartCountDown)
+            if (PlayFabLogin.HasLoggedIn == true)
             {
-
-                CurrentTime -= Time.deltaTime;
-
-                int TimeTillHatch = unchecked((int)MinutesFromTs);
-                if (TimeTillHatch != 0)
-                {
-                    // test -= (int)Time.deltaTime;
-                    int Minutes = (int)(TimeTillHatch % 60);
-                    int Hours = (int)((TimeTillHatch / 60));
-                    TimerText.text = Hours + ":" + Minutes;
-                }
-                // if the time is greater than time stamp hatch egg
-                if (NowTime > TimeStamp)
+                // begins countdown
+                if (StartCountDown)
                 {
 
-                    PlayerPrefs.SetString("EggHatch", "" + TimeStamp);
+                    CurrentTime -= Time.deltaTime;
 
-                    Debug.Log("OVER");
-                    StartCountDown = false;
-                    PlayerPrefs.SetInt("EGGCOUNTDOWN", (StartCountDown ? 1 : 0));
+                    int TimeTillHatch = unchecked((int)MinutesFromTs);
+                    if (TimeTillHatch != 0)
+                    {
+                        // test -= (int)Time.deltaTime;
+                        int Minutes = (int)(TimeTillHatch % 60);
+                        int Hours = (int)((TimeTillHatch / 60));
+                        TimerText.text = Hours + ":" + Minutes;
+                    }
+                    // if the time is greater than time stamp hatch egg
+                    if (NowTime > TimeStamp)
+                    {
 
-                    HatchCreature();
+                        PlayerPrefs.SetString("EggHatch", "" + TimeStamp);
 
+                        Debug.Log("OVER");
+                        StartCountDown = false;
+                        PlayerPrefs.SetInt("EGGCOUNTDOWN", (StartCountDown ? 1 : 0));
+
+                        HatchCreature();
+
+                    }
+
+                    // Gets time every second
+                    if (CurrentTime < 0)
+                    {
+                        GetCurrentTime();
+                    }
+                    // MinutesFromTs = TimeTillEggHatch.TotalMinutes;
                 }
-
-                // Gets time every second
-                if (CurrentTime < 0)
+                else
                 {
-                    GetCurrentTime();
+
+                    BuyButton.GetComponent<Button>().enabled = true;
+                    BuyButton.gameObject.SetActive(true);
+                    TimerText.text = "Buy an egg?";
                 }
-                // MinutesFromTs = TimeTillEggHatch.TotalMinutes;
             }
             else
             {
-                 
-                BuyButton.GetComponent<Button>().enabled = true;
-                BuyButton.gameObject.SetActive(true);
-                TimerText.text = "Buy an egg?";
+                TimerText.text = " offline ";
+
             }
         }
     }

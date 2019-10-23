@@ -39,39 +39,45 @@ public class PlayFabServerTime : MonoBehaviour {
     }
     void Update()
     {
-       
-        if (DailySpinTimer.text == "New Text")
+        if (PlayFabLogin.HasLoggedIn == true)
         {
-            DailySpinTimer.text = "Getting \n time....";
-        }
-        CurrentTime -= Time.deltaTime;
-        int TimeTillSpin = unchecked((int)MinutesFromTs);
-       
- 
-        if (CurrentTime < 0 && !DailyEvent.CanDoDaily)
-        {
-            GetCurrentTime();
-        }
-        if(Input.GetKeyDown(KeyCode.S))
-        {
-            NowTime = TimeStamp + 100000000000000;
-        }
+            if (DailySpinTimer.text == "New Text")
+            {
+                DailySpinTimer.text = "Getting \n time....";
+            }
+            CurrentTime -= Time.deltaTime;
+            int TimeTillSpin = unchecked((int)MinutesFromTs);
 
-        if(NowTime > TimeStamp)
-        {
- 
-            DailyEvent.CanDoDaily = true;
-            DailySpinTimer.text ="Spin \n ready!!";
 
+            if (CurrentTime < 0 && !DailyEvent.CanDoDaily)
+            {
+                GetCurrentTime();
+            }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                NowTime = TimeStamp + 100000000000000;
+            }
+
+            if (NowTime > TimeStamp)
+            {
+
+                DailyEvent.CanDoDaily = true;
+                DailySpinTimer.text = "Spin \n ready!!";
+
+            }
+            else
+            {
+                if (TimeTillSpin != 0)
+                {
+                    int Minutes = (int)(TimeTillSpin % 60);
+                    int Hours = (int)((TimeTillSpin / 60));
+                    DailySpinTimer.text = Hours + ":" + Minutes;
+                }
+            }
         }
         else
         {
-            if (TimeTillSpin != 0)
-            {
-                int Minutes = (int)(TimeTillSpin % 60);
-                int Hours = (int)((TimeTillSpin / 60));
-                DailySpinTimer.text = Hours + ":" + Minutes;
-            }
+            DailySpinTimer.text = "offline";
         }
     }
 
@@ -103,20 +109,26 @@ public class PlayFabServerTime : MonoBehaviour {
     public void DailySpin()
     {
 
-
-        PlayFabClientAPI.GetTime(new GetTimeRequest(), (GetTimeResult result) =>
+        if (PlayFabLogin.HasLoggedIn == true)
         {
-            DateTime now = result.Time.AddHours(0);
-            DateTime TargetTime = result.Time.AddHours(24);
-            long Period = 36L * 24000000000L;
-            TimeStamp = now.Ticks + Period;
-            TimeSpan Ts = TimeSpan.FromTicks(Period);
-            MinutesFromTs = Ts.TotalMinutes;
-            PlayerPrefs.SetString("DailySpinTime", "" + TimeStamp);
 
-        }, null);
- 
+            PlayFabClientAPI.GetTime(new GetTimeRequest(), (GetTimeResult result) =>
+     
+            {
 
+                DateTime now = result.Time.AddHours(0);
+                DateTime TargetTime = result.Time.AddHours(24);
+                long Period = 36L * 24000000000L;
+                TimeStamp = now.Ticks + Period;
+                TimeSpan Ts = TimeSpan.FromTicks(Period);
+                MinutesFromTs = Ts.TotalMinutes;
+                PlayerPrefs.SetString("DailySpinTime", "" + TimeStamp);
+
+
+            }
+            , null);
+
+        }
 
     }
  

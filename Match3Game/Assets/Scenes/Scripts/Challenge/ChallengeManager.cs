@@ -309,6 +309,8 @@ public class ChallengeManager : MonoBehaviour
         {
             Debug.Log("CHALLENGE FAILED");
             Lives.LiveCount -= 1;
+            PlayerPrefs.SetInt("LIVECOUNT", Lives.LiveCount);
+
             ChallengeFinished = true;
             Lives.CheckTime = 0;
             winLoseCanvus.SetActive(true);

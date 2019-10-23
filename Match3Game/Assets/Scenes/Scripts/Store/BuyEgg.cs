@@ -19,21 +19,30 @@ public class BuyEgg : MonoBehaviour
  
     private void FixedUpdate()
     {
-       if(EggHatch.StartCountDown)
+        if (PlayFabLogin.HasLoggedIn == true)
         {
-            if (this.gameObject.name == "BuyEggButton")
+            if (EggHatch.StartCountDown)
             {
+                if (this.gameObject.name == "BuyEggButton")
+                {
+                    GetComponent<Button>().enabled = false;
+                    gameObject.SetActive(false);
+                }
+                GetComponent<Image>().color = new Color(1, 0, 0);
                 GetComponent<Button>().enabled = false;
-                gameObject.SetActive(false);
             }
-            GetComponent<Image>().color = new Color(1, 0, 0);
-            GetComponent<Button>().enabled = false;
+            else
+            {
+                GetComponent<Image>().color = new Color(1, 1, 1);
+                GetComponent<Button>().enabled = true;
+                gameObject.SetActive(true);
+            }
         }
         else
         {
-            GetComponent<Image>().color = new Color(1, 1, 1);
-            GetComponent<Button>().enabled = true;
-            gameObject.SetActive(true);
+            GetComponent<Button>().enabled = false;
+            GetComponent<Image>().color = new Color(0.2f, 0.2f, 0.2f);
+            transform.GetChild(0).GetComponent<Text>().text = "Offline";
         }
     }
     public void PurchaseEgg()

@@ -41,7 +41,7 @@ public class EventScript : MonoBehaviour
        //    RealTimeScript.DailyTimerCountDown = DailyTimer;
        //    CanDoDaily = true;
        //}
-        if(CanDoDaily)
+        if(CanDoDaily && PlayFabLogin.HasLoggedIn)
         {
              DailySpinner.SetActive(true);
          }

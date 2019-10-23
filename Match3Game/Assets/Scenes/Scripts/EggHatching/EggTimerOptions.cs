@@ -25,117 +25,129 @@ public class EggTimerOptions : MonoBehaviour
   
     public void HalfTime()
     {
-        long Result = GetComponent<EggHatch>().TimeStamp - GetComponent<EggHatch>().NowTime;
-        TimeSpan ts = TimeSpan.FromTicks(Result);
-        double MinutesFromTs = ts.TotalMinutes;
-        if (!HasHalfedTime)
+        if (PlayFabLogin.HasLoggedIn == true)
         {
-            // if the timer is between 1.5 and 3 hours
-            if (MinutesFromTs >= 90 && MinutesFromTs <= 180)
+            long Result = GetComponent<EggHatch>().TimeStamp - GetComponent<EggHatch>().NowTime;
+            TimeSpan ts = TimeSpan.FromTicks(Result);
+            double MinutesFromTs = ts.TotalMinutes;
+            if (!HasHalfedTime)
             {
-                if (PowerUpManagerScript.Currency > Prices[4])
+                // if the timer is between 1.5 and 3 hours
+                if (MinutesFromTs >= 90 && MinutesFromTs <= 180)
                 {
-                    PowerUpManagerScript.Currency -= Prices[4];
-                    CutCurrentTime();
-                    HasHalfedTime = true;
+                    if (PowerUpManagerScript.Currency > Prices[4])
+                    {
+                        PowerUpManagerScript.Currency -= Prices[4];
+                        CutCurrentTime();
+                        HasHalfedTime = true;
+                    }
                 }
-            }
-            // if the timer is between 0 and 1.4 hours
-            else if (MinutesFromTs >= 0 && MinutesFromTs < 90)
-            {
-                if (PowerUpManagerScript.Currency > Prices[5])
+                // if the timer is between 0 and 1.4 hours
+                else if (MinutesFromTs >= 0 && MinutesFromTs < 90)
                 {
-                    PowerUpManagerScript.Currency -= Prices[5];
-                    CutCurrentTime();
-                    HasHalfedTime = true;
+                    if (PowerUpManagerScript.Currency > Prices[5])
+                    {
+                        PowerUpManagerScript.Currency -= Prices[5];
+                        CutCurrentTime();
+                        HasHalfedTime = true;
+                    }
                 }
+                PowerUpManagerScript.PowerUpSaves();
+                PlayerPrefs.SetInt("HalfTime", (HasHalfedTime ? 1 : 0));
             }
-            PowerUpManagerScript.PowerUpSaves();
-            PlayerPrefs.SetInt("HalfTime", (HasHalfedTime ? 1 : 0));
+
+
         }
     }
     // Goes through the process of halfing the time
     public void CutCurrentTime()
     {
-        PlayFabClientAPI.GetTime(new GetTimeRequest(), (GetTimeResult result) =>
+        if (PlayFabLogin.HasLoggedIn == true)
         {
-            // Gets current time to countup 
-            DateTime now = result.Time.AddHours(0); // GMT+1
-            long NowTime = now.Ticks;
-            TimeSpan TimeTillEggHatch = TimeSpan.FromTicks(GetComponent<EggHatch>().TimeStamp - NowTime);
-            double MinutesFromHatching = TimeTillEggHatch.TotalMinutes;
-            MinutesFromHatching /= 2;
-            TimeSpan interval = TimeSpan.FromMinutes(MinutesFromHatching);
-            long Re = GetComponent<EggHatch>().TimeStamp -= interval.Ticks;
-            GetComponent<EggHatch>().TimeStamp = Re;
-            //GetComponent<EggHatch>().TimeStamp
-            PlayerPrefs.SetString("EggHatch", "" + GetComponent<EggHatch>().TimeStamp);
-            GetComponent<EggHatch>().GetCurrentTime();
-        }, null);
+
+           PlayFabClientAPI.GetTime(new GetTimeRequest(), (GetTimeResult result) =>     
+            {
+                // Gets current time to countup 
+                DateTime now = result.Time.AddHours(0); // GMT+1
+                long NowTime = now.Ticks;
+                TimeSpan TimeTillEggHatch = TimeSpan.FromTicks(GetComponent<EggHatch>().TimeStamp - NowTime);
+                double MinutesFromHatching = TimeTillEggHatch.TotalMinutes;
+                MinutesFromHatching /= 2;
+                TimeSpan interval = TimeSpan.FromMinutes(MinutesFromHatching);
+                long Re = GetComponent<EggHatch>().TimeStamp -= interval.Ticks;
+                GetComponent<EggHatch>().TimeStamp = Re;
+                //GetComponent<EggHatch>().TimeStamp
+                PlayerPrefs.SetString("EggHatch", "" + GetComponent<EggHatch>().TimeStamp);
+                GetComponent<EggHatch>().GetCurrentTime();
+        },
+        null);
+        }
     }
     public void SkipTime()
     {
-        Debug.Log("Skip");
-        // Gets the time until egghatches
-        long Result = GetComponent<EggHatch>().TimeStamp - GetComponent<EggHatch>().NowTime;
-        TimeSpan ts = TimeSpan.FromTicks(Result);
-        double MinutesFromTs = ts.TotalMinutes;
-        if (MinutesFromTs < 60)
+        if (PlayFabLogin.HasLoggedIn == true)
         {
-            //SPAWN BUY BUTTON FOR THIS ONE
-            if (PowerUpManagerScript.Currency > Prices[0])
+            Debug.Log("Skip");
+            // Gets the time until egghatches
+            long Result = GetComponent<EggHatch>().TimeStamp - GetComponent<EggHatch>().NowTime;
+            TimeSpan ts = TimeSpan.FromTicks(Result);
+            double MinutesFromTs = ts.TotalMinutes;
+            if (MinutesFromTs < 60)
             {
-                PowerUpManagerScript.Currency -= Prices[0];
-                Debug.Log("Under60");
-                // Makes current time greater than time stamp, hatching the egg
-                GetComponent<EggHatch>().TimeStamp = GetComponent<EggHatch>().NowTime - 10000000;
- 
+                //SPAWN BUY BUTTON FOR THIS ONE
+                if (PowerUpManagerScript.Currency > Prices[0])
+                {
+                    PowerUpManagerScript.Currency -= Prices[0];
+                    Debug.Log("Under60");
+                    // Makes current time greater than time stamp, hatching the egg
+                    GetComponent<EggHatch>().TimeStamp = GetComponent<EggHatch>().NowTime - 10000000;
+
+                }
+                else
+                {
+                    Debug.Log("Insufficient Funds");
+                    //SPAWN SCREEN WHICH CAN LEAD PLAYER TO STORE?
+
+                }
             }
-            else
+            else if (MinutesFromTs >= 60 && MinutesFromTs < 120)
             {
-                Debug.Log("Insufficient Funds");
-                //SPAWN SCREEN WHICH CAN LEAD PLAYER TO STORE?
+                //SPAWN BUY BUTTON FOR THIS ONE
+                if (PowerUpManagerScript.Currency > Prices[1])
+                {
+                    PowerUpManagerScript.Currency -= Prices[1];
+                    Debug.Log("Under60");
+                    // Makes current time greater than time stamp, hatching the egg
+                    GetComponent<EggHatch>().TimeStamp = GetComponent<EggHatch>().NowTime - 10000000;
+                }
+                else
+                {
+                    Debug.Log("Insufficient Funds");
+                    //SPAWN SCREEN WHICH CAN LEAD PLAYER TO STORE?
+
+                }
 
             }
+            else if (MinutesFromTs >= 120 && MinutesFromTs <= 180)
+            {
+                //SPAWN BUY BUTTON FOR THIS ONE
+                if (PowerUpManagerScript.Currency > Prices[2])
+                {
+                    PowerUpManagerScript.Currency -= Prices[2];
+                    Debug.Log("Under60");
+                    GetComponent<EggHatch>().TimeStamp = GetComponent<EggHatch>().NowTime - 10000000;
+
+                }
+                else
+                {
+                    Debug.Log("Insufficient Funds");
+                    //SPAWN SCREEN WHICH CAN LEAD PLAYER TO STORE?
+
+                }
+
+            }
+            PowerUpManagerScript.PowerUpSaves();
         }
-        else if (MinutesFromTs >= 60 && MinutesFromTs < 120)
-        {
-            //SPAWN BUY BUTTON FOR THIS ONE
-            if (PowerUpManagerScript.Currency > Prices[1])
-            {
-                PowerUpManagerScript.Currency -= Prices[1];
-                Debug.Log("Under60");
-                // Makes current time greater than time stamp, hatching the egg
-                GetComponent<EggHatch>().TimeStamp = GetComponent<EggHatch>().NowTime - 10000000;
-             }
-            else
-            {
-                Debug.Log("Insufficient Funds");
-                //SPAWN SCREEN WHICH CAN LEAD PLAYER TO STORE?
-
-            }
-
-        }
-        else if (MinutesFromTs >= 120 && MinutesFromTs <= 180)
-        {
-            //SPAWN BUY BUTTON FOR THIS ONE
-            if (PowerUpManagerScript.Currency > Prices[2])
-            {
-                PowerUpManagerScript.Currency -= Prices[2];
-                Debug.Log("Under60");
-                GetComponent<EggHatch>().TimeStamp = GetComponent<EggHatch>().NowTime - 10000000;
-
-            }
-            else
-            {
-                Debug.Log("Insufficient Funds");
-                //SPAWN SCREEN WHICH CAN LEAD PLAYER TO STORE?
-
-            }
-
-        }
-        PowerUpManagerScript.PowerUpSaves();
-
     }
 
 }

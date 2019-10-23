@@ -39,7 +39,8 @@ public class Lives : MonoBehaviour
         NumberOfLives.text = "" + LiveCount;
         LifeTimerText.text = "Getting time...";
         int FirstTimeLogin = PlayerPrefs.GetInt("FirstTimeLogin");
-        if(FirstTimeLogin < 1 || LiveCount < 0 || TimeStamp == 0)
+        //TIMESTAMP USED TO = 0 HERE \/
+        if(FirstTimeLogin < 1 || LiveCount <= -1)
         {
             IsCountingDown = false;
             LiveCount = 3;
@@ -51,42 +52,52 @@ public class Lives : MonoBehaviour
         }
         PlayerPrefs.SetInt("FirstTimeLogin", FirstTimeLogin);
         Countdown();
+       
 
     }
     private void FixedUpdate()
-    {
-        NumberOfLives.text = "" + LiveCount;
+    {   
         //DEBUG ONLY Resets time
         if (Input.GetKeyDown(KeyCode.Alpha4))
-       {
+        {
             ResetStats();
         }
-        // if lives are less than 3 start countdown
-        if (PlayFabLogin.HasLoggedIn == true)
+        if (PlayFabLogin.HasLoggedIn)
         {
-            if (LiveCount < 3 && !IsCountingDown)
-            {            
-                BeginTheCountdown();               
-            }
-            // reset lives and countdown
-            else if (LiveCount >= 3 && IsCountingDown)
+            NumberOfLives.text = "" + LiveCount;
+        
+            // if lives are less than 3 start countdown
+            if (PlayFabLogin.HasLoggedIn == true)
             {
-                NumberOfLives.text = "" + LiveCount;
-                ResetStats();            
-                LiveCount = 3;
-                LifeTimerText.text = "Fullhearts";
-                PlayerPrefs.SetInt("LIVECOUNT", LiveCount);
-                PlayerPrefs.SetInt("LIVECOUNTDOWN", (IsCountingDown ? 1 : 0));
+                if (LiveCount < 3 && !IsCountingDown)
+                {
+                    BeginTheCountdown();
+                }
+                // reset lives and countdown
+                else if (LiveCount >= 3 && IsCountingDown)
+                {
+                    NumberOfLives.text = "" + LiveCount;
+                    ResetStats();
+                    LiveCount = 3;
+                    LifeTimerText.text = "Fullhearts";
+                    PlayerPrefs.SetInt("LIVECOUNT", LiveCount);
+                    PlayerPrefs.SetInt("LIVECOUNTDOWN", (IsCountingDown ? 1 : 0));
 
+                }
+                // Checks if hearts are regened
+                if (IsCountingDown)
+                {
+                    NumberOfLives.text = "" + LiveCount;
+
+                    CheckHearts();
+
+                }
             }
-            // Checks if hearts are regened
-            if (IsCountingDown)
-            {
-                NumberOfLives.text = "" + LiveCount;
-
-                CheckHearts();
-
-            }
+        }
+        else
+        {
+            NumberOfLives.text = "" + LiveCount;
+            LifeTimerText.text = "Offline";
         }
     }
  
