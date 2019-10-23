@@ -112,7 +112,7 @@ public class Lives : MonoBehaviour
         LiveCount = 3;
         PlayerPrefs.SetInt("LIVECOUNT", LiveCount);
 
-        PlayerPrefs.SetString("TimeUntilLives", "" + TimeStamp);
+        PlayerPrefs.SetString("TimeUntilLives", "" + 0);
         PlayerPrefs.SetString("TwentyMinutes", "" + TimerLong);
         PlayerPrefs.SetInt("LIVECOUNTDOWN", (IsCountingDown ? 1 : 0));
     }

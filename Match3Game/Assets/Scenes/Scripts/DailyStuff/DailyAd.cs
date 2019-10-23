@@ -102,28 +102,33 @@ public class DailyAd : MonoBehaviour
     }
     public void PlayAdNow()
     {
-        if (AddPlayCount < 1)
+        
+        if (AddPlayCount < 3)
         {
-            PowerUpManagerScript.GetComponent<PowerUpManager>().Currency += 5;
-            PowerUpManagerScript.PowerUpSaves();
-            // Adds to how many adds can be played 
-            AddPlayCount++;
-            // Sets a target time 24 hours from now
-            SetResetTimer();
-            // Plays Add
             Advertisement.Show(placementId);
+            if (AddPlayCount < 1)
+            {
+                PowerUpManagerScript.GetComponent<PowerUpManager>().Currency += 5;
+                PowerUpManagerScript.PowerUpSaves();
+             
+                // Sets a target time 24 hours from now
+                SetResetTimer();
+                // Plays Add
 
-        }
-        else if (AddPlayCount < 3)
-        {
-            PowerUpManagerScript.GetComponent<PowerUpManager>().Currency += 5;
 
-            // Adds to how many adds can be played 
+            }
+            else 
+            {
+                PowerUpManagerScript.GetComponent<PowerUpManager>().Currency += 5;
+                PowerUpManagerScript.PowerUpSaves();
+
+                // Adds to how many adds can be played 
+
+                Debug.Log("PLAYED AD");
+            }
             AddPlayCount++;
-            Advertisement.Show(placementId);
-            Debug.Log("PLAYED AD");
         }
-        else if (AddPlayCount >= 3)
+        else 
         {
             //PUT UI HERE
             //COME BACK TOMORROW FOR YOUR FREE COINS

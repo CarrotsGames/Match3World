@@ -10,7 +10,14 @@ public class loadmoneystore : MonoBehaviour {
 
     public void LoadMoneyStore()
     {
-        SceneManager.LoadScene("Money Store");
+        if (PlayFabLogin.HasLoggedIn == true)
+        {
+            SceneManager.LoadScene("Money Store");
+        }
+        else
+        {
+            Debug.Log("You must be online to access money store");
+        }
     }
 
     public void LoadStore()
