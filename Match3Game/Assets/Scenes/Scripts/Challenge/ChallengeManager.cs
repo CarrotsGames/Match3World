@@ -50,9 +50,11 @@ public class ChallengeManager : MonoBehaviour
     private int Blue;
     private int Green;
     private int Pink;
+    List<GameObject> Testlist;
     // Start is called before the first frame update
     void Start()
     {
+        Testlist = new List<GameObject>();
         Companion = GameObject.FindGameObjectWithTag("Companion");
         CompanionScriptRef = Companion.GetComponent<CompanionScript>();
         // Finds gameobject with tag in hierarchy 
@@ -75,7 +77,21 @@ public class ChallengeManager : MonoBehaviour
         TotalMoves = ChallengeObjectiveScore[ChallengeNumber];
         TargetScore = (int)ChallengeObjectiveScore[ChallengeNumber];
         Lives.LiveCount = PlayerPrefs.GetInt("LIVECOUNT");
-        
+       
+        // Unparents any deadnodes in challenge to make challenge beatable
+        for (int i = 0; i < Go.gameObject.transform.childCount; i++)
+        {
+           
+            if (Go.gameObject.transform.GetChild(i).tag == "DeadNode" || Go.gameObject.transform.GetChild(i).gameObject.layer == 19)
+            {
+                Debug.Log("DeadNOde");
+                Testlist.Add(Go.gameObject.transform.GetChild(i).gameObject);           
+            }
+        }
+        for (int i = 0; i < Testlist.Count; i++)
+        {
+            Testlist[i].transform.parent = null;
+        }
     }
 
     public void CheckForNodes()
@@ -102,6 +118,7 @@ public class ChallengeManager : MonoBehaviour
             {
                 Pink++;
             }
+            
 
         }
         if (!DebugChallenges)
