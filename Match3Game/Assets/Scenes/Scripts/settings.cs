@@ -125,6 +125,11 @@ public class settings : MonoBehaviour {
     {  
         RealTimeScript.ResetClock();
         HappinessManagerGameObj.GetComponent<HappinessManager>().SaveMe();
+
+        GameObject SaveTime = GameObject.Find("AdCountdown");
+        SaveTime.GetComponent<AdCountdown>().SaveTimer();
+
+        SceneManager.LoadScene("Main Screen");
         if (PlayFabLogin.HasLoggedIn == true)
         {
             // Gets moobling data
@@ -134,9 +139,7 @@ public class settings : MonoBehaviour {
             //Sends gold amount and powerups used
             Analytics.GetComponent<PlayFabLogin>().TournamentScore();
         }
-        SceneManager.LoadScene("Main Screen");
-        GameObject SaveTime = GameObject.Find("AdCountdown");
-        SaveTime.GetComponent<AdCountdown>().SaveTimer();
+     
     }
     
 }

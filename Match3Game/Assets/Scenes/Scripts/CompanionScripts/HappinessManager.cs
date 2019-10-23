@@ -91,7 +91,10 @@ public class HappinessManager : MonoBehaviour
         // if level is 0 score will not go up because nodes * level value equal score
         if (Level == 0)
         {
-            Level = 1;
+            Level = 2;
+            HappinessSliderValue = 0;
+            HappinessClamp += 250;
+            HappinessBar();
         }
 
         int NextLevelNum = Level + 1;
