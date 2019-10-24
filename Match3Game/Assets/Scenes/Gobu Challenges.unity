@@ -2714,6 +2714,16 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 68598871312452688, guid: 4e6ef3740c972984e99b2437585cc990,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 68598871312452688, guid: 4e6ef3740c972984e99b2437585cc990,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 95156337391162928, guid: 4e6ef3740c972984e99b2437585cc990, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4e6ef3740c972984e99b2437585cc990, type: 3}
@@ -4389,6 +4399,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Challenge Canvus
       objectReference: {fileID: 0}
+    - target: {fileID: 2600843702292089887, guid: d009cb47e607a2e438d6dee0c645a038,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2600843702292089886, guid: d009cb47e607a2e438d6dee0c645a038,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4509,6 +4524,11 @@ PrefabInstance:
       propertyPath: soundEffects
       value: 
       objectReference: {fileID: 1166059875400705}
+    - target: {fileID: 2600843701282760843, guid: d009cb47e607a2e438d6dee0c645a038,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 630
+      objectReference: {fileID: 0}
     - target: {fileID: 2600843702263599526, guid: d009cb47e607a2e438d6dee0c645a038,
         type: 3}
       propertyPath: HappinessManagerScript
@@ -4532,6 +4552,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CHALLENGE
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731776, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2658884934281731778, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
@@ -4591,22 +4616,22 @@ PrefabInstance:
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengeObjectives.Array.size
-      value: 6
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengeObjectiveScore.Array.size
-      value: 6
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengeType.Array.size
-      value: 6
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengePrefabs.Array.size
-      value: 6
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
@@ -4631,7 +4656,7 @@ PrefabInstance:
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengeObjectives.Array.data[0]
-      value: 'Clear board in '
+      value: Clear in
       objectReference: {fileID: 0}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
@@ -4641,12 +4666,12 @@ PrefabInstance:
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengeObjectives.Array.data[1]
-      value: Clear board before time runs out
+      value: 'Clear board within time '
       objectReference: {fileID: 0}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengeObjectiveScore.Array.data[1]
-      value: 60
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
@@ -4656,22 +4681,22 @@ PrefabInstance:
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengeObjectiveScore.Array.data[2]
-      value: 2000
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengeObjectives.Array.data[3]
-      value: Clear the board
+      value: Clear in
       objectReference: {fileID: 0}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengeObjectives.Array.data[4]
-      value: 'beat score '
+      value: 'Beat score '
       objectReference: {fileID: 0}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengeObjectiveScore.Array.data[4]
-      value: 1500
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
@@ -4722,18 +4747,18 @@ PrefabInstance:
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: DebugChallenges
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengePrefabs.Array.data[5]
       value: 
-      objectReference: {fileID: 2931632748394630170, guid: fe08a14a33edd2642b3a80423ce002b5,
+      objectReference: {fileID: 1944453565192755829, guid: eb06cc8fb9e47264e827cb9eb0024f2d,
         type: 3}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: DebugChallengeNum
-      value: 2
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
@@ -4743,13 +4768,307 @@ PrefabInstance:
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengeObjectiveScore.Array.data[5]
-      value: 100
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengeObjectives.Array.data[5]
-      value: 'beat score '
+      value: 'Beat score '
       objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectives.Array.data[6]
+      value: 'Beat score '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectives.Array.data[7]
+      value: Clear in
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectives.Array.data[8]
+      value: 'Clear board within time '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectives.Array.data[9]
+      value: Beat score
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectives.Array.data[10]
+      value: 'Clear board within time '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectives.Array.data[11]
+      value: 'Clear in '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectives.Array.data[12]
+      value: 'Beat score '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectives.Array.data[13]
+      value: 'Clear board within time '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectives.Array.data[14]
+      value: 'Clear in '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectives.Array.data[15]
+      value: Clear board within time
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectives.Array.data[16]
+      value: 'Clear in '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectives.Array.data[17]
+      value: Clear board within time
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectives.Array.data[18]
+      value: 'Beat score '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectives.Array.data[19]
+      value: 'Clear in '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectiveScore.Array.data[6]
+      value: 290
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectiveScore.Array.data[7]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectiveScore.Array.data[8]
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectiveScore.Array.data[9]
+      value: 320
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectiveScore.Array.data[10]
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectiveScore.Array.data[11]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectiveScore.Array.data[12]
+      value: 340
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectiveScore.Array.data[13]
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectiveScore.Array.data[14]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectiveScore.Array.data[15]
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectiveScore.Array.data[16]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectiveScore.Array.data[17]
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectiveScore.Array.data[18]
+      value: 380
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeObjectiveScore.Array.data[19]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeType.Array.data[6]
+      value: BeatScore
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeType.Array.data[7]
+      value: ClearX
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeType.Array.data[8]
+      value: Clear
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeType.Array.data[9]
+      value: BeatScore
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeType.Array.data[10]
+      value: Clear
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeType.Array.data[11]
+      value: ClearX
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeType.Array.data[12]
+      value: BeatScore
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeType.Array.data[13]
+      value: Clear
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeType.Array.data[14]
+      value: ClearX
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeType.Array.data[15]
+      value: Clear
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeType.Array.data[16]
+      value: ClearX
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeType.Array.data[17]
+      value: Clear
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeType.Array.data[18]
+      value: BeatScore
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengeType.Array.data[19]
+      value: ClearX
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengePrefabs.Array.data[6]
+      value: 
+      objectReference: {fileID: 5529206765028089987, guid: 2d93582d236ee2349b2400e819330f5b,
+        type: 3}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengePrefabs.Array.data[7]
+      value: 
+      objectReference: {fileID: 7724083970826027666, guid: 04e343d87d05663458bade8299354659,
+        type: 3}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengePrefabs.Array.data[8]
+      value: 
+      objectReference: {fileID: 4513175043504619409, guid: fe08a14a33edd2642b3a80423ce002b5,
+        type: 3}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengePrefabs.Array.data[9]
+      value: 
+      objectReference: {fileID: 7220725806198012385, guid: b42feec9323a81240b8952e19435f137,
+        type: 3}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengePrefabs.Array.data[10]
+      value: 
+      objectReference: {fileID: 5828883583654053996, guid: 496172666dd761f4db468022d41658e2,
+        type: 3}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengePrefabs.Array.data[11]
+      value: 
+      objectReference: {fileID: 5195382284420381853, guid: 0f1c5e10102fc8b4f91df396187b4e4e,
+        type: 3}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengePrefabs.Array.data[12]
+      value: 
+      objectReference: {fileID: 5796470636317146578, guid: b36042f8a89dd3f42a57dbba3d36dc6e,
+        type: 3}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengePrefabs.Array.data[13]
+      value: 
+      objectReference: {fileID: 8460114221453628401, guid: 101bc48e267c65d438225621c0349c67,
+        type: 3}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengePrefabs.Array.data[14]
+      value: 
+      objectReference: {fileID: 5446569046734677516, guid: 3bf6f695a495fa34aaa00f2a2aa685f8,
+        type: 3}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengePrefabs.Array.data[15]
+      value: 
+      objectReference: {fileID: 7659581864518883108, guid: 0b68d318993bb0f448197ca285a901b9,
+        type: 3}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengePrefabs.Array.data[16]
+      value: 
+      objectReference: {fileID: 2495059184737130568, guid: 7de12a424dbf74040a5b08595a434dfb,
+        type: 3}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengePrefabs.Array.data[17]
+      value: 
+      objectReference: {fileID: 3694300536623127659, guid: 5670127695ad41e4cab79747cab28ce1,
+        type: 3}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengePrefabs.Array.data[18]
+      value: 
+      objectReference: {fileID: 4152155985932343940, guid: a1dd63411bd888a46ae1161460ee9f92,
+        type: 3}
+    - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
+        type: 3}
+      propertyPath: ChallengePrefabs.Array.data[19]
+      value: 
+      objectReference: {fileID: 7518394364854242541, guid: 30e8c69e84888e64ebff5ad10bf1630e,
+        type: 3}
     - target: {fileID: 2658884934281731779, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: NumberOfLives
