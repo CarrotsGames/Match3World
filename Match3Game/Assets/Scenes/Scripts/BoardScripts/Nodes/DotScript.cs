@@ -159,6 +159,10 @@ public class DotScript : MonoBehaviour
             DotManagerScript.ResetLayer = false;
             OnMouseUp();
         }
+        else if (Input.touchCount < 1 && DotManagerScript.ResetMaterial == true )
+        {
+            this.gameObject.GetComponent<Renderer>().material.color = Color.white;
+        }
     }
      private void OnMouseExit()
     {

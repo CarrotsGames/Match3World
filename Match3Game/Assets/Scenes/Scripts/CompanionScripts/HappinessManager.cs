@@ -89,13 +89,14 @@ public class HappinessManager : MonoBehaviour
      
      
         // if level is 0 score will not go up because nodes * level value equal score
-        if (Level == 0)
+        if (Level <= 1)
         {
-            Level = 2;
+            Level = 1;
             HappinessSliderValue = 0;
             HappinessClamp += 250;
             HappinessBar();
         }
+        
 
         int NextLevelNum = Level + 1;
         NextLevel.text = " " + NextLevelNum;
@@ -177,7 +178,6 @@ public class HappinessManager : MonoBehaviour
         {
             if (HappinessSliderValue > HappinessClamp)
             {
-                LevelUpCanvas.SetActive(true);
                 FillColour.color = Color.green;
                 // Animation 
  
@@ -207,6 +207,8 @@ public class HappinessManager : MonoBehaviour
                 PowerUpManagerScript.PowerUpSaves();
                  
                 GoldRewardText.text = "" + GoldRewardList[Level];
+                LevelUpCanvas.SetActive(true);
+
             }
         }
         else

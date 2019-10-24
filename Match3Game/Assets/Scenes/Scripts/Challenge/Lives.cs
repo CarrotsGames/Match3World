@@ -62,8 +62,14 @@ public class Lives : MonoBehaviour
         {
             ResetStats();
         }
+        
         if (PlayFabLogin.HasLoggedIn)
         {
+            if (LiveCount >= 3)
+            {
+                LifeTimerText.text = "FULL";
+
+            }
             NumberOfLives.text = "" + LiveCount;
         
             // if lives are less than 3 start countdown
@@ -98,6 +104,7 @@ public class Lives : MonoBehaviour
         {
             NumberOfLives.text = "" + LiveCount;
             LifeTimerText.text = "Offline";
+           
         }
     }
  
