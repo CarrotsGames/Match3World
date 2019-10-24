@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class DestoryCollidedNodes : MonoBehaviour
@@ -48,7 +49,15 @@ public class DestoryCollidedNodes : MonoBehaviour
         }
         else if(!DotScriptGameObj.GetComponent<DestroyNodes>().ComboList.Contains(CollidedNode) || !DotScriptGameObj.GetComponent<DotManager>().Peices.Contains(CollidedNode))
         {
+            string SceneName = SceneManager.GetActiveScene().name;
+
             if (!ShuffleScript.Shuffling)
+            {
+                collision.gameObject.transform.parent = null;
+                collision.gameObject.transform.position += new Vector3(100, 0, 0);
+                collision.gameObject.GetComponent<DotScript>().SelfDestruct = true;
+            }
+            if(SceneName == "Cronus" && ShuffleScript.Shuffling)
             {
                 collision.gameObject.transform.parent = null;
                 collision.gameObject.transform.position += new Vector3(100, 0, 0);
