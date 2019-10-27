@@ -9,7 +9,7 @@ public class NextChallenge : MonoBehaviour
     {
         int Index = PlayerPrefs.GetInt("ChallengeIndex");
 
-        if (Index != 19)
+        if (Index != 4)
         {
             Scene CurrentScene = SceneManager.GetActiveScene();
             ChallengeScene = CurrentScene.name;
