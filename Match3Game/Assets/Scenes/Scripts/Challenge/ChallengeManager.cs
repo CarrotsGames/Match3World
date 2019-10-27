@@ -25,6 +25,7 @@ public class ChallengeManager : MonoBehaviour
     public GameObject winLoseCanvus;
     public Text ClearTime;
     public Text FailText;
+
     private GameObject PowerUpManagerObj;
     // Limit of moves
     private float TotalMoves;
@@ -225,8 +226,18 @@ public class ChallengeManager : MonoBehaviour
         PowerUpManagerObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerObj.GetComponent<PowerUpManager>().Currency += 10;
         PowerUpManagerObj.GetComponent<PowerUpManager>().PowerUpSaves();
+        int Index = PlayerPrefs.GetInt("ChallengeIndex");
+        // USE THIS TO CHANGE UI WHEN REACHING THE MAX CHALLENGE
+        if (Index >= 4 ) 
+        {
+            WinGameObject.SetActive(true);
+        }
+        else
+        {
+            WinGameObject.SetActive(true);
+        }
         winLoseCanvus.SetActive(true);
-        WinGameObject.SetActive(true);
+      
 
         if (!ChallengeFinished)
         {

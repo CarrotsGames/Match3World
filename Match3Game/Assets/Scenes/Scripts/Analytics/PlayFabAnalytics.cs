@@ -40,9 +40,9 @@ public class PlayFabAnalytics : MonoBehaviour {
         // Tracks companion Level Time
         CompanionLevel = CompanionScore.name + "Level";
         CompanionTime = CompanionScore.name + "TIME";
-        // Tracks how much gold is found in level
-        GoldFoundLevel = CompanionScore.name + "GoldTrack";
-        GoldFound = PlayerPrefs.GetInt(GoldFoundLevel);
+        //// Tracks how much gold is found in level
+        //GoldFoundLevel = CompanionScore.name + "GoldTrack";
+        //GoldFound = PlayerPrefs.GetInt(GoldFoundLevel);
         DotManagerScript.GoldScore = GoldFound;
         TimeOnScene = PlayerPrefs.GetFloat(CompanionTime);
         // Tracks companion Level Score
@@ -53,21 +53,21 @@ public class PlayFabAnalytics : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	//void Update () {
-    //
-    //    TimeOnScene += Time.deltaTime;
-    //  // DelayTime += Time.deltaTime;
-    //  // if (DelayTime > 20)
-    //  // {
-    //  //     SetUserData();
-    //  //     TrackedGold();
-    //  //      DelayTime = 0;
-    //  // }
-    //    // Test = false;
-    //     
-    // 
-    //    
-    //}
+	 void Update () {
+     
+         TimeOnScene += Time.deltaTime;
+       // DelayTime += Time.deltaTime;
+       // if (DelayTime > 20)
+       // {
+       //     SetUserData();
+       //     TrackedGold();
+       //      DelayTime = 0;
+       // }
+         // Test = false;
+          
+      
+         
+     }
 
     public void SetUserData()
     {
@@ -83,8 +83,8 @@ public class PlayFabAnalytics : MonoBehaviour {
         SuperBomb = PlayerPrefs.GetInt("SUPERBOMB");
         SuperMultlpier = PlayerPrefs.GetInt("SUPERMULTLPIER");
         Currency = PlayerPrefs.GetInt("CURRENCY");
-        ComboNum = PlayerPrefs.GetInt(SaveScoreName + "COMBONUM");
-        BigComboNum = PlayerPrefs.GetInt(SaveScoreName + "BIGCOMBONUM");
+       // ComboNum = PlayerPrefs.GetInt(SaveScoreName + "COMBONUM");
+       // BigComboNum = PlayerPrefs.GetInt(SaveScoreName + "BIGCOMBONUM");
         if (PlayFabLogin.HasLoggedIn == true)
         {
             PlayFabClientAPI.UpdateUserData(new UpdateUserDataRequest()
@@ -93,11 +93,11 @@ public class PlayFabAnalytics : MonoBehaviour {
          {
              {CompanionScore.name,"SCORE: "+  Score },
              {CompanionTime,"" + TimeOnScene },
-             {GoldFoundLevel,"" + GoldFound },
+            // {GoldFoundLevel,"" + GoldFound },
 
          
-             {CompanionScore.name +  "COMBONUM", "" + ComboNum },
-             {CompanionScore.name + "BIGCOMBONUM", "" + BigComboNum },
+            // {CompanionScore.name +  "COMBONUM", "" + ComboNum },
+            // {CompanionScore.name + "BIGCOMBONUM", "" + BigComboNum },
              { CompanionLevel , "" + HappinessManagerScript.Level }
 
          }

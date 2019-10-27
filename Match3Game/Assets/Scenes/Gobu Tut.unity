@@ -1034,6 +1034,11 @@ PrefabInstance:
       propertyPath: LevelUpCanvas
       value: 
       objectReference: {fileID: 172113104}
+    - target: {fileID: 114904152250435826, guid: 6e21ef18f925f614bb8952d2a3856f01,
+        type: 3}
+      propertyPath: GoldRewardText
+      value: 
+      objectReference: {fileID: 1462065424}
     - target: {fileID: 4874126141112344, guid: 6e21ef18f925f614bb8952d2a3856f01, type: 3}
       propertyPath: m_LocalPosition.x
       value: 86.8
@@ -4364,6 +4369,18 @@ MonoBehaviour:
   m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
   m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
+--- !u!114 &1462065424 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8444529212328181219, guid: 5637ab04fdd60894c812a6946c8dca08,
+    type: 3}
+  m_PrefabInstance: {fileID: 6574192191754507578}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1488010089
 GameObject:
   m_ObjectHideFlags: 0
@@ -8631,11 +8648,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 68.01
       objectReference: {fileID: 0}
-    - target: {fileID: 6574192192007541581, guid: 5637ab04fdd60894c812a6946c8dca08,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadTut
-      objectReference: {fileID: 0}
     - target: {fileID: 6574192192300006912, guid: 5637ab04fdd60894c812a6946c8dca08,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -8650,6 +8662,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6574192192007541581, guid: 5637ab04fdd60894c812a6946c8dca08,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadTut
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5637ab04fdd60894c812a6946c8dca08, type: 3}
