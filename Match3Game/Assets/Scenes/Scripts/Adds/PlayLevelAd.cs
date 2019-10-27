@@ -17,9 +17,9 @@ public class PlayLevelAd : MonoBehaviour
  
     public void PlayAdNow()
     {
-        Advertisement.Show(placementId);
-
-        Advertisement.Show();
-        Debug.Log("PLAYED AD");
+        //Advertisement.Show(placementId);
+        //
+        //Advertisement.Show();
+        //Debug.Log("PLAYED AD");
     }
 }

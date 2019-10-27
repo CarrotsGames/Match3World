@@ -24,14 +24,14 @@ public class AdCountdown : MonoBehaviour
         Countdown -= Time.deltaTime;
         if(Countdown < 0)
         {
-            PlayAd();
+            //PlayAd();
         }
     }
     void PlayAd()
     {
         // Reset timer 
         Countdown = 900;
-        PlayLevelAdScript.PlayAdNow();
+       // PlayLevelAdScript.PlayAdNow();
     }
     public void SaveTimer()
     {

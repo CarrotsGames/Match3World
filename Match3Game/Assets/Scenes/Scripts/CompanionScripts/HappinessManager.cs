@@ -188,7 +188,7 @@ public class HappinessManager : MonoBehaviour
                 CanGetCurrency = true;
                 if (Level == 5 || Level == 10 || Level == 15 || Level == 20 || Level == 25)
                 {
-                    PlayLevelAdScript.PlayAdNow();
+                  //  PlayLevelAdScript.PlayAdNow();
                 }
                 // Music Change
                 // Add multiplier    
