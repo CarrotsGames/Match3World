@@ -90,14 +90,7 @@ public class HappinessManager : MonoBehaviour
         LoadSaves();
      
      
-        // if level is 0 score will not go up because nodes * level value equal score
-        if (Level <= 1)
-        {
-            Level = 1;
-            HappinessSliderValue = 0;
-            HappinessClamp += 250;
-            HappinessBar();
-        }
+       
         
 
         int NextLevelNum = Level + 1;
@@ -114,13 +107,21 @@ public class HappinessManager : MonoBehaviour
             SaveSystem.LoadMoobling();
             Level = SaveSystem.LoadMoobling().Level;
             HappinessSliderValue = SaveSystem.LoadMoobling().EXP;
-            HappinessClamp += Level * 250;
-            HappinessClamp = SaveSystem.LoadMoobling().TotalEXP;
+            HappinessClamp = Level * 250;
+            //HappinessClamp = SaveSystem.LoadMoobling().TotalEXP;
             // DotManager.TotalScore = SaveSystem.LoadMoobling().TotalScore;
             HappinessBar();
             LevelUpCanvas.SetActive(false);
             PowerUpManagerGameObj = GameObject.FindGameObjectWithTag("PUM");
             PowerUpManagerScript = PowerUpManagerGameObj.GetComponent<PowerUpManager>();
+            // if level is 0 score will not go up because nodes * level value equal score
+            if (Level < 1)
+            {
+                Level = 1;
+                HappinessSliderValue = 0;
+                HappinessClamp = 250;
+                HappinessBar();
+            }
         }
         HappinessSlider.maxValue = HappinessClamp;
         HappinessSliderValue = Mathf.Clamp(HappinessSliderValue, 0, HappinessClamp);
@@ -154,13 +155,13 @@ public class HappinessManager : MonoBehaviour
         }
         // Displays hunger value (used in debug)
         //HungerMetre.text = "" + Hunger;
+        HappinessSlider.maxValue = HappinessClamp;
         HappinessSlider.value = HappinessSliderValue;
 
         // clamps hunger of selected companion from 0 to 100
         HappinessSliderValue = Mathf.Clamp(HappinessSliderValue, 0, HappinessClamp);
         // Slowly counts down Happiness value
         //HappinessSliderValue -= Time.deltaTime / 6;
-        HappinessSlider.maxValue = HappinessClamp;
 
       //  PlayerPrefs.SetFloat(CompanionSave, HappinessSliderValue);
          

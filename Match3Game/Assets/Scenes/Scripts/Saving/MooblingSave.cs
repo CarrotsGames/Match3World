@@ -16,7 +16,7 @@ public class MooblingSave
     {
         Level = Moobling.Level;
         EXP = (int)Moobling.HappinessSliderValue;
-        TotalEXP = Moobling.HappinessClamp;
+       // TotalEXP = Moobling.HappinessClamp;
         //TotalScore = DotManager.TotalScore;
     }
   //  public ChallengeSave(ChallengeComplete Challenge)
