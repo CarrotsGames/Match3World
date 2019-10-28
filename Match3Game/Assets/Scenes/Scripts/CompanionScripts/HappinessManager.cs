@@ -61,7 +61,8 @@ public class HappinessManager : MonoBehaviour
         Scene CurrentScene = SceneManager.GetActiveScene();
         // Gets current scene
         SceneName = CurrentScene.name;
-      
+        LevelUpCanvas = GameObject.Find("Level Up Canvus");
+
         SleepAd = GameObject.FindGameObjectWithTag("SleepingAd");
          // this is used as a safety net just incase for somereason its 0
         if(Level > 1)
@@ -88,17 +89,21 @@ public class HappinessManager : MonoBehaviour
             BoardScriptRef = Board.GetComponent<BoardScript>();
         }
         LoadSaves();
-     
-     
-       
-        
+
+        if (SceneName == "Gobu Tut")
+        {
+
+            Level = 1;
+            HappinessSliderValue = 0;
+            HappinessClamp = 249;
+            HappinessBar();
+        }
 
         int NextLevelNum = Level + 1;
         NextLevel.text = " " + NextLevelNum;
         LevelText.text = "" + Level;
         CurrentMultiplier.text = "" + Level;
     
-         
     }
     void LoadSaves()
     {
