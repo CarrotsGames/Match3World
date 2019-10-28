@@ -109,9 +109,14 @@ public class HappinessManager : MonoBehaviour
     {
         if (GameObject.Find("CHALLENGE") == null)
         {         
+           
             SaveSystem.LoadMoobling();
             Level = SaveSystem.LoadMoobling().Level;
             HappinessSliderValue = SaveSystem.LoadMoobling().EXP;
+            if(Level == 0)
+            {
+                Level = 1;
+            }
             HappinessClamp = Level * 250;
             //HappinessClamp = SaveSystem.LoadMoobling().TotalEXP;
             // DotManager.TotalScore = SaveSystem.LoadMoobling().TotalScore;
