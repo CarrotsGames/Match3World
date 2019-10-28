@@ -56,7 +56,22 @@ public class MonthlyChallenge : MonoBehaviour {
     {
          if (PlayFabLogin.HasLoggedIn == true)
          {
-            if(SceneName == "Main Screen" && !HasUnlockedGift)
+            if (SceneName == "Main Screen Tut")
+            {
+                {
+                    if (DelayTimerCheck > 0)
+                    {
+                        DelayTimerCheck -= Time.deltaTime;
+                    }
+                    else
+                    {
+                        DelayTimerCheck += 4;
+                        MonthlyChallengeStatus();
+                    }
+                }
+            }
+
+            if (SceneName == "Main Screen"  && !HasUnlockedGift)
             {
                 if (DelayTimerCheck > 0)
                 {
