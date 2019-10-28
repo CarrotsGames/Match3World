@@ -126,6 +126,7 @@ public class MonthlyChallenge : MonoBehaviour {
                 HasUnlockedGift = false;
                 PlayerPrefs.SetInt("HASUNLOCKEDGIFT", (HasUnlockedGift ? 1 : 0));
                 MonthlyVersions = result.Version;
+                PlayerPrefs.SetInt("MONTHLYVERSIONVALUE", MonthlyVersions);
                 Debug.Log("NEW VERSION");
                 // Changes MonthlyCompanion array to next companion
 
@@ -133,7 +134,6 @@ public class MonthlyChallenge : MonoBehaviour {
                 // gives players currency
                 DotManagerScript.HighScore.text = "" + DotManager.TotalScore;
                 PlayerPrefs.SetFloat("SCORE", DotManager.TotalScore);
-                PlayerPrefs.SetInt("MONTHLYVERSIONVALUE", MonthlyVersions);
                 MonthlyChallengeEnded();
             }
 
@@ -145,7 +145,7 @@ public class MonthlyChallenge : MonoBehaviour {
     {
         //PlayFabClientAPI.GetLeaderboard(new GetLeaderboardRequest()
         HasUnlockedGift = false;
-        CheckMonthlyUnlock();
+        //CheckMonthlyUnlock();
         PlayerPrefs.SetInt("HASUNLOCKEDGIFT", (HasUnlockedGift ? 1 : 0));
 
         Debug.Log("MONTHLYCHALLENGE STILL Ended");
