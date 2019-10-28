@@ -12,16 +12,24 @@ public static class SaveSystem
         string scene = SceneManager.GetActiveScene().name;
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/" + scene +".Data";
-        if(!File.Exists(path))
+        if (!File.Exists(path))
         {
             File.WriteAllText(path, "");
+            FileStream CreateStream = File.Open(path, FileMode.Create);
+            MooblingSave data = new MooblingSave(Moobling);
+            formatter.Serialize(CreateStream, data);
+
+            CreateStream.Close();
+            return;
         }
-        FileStream stream = new FileStream(path, FileMode.Create);
-
-        MooblingSave data = new MooblingSave(Moobling);
-
-        formatter.Serialize(stream, data);
-        stream.Close();
+        else
+        {
+            FileStream stream = new FileStream(path, FileMode.OpenOrCreate);
+   
+            MooblingSave data = new MooblingSave(Moobling);
+            formatter.Serialize(stream, data);
+            stream.Close();
+        }
     }
  
     public static MooblingSave LoadMoobling()
@@ -32,8 +40,13 @@ public static class SaveSystem
         {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.OpenOrCreate);
+            if(stream.Length < 1)
+            {
+                stream.Close();
+            }
             MooblingSave data = formatter.Deserialize(stream) as MooblingSave;
             stream.Close();
+            
 
             return data;
         }
