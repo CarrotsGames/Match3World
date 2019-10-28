@@ -103,7 +103,7 @@ public class Lives : MonoBehaviour
         else
         {
             NumberOfLives.text = "" + LiveCount;
-            LifeTimerText.text = "Offline";
+            LifeTimerText.text = "Buy egg?";
            
         }
     }

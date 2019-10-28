@@ -62,7 +62,7 @@ public class HappinessManager : MonoBehaviour
         // Gets current scene
         SceneName = CurrentScene.name;
         LevelUpCanvas = GameObject.Find("Level Up Canvus");
-
+        LevelUpCanvas.SetActive(false);
         SleepAd = GameObject.FindGameObjectWithTag("SleepingAd");
          // this is used as a safety net just incase for somereason its 0
         if(Level > 1)
