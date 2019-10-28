@@ -73,6 +73,9 @@ public class DotManager : MonoBehaviour
     }
     private void Start()
     {
+        TotalScore = PlayerPrefs.GetInt("SCORE");
+        HighScore.text = "" + TotalScore;
+
         // Bools start false to be activated later
         NodeSelection = false;
         StartHighliting = false;

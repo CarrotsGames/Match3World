@@ -93,11 +93,7 @@ public class PlayFabAnalytics : MonoBehaviour {
          {
              {CompanionScore.name,"SCORE: "+  Score },
              {CompanionTime,"" + TimeOnScene },
-            // {GoldFoundLevel,"" + GoldFound },
-
-         
-            // {CompanionScore.name +  "COMBONUM", "" + ComboNum },
-            // {CompanionScore.name + "BIGCOMBONUM", "" + BigComboNum },
+          
              { CompanionLevel , "" + HappinessManagerScript.Level }
 
          }

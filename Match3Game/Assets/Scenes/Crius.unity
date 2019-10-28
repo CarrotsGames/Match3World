@@ -1086,6 +1086,11 @@ PrefabInstance:
       propertyPath: GoldRewardText
       value: 
       objectReference: {fileID: 48789750}
+    - target: {fileID: 114904152250435826, guid: 6e21ef18f925f614bb8952d2a3856f01,
+        type: 3}
+      propertyPath: MooblingChallengeSave
+      value: CriusChallenge
+      objectReference: {fileID: 0}
     - target: {fileID: 4874126141112344, guid: 6e21ef18f925f614bb8952d2a3856f01, type: 3}
       propertyPath: m_LocalPosition.x
       value: 86.8
@@ -4480,11 +4485,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gobu Canvus
       objectReference: {fileID: 0}
-    - target: {fileID: 2336660659435952756, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2335805763254419903, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4605,6 +4605,57 @@ PrefabInstance:
       propertyPath: ShuffleSpawn
       value: 
       objectReference: {fileID: 1620135680}
+    - target: {fileID: 8848662033642868986, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449762617587901165, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: BombPlayArea
+      value: 
+      objectReference: {fileID: 866068392}
+    - target: {fileID: 2449762617587901165, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: SuperBombPrefab
+      value: 
+      objectReference: {fileID: 3934109140315948420, guid: 1dbfa478ea5589844a4d59b15196c2f3,
+        type: 3}
+    - target: {fileID: 2555701377130717259, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 14.299988
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335805763860882730, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -10.300049
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094620871, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: PowerUps.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094620871, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: PowerUps.Array.data[0]
+      value: 
+      objectReference: {fileID: 2337297966449444418}
+    - target: {fileID: 1094620871, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: PowerUps.Array.data[1]
+      value: 
+      objectReference: {fileID: 709297592}
+    - target: {fileID: 1094620871, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: PowerUps.Array.data[2]
+      value: 
+      objectReference: {fileID: 105790385}
+    - target: {fileID: 1094620871, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: PowerUps.Array.data[3]
+      value: 
+      objectReference: {fileID: 1556318710}
+    - target: {fileID: 7416764196859901708, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_Name
+      value: SM
+      objectReference: {fileID: 0}
     - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: UnlockMoobling
@@ -4645,62 +4696,16 @@ PrefabInstance:
       propertyPath: MoneyUnlockImage
       value: 
       objectReference: {fileID: 1978995415}
-    - target: {fileID: 8848662033642868986, guid: d7fb396edf155de40895610ead7b8864,
+    - target: {fileID: 2336660659435952756, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
-      propertyPath: m_AnchorMax.y
+      propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2449762617587901165, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: BombPlayArea
-      value: 
-      objectReference: {fileID: 866068392}
-    - target: {fileID: 2449762617587901165, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: SuperBombPrefab
-      value: 
-      objectReference: {fileID: 3934109140315948420, guid: 1dbfa478ea5589844a4d59b15196c2f3,
-        type: 3}
-    - target: {fileID: 2335805763860882730, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -10.300049
       objectReference: {fileID: 0}
     - target: {fileID: 2449254646268538357, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1647165519}
-    - target: {fileID: 2555701377130717259, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 14.299988
-      objectReference: {fileID: 0}
-    - target: {fileID: 1094620871, guid: d7fb396edf155de40895610ead7b8864, type: 3}
-      propertyPath: PowerUps.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1094620871, guid: d7fb396edf155de40895610ead7b8864, type: 3}
-      propertyPath: PowerUps.Array.data[0]
-      value: 
-      objectReference: {fileID: 2337297966449444418}
-    - target: {fileID: 1094620871, guid: d7fb396edf155de40895610ead7b8864, type: 3}
-      propertyPath: PowerUps.Array.data[1]
-      value: 
-      objectReference: {fileID: 709297592}
-    - target: {fileID: 1094620871, guid: d7fb396edf155de40895610ead7b8864, type: 3}
-      propertyPath: PowerUps.Array.data[2]
-      value: 
-      objectReference: {fileID: 105790385}
-    - target: {fileID: 1094620871, guid: d7fb396edf155de40895610ead7b8864, type: 3}
-      propertyPath: PowerUps.Array.data[3]
-      value: 
-      objectReference: {fileID: 1556318710}
-    - target: {fileID: 7416764196859901708, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_Name
-      value: SM
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7fb396edf155de40895610ead7b8864, type: 3}
 --- !u!1 &1390942708 stripped

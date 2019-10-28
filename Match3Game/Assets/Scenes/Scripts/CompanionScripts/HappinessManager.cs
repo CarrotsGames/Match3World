@@ -21,7 +21,9 @@ public class HappinessManager : MonoBehaviour
     public string SaveStrings;
     // gets a companions name which loads their save
     public string CompanionSave;
-    
+    // Unlocks challenges for this mooblings challenge scene
+    [Header("Put challenge scene name here to unlock challenges")]
+    public string MooblingChallengeSave;
     private int TimeTillSave;
     private bool CanEarnGold;
     private string SceneName;
@@ -198,10 +200,16 @@ public class HappinessManager : MonoBehaviour
                 CurrentHappiness.text = "Current EXP:" + HappinessSliderValue + "/" + HappinessClamp;
                 PowerUpManagerScript.Currency += GoldRewardList[Level];
                 PowerUpManagerScript.PowerUpSaves();
-                 
+                if (Level >= 5)
+                {
+                    // Adds challenge to this mooblings challenges
+                    int ChallengeUnlocked = PlayerPrefs.GetInt(MooblingChallengeSave);
+                    ChallengeUnlocked++;
+                    PlayerPrefs.SetInt(MooblingChallengeSave, ChallengeUnlocked);
+                }
                 GoldRewardText.text = "" + GoldRewardList[Level];
                 LevelUpCanvas.SetActive(true);
-
+                
             }
         }
         else

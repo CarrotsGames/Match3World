@@ -11,6 +11,20 @@ public class ButtonColour : MonoBehaviour
     
     void Start()
     {
+        int ChallengesUnlocked = PlayerPrefs.GetInt(MooblingChallengeName);
+        if (ChallengesUnlocked == 0)
+        {
+            ChallengesUnlocked = 5;
+           PlayerPrefs.SetInt(MooblingChallengeName, ChallengesUnlocked);
+
+        }
+        for (int i = 0; i < ChallengesUnlocked ; i++)
+        {
+            transform.GetChild(i).GetComponent<Button>().interactable = true;
+            transform.GetChild(i).GetComponent<Button>().image.color = Color.green;
+
+        }
+
         Test = new List<int>();
         SaveSystem.LoadChallenge(MooblingChallengeName);
         for (int i = 0; i < ChallengeComplete.ChallengeList.Length; i++)
@@ -23,5 +37,63 @@ public class ButtonColour : MonoBehaviour
             }
           
         }
+      
     }
+    //void GetMooblingChallengeInfo(string MooblingChallengeName)
+    //{
+    //    switch (MooblingChallengeName)
+    //    {
+    //        case "GobuChallenge":
+    //            {
+
+    //            }
+    //            break;
+    //        case "BinkyChallenge":
+    //            {
+
+    //            }
+    //            break;
+    //        case "KokoChallenge":
+    //            {
+
+    //            }
+    //            break;
+    //        case "CriusChallenge":
+    //            {
+
+    //            }
+    //            break;
+    //        case "SaucoChallenge":
+    //            {
+
+    //            }
+    //            break;
+    //        case "CPChallenge":
+    //            {
+
+    //            }
+    //            break;
+    //        case "SquishyChallenge":
+    //            {
+
+    //            }
+    //            break;
+    //        case "OkamiChallenge":
+    //            {
+
+    //            }
+    //            break;
+    //        case "IdaChallenge":
+    //            {
+
+    //            }
+    //            break;
+    //        case "CronusChallenge":
+    //            {
+
+    //            }
+    //            break;
+    //    }
+
+   // }
 }
