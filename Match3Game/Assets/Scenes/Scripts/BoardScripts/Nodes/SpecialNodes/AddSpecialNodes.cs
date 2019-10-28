@@ -12,10 +12,7 @@ public class AddSpecialNodes : MonoBehaviour
 
     private void Start()
     {
-        if(NumberofNodes <= 0)
-        {
-            Debug.LogError("NO SPECIAL NODES WILL SPAWN");
-        }
+         
     }
     public void SpawnNode()
     {

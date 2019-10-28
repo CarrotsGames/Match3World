@@ -14,8 +14,7 @@ public class BuyEgg : MonoBehaviour
     public GameObject eggUnlock;
     public bool eggIncubation;
     public GameObject CreatureEggs;
-    public GameObject[] EggButtons;
-
+ 
  
     private void FixedUpdate()
     {
@@ -33,6 +32,7 @@ public class BuyEgg : MonoBehaviour
             }
             else
             {
+                transform.GetChild(0).GetComponent<Text>().text = "Buy";
                 GetComponent<Image>().color = new Color(1, 1, 1);
                 GetComponent<Button>().enabled = true;
                 gameObject.SetActive(true);
