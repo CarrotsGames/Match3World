@@ -83,21 +83,25 @@ public static class SaveSystem
         {
         
             FileStream stream = new FileStream(path, FileMode.OpenOrCreate);
-            if (stream.Length > 0)
+         
+            BinaryFormatter formatter = new BinaryFormatter();
+            if (stream.Length < 1)
             {
-                BinaryFormatter formatter = new BinaryFormatter();
-                ChallengeSave data = formatter.Deserialize(stream) as ChallengeSave;
-                ChallengeComplete.ChallengeList = data.CompletedLevels;
                 stream.Close();
-
-                return data;
+                return null;
             }
             else
             {
+                ChallengeSave data = formatter.Deserialize(stream) as ChallengeSave;
+                ChallengeComplete.ChallengeList = data.CompletedLevels;
+
                 stream.Close();
-                return LoadChallenge(ChallengeName);
+
+
+                return data;
             }
-        }
+           
+         }
         else
         {
             File.WriteAllText(path, "");
