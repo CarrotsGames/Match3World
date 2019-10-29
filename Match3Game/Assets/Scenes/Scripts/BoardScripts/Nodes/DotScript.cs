@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 public class DotScript : MonoBehaviour
 {
-
     [HideInInspector]
     public float Timer;
     [HideInInspector]
@@ -13,8 +12,7 @@ public class DotScript : MonoBehaviour
     GameObject FlashingGameObj;
     [HideInInspector]
     public bool DefaultColour;
-    [HideInInspector]
-    public bool GrowSize;
+    
     [HideInInspector]
     public int LayerType = 10;
     public float defultSize = 2.5f;
@@ -50,8 +48,7 @@ public class DotScript : MonoBehaviour
         AudioManagerScript = AudioManagerGameObj.GetComponent<AudioManager>();
         //flashes node outline red when player failes connect
         ReleaseNodeColour = false;
-        // Enables the node to grow when hihglited
-        GrowSize = false;   
+ 
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
         Board = FindObjectOfType<BoardScript>();
@@ -105,9 +102,7 @@ public class DotScript : MonoBehaviour
                 ResetMatTime = 0;
                 ReleaseNodeColour = false;
              }
- 
-
-            // DotManagerScript.StopInteracting = false;
+           
         }
       
         // resets dot material 
@@ -169,16 +164,12 @@ public class DotScript : MonoBehaviour
         // Decreases size of peice when selected
         if (DotManagerScript.StartHighliting == true)
         {
-            Vector3 newScale = new Vector3();
-            newScale.x = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
-            newScale.z = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
-            newScale.y = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
-            transform.localScale = newScale;
+            ResetNodeScale();
             HasPlayedSound = true;
         }
        
     }
-   
+   // when finger enters this node it will scale and play sound
     private void OnMouseEnter()
     {
         // when player begins connection 
@@ -198,6 +189,7 @@ public class DotScript : MonoBehaviour
                 }                
                 // Plays the Node Highlite Sound
                 AudioManagerScript.NodeSource.clip = AudioManagerScript.NodeAudio[0];
+               
                 AudioManagerScript.NodeSource.Play();
                 HasPlayedSound = false;
                 Instantiate(HighlitedParticle, transform.position, Quaternion.identity);
@@ -205,16 +197,10 @@ public class DotScript : MonoBehaviour
         }
         else
         {
-            ResetNodeScale();
-          // returns node to defualt size when no longer highlited
-            Vector3 newScale = new Vector3();
-            newScale.x = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
-            newScale.z = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
-            newScale.y = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
-            transform.localScale = newScale;
-            DotManagerScript.NodeSelection = false;                
+            ResetNodeScale();                
         }
     }
+    // begins the node connection process
     private void OnMouseDown()
     {
         // when player can play and nodes arnt frozen
@@ -225,57 +211,56 @@ public class DotScript : MonoBehaviour
             {
                DotManagerObj.GetComponent<DestroyNodes>().ComboList.Clear();
             }
-                DotManagerScript.StartHighliting = true;
-                DotManagerScript.NodeSelection = true;
-                // Checks which colout tag the mouse is interacting with to know which colour to focus on
-                switch (transform.tag)
-                {
-                    case "Red":
-                        Colour = "Red";
 
-                        break;
-                    case "Blue":
-                        Colour = "Blue";
-
-                        break;
-                    case "Green":
-                        Colour = "Green";
-
-                        break;
-                    case "Yellow":
-                        Colour = "Yellow";
-                        break;
-                    case "Gold":
-                        Colour = "Gold";
-                        break;
-                    case "COLLECTED":
-                        OnMouseUp();
-                        break;
-                }
-               // clears Peices list just in case
-                DotManagerScript.Peices.Clear();
-    
-                // Increases size of peice when selected
-                Vector3 newScale = new Vector3();
-                newScale.x = Mathf.Clamp(transform.localScale.x, jucSize, jucSize);
-                newScale.z = Mathf.Clamp(transform.localScale.z, jucSize, jucSize);
-                newScale.y = Mathf.Clamp(transform.localScale.y, jucSize, jucSize);
-                transform.localScale = newScale;
-                // changes colour of peice to black
-                this.gameObject.GetComponent<Renderer>().material.color = Color.black;
-                // changes peice layer
-                this.gameObject.layer = LayerType;
-                // plays the node highlite sound
-                AudioManagerScript.NodeSource.clip = AudioManagerScript.NodeAudio[0];
-                AudioManagerScript.NodeSource.PlayOneShot(AudioManagerScript.NodeSource.clip);
-                Instantiate(HighlitedParticle, transform.position, Quaternion.identity);
+            DotManagerScript.StartHighliting = true;
+            DotManagerScript.NodeSelection = true;
+            // Checks which colout tag the mouse is interacting with to know which colour to focus on
+            switch (transform.tag)
+            {
+                case "Red":
+                    Colour = "Red";
+           
+                    break;
+                case "Blue":
+                    Colour = "Blue";
+           
+                    break;
+                case "Green":
+                    Colour = "Green";
+           
+                    break;
+                case "Yellow":
+                    Colour = "Yellow";
+                    break;
+                case "Gold":
+                    Colour = "Gold";
+                    break;
+                case "COLLECTED":
+                    OnMouseUp();
+                    break;
+            }
+           // clears Peices list just in case
+            DotManagerScript.Peices.Clear();
+           
+            // Increases size of peice when selected
+            ChangeNodeScale();
+            // changes colour of peice to black
+            this.gameObject.GetComponent<Renderer>().material.color = Color.black;
+            // changes peice layer
+            this.gameObject.layer = LayerType;
+            // plays the node highlite sound
+            AudioManagerScript.NodeSource.clip = AudioManagerScript.NodeAudio[0];
+            AudioManagerScript.NodeSource.PlayOneShot(AudioManagerScript.NodeSource.clip);
+            Instantiate(HighlitedParticle, transform.position, Quaternion.identity);
             
         }
     }
+ 
+    // detects when moving finger over nodes
     private void OnMouseDrag()
     {
-        DotScript[] Dots = FindObjectsOfType<DotScript>();
-        bool CircleOverlap = Physics2D.OverlapCircle(transform.position, 1);
+        // refs all other nodes and checks if theyve been highlited
+        DotScript[] Dots = FindObjectsOfType<DotScript>();      
         if (DotManagerScript.CanPlay && !Frozen)
         {
             // Chenges nodes layer and adds it into list to not be added again
@@ -285,20 +270,16 @@ public class DotScript : MonoBehaviour
                 // if the Node is not the current node
                 if (dot.gameObject.GetInstanceID() != gameObject.GetInstanceID())
                 {
-
+                    // Makes the node able to be connected
                     if (!neighbours.Contains(dot.gameObject) && dot.gameObject.tag == Colour)
                     {
                         // change node layer to the layertype needed to connect nodes
                         dot.gameObject.layer = LayerType;
                         // add to list
                         neighbours.Add(dot.gameObject);
-                        // Grow selected node 
-                        dot.gameObject.GetComponent<DotScript>().GrowSize = true;
+                        // Grow selected node                        
                     }
-
                 }
-
-
             }
 
 
@@ -310,27 +291,29 @@ public class DotScript : MonoBehaviour
                 {
                     if (hitInfo.collider.gameObject.layer == 10)
                     {
-                        // Checks for that specific colour pieces
-                        if (DotManagerScript.NodeSelection)
+                        // if list doesent contain this gameobject add to list
+                        if (!DotManagerScript.Peices.Contains(hitInfo.collider.gameObject) && hitInfo.collider.gameObject.tag == Colour)
                         {
-                            if (!DotManagerScript.Peices.Contains(hitInfo.collider.gameObject) && hitInfo.collider.gameObject.tag == Colour)
+                            if (AudioManagerScript.NodeSource.pitch < 3)
                             {
-                                hitInfo.collider.gameObject.GetComponent<Renderer>().material.color = Color.black;
-                                // adds hit.collider to Peices list
-                                DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
+                                AudioManagerScript.NodeSource.pitch += 0.1f;
                             }
-                            // if the colour is different from the current colour being connected stop chain
-                            if (hitInfo.collider.gameObject.tag != Colour && hitInfo.collider.gameObject.layer == LayerType)
-                            {
-                                //hitInfo.collider.gameObject.GetComponent<Renderer>().material.color = Color.red;
-                                FlashingGameObj = hitInfo.collider.gameObject;
-                                FlashingGameObj.gameObject.GetComponent<Renderer>().material.color = Color.red;
-
-                                ReleaseNodeColour = true;
-
-                                OnMouseUp();
-                            }
+                            hitInfo.collider.gameObject.GetComponent<Renderer>().material.color = Color.black;
+                            // adds hit.collider to Peices list
+                            DotManagerScript.Peices.Add(hitInfo.collider.gameObject);
                         }
+                        // if the colour is different from the current colour being connected stop chain
+                        if (hitInfo.collider.gameObject.tag != Colour && hitInfo.collider.gameObject.layer == LayerType)
+                        {
+                            //hitInfo.collider.gameObject.GetComponent<Renderer>().material.color = Color.red;
+                            FlashingGameObj = hitInfo.collider.gameObject;
+                            FlashingGameObj.gameObject.GetComponent<Renderer>().material.color = Color.red;
+
+                            ReleaseNodeColour = true;
+
+                            OnMouseUp();
+                        }
+                        
                     }
                     else if (hitInfo.collider.gameObject.layer == 0)
                     {
@@ -357,29 +340,21 @@ public class DotScript : MonoBehaviour
  
     public void OnMouseUp()
     {
-        
-
+       
         if (DotManagerScript.CanPlay && !Frozen)
         {
+            // sets pitch to default value
+            AudioManagerScript.NodeSource.pitch = 1;
+
             neighbours.Clear();
             this.transform.gameObject.layer = 0;
-            // Resets node scale
 
             DotManagerScript.ResetMaterial = false;
-
-            // makes peices unable to grow
-            GrowSize = false;
-            // Resets neighbour list
             // Goes into DotManagerScript to check if there was a connection
             DotManagerScript.CheckConnection = true;
-           
-
+        
             // Resets size of peices  
-            Vector3 newScale = new Vector3();
-            newScale.x = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
-            newScale.z = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
-            newScale.y = Mathf.Clamp(transform.localScale.y, defultSize, defultSize);
-            transform.localScale = newScale;
+            ResetNodeScale();
             DotManagerScript.StartHighliting = false;
             DotManagerScript.CheckPieces();
         }
