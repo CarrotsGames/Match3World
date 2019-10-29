@@ -869,6 +869,11 @@ PrefabInstance:
       propertyPath: ParticleAudio.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: 1a49a66ae02a38040ad53515e91cd787, type: 3}
+    - target: {fileID: 521941322661175453, guid: c48dae2b39178bc498df340966b5eef7,
+        type: 3}
+      propertyPath: SoundEffects
+      value: 
+      objectReference: {fileID: 451500298}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c48dae2b39178bc498df340966b5eef7, type: 3}
 --- !u!82 &451500296 stripped
@@ -883,6 +888,24 @@ AudioSource:
     type: 3}
   m_PrefabInstance: {fileID: 451500295}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &451500298 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1929677184829160892, guid: c48dae2b39178bc498df340966b5eef7,
+    type: 3}
+  m_PrefabInstance: {fileID: 451500295}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &451500299 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 521941322661175453, guid: c48dae2b39178bc498df340966b5eef7,
+    type: 3}
+  m_PrefabInstance: {fileID: 451500295}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740883824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b4201a8eb160d545a29554f984ab402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &615266526
 GameObject:
   m_ObjectHideFlags: 0
@@ -3908,10 +3931,35 @@ PrefabInstance:
       propertyPath: soundEffects
       value: 
       objectReference: {fileID: 777072135}
+    - target: {fileID: 2861401590203913251, guid: d009cb47e607a2e438d6dee0c645a038,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2600843701282760843, guid: d009cb47e607a2e438d6dee0c645a038,
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 631
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861401589539412895, guid: d009cb47e607a2e438d6dee0c645a038,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 451500299}
+    - target: {fileID: 2861401589539412895, guid: d009cb47e607a2e438d6dee0c645a038,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TurnMusicOn
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861401589988925123, guid: d009cb47e607a2e438d6dee0c645a038,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 451500299}
+    - target: {fileID: 2861401589988925123, guid: d009cb47e607a2e438d6dee0c645a038,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TurnMusicOff
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d009cb47e607a2e438d6dee0c645a038, type: 3}
