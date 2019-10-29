@@ -2594,8 +2594,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2159997132564371891, guid: 14cf0c9f13a41b04893174ce8bb2b28b,
+        type: 3}
+      propertyPath: SoundEffects
+      value: 
+      objectReference: {fileID: 1661259077}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14cf0c9f13a41b04893174ce8bb2b28b, type: 3}
+--- !u!114 &576810167 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2159997132564371891, guid: 14cf0c9f13a41b04893174ce8bb2b28b,
+    type: 3}
+  m_PrefabInstance: {fileID: 576810166}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667143628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b4201a8eb160d545a29554f984ab402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &583962603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4741,6 +4758,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gobu Canvus
       objectReference: {fileID: 0}
+    - target: {fileID: 2335805763860882735, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1667143628}
+    - target: {fileID: 2335805763860882735, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: soundEffects
+      value: 
+      objectReference: {fileID: 1661259077}
+    - target: {fileID: 1876831935, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1211474179, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 576810167}
+    - target: {fileID: 1211474179, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TurnMusicOn
+      objectReference: {fileID: 0}
+    - target: {fileID: 1661903967, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 576810167}
+    - target: {fileID: 1661903967, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TurnMusicOff
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335805763860882730, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.075683594
+      objectReference: {fileID: 0}
     - target: {fileID: 2335805763254419903, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4846,21 +4898,56 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2335805763860882735, guid: d7fb396edf155de40895610ead7b8864,
+    - target: {fileID: 2555701377130717259, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
-      propertyPath: audioManager
-      value: 
-      objectReference: {fileID: 1667143628}
-    - target: {fileID: 2335805763860882735, guid: d7fb396edf155de40895610ead7b8864,
+      propertyPath: m_AnchoredPosition.x
+      value: 14.300049
+      objectReference: {fileID: 0}
+    - target: {fileID: 725072268, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848662033642868986, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
-      propertyPath: soundEffects
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094620871, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: PowerUps.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094620871, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: PowerUps.Array.data[0]
       value: 
-      objectReference: {fileID: 1661259077}
+      objectReference: {fileID: 1037968080}
+    - target: {fileID: 1094620871, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: PowerUps.Array.data[1]
+      value: 
+      objectReference: {fileID: 372364711}
+    - target: {fileID: 1094620871, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: PowerUps.Array.data[2]
+      value: 
+      objectReference: {fileID: 1614556367}
+    - target: {fileID: 1094620871, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: PowerUps.Array.data[3]
+      value: 
+      objectReference: {fileID: 518593446}
     - target: {fileID: 2449818973851826393, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: ShuffleSpawn
       value: 
       objectReference: {fileID: 1743303020}
+    - target: {fileID: 2449762617587901165, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: BombPlayArea
+      value: 
+      objectReference: {fileID: 1881415163}
+    - target: {fileID: 2449762617587901165, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: SuperBombPrefab
+      value: 
+      objectReference: {fileID: 3934109140315948420, guid: 1dbfa478ea5589844a4d59b15196c2f3,
+        type: 3}
     - target: {fileID: 2449719481033241608, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: UnlockMoobling
@@ -4901,61 +4988,11 @@ PrefabInstance:
       propertyPath: MoneyUnlockImage
       value: 
       objectReference: {fileID: 748867223}
-    - target: {fileID: 8848662033642868986, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2449762617587901165, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: BombPlayArea
-      value: 
-      objectReference: {fileID: 1881415163}
-    - target: {fileID: 2449762617587901165, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: SuperBombPrefab
-      value: 
-      objectReference: {fileID: 3934109140315948420, guid: 1dbfa478ea5589844a4d59b15196c2f3,
-        type: 3}
-    - target: {fileID: 2335805763860882730, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.075683594
-      objectReference: {fileID: 0}
     - target: {fileID: 2449254646268538357, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 490035808}
-    - target: {fileID: 2555701377130717259, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 14.300049
-      objectReference: {fileID: 0}
-    - target: {fileID: 725072268, guid: d7fb396edf155de40895610ead7b8864, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1094620871, guid: d7fb396edf155de40895610ead7b8864, type: 3}
-      propertyPath: PowerUps.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1094620871, guid: d7fb396edf155de40895610ead7b8864, type: 3}
-      propertyPath: PowerUps.Array.data[0]
-      value: 
-      objectReference: {fileID: 1037968080}
-    - target: {fileID: 1094620871, guid: d7fb396edf155de40895610ead7b8864, type: 3}
-      propertyPath: PowerUps.Array.data[1]
-      value: 
-      objectReference: {fileID: 372364711}
-    - target: {fileID: 1094620871, guid: d7fb396edf155de40895610ead7b8864, type: 3}
-      propertyPath: PowerUps.Array.data[2]
-      value: 
-      objectReference: {fileID: 1614556367}
-    - target: {fileID: 1094620871, guid: d7fb396edf155de40895610ead7b8864, type: 3}
-      propertyPath: PowerUps.Array.data[3]
-      value: 
-      objectReference: {fileID: 518593446}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7fb396edf155de40895610ead7b8864, type: 3}
 --- !u!1 &1037968080 stripped

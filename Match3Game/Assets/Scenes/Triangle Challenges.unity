@@ -3119,8 +3119,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2159997132564371891, guid: 14cf0c9f13a41b04893174ce8bb2b28b,
+        type: 3}
+      propertyPath: SoundEffects
+      value: 
+      objectReference: {fileID: 1661259077}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14cf0c9f13a41b04893174ce8bb2b28b, type: 3}
+--- !u!114 &576810167 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2159997132564371891, guid: 14cf0c9f13a41b04893174ce8bb2b28b,
+    type: 3}
+  m_PrefabInstance: {fileID: 576810166}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821509805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b4201a8eb160d545a29554f984ab402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &583962603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9944,6 +9961,26 @@ PrefabInstance:
       propertyPath: Analytics
       value: 
       objectReference: {fileID: 860184246}
+    - target: {fileID: 2861401589539412895, guid: d009cb47e607a2e438d6dee0c645a038,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 576810167}
+    - target: {fileID: 2861401589539412895, guid: d009cb47e607a2e438d6dee0c645a038,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TurnMusicOn
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861401589988925123, guid: d009cb47e607a2e438d6dee0c645a038,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 576810167}
+    - target: {fileID: 2861401589988925123, guid: d009cb47e607a2e438d6dee0c645a038,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TurnMusicOff
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d009cb47e607a2e438d6dee0c645a038, type: 3}
 --- !u!114 &2139487778 stripped
