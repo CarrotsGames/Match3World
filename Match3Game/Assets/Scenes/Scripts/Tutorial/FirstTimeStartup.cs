@@ -17,7 +17,7 @@ public class FirstTimeStartup : MonoBehaviour
         }
         else 
         {
-            SceneManager.LoadScene("Gobu Tut");
+           // SceneManager.LoadScene("Gobu Tut");
         }
     }
 
