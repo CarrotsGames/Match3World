@@ -59,7 +59,7 @@ public class settings : MonoBehaviour {
   
     public void SoundOn()
     {
-        Debug.Log("SoundOn");
+ 
 
          AudioManagerScript.soundOn = true;
         AudioManagerScript.AudioToggle();
@@ -68,7 +68,7 @@ public class settings : MonoBehaviour {
 
     public void SoundOff()
     {
-        Debug.Log("SoundOff");
+ 
         AudioManagerScript.soundOn = false;
 
         AudioManagerScript.AudioToggle();

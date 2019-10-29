@@ -38,7 +38,7 @@ public class AudioManager : MonoBehaviour {
     // Update is called once per frame
     public void AudioToggle ()
     {
-        Debug.Log("Toggle");
+ 
 
         if (!soundOn)
         {
