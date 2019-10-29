@@ -30,8 +30,7 @@ public class Lives : MonoBehaviour
         IsCountingDown = false;
         CheckTime = 3;
         TimeStamp = System.Convert.ToInt64(PlayerPrefs.GetString("TimeUntilLives"));
-       // PlayerPrefs.SetString("TimerLong", "" + TimerLong);
-       // TimerLong = System.Convert.ToInt64(PlayerPrefs.GetString("TimerLong"));
+      
         CountdownTimerLong = TimeStamp;
         LiveCount = PlayerPrefs.GetInt("LIVECOUNT");
         IsCountingDown = PlayerPrefs.GetInt("LIVECOUNTDOWN") != 0;
@@ -44,6 +43,7 @@ public class Lives : MonoBehaviour
         {
             IsCountingDown = false;
             LiveCount = 3;
+            PlayerPrefs.SetInt("LIVECOUNT",3);
         }
         FirstTimeLogin++;
         if(LiveCount >= 3)
