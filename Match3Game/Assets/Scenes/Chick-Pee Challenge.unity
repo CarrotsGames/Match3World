@@ -491,6 +491,31 @@ PrefabInstance:
       propertyPath: soundEffects
       value: 
       objectReference: {fileID: 1120495018}
+    - target: {fileID: 2861401590203913251, guid: d009cb47e607a2e438d6dee0c645a038,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861401589539412895, guid: d009cb47e607a2e438d6dee0c645a038,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1726567545}
+    - target: {fileID: 2861401589539412895, guid: d009cb47e607a2e438d6dee0c645a038,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TurnMusicOn
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861401589988925123, guid: d009cb47e607a2e438d6dee0c645a038,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1726567545}
+    - target: {fileID: 2861401589988925123, guid: d009cb47e607a2e438d6dee0c645a038,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TurnMusicOff
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d009cb47e607a2e438d6dee0c645a038, type: 3}
 --- !u!114 &166439345 stripped
@@ -5818,16 +5843,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1781036811228027039, guid: 0a092d20b9e427d4e8f8b7b344ba5761,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1781036812536433077, guid: 0a092d20b9e427d4e8f8b7b344ba5761,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1781036810683050598, guid: 0a092d20b9e427d4e8f8b7b344ba5761,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5931,6 +5946,16 @@ PrefabInstance:
     - target: {fileID: 1781036810683050598, guid: 0a092d20b9e427d4e8f8b7b344ba5761,
         type: 3}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1781036811228027039, guid: 0a092d20b9e427d4e8f8b7b344ba5761,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1781036812536433077, guid: 0a092d20b9e427d4e8f8b7b344ba5761,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6587,8 +6612,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 521941322661175453, guid: c48dae2b39178bc498df340966b5eef7,
+        type: 3}
+      propertyPath: SoundEffects
+      value: 
+      objectReference: {fileID: 1120495018}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c48dae2b39178bc498df340966b5eef7, type: 3}
+--- !u!114 &1726567545 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 521941322661175453, guid: c48dae2b39178bc498df340966b5eef7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1726567544}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140172506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b4201a8eb160d545a29554f984ab402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1746002165
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,14 +10,28 @@ public class AudioManager : MonoBehaviour {
     public AudioSource MooblingSource;
     public AudioClip[] ParticleAudio;
     public AudioSource ParticleSource;
- 
+    public GameObject SoundEffects;
+    [HideInInspector]
+    public GameObject Settings;
     public bool soundOn;
-    private string SaveBool;
-    // Use this for initialization
+    public bool MusicOn;
+     // Use this for initialization
     private void Start()
     {
+      
         soundOn = true;
-        soundOn = (PlayerPrefs.GetInt(SaveBool) != 0);
+        soundOn = (PlayerPrefs.GetInt("SaveSound") != 0);
+        MusicOn = true;
+        MusicOn = (PlayerPrefs.GetInt("MusicSave") != 0);
+        Settings = GameObject.Find("Settings");
+        if (!MusicOn)
+        {
+            TurnMusicOn();
+        }
+        else
+        {
+            TurnMusicOff();
+        }
     }
     // Update is called once per frame
     public void AudioToggle ()
@@ -28,15 +42,42 @@ public class AudioManager : MonoBehaviour {
             NodeSource.enabled = false;
             MooblingSource.enabled = false;
             ParticleSource.enabled = false;
-            PlayerPrefs.SetInt(SaveBool, (soundOn ? 1 : 0));
+            PlayerPrefs.SetInt("SaveSound", (soundOn ? 1 : 0));
         }
         else
         {
             NodeSource.enabled = true;
             MooblingSource.enabled = true;
             ParticleSource.enabled = true;
-            PlayerPrefs.SetInt(SaveBool, (soundOn ? 1 : 0));
+            PlayerPrefs.SetInt("SaveSound", (soundOn ? 1 : 0));
             //enable audio source
         }
+       
     }
+
+    public void TurnMusicOn()
+    {
+
+        // sceneAudio.SetActive(true);
+        GetComponent<AudioManager>().NodeSource.enabled = true;
+        //DO THIS TO OTHERS!!!!!!///////////////////////////////////////
+        SoundEffects.GetComponent<SceneAudio>().SceneMusicSource.enabled = true;
+        MusicOn = false;
+        PlayerPrefs.SetInt("MusicSave", (MusicOn ? 1 : 0));
+        Settings.GetComponent<settings>().NoMusicImage.SetActive(false);
+        Settings.GetComponent<settings>().MusicImage.SetActive(true);
+    }
+
+    public void TurnMusicOff()
+    {
+        //  sceneAudio.SetActive(false);
+        GetComponent<AudioManager>().NodeSource.enabled = false;
+        SoundEffects.GetComponent<SceneAudio>().SceneMusicSource.enabled = false;
+
+        MusicOn = true;
+        PlayerPrefs.SetInt("MusicSave", (MusicOn ? 1 : 0));
+        Settings.GetComponent<settings>().NoMusicImage.SetActive(true);
+        Settings.GetComponent<settings>().MusicImage.SetActive(false);
+    }
+
 }

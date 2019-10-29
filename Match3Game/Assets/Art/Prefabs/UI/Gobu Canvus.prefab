@@ -2715,7 +2715,6 @@ MonoBehaviour:
   MusicImage: {fileID: 1661903966}
   noSound: {fileID: 1542883181}
   sound: {fileID: 1154009605}
-  soundEffects: {fileID: 0}
   musicOff: 0
   soundOff: 0
   open: 0
@@ -5186,7 +5185,12 @@ PrefabInstance:
     - target: {fileID: 265061487098525926, guid: 934b904c9061b654cab284a9cbafd066,
         type: 3}
       propertyPath: m_Name
-      value: Settings
+      value: SettingsUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 265061487098525926, guid: 934b904c9061b654cab284a9cbafd066,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 265061487098525849, guid: 934b904c9061b654cab284a9cbafd066,
         type: 3}
@@ -5806,6 +5810,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Combo
       objectReference: {fileID: 0}
+    - target: {fileID: 114465465818347660, guid: 06ad7ab32dd9b0946a59a2e3161d6430,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 9681a365a6594fc4eb06a5be04d8a31b,
+        type: 3}
+    - target: {fileID: 114465465818347660, guid: 06ad7ab32dd9b0946a59a2e3161d6430,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114465465818347660, guid: 06ad7ab32dd9b0946a59a2e3161d6430,
+        type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 224790792827935110, guid: 06ad7ab32dd9b0946a59a2e3161d6430,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5985,22 +6005,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 203.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 114465465818347660, guid: 06ad7ab32dd9b0946a59a2e3161d6430,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 9681a365a6594fc4eb06a5be04d8a31b,
-        type: 3}
-    - target: {fileID: 114465465818347660, guid: 06ad7ab32dd9b0946a59a2e3161d6430,
-        type: 3}
-      propertyPath: m_FontData.m_BestFit
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114465465818347660, guid: 06ad7ab32dd9b0946a59a2e3161d6430,
-        type: 3}
-      propertyPath: m_Text
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114042317872508798, guid: 06ad7ab32dd9b0946a59a2e3161d6430,
         type: 3}

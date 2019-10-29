@@ -15,7 +15,6 @@ public class settings : MonoBehaviour {
     public GameObject noSound;
     public GameObject sound;
 
-    public GameObject soundEffects;
 
     public bool musicOff;
 
@@ -41,23 +40,7 @@ public class settings : MonoBehaviour {
         soundOff = PlayerPrefs.GetInt("SoundSave") != 0;
         HappinessManagerGameObj = GameObject.FindGameObjectWithTag("HM");
 
-        if (musicOff)
-        {
-            MusicOff();
-        }
-        else
-        {
-            MusicOn();
-        }
-
-        if (soundOff)
-        {
-            SoundOff();
-        }
-        else
-        {
-            SoundOn();
-        }
+   
     }
 
     public void OpenSettings()
@@ -74,31 +57,6 @@ public class settings : MonoBehaviour {
 
 
   
-   public void MusicOn()
-    {
-
-        // sceneAudio.SetActive(true);
-        audioManager.GetComponent<AudioManager>().NodeSource.enabled = true;
-        //DO THIS TO OTHERS!!!!!!///////////////////////////////////////
-        soundEffects.GetComponent<SceneAudio>().SceneMusicSource.enabled = true;
-        musicOff = false;
-        PlayerPrefs.SetInt("MusicSave", (musicOff ? 1 : 0));
-        NoMusicImage.SetActive(false);
-        MusicImage.SetActive(true);
-    }
-
-    public void MusicOff()
-    {
-        //  sceneAudio.SetActive(false);
-        audioManager.GetComponent<AudioManager>().NodeSource.enabled = false;
-        soundEffects.GetComponent<SceneAudio>().SceneMusicSource.enabled = false;
-
-        musicOff = true;
-        PlayerPrefs.SetInt("MusicSave", (musicOff ? 1 : 0));
-        NoMusicImage.SetActive(true);
-        MusicImage.SetActive(false);
-    }
-
     public void SoundOn()
     {
         soundOff = false;
