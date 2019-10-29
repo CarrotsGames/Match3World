@@ -491,10 +491,15 @@ PrefabInstance:
       propertyPath: soundEffects
       value: 
       objectReference: {fileID: 1120495018}
-    - target: {fileID: 2861401590203913251, guid: d009cb47e607a2e438d6dee0c645a038,
+    - target: {fileID: 2600843701282760843, guid: d009cb47e607a2e438d6dee0c645a038,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: m_AnchoredPosition.x
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2600843701282760843, guid: d009cb47e607a2e438d6dee0c645a038,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 633
       objectReference: {fileID: 0}
     - target: {fileID: 2861401589539412895, guid: d009cb47e607a2e438d6dee0c645a038,
         type: 3}
@@ -515,6 +520,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: TurnMusicOff
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861401590203913251, guid: d009cb47e607a2e438d6dee0c645a038,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d009cb47e607a2e438d6dee0c645a038, type: 3}
@@ -5570,6 +5580,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1781036811228027039, guid: 0a092d20b9e427d4e8f8b7b344ba5761,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1781036812536433077, guid: 0a092d20b9e427d4e8f8b7b344ba5761,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1781036810683050598, guid: 0a092d20b9e427d4e8f8b7b344ba5761,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5673,16 +5693,6 @@ PrefabInstance:
     - target: {fileID: 1781036810683050598, guid: 0a092d20b9e427d4e8f8b7b344ba5761,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1781036811228027039, guid: 0a092d20b9e427d4e8f8b7b344ba5761,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1781036812536433077, guid: 0a092d20b9e427d4e8f8b7b344ba5761,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6279,6 +6289,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1929677184829160893, guid: c48dae2b39178bc498df340966b5eef7,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2f11817bc439fe145a162755682d729a, type: 3}
     - target: {fileID: 479337385744612785, guid: c48dae2b39178bc498df340966b5eef7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6334,11 +6349,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1929677184829160893, guid: c48dae2b39178bc498df340966b5eef7,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 2f11817bc439fe145a162755682d729a, type: 3}
     - target: {fileID: 521941322661175453, guid: c48dae2b39178bc498df340966b5eef7,
         type: 3}
       propertyPath: ParticleAudio.Array.size
