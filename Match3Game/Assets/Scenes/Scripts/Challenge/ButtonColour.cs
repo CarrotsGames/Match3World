@@ -9,7 +9,7 @@ public class ButtonColour : MonoBehaviour
     public string MooblingChallengeName;
     private List<int> Test;
     
-    void Start()
+    void Awake()
     {
         int ChallengesUnlocked = PlayerPrefs.GetInt(MooblingChallengeName);
         if (ChallengesUnlocked == 0)
