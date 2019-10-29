@@ -28,8 +28,9 @@ public class ParticleDecay : MonoBehaviour
         Audio.clip = AudioManagerScript.ParticleAudio[AudioIndex];
         Audio.Play();
 
-        if (Settings.GetComponent<settings>().soundOff)
+        if (!AudioManagerScript.soundOn)
         {
+            
             GetComponent<AudioSource>().enabled = false;
         }
         else
