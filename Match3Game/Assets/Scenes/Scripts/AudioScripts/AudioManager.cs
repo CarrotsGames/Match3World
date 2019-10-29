@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour {
@@ -38,36 +39,64 @@ public class AudioManager : MonoBehaviour {
     // Update is called once per frame
     public void AudioToggle ()
     {
- 
 
-        if (!soundOn)
+        string Scene = SceneManager.GetActiveScene().name;
+        if (Scene != "Main Screen")
         {
-            //Disable audioSource
-            Settings.GetComponent<settings>().noSound.SetActive(true);
-            Settings.GetComponent<settings>().sound.SetActive(false);
+            if (!soundOn)
+            {
+                //Disable audioSource
+                Settings.GetComponent<settings>().noSound.SetActive(true);
+                Settings.GetComponent<settings>().sound.SetActive(false);
 
-            NodeSource.enabled = false;
-            MooblingSource.enabled = false;
-            ParticleSource.enabled = false;
-            PlayerPrefs.SetInt("SaveSound", (soundOn ? 1 : 0));
+                NodeSource.enabled = false;
+                MooblingSource.enabled = false;
+                ParticleSource.enabled = false;
+                PlayerPrefs.SetInt("SaveSound", (soundOn ? 1 : 0));
+            }
+            else
+            {
+                Settings.GetComponent<settings>().noSound.SetActive(false);
+                Settings.GetComponent<settings>().sound.SetActive(true);
+
+                NodeSource.enabled = true;
+                MooblingSource.enabled = true;
+                ParticleSource.enabled = true;
+                PlayerPrefs.SetInt("SaveSound", (soundOn ? 1 : 0));
+                //enable audio source
+            }
         }
         else
         {
-            Settings.GetComponent<settings>().noSound.SetActive(false);
-            Settings.GetComponent<settings>().sound.SetActive(true);
+            if (!soundOn)
+            {
+                //Disable audioSource
+                Settings.GetComponent<MainSetting>().soundOff.SetActive(true);
+                Settings.GetComponent<MainSetting>().soundOn.SetActive(false);
 
-            NodeSource.enabled = true;
-            MooblingSource.enabled = true;
-            ParticleSource.enabled = true;
-            PlayerPrefs.SetInt("SaveSound", (soundOn ? 1 : 0));
-            //enable audio source
+                NodeSource.enabled = false;
+                MooblingSource.enabled = false;
+                ParticleSource.enabled = false;
+                PlayerPrefs.SetInt("SaveSound", (soundOn ? 1 : 0));
+            }
+            else
+            {
+                Settings.GetComponent<MainSetting>().soundOff.SetActive(false);
+                Settings.GetComponent<MainSetting>().soundOn.SetActive(true);
+
+                NodeSource.enabled = true;
+                MooblingSource.enabled = true;
+                ParticleSource.enabled = true;
+                PlayerPrefs.SetInt("SaveSound", (soundOn ? 1 : 0));
+                //enable audio source
+            }
         }
        
     }
 
     public void TurnMusicOn()
     {
-        Debug.Log("MusicOn");
+ 
 
         // sceneAudio.SetActive(true);
         //GetComponent<AudioManager>().NodeSource.enabled = true;
@@ -75,8 +104,18 @@ public class AudioManager : MonoBehaviour {
         SoundEffects.GetComponent<AudioSource>().enabled = true;
         MusicOn = false;
         PlayerPrefs.SetInt("MusicSave", (MusicOn ? 1 : 0));
-        Settings.GetComponent<settings>().NoMusicImage.SetActive(false);
-        Settings.GetComponent<settings>().MusicImage.SetActive(true);
+        string Scene = SceneManager.GetActiveScene().name;
+        if(Scene != "Main Screen" )
+        {
+            Settings.GetComponent<settings>().NoMusicImage.SetActive(false);
+            Settings.GetComponent<settings>().MusicImage.SetActive(true);
+        }
+        else
+        {
+            Settings.GetComponent<MainSetting>().musicOff.SetActive(false);
+            Settings.GetComponent<MainSetting>().musicOn.SetActive(true);
+        }
+       
     }
 
     public void TurnMusicOff()
@@ -89,8 +128,17 @@ public class AudioManager : MonoBehaviour {
 
         MusicOn = true;
         PlayerPrefs.SetInt("MusicSave", (MusicOn ? 1 : 0));
-        Settings.GetComponent<settings>().NoMusicImage.SetActive(true);
-        Settings.GetComponent<settings>().MusicImage.SetActive(false);
+        string Scene = SceneManager.GetActiveScene().name;
+        if (Scene != "Main Screen")
+        {
+            Settings.GetComponent<settings>().NoMusicImage.SetActive(true);
+            Settings.GetComponent<settings>().MusicImage.SetActive(false);
+        }
+        else
+        {
+            Settings.GetComponent<MainSetting>().musicOff.SetActive(true);
+            Settings.GetComponent<MainSetting>().musicOn.SetActive(false);
+        }
     }
 
 }

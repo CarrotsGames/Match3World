@@ -59,11 +59,8 @@ public class settings : MonoBehaviour {
   
     public void SoundOn()
     {
- 
-
-         AudioManagerScript.soundOn = true;
+        AudioManagerScript.soundOn = true;
         AudioManagerScript.AudioToggle();
-
     }
 
     public void SoundOff()
