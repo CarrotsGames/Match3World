@@ -94,7 +94,7 @@ public static class SaveSystem
             }
             else
             {
-
+                stream.Close();
                 return LoadChallenge(ChallengeName);
             }
         }
