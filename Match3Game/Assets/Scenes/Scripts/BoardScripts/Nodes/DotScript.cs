@@ -294,7 +294,7 @@ public class DotScript : MonoBehaviour
                         // if list doesent contain this gameobject add to list
                         if (!DotManagerScript.Peices.Contains(hitInfo.collider.gameObject) && hitInfo.collider.gameObject.tag == Colour)
                         {
-                            if (AudioManagerScript.NodeSource.pitch < 3)
+                            if (AudioManagerScript.NodeSource.pitch < 2.5f)
                             {
                                 AudioManagerScript.NodeSource.pitch += 0.1f;
                             }

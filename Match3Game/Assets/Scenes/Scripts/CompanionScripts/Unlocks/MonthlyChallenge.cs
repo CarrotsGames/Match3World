@@ -22,14 +22,14 @@ public class MonthlyChallenge : MonoBehaviour {
     // 0 BINKY
     // 1 KOKO
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         Scene CurrentScene = SceneManager.GetActiveScene();
 
         SceneName = CurrentScene.name;
 
         PlayFab = GameObject.FindGameObjectWithTag("PlayFab");
-           DotManagerGameObj = GameObject.FindGameObjectWithTag("DotManager");
+        DotManagerGameObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerGameObj.GetComponent<DotManager>();
         //Saves value to check HasUnlockedGift bool 
         UnlockGift = PlayerPrefs.GetInt("MONTHLYPRIZE");
@@ -105,6 +105,7 @@ public class MonthlyChallenge : MonoBehaviour {
     }
    public void CheckMonthlyUnlock()
     {
+
         // checks if the player unlocked the monthly gift
         if (!HasUnlockedGift)
         {
@@ -133,8 +134,9 @@ public class MonthlyChallenge : MonoBehaviour {
             StatisticName = "TournamentScore",
         }, result =>
         {
- 
- 
+
+            MonthlyVersions = PlayerPrefs.GetInt("MONTHLYVERSIONVALUE");
+
             // if the phone version is not equal to the server version reset
             if (MonthlyVersions != result.Version)
             {
