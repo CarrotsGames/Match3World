@@ -47,6 +47,7 @@ public class EggHatch : MonoBehaviour
         PowerUpManager = GameObject.FindGameObjectWithTag("PUM");
         TimeStamp = System.Convert.ToInt64(PlayerPrefs.GetString("EggHatch"));
         StartCountDown = (PlayerPrefs.GetInt("EGGCOUNTDOWN") != 0);
+
         if (GameObject.Find("StoreEgg") == null)
         {
             BuyButton = GameObject.Find("BuyEggButton");
@@ -64,7 +65,10 @@ public class EggHatch : MonoBehaviour
 
     private void Update()
     {
-
+        if(Input.GetKey(KeyCode.Alpha4))
+        {
+            StartCountDown = true;
+        }
         if (GameObject.Find("StoreEgg") == null)
         {
             if (PlayFabLogin.HasLoggedIn == true)
@@ -83,7 +87,7 @@ public class EggHatch : MonoBehaviour
                         int Hours = (int)((TimeTillHatch / 60));
                         TimerText.text = Hours + ":" + Minutes;
                     }
-                    // if the time is greater than time stamp hatch egg
+                     // if the time is greater than time stamp hatch egg
                     if (NowTime > TimeStamp)
                     {
 
@@ -95,28 +99,28 @@ public class EggHatch : MonoBehaviour
 
                         HatchCreature();
 
-                    }
-
+                    }       
                     // Gets time every second
                     if (CurrentTime < 0)
                     {
                         GetCurrentTime();
                     }
-                    // MinutesFromTs = TimeTillEggHatch.TotalMinutes;
+                     // MinutesFromTs = TimeTillEggHatch.TotalMinutes;
                 }
                 else
                 {
-
+                    Debug.Log("Buy egg button before message");
                     BuyButton.GetComponent<Button>().enabled = true;
                     BuyButton.gameObject.SetActive(true);
+                    Debug.Log("Buy egg button during message");
+
                     TimerText.text = "Buy an egg?";
+                    Debug.Log("Buy egg button After message");
+
+
                 }
             }
-            else
-            {
-                TimerText.text = " offline ";
-
-            }
+      
         }
     }
     public void CountDownTimer()

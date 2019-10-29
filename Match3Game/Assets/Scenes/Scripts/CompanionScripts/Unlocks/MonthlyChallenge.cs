@@ -140,6 +140,8 @@ public class MonthlyChallenge : MonoBehaviour {
             // if the phone version is not equal to the server version reset
             if (MonthlyVersions != result.Version)
             {
+                Debug.Log(MonthlyVersions);
+                Debug.Log(result.Version);
                 HasUnlockedGift = false;
                 PlayerPrefs.SetInt("HASUNLOCKEDGIFT", (HasUnlockedGift ? 1 : 0));
                 MonthlyVersions = result.Version;
