@@ -37,7 +37,7 @@ public class settings : MonoBehaviour {
         AudioManagerGameObj = GameObject.FindGameObjectWithTag("AudioManager");
         AudioManagerScript = AudioManagerGameObj.GetComponent<AudioManager>();
         musicOff = PlayerPrefs.GetInt("MusicSave") != 0;
-        soundOff = PlayerPrefs.GetInt("SoundSave") != 0;
+        soundOff = PlayerPrefs.GetInt("SaveSound") != 0;
         HappinessManagerGameObj = GameObject.FindGameObjectWithTag("HM");
 
    
@@ -59,24 +59,19 @@ public class settings : MonoBehaviour {
   
     public void SoundOn()
     {
-        soundOff = false;
-        AudioManagerScript.soundOn = true;
+        Debug.Log("SoundOn");
 
-        noSound.SetActive(false);
-        sound.SetActive(true);
+         AudioManagerScript.soundOn = true;
         AudioManagerScript.AudioToggle();
 
-        PlayerPrefs.SetInt("SoundSave", (soundOff ? 1 : 0));
     }
 
     public void SoundOff()
     {
+        Debug.Log("SoundOff");
         AudioManagerScript.soundOn = false;
-        soundOff = true;
-        noSound.SetActive(true);
-        sound.SetActive(false);
+
         AudioManagerScript.AudioToggle();
-        PlayerPrefs.SetInt("SoundSave", (soundOff ? 1 : 0));
     }
 
     public void LoadMain()
