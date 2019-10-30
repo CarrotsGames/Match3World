@@ -102,38 +102,38 @@ public class DailyAd : MonoBehaviour
     }
     public void PlayAdNow()
     {
-     //  
-     //  if (AddPlayCount < 3)
-     //  {
-     //      Advertisement.Show(placementId);
-     //      if (AddPlayCount < 1)
-     //      {
-     //          PowerUpManagerScript.GetComponent<PowerUpManager>().Currency += 5;
-     //          PowerUpManagerScript.PowerUpSaves();
-     //       
-     //          // Sets a target time 24 hours from now
-     //          SetResetTimer();
-     //          // Plays Add
-     //
-     //
-     //      }
-     //      else 
-     //      {
-     //          PowerUpManagerScript.GetComponent<PowerUpManager>().Currency += 5;
-     //          PowerUpManagerScript.PowerUpSaves();
-     //
-     //          // Adds to how many adds can be played 
-     //
-     //          Debug.Log("PLAYED AD");
-     //      }
-     //      AddPlayCount++;
-     //  }
-     //  else 
-     //  {
-     //      //PUT UI HERE
-     //      //COME BACK TOMORROW FOR YOUR FREE COINS
-     //  }
-     //  // saves number of times ad has been played
-     //  PlayerPrefs.SetInt("TotalAdPlays", AddPlayCount);
+        
+        if (AddPlayCount < 3)
+        {
+            Advertisement.Show(placementId);
+            if (AddPlayCount < 1)
+            {
+                PowerUpManagerScript.GetComponent<PowerUpManager>().Currency += 5;
+                PowerUpManagerScript.PowerUpSaves();
+             
+                // Sets a target time 24 hours from now
+                SetResetTimer();
+                // Plays Add
+      
+      
+            }
+            else 
+            {
+                PowerUpManagerScript.GetComponent<PowerUpManager>().Currency += 5;
+                PowerUpManagerScript.PowerUpSaves();
+      
+                // Adds to how many adds can be played 
+      
+                Debug.Log("PLAYED AD");
+            }
+            AddPlayCount++;
+        }
+        else 
+        {
+            //PUT UI HERE
+            //COME BACK TOMORROW FOR YOUR FREE COINS
+        }
+        // saves number of times ad has been played
+        PlayerPrefs.SetInt("TotalAdPlays", AddPlayCount);
     }
 }

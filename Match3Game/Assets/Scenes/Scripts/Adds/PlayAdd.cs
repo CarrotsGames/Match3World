@@ -32,7 +32,7 @@ public class PlayAdd : MonoBehaviour
 
     public void PlayAdNow()
     {
-       //Advertisement.Show();
+       Advertisement.Show();
        //Debug.Log("PLAYED AD");
     }
 }
