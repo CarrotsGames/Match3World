@@ -102,22 +102,19 @@ public class PlayFabCurrency : MonoBehaviour
         }, result =>
         {
  
-            // foreach (var entry in result.Leaderboard)
-            // {
-            //     Debug.Log(entry.DisplayName + " " + entry.StatValue);
-            // }
-            // if the phone version is not equal to the server version reset
-            if (Versions != result.Version)
-            {
-                Versions = result.Version;
+           
+            //// NOTE : Not sure it this is needed since its in the monthly script  
+            //if (Versions != result.Version)
+            //{
+            //    Versions = result.Version;
 
-                Debug.Log("NEW VERSION");
-                DotManager.TotalScore = 0;
-                // gives players currency
-                DotManagerScript.HighScore.text = "" + DotManager.TotalScore;
-                PlayerPrefs.SetFloat("SCORE", DotManager.TotalScore);
-                PlayerPrefs.SetInt("VERSIONVALUE", Versions);
-            }
+            //    Debug.Log("NEW VERSION");
+            //    DotManager.TotalScore = 0;
+            //    // gives players currency
+            //    DotManagerScript.HighScore.text = "" + DotManager.TotalScore;
+            //    PlayerPrefs.SetFloat("SCORE", DotManager.TotalScore);
+            //    PlayerPrefs.SetInt("VERSIONVALUE", Versions);
+            //}
 
         }, SubtractPremiumCurrencyFailure);
 
