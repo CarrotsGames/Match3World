@@ -12,5 +12,7 @@ public class RetryChallenge : MonoBehaviour
         Scene CurrentScene = SceneManager.GetActiveScene();
         ChallengeScene = CurrentScene.name;
         SceneManager.LoadScene(ChallengeScene);
+        Lives.LiveCount -= 1;
+        PlayerPrefs.SetInt("LIVECOUNT", Lives.LiveCount);
     }
 }
