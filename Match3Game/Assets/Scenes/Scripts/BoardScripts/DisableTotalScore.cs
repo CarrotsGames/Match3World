@@ -21,6 +21,7 @@ public class DisableTotalScore : MonoBehaviour
         {
             if (RemoveTotalTimer < 0)
             {
+                this.transform.parent.GetChild(1).gameObject.SetActive(false);
                 this.gameObject.SetActive(false);
                 RemoveTotalTimer += 0.5f;
                 //TotalScoreGameObj.transform.position = new Vector3(500, 0, 0);

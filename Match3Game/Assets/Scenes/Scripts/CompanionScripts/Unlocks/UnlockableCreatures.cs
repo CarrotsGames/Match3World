@@ -51,7 +51,7 @@ public class UnlockableCreatures : MonoBehaviour
         UnlockableMoobling[4] = PlayerPrefs.GetString("CHICKPEA");
         UnlockableMoobling[5] = PlayerPrefs.GetString("SQUISHY");
         UnlockableMoobling[6] = PlayerPrefs.GetString("Cronus Locked");
-        UnlockableMoobling[7] = PlayerPrefs.GetString("OKAMI");
+        UnlockableMoobling[7] = PlayerPrefs.GetString("a");
         UnlockableMoobling[8] = PlayerPrefs.GetString("Ida Locked");
         // Activates unlocked characters
         Unlock();

@@ -11,6 +11,7 @@ public class CompanionScript : MonoBehaviour
     // Use this for initialization
     public GameObject GoldSpawn;
     public GameObject GoldParticle;
+    public GameObject GoldPlus;
 
     private GameObject DotManagerObj;
     private GameObject MainCamera;
@@ -50,6 +51,7 @@ public class CompanionScript : MonoBehaviour
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
         //TotalScore.enabled = false;
         TotalScoreGameObj = GameObject.Find("TotalText (1)");
+        GoldPlus = GameObject.Find("Coin");
         // HungerSlider min and max
         // TotalScoreGameObj.transform.position = new Vector3(500, 0, 0);
     }
@@ -135,7 +137,7 @@ public class CompanionScript : MonoBehaviour
                         DotManagerScriptRef.HighScore.text = "" + DotManager.TotalScore;
                         // HappinessManagerScript.HappinessSliderValue += EatingPeices.Count + LevelMultiplier;
                         HappinessManagerScript.HappinessSliderValue += EXPTotal;
-                         TotalScore.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
+                        TotalScore.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition;
                         TotalScore.text = "" + Total;
                         Total = 0;
                         EXPTotal = 0;
@@ -152,13 +154,14 @@ public class CompanionScript : MonoBehaviour
             {
                 CurrencyChance = HappinessGameObj.GetComponent<HappinessManager>().Level;
                 Chance = Random.Range(CurrencyChance, 70);
-                if (Chance == 42)
-
+                if (Chance < 10)
                 {
 
+                    GoldPlus.SetActive(true);
                     PowerUpManagerScript.Currency += Random.Range(1, 3);
                     PowerUpManagerScript.PowerUpSaves();
-                    Instantiate(GoldParticle, GoldSpawn.transform.position, Quaternion.identity);
+                    //Instantiate(GoldParticle, GoldSpawn.transform.position, Quaternion.identity);
+                    GoldPlus.transform.position = DotManagerObj.GetComponent<DestroyNodes>().LastKnownPosition + new Vector3(5, 0, 0);
                 }
 
             }
