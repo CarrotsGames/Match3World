@@ -40,7 +40,7 @@ public class EggHatch : MonoBehaviour
     public List<string> EggCreatures;
    
      // Use this for initialization
-    void Start()
+    void Awake()
     {
          
         CurrentTime = 1;
@@ -109,6 +109,8 @@ public class EggHatch : MonoBehaviour
                 }
                 else
                 {
+                    BuyButton = GameObject.Find("BuyEggButton");
+
                     Debug.Log("Buy egg button before message");
                     BuyButton.GetComponent<Button>().enabled = true;
                     BuyButton.gameObject.SetActive(true);
