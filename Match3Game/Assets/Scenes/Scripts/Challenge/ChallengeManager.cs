@@ -44,6 +44,8 @@ public class ChallengeManager : MonoBehaviour
     private GameObject DotManagerGameObj;
     private GameObject Go;
     private GameObject OutOflifeCanvas;
+    private GameObject ObjectiveCanvas;
+
     private DotManager DotManagerScript;
     private int TargetScore;
     // Used to check how many of each colour nodes are in scene
@@ -58,25 +60,35 @@ public class ChallengeManager : MonoBehaviour
         Testlist = new List<GameObject>();
         Companion = GameObject.FindGameObjectWithTag("Companion");
         CompanionScriptRef = Companion.GetComponent<CompanionScript>();
+      
+        // gets the index equal to the button on main scene
+        ChallengeNumber = PlayerPrefs.GetInt("ChallengeIndex");
+        // Gets The target store for challenge
+        TargetScore = PlayerPrefs.GetInt("ChallengeScore");
+     
         // Finds gameobject with tag in hierarchy 
         DotManagerGameObj = GameObject.FindGameObjectWithTag("DotManager");
         // Grabs dotmanager script on that gameobject to get info
         DotManagerScript = DotManagerGameObj.GetComponent<DotManager>();
         Board = GameObject.FindGameObjectWithTag("BoardSpawn");
-        ChallengeNumber = PlayerPrefs.GetInt("ChallengeIndex");
-        TargetScore = PlayerPrefs.GetInt("ChallengeScore");
+        // Finds out of life canvas to be used when out of lives
         OutOflifeCanvas = GameObject.Find("OutOfLifeCanvus");
         OutOflifeCanvas.SetActive(false);
+        // Finds objective canvas to display what to do at start of challenge
+        ObjectiveCanvas = GameObject.Find("Objective Canvus");
+       
         // used to debug challenges
         if (DebugChallenges)
         {
             ChallengeNumber = DebugChallengeNum;
         }
+        // spawns challenge
         Go = Instantiate(ChallengePrefabs[ChallengeNumber], ChallengePrefabs[ChallengeNumber].transform.position, Quaternion.identity);
-        // ChallengeDescription = PlayerPrefs.GetString("ChallengeDescription");
+        // Assings challenge properties to scene
         Timer = ChallengeObjectiveScore[ChallengeNumber];
         TotalMoves = ChallengeObjectiveScore[ChallengeNumber];
         TargetScore = (int)ChallengeObjectiveScore[ChallengeNumber];
+        // Gets lives
         Lives.LiveCount = PlayerPrefs.GetInt("LIVECOUNT");
        
         // Unparents any deadnodes in challenge to make challenge beatable
@@ -93,8 +105,12 @@ public class ChallengeManager : MonoBehaviour
         {
             Testlist[i].transform.parent = null;
         }
-    }
 
+        //freezes scene before challenge begins 
+        ObjectiveCanvas.GetComponent<PreviewChallenge>().StopTime();
+
+    }
+    // goes through list to see how many nodes are left
     public void CheckForNodes()
     {
         Red = 0;
@@ -134,6 +150,7 @@ public class ChallengeManager : MonoBehaviour
             }
         }
     }
+    // ClearX rules
     void ClearRules()
     {
          
@@ -163,6 +180,7 @@ public class ChallengeManager : MonoBehaviour
         }
          
     }
+    // beat X score rules
    void BeatScoreRules()
     {
         BeatScore();
