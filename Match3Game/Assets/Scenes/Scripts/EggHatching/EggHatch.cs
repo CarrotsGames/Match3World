@@ -111,14 +111,12 @@ public class EggHatch : MonoBehaviour
                 {
                     BuyButton = GameObject.Find("BuyEggButton");
 
-                    Debug.Log("Buy egg button before message");
+ 
                     BuyButton.GetComponent<Button>().enabled = true;
                     BuyButton.gameObject.SetActive(true);
-                    Debug.Log("Buy egg button during message");
-
+ 
                     TimerText.text = "Buy an egg?";
-                    Debug.Log("Buy egg button After message");
-
+ 
 
                 }
             }

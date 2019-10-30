@@ -120,7 +120,7 @@ public class AudioManager : MonoBehaviour {
 
     public void TurnMusicOff()
     {
-        Debug.Log("MusicOff");
+ 
 
         //  sceneAudio.SetActive(false);
         //GetComponent<AudioManager>().NodeSource.enabled = false;
