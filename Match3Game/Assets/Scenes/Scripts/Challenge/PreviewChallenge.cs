@@ -19,11 +19,30 @@ public class PreviewChallenge : MonoBehaviour
         int IndexNumber = PlayerPrefs.GetInt("ChallengeIndex");
         IndexNumber += 1;
         ChallengeNumber.text = "Challenge:" + IndexNumber;
-        // Displays challenge number player is doing
-        // Index - 1 is to load the correct challenge according to array
-        ChallengeText.text = ChallengeGameobject.GetComponent<ChallengeManager>().ChallengeObjectives[IndexNumber - 1 ]  ;
-        LivesLeft.text = Lives.LiveCount + "" ;
-     }
+        string ChallengeName = ChallengeGameobject.GetComponent<ChallengeManager>().ChallengeType[IndexNumber - 1];
+        ChallengeManager ChallengeScript = ChallengeGameobject.GetComponent<ChallengeManager>();
+        if (ChallengeName == "ClearX")
+        {           
+            // Displays challenge number player is doing
+            // Index - 1 is to load the correct challenge according to array
+            ChallengeText.text = ChallengeScript.ChallengeObjectives[IndexNumber - 1]+  " : "   + ChallengeScript.TotalMoves + " moves";
+            LivesLeft.text = Lives.LiveCount + "";
+        }
+        else if (ChallengeName == "Clear")
+        {
+            // Displays challenge number player is doing
+            // Index - 1 is to load the correct challenge according to array
+            ChallengeText.text = ChallengeScript.ChallengeObjectives[IndexNumber - 1] + " : "  + ChallengeScript.Timer + " Seconds";
+            LivesLeft.text = Lives.LiveCount + "";
+        }
+        else if (ChallengeName == "BeatScore")
+        {
+            // Displays challenge number player is doing
+            // Index - 1 is to load the correct challenge according to array
+            ChallengeText.text = ChallengeScript.ChallengeObjectives[IndexNumber - 1] + " "  + ChallengeScript.TargetScore;
+            LivesLeft.text = Lives.LiveCount + "";
+        }
+    }
 
    public void StopTime()
     {

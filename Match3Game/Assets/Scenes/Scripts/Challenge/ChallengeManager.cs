@@ -25,13 +25,17 @@ public class ChallengeManager : MonoBehaviour
     public GameObject winLoseCanvus;
     public Text ClearTime;
     public Text FailText;
+    [HideInInspector]
+    // Limit of moves
+    public float TotalMoves;
+    [HideInInspector]
+    public int TargetScore;
+    [HideInInspector]
+    public float Timer;
 
     private GameObject PowerUpManagerObj;
-    // Limit of moves
-    private float TotalMoves;
     //Moves done
     private int NumberOfMoves;
-    private float Timer;
     private bool ChallengeFinished;
     //BEAT SCORE CHALLENGE
     // Limit of moves
@@ -47,7 +51,6 @@ public class ChallengeManager : MonoBehaviour
     private GameObject ObjectiveCanvas;
 
     private DotManager DotManagerScript;
-    private int TargetScore;
     // Used to check how many of each colour nodes are in scene
     private int Red;
     private int Blue;
@@ -110,7 +113,163 @@ public class ChallengeManager : MonoBehaviour
         ObjectiveCanvas.GetComponent<PreviewChallenge>().StopTime();
 
     }
+    private void Update()
+    {
+        // loads a challenge if player has lives
+        if (Lives.LiveCount > 0)
+        {
+            switch (ChallengeType[ChallengeNumber])
+            {
+                // Clear the board challenge
+                case "Clear":
+                    {
+                        ClearTime.text = ChallengeObjectives[ChallengeNumber] + "\n" + Timer;
+                        ClearBoard();
+                    }
+                    break;
+                    // clear board in x amount of moves challenge
+                case "ClearX":
+                    {
+                        ClearTime.text = ChallengeObjectives[ChallengeNumber] + TotalMoves + " moves \n Moves :" + NumberOfMoves;
+
+                        ClearInXMoves();
+                    }
+                    break;
+                    // beat this score challenge
+                case "BeatScore":
+                    {
+                        ClearTime.text = ChallengeObjectives[ChallengeNumber] + TargetScore + "\n Total score : " + ChallengeScore;
+
+                       // BeatScore();
+                    }
+                    break;
+                    // No set challenge
+                case "":
+                    {
+
+                        Debug.LogError("No challenge Set");
+                    }
+
+                    break;
+            }
+        }
+        else
+        {
+            //DISPLAY LIFE COUNT?
+            Debug.Log("Out of lives soz");
+            LoseGameObject.SetActive(false);
+            OutOflifeCanvas.SetActive(true);
+           // SceneManager.LoadScene("Main Screen");
+        }
+    }
+    void CompleteChallenge()
+    {   
+        PowerUpManagerObj = GameObject.FindGameObjectWithTag("PUM");
+        PowerUpManagerObj.GetComponent<PowerUpManager>().Currency += 10;
+        PowerUpManagerObj.GetComponent<PowerUpManager>().PowerUpSaves();
+        int Index = PlayerPrefs.GetInt("ChallengeIndex");
+        // USE THIS TO CHANGE UI WHEN REACHING THE MAX CHALLENGE
+        if (Index >= 4 ) 
+        {
+            WinGameObject.SetActive(true);
+        }
+        else
+        {
+            WinGameObject.SetActive(true);
+        }
+        winLoseCanvus.SetActive(true);
+      
+
+        if (!ChallengeFinished)
+        {
+            ChallengeFinished = true;
+            GetComponent<ChallengeComplete>().Save();     
+        }
+    }
+    void FailChallenge()
+    {
+        if (!ChallengeFinished)
+        {
+            Debug.Log("CHALLENGE FAILED");
+            Lives.LiveCount -= 1;
+            PlayerPrefs.SetInt("LIVECOUNT", Lives.LiveCount);
+
+            ChallengeFinished = true;
+            Lives.CheckTime = 0;
+            winLoseCanvus.SetActive(true);
+            LoseGameObject.SetActive(true);
+        }
+    }
     // goes through list to see how many nodes are left
+    void ClearInXMoves()
+    {
+        if (!ChallengeFinished)
+        {
+            if (DotManagerScript.ConnectionMade)
+            {
+                NumberOfMoves++;
+                DotManagerScript.ConnectionMade = false;
+            }
+            if (NumberOfMoves <= TotalMoves)
+            {
+                // Canvas included in children so when no nodes 
+                // child count is 1
+                if (Go.transform.childCount < 1)
+                {
+                    CompleteChallenge();
+                }
+
+            }
+            else if (NumberOfMoves > TotalMoves)
+            {
+                FailChallenge();
+            }
+        }
+         
+    }
+
+    void ClearBoard()
+    {
+      //  ClearTime.text = "" + Timer;
+        if (!ChallengeFinished)
+        {
+            if (Timer > 0)
+            {
+
+                if (Go.transform.childCount < 1)
+                {
+                    CompleteChallenge();
+                }
+                else
+                {
+                    Timer -= Time.deltaTime;
+                }
+            }
+            else
+            {
+                FailChallenge();
+            }
+        }
+    }
+   public void BeatScore()
+    {
+        ChallengeScore += CompanionScriptRef.Total;
+         if (!ChallengeFinished)
+        {
+           // Timer -= Time.deltaTime;
+
+            if (ChallengeScore > TargetScore)
+            {
+                CompleteChallenge();
+
+            }
+            else if(Timer < 0)
+            {
+                FailChallenge();
+            }
+        }
+    }
+
     public void CheckForNodes()
     {
         Red = 0;
@@ -192,158 +351,6 @@ public class ChallengeManager : MonoBehaviour
                 FailText.text = " No more possible \n moves ";
 
             }
-        }
-    }
-    private void Update()
-    {
-
-        if (Lives.LiveCount > 0)
-        {
-            switch (ChallengeType[ChallengeNumber])
-            {
-                case "Clear":
-                    {
-                        ClearTime.text = ChallengeObjectives[ChallengeNumber] + "\n" + Timer;
-                        ClearBoard();
-                    }
-                    break;
-                case "ClearX":
-                    {
-                        ClearTime.text = ChallengeObjectives[ChallengeNumber] + TotalMoves + " moves \n Moves :" + NumberOfMoves;
-
-                        ClearInXMoves();
-                    }
-                    break;
-                case "BeatScore":
-                    {
-                        ClearTime.text = ChallengeObjectives[ChallengeNumber] + TargetScore + "\n Total score : " + ChallengeScore;
-
-                       // BeatScore();
-                    }
-                    break;
-                case "":
-                    {
-
-                        Debug.LogError("No challenge Set");
-                    }
-
-                    break;
-            }
-        }
-        else
-        {
-            //DISPLAY LIFE COUNT?
-            Debug.Log("Out of lives soz");
-            LoseGameObject.SetActive(false);
-            OutOflifeCanvas.SetActive(true);
-           // SceneManager.LoadScene("Main Screen");
-        }
-    }
-    void CompleteChallenge()
-    {   
-        PowerUpManagerObj = GameObject.FindGameObjectWithTag("PUM");
-        PowerUpManagerObj.GetComponent<PowerUpManager>().Currency += 10;
-        PowerUpManagerObj.GetComponent<PowerUpManager>().PowerUpSaves();
-        int Index = PlayerPrefs.GetInt("ChallengeIndex");
-        // USE THIS TO CHANGE UI WHEN REACHING THE MAX CHALLENGE
-        if (Index >= 4 ) 
-        {
-            WinGameObject.SetActive(true);
-        }
-        else
-        {
-            WinGameObject.SetActive(true);
-        }
-        winLoseCanvus.SetActive(true);
-      
-
-        if (!ChallengeFinished)
-        {
-            ChallengeFinished = true;
-            GetComponent<ChallengeComplete>().Save();     
-        }
-    }
-    void ClearInXMoves()
-    {
-        if (!ChallengeFinished)
-        {
-            if (DotManagerScript.ConnectionMade)
-            {
-                NumberOfMoves++;
-                DotManagerScript.ConnectionMade = false;
-            }
-            if (NumberOfMoves <= TotalMoves)
-            {
-                // Canvas included in children so when no nodes 
-                // child count is 1
-                if (Go.transform.childCount < 1)
-                {
-                    CompleteChallenge();
-                }
-
-            }
-            else if (NumberOfMoves > TotalMoves)
-            {
-                FailChallenge();
-            }
-        }
-         
-    }
-
-    void ClearBoard()
-    {
-      //  ClearTime.text = "" + Timer;
-        if (!ChallengeFinished)
-        {
-            if (Timer > 0)
-            {
-
-                if (Go.transform.childCount < 1)
-                {
-                    CompleteChallenge();
-                }
-                else
-                {
-                    Timer -= Time.deltaTime;
-                }
-            }
-            else
-            {
-                FailChallenge();
-            }
-        }
-    }
-   public void BeatScore()
-    {
-        ChallengeScore += CompanionScriptRef.Total;
-         if (!ChallengeFinished)
-        {
-           // Timer -= Time.deltaTime;
-
-            if (ChallengeScore > TargetScore)
-            {
-                CompleteChallenge();
-
-            }
-            else if(Timer < 0)
-            {
-                FailChallenge();
-            }
-        }
-    }
-
-    void FailChallenge()
-    {
-        if (!ChallengeFinished)
-        {
-            Debug.Log("CHALLENGE FAILED");
-            Lives.LiveCount -= 1;
-            PlayerPrefs.SetInt("LIVECOUNT", Lives.LiveCount);
-
-            ChallengeFinished = true;
-            Lives.CheckTime = 0;
-            winLoseCanvus.SetActive(true);
-            LoseGameObject.SetActive(true);
         }
     }
 }
