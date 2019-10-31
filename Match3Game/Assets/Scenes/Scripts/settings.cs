@@ -70,16 +70,8 @@ public class settings : MonoBehaviour {
 
         AudioManagerScript.AudioToggle();
     }
-
-    public void LoadMain()
-    {  
-        RealTimeScript.ResetClock();
-        HappinessManagerGameObj.GetComponent<HappinessManager>().SaveMe();
-
-        GameObject SaveTime = GameObject.Find("AdCountdown");
-        SaveTime.GetComponent<AdCountdown>().SaveTimer();
-
-        SceneManager.LoadScene("Main Screen");
+    public void PushAnalytics()
+    {
         if (PlayFabLogin.HasLoggedIn == true)
         {
             // Gets moobling data
@@ -89,7 +81,23 @@ public class settings : MonoBehaviour {
             //Sends gold amount and powerups used
             Analytics.GetComponent<PlayFabLogin>().TournamentScore();
         }
+    }
+    public void SaveData()
+    {
+        HappinessManagerGameObj.GetComponent<HappinessManager>().SaveMe();
+    }
+    public void LoadMain()
+    {  
+        RealTimeScript.ResetClock();
+        SaveData();
+        GameObject SaveTime = GameObject.Find("AdCountdown");
+        SaveTime.GetComponent<AdCountdown>().SaveTimer();
+
+        SceneManager.LoadScene("Main Screen");
+        PushAnalytics();
+        
      
     }
+     
     
 }

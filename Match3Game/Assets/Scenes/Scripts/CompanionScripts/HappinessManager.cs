@@ -54,9 +54,7 @@ public class HappinessManager : MonoBehaviour
 
     // Use this for initialization
     void Start()
-    {
-       
-
+    {      
         // if they are then the happinessStates void wont be called to avoid mixing saves
         Scene CurrentScene = SceneManager.GetActiveScene();
         // Gets current scene
@@ -164,19 +162,15 @@ public class HappinessManager : MonoBehaviour
         if (!OnMainScene)
         {
             HappinessStates();
-          //  PlayerPrefs.SetInt(Companion.name + "Multiplier", Level);
         }
-        // Displays hunger value (used in debug)
-        //HungerMetre.text = "" + Hunger;
+        // Displays hunger value (used in debug)   
         HappinessSlider.maxValue = HappinessClamp;
         HappinessSlider.value = HappinessSliderValue;
 
         // clamps hunger of selected companion from 0 to 100
         HappinessSliderValue = Mathf.Clamp(HappinessSliderValue, 0, HappinessClamp);
         // Slowly counts down Happiness value
-        //HappinessSliderValue -= Time.deltaTime / 6;
-
-      //  PlayerPrefs.SetFloat(CompanionSave, HappinessSliderValue);
+    
          
      
     }
