@@ -121,10 +121,11 @@ public class DestroyNodes : MonoBehaviour {
         NodeScore.Clear();
         Index = 0;
  
-        PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
         if (!UsingBomb)
         {
             DotManagerScript.CanPlay = true;
+            PowerUpGameObj.GetComponent<DisablePowerUps>().OnButtonEnable();
+
         }
         //resets combo text 
         ComboText.text = "";
