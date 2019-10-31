@@ -65,11 +65,7 @@ public class HappinessManager : MonoBehaviour
             LevelUpCanvas.SetActive(false);
         }
         SleepAd = GameObject.FindGameObjectWithTag("SleepingAd");
-         // this is used as a safety net just incase for somereason its 0
-        if(Level > 1)
-        {
-            CanGetCurrency = true;
-        }
+        
         //checks if players in main scene
         if (SceneName == "Main Screen" || SceneName == "Gobu Tutorial")
         {
@@ -90,7 +86,11 @@ public class HappinessManager : MonoBehaviour
             BoardScriptRef = Board.GetComponent<BoardScript>();
         }
         LoadSaves();
-
+        // this is used as a safety net just incase for somereason its 0
+        if (Level > 1)
+        {
+            CanGetCurrency = true;
+        }
         if (SceneName == "Gobu Tut")
         {
 
