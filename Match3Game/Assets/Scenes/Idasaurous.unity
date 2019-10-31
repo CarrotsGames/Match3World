@@ -14095,6 +14095,7 @@ MonoBehaviour:
   GoldSpawn: {fileID: 2095419149}
   GoldParticle: {fileID: 6088053314336034171, guid: 8e30db1da5eb1ca4f9eafbc98c037402,
     type: 3}
+  GoldPlus: {fileID: 0}
   HappinessManagerScript: {fileID: 0}
   Total: 0
   TotalScoreGameObj: {fileID: 0}
@@ -16424,10 +16425,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3934109140315948420, guid: 1dbfa478ea5589844a4d59b15196c2f3,
         type: 3}
-    - target: {fileID: 2555701377130717259, guid: d7fb396edf155de40895610ead7b8864,
+    - target: {fileID: 2335805763860882730, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 14.299988
+      value: -10.300049
+      objectReference: {fileID: 0}
+    - target: {fileID: 1211474179, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 689334095}
+    - target: {fileID: 1211474179, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TurnMusicOn
+      objectReference: {fileID: 0}
+    - target: {fileID: 1661903967, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 689334095}
+    - target: {fileID: 1661903967, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TurnMusicOff
       objectReference: {fileID: 0}
     - target: {fileID: 2334539968821297527, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
@@ -16449,10 +16466,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 20.310463
       objectReference: {fileID: 0}
-    - target: {fileID: 2335805763860882730, guid: d7fb396edf155de40895610ead7b8864,
+    - target: {fileID: 2555701377130717259, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -10.300049
+      value: 14.299988
       objectReference: {fileID: 0}
     - target: {fileID: 725072271, guid: d7fb396edf155de40895610ead7b8864, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -16493,22 +16510,6 @@ PrefabInstance:
       propertyPath: PowerUps.Array.data[3]
       value: 
       objectReference: {fileID: 1712853929}
-    - target: {fileID: 1211474179, guid: d7fb396edf155de40895610ead7b8864, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 689334095}
-    - target: {fileID: 1211474179, guid: d7fb396edf155de40895610ead7b8864, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TurnMusicOn
-      objectReference: {fileID: 0}
-    - target: {fileID: 1661903967, guid: d7fb396edf155de40895610ead7b8864, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 689334095}
-    - target: {fileID: 1661903967, guid: d7fb396edf155de40895610ead7b8864, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TurnMusicOff
-      objectReference: {fileID: 0}
     - target: {fileID: 2555598863301241839, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_AnchorMax.x
