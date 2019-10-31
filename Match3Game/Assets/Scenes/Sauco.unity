@@ -1145,9 +1145,24 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: f62ffaf6042e87f439604c541adf3055, type: 3}
     - target: {fileID: 521941322661175453, guid: c48dae2b39178bc498df340966b5eef7,
         type: 3}
+      propertyPath: ParticleAudio.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 521941322661175453, guid: c48dae2b39178bc498df340966b5eef7,
+        type: 3}
       propertyPath: SoundEffects
       value: 
       objectReference: {fileID: 451500300}
+    - target: {fileID: 521941322661175453, guid: c48dae2b39178bc498df340966b5eef7,
+        type: 3}
+      propertyPath: NodeAudio.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: a81f585d29e2cfa469c47858113fc6c7, type: 3}
+    - target: {fileID: 521941322661175453, guid: c48dae2b39178bc498df340966b5eef7,
+        type: 3}
+      propertyPath: ParticleAudio.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1a49a66ae02a38040ad53515e91cd787, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c48dae2b39178bc498df340966b5eef7, type: 3}
 --- !u!82 &451500296 stripped
@@ -2641,6 +2656,7 @@ MonoBehaviour:
   TotalConnection: 0
   GoldSpawn: {fileID: 0}
   GoldParticle: {fileID: 0}
+  GoldPlus: {fileID: 0}
   HappinessManagerScript: {fileID: 0}
   Total: 0
   TotalScoreGameObj: {fileID: 0}
@@ -3908,6 +3924,7 @@ MonoBehaviour:
   GoldSpawn: {fileID: 1618293771}
   GoldParticle: {fileID: 6088053314336034171, guid: 8e30db1da5eb1ca4f9eafbc98c037402,
     type: 3}
+  GoldPlus: {fileID: 0}
   HappinessManagerScript: {fileID: 0}
   Total: 0
   TotalScoreGameObj: {fileID: 0}
@@ -4353,7 +4370,7 @@ PrefabInstance:
     - target: {fileID: 2335805763860882730, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -10.299988
+      value: -10.300049
       objectReference: {fileID: 0}
     - target: {fileID: 725072271, guid: d7fb396edf155de40895610ead7b8864, type: 3}
       propertyPath: m_AnchoredPosition.y

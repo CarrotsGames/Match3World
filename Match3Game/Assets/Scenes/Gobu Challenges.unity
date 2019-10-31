@@ -1013,7 +1013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f391deae19a48ea40974586c19827ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ComboSpeed: 0.1
+  ComboSpeed: 0.05
   ComboVanishSpeed: 0.5
   UsingBomb: 0
   BigCombo: 0
@@ -3770,11 +3770,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 1929677184829160893, guid: c48dae2b39178bc498df340966b5eef7,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 6acfa472ac2cfc5469febf77e387c9fd, type: 3}
     - target: {fileID: 479337385744612785, guid: c48dae2b39178bc498df340966b5eef7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3830,6 +3825,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1929677184829160893, guid: c48dae2b39178bc498df340966b5eef7,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6acfa472ac2cfc5469febf77e387c9fd, type: 3}
     - target: {fileID: 521941322661175453, guid: c48dae2b39178bc498df340966b5eef7,
         type: 3}
       propertyPath: ParticleAudio.Array.size
@@ -4238,6 +4238,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 630
       objectReference: {fileID: 0}
+    - target: {fileID: 2600843702263599526, guid: d009cb47e607a2e438d6dee0c645a038,
+        type: 3}
+      propertyPath: HappinessManagerScript
+      value: 
+      objectReference: {fileID: 1589067600}
     - target: {fileID: 2861401589539412895, guid: d009cb47e607a2e438d6dee0c645a038,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4258,11 +4263,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: TurnMusicOff
       objectReference: {fileID: 0}
-    - target: {fileID: 2600843702263599526, guid: d009cb47e607a2e438d6dee0c645a038,
-        type: 3}
-      propertyPath: HappinessManagerScript
-      value: 
-      objectReference: {fileID: 1589067600}
     - target: {fileID: 2706098256937137528, guid: d009cb47e607a2e438d6dee0c645a038,
         type: 3}
       propertyPath: ShuffleSpawn
