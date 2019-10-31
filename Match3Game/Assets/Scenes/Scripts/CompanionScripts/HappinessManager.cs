@@ -106,14 +106,7 @@ public class HappinessManager : MonoBehaviour
         CurrentMultiplier.text = "" + Level;
     
     }
-    private void Awake()
-    {
-        if (!GameObject.Find("CHALLENGE"))
-        {
-            LevelUpCanvas = GameObject.Find("Level Up Canvus");
-            LevelUpCanvas.SetActive(false);
-        }
-    }
+   
     void LoadSaves()
     {
         if (GameObject.Find("CHALLENGE") == null)
