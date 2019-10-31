@@ -5,21 +5,22 @@ using UnityEngine;
 
 public class LevelUp : MonoBehaviour
 {
+    public Text GoldText;
     private Text NewLevel;
     private GameObject HappinessManagerGameObj;
     private HappinessManager HappinessManagerScript;
 
-    // Start is called before the first frame update
-    void Start()
+ 
+    // Update is called once per frame
+    public void ShowNewLevel()
     {
+        Debug.Log(gameObject);
         HappinessManagerGameObj = GameObject.FindGameObjectWithTag("HM");
         HappinessManagerScript = HappinessManagerGameObj.GetComponent<HappinessManager>();
-        NewLevel = GetComponent<Text>();  
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        NewLevel = GetComponent<Text>();
+         
+        
         NewLevel.text = "" + HappinessManagerScript.Level;
+        GoldText.text = "" + HappinessManagerScript.GoldRewardText.text;
     }
 }

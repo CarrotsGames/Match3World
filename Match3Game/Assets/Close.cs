@@ -6,8 +6,6 @@ public class Close : MonoBehaviour
 {
     public GameObject menu;
 
-
-
     public void CloseMenu()
     {
         menu.SetActive(false);

@@ -33,7 +33,6 @@ public class HappinessManager : MonoBehaviour
     public GameObject Companion;
     public GameObject AudioGameObj;
     public GameObject DayTime;
-    public GameObject LevelUpCanvas;
     public Text LevelText;
     public Text NextLevel;
     public Text CurrentMultiplier;
@@ -42,8 +41,10 @@ public class HappinessManager : MonoBehaviour
     public Image FillColour;
     public Slider HappinessSlider;    
     public Animator Anim;
-   
+
     // Plays ads
+    private GameObject LevelUpCanvasGameObj;
+    private LevelUpCanvas LevelUpCanvasScript;
     private GameObject SleepAd;
     private GameObject RealTimeGameObj;
     private GameObject PowerUpManagerGameObj;
@@ -53,19 +54,16 @@ public class HappinessManager : MonoBehaviour
     private List<int> GoldRewardList;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {      
         // if they are then the happinessStates void wont be called to avoid mixing saves
         Scene CurrentScene = SceneManager.GetActiveScene();
         // Gets current scene
         SceneName = CurrentScene.name;
-        if (!GameObject.Find("CHALLENGE"))
-        {
-            LevelUpCanvas = GameObject.Find("Level Up Canvus");
-            LevelUpCanvas.SetActive(false);
-        }
+   
         SleepAd = GameObject.FindGameObjectWithTag("SleepingAd");
-        
+        LevelUpCanvasGameObj = GameObject.Find("Level Up Canvus");
+        LevelUpCanvasScript = LevelUpCanvasGameObj.GetComponent<LevelUpCanvas>();
         //checks if players in main scene
         if (SceneName == "Main Screen" || SceneName == "Gobu Tutorial")
         {
@@ -123,7 +121,6 @@ public class HappinessManager : MonoBehaviour
             //HappinessClamp = SaveSystem.LoadMoobling().TotalEXP;
             // DotManager.TotalScore = SaveSystem.LoadMoobling().TotalScore;
             HappinessBar();
-            LevelUpCanvas.SetActive(false);
             PowerUpManagerGameObj = GameObject.FindGameObjectWithTag("PUM");
             PowerUpManagerScript = PowerUpManagerGameObj.GetComponent<PowerUpManager>();
             // if level is 0 score will not go up because nodes * level value equal score
@@ -216,9 +213,8 @@ public class HappinessManager : MonoBehaviour
                     ChallengeUnlocked++;
                     PlayerPrefs.SetInt(MooblingChallengeSave, ChallengeUnlocked);
                 }
-                GoldRewardText.text = "" + GoldRewardList[Level];   
-                LevelUpCanvas.SetActive(true);
-                
+                GoldRewardText.text = "" + GoldRewardList[Level];
+                LevelUpCanvasScript.TurnOnCanvas();
             }
         }
         else
