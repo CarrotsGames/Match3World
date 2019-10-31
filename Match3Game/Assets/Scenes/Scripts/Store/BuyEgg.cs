@@ -14,8 +14,12 @@ public class BuyEgg : MonoBehaviour
     public GameObject eggUnlock;
     public bool eggIncubation;
     public GameObject CreatureEggs;
- 
- 
+
+
+    private void Awake()
+    {
+        
+    }
     private void FixedUpdate()
     {
         if (PlayFabLogin.HasLoggedIn == true)

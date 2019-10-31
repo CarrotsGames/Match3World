@@ -109,7 +109,7 @@ public class EggHatch : MonoBehaviour
                 }
                 else
                 {
-                    BuyButton = GameObject.Find("BuyEggButton");
+                   // BuyButton = GameObject.Find("BuyEggButton");
 
  
                     BuyButton.GetComponent<Button>().enabled = true;
