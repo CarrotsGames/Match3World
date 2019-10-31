@@ -216,6 +216,8 @@ public class HappinessManager : MonoBehaviour
                     PlayerPrefs.SetInt(MooblingChallengeSave, ChallengeUnlocked);
                 }
                 GoldRewardText.text = "" + GoldRewardList[Level];
+                // safety net just in case it cant find levelUpCanvas
+                LevelUpCanvas = GameObject.Find("Level Up Canvus");
                 LevelUpCanvas.SetActive(true);
                 
             }
