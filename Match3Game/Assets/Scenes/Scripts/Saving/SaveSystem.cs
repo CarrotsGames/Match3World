@@ -5,7 +5,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveSystem 
 {
-
+    public static bool NewSave;
 
     public static void SaveMoobling(HappinessManager Moobling)
     {
@@ -43,8 +43,11 @@ public static class SaveSystem
             if(stream.Length < 1)
             {
                 stream.Close();
+                NewSave = true;
+                return null;
             }
             MooblingSave data = formatter.Deserialize(stream) as MooblingSave;
+            
             stream.Close();
             
 

@@ -64,6 +64,8 @@ public class HappinessManager : MonoBehaviour
         SleepAd = GameObject.FindGameObjectWithTag("SleepingAd");
         LevelUpCanvasGameObj = GameObject.Find("Level Up Canvus");
         LevelUpCanvasScript = LevelUpCanvasGameObj.GetComponent<LevelUpCanvas>();
+        PowerUpManagerGameObj = GameObject.FindGameObjectWithTag("PUM");
+        PowerUpManagerScript = PowerUpManagerGameObj.GetComponent<PowerUpManager>();
         //checks if players in main scene
         if (SceneName == "Main Screen" || SceneName == "Gobu Tutorial")
         {
@@ -71,6 +73,7 @@ public class HappinessManager : MonoBehaviour
         }
         else
         {
+            AssignGold();
             PlayLevelAdScript = SleepAd.GetComponent<PlayLevelAd>();
         }
         
@@ -111,31 +114,25 @@ public class HappinessManager : MonoBehaviour
         {         
            
             SaveSystem.LoadMoobling();
-            Level = SaveSystem.LoadMoobling().Level;
-            HappinessSliderValue = SaveSystem.LoadMoobling().EXP;
-            if(Level == 0)
+            if (!SaveSystem.NewSave)
+            {
+                Level = SaveSystem.LoadMoobling().Level;
+                HappinessSliderValue = SaveSystem.LoadMoobling().EXP;
+            }
+            else
             {
                 Level = 1;
+                SaveSystem.NewSave = false;
             }
             HappinessClamp = Level * 250;
             //HappinessClamp = SaveSystem.LoadMoobling().TotalEXP;
             // DotManager.TotalScore = SaveSystem.LoadMoobling().TotalScore;
             HappinessBar();
-            PowerUpManagerGameObj = GameObject.FindGameObjectWithTag("PUM");
-            PowerUpManagerScript = PowerUpManagerGameObj.GetComponent<PowerUpManager>();
-            // if level is 0 score will not go up because nodes * level value equal score
-            if (Level < 1)
-            {
-                Level = 1;
-                HappinessSliderValue = 0;
-                HappinessClamp = 250;
-                HappinessBar();
-            }
+ 
         }
         HappinessSlider.maxValue = HappinessClamp;
         HappinessSliderValue = Mathf.Clamp(HappinessSliderValue, 0, HappinessClamp);
         HappinessSlider.value = HappinessSliderValue;
-        AssignGold();
     }
     void AssignGold()
     {
@@ -213,10 +210,12 @@ public class HappinessManager : MonoBehaviour
                     ChallengeUnlocked++;
                     PlayerPrefs.SetInt(MooblingChallengeSave, ChallengeUnlocked);
                 }
+             
                 GoldRewardText.text = "" + GoldRewardList[Level];
                 LevelUpCanvasGameObj = GameObject.Find("Level Up Canvus");
                 LevelUpCanvasScript = LevelUpCanvasGameObj.GetComponent<LevelUpCanvas>();
                 LevelUpCanvasScript.TurnOnCanvas();
+                
             }
         }
         else
