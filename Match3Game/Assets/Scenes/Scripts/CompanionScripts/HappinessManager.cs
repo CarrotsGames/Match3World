@@ -62,17 +62,18 @@ public class HappinessManager : MonoBehaviour
         SceneName = CurrentScene.name;
    
         SleepAd = GameObject.FindGameObjectWithTag("SleepingAd");
-        LevelUpCanvasGameObj = GameObject.Find("Level Up Canvus");
-        LevelUpCanvasScript = LevelUpCanvasGameObj.GetComponent<LevelUpCanvas>();
+ 
         PowerUpManagerGameObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerScript = PowerUpManagerGameObj.GetComponent<PowerUpManager>();
         //checks if players in main scene
-        if (SceneName == "Main Screen" || SceneName == "Gobu Tutorial")
+        if (SceneName == "Main Screen" || SceneName == "Main Screen Tut") 
         {
             OnMainScene = true;
         }
         else
         {
+            LevelUpCanvasGameObj = GameObject.Find("Level Up Canvus");
+            LevelUpCanvasScript = LevelUpCanvasGameObj.GetComponent<LevelUpCanvas>();
             AssignGold();
             PlayLevelAdScript = SleepAd.GetComponent<PlayLevelAd>();
         }
