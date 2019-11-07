@@ -101,7 +101,6 @@ public class UnlockableCreatures : MonoBehaviour
                 ChallengeCompanions[1].SetActive(true);
             }
           
-
             if (CriusUnlocked == "CRIUS")
             {
                 BuyCompanions[2].SetActive(false);

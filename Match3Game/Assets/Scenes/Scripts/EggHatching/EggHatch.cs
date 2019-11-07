@@ -237,6 +237,7 @@ public class EggHatch : MonoBehaviour
                     Debug.Log("DUPEOKAMI");
 
                     PowerUpManager.GetComponent<PowerUpManager>().Currency += 150;
+                    PowerUpManager.GetComponent<PowerUpManager>().PowerUpSaves();
                     MoneyUnlockImage.SetActive(true);
 
                 }
