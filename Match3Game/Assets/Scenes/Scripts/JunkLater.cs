@@ -33,6 +33,10 @@ public class JunkLater : MonoBehaviour {
     {
         SceneManager.LoadScene("Main Screen Tut");
     }
+    public void LoadCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
 
 
 
