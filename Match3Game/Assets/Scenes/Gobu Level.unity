@@ -4487,15 +4487,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 250365609, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
+      propertyPath: Countdown
+      value: 900
+      objectReference: {fileID: 0}
     - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
         type: 3}
       propertyPath: Analytics
       value: 
       objectReference: {fileID: 1990355654}
-    - target: {fileID: 250365609, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
-      propertyPath: Countdown
-      value: 900
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
 --- !u!1001 &1729014057420318398
@@ -4591,19 +4591,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gobu Canvus
       objectReference: {fileID: 0}
-    - target: {fileID: 2335805763860882735, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: audioManager
-      value: 
-      objectReference: {fileID: 1209956651714214}
-    - target: {fileID: 1211474179, guid: d7fb396edf155de40895610ead7b8864, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1209956651714215}
-    - target: {fileID: 1661903967, guid: d7fb396edf155de40895610ead7b8864, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1209956651714215}
     - target: {fileID: 2335805763254419903, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4709,21 +4696,34 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8848662033642868986, guid: d7fb396edf155de40895610ead7b8864,
+    - target: {fileID: 2335805763860882735, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1209956651714214}
     - target: {fileID: 2449818973851826393, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: ShuffleSpawn
       value: 
       objectReference: {fileID: 1918055065}
+    - target: {fileID: 8848662033642868986, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2449762617587901165, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: BombPlayArea
       value: 
       objectReference: {fileID: 1497988322}
+    - target: {fileID: 1211474179, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1209956651714215}
+    - target: {fileID: 1661903967, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1209956651714215}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7fb396edf155de40895610ead7b8864, type: 3}
 --- !u!1001 &2436516372427604212
@@ -5416,6 +5416,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6574192192007541581, guid: 5637ab04fdd60894c812a6946c8dca08,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoHome
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5637ab04fdd60894c812a6946c8dca08, type: 3}
