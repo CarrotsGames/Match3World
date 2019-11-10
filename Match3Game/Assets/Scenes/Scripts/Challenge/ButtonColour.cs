@@ -39,6 +39,30 @@ public class ButtonColour : MonoBehaviour
         }
       
     }
+   public void RefreshHighlite()
+    {
+        Test = new List<int>();
+        SaveSystem.LoadChallenge(MooblingChallengeName);
+        for (int i = 0; i < ChallengeComplete.ChallengeList.Length; i++)
+        {
+            Test.Add(SaveSystem.LoadChallenge(MooblingChallengeName).CompletedLevels[i]);
+            if (Test[i] != 0)
+            {
+                Debug.Log("YELLOW BUTTON");
+                transform.GetChild(i).GetComponent<Button>().image.color = Color.yellow;
+            }
+
+        }
+        int ChallengesUnlocked = PlayerPrefs.GetInt(MooblingChallengeName);
+
+        for (int i = 0; i < ChallengesUnlocked; i++)
+        {
+            transform.GetChild(i).GetComponent<Button>().interactable = true;
+            transform.GetChild(i).GetComponent<Button>().image.color = Color.green;
+
+        }
+
+    }
     //void GetMooblingChallengeInfo(string MooblingChallengeName)
     //{
     //    switch (MooblingChallengeName)
@@ -95,5 +119,5 @@ public class ButtonColour : MonoBehaviour
     //            break;
     //    }
 
-   // }
+    // }
 }

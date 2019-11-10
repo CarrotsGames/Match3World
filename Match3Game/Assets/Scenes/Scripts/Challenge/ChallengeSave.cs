@@ -13,13 +13,15 @@ public class ChallengeSave
   
     public ChallengeSave(ChallengeComplete Ch)
     {
-        // makes challenge num equal current challenge
-        ChallengeNum = Ch.CurrentChallenge;
-        // Converts challenge num to original counting instead of array (Easier to track)
-        ChallengeNum += 1;
-        ChallengeComplete.ChallengeList[Ch.CurrentChallenge] = ChallengeNum;
-        CompletedLevels = ChallengeComplete.ChallengeList;  
-        
+         
+         // makes challenge num equal current challenge
+         ChallengeNum = Ch.CurrentChallenge;
+         // Converts challenge num to original counting instead of array (Easier to track)
+         ChallengeNum += 1;
+         ChallengeComplete.ChallengeList[Ch.CurrentChallenge] = ChallengeNum;
+         CompletedLevels = ChallengeComplete.ChallengeList;
+         
+     
     }
 
 }

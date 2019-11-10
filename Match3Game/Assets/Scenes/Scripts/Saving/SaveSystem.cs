@@ -65,6 +65,7 @@ public static class SaveSystem
     public static void SaveChallenge(ChallengeComplete Ch)
     {
         string scene = SceneManager.GetActiveScene().name;
+       
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/" + Ch.ChallengeName + ".Data";
         if (!File.Exists(path))
