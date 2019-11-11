@@ -22,7 +22,7 @@ public class ButtonColour : MonoBehaviour
         {
             ChallengesUnlocked = 20;
         }
-        for (int i = 0; i < ChallengesUnlocked -1 ; i++)
+        for (int i = 0; i < ChallengesUnlocked  ; i++)
         {
             transform.GetChild(i).GetComponent<Button>().interactable = true;
             transform.GetChild(i).GetComponent<Button>().image.color = Color.green;
