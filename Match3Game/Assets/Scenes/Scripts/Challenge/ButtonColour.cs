@@ -39,21 +39,12 @@ public class ButtonColour : MonoBehaviour
         }
       
     }
-   public void RefreshHighlite()
+   public void RefreshHighlite(string MooblingName)
     {
         Test = new List<int>();
-        SaveSystem.LoadChallenge(MooblingChallengeName);
-        for (int i = 0; i < ChallengeComplete.ChallengeList.Length; i++)
-        {
-            Test.Add(SaveSystem.LoadChallenge(MooblingChallengeName).CompletedLevels[i]);
-            if (Test[i] != 0)
-            {
-                Debug.Log("YELLOW BUTTON");
-                transform.GetChild(i).GetComponent<Button>().image.color = Color.yellow;
-            }
-
-        }
-        int ChallengesUnlocked = PlayerPrefs.GetInt(MooblingChallengeName);
+       // SaveSystem.LoadChallenge(MooblingChallengeName);
+ 
+        int ChallengesUnlocked = PlayerPrefs.GetInt(MooblingName);
 
         for (int i = 0; i < ChallengesUnlocked; i++)
         {

@@ -204,14 +204,22 @@ public class HappinessManager : MonoBehaviour
                 CurrentHappiness.text = "Current EXP:" + HappinessSliderValue + "/" + HappinessClamp;
                 PowerUpManagerScript.Currency += GoldRewardList[Level];
                 PowerUpManagerScript.PowerUpSaves();
+
                 if (Level >= 5)
                 {
                     // Adds challenge to this mooblings challenges
-                    int ChallengeUnlocked = PlayerPrefs.GetInt(MooblingChallengeSave);
+                    int ChallengeUnlocked = 5;
+                    ChallengeUnlocked += PlayerPrefs.GetInt(MooblingChallengeSave);
                     ChallengeUnlocked++;
                     PlayerPrefs.SetInt(MooblingChallengeSave, ChallengeUnlocked);
                 }
-             
+                else
+                {
+                    int ChallengeUnlocked = PlayerPrefs.GetInt(MooblingChallengeSave);
+                    ChallengeUnlocked++;
+                    PlayerPrefs.SetInt(MooblingChallengeSave, ChallengeUnlocked);
+
+                }
                 GoldRewardText.text = "" + GoldRewardList[Level];
                 LevelUpCanvasGameObj = GameObject.Find("Level Up Canvus");
                 LevelUpCanvasScript = LevelUpCanvasGameObj.GetComponent<LevelUpCanvas>();

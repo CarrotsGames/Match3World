@@ -37,83 +37,85 @@ public class ChallengeComplete : MonoBehaviour
         switch (Moobling)
         {
             case "Gobu":
-                ChallengeName = "GobuChallenge";
+                ChallengeName = "Gobu Challenges";
                 UnlockingChallenges = true;
-                SaveSystem.SaveChallenge(this);
+               // SaveSystem.SaveChallenge(this);
                 PlayerPrefs.SetInt(ChallengeName, 20);
-                ButtonHighlite.GetComponent<ButtonColour>().RefreshHighlite();
+                ButtonHighlite.GetComponent<ButtonColour>().RefreshHighlite(ChallengeName);
                 break;
             case "Binky":
-                ChallengeName = "BinkyChallenge";
+                // Someone made a typo on the scene so just go with it...
+                ChallengeName = "Circle Challege";
                 UnlockingChallenges = true;
                 // SaveSystem.SaveChallenge(this);
                 PlayerPrefs.SetInt(ChallengeName, 20);
 
-                ButtonHighlite.GetComponent<ButtonColour>().RefreshHighlite();
+                ButtonHighlite.GetComponent<ButtonColour>().RefreshHighlite(ChallengeName);
                 break;
             case "Koko":
-                ChallengeName = "KokoChallenge";
+                ChallengeName = "Triangle Challenges";
                 UnlockingChallenges = true;
                 // SaveSystem.SaveChallenge(this);
                 PlayerPrefs.SetInt(ChallengeName, 20);
 
-                ButtonHighlite.GetComponent<ButtonColour>().RefreshHighlite();
+                ButtonHighlite.GetComponent<ButtonColour>().RefreshHighlite(ChallengeName);
                 break;
             case "Crius":
-                ChallengeName = "CriusChallenge";
+                // Typo just go with it
+                ChallengeName = "Crius Challenge";
                 UnlockingChallenges = true;
                 // SaveSystem.SaveChallenge(this);
                 PlayerPrefs.SetInt(ChallengeName, 20);
 
-                ButtonHighlite.GetComponent<ButtonColour>().RefreshHighlite();
+                ButtonHighlite.GetComponent<ButtonColour>().RefreshHighlite(ChallengeName);
                 break;
             case "Sauco":
-                ChallengeName = "SaucoChallenge";
+                ChallengeName = "Sauco Challenge";
                 UnlockingChallenges = true;
                 // SaveSystem.SaveChallenge(this);
                 PlayerPrefs.SetInt(ChallengeName, 20);
 
-                ButtonHighlite.GetComponent<ButtonColour>().RefreshHighlite();
+                ButtonHighlite.GetComponent<ButtonColour>().RefreshHighlite(ChallengeName);
                 break;
             case "ChickPea":
-                ChallengeName = "CPChallenge";
+                ChallengeName = "Chick-Pee Challenge";
                 UnlockingChallenges = true;
                 // SaveSystem.SaveChallenge(this);
                 PlayerPrefs.SetInt(ChallengeName, 20);
 
-                ButtonHighlite.GetComponent<ButtonColour>().RefreshHighlite();
+                ButtonHighlite.GetComponent<ButtonColour>().RefreshHighlite(ChallengeName);
                 break;
             case "Squishy":
-                ChallengeName = "SquishyChallenge";
+                ChallengeName = "Squishy Challenge";
                 UnlockingChallenges = true;
                 // SaveSystem.SaveChallenge(this);
                 PlayerPrefs.SetInt(ChallengeName, 20);
 
-                ButtonHighlite.GetComponent<ButtonColour>().RefreshHighlite();
+                ButtonHighlite.GetComponent<ButtonColour>().RefreshHighlite(ChallengeName);
                 break;
             case "Okami":
-                ChallengeName = "OkamiChallenge";
+                ChallengeName = "Okami Challenge";
                 UnlockingChallenges = true;
                 // SaveSystem.SaveChallenge(this);
                 PlayerPrefs.SetInt(ChallengeName, 20);
 
-                ButtonHighlite.GetComponent<ButtonColour>().RefreshHighlite();
+                ButtonHighlite.GetComponent<ButtonColour>().RefreshHighlite(ChallengeName);
                 break;
             case "Ida":
-                ChallengeName = "IdaChallenge";
+                ChallengeName = "Idasaurous Challenge";
                 UnlockingChallenges = true;
                 // SaveSystem.SaveChallenge(this);
                 PlayerPrefs.SetInt(ChallengeName, 20);
 
-                ButtonHighlite.GetComponent<ButtonColour>().RefreshHighlite();
+                ButtonHighlite.GetComponent<ButtonColour>().RefreshHighlite(ChallengeName);
                 break;
             case "Cronus":
-                ChallengeName = "CronusChallenge";
+                ChallengeName = "Cronus Challenge";
                 UnlockingChallenges = true;
                 // SaveSystem.SaveChallenge(this);
                 PlayerPrefs.SetInt(ChallengeName, 20);
 
-                ButtonHighlite.GetComponent<ButtonColour>().RefreshHighlite();
+                ButtonHighlite.GetComponent<ButtonColour>().RefreshHighlite(ChallengeName);
                 break;
         }
 
