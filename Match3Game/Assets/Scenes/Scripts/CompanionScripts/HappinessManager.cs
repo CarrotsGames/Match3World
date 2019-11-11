@@ -119,6 +119,11 @@ public class HappinessManager : MonoBehaviour
             {
                 Level = SaveSystem.LoadMoobling().Level;
                 HappinessSliderValue = SaveSystem.LoadMoobling().EXP;
+                // mainly used in pc editor but corrects the save if level is 0
+                if(Level == 0)
+                {
+                    Level = 1;
+                }
             }
             else
             {
