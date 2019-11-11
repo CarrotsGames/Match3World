@@ -208,7 +208,7 @@ public class HappinessManager : MonoBehaviour
                 if (Level >= 5)
                 {
                     // Adds challenge to this mooblings challenges
-                    int ChallengeUnlocked = 5;
+                    int ChallengeUnlocked = 0;
                     ChallengeUnlocked += PlayerPrefs.GetInt(MooblingChallengeSave);
                     ChallengeUnlocked++;
                     if (ChallengeUnlocked >= 20)

@@ -67,6 +67,7 @@ public static class SaveSystem
         string scene = SceneManager.GetActiveScene().name;
        
         BinaryFormatter formatter = new BinaryFormatter();
+        Ch.ChallengeName = SceneManager.GetActiveScene().name;
         string path = Application.persistentDataPath + "/" + Ch.ChallengeName + ".Data";
         if (!File.Exists(path))
         {

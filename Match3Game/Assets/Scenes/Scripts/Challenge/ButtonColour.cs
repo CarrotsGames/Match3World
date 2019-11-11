@@ -18,7 +18,7 @@ public class ButtonColour : MonoBehaviour
            PlayerPrefs.SetInt(MooblingChallengeName, ChallengesUnlocked);
 
         }
-        for (int i = 0; i < ChallengesUnlocked ; i++)
+        for (int i = 0; i < ChallengesUnlocked -1 ; i++)
         {
             transform.GetChild(i).GetComponent<Button>().interactable = true;
             transform.GetChild(i).GetComponent<Button>().image.color = Color.green;
