@@ -32,6 +32,7 @@ public class ChallengeComplete : MonoBehaviour
     }
     public void UnlockAllChallenges(string Moobling)
     {
+        Debug.Log("ChallengesUnlocked");
        // UnlockingChallenges = true;
         switch (Moobling)
         {
