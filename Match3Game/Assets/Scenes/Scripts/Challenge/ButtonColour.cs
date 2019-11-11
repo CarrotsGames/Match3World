@@ -18,6 +18,10 @@ public class ButtonColour : MonoBehaviour
            PlayerPrefs.SetInt(MooblingChallengeName, ChallengesUnlocked);
 
         }
+        if(ChallengesUnlocked > 20)
+        {
+            ChallengesUnlocked = 20;
+        }
         for (int i = 0; i < ChallengesUnlocked -1 ; i++)
         {
             transform.GetChild(i).GetComponent<Button>().interactable = true;
