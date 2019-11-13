@@ -123,17 +123,14 @@ public class EggHatch : MonoBehaviour
       
         }
     }
-    public void CountDownTimer()
-    {
-        StartCountdownTimer();
-    }
+
     void HatchCreature()
     {
         NowTime = 0;
         TimeStamp = 0;
         MinutesFromTs = 0;
         GetComponent<EggTimerOptions>().HasHalfedTime = false;
-        PlayerPrefs.SetInt("HalfTime", (GetComponent<EggTimerOptions>().HasHalfedTime ? 1 : 0));
+        PlayerPrefs.SetInt("HalfTime", (false ? 1 : 0));
 
         // selects random index for creature
         int Random = UnityEngine.Random.Range(0, EggCreatures.Count);
@@ -245,10 +242,10 @@ public class EggHatch : MonoBehaviour
         }
         // saves the egg countdown status(in this case its ended)
         PlayerPrefs.SetInt("EGGCOUNTDOWN", (StartCountDown ? 1 : 0));
-
+ 
     }
     // checks the current time on server
-   public void GetCurrentTime()
+    public void GetCurrentTime()
     {
         // gets the current time for countdown
         PlayFabClientAPI.GetTime(new GetTimeRequest(), (GetTimeResult result) =>
@@ -260,15 +257,21 @@ public class EggHatch : MonoBehaviour
             MinutesFromTs = TimeTillEggHatch.TotalMinutes;
            // TimerText.text = "" + MinutesFromTs;
             CurrentTime = 5;
-
+            GetComponent<EggTimerOptions>().SetPriceTime();
         }, null);
     }
     // begins countdown 
-    void StartCountdownTimer()
+    public void CountDownTimer()
     {
+        GetComponent<EggTimerOptions>().ResetButtonPos();
+        GetComponent<EggTimerOptions>().SetPriceTime();
         StartCountDown = true;
         CurrentTime = 5;
-
+        // gives timestamp a head start to not end timer right away
+        //(Timer ends when nowtime > timestamp)
+        
+        TimeStamp = 100;
+        NowTime = 0 ;
         PlayerPrefs.SetInt("EGGCOUNTDOWN", (StartCountDown ? 1 : 0));
         PlayFabClientAPI.GetTime(new GetTimeRequest(), (GetTimeResult result) =>
         {
@@ -279,18 +282,18 @@ public class EggHatch : MonoBehaviour
             now = result.Time.AddHours(0);
 
             // Target Time
-            Period = 36L * 3000000000L ;
+            Period = 36L * 3000000000L;
             TimeStamp = now.Ticks + Period;
             TimeSpan ts = TimeSpan.FromTicks(Period);
             NowTime = now.Ticks;
             MinutesFromTs = ts.TotalMinutes;
-       
+
             // sets egghatch save to timestamp    PLUS ARRAY NUM
             PlayerPrefs.SetString("EggHatch", "" + TimeStamp);
-           
+
 
         }, null);
-
     }
+ 
 
 }
