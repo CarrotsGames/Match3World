@@ -61,6 +61,10 @@ public class EggHatch : MonoBehaviour
         {
             TimerText.text = "Buy an egg?";
         }
+        else
+        {
+            TimerText.text = "loading";
+        }
     }
 
     private void Update()
@@ -258,6 +262,7 @@ public class EggHatch : MonoBehaviour
            // TimerText.text = "" + MinutesFromTs;
             CurrentTime = 5;
             GetComponent<EggTimerOptions>().SetPriceTime();
+            ;
         }, null);
     }
     // begins countdown 

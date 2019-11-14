@@ -57,7 +57,7 @@ public class EggTimerOptions : MonoBehaviour
         long Result = GetComponent<EggHatch>().TimeStamp - GetComponent<EggHatch>().NowTime;
         TimeSpan ts = TimeSpan.FromTicks(Result);
         double MinutesFromTs = ts.TotalMinutes;
-        // 3 hours
+         // 3 hours
         if (MinutesFromTs >= 120 && MinutesFromTs <= 180)
         {
             // SkipEgg
@@ -82,9 +82,22 @@ public class EggTimerOptions : MonoBehaviour
             // HalfTime
             PriceTags[1].text = "75";
         }
-        // enabled buttons to be pressed when correct price is listed
-        HalfButton.interactable = true;
-        SkipButton.interactable = true;
+       
+        if (MinutesFromTs == 0)
+        {
+            // SkipEgg
+            PriceTags[0].text = "loading";
+            // HalfTime
+            PriceTags[1].text = "loading";
+            HalfButton.interactable = false;
+            SkipButton.interactable = false;
+        }
+        else
+        {
+            // enabled buttons to be pressed when correct price is listed
+            HalfButton.interactable = true;
+            SkipButton.interactable = true;
+        }
     }
     public void HalfTime()
     {
@@ -108,6 +121,8 @@ public class EggTimerOptions : MonoBehaviour
                         HalfButton.gameObject.SetActive(false);
                         SkipButton.transform.position -= new Vector3(10, 0, 0);
                         PriceTags[1].gameObject.SetActive(false);
+                        // SkipEgg
+                        PriceTags[0].text = "100";
                     }
                 }
                 // if the timer is between 0 and 1.4 hours
@@ -121,6 +136,8 @@ public class EggTimerOptions : MonoBehaviour
                         HalfButton.gameObject.SetActive(false);
                         SkipButton.transform.position -= new Vector3(10, 0, 0);
                         PriceTags[1].gameObject.SetActive(false);
+                        // SkipEgg
+                        PriceTags[0].text = "100";
                     }
                 }
                 PowerUpManagerScript.PowerUpSaves();
