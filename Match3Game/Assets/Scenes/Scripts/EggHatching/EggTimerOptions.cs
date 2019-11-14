@@ -57,22 +57,28 @@ public class EggTimerOptions : MonoBehaviour
         long Result = GetComponent<EggHatch>().TimeStamp - GetComponent<EggHatch>().NowTime;
         TimeSpan ts = TimeSpan.FromTicks(Result);
         double MinutesFromTs = ts.TotalMinutes;
-         // 3 hours
+     
         if (MinutesFromTs >= 120 && MinutesFromTs <= 180)
         {
+            Debug.Log("Inhere ");
             // SkipEgg
             PriceTags[0].text = "200";
             // HalfTime
             PriceTags[1].text = "100";
-
+            // enabled buttons to be pressed when correct price is listed
+            HalfButton.interactable = true;
+            SkipButton.interactable = true;
         }
         //2 hours 
         else if (MinutesFromTs >= 90 && MinutesFromTs <= 180)
-        { 
+        {
             // SkipEgg
             PriceTags[0].text = "150";
             // HalfTime
             PriceTags[1].text = "75";
+            // enabled buttons to be pressed when correct price is listed
+            HalfButton.interactable = true;
+            SkipButton.interactable = true;
         }
         // 1 hour
         else if (MinutesFromTs >= 0 && MinutesFromTs < 90)
@@ -81,23 +87,11 @@ public class EggTimerOptions : MonoBehaviour
             PriceTags[0].text = "100";
             // HalfTime
             PriceTags[1].text = "75";
-        }
-       
-        if (MinutesFromTs == 0)
-        {
-            // SkipEgg
-            PriceTags[0].text = "loading";
-            // HalfTime
-            PriceTags[1].text = "loading";
-            HalfButton.interactable = false;
-            SkipButton.interactable = false;
-        }
-        else
-        {
             // enabled buttons to be pressed when correct price is listed
             HalfButton.interactable = true;
             SkipButton.interactable = true;
         }
+        
     }
     public void HalfTime()
     {
@@ -156,7 +150,9 @@ public class EggTimerOptions : MonoBehaviour
             long Result = GetComponent<EggHatch>().TimeStamp - GetComponent<EggHatch>().NowTime;
             TimeSpan ts = TimeSpan.FromTicks(Result);
             double MinutesFromTs = ts.TotalMinutes;
-            if (MinutesFromTs < 60)
+
+
+            if (MinutesFromTs > 0 && MinutesFromTs < 60)
             {
                 //SPAWN BUY BUTTON FOR THIS ONE
                 if (PowerUpManagerScript.Currency >= Prices[0])
@@ -198,7 +194,7 @@ public class EggTimerOptions : MonoBehaviour
                 if (PowerUpManagerScript.Currency >= Prices[2])
                 {
                     PowerUpManagerScript.Currency -= Prices[2];
-                    Debug.Log("Under60");
+
                     GetComponent<EggHatch>().TimeStamp = GetComponent<EggHatch>().NowTime - 10000000;
 
                 }

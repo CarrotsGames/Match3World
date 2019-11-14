@@ -51,7 +51,9 @@ public class BuyEgg : MonoBehaviour
     }
     public void PurchaseEgg()
     {
-       
+        EggHatchScript.GetComponent<EggTimerOptions>().HalfButton.interactable = false;
+        EggHatchScript.GetComponent<EggTimerOptions>().SkipButton.interactable = false; ;
+
         PowerUpManGameObj = GameObject.FindGameObjectWithTag("PUM");
         PowerUpManagerScript = PowerUpManGameObj.GetComponent<PowerUpManager>();
         if (PowerUpManagerScript.Currency >= Amount)

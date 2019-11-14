@@ -38,7 +38,6 @@ public class EggHatch : MonoBehaviour
     private string UnlockedCompanion;
     TimeSpan TimeTillEggHatch;
     public List<string> EggCreatures;
-   
      // Use this for initialization
     void Awake()
     {
@@ -63,7 +62,7 @@ public class EggHatch : MonoBehaviour
         }
         else
         {
-            TimerText.text = "loading";
+             TimerText.text = "loading";
         }
     }
 
@@ -141,7 +140,8 @@ public class EggHatch : MonoBehaviour
         UnlockedCompanion = EggCreatures[Random] ;
         // Grabs the unlocked companion using its string
         Congratulations.SetActive(true);
-
+        GetComponent<EggTimerOptions>().HalfButton.interactable = false;
+        GetComponent<EggTimerOptions>().SkipButton.interactable = false;
         switch (UnlockedCompanion)
         {
             case "Crius":
@@ -262,14 +262,16 @@ public class EggHatch : MonoBehaviour
            // TimerText.text = "" + MinutesFromTs;
             CurrentTime = 5;
             GetComponent<EggTimerOptions>().SetPriceTime();
-            ;
+            
         }, null);
     }
     // begins countdown 
     public void CountDownTimer()
     {
         GetComponent<EggTimerOptions>().ResetButtonPos();
-        GetComponent<EggTimerOptions>().SetPriceTime();
+     
+        GetComponent<EggTimerOptions>().PriceTags[0].text = "loading";
+        GetComponent<EggTimerOptions>().PriceTags[1].text = "loading";
         StartCountDown = true;
         CurrentTime = 5;
         // gives timestamp a head start to not end timer right away
@@ -285,7 +287,7 @@ public class EggHatch : MonoBehaviour
             //EggNumber = 1;
             //Current time 
             now = result.Time.AddHours(0);
-
+            
             // Target Time
             Period = 36L * 3000000000L;
             TimeStamp = now.Ticks + Period;
