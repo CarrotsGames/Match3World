@@ -84,7 +84,6 @@ public class Lives : MonoBehaviour
                 {
                     NumberOfLives.text = "" + LiveCount;
                     ResetStats();
-                    LiveCount = 3;
                     LifeTimerText.text = "Fullhearts";
                     PlayerPrefs.SetInt("LIVECOUNT", LiveCount);
                     PlayerPrefs.SetInt("LIVECOUNTDOWN", (IsCountingDown ? 1 : 0));
@@ -119,20 +118,22 @@ public class Lives : MonoBehaviour
         SetFullCounter();
         IsCountingDown = true;
         PlayerPrefs.SetInt("LIVECOUNT", LiveCount);
+        PlayerPrefs.SetInt("LIVECOUNT", LiveCount);
+
         PlayerPrefs.SetInt("LIVECOUNTDOWN", (IsCountingDown ? 1 : 0));
     }
     public void ResetStats()
     {
-        TimeStamp = 0;
+        TimeStamp = 100;
         CurrentTime = 0;
         TimerLong = 0;
         IsCountingDown = false;
         LiveCount = 3;
         PlayerPrefs.SetInt("LIVECOUNT", LiveCount);
 
-        PlayerPrefs.SetString("TimeUntilLives", "" + 0);
-        PlayerPrefs.SetString("TwentyMinutes", "" + TimerLong);
-        PlayerPrefs.SetInt("LIVECOUNTDOWN", (IsCountingDown ? 1 : 0));
+        PlayerPrefs.SetString("TimeUntilLives", "" + TimeStamp);
+        PlayerPrefs.SetInt("LIVECOUNTDOWN", (IsCountingDown ? 1 : 0));  
+        PlayerPrefs.SetString("TimerLong", "" + TimerLong);
     }
     // checks if the hearts have regened
     void CheckHearts()
@@ -154,38 +155,56 @@ public class Lives : MonoBehaviour
                     ResetStats();
                     LifeTimerText.text = "FullHearts";
                 }
-                else if (CurrentTime > TimeStamp + 11991000000)
-                {
-                    // gets amount of time already done 
-                    TimerLong -= CurrentTime - TimeStamp;
-                    // deducts timestamp from time done
-                    TimerLong = TimeStamp - TimerLong;
-                    // adds time done to countdown string
-                    CountdownTimerLong = TimerLong;
-                    TimeStamp += TimerLong;
-                    LiveCount = 2;
-                }               
+                //else if (CurrentTime > TimeStamp + (2L * 11991000000))
+                //{
+
+                //    LiveCount = 2;
+                //    PlayerPrefs.SetInt("LIVECOUNT", LiveCount);
+                //    // gets required minutes till life
+                //    TimerLong = 2L * 1199100000;
+                //    // deducts time done by target time
+                //    TimerLong -= CurrentTime - TimeStamp;
+                //    // converts ticks to minutes
+                //    TimeSpan Ts = TimeSpan.FromTicks(TimerLong);
+                //    // adds it to minutes
+                //    MinutesFromTs = Ts.TotalMinutes;
+                   
+                //    // adds time to timestamp
+                //    double test = TimerLong;
+                //    TimeStamp += (long)test;
+        
+                //    int TimeTillLifeRegen = unchecked((int)MinutesFromTs);
+                //    TimeLeft = (int)(TimeTillLifeRegen % 60);
+                //    LifeTimerText.text = TimeLeft + 1 + "Minutes";
+
+                //}               
                 else if (CurrentTime > TimeStamp)
                 {
                     LiveCount++;
                     PlayerPrefs.SetInt("LIVECOUNT", LiveCount);
+                    TimerLong = 9L * 1199100000;
                     // gets amount of time already done 
-                    TimerLong -= TimeStamp - CurrentTime;
+                    TimerLong -=   CurrentTime - TimeStamp;
+
                     TimeSpan Ts = TimeSpan.FromTicks(TimerLong);
                     MinutesFromTs = Ts.TotalMinutes;
-                    // gets 20 minutes back
-                    TimerLong = System.Convert.ToInt64(PlayerPrefs.GetString("TimerLong"));
-                    // deduct time done by time stamp
-                    double test = TimerLong - MinutesFromTs;
-                    // Add that to timestamp
-                    // adds time done to countdown string
+
+                    // adds time to timestamp
+                    double test = TimerLong;
                     TimeStamp += (long)test;
-                    MinutesFromTs = test;
+
                     int TimeTillLifeRegen = unchecked((int)MinutesFromTs);
                     TimeLeft = (int)(TimeTillLifeRegen % 60);
                     LifeTimerText.text = TimeLeft + 1 + "Minutes";
-                                      
                 }
+
+                if(LiveCount >= 3)
+                {
+                    ResetStats();
+                }
+
+            }
+
                 Countdown();
                 NumberOfLives.text = "" + LiveCount;
                 PlayerPrefs.SetString("TimeUntilLives", "" + TimeStamp);
@@ -197,7 +216,7 @@ public class Lives : MonoBehaviour
 
         }
 
-    }
+    
     // Countsdown the time until heart is ready
     void Countdown()
     {
@@ -207,7 +226,7 @@ public class Lives : MonoBehaviour
      
         // Displays the current tick time into minutes and hours
         TimeLeft = (int)(TimeTillLifeRegen % 60);
-        if (TimeTillLifeRegen > -1 && TimeLeft > 0)
+        if (TimeTillLifeRegen > -1 && TimeLeft > -1)
         {
             LifeTimerText.text = TimeLeft + 1 + "Minutes";
         }
@@ -238,7 +257,7 @@ public class Lives : MonoBehaviour
             // Current time
             DateTime now = result.Time.AddHours(0);
             // 20 minutes is set 
-            long Period = 9L * 1199100000;
+            long Period = 9L * 1199100000 ;
             // Timestamp is equal current time plus target time
             TimeStamp = now.Ticks + Period;
             // Timer long will save 20 minutes in ticks

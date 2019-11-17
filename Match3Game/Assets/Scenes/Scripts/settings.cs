@@ -84,7 +84,11 @@ public class settings : MonoBehaviour {
     }
     public void SaveData()
     {
-        HappinessManagerGameObj.GetComponent<HappinessManager>().SaveMe();
+        if (!GameObject.Find("CHALLENGE"))
+        {
+            HappinessManagerGameObj.GetComponent<HappinessManager>().SaveMe();
+        }
+
     }
     public void LoadMain()
     {  
