@@ -107,7 +107,18 @@ public class HappinessManager : MonoBehaviour
         NextLevel.text = " " + NextLevelNum;
         LevelText.text = "" + Level;
         Multlpier = Level;
-        Multlpier -= 0.5f;
+        //even 
+        if (Level > 1)
+        {
+            Multlpier /= 2;
+            Multlpier += 0.5f;
+         }
+         
+        else 
+        {
+            Multlpier = 1;
+        }
+      
         CurrentMultiplier.text = "x" + Multlpier;
     
     }
@@ -208,8 +219,8 @@ public class HappinessManager : MonoBehaviour
                 int NextLevelNum = Level + 1;
                 NextLevel.text = " " + NextLevelNum;
                 // multlpier
-                Multlpier = Level;
-                Multlpier -= 0.5f;
+               
+                Multlpier += 0.5f;
 
                 CurrentMultiplier.text = "x" + Multlpier;           
                 // sets current exp
