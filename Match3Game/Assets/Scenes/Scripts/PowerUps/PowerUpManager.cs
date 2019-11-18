@@ -28,8 +28,7 @@ public class PowerUpManager : MonoBehaviour
     public Text NumOfSCRText;
     public Text NumOfBombsText;
     public Text NumOfSMText;
-    public Text NumOfFMText;
-
+ 
     public Text CurrencyText;
     // Use this for initialization
     void Start()

@@ -153,8 +153,8 @@ public class CompanionScript : MonoBehaviour
 
             {
                 CurrencyChance = HappinessGameObj.GetComponent<HappinessManager>().Level;
-                Chance = Random.Range(CurrencyChance, 70);
-                if (Chance >  40 && Chance < 50 )
+                Chance = Random.Range(CurrencyChance, 100);
+                if (Chance >  40 && Chance < 45 )
                 {
 
                     GoldPlus.SetActive(true);
