@@ -69,7 +69,7 @@ public class CompanionScript : MonoBehaviour
    public void ScoreMultiplier(int EXPTotal, int Total, string ConnectionType)
     {
         PlaySound();
-        int LevelMultiplier = HappinessGameObj.GetComponent<HappinessManager>().Level;
+        float LevelMultiplier = HappinessGameObj.GetComponent<HappinessManager>().Multlpier;
         EXPTotal += 3;
         if (GameObject.Find("CHALLENGE") == null)
         {
@@ -82,7 +82,7 @@ public class CompanionScript : MonoBehaviour
                             Total *= 2;
                         }
 
-                        Total *= LevelMultiplier;
+                        Total *= (int)LevelMultiplier;
                         Total *= 5;
                         // Adds total to score
                         DotManager.TotalScore += Total;
@@ -102,7 +102,7 @@ public class CompanionScript : MonoBehaviour
                             Total *= 2;
                         }
 
-                        Total *= LevelMultiplier;
+                        Total *= (int)LevelMultiplier;
                        
                         if (Total > 30000)
                         {
@@ -127,7 +127,7 @@ public class CompanionScript : MonoBehaviour
                             Total *= 2;
                         }
 
-                        Total *= LevelMultiplier;
+                        Total *= (int)LevelMultiplier;
                         if (Total > 25000)
                         {
                             Total = 25000;

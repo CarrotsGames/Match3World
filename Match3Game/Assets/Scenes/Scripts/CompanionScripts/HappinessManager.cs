@@ -17,6 +17,7 @@ public class HappinessManager : MonoBehaviour
     [HideInInspector]
     public int HappinessClamp;
     public int Level;
+    public float Multlpier;
     [HideInInspector]
     public string SaveStrings;
     // gets a companions name which loads their save
@@ -105,7 +106,9 @@ public class HappinessManager : MonoBehaviour
         int NextLevelNum = Level + 1;
         NextLevel.text = " " + NextLevelNum;
         LevelText.text = "" + Level;
-        CurrentMultiplier.text = "" + Level;
+        Multlpier = Level;
+        Multlpier -= 0.5f;
+        CurrentMultiplier.text = "x" + Multlpier;
     
     }
    
@@ -204,7 +207,11 @@ public class HappinessManager : MonoBehaviour
                 LevelText.text = " " + Level;
                 int NextLevelNum = Level + 1;
                 NextLevel.text = " " + NextLevelNum;
-                CurrentMultiplier.text = "" + Level;
+                // multlpier
+                Multlpier = Level;
+                Multlpier -= 0.5f;
+
+                CurrentMultiplier.text = "x" + Multlpier;           
                 // sets current exp
                 CurrentHappiness.text = "Current EXP:" + HappinessSliderValue + "/" + HappinessClamp;
                 PowerUpManagerScript.Currency += GoldRewardList[Level];
