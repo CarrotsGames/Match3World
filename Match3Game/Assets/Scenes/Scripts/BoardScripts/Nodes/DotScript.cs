@@ -106,10 +106,9 @@ public class DotScript : MonoBehaviour
         }
       
         // resets dot material 
-        if (DotManagerScript.ResetMaterial && !ReleaseNodeColour)
+        if (DotManagerScript.ResetMaterial)
         {
-          this.gameObject.GetComponent<Renderer>().material = Default;
-          this.gameObject.GetComponent<Renderer>().material.color = Color.white;
+            ResetNodeColour();
         }
         if (DotManagerScript.StartHighliting == false)
         {
@@ -117,7 +116,11 @@ public class DotScript : MonoBehaviour
         }
 
     }
-    
+    void ResetNodeColour()
+    {
+        this.gameObject.GetComponent<Renderer>().material = Default;
+        this.gameObject.GetComponent<Renderer>().material.color = Color.white;
+    }
     // increases node scale
     void ChangeNodeScale()
     {
@@ -154,10 +157,7 @@ public class DotScript : MonoBehaviour
             DotManagerScript.ResetLayer = false;
             OnMouseUp();
         }
-        else if (Input.touchCount < 1 && DotManagerScript.ResetMaterial == true )
-        {
-            this.gameObject.GetComponent<Renderer>().material.color = Color.white;
-        }
+  
     }
      private void OnMouseExit()
     {
@@ -328,7 +328,7 @@ public class DotScript : MonoBehaviour
                 if (hitInfo.collider.gameObject.layer == 11)
                 {
 
-                    DotManagerScript.ResetMaterial = true;
+                    ResetNodeColour();
                     OnMouseUp();
                 }
 
@@ -349,7 +349,7 @@ public class DotScript : MonoBehaviour
             neighbours.Clear();
             this.transform.gameObject.layer = 0;
 
-            DotManagerScript.ResetMaterial = false;
+            ResetNodeColour();
             // Goes into DotManagerScript to check if there was a connection
             DotManagerScript.CheckConnection = true;
         
