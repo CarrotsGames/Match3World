@@ -5,6 +5,32 @@ using UnityEngine.SceneManagement;
 public class NextChallenge : MonoBehaviour
 {
     public string ChallengeScene;
+    [Header("Needed only in challenge scenes")]
+    public GameObject OutOfLevelCanvas;
+
+    private void Start()
+    {
+        string CurrenctScene = SceneManager.GetActiveScene().name;
+        if (CurrenctScene != " Main Screen")
+        {
+            CheckIndex();
+        }
+    }
+    public void CheckIndex()
+    {
+        int Index = PlayerPrefs.GetInt("ChallengeIndex");
+        ChallengeScene = SceneManager.GetActiveScene().name;
+
+        int ChallengesUnlocked = PlayerPrefs.GetInt(ChallengeScene);
+        if(ChallengesUnlocked > 20)
+        {
+            ChallengesUnlocked = 20;
+        }
+        if (Index >= ChallengesUnlocked - 1)
+        {
+            OutOfLevelCanvas.SetActive(true);
+        }
+    }
     public void NextChallengeButton()
     {
         int Index = PlayerPrefs.GetInt("ChallengeIndex");
@@ -21,6 +47,7 @@ public class NextChallenge : MonoBehaviour
         }
         else
         {
+            OutOfLevelCanvas.SetActive(true);
             Debug.Log("no more challenges");
         }
     }

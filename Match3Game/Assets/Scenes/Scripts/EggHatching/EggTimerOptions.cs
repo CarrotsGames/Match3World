@@ -8,6 +8,8 @@ using PlayFab.AuthenticationModels;
 using PlayFab.ClientModels;
 public class EggTimerOptions : MonoBehaviour
 {
+    public GameObject OutOfCoinsCanvas;
+
     [HideInInspector]
     public GameObject PowerUpManagerGameObj;
     [HideInInspector]
@@ -118,6 +120,11 @@ public class EggTimerOptions : MonoBehaviour
                         // SkipEgg
                         PriceTags[0].text = "100";
                     }
+                    else
+                    {
+                        OutOfCoinsCanvas.SetActive(true);
+                    }
+ 
                 }
                 // if the timer is between 0 and 1.4 hours
                 else if (MinutesFromTs >= 0 && MinutesFromTs < 90)
@@ -132,6 +139,10 @@ public class EggTimerOptions : MonoBehaviour
                         PriceTags[1].gameObject.SetActive(false);
                         // SkipEgg
                         PriceTags[0].text = "100";
+                    }
+                    else
+                    {
+                        OutOfCoinsCanvas.SetActive(true);
                     }
                 }
                 PowerUpManagerScript.PowerUpSaves();
@@ -167,6 +178,7 @@ public class EggTimerOptions : MonoBehaviour
                 {
                     Debug.Log("Insufficient Funds");
                     //SPAWN SCREEN WHICH CAN LEAD PLAYER TO STORE?
+                    OutOfCoinsCanvas.SetActive(true);
 
                 }
             }
@@ -184,6 +196,7 @@ public class EggTimerOptions : MonoBehaviour
                 {
                     Debug.Log("Insufficient Funds");
                     //SPAWN SCREEN WHICH CAN LEAD PLAYER TO STORE?
+                    OutOfCoinsCanvas.SetActive(true);
 
                 }
 
@@ -202,6 +215,7 @@ public class EggTimerOptions : MonoBehaviour
                 {
                     Debug.Log("Insufficient Funds");
                     //SPAWN SCREEN WHICH CAN LEAD PLAYER TO STORE?
+                    OutOfCoinsCanvas.SetActive(true);
 
                 }
 

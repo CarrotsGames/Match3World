@@ -13,6 +13,7 @@ public class StoreScript : MonoBehaviour
     public GameObject UnlockMoobling;
 // Max "You Unlocked SplashScreen"
     public GameObject youBoughtCanvus;
+    public GameObject OutOfCoinsCanvas;
 
     public GameObject eggUnlock;
     public GameObject scrUnlock;
@@ -157,7 +158,7 @@ public class StoreScript : MonoBehaviour
                 }
                 else
                 {
-
+                    OutOfCoinsCanvas.SetActive(true);
                     Debug.Log("Insufficient funds");
 
                 }
@@ -179,7 +180,7 @@ public class StoreScript : MonoBehaviour
                 }
                 else
                 {
-
+                    OutOfCoinsCanvas.SetActive(true);
                     Debug.Log("Insufficient funds");
                 }
                 break;
@@ -200,7 +201,7 @@ public class StoreScript : MonoBehaviour
                 }
                 else
                 {
-
+                    OutOfCoinsCanvas.SetActive(true);
                     Debug.Log("Insufficient funds");
                 }
                 break;
@@ -223,7 +224,7 @@ public class StoreScript : MonoBehaviour
                 }
                 else
                 {
-
+                    OutOfCoinsCanvas.SetActive(true);
                     Debug.Log("Insufficient funds");
                 }
                 break;
@@ -251,6 +252,7 @@ public class StoreScript : MonoBehaviour
                     }
                     else
                     {
+                        OutOfCoinsCanvas.SetActive(true);
                         Debug.Log("Insufficient funds");
                     }
                 }
@@ -261,24 +263,7 @@ public class StoreScript : MonoBehaviour
 
                 }
                 break;
-            //case 6:
-            //    if (PowerUpManagerScript.Currency >= FreezeMultiplierAmount)
-            //    {
-            //        //ANALYTICS
-              
-            //        PowerUpManagerScript.Currency -= FreezeMultiplierAmount;
-            //        PowerUpManagerScript.PowerUpSaves();
-
-            //        youBoughtCanvus.SetActive(true);
-            //        multiFreezeUnlock.SetActive(true);
  
-            //    }
-            //    else
-            //    {
-
-            //        Debug.Log("Insufficient funds");
-            //    }
-            //    break;
                 
         }
         PowerUpManagerScript.PowerUpSaves();

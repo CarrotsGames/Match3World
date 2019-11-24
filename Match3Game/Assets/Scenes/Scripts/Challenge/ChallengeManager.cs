@@ -258,7 +258,7 @@ public class ChallengeManager : MonoBehaviour
         {
            // Timer -= Time.deltaTime;
 
-            if (ChallengeScore > TargetScore)
+            if (ChallengeScore >= TargetScore)
             {
                 CompleteChallenge();
 
