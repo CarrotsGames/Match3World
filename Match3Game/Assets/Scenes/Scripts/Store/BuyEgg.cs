@@ -6,6 +6,7 @@ using UnityEngine;
 public class BuyEgg : MonoBehaviour
 {
     public int Amount;
+    public GameObject OutOfCoinsCanvas;
     private GameObject PowerUpManGameObj;
     private PowerUpManager PowerUpManagerScript;
     // Refrences the EggHatchScript
@@ -15,11 +16,7 @@ public class BuyEgg : MonoBehaviour
     public bool eggIncubation;
     public GameObject CreatureEggs;
 
-
-    private void Awake()
-    {
-        
-    }
+ 
     private void FixedUpdate()
     {
         if (PlayFabLogin.HasLoggedIn == true)
@@ -72,6 +69,10 @@ public class BuyEgg : MonoBehaviour
             youBoughtCanvus.SetActive(true);
             eggUnlock.SetActive(true);
             eggIncubation = true;
+        }
+        else
+        {
+            OutOfCoinsCanvas.SetActive(true);
         }
     }
  

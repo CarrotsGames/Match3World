@@ -73,10 +73,13 @@ public class HappinessManager : MonoBehaviour
         }
         else
         {
-            LevelUpCanvasGameObj = GameObject.Find("Level Up Canvus");
-            LevelUpCanvasScript = LevelUpCanvasGameObj.GetComponent<LevelUpCanvas>();
-            AssignGold();
-            PlayLevelAdScript = SleepAd.GetComponent<PlayLevelAd>();
+            if (!GameObject.Find("CHALLENGE"))
+            {
+                LevelUpCanvasGameObj = GameObject.Find("Level Up Canvus");
+                LevelUpCanvasScript = LevelUpCanvasGameObj.GetComponent<LevelUpCanvas>();
+                AssignGold();
+                PlayLevelAdScript = SleepAd.GetComponent<PlayLevelAd>();
+            }
         }
         
         // Gets companions current level
