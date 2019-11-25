@@ -54,11 +54,12 @@ public class MonthlyChallenge : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+  
          if (PlayFabLogin.HasLoggedIn == true)
          {
             if (SceneName == "Main Screen Tut")
             {
-                {
+                
                     if (DelayTimerCheck > 0)
                     {
                         DelayTimerCheck -= Time.deltaTime;
@@ -68,7 +69,7 @@ public class MonthlyChallenge : MonoBehaviour {
                         DelayTimerCheck += 4;
                         MonthlyChallengeStatus();
                     }
-                }
+                
             }
 
             if (SceneName == "Main Screen"  && !HasUnlockedGift)
@@ -110,14 +111,9 @@ public class MonthlyChallenge : MonoBehaviour {
         if (!HasUnlockedGift)
         {
             
-
-                string UnlockName = PrizeCompanion[UnlockGift].name;
-                PlayerPrefs.SetString("UNLOCKED", UnlockName);
-
                 // ADD PRIZE COMPANION TO ROSTER
                 Debug.Log("YOU GOT THE PRIZE");
-                UnlockGift += 1;
-                PlayerPrefs.SetInt("MONTHLYPRIZE", UnlockGift);
+                PlayerPrefs.SetString("UNLOCKED", PrizeCompanion[0].name);
                 HasUnlockedGift = true;
                 PlayerPrefs.SetInt("HASUNLOCKEDGIFT", (HasUnlockedGift ? 1 : 0));
                 UnlockableCreatures.GetComponent<UnlockableCreatures>().Unlock();

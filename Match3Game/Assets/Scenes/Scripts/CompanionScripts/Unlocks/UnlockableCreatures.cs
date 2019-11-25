@@ -25,7 +25,6 @@ public class UnlockableCreatures : MonoBehaviour
     private CompanionNavigation CompNav;
     // Names for Each moobling
     public string[] UnlockableMoobling;
-    public Sprite[] CompanionImages;
     private float CheckUnlocks;
      // MOOBLING NUMBERS FOR UNLOCKABLEMOOBLING STRING
     // 0 GOBU
@@ -51,8 +50,10 @@ public class UnlockableCreatures : MonoBehaviour
         UnlockableMoobling[4] = PlayerPrefs.GetString("CHICKPEA");
         UnlockableMoobling[5] = PlayerPrefs.GetString("SQUISHY");
         UnlockableMoobling[6] = PlayerPrefs.GetString("Cronus Locked");
-        UnlockableMoobling[7] = PlayerPrefs.GetString("a");
+        UnlockableMoobling[7] = PlayerPrefs.GetString("OKAMI");
         UnlockableMoobling[8] = PlayerPrefs.GetString("Ida Locked");
+        UnlockableMoobling[9] = PlayerPrefs.GetString("Snowball");
+
         // Activates unlocked characters
         Unlock();
         // unlocks the character 
@@ -61,12 +62,14 @@ public class UnlockableCreatures : MonoBehaviour
     }
     private void Update()
     {
-        //if(Input.GetKeyDown(KeyCode.T))
-        //{
-        //    UnlockableMoobling[8] = "Ida Locked";
-        //    PlayerPrefs.SetString("Ida Locked", UnlockableMoobling[8]);
-        //    GetUnlocked();
-        //}
+        if(Input.GetKeyDown(KeyCode.T))
+        {
+             PlayerPrefs.SetString("Snowball", "a");
+         //  UnlockableMoobling[9] = "Snowball";
+         //  PlayerPrefs.SetString("UNLOCKED", "a");
+         //  Unlock();
+         //  GetUnlocked();
+        }
     }
     public void UnlockAll()
     {
@@ -151,7 +154,13 @@ public class UnlockableCreatures : MonoBehaviour
                 LockedCompanions[8].SetActive(true);
                 ChallengeCompanions[8].SetActive(true);
             }
-       
+
+            if (UnlockableMoobling[9] == "Snowball")
+            {
+                BuyCompanions[9].SetActive(false);
+                LockedCompanions[9].SetActive(true);
+                ChallengeCompanions[9].SetActive(true);
+            }
         }
     }
     // Checks the companionName strings name and unlocks that character
@@ -221,6 +230,12 @@ public class UnlockableCreatures : MonoBehaviour
                 {
                     UnlockableMoobling[8] = CompanionName;
                     PlayerPrefs.SetString("Ida Locked", UnlockableMoobling[8]);
+                }
+                break;
+            case "Snowball":
+                {
+                    UnlockableMoobling[9] = CompanionName;
+                    PlayerPrefs.SetString("Snowball", UnlockableMoobling[9]);
                 }
                 break;
         }
