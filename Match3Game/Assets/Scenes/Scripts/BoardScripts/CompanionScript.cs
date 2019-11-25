@@ -54,10 +54,7 @@ public class CompanionScript : MonoBehaviour
         // TotalScoreGameObj.transform.position = new Vector3(500, 0, 0);
     }
 
-    private void Update()
-    {
-        Debug.Log(TotalScore.gameObject);
-    }
+ 
     public void PlaySound()
     {
       
