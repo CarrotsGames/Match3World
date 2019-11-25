@@ -15,7 +15,7 @@ public class LoadLanguage : MonoBehaviour
         Nums = 0;
         TextAsset LanguageData = Resources.Load<TextAsset>(CSVName);
         string[] Data = LanguageData.text.Split(new char[] { '\n' });
-        Debug.Log(Data.Length);
+ 
 
         for (int i = 1; i < Data.Length - 1; i++)
         {

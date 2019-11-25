@@ -246,7 +246,7 @@ public class DestroyNodes : MonoBehaviour {
         // if combo is more than 11 activate scr and bomb
         else if (Index == ComboList.Count && Index > 11)
         {
-            Debug.Log("SuperCombo");
+ 
             SCR.GetComponent<ColourRemover>().Red = true;
             SCR.GetComponent<ColourRemover>().RemoveColour();
             Instantiate(ComboBomb, LastKnownPosition, Quaternion.identity);

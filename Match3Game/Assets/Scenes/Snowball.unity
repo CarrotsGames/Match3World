@@ -391,7 +391,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Companion
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1694413304}
     - target: {fileID: 114904152250435826, guid: 6e21ef18f925f614bb8952d2a3856f01,
         type: 3}
       propertyPath: AudioGameObj
@@ -983,6 +983,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
+        type: 3}
+      propertyPath: Analytics
+      value: 
+      objectReference: {fileID: 2049295813}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
 --- !u!1 &441685401
@@ -1726,7 +1731,7 @@ PrefabInstance:
         type: 3}
       propertyPath: CompanionScore
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1694413304}
     - target: {fileID: 114697194608924240, guid: bf3605dd2212720418b844a549b03eea,
         type: 3}
       propertyPath: Test
@@ -1861,11 +1866,6 @@ PrefabInstance:
       propertyPath: audioManager
       value: 
       objectReference: {fileID: 1766346107}
-    - target: {fileID: 2449818973851826393, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: ShuffleSpawn
-      value: 
-      objectReference: {fileID: 1903594540}
     - target: {fileID: 8848662033642868986, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1876,19 +1876,16 @@ PrefabInstance:
       propertyPath: BombPlayArea
       value: 
       objectReference: {fileID: 505144305}
-    - target: {fileID: 1211474179, guid: d7fb396edf155de40895610ead7b8864, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1766346109}
-    - target: {fileID: 1661903967, guid: d7fb396edf155de40895610ead7b8864, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1766346109}
     - target: {fileID: 2335805763860882730, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -10.300049
       objectReference: {fileID: 0}
+    - target: {fileID: 2449818973851826393, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: ShuffleSpawn
+      value: 
+      objectReference: {fileID: 1903594540}
     - target: {fileID: 2335805762335751688, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1909,14 +1906,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 14.162
       objectReference: {fileID: 0}
+    - target: {fileID: 1211474179, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1766346109}
+    - target: {fileID: 1661903967, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1766346109}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7fb396edf155de40895610ead7b8864, type: 3}
---- !u!1 &721159906 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2335805762756565109, guid: d7fb396edf155de40895610ead7b8864,
-    type: 3}
-  m_PrefabInstance: {fileID: 721159905}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &721159908 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5481593579499973286, guid: d7fb396edf155de40895610ead7b8864,
@@ -2356,6 +2355,10 @@ PrefabInstance:
     - target: {fileID: 1121975063681944, guid: f1e120967e9629d4c8c0fcf05a713294, type: 3}
       propertyPath: m_Name
       value: FrostyBoard
+      objectReference: {fileID: 0}
+    - target: {fileID: 1121975063681944, guid: f1e120967e9629d4c8c0fcf05a713294, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 114942628608975486, guid: f1e120967e9629d4c8c0fcf05a713294,
         type: 3}
@@ -2997,6 +3000,11 @@ PrefabInstance:
       propertyPath: DefaultMaterial
       value: 
       objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 114116024551390298, guid: 1fbc98c3587098445a60d05f5aa8d987,
+        type: 3}
+      propertyPath: Companion
+      value: 
+      objectReference: {fileID: 1694413309}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fbc98c3587098445a60d05f5aa8d987, type: 3}
 --- !u!1 &995296467 stripped
@@ -4877,7 +4885,7 @@ GameObject:
   - component: {fileID: 1694413310}
   - component: {fileID: 1694413308}
   m_Layer: 0
-  m_Name: Crius
+  m_Name: Snowball
   m_TagString: Companion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5054,9 +5062,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TotalConnection: 0
-  GoldSpawn: {fileID: 721159906}
-  GoldParticle: {fileID: 6088053314336034171, guid: 8e30db1da5eb1ca4f9eafbc98c037402,
-    type: 3}
   GoldPlus: {fileID: 0}
   HappinessManagerScript: {fileID: 0}
   Total: 0

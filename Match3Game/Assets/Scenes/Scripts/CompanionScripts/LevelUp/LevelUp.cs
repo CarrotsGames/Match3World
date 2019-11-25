@@ -14,7 +14,7 @@ public class LevelUp : MonoBehaviour
     // Update is called once per frame
     public void ShowNewLevel()
     {
-        Debug.Log(gameObject);
+ 
         HappinessManagerGameObj = GameObject.FindGameObjectWithTag("HM");
         HappinessManagerScript = HappinessManagerGameObj.GetComponent<HappinessManager>();
         NewLevel = GetComponent<Text>();
