@@ -60,8 +60,15 @@ public class BombExplodeScript : MonoBehaviour
         //}   
         for (int i = 0; i < CollidedNodes.Count; i++)
         {
-            // removes node from board to spawn nodes faster
-            CollidedNodes[i].transform.parent = null;
+            if (CollidedNodes[i] == null)
+            {
+                Debug.Log("Null");
+            }
+            else
+            {
+                // removes node from board to spawn nodes faster
+                CollidedNodes[i].transform.parent = null;
+            }
         }
         // begins adding score
         AddScore = true;
@@ -81,9 +88,11 @@ public class BombExplodeScript : MonoBehaviour
     {
         for (int i = 0; i < CollidedNodes.Count; i++)
         {
-          CollidedNodes[i].gameObject.transform.position = new Vector3(100, 0, 0);
-          CollidedNodes[i].gameObject.GetComponent<DotScript>().SelfDestruct = true;
-
+            if(CollidedNodes[i] != null)
+            {
+                CollidedNodes[i].gameObject.transform.position = new Vector3(100, 0, 0);
+                CollidedNodes[i].gameObject.GetComponent<DotScript>().SelfDestruct = true;
+            }
         }
         //destroys gameobject and clears list
         Destroy(this.gameObject);
