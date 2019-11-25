@@ -14,6 +14,7 @@ public class PowerUpManager : MonoBehaviour
     public GameObject OutOfBombs;
     public GameObject OutOfShuffle;
     public GameObject OutOfMultlpier;
+    public GameObject OutOfCoins;
 
     public int Currency;
     private int FirstTimeLogin;
@@ -115,6 +116,7 @@ public class PowerUpManager : MonoBehaviour
     }
     public void PowerUpEmpty(string PowerUpName)
     {
+        PowerUpSaves();
         OutOfItemCanvas.SetActive(true);
         switch (PowerUpName)
         {
@@ -129,8 +131,8 @@ public class PowerUpManager : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("You got no cash boy and im owed 7k");
                         // IF NO CLOSE UI
+                        OutOfCoins.SetActive(true);
                     }
                 }
                 break;
@@ -142,6 +144,8 @@ public class PowerUpManager : MonoBehaviour
                     }
                     else
                     {
+                        OutOfCoins.SetActive(true);
+
                         Debug.Log("NEED MORE CASHHHHH");
                     }
                 }
@@ -154,8 +158,24 @@ public class PowerUpManager : MonoBehaviour
                     }
                     else
                     {
+                        OutOfCoins.SetActive(true);
+
                         Debug.Log("Sorry sir or madam but it appears you are low on funds. Would you care to aquire more?.");
 
+                    }
+                }
+                break;
+            case "SM":
+                {
+                    if (Currency > StoreScript.SuperShuffleAmount)
+                    {
+                        OutOfMultlpier.SetActive(true);
+                    }
+                    else
+                    {
+                        OutOfCoins.SetActive(true);
+
+                        Debug.Log("NEED MORE CASHHHHH");
                     }
                 }
                 break;

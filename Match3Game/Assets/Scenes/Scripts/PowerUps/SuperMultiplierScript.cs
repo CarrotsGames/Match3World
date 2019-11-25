@@ -129,5 +129,10 @@ public class SuperMultiplierScript : MonoBehaviour
             CanUseSuperMultiplier = true;
           //  Debug.Log(CanUseSuperMultiplier);
         }
+        else if(!PowerUpManagerScript.HasMultlpliers)
+        {
+            PowerUpManagerScript.PowerUpEmpty("SM");
+
+        }
     }
 }
