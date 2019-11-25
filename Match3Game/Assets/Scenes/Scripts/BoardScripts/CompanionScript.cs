@@ -9,9 +9,7 @@ public class CompanionScript : MonoBehaviour
     public int TotalConnection;
     // public List<GameObject> NodeCount;
     // Use this for initialization
-    public GameObject GoldSpawn;
-    public GameObject GoldParticle;
-    public GameObject GoldPlus;
+     public GameObject GoldPlus;
 
     private GameObject DotManagerObj;
     private GameObject MainCamera;
@@ -56,7 +54,10 @@ public class CompanionScript : MonoBehaviour
         // TotalScoreGameObj.transform.position = new Vector3(500, 0, 0);
     }
 
- 
+    private void Update()
+    {
+        Debug.Log(TotalScore.gameObject);
+    }
     public void PlaySound()
     {
       
