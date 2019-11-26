@@ -6,31 +6,17 @@ using UnityEngine;
 public class BoardScript : MonoBehaviour
 {
     int Rand;
-    string Colour;
     public int Limit;
-    public bool DisableNodeDrop;
-    public int Width;
-    public int Height;
-    public int Gold;
-    public GameObject TilePrefab;
-    public GameObject[] Dots;
-    public GameObject[,] AllDots;
-    public GameObject Spawner;
-    private List<GameObject> test = new List<GameObject>();
-    string SceneName;
+  
     public float DelaySpawn;
-    int Total;
-    private GameObject SpecialSpawn;
-    // List of all nodes in their order
-    //  List<GameObject> ReachableNodes = new List<GameObject>();
-    private BackgroundTileScript[,] AllTiles;
+ 
     // Start is called before the first frame update
     [HideInInspector]
     public ObjectPooler ObjectPoolerScript;
     string[] Colours = {"Red" ,"Blue","Green","Pink" };
     private void Start()
     {
-        Colour = "Red";
+      
         // if no delay time is set automatically set it to 1 
         if (DelaySpawn == 0)
         {
@@ -72,19 +58,7 @@ public class BoardScript : MonoBehaviour
     void Randomise()
     {
         Rand = Random.Range(0, 4);
-        // if the colour is the same as previous spawned colour re randomise
-        //if(Colour == null)
-        //{
-        //    Colour = Colours.rand
-        //}
-        //if (Colour == Colours[Rand])
-        //{
-        //    Randomise();
-        //}
-        //else
-        //{
-        //    Colour = Colours[Rand];
-        //}       
+        
     }
     void Spawn()
     {

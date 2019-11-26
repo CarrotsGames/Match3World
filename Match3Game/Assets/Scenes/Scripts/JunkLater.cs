@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class JunkLater : MonoBehaviour {
 
+    private GameObject settings;
 	// Use this for initialization
 	void Start () {
-		
-	}
+        settings = GameObject.Find("Settings");
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -17,6 +19,8 @@ public class JunkLater : MonoBehaviour {
 
     public void GoHome()
     {
+        settings.GetComponent<settings>().LoadMain();
+
         SceneManager.LoadScene("Main Screen");
     }
 
@@ -27,6 +31,7 @@ public class JunkLater : MonoBehaviour {
 
     public void LoadMoney()
     {
+
         SceneManager.LoadScene("Money Store");
     }
     public void LoadTut()

@@ -10035,7 +10035,7 @@ GameObject:
   - component: {fileID: 324837501}
   - component: {fileID: 324837502}
   m_Layer: 5
-  m_Name: CPCB
+  m_Name: SQCB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27321,7 +27321,7 @@ GameObject:
   - component: {fileID: 846604797}
   - component: {fileID: 846604798}
   m_Layer: 5
-  m_Name: CB
+  m_Name: CPCB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29823,7 +29823,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.9, y: -52}
+  m_AnchoredPosition: {x: -14.9, y: 139.1}
   m_SizeDelta: {x: 234, y: 187.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &910868786
@@ -31970,6 +31970,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UNLOCKABLESMain
       objectReference: {fileID: 0}
+    - target: {fileID: 1269676272982220, guid: 454f8424e61f4b94598935dfa480b552, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4764294800479426, guid: 454f8424e61f4b94598935dfa480b552, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.12037432
@@ -32002,10 +32006,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
-    - target: {fileID: 1670561164997348, guid: 454f8424e61f4b94598935dfa480b552, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114908531856327124, guid: 454f8424e61f4b94598935dfa480b552,
         type: 3}
       propertyPath: UnlockScore.Array.data[2]
@@ -32020,6 +32020,10 @@ PrefabInstance:
         type: 3}
       propertyPath: ChallengeScore
       value: 10000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670561164997348, guid: 454f8424e61f4b94598935dfa480b552, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114872690170545272, guid: 454f8424e61f4b94598935dfa480b552, type: 3}
@@ -41673,7 +41677,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1355279738
 RectTransform:
   m_ObjectHideFlags: 0
@@ -41690,8 +41694,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13.2, y: 138.92}
-  m_SizeDelta: {x: 329.2, y: 231.8}
+  m_AnchoredPosition: {x: -12.9, y: 139.10002}
+  m_SizeDelta: {x: 323.2, y: 235.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1355279739
 Animator:
@@ -41771,7 +41775,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 9
+          m_IntArgument: 12
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -43506,7 +43510,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1409902689
 RectTransform:
   m_ObjectHideFlags: 0
@@ -63622,7 +63626,6 @@ MonoBehaviour:
   - {fileID: 96817546}
   - {fileID: 2020799033}
   - {fileID: 982982435}
-  - {fileID: 1681194371}
 --- !u!1 &1966192770
 GameObject:
   m_ObjectHideFlags: 0
@@ -68072,7 +68075,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1962286365}
-        m_MethodName: OpenSnowball
+        m_MethodName: OpenConus
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -68104,7 +68107,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: e47137c67283bdf4c9dd8afb2b581edc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9dcc9e7889b6fb241adcdf073845431d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -70342,7 +70345,7 @@ PrefabInstance:
     - target: {fileID: 1954821905878958742, guid: f53f04153a08d38478837f1fd7b393e5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 57.100082
+      value: 57.100098
       objectReference: {fileID: 0}
     - target: {fileID: 1954821905878958742, guid: f53f04153a08d38478837f1fd7b393e5,
         type: 3}
@@ -70593,11 +70596,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SettingsMain
-      objectReference: {fileID: 0}
-    - target: {fileID: 2426963759816587013, guid: f606dca04e8d8ec488a45a112c957a13,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2426963759816587130, guid: f606dca04e8d8ec488a45a112c957a13,
         type: 3}
