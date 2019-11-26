@@ -19,8 +19,10 @@ public class JunkLater : MonoBehaviour {
 
     public void GoHome()
     {
-        settings.GetComponent<settings>().LoadMain();
-
+        if (!GameObject.Find("Store"))
+        {
+            settings.GetComponent<settings>().LoadMain();
+        }
         SceneManager.LoadScene("Main Screen");
     }
 
