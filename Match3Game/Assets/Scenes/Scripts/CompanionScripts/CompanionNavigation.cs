@@ -56,87 +56,7 @@ public class CompanionNavigation : MonoBehaviour
       //  CompanionName = Companions[0].name;
         //CompanionSwitch();
     }
-    private void Update()
-    {
-         //// if mouse is down begin drag
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    StartPos = Input.mousePosition;
-        //    IsDragging = true ;
-        //}
-        //// when released reset everything
-        //else if(Input.GetMouseButtonUp(0))
-        //{
-        //    IsDragging = false;
-        //    Reset();
-        //}
-        //// gets the first finger on the screen and follows that position 
-        //if (Input.touches.Length > 0)
-        //{
-        //        if (Input.touches[0].phase == TouchPhase.Began)
-        //        {
-
-        //            IsDragging = true;
-
-        //            StartPos = Input.touches[0].position;
-
-        //        }
-        //        else if (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
-        //        {
-        //            IsDragging = false;
-
-        //            Reset();
-
-        //        }
-             
-        //}
-        
-        //SwipeDelta = Vector2.zero;
-        //// if a drag is occuring
-        //if (IsDragging)
-        //{
-        //    if (Input.touches.Length > 0)
-        //    {
-        //        SwipeDelta = Input.touches[0].position - StartPos;
-        //    }
-        //    else if (Input.GetMouseButton(0))
-        //    {
-        //        SwipeDelta = (Vector2)Input.mousePosition - StartPos;
- 
-        //    }
-        //}
-        //// if the  swipe goes past its limit check if right or left swipe
-        //if(SwipeDelta.magnitude > 100)
-        //{
-        //    // Direction of swipe 
-        //    float x = SwipeDelta.x;
-        //    float y = SwipeDelta.y;
-        //    if(Mathf.Abs(x) > Mathf.Abs(y))
-        //    {
-
-        //        if (!LeaderBoardManagerScript.leaderboardShowing)
-        //        {
-        //            if (x < 0)
-        //            {
-
-        //                NavLeft();
-        //                pageFlip.SetActive(true);
-        //            }
-        //            else
-        //            {
-        //                NavRight();
-        //                backwardPageFlip.SetActive(true);
-        //            }
-        //        }
-        //    }
-        //    Reset();
-        //}
-    }
-    //private void Reset()
-    //{
-    //    StartPos = SwipeDelta = Vector2.zero;
-    //    IsDragging = false;
-    //}
+   
     // Assigns each Scene a button
     // Change that mooblings button number to the one assisgned eg 
     // Saucos button is 6 in script so it should be 6 in scene
@@ -178,6 +98,9 @@ public class CompanionNavigation : MonoBehaviour
                 break;
             case 11:
                 SceneManager.LoadScene("Idasaurous");
+                break;
+            case 12:
+                SceneManager.LoadScene("Snowball");
                 break;
         }
 
