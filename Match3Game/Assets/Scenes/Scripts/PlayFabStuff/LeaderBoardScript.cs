@@ -9,6 +9,7 @@ using System.Collections.Generic;
     GameObject DotManagerObj;
     DotManager DotManagerScript;
 
+    public GameObject NameTaken;
     public Text text;
     public List<Text> ListNames;
     public List<Text> ListScores;
@@ -24,7 +25,7 @@ using System.Collections.Generic;
     {
         DotManagerObj = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManagerObj.GetComponent<DotManager>();
-
+        NameTaken.SetActive(false);
         ///   ListNames = new List<Text>();
        // OffsetY = 0;
         // sets up the top 10 on leaderboards position
@@ -45,8 +46,7 @@ using System.Collections.Generic;
             Debug.Log("Logged in");
             // logs in to playfab and gets top 10 people on leaderboard
             LoggedIn();
-            // Player can assign themself a name ( Appears on screen if player has no name)
-            UpdateName();
+       
 
             // Refresh available items 
         }, error => Debug.LogError(error.GenerateErrorReport()));
@@ -70,11 +70,15 @@ using System.Collections.Generic;
         {
             Debug.Log(failure.ErrorMessage); //this is line 106
             Debug.Log("NameTakenUI or text");
+            NameTaken.SetActive(true);
+
         });
 
     }
     public void LoggedIn()
     {
+        NameTaken.SetActive(false);
+
         // logs player into this specific leaderboard
         PlayFabClientAPI.GetLeaderboard(new GetLeaderboardRequest()
         {
