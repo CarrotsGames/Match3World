@@ -54,8 +54,14 @@ public class MonthlyChallenge : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-  
-         if (PlayFabLogin.HasLoggedIn == true)
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            MonthlyVersions = 0;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+            PlayerPrefs.SetInt("MONTHLYVERSIONVALUE", MonthlyVersions);
+
+        }
+
+        if (PlayFabLogin.HasLoggedIn == true)
          {
             if (SceneName == "Main Screen Tut")
             {
@@ -71,7 +77,18 @@ public class MonthlyChallenge : MonoBehaviour {
                     }
                 
             }
-
+            if(SceneName == "Gobu Tut")
+            {
+                if (DelayTimerCheck > 0)
+                {
+                    DelayTimerCheck -= Time.deltaTime;
+                }
+                else
+                {
+                    DelayTimerCheck += 4;
+                    MonthlyChallengeStatus();
+                }
+            }
             if (SceneName == "Main Screen"  && !HasUnlockedGift)
             {
                 if (DelayTimerCheck > 0)
@@ -144,7 +161,7 @@ public class MonthlyChallenge : MonoBehaviour {
                 PlayerPrefs.SetInt("MONTHLYVERSIONVALUE", MonthlyVersions);
                 Debug.Log("NEW VERSION");
                 // Changes MonthlyCompanion array to next companion
-
+                
                 DotManager.TotalScore = 0;
                 // gives players currency
                 DotManagerScript.HighScore.text = "" + DotManager.TotalScore;

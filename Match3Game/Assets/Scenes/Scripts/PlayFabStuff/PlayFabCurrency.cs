@@ -146,24 +146,7 @@ public class PlayFabCurrency : MonoBehaviour
  
        // Debug.LogError("ERROR GETTING GAME CURRENCY" + error.Error + "" + error.ErrorMessage);
     }
-   // void AddPreimiumCurrencySuccess(ModifyUserVirtualCurrencyResult result)
-   // {
-   //
-   //     Debug.Log("SUCCESS");
-   //     amount = result.Balance;
-   //     PowerUpManagerScript.Currency += result.Balance;
-   //
-   //     SubtractUserVirtualCurrencyRequest SubRequest = new SubtractUserVirtualCurrencyRequest();
-   //     SubRequest.VirtualCurrency = "GC";
-   //     SubRequest.Amount -= 10;
-   //     SubRequest.AuthenticationContext = PlayFabClientAPI.
-   //     PlayFabClientAPI.SubtractUserVirtualCurrency(SubRequest, SubtractPremiumCurrencySuccess, SubtractPremiumCurrencyFailure);
-   //
-   // }
-   // void AddPremiumCurrencyFailure(PlayFabError error)
-   // {
-   //     Debug.LogError("ERROR GETTING GAME CURRENCY" + error.Error + "" + error.ErrorMessage);
-   // }
+ 
    
 }
  

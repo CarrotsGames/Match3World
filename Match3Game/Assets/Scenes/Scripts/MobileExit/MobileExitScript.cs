@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+
 using UnityEngine;
 public class MobileExitScript : MonoBehaviour {
 
@@ -34,14 +36,16 @@ public class MobileExitScript : MonoBehaviour {
     private void OnApplicationQuit()
     {
         RealTimeScript.ResetClock();
-
-        // Gets moobling data
-        Analytics.GetComponent<PlayFabAnalytics>().SetUserData();
-        //Sends gold amount and powerups used
-        Analytics.GetComponent<PowerUpAnalytics>().SendAnalytics();
-        //Sends gold amount and powerups used
-        Analytics.GetComponent<PlayFabLogin>().TournamentScore();
-       
+        string Scene = SceneManager.GetActiveScene().name;
+        if (Scene != "Gobu Tut")
+        {
+            // Gets moobling data
+            Analytics.GetComponent<PlayFabAnalytics>().SetUserData();
+            //Sends gold amount and powerups used
+            Analytics.GetComponent<PowerUpAnalytics>().SendAnalytics();
+            //Sends gold amount and powerups used
+            Analytics.GetComponent<PlayFabLogin>().TournamentScore();
+        }
     }
     private void OnApplicationPause(bool pause)
     {
