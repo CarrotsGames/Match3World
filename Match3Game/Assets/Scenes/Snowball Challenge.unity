@@ -1084,6 +1084,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
+        type: 3}
+      propertyPath: Analytics
+      value: 
+      objectReference: {fileID: 2049295813}
     - target: {fileID: 224668712703305504, guid: bca90714ddbb8544796b1d79e4753570,
         type: 3}
       propertyPath: m_RootOrder
@@ -1233,11 +1238,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 35
       objectReference: {fileID: 0}
-    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
-        type: 3}
-      propertyPath: Analytics
-      value: 
-      objectReference: {fileID: 2049295813}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
 --- !u!1 &441685401
@@ -2612,6 +2612,22 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1043366013, guid: f1e120967e9629d4c8c0fcf05a713294, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1584320519
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043366013, guid: f1e120967e9629d4c8c0fcf05a713294, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2009812395, guid: f1e120967e9629d4c8c0fcf05a713294, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1584320519
+      objectReference: {fileID: 0}
+    - target: {fileID: 2009812395, guid: f1e120967e9629d4c8c0fcf05a713294, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 276287207, guid: f1e120967e9629d4c8c0fcf05a713294, type: 3}
       propertyPath: m_Points.Array.size
       value: 24
@@ -2751,22 +2767,6 @@ PrefabInstance:
     - target: {fileID: 276287207, guid: f1e120967e9629d4c8c0fcf05a713294, type: 3}
       propertyPath: m_Points.Array.data[23].y
       value: 27.598675
-      objectReference: {fileID: 0}
-    - target: {fileID: 1043366013, guid: f1e120967e9629d4c8c0fcf05a713294, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1584320519
-      objectReference: {fileID: 0}
-    - target: {fileID: 1043366013, guid: f1e120967e9629d4c8c0fcf05a713294, type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2009812395, guid: f1e120967e9629d4c8c0fcf05a713294, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1584320519
-      objectReference: {fileID: 0}
-    - target: {fileID: 2009812395, guid: f1e120967e9629d4c8c0fcf05a713294, type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114942628608975486, guid: f1e120967e9629d4c8c0fcf05a713294, type: 3}
@@ -6070,28 +6070,32 @@ PrefabInstance:
         type: 3}
       propertyPath: ChallengePrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 7936035394050708077, guid: b9ba55d814402714988dc93aaf66a447,
+      objectReference: {fileID: 3294285251803598316, guid: d26be372defd89740adb442f295dfacc,
         type: 3}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengePrefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6966649610567689708, guid: c55236039a2c06f469d39c1176fbf776,
+        type: 3}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengePrefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7400895705147829851, guid: e3ddf041a3c3bad46ab09722174def6a,
+        type: 3}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengePrefabs.Array.data[3]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1463066207685565680, guid: ee778bf1c5c1b5c42a8216ff985e0e18,
+        type: 3}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengePrefabs.Array.data[4]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4747684632866867460, guid: 24c74a38cc6877b4a8a1feaedcffade7,
+        type: 3}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ClearTime
@@ -6201,77 +6205,92 @@ PrefabInstance:
         type: 3}
       propertyPath: ChallengePrefabs.Array.data[5]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4078340491924208594, guid: 77409e3adc94b11418a17141a61bcf34,
+        type: 3}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengePrefabs.Array.data[6]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6460961693084299152, guid: 232eef09668dc574c8c86eb7650ac0fa,
+        type: 3}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengePrefabs.Array.data[7]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2728602201342517448, guid: 3e95a6647f9ec4647a2d7bf29c4b5776,
+        type: 3}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengePrefabs.Array.data[8]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7170540930630758134, guid: d2350eafe59142f438040ca192d9a14f,
+        type: 3}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengePrefabs.Array.data[9]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8411464597777705314, guid: 79ab1e2d2589bb14e92a3dc22135f527,
+        type: 3}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengePrefabs.Array.data[10]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2553847795373422068, guid: 8fa165965f54a5f4ab6678bebb450593,
+        type: 3}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengePrefabs.Array.data[11]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3592297152105580857, guid: defc86312d4ba0a48ae5ff6452cfd256,
+        type: 3}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengePrefabs.Array.data[12]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3722570003284178519, guid: f87d461d41e75cc4d8b540d14e85ee17,
+        type: 3}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengePrefabs.Array.data[13]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6190289395955128700, guid: 7cec8f989e233e542acfb63e07224e1d,
+        type: 3}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengePrefabs.Array.data[14]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2096440141748656692, guid: 9446c2eb12976e446831094377bce26a,
+        type: 3}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengePrefabs.Array.data[15]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3638103869432618304, guid: 106ffc14049b102458a4e5197fb77bf5,
+        type: 3}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengePrefabs.Array.data[16]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3384163618164648685, guid: e06f543ef69fdf74195b247241248331,
+        type: 3}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengePrefabs.Array.data[17]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 277937396361937066, guid: 7a7bcfa9ba042434bb1de49008c26f76,
+        type: 3}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengePrefabs.Array.data[18]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5940312254585635762, guid: 40d78cd380b8ecb429e9988f0d5d3753,
+        type: 3}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengePrefabs.Array.data[19]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 631434349641759837, guid: ebf2fef0e9e6fdc4eb08093e057c28f2,
+        type: 3}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: ChallengeObjectives.Array.data[5]
@@ -6500,12 +6519,12 @@ PrefabInstance:
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: DebugChallenges
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: DebugChallengeNum
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2658884934281731779, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
