@@ -71,6 +71,11 @@ public class ZenScript : MonoBehaviour
         mooblingChallengePanels[9].SetActive(true);
         challengeCanvus.SetActive(true);
     }
+    public void OpenSnowball()
+    {
+        mooblingChallengePanels[10].SetActive(true);
+        challengeCanvus.SetActive(true);
+    }
 
     public void RestartAll()
     {

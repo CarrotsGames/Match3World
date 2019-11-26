@@ -1574,8 +1574,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -19, y: 3.4908}
-  m_SizeDelta: {x: -5.75, y: 82.65}
+  m_AnchoredPosition: {x: -18.65, y: 3.4908}
+  m_SizeDelta: {x: -12.99, y: 82.65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7924595516895513262
 CanvasRenderer:
@@ -4232,7 +4232,7 @@ MonoBehaviour:
     m_FontSize: 300
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -5167,6 +5167,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SettingsUI
       objectReference: {fileID: 0}
+    - target: {fileID: 265061486488942426, guid: 934b904c9061b654cab284a9cbafd066,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TurnMusicOn
+      objectReference: {fileID: 0}
+    - target: {fileID: 265061487179231750, guid: 934b904c9061b654cab284a9cbafd066,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TurnMusicOff
+      objectReference: {fileID: 0}
     - target: {fileID: 265061487098525849, guid: 934b904c9061b654cab284a9cbafd066,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5462,16 +5472,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2335805763860882735}
-    - target: {fileID: 265061486488942426, guid: 934b904c9061b654cab284a9cbafd066,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TurnMusicOn
-      objectReference: {fileID: 0}
-    - target: {fileID: 265061487179231750, guid: 934b904c9061b654cab284a9cbafd066,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TurnMusicOff
-      objectReference: {fileID: 0}
     - target: {fileID: 265061487227806344, guid: 934b904c9061b654cab284a9cbafd066,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5537,6 +5537,20 @@ PrefabInstance:
       value: Slider
       objectReference: {fileID: 0}
     - target: {fileID: 1739718776650604, guid: c0dd61ddd02d07c43bc23f3cf23edb64, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114104386324415474, guid: c0dd61ddd02d07c43bc23f3cf23edb64,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114104386324415474, guid: c0dd61ddd02d07c43bc23f3cf23edb64,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426569623573578, guid: c0dd61ddd02d07c43bc23f3cf23edb64, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -5775,10 +5789,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 9.23
       objectReference: {fileID: 0}
-    - target: {fileID: 1426569623573578, guid: c0dd61ddd02d07c43bc23f3cf23edb64, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 114603176554770798, guid: c0dd61ddd02d07c43bc23f3cf23edb64,
         type: 3}
       propertyPath: m_Enabled
@@ -5794,16 +5804,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Type
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114104386324415474, guid: c0dd61ddd02d07c43bc23f3cf23edb64,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114104386324415474, guid: c0dd61ddd02d07c43bc23f3cf23edb64,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0dd61ddd02d07c43bc23f3cf23edb64, type: 3}
@@ -5969,6 +5969,22 @@ PrefabInstance:
     - target: {fileID: 1154201481325632, guid: 06ad7ab32dd9b0946a59a2e3161d6430, type: 3}
       propertyPath: m_Name
       value: Combo
+      objectReference: {fileID: 0}
+    - target: {fileID: 114465465818347660, guid: 06ad7ab32dd9b0946a59a2e3161d6430,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 9681a365a6594fc4eb06a5be04d8a31b,
+        type: 3}
+    - target: {fileID: 114465465818347660, guid: 06ad7ab32dd9b0946a59a2e3161d6430,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114465465818347660, guid: 06ad7ab32dd9b0946a59a2e3161d6430,
+        type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 224790792827935110, guid: 06ad7ab32dd9b0946a59a2e3161d6430,
         type: 3}
@@ -6160,22 +6176,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_BestFit
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114465465818347660, guid: 06ad7ab32dd9b0946a59a2e3161d6430,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 9681a365a6594fc4eb06a5be04d8a31b,
-        type: 3}
-    - target: {fileID: 114465465818347660, guid: 06ad7ab32dd9b0946a59a2e3161d6430,
-        type: 3}
-      propertyPath: m_FontData.m_BestFit
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114465465818347660, guid: 06ad7ab32dd9b0946a59a2e3161d6430,
-        type: 3}
-      propertyPath: m_Text
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06ad7ab32dd9b0946a59a2e3161d6430, type: 3}
