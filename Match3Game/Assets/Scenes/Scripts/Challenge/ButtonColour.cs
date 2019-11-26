@@ -11,8 +11,11 @@ public class ButtonColour : MonoBehaviour
     
     void Awake()
     {
+        // to reset all challenges
+       // PlayerPrefs.SetInt(MooblingChallengeName, 0);
+
         int ChallengesUnlocked = PlayerPrefs.GetInt(MooblingChallengeName);
-        if (ChallengesUnlocked == 0)
+        if (ChallengesUnlocked <= 0)
         {
             ChallengesUnlocked = 5;
            PlayerPrefs.SetInt(MooblingChallengeName, ChallengesUnlocked);
@@ -41,9 +44,11 @@ public class ButtonColour : MonoBehaviour
             }
           
         }
-      
+ 
     }
-   public void RefreshHighlite(string MooblingName)
+
+ 
+    public void RefreshHighlite(string MooblingName)
     {
         Test = new List<int>();
        // SaveSystem.LoadChallenge(MooblingChallengeName);

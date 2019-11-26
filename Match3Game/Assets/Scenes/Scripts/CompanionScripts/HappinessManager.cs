@@ -244,13 +244,7 @@ public class HappinessManager : MonoBehaviour
                     PlayerPrefs.SetInt(MooblingChallengeSave, ChallengeUnlocked);
 
                 }
-                else
-                {
-                    int ChallengeUnlocked = PlayerPrefs.GetInt(MooblingChallengeSave);
-                    ChallengeUnlocked++;
-                    PlayerPrefs.SetInt(MooblingChallengeSave, ChallengeUnlocked);
-                  
-                }
+ 
                
                 GoldRewardText.text = "" + GoldRewardList[Level];
                 LevelUpCanvasGameObj = GameObject.Find("Level Up Canvus");

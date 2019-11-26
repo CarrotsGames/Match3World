@@ -89,6 +89,7 @@ public class ZenScript : MonoBehaviour
         mooblingChallengePanels[7].SetActive(false);
         mooblingChallengePanels[8].SetActive(false);
         mooblingChallengePanels[9].SetActive(false);
+        mooblingChallengePanels[10].SetActive(false);
     }
 
     public void ChallengeMode()

@@ -8,7 +8,6 @@ public class NodeFreeze : MonoBehaviour {
     public GameObject DotManager;
     private DotManager DotManagerScript;
     public Material FreezeMaterial;
-    public Sprite FreezeSprite;
     float FreezeColourTime;
     private bool Freeze;
     // Use this for initialization
@@ -26,7 +25,8 @@ public class NodeFreeze : MonoBehaviour {
             if (FreezeColourTime < 1)
             {
                 FreezeColourTime += Time.deltaTime / 2;
-                // GetComponent<SpriteRenderer>().material.color = Color.Lerp(GetComponent<Renderer>().material.color, FreezeMaterial.color, FreezeColourTime);         
+                // GetComponent<SpriteRenderer>().material.color = Color.Lerp(GetComponent<Renderer>().material.color, FreezeMaterial.color, FreezeColourTime);
+                transform.GetChild(0).GetComponent<SpriteRenderer>().material = FreezeMaterial;
             }
         }
 	}
@@ -38,7 +38,6 @@ public class NodeFreeze : MonoBehaviour {
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
-        transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = FreezeSprite;
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -56,3 +55,8 @@ public class NodeFreeze : MonoBehaviour {
 
     }
 }
+//Vector3 Pos = transform.position;
+//Vector3 ColPos = collision.transform.position;
+//Vector3 Distance = Pos -= ColPos;
+//Distance.normalized;
+ 
