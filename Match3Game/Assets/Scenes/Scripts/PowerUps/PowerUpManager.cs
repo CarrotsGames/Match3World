@@ -133,6 +133,8 @@ public class PowerUpManager : MonoBehaviour
                     {
                         // IF NO CLOSE UI
                         OutOfCoins.SetActive(true);
+                        OutOfItemCanvas.SetActive(false);
+
                     }
                 }
                 break;
@@ -145,6 +147,7 @@ public class PowerUpManager : MonoBehaviour
                     else
                     {
                         OutOfCoins.SetActive(true);
+                        OutOfItemCanvas.SetActive(false);
 
                         Debug.Log("NEED MORE CASHHHHH");
                     }
@@ -159,6 +162,7 @@ public class PowerUpManager : MonoBehaviour
                     else
                     {
                         OutOfCoins.SetActive(true);
+                        OutOfItemCanvas.SetActive(false);
 
                         Debug.Log("Sorry sir or madam but it appears you are low on funds. Would you care to aquire more?.");
 
@@ -174,7 +178,7 @@ public class PowerUpManager : MonoBehaviour
                     else
                     {
                         OutOfCoins.SetActive(true);
-
+                        OutOfItemCanvas.SetActive(false);
                         Debug.Log("NEED MORE CASHHHHH");
                     }
                 }
