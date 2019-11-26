@@ -1150,12 +1150,6 @@ PrefabInstance:
       objectReference: {fileID: 1659962302}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db984aa584b86454aacc03c338ed8b53, type: 3}
---- !u!1 &426626210 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5290283468356811479, guid: aa47c6d034ca7e042b3e95ca9aec176a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1149684663}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &441472120
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5850,9 +5844,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TotalConnection: 0
-  GoldSpawn: {fileID: 426626210}
-  GoldParticle: {fileID: 6088053314336034171, guid: 8e30db1da5eb1ca4f9eafbc98c037402,
-    type: 3}
   GoldPlus: {fileID: 0}
   HappinessManagerScript: {fileID: 0}
   Total: 0
@@ -6047,6 +6038,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1929677184829160893, guid: c48dae2b39178bc498df340966b5eef7,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2f11817bc439fe145a162755682d729a, type: 3}
+    - target: {fileID: 1929677184829160893, guid: c48dae2b39178bc498df340966b5eef7,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 521941322661175453, guid: c48dae2b39178bc498df340966b5eef7,
         type: 3}
       propertyPath: ParticleAudio.Array.size
@@ -6067,16 +6068,6 @@ PrefabInstance:
       propertyPath: ParticleAudio.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: 1a49a66ae02a38040ad53515e91cd787, type: 3}
-    - target: {fileID: 1929677184829160893, guid: c48dae2b39178bc498df340966b5eef7,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 2f11817bc439fe145a162755682d729a, type: 3}
-    - target: {fileID: 1929677184829160893, guid: c48dae2b39178bc498df340966b5eef7,
-        type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 479337385744612785, guid: c48dae2b39178bc498df340966b5eef7,
         type: 3}
       propertyPath: m_LocalPosition.x
