@@ -117,6 +117,14 @@ public class ChallengeComplete : MonoBehaviour
 
                 ButtonHighlite.GetComponent<ButtonColour>().RefreshHighlite(ChallengeName);
                 break;
+            case "Snowball":
+                ChallengeName = "Snowball Challenge";
+                UnlockingChallenges = true;
+                // SaveSystem.SaveChallenge(this);
+                PlayerPrefs.SetInt(ChallengeName, 20);
+
+                ButtonHighlite.GetComponent<ButtonColour>().RefreshHighlite(ChallengeName);
+                break;
         }
 
     }
