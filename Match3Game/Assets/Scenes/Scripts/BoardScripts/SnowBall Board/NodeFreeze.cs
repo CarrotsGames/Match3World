@@ -2,35 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NodeFreeze : MonoBehaviour {
+public class NodeFreeze : MonoBehaviour
+{
 
     public float FreezeTimer;
     public GameObject DotManager;
     private DotManager DotManagerScript;
     public Material FreezeMaterial;
+    public Sprite FreezeSprite;
     float FreezeColourTime;
     private bool Freeze;
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         DotManager = GameObject.FindGameObjectWithTag("DotManager");
         DotManagerScript = DotManager.GetComponent<DotManager>();
         Freeze = false;
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
-	    if(Freeze)
+        if (Freeze)
         {
             if (FreezeColourTime < 1)
             {
                 FreezeColourTime += Time.deltaTime / 2;
-                // GetComponent<SpriteRenderer>().material.color = Color.Lerp(GetComponent<Renderer>().material.color, FreezeMaterial.color, FreezeColourTime);
-                transform.GetChild(0).GetComponent<SpriteRenderer>().material = FreezeMaterial;
+                // GetComponent<SpriteRenderer>().material.color = Color.Lerp(GetComponent<Renderer>().material.color, FreezeMaterial.color, FreezeColourTime);         
             }
         }
-	}
-   public void FreezeNode()
+    }
+    public void FreezeNode()
     {
         Freeze = true;
 
@@ -38,25 +40,21 @@ public class NodeFreeze : MonoBehaviour {
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
+        transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = FreezeSprite;
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.gameObject.name == "FreezeZone")
+        if (collision.gameObject.name == "FreezeZone")
         {
             FreezeTimer -= Time.deltaTime;
-          
+
 
             if (FreezeTimer < 0)
             {
                 FreezeNode();
             }
-        
+
         }
 
     }
 }
-//Vector3 Pos = transform.position;
-//Vector3 ColPos = collision.transform.position;
-//Vector3 Distance = Pos -= ColPos;
-//Distance.normalized;
- 
