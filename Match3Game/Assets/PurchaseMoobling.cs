@@ -11,6 +11,8 @@ public class PurchaseMoobling : MonoBehaviour
     }
    public void BuyMoobling (string Moobling)
     {
+        // Add purchase script to IAP on purchase complete area
+        // Look at unlockableCreatures script for naming convetion for that moobling
         
         Unlockables = GameObject.Find("UNLOCKABLESMain");
         PlayerPrefs.SetString("UNLOCKED", Moobling);   
