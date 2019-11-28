@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 6447250906649809677}
   - component: {fileID: 7550328607469369318}
   - component: {fileID: 649972164988212082}
+  - component: {fileID: 2996270083197647557}
   m_Layer: 5
   m_Name: Pay
   m_TagString: Untagged
@@ -211,7 +212,18 @@ MonoBehaviour:
   consumePurchase: 1
   onPurchaseComplete:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2996270083197647557}
+        m_MethodName: BuyThreeLives
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Purchasing.IAPButton+OnPurchaseCompletedEvent, Assembly-CSharp-firstpass,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   onPurchaseFailed:
@@ -222,6 +234,18 @@ MonoBehaviour:
   titleText: {fileID: 0}
   descriptionText: {fileID: 0}
   priceText: {fileID: 0}
+--- !u!114 &2996270083197647557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379737645163288262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 746b27e75c95a0a4bbd0bf8faea710e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1418889138504982029
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,6 +332,7 @@ GameObject:
   - component: {fileID: 5848059560411870059}
   - component: {fileID: 4879011494179392656}
   - component: {fileID: 576368461999239664}
+  - component: {fileID: 1308375158}
   m_Layer: 5
   m_Name: Ad
   m_TagString: Untagged
@@ -411,9 +436,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4879011494179392656}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1308375158}
+        m_MethodName: PlayChallengeAd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1308375158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097447506692027892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 746b27e75c95a0a4bbd0bf8faea710e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2498449324362258008
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,6 +652,7 @@ GameObject:
   - component: {fileID: 2662467604654328756}
   - component: {fileID: 6200627041874732593}
   - component: {fileID: 342132148571202024}
+  - component: {fileID: 1308375156}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -672,6 +721,22 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &1308375156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5408989487925795331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12a922dbb00158c45adaf3f90d45d9b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameId: 3192812
+  testMode: 0
+  placementId: 
+  EventsGameObj: {fileID: 0}
 --- !u!1 &5564671498541898173
 GameObject:
   m_ObjectHideFlags: 0

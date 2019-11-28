@@ -17,7 +17,7 @@ public class ChallengeComplete : MonoBehaviour
     public GameObject ButtonHighlite;
     private string SceneName;
     private GameObject PowerUpManagerGameObj;
-
+   // public GameObject Reward;
     private void Start()
     {
         // Creates a list for challenge save 
@@ -27,6 +27,7 @@ public class ChallengeComplete : MonoBehaviour
         {
             // loads challenge with list template
             SaveSystem.LoadChallenge(ChallengeName);
+           // Reward.SetActive(true);
         }
     }
     public void Save()

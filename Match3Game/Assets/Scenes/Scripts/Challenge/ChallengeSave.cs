@@ -20,8 +20,7 @@ public class ChallengeSave
          ChallengeNum += 1;
          ChallengeComplete.ChallengeList[Ch.CurrentChallenge] = ChallengeNum;
          CompletedLevels = ChallengeComplete.ChallengeList;
-         
-     
+             
     }
 
 }
