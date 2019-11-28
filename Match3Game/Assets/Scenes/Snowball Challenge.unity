@@ -455,7 +455,7 @@ PrefabInstance:
     - target: {fileID: 114904152250435826, guid: 6e21ef18f925f614bb8952d2a3856f01,
         type: 3}
       propertyPath: MooblingChallengeSave
-      value: Chick-Pee Challenge
+      value: Snowball Challenge
       objectReference: {fileID: 0}
     - target: {fileID: 4874126141112344, guid: 6e21ef18f925f614bb8952d2a3856f01, type: 3}
       propertyPath: m_LocalPosition.x
@@ -887,11 +887,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
-        type: 3}
-      propertyPath: Analytics
-      value: 
-      objectReference: {fileID: 2049295813}
     - target: {fileID: 224668712703305504, guid: bca90714ddbb8544796b1d79e4753570,
         type: 3}
       propertyPath: m_RootOrder
@@ -1041,6 +1036,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
+        type: 3}
+      propertyPath: Analytics
+      value: 
+      objectReference: {fileID: 2049295813}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
 --- !u!1 &441685401
@@ -1938,11 +1938,6 @@ PrefabInstance:
       propertyPath: audioManager
       value: 
       objectReference: {fileID: 1766346107}
-    - target: {fileID: 2449818973851826393, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-      propertyPath: ShuffleSpawn
-      value: 
-      objectReference: {fileID: 1903594540}
     - target: {fileID: 8848662033642868986, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1953,19 +1948,16 @@ PrefabInstance:
       propertyPath: BombPlayArea
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 1211474179, guid: d7fb396edf155de40895610ead7b8864, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1766346109}
-    - target: {fileID: 1661903967, guid: d7fb396edf155de40895610ead7b8864, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1766346109}
     - target: {fileID: 2335805763860882730, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -10.300049
       objectReference: {fileID: 0}
+    - target: {fileID: 2449818973851826393, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
+      propertyPath: ShuffleSpawn
+      value: 
+      objectReference: {fileID: 1903594540}
     - target: {fileID: 2335805762335751688, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1986,6 +1978,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 14.162
       objectReference: {fileID: 0}
+    - target: {fileID: 1211474179, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1766346109}
+    - target: {fileID: 1661903967, guid: d7fb396edf155de40895610ead7b8864, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1766346109}
     - target: {fileID: 2355431862292892799, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
       propertyPath: m_Enabled
@@ -6248,7 +6248,7 @@ PrefabInstance:
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
       propertyPath: DebugChallenges
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2658884934281731777, guid: da5e3e0644271594283bbf1f310a227d,
         type: 3}
@@ -6285,7 +6285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2732ae83f53f9494cbb1d389b442edbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChallengeName: Chick-Pee Challenge
+  ChallengeName: Snowball Challenge
   CurrentChallenge: 0
   ButtonHighlite: {fileID: 0}
 --- !u!1 &2027192399
