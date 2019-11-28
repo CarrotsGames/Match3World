@@ -59,7 +59,6 @@ public class ButtonColour : MonoBehaviour
         {
             transform.GetChild(i).GetComponent<Button>().interactable = true;
             transform.GetChild(i).GetComponent<Button>().image.color = Color.green;
-
         }
 
     }
