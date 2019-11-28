@@ -12,6 +12,7 @@ public class MainSetting : MonoBehaviour
     public GameObject musicOn;
     public GameObject soundOff;
     public GameObject soundOn;
+    public GameObject redeemCodeInputField;
 
     public GameObject soundEffects;
 
@@ -82,6 +83,7 @@ public class MainSetting : MonoBehaviour
     public void CloseSettings()
     {
         settingsMenu.SetActive(false);
+        redeemCodeInputField.SetActive(false);
     }
 
     public void LoadBugReport()
@@ -92,6 +94,12 @@ public class MainSetting : MonoBehaviour
     {
         Application.OpenURL("https://drive.google.com/file/d/1Te_iB909w3ID611hzF4UiIWG9JX1u9Wu/view?usp=sharing");
     }
+
+    public void RedeemCode()
+    {
+        redeemCodeInputField.SetActive(true);
+    }
+
 
 
 }
