@@ -799,6 +799,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1929677184829160893, guid: c48dae2b39178bc498df340966b5eef7,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 521941322661175453, guid: c48dae2b39178bc498df340966b5eef7,
         type: 3}
       propertyPath: ParticleAudio.Array.size
@@ -819,11 +824,6 @@ PrefabInstance:
       propertyPath: SoundEffects
       value: 
       objectReference: {fileID: 451500298}
-    - target: {fileID: 1929677184829160893, guid: c48dae2b39178bc498df340966b5eef7,
-        type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 479337385744612785, guid: c48dae2b39178bc498df340966b5eef7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2079,6 +2079,7 @@ MonoBehaviour:
   ChallengeName: Sauco Challenge
   CurrentChallenge: 0
   ButtonHighlite: {fileID: 0}
+  Reward: {fileID: 1280145665}
 --- !u!1 &818289800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2714,8 +2715,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TotalConnection: 0
-  GoldSpawn: {fileID: 0}
-  GoldParticle: {fileID: 0}
   GoldPlus: {fileID: 0}
   HappinessManagerScript: {fileID: 0}
   Total: 0
@@ -3523,6 +3522,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1280145658}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1280145665 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6851820250447368671, guid: 0a092d20b9e427d4e8f8b7b344ba5761,
+    type: 3}
+  m_PrefabInstance: {fileID: 1280145658}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1311183979
 GameObject:
   m_ObjectHideFlags: 0
@@ -3893,11 +3898,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
-        type: 3}
-      propertyPath: Analytics
-      value: 
-      objectReference: {fileID: 96816042}
     - target: {fileID: 224668712703305504, guid: bca90714ddbb8544796b1d79e4753570,
         type: 3}
       propertyPath: m_RootOrder
@@ -4047,6 +4047,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
+        type: 3}
+      propertyPath: Analytics
+      value: 
+      objectReference: {fileID: 96816042}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
 --- !u!1001 &1532002298

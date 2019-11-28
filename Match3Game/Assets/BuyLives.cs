@@ -9,6 +9,7 @@ public class BuyLives : MonoBehaviour
 {
     GameObject PowerUpGameObj;
     GameObject Challenges;
+
     private void Start()
     {
         PowerUpGameObj = GameObject.FindGameObjectWithTag("PUM");
@@ -31,6 +32,7 @@ public class BuyLives : MonoBehaviour
     }
     public void PlayChallengeAd()
     {
+ 
         Advertisement.Show();    
         Lives.LiveCount += 1;
         PlayerPrefs.SetInt("LIVECOUNT", Lives.LiveCount);
@@ -40,16 +42,22 @@ public class BuyLives : MonoBehaviour
     }
     public void PlayLivesAdMainScene()
     {
+        GameObject OutOfLifeCanvas = GameObject.Find("OutOfLifeCanvus");
         Advertisement.Show();
         Lives.LiveCount += 1;
         PlayerPrefs.SetInt("LIVECOUNT", Lives.LiveCount);
+        OutOfLifeCanvas.SetActive(false);
     }
+ 
     public void BuyThreeLives()
     {
-        
+        GameObject OutOfLifeCanvas = GameObject.Find("OutOfLifeCanvus");
+
         Lives.LiveCount = 3;
         PlayerPrefs.SetInt("LIVECOUNT", Lives.LiveCount);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        OutOfLifeCanvas.SetActive(false);
+
         //Debug.Log("PLAYED AD");
 
     }

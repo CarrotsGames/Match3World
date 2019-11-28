@@ -17,7 +17,7 @@ public class ChallengeComplete : MonoBehaviour
     public GameObject ButtonHighlite;
     private string SceneName;
     private GameObject PowerUpManagerGameObj;
-   // public GameObject Reward;
+    public GameObject Reward;
     private void Start()
     {
         // Creates a list for challenge save 
@@ -25,9 +25,10 @@ public class ChallengeComplete : MonoBehaviour
         SceneName = SceneManager.GetActiveScene().name;
         if (SceneName != "Main Screen")
         {
+           
             // loads challenge with list template
             SaveSystem.LoadChallenge(ChallengeName);
-           // Reward.SetActive(true);
+            Reward.SetActive(true);
         }
     }
     public void Save()
@@ -40,6 +41,10 @@ public class ChallengeComplete : MonoBehaviour
             PowerUpManagerGameObj.GetComponent<PowerUpManager>().Currency += 5;
             PowerUpManagerGameObj.GetComponent<PowerUpManager>().PowerUpSaves();
             Debug.Log("Money");
+        }
+        else
+        {
+            Reward.SetActive(false);
         }
         SaveSystem.SaveChallenge(this);
     

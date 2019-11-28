@@ -1178,6 +1178,11 @@ PrefabInstance:
       propertyPath: Pools.Array.data[3].Size
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 3348218474093963989, guid: 31b98617661b58b4598387dfb89ecfee,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -153.9
+      objectReference: {fileID: 0}
     - target: {fileID: 3348218472603497739, guid: 31b98617661b58b4598387dfb89ecfee,
         type: 3}
       propertyPath: Limit
@@ -1192,11 +1197,6 @@ PrefabInstance:
         type: 3}
       propertyPath: Height
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3348218474093963989, guid: 31b98617661b58b4598387dfb89ecfee,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -153.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31b98617661b58b4598387dfb89ecfee, type: 3}
@@ -1886,6 +1886,12 @@ MonoBehaviour:
 --- !u!1 &680413032 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1781036810683050602, guid: 0a092d20b9e427d4e8f8b7b344ba5761,
+    type: 3}
+  m_PrefabInstance: {fileID: 680413026}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &680413033 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6851820250447368671, guid: 0a092d20b9e427d4e8f8b7b344ba5761,
     type: 3}
   m_PrefabInstance: {fileID: 680413026}
   m_PrefabAsset: {fileID: 0}
@@ -4035,11 +4041,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
-        type: 3}
-      propertyPath: Analytics
-      value: 
-      objectReference: {fileID: 1973636844}
     - target: {fileID: 224668712703305504, guid: bca90714ddbb8544796b1d79e4753570,
         type: 3}
       propertyPath: m_RootOrder
@@ -4189,6 +4190,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
+        type: 3}
+      propertyPath: Analytics
+      value: 
+      objectReference: {fileID: 1973636844}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
 --- !u!1 &1277210816
@@ -6052,6 +6058,7 @@ MonoBehaviour:
   ChallengeName: Squishy Challenge
   CurrentChallenge: 0
   ButtonHighlite: {fileID: 0}
+  Reward: {fileID: 680413033}
 --- !u!114 &1649229118 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2706401493238021084, guid: d009cb47e607a2e438d6dee0c645a038,

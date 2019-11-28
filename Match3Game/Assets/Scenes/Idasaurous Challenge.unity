@@ -1677,6 +1677,7 @@ MonoBehaviour:
   ChallengeName: Idasaurous Challenge
   CurrentChallenge: 0
   ButtonHighlite: {fileID: 0}
+  Reward: {fileID: 562834233}
 --- !u!1 &520350985
 GameObject:
   m_ObjectHideFlags: 0
@@ -6708,6 +6709,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 562834226}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &562834233 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6851820250447368671, guid: 0a092d20b9e427d4e8f8b7b344ba5761,
+    type: 3}
+  m_PrefabInstance: {fileID: 562834226}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &589851190 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2600843702767687472, guid: d009cb47e607a2e438d6dee0c645a038,
@@ -6823,6 +6830,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1929677184829160893, guid: c48dae2b39178bc498df340966b5eef7,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 521941322661175453, guid: c48dae2b39178bc498df340966b5eef7,
         type: 3}
       propertyPath: ParticleAudio.Array.size
@@ -6843,11 +6855,6 @@ PrefabInstance:
       propertyPath: ParticleAudio.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: 1a49a66ae02a38040ad53515e91cd787, type: 3}
-    - target: {fileID: 1929677184829160893, guid: c48dae2b39178bc498df340966b5eef7,
-        type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 479337385744612785, guid: c48dae2b39178bc498df340966b5eef7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14363,9 +14370,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TotalConnection: 0
-  GoldSpawn: {fileID: 1442276535}
-  GoldParticle: {fileID: 6088053314336034171, guid: 8e30db1da5eb1ca4f9eafbc98c037402,
-    type: 3}
   GoldPlus: {fileID: 0}
   HappinessManagerScript: {fileID: 0}
   Total: 0

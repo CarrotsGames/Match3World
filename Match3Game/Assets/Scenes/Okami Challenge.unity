@@ -461,11 +461,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
-        type: 3}
-      propertyPath: Analytics
-      value: 
-      objectReference: {fileID: 1240452343}
     - target: {fileID: 224668712703305504, guid: bca90714ddbb8544796b1d79e4753570,
         type: 3}
       propertyPath: m_RootOrder
@@ -615,6 +610,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
+        type: 3}
+      propertyPath: Analytics
+      value: 
+      objectReference: {fileID: 1240452343}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
 --- !u!1001 &300954877
@@ -628,6 +628,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1929677184829160893, guid: c48dae2b39178bc498df340966b5eef7,
+        type: 3}
+      propertyPath: Loop
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 521941322661175453, guid: c48dae2b39178bc498df340966b5eef7,
         type: 3}
@@ -649,11 +654,6 @@ PrefabInstance:
       propertyPath: ParticleAudio.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: 1a49a66ae02a38040ad53515e91cd787, type: 3}
-    - target: {fileID: 1929677184829160893, guid: c48dae2b39178bc498df340966b5eef7,
-        type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 479337385744612785, guid: c48dae2b39178bc498df340966b5eef7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1164,6 +1164,12 @@ MonoBehaviour:
 --- !u!1 &472227705 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1781036810683050602, guid: 0a092d20b9e427d4e8f8b7b344ba5761,
+    type: 3}
+  m_PrefabInstance: {fileID: 472227699}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &472227706 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6851820250447368671, guid: 0a092d20b9e427d4e8f8b7b344ba5761,
     type: 3}
   m_PrefabInstance: {fileID: 472227699}
   m_PrefabAsset: {fileID: 0}
@@ -3656,6 +3662,7 @@ MonoBehaviour:
   ChallengeName: Okami Challenge
   CurrentChallenge: 0
   ButtonHighlite: {fileID: 0}
+  Reward: {fileID: 472227706}
 --- !u!1 &1311183979
 GameObject:
   m_ObjectHideFlags: 0
@@ -4661,9 +4668,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TotalConnection: 0
-  GoldSpawn: {fileID: 1442276535}
-  GoldParticle: {fileID: 6088053314336034171, guid: 8e30db1da5eb1ca4f9eafbc98c037402,
-    type: 3}
   GoldPlus: {fileID: 0}
   HappinessManagerScript: {fileID: 2104027503}
   Total: 0
