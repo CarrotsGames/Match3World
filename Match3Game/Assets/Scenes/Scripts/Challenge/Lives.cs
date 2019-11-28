@@ -117,8 +117,7 @@ public class Lives : MonoBehaviour
         NumberOfLives.text = "" + LiveCount;
         SetFullCounter();
         IsCountingDown = true;
-        PlayerPrefs.SetInt("LIVECOUNT", LiveCount);
-        PlayerPrefs.SetInt("LIVECOUNT", LiveCount);
+         PlayerPrefs.SetInt("LIVECOUNT", LiveCount);
 
         PlayerPrefs.SetInt("LIVECOUNTDOWN", (IsCountingDown ? 1 : 0));
     }
@@ -155,29 +154,7 @@ public class Lives : MonoBehaviour
                     ResetStats();
                     LifeTimerText.text = "FullHearts";
                 }
-                //else if (CurrentTime > TimeStamp + (2L * 11991000000))
-                //{
-
-                //    LiveCount = 2;
-                //    PlayerPrefs.SetInt("LIVECOUNT", LiveCount);
-                //    // gets required minutes till life
-                //    TimerLong = 2L * 1199100000;
-                //    // deducts time done by target time
-                //    TimerLong -= CurrentTime - TimeStamp;
-                //    // converts ticks to minutes
-                //    TimeSpan Ts = TimeSpan.FromTicks(TimerLong);
-                //    // adds it to minutes
-                //    MinutesFromTs = Ts.TotalMinutes;
-                   
-                //    // adds time to timestamp
-                //    double test = TimerLong;
-                //    TimeStamp += (long)test;
-        
-                //    int TimeTillLifeRegen = unchecked((int)MinutesFromTs);
-                //    TimeLeft = (int)(TimeTillLifeRegen % 60);
-                //    LifeTimerText.text = TimeLeft + 1 + "Minutes";
-
-                //}               
+              
                 else if (CurrentTime > TimeStamp)
                 {
                     LiveCount++;
@@ -274,5 +251,14 @@ public class Lives : MonoBehaviour
 
 
 
+    }
+    public void DeductLife()
+    {
+        if (LiveCount > 0)
+        {
+            LiveCount -= 1;
+            PlayerPrefs.SetInt("LIVECOUNT", LiveCount);
+
+        }
     }
 }

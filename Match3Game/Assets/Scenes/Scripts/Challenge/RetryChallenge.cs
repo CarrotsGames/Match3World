@@ -23,4 +23,5 @@ public class RetryChallenge : MonoBehaviour
         ChallengeScene = CurrentScene.name;
         SceneManager.LoadScene(ChallengeScene);
     }
+
 }

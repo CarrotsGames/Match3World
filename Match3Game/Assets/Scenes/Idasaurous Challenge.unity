@@ -1678,6 +1678,18 @@ MonoBehaviour:
   CurrentChallenge: 0
   ButtonHighlite: {fileID: 0}
   Reward: {fileID: 562834233}
+--- !u!114 &455286529 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2658884934281731779, guid: da5e3e0644271594283bbf1f310a227d,
+    type: 3}
+  m_PrefabInstance: {fileID: 455286526}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455286527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32a00640e6d82044a905ed15938341ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &520350985
 GameObject:
   m_ObjectHideFlags: 0
@@ -7262,6 +7274,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2861401590058636639, guid: d009cb47e607a2e438d6dee0c645a038,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: DeductLife
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861401590058636639, guid: d009cb47e607a2e438d6dee0c645a038,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 455286529}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d009cb47e607a2e438d6dee0c645a038, type: 3}
 --- !u!114 &734863725 stripped

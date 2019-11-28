@@ -17,6 +17,7 @@ public class LoadChallenge : MonoBehaviour
    
     public void SelectChallenge(int Index)
     {
+
         if (Lives.LiveCount > 0)
         {
             //   PlayerPrefs.SetString("ChallengeType", ChallengeType);
