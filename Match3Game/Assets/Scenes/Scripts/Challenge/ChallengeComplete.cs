@@ -16,20 +16,34 @@ public class ChallengeComplete : MonoBehaviour
     [Header("This is only filled in Main Screen (CB GameObj in here)")]
     public GameObject ButtonHighlite;
     private string SceneName;
+    private GameObject PowerUpManagerGameObj;
+
     private void Start()
     {
+        // Creates a list for challenge save 
         ChallengeList = new int[25];
         SceneName = SceneManager.GetActiveScene().name;
         if (SceneName != "Main Screen")
         {
+            // loads challenge with list template
             SaveSystem.LoadChallenge(ChallengeName);
         }
     }
     public void Save()
     {
+        // saves current challenge index to complete
         CurrentChallenge = GetComponent<ChallengeManager>().ChallengeNumber;
+        if (ChallengeList[CurrentChallenge] == 0)
+        {
+            PowerUpManagerGameObj = GameObject.FindGameObjectWithTag("PUM");
+            PowerUpManagerGameObj.GetComponent<PowerUpManager>().Currency += 5;
+            PowerUpManagerGameObj.GetComponent<PowerUpManager>().PowerUpSaves();
+            Debug.Log("Money");
+        }
         SaveSystem.SaveChallenge(this);
+    
     }
+    
     public void UnlockAllChallenges(string Moobling)
     {
         Debug.Log("ChallengesUnlocked");

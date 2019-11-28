@@ -165,7 +165,7 @@ public class ChallengeManager : MonoBehaviour
     void CompleteChallenge()
     {   
         PowerUpManagerObj = GameObject.FindGameObjectWithTag("PUM");
-        PowerUpManagerObj.GetComponent<PowerUpManager>().Currency += 10;
+   
         PowerUpManagerObj.GetComponent<PowerUpManager>().PowerUpSaves();
         int Index = PlayerPrefs.GetInt("ChallengeIndex");
         // USE THIS TO CHANGE UI WHEN REACHING THE MAX CHALLENGE
@@ -276,6 +276,7 @@ public class ChallengeManager : MonoBehaviour
         Blue = 0;
         Green = 0;
         Pink = 0;
+        //Checks how many nodes are left in the board
         for (int i = 0; i < Go.gameObject.transform.childCount; i++)
         {
             if (Go.gameObject.transform.GetChild(i).tag == "Red")
@@ -297,6 +298,7 @@ public class ChallengeManager : MonoBehaviour
             
 
         }
+        // when not debbuging add losing conditions
         if (!DebugChallenges)
         {
             if (ChallengeType[ChallengeNumber] != "BeatScore")

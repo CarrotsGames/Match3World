@@ -187,7 +187,11 @@ public class DestroyNodes : MonoBehaviour {
             if (ComboList.Count > 4)
             {
                 Index++;
-                SpawnPowerUp();
+                if (!GameObject.Find("CHALLENGE"))
+                {
+                    SpawnPowerUp();
+                }
+                
             }
             // if not than add anyway to avoid to play particles
             else

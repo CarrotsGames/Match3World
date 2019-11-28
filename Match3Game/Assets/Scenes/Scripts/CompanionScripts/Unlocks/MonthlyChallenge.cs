@@ -36,19 +36,7 @@ public class MonthlyChallenge : MonoBehaviour {
         MonthlyVersions = PlayerPrefs.GetInt("MONTHLYVERSIONVALUE");
         DelayTimerCheck = 3;
         HasUnlockedGift = (PlayerPrefs.GetInt("HASUNLOCKEDGIFT") != 0);
-        // checks if the unlock gift value is greater than 0
-        // for the monthly unlock
-        //   if (UnlockGift > 0)
-        //  {
-        //      HasUnlockedGift = true;
-        //  }
-        //  else
-        //  {
-        //      HasUnlockedGift = false;
-        //      UnlockGift = 0;
-        //      PlayerPrefs.SetInt("MONTHLYPRIZE", UnlockGift);
-        //
-        //  }
+
     }
 
     // Update is called once per frame

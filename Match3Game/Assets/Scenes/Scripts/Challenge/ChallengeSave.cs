@@ -25,3 +25,10 @@ public class ChallengeSave
     }
 
 }
+//if (ChallengeComplete.ChallengeList[Ch.CurrentChallenge] != 1)
+//{
+//   PowerUpManagerGameObj = GameObject.FindGameObjectWithTag("PUM");
+//   PowerUpManagerGameObj.GetComponent<PowerUpManager>().Currency += 5;
+//   PowerUpManagerGameObj.GetComponent<PowerUpManager>().PowerUpSaves();
+//   Debug.Log("Money");
+//}
