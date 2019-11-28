@@ -12,6 +12,8 @@ public class LoadChallenge : MonoBehaviour
 
     public Button button; // Drag & Drop the button in the inspector
 
+    public GameObject outOfLivesCanvus;
+
    
     public void SelectChallenge(int Index)
     {
@@ -24,6 +26,7 @@ public class LoadChallenge : MonoBehaviour
         else
         {
             Debug.Log("OUT OF LIVES");
+            outOfLivesCanvus.SetActive(true);
         }
     }
 
