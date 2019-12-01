@@ -6,9 +6,10 @@ using UnityEngine;
 
 public class ButtonColour : MonoBehaviour
 {
+    public GameObject UnlockAll;
     public string MooblingChallengeName;
     private List<int> Test;
-    
+    private int NumOfYellow;
     void Awake()
     {
         // to reset all challenges
@@ -25,29 +26,37 @@ public class ButtonColour : MonoBehaviour
         {
             ChallengesUnlocked = 20;
         }
+        int NumOfUnlocked = 0;
+
         for (int i = 0; i < ChallengesUnlocked  ; i++)
         {
             transform.GetChild(i).GetComponent<Button>().interactable = true;
             transform.GetChild(i).GetComponent<Button>().image.color = Color.green;
+            NumOfUnlocked++;
 
         }
+        if (NumOfUnlocked == 20)
+        {
+            UnlockAll.SetActive(false);
 
+        }
         Test = new List<int>();
         SaveSystem.LoadChallenge(MooblingChallengeName);
+        NumOfYellow = 0;
         for (int i = 0; i < ChallengeComplete.ChallengeList.Length; i++)
         {
             Test.Add(SaveSystem.LoadChallenge(MooblingChallengeName).CompletedLevels[i]);
             if(Test[i] != 0)
             {
-                Debug.Log("YELLOW BUTTON");
-                transform.GetChild(i).GetComponent<Button>().image.color = Color.yellow;  
+               NumOfYellow++;
+               transform.GetChild(i).GetComponent<Button>().image.color = Color.yellow;
             }
           
         }
- 
+      
     }
 
- 
+ // used after unlocking all challenges
     public void RefreshHighlite(string MooblingName)
     {
         Test = new List<int>();
@@ -55,11 +64,13 @@ public class ButtonColour : MonoBehaviour
  
         int ChallengesUnlocked = PlayerPrefs.GetInt(MooblingName);
 
-        for (int i = 0; i < ChallengesUnlocked; i++)
+        for (int i = NumOfYellow; i < ChallengesUnlocked; i++)
         {
             transform.GetChild(i).GetComponent<Button>().interactable = true;
             transform.GetChild(i).GetComponent<Button>().image.color = Color.green;
         }
+        UnlockAll.SetActive(false);
+
 
     }
     //void GetMooblingChallengeInfo(string MooblingChallengeName)
