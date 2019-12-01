@@ -264,14 +264,22 @@ public class HappinessManager : MonoBehaviour
     {
         SaveSystem.SaveMoobling(this);
     }
+    // for mobile
     private void OnApplicationPause(bool pause)
     {
         PlayerPrefs.SetFloat("AdTimer", 600);
-        SaveMe();        
+        if (!GameObject.Find("CHALLENGE"))
+        {
+            SaveMe();
+        }
     }
+    // for pc debugging
     private void OnApplicationQuit()
     {
         PlayerPrefs.SetFloat("AdTimer", 600);
-       // SaveMe();
+        if (!GameObject.Find("CHALLENGE"))
+        {
+            SaveMe();
+        }
     }
 }

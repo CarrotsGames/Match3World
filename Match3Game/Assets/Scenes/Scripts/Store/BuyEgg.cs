@@ -60,6 +60,7 @@ public class BuyEgg : MonoBehaviour
             EggPurchaseCount++;
             PlayerPrefs.SetInt("EGGPURCHASE", EggPurchaseCount);
 
+
             EggHatchScript.GetComponent<EggHatch>().CountDownTimer();
             PowerUpManagerScript.Currency -= Amount;
             PowerUpManagerScript.PowerUpSaves();
