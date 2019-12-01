@@ -272,22 +272,22 @@ public class StoreScript : MonoBehaviour
 
     void DisableEggButton()
     {
-        // disables the egg button and changes picture
-        if (EggHatch.StartCountDown)
-        {
-            //   EggHatchButton.transform.GetChild(0).GetComponent<Button>().enabled = false;
-            EggHatchButton.GetComponent<Image>().sprite = EggImages[1];
-            EggHatchButton.GetComponent<Image>().color = new Color(0.25f, 0.25f, 0.25f);
-            EggHatchButton.transform.GetChild(0).GetComponent<Image>().color = new Color(0.25f, 0.25f, 0.25f);
+        //// disables the egg button and changes picture
+        //if (EggHatch.StartCountDown)
+        //{
+        //    //   EggHatchButton.transform.GetChild(0).GetComponent<Button>().enabled = false;
+        //    EggHatchButton.GetComponent<Image>().sprite = EggImages[1];
+        //    EggHatchButton.GetComponent<Image>().color = new Color(0.25f, 0.25f, 0.25f);
+        //    EggHatchButton.transform.GetChild(0).GetComponent<Image>().color = new Color(0.25f, 0.25f, 0.25f);
 
-        }
-        else
-        {
-            // EggHatchButton.transform.GetChild(0).GetComponent<Button>().enabled = true;
-            EggHatchButton.GetComponent<Image>().sprite = EggImages[0];
-            EggHatchButton.GetComponent<Image>().color = new Color(1, 1, 1);
-            EggHatchButton.transform.GetChild(0).GetComponent<Image>().color = new Color(1, 1, 1);
+        //}
+        //else
+        //{
+        //    // EggHatchButton.transform.GetChild(0).GetComponent<Button>().enabled = true;
+        //    EggHatchButton.GetComponent<Image>().sprite = EggImages[0];
+        //    EggHatchButton.GetComponent<Image>().color = new Color(1, 1, 1);
+        //    EggHatchButton.transform.GetChild(0).GetComponent<Image>().color = new Color(1, 1, 1);
 
-        }
+        //}
     }
 }

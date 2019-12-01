@@ -9,7 +9,6 @@ using System;
 
 public class EggHatch : MonoBehaviour
 {
-
     DateTime Target;
     [HideInInspector]
     public static bool StartCountDown;
@@ -283,8 +282,7 @@ public class EggHatch : MonoBehaviour
         PlayFabClientAPI.GetTime(new GetTimeRequest(), (GetTimeResult result) =>
         {
 
-            // Eggnumber is the current egg being hatched (WILL CHANGE TO ARRAY THE MORE EGGS WE HAVE)ssssss
-            //EggNumber = 1;
+            // Eggnumber is the current egg being hatched (WILL CHANGE TO ARRAY THE MORE EGGS WE HAVE)         
             //Current time 
             now = result.Time.AddHours(0);
             

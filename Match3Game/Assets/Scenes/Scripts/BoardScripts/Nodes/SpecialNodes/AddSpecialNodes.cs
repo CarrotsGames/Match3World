@@ -9,11 +9,7 @@ public class AddSpecialNodes : MonoBehaviour
    // private List<GameObject> NumberOfNodes = new List<GameObject>();
     private GameObject Board;
     public int NumberofNodes;
-
-    private void Start()
-    {
-         
-    }
+ 
     public void SpawnNode()
     {
         int SpawnOdds = Random.Range(0, 10);
