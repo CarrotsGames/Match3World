@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class FirstTimeStartup : MonoBehaviour
 {
     private int FirstTime;
-    // Start is called before the first frame update
-    void Start()
+   
+   public void StartGame()
     {
         FirstTime = PlayerPrefs.GetInt("FTS");
         if (FirstTime >= 1)
@@ -15,15 +15,13 @@ public class FirstTimeStartup : MonoBehaviour
             SceneManager.LoadScene("Main Screen");
 
         }
-        else 
+        else
         {
+            SceneManager.LoadScene("Gobu Tut");
+
             FirstTime = 1;
             PlayerPrefs.SetInt("FTS", 1);
         }
-    }
-    private void Update()
-    {
-       
     }
 
 }
