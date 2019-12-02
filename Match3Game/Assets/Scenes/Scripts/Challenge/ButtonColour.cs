@@ -69,7 +69,7 @@ public class ButtonColour : MonoBehaviour
             transform.GetChild(i).GetComponent<Button>().interactable = true;
             transform.GetChild(i).GetComponent<Button>().image.color = Color.green;
         }
-        UnlockAll.SetActive(false);
+        UnlockAll.transform.position += new Vector3(1000, 0, 0);
 
 
     }
