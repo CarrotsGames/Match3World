@@ -5922,6 +5922,23 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1331212449576358051, guid: f20b3c8caa1820542962c7d7f229c725,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: c926c717c7c89fe499345c425fecd792,
+        type: 3}
+    - target: {fileID: 114821389063918676, guid: f20b3c8caa1820542962c7d7f229c725,
+        type: 3}
+      propertyPath: m_Text
+      value: Congratulations you've Unlocked Koko
+      objectReference: {fileID: 0}
+    - target: {fileID: 114821389063918676, guid: f20b3c8caa1820542962c7d7f229c725,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: c926c717c7c89fe499345c425fecd792,
+        type: 3}
     - target: {fileID: 224633362870061098, guid: f20b3c8caa1820542962c7d7f229c725,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -6039,23 +6056,6 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114821389063918676, guid: f20b3c8caa1820542962c7d7f229c725,
-        type: 3}
-      propertyPath: m_Text
-      value: Congratulations you've Unlocked Koko
-      objectReference: {fileID: 0}
-    - target: {fileID: 114821389063918676, guid: f20b3c8caa1820542962c7d7f229c725,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: c926c717c7c89fe499345c425fecd792,
-        type: 3}
-    - target: {fileID: 1331212449576358051, guid: f20b3c8caa1820542962c7d7f229c725,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: c926c717c7c89fe499345c425fecd792,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f20b3c8caa1820542962c7d7f229c725, type: 3}
 --- !u!1 &1448586659 stripped
@@ -8049,13 +8049,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1781371924}
   - component: {fileID: 1781371923}
+  - component: {fileID: 1781371930}
   - component: {fileID: 1781371928}
   - component: {fileID: 1781371922}
   - component: {fileID: 1781371925}
   - component: {fileID: 1781371929}
   - component: {fileID: 1781371927}
   - component: {fileID: 1781371926}
-  - component: {fileID: 1781371930}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -11402,6 +11402,7 @@ MonoBehaviour:
   SMTimerUI: {fileID: 1404637742805521}
   MultlpierTimerText: {fileID: 114757334074848439}
   EndCountdown: 0
+  multiObject: {fileID: 0}
 --- !u!222 &222028501046436397
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12190,15 +12191,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 250365609, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
+      propertyPath: Countdown
+      value: 900
+      objectReference: {fileID: 0}
     - target: {fileID: 114877518671065440, guid: bca90714ddbb8544796b1d79e4753570,
         type: 3}
       propertyPath: Analytics
       value: 
       objectReference: {fileID: 1990355654}
-    - target: {fileID: 250365609, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
-      propertyPath: Countdown
-      value: 900
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca90714ddbb8544796b1d79e4753570, type: 3}
 --- !u!114 &949301672665425128
@@ -14129,6 +14130,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2335805763860882735, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
+    - target: {fileID: 265061487244851610, guid: 934b904c9061b654cab284a9cbafd066,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2335805763860882735, guid: d7fb396edf155de40895610ead7b8864,
+        type: 3}
     - target: {fileID: 265061487098525849, guid: 934b904c9061b654cab284a9cbafd066,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14247,12 +14254,6 @@ PrefabInstance:
       objectReference: {fileID: 2335805763860882735, guid: d7fb396edf155de40895610ead7b8864,
         type: 3}
     - target: {fileID: 265061487227806344, guid: 934b904c9061b654cab284a9cbafd066,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2335805763860882735, guid: d7fb396edf155de40895610ead7b8864,
-        type: 3}
-    - target: {fileID: 265061487244851610, guid: 934b904c9061b654cab284a9cbafd066,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
