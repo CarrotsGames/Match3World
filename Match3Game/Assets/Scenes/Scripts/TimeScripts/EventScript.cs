@@ -59,13 +59,5 @@ public class EventScript : MonoBehaviour
       //  WeeklyTimer -= TimeMasterScript.instance.CheckDate();
 
     }
-    private void OnApplicationPause(bool pause)
-   {
-     ResetClock();
-  
-   }
-   private void OnApplicationQuit()
-   {
-       ResetClock();
-   }
+ 
 }

@@ -47,8 +47,5 @@ public class MobileExitScript : MonoBehaviour {
             Analytics.GetComponent<PlayFabLogin>().TournamentScore();
         }
     }
-    private void OnApplicationPause(bool pause)
-    {
-
-    }
+ 
 }
