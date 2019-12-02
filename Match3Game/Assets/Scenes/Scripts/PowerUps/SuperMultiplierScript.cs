@@ -22,6 +22,10 @@ public class SuperMultiplierScript : MonoBehaviour
     int TimesUsed;
     private GameObject DisablePowerUpGameObj;
 
+
+    public GameObject multiObject;
+
+
     // Use this for initialization
     void Start()
     {
@@ -108,6 +112,8 @@ public class SuperMultiplierScript : MonoBehaviour
     public void SuperMultplierButton()
     {
         PowerUpManGameObj.GetComponent<PowerUpManager>().PowerUpChecker();
+        multiObject.SetActive(true);
+
 
         //Debug.Log("BUTTON PRESSED");
         if (PowerUpManagerScript.HasMultlpliers && !EndCountdown)
