@@ -17,9 +17,13 @@ public class FirstTimeStartup : MonoBehaviour
         }
         else 
         {
-           // SceneManager.LoadScene("Gobu Tut");
+            FirstTime = 1;
+            PlayerPrefs.SetInt("FTS", 1);
         }
     }
+    private void Update()
+    {
+       
+    }
 
-    
 }

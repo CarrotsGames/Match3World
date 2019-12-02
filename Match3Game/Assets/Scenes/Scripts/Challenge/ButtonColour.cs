@@ -16,7 +16,7 @@ public class ButtonColour : MonoBehaviour
     //    PlayerPrefs.SetInt(MooblingChallengeName, 0);
 
         int ChallengesUnlocked = PlayerPrefs.GetInt(MooblingChallengeName);
-        if (ChallengesUnlocked <= 0)
+        if (ChallengesUnlocked < 5)
         {
             ChallengesUnlocked = 5;
            PlayerPrefs.SetInt(MooblingChallengeName, ChallengesUnlocked);
