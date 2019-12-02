@@ -13,7 +13,7 @@ public class ButtonColour : MonoBehaviour
     void Awake()
     {
         // to reset all challenges
-       // PlayerPrefs.SetInt(MooblingChallengeName, 0);
+    //    PlayerPrefs.SetInt(MooblingChallengeName, 0);
 
         int ChallengesUnlocked = PlayerPrefs.GetInt(MooblingChallengeName);
         if (ChallengesUnlocked <= 0)
