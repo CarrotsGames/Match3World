@@ -8036,6 +8036,7 @@ MonoBehaviour:
   SMTimerUI: {fileID: 203946524}
   MultlpierTimerText: {fileID: 1703730368}
   EndCountdown: 0
+  multiObject: {fileID: 0}
 --- !u!114 &236537946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44708,7 +44709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gold: 50
-  SpecialCode: Test
+  SpecialCode: support
   Code: {fileID: 1428776093}
 --- !u!1 &1433453678
 GameObject:
@@ -71652,6 +71653,47 @@ PrefabInstance:
       propertyPath: m_Name
       value: SettingsMain
       objectReference: {fileID: 0}
+    - target: {fileID: 2426963759816587013, guid: f606dca04e8d8ec488a45a112c957a13,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428776093, guid: f606dca04e8d8ec488a45a112c957a13, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428776093, guid: f606dca04e8d8ec488a45a112c957a13, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428776093, guid: f606dca04e8d8ec488a45a112c957a13, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428776093, guid: f606dca04e8d8ec488a45a112c957a13, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428776093, guid: f606dca04e8d8ec488a45a112c957a13, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428776093, guid: f606dca04e8d8ec488a45a112c957a13, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428776093, guid: f606dca04e8d8ec488a45a112c957a13, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1428776096}
+    - target: {fileID: 1428776093, guid: f606dca04e8d8ec488a45a112c957a13, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RedemptionCode
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428776093, guid: f606dca04e8d8ec488a45a112c957a13, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2426963759816587130, guid: f606dca04e8d8ec488a45a112c957a13,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -71796,42 +71838,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1518566025}
-    - target: {fileID: 1428776093, guid: f606dca04e8d8ec488a45a112c957a13, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1428776093, guid: f606dca04e8d8ec488a45a112c957a13, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1428776093, guid: f606dca04e8d8ec488a45a112c957a13, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1428776093, guid: f606dca04e8d8ec488a45a112c957a13, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1428776093, guid: f606dca04e8d8ec488a45a112c957a13, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1428776093, guid: f606dca04e8d8ec488a45a112c957a13, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1428776093, guid: f606dca04e8d8ec488a45a112c957a13, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1428776096}
-    - target: {fileID: 1428776093, guid: f606dca04e8d8ec488a45a112c957a13, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RedemptionCode
-      objectReference: {fileID: 0}
-    - target: {fileID: 1428776093, guid: f606dca04e8d8ec488a45a112c957a13, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f606dca04e8d8ec488a45a112c957a13, type: 3}
 --- !u!1001 &2879945485753929244
