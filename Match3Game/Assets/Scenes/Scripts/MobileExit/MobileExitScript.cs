@@ -28,10 +28,24 @@ public class MobileExitScript : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             HappinessManagerGameObj.GetComponent<HappinessManager>().SaveMe();
-
+            MobileScoreUpdate();
             GT.HomeButton();
         }
               
+    }
+    void MobileScoreUpdate()
+    {
+        RealTimeScript.ResetClock();
+        string Scene = SceneManager.GetActiveScene().name;
+        if (Scene != "Gobu Tut")
+        {
+            // Gets moobling data
+            Analytics.GetComponent<PlayFabAnalytics>().SetUserData();
+            //Sends gold amount and powerups used
+            Analytics.GetComponent<PowerUpAnalytics>().SendAnalytics();
+            //Sends gold amount and powerups used
+            Analytics.GetComponent<PlayFabLogin>().TournamentScore();
+        }
     }
     private void OnApplicationQuit()
     {
