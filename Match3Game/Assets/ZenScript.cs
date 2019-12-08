@@ -6,20 +6,20 @@ public class ZenScript : MonoBehaviour
 {
     public GameObject zenButton;
     public GameObject challengeButton;
-    public GameObject challengeGameObject;
-
+  //  public GameObject challengeGameObject;
+   
     public GameObject zenPanel;
     public GameObject challengePanel;
-
-
+   
+   
     public GameObject challengeCanvus;
     public GameObject[] mooblingChallengePanels;
-
+   
     private void Start()
     {
         // make sure that this is disabled at beggining of game
-        challengeGameObject.SetActive(false);
-
+        //challengeGameObject.SetActive(false);
+   
     }
     public void OpenGobu()
     {
@@ -92,24 +92,24 @@ public class ZenScript : MonoBehaviour
         mooblingChallengePanels[10].SetActive(false);
     }
 
-    public void ChallengeMode()
-    {
-        challengeGameObject.SetActive(false);
-        zenButton.SetActive(true);
-        challengeButton.SetActive(false);
-        challengePanel.SetActive(false);
-        zenPanel.SetActive(true);
-    }
+  // public void ChallengeMode()
+  // {
+  //     challengeGameObject.SetActive(false);
+  //     zenButton.SetActive(true);
+  //     challengeButton.SetActive(false);
+  //     challengePanel.SetActive(false);
+  //     zenPanel.SetActive(true);
+  // }
 
 
-    public void ZenMode()
-    {
-        challengeGameObject.SetActive(true);
-        challengeButton.SetActive(true);
-        zenButton.SetActive(false);
-        challengePanel.SetActive(true);
-        zenPanel.SetActive(false);
-    }
+   // public void ZenMode()
+   // {
+   //     challengeGameObject.SetActive(true);
+   //     challengeButton.SetActive(true);
+   //     zenButton.SetActive(false);
+   //     challengePanel.SetActive(true);
+   //     zenPanel.SetActive(false);
+   // }
 
 
 

@@ -15,7 +15,7 @@ public class UnlockableCreatures : MonoBehaviour
     // Put all locked companions in here 
     public GameObject[] BuyCompanions;
     // Put all Challenge Moobling Buttons in here
-    public GameObject[] ChallengeCompanions;
+  //  public GameObject[] ChallengeCompanions;
 
     // holds all the Available companions in gameobject
     private GameObject CompanionStorage;
@@ -94,42 +94,42 @@ public class UnlockableCreatures : MonoBehaviour
             {
                 BuyCompanions[0].SetActive(false);
                 LockedCompanions[0].SetActive(true);
-                ChallengeCompanions[0].SetActive(true);
+              //  ChallengeCompanions[0].SetActive(true);
             }
           
             if (UnlockableMoobling[1] == "KOKO")
             {
                 BuyCompanions[1].SetActive(false);
                 LockedCompanions[1].SetActive(true);
-                ChallengeCompanions[1].SetActive(true);
+             //   ChallengeCompanions[1].SetActive(true);
             }
           
             if (CriusUnlocked == "CRIUS")
             {
                 BuyCompanions[2].SetActive(false);
                 LockedCompanions[2].SetActive(true);
-                ChallengeCompanions[2].SetActive(true);
+             //   ChallengeCompanions[2].SetActive(true);
             }
        
             if (UnlockableMoobling[3] == "SAUCO")
             {
                 BuyCompanions[3].SetActive(false);
                 LockedCompanions[3].SetActive(true);
-                ChallengeCompanions[3].SetActive(true);
+            //    ChallengeCompanions[3].SetActive(true);
             }
            
             if (UnlockableMoobling[4] == "CHICKPEA")
             {
                 BuyCompanions[4].SetActive(false);
                 LockedCompanions[4].SetActive(true);
-                ChallengeCompanions[4].SetActive(true);
+              //  ChallengeCompanions[4].SetActive(true);
             }
          
             if (UnlockableMoobling[5] == "SQUISHY")
             {
                 BuyCompanions[5].SetActive(false);
                 LockedCompanions[5].SetActive(true);
-                ChallengeCompanions[5].SetActive(true);
+             //   ChallengeCompanions[5].SetActive(true);
             }
           
             //MONTHLY
@@ -137,14 +137,14 @@ public class UnlockableCreatures : MonoBehaviour
             {
                 BuyCompanions[6].SetActive(false);
                 LockedCompanions[6].SetActive(true);
-                ChallengeCompanions[6].SetActive(true);
+             //   ChallengeCompanions[6].SetActive(true);
             }
        
             if (UnlockableMoobling[7] == "OKAMI")
             {
                 BuyCompanions[7].SetActive(false);
                 LockedCompanions[7].SetActive(true);
-                ChallengeCompanions[7].SetActive(true);
+          //      ChallengeCompanions[7].SetActive(true);
             }
       
             //MONTHLY
@@ -152,14 +152,14 @@ public class UnlockableCreatures : MonoBehaviour
             {
                 BuyCompanions[8].SetActive(false);
                 LockedCompanions[8].SetActive(true);
-                ChallengeCompanions[8].SetActive(true);
+           //     ChallengeCompanions[8].SetActive(true);
             }
 
             if (UnlockableMoobling[9] == "Snowball")
             {
                 BuyCompanions[9].SetActive(false);
                 LockedCompanions[9].SetActive(true);
-                ChallengeCompanions[9].SetActive(true);
+           //     ChallengeCompanions[9].SetActive(true);
             }
         }
     }
