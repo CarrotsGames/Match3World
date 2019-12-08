@@ -39,14 +39,7 @@ public class MainSetting : MonoBehaviour
             MusicOn();
         }
 
-        if (soundOff)
-        {
-            SoundOff();
-        }
-        else
-        {
-            SoundOn();
-        }
+  
     }
     public void MusicOn()
     {
